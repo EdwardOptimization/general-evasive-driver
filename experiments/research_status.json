@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1572,
+    "completed": 1573,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+    "command_log": "docs/m1564-paper-route-source-balanced-selector-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1563_source_balanced_recoverable_active_set_selector",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation"
+    "task_id": "m1564-paper-route-source-balanced-selector-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json",
-    "hypothesis": "Audit M1563 selector result to decide source-generation repair versus gate-semantics correction before history interventions.",
-    "id": "m1564-paper-route-source-balanced-selector-result-audit",
+    "command": "see experiments/manifests/m1565-paper-route-flip-anchor-source-generation-repair-design.json",
+    "hypothesis": "Design a bounded source-generation repair for source-diverse distinct collision/success flip anchors before history interventions.",
+    "id": "m1565-paper-route-flip-anchor-source-generation-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit clean source/window-balanced selector result and failed flip-anchor gates",
-    "priority": 15590,
+    "notes": "Pending: design repair that increases distinct flip anchors without materialization or history interventions",
+    "priority": 15600,
     "status": "pending",
-    "success_artifact": "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
+    "success_artifact": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md"
   },
-  "updated_at_utc": "20260529T134405Z"
+  "updated_at_utc": "20260529T135010Z"
 }

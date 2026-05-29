@@ -24161,3 +24161,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1563 fixes source/window concentration for a diagnostic subset, but the distinct flip-anchor gate is infeasible from the M1560 input pool under a literal anchor-count interpretation.
 - follow-up manifest: `experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json`.
 - next: `m1564-paper-route-source-balanced-selector-result-audit`
+
+## M1564 Paper-Route Source-Balanced Selector Result Audit
+
+- status: completed
+- decision: `source_balanced_selector_audit_admit_flip_anchor_source_generation_repair_design`
+- artifact: `docs/m1564-paper-route-source-balanced-selector-result-audit.md`
+- failure taxonomy: `scenario_sampling_failure`
+- selector implementation verdict: pass
+- source/window balance verdict: pass
+- strong/predecision coverage verdict: pass
+- distinct flip-anchor verdict: fail source-singleton
+- materialization readiness: fail
+- history-intervention readiness: fail
+- selected recoverable anchor count: 40
+- selected strong recoverable anchor count: 27
+- selected predecision anchor count: 37
+- selected source family count: 5
+- selected window count: 5
+- max selected source family share: 0.3
+- max selected window share: 0.3
+- selected collision flip anchor count: 5
+- selected success flip anchor count: 5
+- selected collision flip variant count: 30
+- selected success flip variant count: 30
+- flip anchor source family count: 1
+- flip anchor window count: 3
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1564 treats M1563 as a clean selector/source-balance pass but not a materializable active set. The five flip anchors are all `t5_boundary_axis_retarget`, so the blocker is distinct source-diverse flip-anchor generation.
+- follow-up manifest: `experiments/manifests/m1565-paper-route-flip-anchor-source-generation-repair-design.json`.
+- next: `m1565-paper-route-flip-anchor-source-generation-repair-design`

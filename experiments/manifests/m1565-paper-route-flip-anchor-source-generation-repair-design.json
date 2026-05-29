@@ -1,0 +1,154 @@
+{
+  "id": "m1565-paper-route-flip-anchor-source-generation-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+      "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1564-paper-route-source-balanced-selector-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded source-generation repair that increases source-diverse distinct flip anchors before history interventions"
+    ],
+    "derived_from": [
+      "m1564-paper-route-source-balanced-selector-result-audit"
+    ],
+    "blocked_by": [
+      "M1563 selector has enough balanced recoverable anchors but only 5 distinct collision/success flip anchors from one source family"
+    ],
+    "supersedes": [
+      "direct history interventions over M1563 selected set",
+      "silent reinterpretation of local variant counts as independent flip anchors"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+  "public_gates": [
+    "M1565 must design a bounded source-generation repair for distinct flip anchors",
+    "M1565 must not reinterpret local variant counts as independent anchors",
+    "M1565 must not run simulator or history interventions",
+    "M1565 must preserve P0 actor input contract",
+    "M1565 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_distinct_flip_anchor_source_generation_repair_design",
+    "evidence_increment": "designs a source-generation repair after M1564 identifies distinct flip-anchor shortage as the active blocker",
+    "claim_scope": "design only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design weakens distinct-anchor source-diversity requirements",
+      "stop if design routes directly to history interventions",
+      "stop if design requires actor input changes or private holdout tuning",
+      "stop if design only optimizes the existing five t5_boundary_axis_retarget flip anchors"
+    ],
+    "fallback_plan": [
+      "route to bounded repair implementation if design defines source-diverse flip-anchor gates",
+      "route to branch synthesis if distinct flip-anchor generation appears incompatible with the current simulator/task family",
+      "route to source-family expansion if T5-only repair remains source-singleton"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1564 admits source-generation repair after M1563 flip-anchor gate failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "flip-anchor source-generation repair design",
+    "admission_evidence": [
+      "M1564 separates selector success from distinct flip-anchor shortage"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1565 design document",
+      "M1565 status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "distinct flip-anchor gates are explicit",
+      "source-family and window diversity gates are explicit",
+      "history interventions remain blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1565 designs source generation only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1565; history interventions remain blocked until distinct flip-anchor source repair passes and is audited"
+    ],
+    "temporal_evidence_window": "M1563 selected local-control active-set artifacts.",
+    "negative_result_policy": "If distinct flip-anchor repair appears impossible, record scenario_sampling_failure and synthesize the branch rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "source-generation repair design for source-diverse distinct flip anchors",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded source-generation repair can be designed to produce more source-diverse distinct collision/success flip anchors before any history-intervention replay.",
+  "success_criteria": [
+    "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md exists",
+    "design targets distinct flip anchors rather than local variant counts",
+    "design includes source-family and window diversity gates",
+    "design keeps history interventions materialization training PPO promotion private holdout actor-input changes and training-corpus export blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design reinterprets variant counts as independent anchors",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens the evidence standard"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+    "docs/m1564-paper-route-source-balanced-selector-result-audit.md"
+  ],
+  "decision_rule": "M1565 passes if it designs a bounded source-generation repair while preserving all no-materialization guardrails.",
+  "next_blocker": "m1565-paper-route-flip-anchor-source-generation-repair-design"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation
+m1564-paper-route-source-balanced-selector-result-audit
 ```
 
 Current next task:
 
 ```text
-m1564-paper-route-source-balanced-selector-result-audit
+m1565-paper-route-flip-anchor-source-generation-repair-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -326,6 +326,13 @@ still fails because the M1560 input pool has only `5` distinct collision-flip
 anchors and `5` distinct success-flip anchors, below the pre-registered `8`
 each threshold. M1564 must audit whether this is a source-generation gap or a
 gate-semantics issue before any history-intervention design.
+M1564 audited this as a real source-generation gap, not a gate-semantics
+reinterpretation opportunity. The five selected flip anchors all come from
+`t5_boundary_axis_retarget`, so local variant count `30/30` does not provide
+source-diverse distinct anchors. M1564 admits a design-only source-generation
+repair for source-diverse collision/success flip anchors. History interventions,
+materialization, training, PPO, promotion, private holdout, and level3 self-ID
+claims remain blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
