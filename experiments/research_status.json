@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1532,
+    "completed": 1533,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+    "command_log": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+    "run_dir": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
     "status": "completed",
-    "task_id": "m1523-paper-route-t5-response-mismatch-intervention-design"
+    "task_id": "m1524-paper-route-t5-response-mismatch-intervention-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1524-paper-route-t5-response-mismatch-intervention-implementation.json",
-    "hypothesis": "Bounded response/action-history mismatch diagnostics can reveal whether the actor depends on the response stream more directly than hidden-only donor injection.",
-    "id": "m1524-paper-route-t5-response-mismatch-intervention-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded response/action-history mismatch diagnostics",
-    "priority": 15190,
+    "command": "see experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json",
+    "hypothesis": "M1524 response-mismatch results can be audited to decide whether the current T5 route should continue, retarget, or close.",
+    "id": "m1525-paper-route-t5-response-mismatch-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit donor response mismatch near-null result and zero-current positive control",
+    "priority": 15200,
     "status": "pending",
-    "success_artifact": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json"
+    "success_artifact": "docs/m1525-paper-route-t5-response-mismatch-result-audit.md"
   },
-  "updated_at_utc": "20260529T100539Z"
+  "updated_at_utc": "20260529T101402Z"
 }

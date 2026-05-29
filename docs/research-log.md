@@ -22903,3 +22903,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1523 designs a stricter diagnostic for response/action-stream dependence after hidden-only donor injection remained near-null.
 - follow-up manifest: `experiments/manifests/m1524-paper-route-t5-response-mismatch-intervention-implementation.json`.
 - next: `m1524-paper-route-t5-response-mismatch-intervention-implementation`
+
+## M1524 Paper-Route T5 Response Mismatch Intervention Implementation
+
+- status: completed
+- decision: `t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit`
+- artifact: `runs/m1524_t5_response_mismatch_intervention_smoke/summary.json`
+- doc: `docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md`
+- code paths: `src/autodrift/decisive_history_t5_response_mismatch.py`, `tests/test_decisive_history_t5_response_mismatch.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_t5_response_mismatch.py -q`
+- focused test result: 6 passed
+- eligible target count: 4
+- anchor count: 3
+- variant count: 7
+- intervention row count: 84
+- target/donor replay failure count: 0/0
+- max donor response L2 mean: 0.4977846671714798
+- max margin gap from normal: 0.021037607967195893
+- outcome-relevant variant count: 2
+- divergence-relevant variant count: 13
+- success drop count: 0
+- donor response mismatch result: near-null
+- zero-current response result: positive
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1524 shows high-strength donor response/action mismatch does not meaningfully change behavior; only zero-current control remains outcome-relevant.
+- follow-up manifest: `experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json`.
+- next: `m1525-paper-route-t5-response-mismatch-result-audit`

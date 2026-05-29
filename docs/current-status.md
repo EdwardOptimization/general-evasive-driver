@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1523-paper-route-t5-response-mismatch-intervention-design
+m1524-paper-route-t5-response-mismatch-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1524-paper-route-t5-response-mismatch-intervention-implementation
+m1525-paper-route-t5-response-mismatch-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -78,11 +78,43 @@ gaps above `0.02`, but no success drops and wrong-history donor hidden remained
 near-null. M1522 audited this as positive timing sensitivity but not self-ID,
 and routes to stricter response/action-history mismatch diagnostics. M1523
 designed those diagnostics while preserving target scene context and the
-deployed actor contract. The current public-gate base remains M1362 alpha `0.1`:
+deployed actor contract. M1524 implemented them: donor response mismatch strength
+was high, but donor variants were near-null and only zero-current control was
+outcome-relevant. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1524 T5 response mismatch intervention implementation:
+
+```text
+decision: t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit
+artifact: runs/m1524_t5_response_mismatch_intervention_smoke/summary.json
+doc: docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md
+code: src/autodrift/decisive_history_t5_response_mismatch.py
+eligible_target_count: 4
+anchor_count: 3
+variant_count: 7
+intervention_row_count: 84
+target/donor replay failure count: 0/0
+max_donor_response_l2_mean: 0.4977846671714798
+max_margin_gap_from_normal: 0.021037607967195893
+outcome_relevant_variant_count: 2
+divergence_relevant_variant_count: 13
+success_drop_count: 0
+donor_response_mismatch_result: near-null
+zero_current_response_positive: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1525-paper-route-t5-response-mismatch-result-audit
+```
+
+M1524 is a negative result for donor response/action mismatch under the current
+T5 setup. It must be audited before deciding whether to retarget, synthesize, or
+close this subset.
 
 M1523 T5 response mismatch intervention design:
 

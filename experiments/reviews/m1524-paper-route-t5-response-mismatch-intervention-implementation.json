@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1524 response mismatch smoke had high donor mismatch strength but donor variants near-null; only zero-current control exceeded outcome threshold",
+  "failure_criteria": [
+    "response-mismatch module or tests are missing",
+    "target or donor replay failures are hidden",
+    "target scene context is not preserved",
+    "candidate materialization corpus export training PPO promotion private holdout or deployed actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add deployed actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from response-mismatch plumbing"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T101528Z",
+  "hypothesis": "Bounded response/action-history mismatch diagnostics can reveal whether the actor depends on the response stream more directly than hidden-only donor injection.",
+  "lineage": {
+    "blocked_by": [
+      "M1523 designed response/action-history mismatch diagnostics after hidden-only donor stayed near-null"
+    ],
+    "derived_from": [
+      "m1523-paper-route-t5-response-mismatch-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1523-paper-route-t5-response-mismatch-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_rows.csv"
+    ],
+    "parent_objective": [
+      "implement bounded response/action-history mismatch diagnostics"
+    ],
+    "supersedes": [
+      "hidden-only donor response mismatch"
+    ]
+  },
+  "milestone": "m1524-paper-route-t5-response-mismatch-intervention-implementation",
+  "next_blocker": "m1525-paper-route-t5-response-mismatch-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit",
+  "public_gates": [
+    "M1524 must implement bounded response/action-history mismatch smoke",
+    "M1524 must preserve target scene context and deployed actor contract",
+    "M1524 must write row pair anchor variant guardrail and summary artifacts",
+    "M1524 must keep candidate materialization and corpus export false",
+    "M1524 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit",
+    "milestone": "m1524-paper-route-t5-response-mismatch-intervention-implementation",
+    "reason": "M1524 response mismatch smoke had high donor mismatch strength but donor variants near-null; only zero-current control exceeded outcome threshold",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "response-mismatch intervention code exists",
+    "focused tests exist and pass",
+    "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json exists",
+    "all configured targets anchors and variants are attempted or failures explicit",
+    "row pair anchor variant guardrail and summary artifacts are written",
+    "guardrail_violation_count equals zero",
+    "candidate_materialized training replay PPO promotion private holdout and deployed actor-input changes remain false"
+  ],
+  "type": "infrastructure"
+}

@@ -150,6 +150,10 @@
       "type": "py"
     },
     {
+      "path": "docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
+      "type": "md"
+    },
+    {
       "path": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
       "type": "json"
     }
@@ -161,6 +165,45 @@
     "docs/m1523-paper-route-t5-response-mismatch-intervention-design.md",
     "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1524_t5_response_mismatch_intervention_smoke/summary.json",
+    "doc_artifact": "docs/m1524-paper-route-t5-response-mismatch-intervention-implementation.md",
+    "decision": "t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit",
+    "focused_tests": "6 passed",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_target_count": 4,
+    "anchor_count": 3,
+    "variant_count": 7,
+    "intervention_row_count": 84,
+    "pair_row_count": 12,
+    "anchor_row_count": 3,
+    "variant_row_count": 7,
+    "target_replay_failure_count": 0,
+    "donor_replay_failure_count": 0,
+    "max_margin_gap_from_normal": 0.021037607967195893,
+    "max_first_action_l2": 0.07314944555537312,
+    "max_donor_response_l2_mean": 0.4977846671714798,
+    "outcome_relevant_variant_count": 2,
+    "divergence_relevant_variant_count": 13,
+    "success_drop_count": 0,
+    "donor_response_mismatch_result": "near_null",
+    "zero_current_response_positive": true,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1525-paper-route-t5-response-mismatch-result-audit.json"
+  },
+  "decision": "t5_response_mismatch_smoke_donor_null_zero_current_positive_route_to_audit",
   "decision_rule": "M1524 passes if bounded response/action-history mismatch diagnostics run or fail explicitly with artifacts and all guardrails false.",
-  "next_blocker": "m1524-paper-route-t5-response-mismatch-intervention-implementation"
+  "next_blocker": "m1525-paper-route-t5-response-mismatch-result-audit"
 }
