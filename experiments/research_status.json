@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1424,
+    "completed": 1425,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+    "command_log": "docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke",
     "status": "completed",
-    "task_id": "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
+    "task_id": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json",
-    "hypothesis": "The retuned staged warmup gate can preserve source diversity and warmup command-response evidence while reducing collision pressure enough to justify a later outcome probe.",
-    "id": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: create retargeted staged warmup configs and run no-training source smoke",
-    "priority": 14100,
+    "command": "see experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json",
+    "hypothesis": "Relaxing the obstacle sampling filter while preserving the retuned warmup gate can repair M1415 source materialization without claim expansion.",
+    "id": "m1416-paper-route-warmup-retarget-sampling-repair-design",
+    "kind": "gate",
+    "notes": "Pending: design sampling repair after M1415 no-row source smoke",
+    "priority": 14110,
     "status": "pending",
-    "success_artifact": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json"
+    "success_artifact": "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
   },
-  "updated_at_utc": "20260529T051000Z"
+  "updated_at_utc": "20260529T052000Z"
 }

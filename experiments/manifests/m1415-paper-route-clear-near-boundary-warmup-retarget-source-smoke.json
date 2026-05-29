@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -139,6 +139,18 @@
     {
       "path": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "configs/ppo_m1415_clear_near_boundary_warmup_retarget_figure_eight.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/m1415_clear_near_boundary_warmup_retarget_source_wave.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -147,6 +159,37 @@
   "baseline_artifacts": [
     "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
+    "result_doc": "docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md",
+    "decision": "clear_near_boundary_retarget_source_sampling_failed_route_to_sampling_repair",
+    "result_class": "warmup_latched_no_rows",
+    "source_rows": 0,
+    "matched_current_rows": 0,
+    "bucketed_current_rows": 0,
+    "matched_or_bucketed_reveal_rows": 0,
+    "finite_metric_rows": 0,
+    "rejected_rows": 272,
+    "trace_reconstruction_failed_rows": 236,
+    "preferred_fault_insufficient_warmup_evidence_rows": 22,
+    "wrong_fault_insufficient_warmup_evidence_rows": 14,
+    "dominant_error": "failed to sample an obstacle scenario matching the configured filters",
+    "failure_type": "scenario_sampling_failure",
+    "full_64_seed_attempt_completed": false,
+    "completed_preflight_seed_count": 2,
+    "training_started": false,
+    "evaluation_started": false,
+    "outcome_probe_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json"
+  },
+  "decision": "clear_near_boundary_retarget_source_sampling_failed_route_to_sampling_repair",
   "decision_rule": "M1415 passes structurally if it runs a no-training source smoke with source diversity, warmup evidence, and collision diagnostics before any outcome probing.",
-  "next_blocker": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
+  "next_blocker": "m1416-paper-route-warmup-retarget-sampling-repair-design"
 }

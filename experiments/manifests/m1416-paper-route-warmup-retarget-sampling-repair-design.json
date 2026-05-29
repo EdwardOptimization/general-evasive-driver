@@ -1,0 +1,152 @@
+{
+  "id": "m1416-paper-route-warmup-retarget-sampling-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
+      "docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md"
+    ],
+    "parent_config": [
+      "configs/ppo_m1415_clear_near_boundary_warmup_retarget_figure_eight.json",
+      "configs/m1415_clear_near_boundary_warmup_retarget_source_wave.json",
+      "experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json"
+    ],
+    "parent_objective": [
+      "design a sampling repair after M1415 fails before source materialization"
+    ],
+    "derived_from": [
+      "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
+    ],
+    "blocked_by": [
+      "M1415 source smoke produced zero rows due obstacle scenario sampling failure"
+    ],
+    "supersedes": [
+      "rerunning M1415 with the same over-constrained obstacle filter",
+      "treating M1415 no-rows as evidence against the retuned warmup gate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1416-paper-route-warmup-retarget-sampling-repair-design.md",
+  "public_gates": [
+    "M1416 must repair scenario sampling before another source smoke",
+    "M1416 must preserve the retuned warmup gate geometry unless explicitly justified",
+    "M1416 must not train, run PPO, run source smoke, run outcome interventions, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from M1415 no-rows",
+    "do not rerun the same over-constrained obstacle filter"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "D_warmup_retarget_sampling_repair",
+    "evidence_increment": "designs a repaired source-smoke config after M1415 fails scenario sampling before warmup evidence can be tested",
+    "claim_scope": "design only; no source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if repair reruns the same over-constrained sampling filter",
+      "stop if repair removes warmup evidence diagnostics",
+      "stop if repair routes directly to outcome or training",
+      "stop if actor input changes are proposed"
+    ],
+    "fallback_plan": [
+      "admit repaired source smoke if obstacle sampling is relaxed without removing the warmup retarget",
+      "route to branch synthesis if a non-overfit repair is not credible",
+      "pivot away from staged gate if sampling cannot be repaired"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup retarget sampling repair design",
+    "admission_evidence": [
+      "M1415 produced zero source rows",
+      "M1415 rejected rows are dominated by trace reconstruction and obstacle scenario sampling failures",
+      "M1415 did not test retuned warmup gate evidence"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1416 repair design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "sampling failure is classified",
+      "repair config changes are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1416 is design only after a no-row source failure and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "repair source materialization before history tests",
+      "preserve warmup diagnostics for later tests"
+    ],
+    "temporal_evidence_window": "M1415 no-row source artifact.",
+    "negative_result_policy": "Record M1415 as scenario sampling failure, not as evidence against self-ID.",
+    "allowed_claims": [
+      "sampling repair design",
+      "no source smoke, outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Relaxing the obstacle sampling filter while preserving the retuned warmup gate can repair M1415 source materialization without claim expansion.",
+  "success_criteria": [
+    "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md exists",
+    "design identifies the M1415 sampling failure",
+    "design specifies repaired obstacle and warmup gate parameters",
+    "design admits or rejects one repaired source smoke without training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "repair design document is missing",
+    "repair ignores M1415 sampling failure",
+    "repair reruns the same over-constrained obstacle filter",
+    "repair routes directly to outcome probing, training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json"
+  ],
+  "decision_rule": "M1416 passes if it designs a repaired source-smoke route that fixes sampling without training or claim expansion.",
+  "next_blocker": "m1416-paper-route-warmup-retarget-sampling-repair-design"
+}

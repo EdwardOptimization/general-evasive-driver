@@ -10,7 +10,10 @@ from autodrift.warmup_latched_config_smoke import (
     parse_int_list,
     reveal_bucket_key,
     source_diversity,
+    warmup_gate_clearance_margin_band,
     warmup_gate_diagnostics,
+    warmup_gate_source_stratum_metrics,
+    warmup_gate_strata_summary,
 )
 
 
@@ -129,5 +132,50 @@ def test_warmup_gate_diagnostics_counts_visible_evidence_rows():
     assert summary["warmup_gate_visible_rows"] == 1
     assert summary["warmup_evidence_rows"] == 1
     assert summary["warmup_gate_collision_rows"] == 1
+    assert summary["warmup_gate_collision_share"] == 0.5
     assert summary["preferred_warmup_gate_passed_rows"] == 1
     assert summary["warmup_response_history_l2"]["max"] == 0.12
+
+
+def test_warmup_gate_source_strata_summary_counts_matched_rows():
+    metrics = {
+        "preferred_warmup_gate_collision": False,
+        "wrong_warmup_gate_collision": False,
+        "preferred_warmup_gate_clearance_margin": 0.4,
+        "wrong_warmup_gate_clearance_margin": 0.5,
+    }
+    collision_metrics = {
+        **metrics,
+        "preferred_warmup_gate_collision": True,
+        "preferred_warmup_gate_clearance_margin": -0.1,
+    }
+    rows = [
+        {
+            "seed": 1,
+            "capability_pair": "a->b",
+            "preferred_reveal_bucket": "x",
+            "matched_current_pass": True,
+            "bucketed_current_pass": False,
+            "matched_or_bucketed_reveal_pass": True,
+            "warmup_response_history_l2": 0.1,
+            "warmup_action_history_l2": 0.01,
+            **warmup_gate_source_stratum_metrics(metrics),
+        },
+        {
+            "seed": 2,
+            "capability_pair": "a->b",
+            "preferred_reveal_bucket": "y",
+            "matched_current_pass": False,
+            "bucketed_current_pass": False,
+            "matched_or_bucketed_reveal_pass": False,
+            "warmup_response_history_l2": 0.2,
+            "warmup_action_history_l2": 0.02,
+            **warmup_gate_source_stratum_metrics(collision_metrics),
+        },
+    ]
+
+    summary = {row["warmup_gate_collision_stratum"]: row for row in warmup_gate_strata_summary(rows)}
+
+    assert warmup_gate_clearance_margin_band(0.4) == "clear_0p25_1p00"
+    assert summary["clear"]["matched_or_bucketed_rows"] == 1
+    assert summary["collision"]["rows"] == 1

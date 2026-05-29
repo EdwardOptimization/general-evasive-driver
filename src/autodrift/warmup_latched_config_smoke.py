@@ -175,6 +175,43 @@ def warmup_gate_pair_metrics(preferred_trace: list[Any], wrong_trace: list[Any])
     }
 
 
+def warmup_gate_clearance_margin_band(value: float) -> str:
+    margin = float(value)
+    if not np.isfinite(margin):
+        return "nonfinite"
+    if margin < 0.0:
+        return "collision_negative"
+    if margin < 0.25:
+        return "clear_0p00_0p25"
+    if margin < 1.0:
+        return "clear_0p25_1p00"
+    return "clear_gt_1p00"
+
+
+def warmup_gate_source_stratum_metrics(metrics: dict[str, Any]) -> dict[str, Any]:
+    preferred_margin = float(metrics.get("preferred_warmup_gate_clearance_margin", float("nan")))
+    wrong_margin = float(metrics.get("wrong_warmup_gate_clearance_margin", float("nan")))
+    finite_margins = [value for value in (preferred_margin, wrong_margin) if np.isfinite(value)]
+    min_margin = min(finite_margins) if finite_margins else float("nan")
+    collision = bool(
+        metrics.get("preferred_warmup_gate_collision", False)
+        or metrics.get("wrong_warmup_gate_collision", False)
+        or (np.isfinite(min_margin) and min_margin < 0.0)
+    )
+    if collision:
+        stratum = "collision"
+    elif np.isfinite(min_margin) and min_margin < 0.25:
+        stratum = "clear_low_margin"
+    else:
+        stratum = "clear"
+    return {
+        "warmup_gate_collision_source": collision,
+        "warmup_gate_collision_stratum": stratum,
+        "warmup_gate_clearance_margin_min": min_margin,
+        "warmup_gate_clearance_margin_band": warmup_gate_clearance_margin_band(min_margin),
+    }
+
+
 def warmup_gate_diagnostics(rows: list[dict[str, Any]]) -> dict[str, Any]:
     if not rows:
         return {
@@ -182,6 +219,7 @@ def warmup_gate_diagnostics(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "warmup_gate_visible_rows": 0,
             "warmup_evidence_rows": 0,
             "warmup_gate_collision_rows": 0,
+            "warmup_gate_collision_share": None,
             "warmup_response_history_l2": numeric_summary([]),
             "warmup_action_history_l2": numeric_summary([]),
         }
@@ -207,6 +245,7 @@ def warmup_gate_diagnostics(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "warmup_gate_visible_rows": int(len(visible_rows)),
         "warmup_evidence_rows": int(len(evidence_rows)),
         "warmup_gate_collision_rows": int(len(collision_rows)),
+        "warmup_gate_collision_share": float(len(collision_rows) / len(rows)),
         "preferred_warmup_gate_passed_rows": int(
             sum(1 for row in rows if bool(row.get("preferred_warmup_gate_passed", False)))
         ),
@@ -235,6 +274,30 @@ def warmup_gate_diagnostics(rows: list[dict[str, Any]]) -> dict[str, Any]:
             [float(row.get("wrong_warmup_gate_clearance_margin", float("nan"))) for row in rows]
         ),
     }
+
+
+def warmup_gate_strata_summary(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    if not rows:
+        return []
+    frame = pd.DataFrame(rows)
+    output: list[dict[str, Any]] = []
+    for stratum, group in frame.groupby("warmup_gate_collision_stratum", observed=True):
+        output.append(
+            {
+                "warmup_gate_collision_stratum": str(stratum),
+                "rows": int(len(group)),
+                "matched_current_rows": int(group["matched_current_pass"].astype(bool).sum()),
+                "bucketed_current_rows": int(group["bucketed_current_pass"].astype(bool).sum()),
+                "matched_or_bucketed_rows": int(group["matched_or_bucketed_reveal_pass"].astype(bool).sum()),
+                "unique_seeds": int(group["seed"].nunique()),
+                "unique_capability_pairs": int(group["capability_pair"].nunique()),
+                "unique_reveal_buckets": int(group["preferred_reveal_bucket"].nunique()),
+                "warmup_response_history_l2_mean": float(group["warmup_response_history_l2"].astype(float).mean()),
+                "warmup_action_history_l2_mean": float(group["warmup_action_history_l2"].astype(float).mean()),
+                "clearance_margin_min_mean": float(group["warmup_gate_clearance_margin_min"].astype(float).mean()),
+            }
+        )
+    return output
 
 
 def summarize_groups(rows: list[dict[str, Any]], keys: tuple[str, ...]) -> list[dict[str, Any]]:
@@ -395,6 +458,7 @@ def run_warmup_latched_config_smoke(
                     [point.observation for point in preferred_trace[:-1]],
                     [point.observation for point in wrong_trace[:-1]],
                 )
+                warmup_gate_metrics = warmup_gate_pair_metrics(preferred_trace, wrong_trace)
                 row = {
                     "source_index": int(len(source_rows)),
                     "seed": int(seed),
@@ -418,7 +482,8 @@ def run_warmup_latched_config_smoke(
                     "matched_or_bucketed_reveal_pass": bool(matched_current or bucketed_current),
                     "warmup_history_l2": warmup_history_l2,
                     "current_hidden_l2": hidden_l2(preferred_current.hidden, wrong_current.hidden),
-                    **warmup_gate_pair_metrics(preferred_trace, wrong_trace),
+                    **warmup_gate_metrics,
+                    **warmup_gate_source_stratum_metrics(warmup_gate_metrics),
                     **current_metrics,
                 }
                 source_rows.append(row)
@@ -485,6 +550,8 @@ def run_warmup_latched_config_smoke(
     reveal_bucket_summary = summarize_groups(source_rows, ("preferred_reveal_bucket",))
     warmup_diagnostics = warmup_gate_diagnostics(source_rows)
     matched_warmup_diagnostics = warmup_gate_diagnostics(matched_or_bucketed_rows)
+    warmup_strata_summary = warmup_gate_strata_summary(source_rows)
+    matched_warmup_strata_summary = warmup_gate_strata_summary(matched_or_bucketed_rows)
 
     write_csv_rows(run_dir / "warmup_reveal_rows.csv", source_rows)
     write_csv_rows(run_dir / "matched_or_bucketed_rows.csv", matched_or_bucketed_rows)
@@ -493,6 +560,8 @@ def run_warmup_latched_config_smoke(
     write_csv_rows(run_dir / "capability_pair_summary.csv", capability_pair_summary)
     write_csv_rows(run_dir / "reveal_step_summary.csv", reveal_step_summary)
     write_csv_rows(run_dir / "reveal_bucket_summary.csv", reveal_bucket_summary)
+    write_csv_rows(run_dir / "warmup_gate_strata_summary.csv", warmup_strata_summary)
+    write_csv_rows(run_dir / "matched_warmup_gate_strata_summary.csv", matched_warmup_strata_summary)
     summary = {
         "run_type": "warmup_latched_config_smoke",
         "checkpoint": checkpoint_path,
@@ -514,6 +583,8 @@ def run_warmup_latched_config_smoke(
         "distance_summary": distance_summary,
         "warmup_gate_diagnostics": warmup_diagnostics,
         "matched_or_bucketed_warmup_gate_diagnostics": matched_warmup_diagnostics,
+        "warmup_gate_strata_summary": warmup_strata_summary,
+        "matched_or_bucketed_warmup_gate_strata_summary": matched_warmup_strata_summary,
         "result_class": result_class,
         "structural_smoke_pass": result_class == "warmup_latched_structural_pass",
         "actor_parameters_changed": actor_parameters_changed,
@@ -531,6 +602,8 @@ def run_warmup_latched_config_smoke(
         "capability_pair_summary_csv": run_dir / "capability_pair_summary.csv",
         "reveal_step_summary_csv": run_dir / "reveal_step_summary.csv",
         "reveal_bucket_summary_csv": run_dir / "reveal_bucket_summary.csv",
+        "warmup_gate_strata_summary_csv": run_dir / "warmup_gate_strata_summary.csv",
+        "matched_warmup_gate_strata_summary_csv": run_dir / "matched_warmup_gate_strata_summary.csv",
     }
     write_json(run_dir / "summary.json", summary)
     return summary

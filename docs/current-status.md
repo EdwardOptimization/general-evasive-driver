@@ -16,21 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1414-paper-route-clear-near-boundary-warmup-retarget-design
+m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
 ```
 
 Current next task:
 
 ```text
-m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
+m1416-paper-route-warmup-retarget-sampling-repair-design
 ```
 
-M1414 designed the clear near-boundary staged warmup retarget. The current
-public-gate base remains M1362 alpha `0.1`:
+M1415 attempted the clear near-boundary staged warmup retarget source smoke.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1415 result:
+
+```text
+decision: clear_near_boundary_retarget_source_sampling_failed_route_to_sampling_repair
+result_class: warmup_latched_no_rows
+source_rows: 0
+matched_or_bucketed_reveal_rows: 0
+rejected_rows: 272
+trace_reconstruction_failed_rows: 236
+dominant_error: failed to sample an obstacle scenario matching the configured filters
+failure_type: scenario_sampling_failure
+actor_input_contract_changed: false
+next: m1416-paper-route-warmup-retarget-sampling-repair-design
+```
+
+M1415 fails before testing retuned warmup-gate evidence because the retargeted
+obstacle filter is over-constrained. M1416 should repair sampling by relaxing
+the obstacle filter while preserving the retuned warmup gate. It must not run
+source smoke, outcome interventions, training, PPO, corpus export, private
+holdout, promotion, actor-input changes, or level3 claim expansion.
 
 M1414 result:
 
@@ -46,12 +67,6 @@ source gate: matched/bucketed unique_source_seeds >= 28
 invasiveness gate: matched/bucketed warmup_gate_collision_share <= 0.50
 next: m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
 ```
-
-M1415 should create the retargeted configs and run no-training source smoke
-only. It must report source diversity, warmup evidence, and collision
-diagnostics before any outcome probe. It must not train, run PPO, export a
-corpus, use private holdout, promote, change actor inputs, or claim level3
-self-identification.
 
 M1413 result:
 

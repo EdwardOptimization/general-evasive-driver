@@ -20881,3 +20881,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json`.
 - next: `m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke`
+
+## 20260529T052000Z - m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json`
+- result doc: `docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md`
+- decision: `clear_near_boundary_retarget_source_sampling_failed_route_to_sampling_repair`
+- result class: `warmup_latched_no_rows`
+- counts: `0` source rows, `0` matched/bucketed rows, `272` rejected rows.
+- rejected reasons: `236` trace reconstruction failures, `22` preferred-fault insufficient warmup-evidence rows, `14` wrong-fault insufficient warmup-evidence rows.
+- dominant error: `failed to sample an obstacle scenario matching the configured filters`.
+- interpretation: the M1414 retargeted obstacle filter is over-constrained; M1415 fails before testing the retuned warmup gate, so this is a `scenario_sampling_failure`, not evidence against staged warmup.
+- guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json`.
+- next: `m1416-paper-route-warmup-retarget-sampling-repair-design`
