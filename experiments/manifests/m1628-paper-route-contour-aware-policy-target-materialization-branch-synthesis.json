@@ -1,0 +1,183 @@
+{
+  "id": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+      "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json",
+      "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
+      "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+      "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize contour-aware policy-target materialization branch"
+    ],
+    "derived_from": [
+      "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation",
+      "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit",
+      "m1621-paper-route-contour-aware-policy-target-materialization-design",
+      "m1622-paper-route-contour-aware-policy-target-materialization-design-audit",
+      "m1623-paper-route-contour-aware-policy-target-traceability-preflight",
+      "m1624-paper-route-contour-aware-policy-target-traceability-result-audit",
+      "m1625-paper-route-contour-aware-tensor-capture-dry-run-design",
+      "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation",
+      "m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit"
+    ],
+    "blocked_by": [
+      "M1627 routes to branch synthesis before full target materialization design"
+    ],
+    "supersedes": [
+      "direct full tensor materialization after M1627",
+      "direct objective update after M1627",
+      "direct PPO after M1627"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+  "public_gates": [
+    "M1628 must synthesize M1619-M1627 before another materialization design or implementation",
+    "M1628 must summarize supported claims and falsified/unsupported claims",
+    "M1628 must assess public-gate overfit risk",
+    "M1628 must choose continue pivot stop or promote_to_next_branch",
+    "M1628 must keep objective update training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not materialize full target corpus",
+    "do not construct a loss",
+    "do not construct an objective config",
+    "do not train",
+    "do not run PPO",
+    "do not run actor update",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_policy_target_materialization_branch_synthesis",
+    "evidence_increment": "synthesizes the candidate objective evaluator traceability and tensor-capture dry-run sequence before full materialization",
+    "claim_scope": "branch synthesis only; no full materialization, loss/objective construction, actor update, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis finds tensor capture does not justify full materialization design",
+      "stop if diagnostics cannot remain zero-weight guardrails",
+      "stop if the branch is only optimizing fixed public rows without a path to full package materialization",
+      "stop if another implementation is proposed without explicit route decision"
+    ],
+    "fallback_plan": [
+      "continue to full target materialization design if evidence is clean",
+      "pivot to runner instrumentation if capture remains fragile",
+      "pivot to objective redesign if policy-side tensors are insufficient for later loss construction",
+      "stop the branch if full materialization would only increase public overfit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1627 completed another audit after the M1618 synthesis sequence",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize policy-target materialization branch",
+    "admission_evidence": [
+      "M1619 exact evaluator passed but only used row metrics",
+      "M1620 pivoted to policy-side target materialization",
+      "M1623 source/variant traceability passed",
+      "M1626 four-row tensor-capture dry run passed",
+      "M1627 routed to synthesis before full materialization"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize full target corpus",
+      "do not construct a loss",
+      "do not construct an objective config",
+      "do not train",
+      "do not run PPO",
+      "do not run actor update",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1628 synthesis document",
+      "M1628 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits full materialization design, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers the required questions",
+      "route decision is explicit",
+      "full materialization remains design-gated",
+      "objective update and training remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1628 synthesizes public proof-materialization plumbing only and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "synthesizes correct/wrong hidden tensor capture status"
+    ],
+    "temporal_evidence_window": "M1619-M1627 public artifacts only.",
+    "negative_result_policy": "If synthesis finds the branch is overfit or incomplete, record the stop/pivot and do not materialize the full corpus.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no full materialization, objective update, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1619-M1627 branch evidence is sufficient to decide whether full target materialization design should be the next step.",
+  "success_criteria": [
+    "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are explicit",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "full materialization objective update training PPO promotion and private holdout remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis routes directly to implementation training PPO promotion private holdout or actor-input changes",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json",
+    "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
+    "runs/m1626_contour_aware_tensor_capture_dry_run/summary.json",
+    "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md"
+  ],
+  "decision_rule": "M1628 passes if it synthesizes the branch and chooses a route before any full materialization design or implementation.",
+  "next_blocker": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis"
+}

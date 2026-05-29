@@ -25904,3 +25904,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.json`
 - next: `m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit`
+
+## M1627 Paper-Route Contour-Aware Tensor Capture Dry-Run Result Audit
+
+- status: completed
+- decision: `contour_aware_tensor_capture_audit_public_pass_route_to_branch_synthesis`
+- artifact: `docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md`
+- failure taxonomy: `none`
+- audited result: M1626 dry-run public pass with 4 captured rows, observation `[4, 72]`, hidden `[4, 128]`, action tensors `[4, 3]`, exact source-action reproduction, no missing capture rows, diagnostics non-positive, checkpoint unmutated, and guardrails clean
+- supported: deterministic policy-side tensor capture is available for the four-row public dry-run subset
+- unsupported: full target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: run branch synthesis before full target materialization design, because M1619-M1627 form another implementation/audit sequence after the M1618 synthesis
+- follow-up manifest: `experiments/manifests/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.json`
+- next: `m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis`

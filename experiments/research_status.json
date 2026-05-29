@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1635,
+    "completed": 1636,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation.md",
+      "command_log": "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1626_contour_aware_tensor_capture_dry_run",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1626-paper-route-contour-aware-tensor-capture-dry-run-implementation"
+      "task_id": "m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.json",
-      "hypothesis": "The M1626 dry-run result is sufficient to decide whether full tensor materialization design can be admitted.",
-      "id": "m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit",
+      "command": "see experiments/manifests/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.json",
+      "hypothesis": "The M1619-M1627 branch evidence is sufficient to decide whether full target materialization design should be the next step.",
+      "id": "m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis",
       "kind": "gate",
-      "notes": "Pending: audit M1626 tensor capture before any full materialization objective update training PPO promotion or private holdout",
-      "priority": 16220,
+      "notes": "Pending: synthesize M1619-M1627 before any full materialization design or implementation",
+      "priority": 16230,
       "status": "pending",
-      "success_artifact": "docs/m1627-paper-route-contour-aware-tensor-capture-dry-run-result-audit.md"
+      "success_artifact": "docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md"
     },
-    "updated_at_utc": "20260529T190900Z"
+    "updated_at_utc": "20260529T191900Z"
 }
