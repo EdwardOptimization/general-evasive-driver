@@ -26878,3 +26878,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.json`
 - next: `m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit`
+
+## M1678 Paper-Route Controller-Family Decisive Task-Source Mapping Preflight Result Audit
+
+- status: completed
+- decision: `task_source_mapping_preflight_audit_pass_route_to_bounded_generation_design`
+- artifact: `docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md`
+- audited M1677 result: pass with 62 rows, 12 source families, 2 task families, 15 edges, 5 window tags, 44 seed namespaces, source-family max share `0.23387096774193547`, zero key leakage, and zero guardrail violations
+- M1615 caveat: diagnostic metadata only; do not benchmark controller families directly on M1615 rows and do not use M1615 hidden/action tensors as targets
+- supported: audited metadata is broad and clean enough to admit bounded fresh task-source generation design
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, direct M1615 benchmark validity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json`
+- next: `m1679-paper-route-controller-family-bounded-task-source-generation-design`

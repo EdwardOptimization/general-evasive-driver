@@ -153,6 +153,22 @@
     "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json",
     "docs/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+    "decision": "task_source_mapping_preflight_audit_pass_route_to_bounded_generation_design",
+    "audited_result_class": "controller_family_decisive_task_source_mapping_preflight_pass",
+    "candidate_row_count": 62,
+    "candidate_source_family_count": 12,
+    "candidate_task_family_count": 2,
+    "candidate_edge_count": 15,
+    "candidate_window_count": 5,
+    "implementation_thresholds_pass": true,
+    "guardrail_violation_count": 0,
+    "key_violation_count": 0,
+    "m1615_caveat": "metadata_inventory_only_not_direct_controller_family_benchmark",
+    "next_manifest": "experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json"
+  },
   "decision_rule": "M1678 passes if it audits M1677 and admits only a bounded design/fallback route before execution.",
-  "next_blocker": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
+  "next_blocker": "m1679-paper-route-controller-family-bounded-task-source-generation-design"
 }

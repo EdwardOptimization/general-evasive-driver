@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1686,
+    "completed": 1687,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+      "command_log": "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1677_controller_family_decisive_task_source_mapping_preflight",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight"
+      "task_id": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.json",
-      "hypothesis": "M1677's no-training metadata preflight is broad and clean enough to admit bounded controller-family decisive task-source generation design.",
-      "id": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit",
+      "command": "see experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json",
+      "hypothesis": "A bounded fresh task-source generation route can convert the audited M1677 metadata mapping into controller-family-compatible task specs without leaking L3-specific proof artifacts.",
+      "id": "m1679-paper-route-controller-family-bounded-task-source-generation-design",
       "kind": "gate",
-      "notes": "Pending: audit M1677 metadata preflight before any task-source generation",
-      "priority": 16730,
+      "notes": "Pending: design bounded fresh task-source generation from audited metadata before execution",
+      "priority": 16740,
       "status": "pending",
-      "success_artifact": "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md"
+      "success_artifact": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md"
     },
-    "updated_at_utc": "20260529T230542Z"
+    "updated_at_utc": "20260529T230845Z"
 }

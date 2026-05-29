@@ -1,0 +1,161 @@
+{
+  "id": "m1679-paper-route-controller-family-bounded-task-source-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_generation_design"
+    ],
+    "parent_dataset": [
+      "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded fresh task-source generation from M1677 metadata mapping before rollout"
+    ],
+    "derived_from": [
+      "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "need fresh bounded task-source specs because M1615 is diagnostic metadata only and cannot be a direct benchmark"
+    ],
+    "supersedes": [
+      "direct controller-family rollout on M1615 rows",
+      "direct private holdout after M1678",
+      "direct paper-level evidence after M1678"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+  "public_gates": [
+    "M1679 must design bounded task-source generation without executing it",
+    "M1679 must generate from source-family/edge/window metadata rather than M1615 hidden/action labels",
+    "M1679 must preserve L1, L2-current-tiled, and L3-reset controls",
+    "M1679 must include source-family caps and no-profile-specific-tuning rules",
+    "M1679 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not materialize task sources",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "D_bounded_task_source_generation_design",
+    "evidence_increment": "designs fresh bounded task-source generation route from audited metadata before execution",
+    "claim_scope": "design only; no task materialization, rollout, training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design uses M1615 hidden/action labels as targets",
+      "stop if control-substitution profiles are not mandatory",
+      "stop if source caps and no profile-specific tuning rules are omitted",
+      "stop if implementation or rollout is admitted directly"
+    ],
+    "fallback_plan": [
+      "route to fresh source-generation preflight if design is feasible",
+      "route to mapping repair if audited metadata is insufficient",
+      "route to standard-layer negative story only if task-source generation is impossible under current sim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1678 audits the metadata branch and opens a new bounded task-source generation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded task-source generation design",
+    "admission_evidence": [
+      "M1678 audits M1677 as metadata-positive with 62 rows, 12 source families, 2 task families, 15 edges, 5 windows, and zero leakage guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not materialize task sources",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1679 design document",
+      "M1679 status queue scoreboard research log and review",
+      "one follow-up manifest for no-training source-generation preflight if design passes"
+    ],
+    "next_stage_criteria": [
+      "fresh task-source generation design is explicit",
+      "source caps are explicit",
+      "controller-family controls are explicit",
+      "next no-training preflight route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; generated tasks must be designed to challenge L1 current response, L2 current-tiled windows, and L3 reset control.",
+    "history_necessity_tests": [
+      "design must require L2 normal versus current-tiled comparison",
+      "design must require L3 online versus reset comparison",
+      "design must not claim self-identification until generated tasks produce outcome evidence"
+    ],
+    "temporal_evidence_window": "M1677 metadata mapping and M1678 audit only.",
+    "negative_result_policy": "If fresh task-source generation cannot make current-substitution controls fail, record scenario-sampling limitation instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded task-source generation design",
+      "no task materialization, no rollout, no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded fresh task-source generation route can convert the audited M1677 metadata mapping into controller-family-compatible task specs without leaking L3-specific proof artifacts.",
+  "success_criteria": [
+    "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md exists",
+    "design uses source-family edge window metadata rather than hidden/action labels",
+    "design specifies source caps and T4/T5 balance",
+    "design preserves L1/L2-current-tiled/L3-reset controls",
+    "design chooses one no-training task-source preflight or stop route",
+    "training replay PPO environment rollout promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design uses M1615 hidden/action labels as task targets",
+    "design omits source caps or control-substitution profiles",
+    "design routes directly to rollout private holdout promotion or paper evidence",
+    "design claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_generation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
+  ],
+  "decision_rule": "M1679 passes if it designs a bounded no-execution task-source generation route from audited metadata.",
+  "next_blocker": "m1679-paper-route-controller-family-bounded-task-source-generation-design"
+}
