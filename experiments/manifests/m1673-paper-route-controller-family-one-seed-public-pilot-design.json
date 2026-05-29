@@ -1,0 +1,162 @@
+{
+  "id": "m1673-paper-route-controller-family-one-seed-public-pilot-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_pilot_design"
+    ],
+    "parent_dataset": [
+      "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design one-seed public controller-family decisive matrix plumbing pilot"
+    ],
+    "derived_from": [
+      "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M1672 admits only design, not direct pilot execution",
+      "clean-package mapping risk must be handled before implementation"
+    ],
+    "supersedes": [
+      "direct one-seed pilot execution after M1672",
+      "direct three-seed matrix after M1672",
+      "direct private holdout after M1672"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+  "public_gates": [
+    "M1673 must design the one-seed public plumbing pilot without running it",
+    "M1673 must specify all 12 controller profiles and equal-budget rules",
+    "M1673 must decide how M1615 clean package is handled without leakage",
+    "M1673 must specify metrics and audit gates before any three-seed matrix",
+    "M1673 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not execute the one-seed pilot",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_one_seed_public_pilot_design",
+    "evidence_increment": "designs the first equal-budget public one-seed plumbing pilot after protocol preflight audit",
+    "claim_scope": "design only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design omits any controller family or required control",
+      "stop if profile-specific tuning is admitted",
+      "stop if M1615 is treated as private holdout or direct conclusion target",
+      "stop if one-seed results would be framed as architecture ranking",
+      "stop if private holdout is admitted"
+    ],
+    "fallback_plan": [
+      "route to task-source mapping design if M1615 cannot be safely mapped",
+      "route to protocol repair if equal-budget assumptions are invalid",
+      "route to one-seed implementation only if the design keeps claims and controls clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1672 audit admits one-seed public pilot design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "one-seed public pilot design",
+    "admission_evidence": [
+      "M1671 protocol preflight passed",
+      "M1672 routes to design-only one-seed public pilot planning"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1673 design document",
+      "M1673 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation or mapping repair"
+    ],
+    "next_stage_criteria": [
+      "task layers are explicit",
+      "same-budget train/eval settings are explicit",
+      "M1615 mapping risk is resolved or blocked",
+      "metrics and audit route are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; design must keep L1 and L2 current-tiled controls as primary comparisons.",
+    "history_necessity_tests": [
+      "design must preserve L2 normal versus L2 current-tiled comparisons",
+      "design must preserve L3 online versus reset-control comparison",
+      "design must prevent M1615 hidden-specific leakage"
+    ],
+    "temporal_evidence_window": "M1671 protocol and M1672 audit only.",
+    "negative_result_policy": "If one-seed design cannot honestly test history, route to task-source mapping repair rather than weakening claim standards.",
+    "allowed_claims": [
+      "one-seed pilot design and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A one-seed public controller-family plumbing pilot can be designed with fair controls and clean task-layer semantics before any run.",
+  "success_criteria": [
+    "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md exists",
+    "design lists all 12 controller profiles",
+    "design specifies same-budget training and evaluation settings",
+    "design resolves or blocks direct M1615 clean-package use",
+    "design defines plumbing metrics and post-run audit requirements",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits current-tiled or reset controls",
+    "design admits profile-specific tuning",
+    "design treats one-seed pilot as architecture ranking",
+    "design routes directly to private holdout or paper evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_pilot_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+    "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+    "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+  ],
+  "decision_rule": "M1673 passes if it designs the one-seed public pilot and chooses a next route before any execution, training, replay, PPO, promotion, or private holdout.",
+  "next_blocker": "m1673-paper-route-controller-family-one-seed-public-pilot-design"
+}

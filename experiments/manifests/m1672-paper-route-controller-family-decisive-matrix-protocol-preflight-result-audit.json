@@ -152,6 +152,13 @@
     "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
     "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+    "decision": "protocol_preflight_audit_pass_admit_one_seed_public_pilot_design",
+    "result_class": "protocol_preflight_pass_with_clean_package_mapping_caveat",
+    "next_manifest": "experiments/manifests/m1673-paper-route-controller-family-one-seed-public-pilot-design.json"
+  },
   "decision_rule": "M1672 passes if it audits the M1671 protocol preflight and chooses a next route before any pilot, training, replay, PPO, promotion, or private holdout.",
-  "next_blocker": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit"
+  "next_blocker": "m1673-paper-route-controller-family-one-seed-public-pilot-design"
 }

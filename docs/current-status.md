@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1671-paper-route-controller-family-decisive-matrix-protocol-preflight
+m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit
+m1673-paper-route-controller-family-one-seed-public-pilot-design
 ```
 
-M1671 materialized the no-training controller-family decisive matrix protocol.
-It verified all 12 corrected profile configs, found zero contract violations,
-read the M1497 standard profile summary, M1615 clean active-set package, and
-M1666 artifact-failure summary, and wrote `matrix_protocol.json`. The next task
-is M1672 result audit before any one-seed public pilot design.
+M1672 audited the M1671 protocol preflight as a pass and preserved the key
+caveat that M1615 is a public diagnostic/clean active-set package, not yet a
+direct controller-family benchmark. The next task is M1673 one-seed public
+pilot design; it must resolve or block M1615 mapping and still avoid executing
+the pilot.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

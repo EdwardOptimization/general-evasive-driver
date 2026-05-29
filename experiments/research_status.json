@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1680,
+    "completed": 1681,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "command_log": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1671_controller_family_decisive_matrix_protocol",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
+      "task_id": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json",
-      "hypothesis": "M1671 protocol preflight can be audited into a clear route decision before any one-seed public pilot.",
-      "id": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit",
+      "command": "see experiments/manifests/m1673-paper-route-controller-family-one-seed-public-pilot-design.json",
+      "hypothesis": "A one-seed public controller-family plumbing pilot can be designed with fair controls and clean task-layer semantics before any run.",
+      "id": "m1673-paper-route-controller-family-one-seed-public-pilot-design",
       "kind": "gate",
-      "notes": "Pending: audit protocol preflight before one-seed pilot design or repair",
-      "priority": 16670,
+      "notes": "Pending: design one-seed public controller-family pilot without executing it",
+      "priority": 16680,
       "status": "pending",
-      "success_artifact": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md"
+      "success_artifact": "docs/m1673-paper-route-controller-family-one-seed-public-pilot-design.md"
     },
-    "updated_at_utc": "20260529T223905Z"
+    "updated_at_utc": "20260529T224158Z"
 }

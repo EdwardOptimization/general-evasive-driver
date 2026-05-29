@@ -26792,3 +26792,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, one-seed pilot result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.json`
 - next: `m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit`
+
+## M1672 Paper-Route Controller-Family Decisive Matrix Protocol Preflight Result Audit
+
+- status: completed
+- decision: `protocol_preflight_audit_pass_admit_one_seed_public_pilot_design`
+- artifact: `docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md`
+- audited M1671 result class: `controller_family_decisive_matrix_protocol_preflight_pass`
+- audited pass: 12 configs, zero missing profiles, zero contract violations, zero guardrail violations
+- clean-package caveat: M1615 is a public diagnostic/clean active-set package and not automatically a fair controller-family benchmark
+- supported: one design-only milestone for a one-seed public plumbing pilot is justified
+- unsupported: controller-family ranking, direct M1615 benchmark validity, pilot execution, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1673-paper-route-controller-family-one-seed-public-pilot-design.json`
+- next: `m1673-paper-route-controller-family-one-seed-public-pilot-design`

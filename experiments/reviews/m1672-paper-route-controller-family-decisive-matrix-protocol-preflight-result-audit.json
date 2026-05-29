@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1672 audits protocol preflight as pass and admits one-seed public pilot design with clean-package mapping caveat",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit skips M1671 artifacts",
+    "audit treats protocol preflight as controller-family ranking evidence",
+    "audit routes directly to training replay PPO promotion private holdout or paper evidence",
+    "audit claims level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not run a one-seed pilot",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T224347Z",
+  "hypothesis": "M1671 protocol preflight can be audited into a clear route decision before any one-seed public pilot.",
+  "lineage": {
+    "blocked_by": [
+      "one-seed public pilot should not start until protocol preflight is audited"
+    ],
+    "derived_from": [
+      "m1671-paper-route-controller-family-decisive-matrix-protocol-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_protocol_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1671-paper-route-controller-family-decisive-matrix-protocol-preflight.md",
+      "runs/m1671_controller_family_decisive_matrix_protocol/summary.json",
+      "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json"
+    ],
+    "parent_objective": [
+      "audit no-training controller-family decisive matrix protocol preflight result before any one-seed pilot"
+    ],
+    "supersedes": [
+      "direct one-seed pilot after M1671",
+      "direct training after M1671",
+      "direct private holdout after M1671"
+    ]
+  },
+  "milestone": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit",
+  "next_blocker": "m1673-paper-route-controller-family-one-seed-public-pilot-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "protocol_preflight_audit_pass_admit_one_seed_public_pilot_design",
+  "public_gates": [
+    "M1672 must audit M1671 summary and matrix_protocol artifacts",
+    "M1672 must decide whether one-seed public plumbing pilot design is admitted",
+    "M1672 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked",
+    "M1672 must not treat public protocol preflight as controller-family performance evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "protocol_preflight_audit_pass_admit_one_seed_public_pilot_design",
+    "milestone": "m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit",
+    "reason": "M1672 audits protocol preflight as pass and admits one-seed public pilot design with clean-package mapping caveat",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1672-paper-route-controller-family-decisive-matrix-protocol-preflight-result-audit.md exists",
+    "audit records M1671 pass/fail result",
+    "audit verifies protocol and summary artifacts are present",
+    "audit assesses clean-package mapping risk",
+    "audit chooses one-seed pilot design, protocol repair, or task-source mapping design",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}
