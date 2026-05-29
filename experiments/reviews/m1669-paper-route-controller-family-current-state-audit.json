@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1669 audits standard-profile negatives clean active-set positives and artifact replay failure then routes to fair controller-family decisive evidence matrix design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit assumes GRU superiority without evidence",
+    "audit omits finite-window or current-response controls",
+    "audit routes directly to PPO promotion private holdout or paper evidence",
+    "audit claims level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T223309Z",
+  "hypothesis": "The current repo evidence can be reconciled into a concrete next paper-route experiment without assuming GRU superiority or continuing fixed public artifact repair.",
+  "lineage": {
+    "blocked_by": [
+      "exact-residual artifact route failed first replay checks",
+      "standard profile scaling previously failed to show L2 history necessity or L3 online advantage"
+    ],
+    "derived_from": [
+      "m1205-paper-route-finite-window-gru-evidence-synthesis",
+      "m1498-paper-route-go-no-go-three-seed-result-audit",
+      "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+      "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+      "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+      "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md"
+    ],
+    "parent_objective": [
+      "audit current controller-family go/no-go evidence before choosing the next paper-route experiment"
+    ],
+    "supersedes": [
+      "direct exact-artifact repair after M1668",
+      "direct PPO after M1668",
+      "direct promotion after M1668",
+      "private holdout after M1668"
+    ]
+  },
+  "milestone": "m1669-paper-route-controller-family-current-state-audit",
+  "next_blocker": "m1670-paper-route-controller-family-decisive-evidence-matrix-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_family_current_state_audit_route_to_decisive_evidence_matrix_design",
+  "public_gates": [
+    "M1669 must inventory current L0 L1 L2 L3 evidence and configs",
+    "M1669 must identify which claims are already negative conditional or unresolved",
+    "M1669 must distinguish standard-profile evidence from decisive-history evidence",
+    "M1669 must decide the next paper-route experiment without assuming GRU superiority",
+    "M1669 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1669-paper-route-controller-family-current-state-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "controller_family_current_state_audit_route_to_decisive_evidence_matrix_design",
+    "milestone": "m1669-paper-route-controller-family-current-state-audit",
+    "reason": "M1669 audits standard-profile negatives clean active-set positives and artifact replay failure then routes to fair controller-family decisive evidence matrix design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1669-paper-route-controller-family-current-state-audit.md exists",
+    "audit inventories L0 L1 L2 L2-current-tiled L3 and L3-control evidence",
+    "audit separates standard-profile evidence from decisive-history evidence",
+    "audit accounts for M1668 exact-artifact branch closure",
+    "audit chooses a concrete next experiment route",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

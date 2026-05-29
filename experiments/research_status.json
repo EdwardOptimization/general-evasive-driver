@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1677,
+    "completed": 1678,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+      "command_log": "docs/m1669-paper-route-controller-family-current-state-audit.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
+      "task_id": "m1669-paper-route-controller-family-current-state-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json",
-      "hypothesis": "The current repo evidence can be reconciled into a concrete next paper-route experiment without assuming GRU superiority or continuing fixed public artifact repair.",
-      "id": "m1669-paper-route-controller-family-current-state-audit",
+      "command": "see experiments/manifests/m1670-paper-route-controller-family-decisive-evidence-matrix-design.json",
+      "hypothesis": "A controller-family decisive evidence matrix can be designed from existing standard-profile, decisive-history, clean active-set, and artifact-failure evidence without assuming GRU superiority.",
+      "id": "m1670-paper-route-controller-family-decisive-evidence-matrix-design",
       "kind": "gate",
-      "notes": "Pending: audit current controller-family evidence and choose the next paper-route experiment",
-      "priority": 16640,
+      "notes": "Pending: design fair L0/L1/L2/L2-current-tiled/L3/L3-reset decisive evidence matrix",
+      "priority": 16650,
       "status": "pending",
-      "success_artifact": "docs/m1669-paper-route-controller-family-current-state-audit.md"
+      "success_artifact": "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md"
     },
-    "updated_at_utc": "20260529T222346Z"
+    "updated_at_utc": "20260529T222957Z"
 }

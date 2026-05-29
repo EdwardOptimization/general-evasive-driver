@@ -159,6 +159,15 @@
     "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
     "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1669-paper-route-controller-family-current-state-audit.md",
+    "decision": "controller_family_current_state_audit_route_to_decisive_evidence_matrix_design",
+    "supported_claim": "standard profile evidence is negative or conditional while clean public active-set proof rows exist",
+    "unsupported_claim": "controller-family ranking or GRU advantage on decisive-history tasks",
+    "next_branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "next_manifest": "experiments/manifests/m1670-paper-route-controller-family-decisive-evidence-matrix-design.json"
+  },
   "decision_rule": "M1669 passes if it audits current controller-family evidence and chooses the next paper-route experiment before training replay PPO or promotion.",
-  "next_blocker": "m1669-paper-route-controller-family-current-state-audit"
+  "next_blocker": "m1670-paper-route-controller-family-decisive-evidence-matrix-design"
 }

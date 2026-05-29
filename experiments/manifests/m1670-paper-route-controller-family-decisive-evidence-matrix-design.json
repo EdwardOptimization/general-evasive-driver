@@ -1,0 +1,173 @@
+{
+  "id": "m1670-paper-route-controller-family-decisive-evidence-matrix-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_design"
+    ],
+    "parent_dataset": [
+      "docs/m1669-paper-route-controller-family-current-state-audit.md",
+      "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+      "docs/m1499-paper-route-decisive-history-task-matrix-design.md",
+      "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+      "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+      "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+      "runs/m1615_contour_aware_candidate_corpus/summary.json",
+      "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_objective": [
+      "design a fair controller-family decisive evidence matrix after current-state audit"
+    ],
+    "derived_from": [
+      "m1669-paper-route-controller-family-current-state-audit"
+    ],
+    "blocked_by": [
+      "standard profile evidence does not support history necessity or L3 advantage",
+      "exact-residual artifact route failed first closed-loop replay checks",
+      "controller-family ranking on decisive-history tasks is missing"
+    ],
+    "supersedes": [
+      "direct artifact repair after M1669",
+      "direct PPO after M1669",
+      "direct private holdout after M1669",
+      "direct paper claim after M1669"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+  "public_gates": [
+    "M1670 must design a controller-family matrix covering L0 L1 L2 L2-current-tiled L3 and L3 reset controls",
+    "M1670 must separate standard profile evidence from decisive-history and clean active-set evidence",
+    "M1670 must define public pilot budgets and stop rules before implementation",
+    "M1670 must not assume online GRU superiority",
+    "M1670 must keep training replay PPO promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not tune one profile separately",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_controller_family_decisive_matrix_design",
+    "evidence_increment": "turns the M1669 current-state audit into a pre-registered controller-family decisive evidence matrix",
+    "claim_scope": "design only; no training, replay, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if the design assumes GRU superiority before evidence",
+      "stop if L2 current-tiled or L3 reset controls are omitted",
+      "stop if standard-profile evidence is mixed with decisive-history evidence without labels",
+      "stop if public clean active-set rows are treated as private holdout evidence",
+      "stop if profile-specific tuning is admitted"
+    ],
+    "fallback_plan": [
+      "route to profile-config repair if corrected profiles cannot be instantiated",
+      "route to task-family audit if decisive-history artifacts cannot be mapped to controller profiles",
+      "route to negative or conditional paper story if the design finds current-response or finite-window controls are sufficient",
+      "route to high-fidelity future simulator only after current-sim controller-family evidence is exhausted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1669 routes from current-state audit into the next paper-route design branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controller-family decisive evidence matrix design",
+    "admission_evidence": [
+      "M1498 stopped standard profile scaling after negative L2/L3 controls",
+      "M1615 provides a clean public active-set proof package",
+      "M1668 closed exact-residual artifact repair after closed-loop replay failure",
+      "M1669 identifies controller-family decisive evidence as the missing paper-route experiment"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1670 design document",
+      "M1670 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation or audit"
+    ],
+    "next_stage_criteria": [
+      "controller profile list and fairness rules are explicit",
+      "task families and artifact sources are explicit",
+      "public pilot budgets and stop rules are explicit",
+      "next implementation or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1670 exists to keep L1 current-response and L2 current-tiled controls in the decisive matrix.",
+    "history_necessity_tests": [
+      "design must include L0 current, L1 one-step, L2 finite-window, L2 current-tiled, L3 online-GRU, and L3 reset/truncated controls",
+      "design must include decisive-history or clean active-set tasks where current-frame substitution is explicitly tested"
+    ],
+    "temporal_evidence_window": "M1497 standard profiles plus M1499-M1669 decisive-history and clean active-set public evidence.",
+    "negative_result_policy": "If the designed matrix later shows current-response or finite-window controls match L3, record a negative or conditional recurrent-self-ID result rather than weakening the claim standard.",
+    "allowed_claims": [
+      "controller-family matrix design and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A controller-family decisive evidence matrix can be designed from existing standard-profile, decisive-history, clean active-set, and artifact-failure evidence without assuming GRU superiority.",
+  "success_criteria": [
+    "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md exists",
+    "design specifies L0 L1 L2 L2-current-tiled L3 and L3-control families",
+    "design separates standard profile tasks from decisive-history and clean active-set tasks",
+    "design specifies public pilot budgets metrics and stop rules",
+    "design blocks profile-specific tuning and private holdout",
+    "design chooses a concrete next implementation or audit route",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits current-response finite-window current-tiled or reset controls",
+    "design assumes GRU superiority",
+    "design treats public clean rows as private holdout",
+    "design routes directly to PPO promotion private holdout or paper evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1670-paper-route-controller-family-decisive-evidence-matrix-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1669-paper-route-controller-family-current-state-audit.md",
+    "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+    "runs/m1615_contour_aware_candidate_corpus/summary.json",
+    "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+  ],
+  "decision_rule": "M1670 passes if it designs the fair controller-family decisive evidence matrix and chooses the next route before implementation, training, replay, PPO, promotion, or private holdout.",
+  "next_blocker": "m1670-paper-route-controller-family-decisive-evidence-matrix-design"
+}

@@ -26743,3 +26743,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: direct repair, replay, PPO, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1669-paper-route-controller-family-current-state-audit.json`
 - next: `m1669-paper-route-controller-family-current-state-audit`
+
+## M1669 Paper-Route Controller-Family Current-State Audit
+
+- status: completed
+- decision: `controller_family_current_state_audit_route_to_decisive_evidence_matrix_design`
+- artifact: `docs/m1669-paper-route-controller-family-current-state-audit.md`
+- standard profile evidence: M1497 completed 36 public seed runs across 12 profiles with no private holdout and no profile-specific tuning
+- standard profile verdict: finite-window history necessity and L3 online-GRU advantage remain not supported on the standard profile distribution
+- decisive-history evidence: T4/T5 harnesses exist and M1615 provides a 39-positive / 232-diagnostic clean public active-set package
+- artifact route verdict: M1668 closed exact-residual artifact repair after M1666 first replay checks failed from behavior/proof retention regression
+- missing experiment: fair L0/L1/L2/L2-current-tiled/L3/L3-reset controller-family ranking on decisive-history and clean active-set tasks
+- supported: current repo evidence can be reconciled without assuming GRU superiority or repairing the M1663 artifact
+- unsupported: controller-family decisive-task ranking, checkpoint promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1670-paper-route-controller-family-decisive-evidence-matrix-design.json`
+- next: `m1670-paper-route-controller-family-decisive-evidence-matrix-design`

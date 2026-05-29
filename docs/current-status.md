@@ -16,21 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1668-paper-route-proposal-projection-artifact-branch-synthesis
+m1669-paper-route-controller-family-current-state-audit
 ```
 
 Current next task:
 
 ```text
-m1669-paper-route-controller-family-current-state-audit
+m1670-paper-route-controller-family-decisive-evidence-matrix-design
 ```
 
-M1668 synthesized M1660-M1667 and stopped the exact-residual artifact route. The
-branch proved that `fusion_actor` exact repair can reduce fixed public residuals
-and produce a clean objective-sanity checkpoint artifact, but M1666 falsified the
-stronger claim that this is enough for replay-worthy behavior. The next task is
-M1669 controller-family current-state audit: reconcile L0/L1/L2/L3 standard and
-decisive-history evidence before choosing the next paper-route experiment.
+M1669 audited the current controller-family evidence after M1668 closed the
+exact-residual artifact route. Standard profile evidence remains negative or
+conditional for L2 history necessity and L3 online-GRU advantage; the project has
+clean public active-set rows in the M1615 package, but no controller-family
+ranking on decisive-history tasks. The next task is M1670: design a fair
+L0/L1/L2/L2-current-tiled/L3/L3-reset decisive evidence matrix before any
+training, replay, PPO, promotion, private holdout, actor-input change, or
+level3 claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
