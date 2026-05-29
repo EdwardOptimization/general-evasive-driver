@@ -21992,3 +21992,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json`.
 - next: `m1481-paper-route-source-diverse-pressure-bounded-replay-smoke`
+
+## 20260529T073000Z - m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.md`
+- run artifact: `runs/m1481_source_diverse_pressure_bounded_replay_smoke/summary.json`
+- decision: `source_diverse_pressure_bounded_replay_positive_source_singleton_route_to_audit`
+- result class: `bounded_relocation_replay_positive`
+- selected candidate rows: `84`
+- actual replay rows: `252`
+- history positive rows: `12`
+- control positive rows: `15`
+- normal failed rows: `150`
+- actual replay diversity: `5` seeds, `7` capability pairs, `7` reveal buckets, `5` variants.
+- history-positive diversity: `1` seed, `1` capability pair, `1` reveal bucket, `1` variant.
+- control-positive diversity: `1` seed, `1` capability pair, `1` reveal bucket, `2` variants.
+- interpretation: source-diverse proposal/preflight transfers to replay rows, but history-positive rows still collapse to the original source family and controls remain same-family.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1482-paper-route-source-diverse-pressure-replay-result-audit.json`.
+- next: `m1482-paper-route-source-diverse-pressure-replay-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1489,
+    "completed": 1490,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1480-paper-route-source-diverse-pressure-bounded-replay-design.md",
+    "command_log": "docs/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.md",
     "returncode": 0,
-    "run_dir": null,
+    "run_dir": "runs/m1481_source_diverse_pressure_bounded_replay_smoke",
     "status": "completed",
-    "task_id": "m1480-paper-route-source-diverse-pressure-bounded-replay-design"
+    "task_id": "m1481-paper-route-source-diverse-pressure-bounded-replay-smoke"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json",
-    "hypothesis": "A bounded replay smoke over M1479 source-diverse pressure candidates can test whether proposal/preflight diversity transfers to outcome-sensitive replay rows.",
-    "id": "m1481-paper-route-source-diverse-pressure-bounded-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded replay over M1479 selected candidates without training PPO promotion or corpus export",
-    "priority": 14760,
+    "command": "see experiments/manifests/m1482-paper-route-source-diverse-pressure-replay-result-audit.json",
+    "hypothesis": "M1481 should be treated as replay-positive but not source-diverse corpus-ready.",
+    "id": "m1482-paper-route-source-diverse-pressure-replay-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit replay-positive but source-singleton M1481 result before corpus export training PPO promotion or new replay",
+    "priority": 14770,
     "status": "pending",
-    "success_artifact": "runs/m1481_source_diverse_pressure_bounded_replay_smoke/summary.json"
+    "success_artifact": "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md"
   },
-  "updated_at_utc": "20260529T072500Z"
+  "updated_at_utc": "20260529T073000Z"
 }

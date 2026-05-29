@@ -1,0 +1,145 @@
+{
+  "id": "m1482-paper-route-source-diverse-pressure-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/summary.json",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/control_positive_rows.csv",
+      "docs/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1481-paper-route-source-diverse-pressure-bounded-replay-smoke.json"
+    ],
+    "parent_objective": [
+      "audit source-diverse pressure bounded replay result before corpus export or training"
+    ],
+    "derived_from": [
+      "m1481-paper-route-source-diverse-pressure-bounded-replay-smoke"
+    ],
+    "blocked_by": [
+      "M1481 history positives are replay-positive but still source-singleton and control-sensitive"
+    ],
+    "supersedes": [
+      "direct corpus export from M1481 positive rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1482-paper-route-source-diverse-pressure-replay-result-audit.md",
+  "public_gates": [
+    "M1482 must audit M1481 before corpus export or training",
+    "M1482 must separate actual replay diversity from history-positive source diversity",
+    "M1482 must block promotion PPO private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim source-diverse history necessity from source-singleton positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_source_diverse_pressure_replay_result_audit",
+    "evidence_increment": "audits M1481 as replay-positive but history-positive rows remain source-singleton and control-sensitive",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats source-singleton positives as source-diverse corpus",
+      "stop if audit ignores control positives",
+      "stop if audit admits promotion or corpus export"
+    ],
+    "fallback_plan": [
+      "route to source pressure redesign if replay positives remain source-singleton",
+      "route to bounded replay refinement only if audit finds source-diverse positives"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1481 bounded replay finds replay positives but source diversity remains unresolved",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pressure replay result audit",
+    "admission_evidence": [
+      "M1481 produced 12 history-positive rows and 15 control-positive rows, all from one source family"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1482 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up redesign or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "positive rows are classified",
+      "control positives are reported separately",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1482 audits public replay rows and cannot claim level3 self-identification.",
+    "history_necessity_tests": [
+      "M1481 normal history versus warmup_removed produced twelve history-positive rows",
+      "M1481 zero_current_response and reset_hidden produced control positives on the same source family"
+    ],
+    "temporal_evidence_window": "M1481 source-diverse pressure bounded replay smoke.",
+    "negative_result_policy": "Source-singleton positives are preserved as evidence but are not exported for training until source-diverse expansion is proven.",
+    "allowed_claims": [
+      "M1481 found replay-positive local rows but not source-diverse history-positive rows",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1481 should be treated as replay-positive but not source-diverse corpus-ready.",
+  "success_criteria": [
+    "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md exists",
+    "audit records actual replay diversity and history-positive diversity separately",
+    "audit records control positives separately",
+    "audit blocks corpus export training PPO promotion private holdout and actor-input changes",
+    "audit routes to redesign or synthesis"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats source-singleton positives as source-diverse corpus",
+    "audit ignores zero-current/reset control positives",
+    "audit starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1482-paper-route-source-diverse-pressure-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1481_source_diverse_pressure_bounded_replay_smoke/summary.json"
+  ],
+  "decision_rule": "M1482 passes if it audits M1481 as replay-positive but blocks corpus export or training.",
+  "next_blocker": "m1482-paper-route-source-diverse-pressure-replay-result-audit"
+}

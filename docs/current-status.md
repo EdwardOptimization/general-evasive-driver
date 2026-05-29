@@ -16,34 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1480-paper-route-source-diverse-pressure-bounded-replay-design
+m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
 ```
 
 Current next task:
 
 ```text
-m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
+m1482-paper-route-source-diverse-pressure-replay-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
 M1476 ran proposal generation. M1477 synthesized the branch and promoted to
 source-diverse pressure validation. M1478 designed the preflight-only smoke,
-M1479 ran it, and M1480 designed bounded replay. The current public-gate base
-remains M1362 alpha `0.1`:
+M1479 ran it, M1480 designed bounded replay, and M1481 ran replay. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1480 design:
+M1481 result:
 
 ```text
-decision: source_diverse_pressure_bounded_replay_design_admit_smoke
-candidate_source: runs/m1479_source_diverse_pressure_preflight_smoke/selected_candidate_rows.csv
+decision: source_diverse_pressure_bounded_replay_positive_source_singleton_route_to_audit
+actual_replay_rows: 252
+history_positive_rows: 12
+control_positive_rows: 15
+normal_failed_rows: 150
+actual replay diversity: 5 seeds / 7 capability pairs / 7 reveal buckets / 5 variants
+history-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 1 variant
+control-positive diversity: 1 seed / 1 capability pair / 1 reveal bucket / 2 variants
 candidate_step_column: source_step
-max_candidate_rows: 96
-next: m1481-paper-route-source-diverse-pressure-bounded-replay-smoke
+next: m1482-paper-route-source-diverse-pressure-replay-result-audit
 ```
 
 M1472 result:
@@ -66,8 +71,9 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1481 should run bounded replay only. It must not train, run PPO, promote, use
-private holdout, export corpus, or change actor inputs.
+M1482 should audit M1481 before any new replay, corpus export, training, or
+promotion. M1481 is replay-positive but still source-singleton and
+control-sensitive.
 
 M1455 result:
 
