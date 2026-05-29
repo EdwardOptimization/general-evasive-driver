@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1500-paper-route-decisive-history-task-harness-implementation
+m1501-paper-route-decisive-history-candidate-generation-design
 ```
 
 Current next task:
 
 ```text
-m1501-paper-route-decisive-history-candidate-generation-design
+m1502-paper-route-decisive-history-candidate-planner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -47,12 +47,35 @@ all 36 profile seed runs finite. M1498 audited the result, stopped standard
 profile scaling, and pivoted the paper route to decisive T4/T5
 history-necessity task design. M1499 designed that task matrix and admits a
 no-training task harness implementation. M1500 implemented metadata-only
-T4/T5 harness scaffolding and admits candidate-generation design. The current
-public-gate base remains M1362 alpha `0.1`:
+T4/T5 harness scaffolding. M1501 designed the public no-training
+candidate-generation route and admits source-plan planner implementation. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1501 decisive history candidate-generation design:
+
+```text
+decision: decisive_history_candidate_generation_design_admit_planner_implementation
+artifact: docs/m1501-paper-route-decisive-history-candidate-generation-design.md
+source_families:
+  t4_staged_warmup_capability
+  t4_capability_step_temporal
+  t4_actuator_delay_response
+  t5_near_boundary_warmup
+  t5_high_speed_close_obstacle
+  t5_boundary_axis_retarget
+public seeds: source 150100, geometry 150200, intervention 150300, eval 150400
+candidate_generation_started: false
+training/replay/PPO used: false
+next: m1502-paper-route-decisive-history-candidate-planner-implementation
+```
+
+M1501 is a design milestone only. Next is a no-training source-plan planner
+that emits M1500-compatible candidate rows and summaries. It still must not run
+simulator replay, PPO, or training.
 
 M1500 decisive history task harness implementation:
 

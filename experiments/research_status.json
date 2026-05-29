@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1509,
+    "completed": 1510,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
+    "command_log": "docs/m1501-paper-route-decisive-history-candidate-generation-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1500_decisive_history_task_harness_smoke",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1500-paper-route-decisive-history-task-harness-implementation"
+    "task_id": "m1501-paper-route-decisive-history-candidate-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1501-paper-route-decisive-history-candidate-generation-design.json",
-    "hypothesis": "The decisive-history harness can be connected to a public no-training current-sim candidate-generation route with explicit matching and diversity gates.",
-    "id": "m1501-paper-route-decisive-history-candidate-generation-design",
-    "kind": "gate",
-    "notes": "Pending: design no-training T4/T5 current-sim candidate generation with explicit matching tolerances and source-diversity gates",
-    "priority": 14960,
+    "command": "see experiments/manifests/m1502-paper-route-decisive-history-candidate-planner-implementation.json",
+    "hypothesis": "The M1501 candidate-generation design can be represented as a no-training source-plan planner that emits M1500-compatible candidate rows and summaries.",
+    "id": "m1502-paper-route-decisive-history-candidate-planner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training source-plan planner that emits M1500-compatible candidate rows and summaries",
+    "priority": 14970,
     "status": "pending",
-    "success_artifact": "docs/m1501-paper-route-decisive-history-candidate-generation-design.md"
+    "success_artifact": "docs/m1502-paper-route-decisive-history-candidate-planner-implementation.md"
   },
-  "updated_at_utc": "20260529T080000Z"
+  "updated_at_utc": "20260529T081000Z"
 }

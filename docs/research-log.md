@@ -22364,3 +22364,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: metadata-only T4/T5 harness scaffolding is ready for no-training candidate-generation design.
 - follow-up manifest: `experiments/manifests/m1501-paper-route-decisive-history-candidate-generation-design.json`.
 - next: `m1501-paper-route-decisive-history-candidate-generation-design`
+
+## M1501 Paper-Route Decisive History Candidate Generation Design
+
+- status: completed
+- decision: `decisive_history_candidate_generation_design_admit_planner_implementation`
+- artifact: `docs/m1501-paper-route-decisive-history-candidate-generation-design.md`
+- source families: `t4_staged_warmup_capability`, `t4_capability_step_temporal`, `t4_actuator_delay_response`, `t5_near_boundary_warmup`, `t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`
+- public seed namespaces: source 150100, geometry 150200, intervention 150300, eval 150400
+- matching thresholds: named explicitly from the M1500 harness
+- diversity gates: named explicitly for public smoke and later source-diverse pilot
+- candidate generation started: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: no-training candidate-generation route is designed; next is source-plan planner scaffolding, not simulator replay or training.
+- follow-up manifest: `experiments/manifests/m1502-paper-route-decisive-history-candidate-planner-implementation.json`.
+- next: `m1502-paper-route-decisive-history-candidate-planner-implementation`

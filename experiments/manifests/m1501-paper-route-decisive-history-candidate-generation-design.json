@@ -144,6 +144,39 @@
     "docs/m1500-paper-route-decisive-history-task-harness-implementation.md",
     "runs/m1500_decisive_history_task_harness_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1501-paper-route-decisive-history-candidate-generation-design.md",
+    "decision": "decisive_history_candidate_generation_design_admit_planner_implementation",
+    "source_families": [
+      "t4_staged_warmup_capability",
+      "t4_capability_step_temporal",
+      "t4_actuator_delay_response",
+      "t5_near_boundary_warmup",
+      "t5_high_speed_close_obstacle",
+      "t5_boundary_axis_retarget"
+    ],
+    "public_seed_policy": {
+      "source_seed_base": 150100,
+      "geometry_seed_base": 150200,
+      "intervention_seed_base": 150300,
+      "eval_seed_base": 150400
+    },
+    "matching_thresholds_named": true,
+    "source_diversity_gates_named": true,
+    "candidate_generation_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1502-paper-route-decisive-history-candidate-planner-implementation.json"
+  },
+  "decision": "decisive_history_candidate_generation_design_admit_planner_implementation",
   "decision_rule": "M1501 passes if it designs a no-training candidate-generation route before any smoke, replay, or training.",
-  "next_blocker": "m1501-paper-route-decisive-history-candidate-generation-design"
+  "next_blocker": "m1502-paper-route-decisive-history-candidate-planner-implementation"
 }
