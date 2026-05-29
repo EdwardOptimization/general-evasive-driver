@@ -143,6 +143,10 @@
   ],
   "required_artifacts": [
     {
+      "path": "docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md",
+      "type": "md"
+    },
+    {
       "path": "src/autodrift/decisive_history_bounded_runner.py",
       "type": "py"
     },
@@ -162,6 +166,39 @@
     "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
     "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+    "doc_artifact": "docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md",
+    "decision": "decisive_history_bounded_runner_smoke_pass_route_to_trace_audit",
+    "checkpoint": "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "focused_tests": "6 passed",
+    "run_dir": "runs/m1511_decisive_history_bounded_runner_smoke",
+    "spec_count": 6,
+    "source_family_count": 6,
+    "max_rollout_steps": 96,
+    "trace_row_count": 525,
+    "snapshot_row_count": 30,
+    "rollout_success_count": 6,
+    "rollout_failure_count": 0,
+    "source_families_reached_reveal_count": 6,
+    "source_families_reached_decision_count": 6,
+    "source_families_reached_post_decision_count": 6,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json"
+  },
+  "decision": "decisive_history_bounded_runner_smoke_pass_route_to_trace_audit",
   "decision_rule": "M1511 passes if a bounded fixed-policy runner collects source trace artifacts with all guardrails false and no candidate materialization.",
-  "next_blocker": "m1511-paper-route-decisive-history-bounded-runner-implementation"
+  "next_blocker": "m1512-paper-route-decisive-history-bounded-runner-result-audit"
 }

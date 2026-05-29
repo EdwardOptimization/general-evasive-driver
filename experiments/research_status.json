@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1519,
+    "completed": 1520,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+    "command_log": "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+    "run_dir": "runs/m1511_decisive_history_bounded_runner_smoke",
     "status": "completed",
-    "task_id": "m1510-paper-route-decisive-history-bounded-runner-design"
+    "task_id": "m1511-paper-route-decisive-history-bounded-runner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1511-paper-route-decisive-history-bounded-runner-implementation.json",
-    "hypothesis": "A bounded fixed-policy runner can collect public source traces for the six decisive-history source families without training or candidate materialization.",
-    "id": "m1511-paper-route-decisive-history-bounded-runner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded fixed-policy source trace runner and run public smoke",
-    "priority": 15060,
+    "command": "see experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json",
+    "hypothesis": "The M1511 bounded runner artifacts are complete enough to audit whether measured candidate materialization should proceed.",
+    "id": "m1512-paper-route-decisive-history-bounded-runner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1511 source traces before candidate materialization or repair",
+    "priority": 15070,
     "status": "pending",
-    "success_artifact": "runs/m1511_decisive_history_bounded_runner_smoke/summary.json"
+    "success_artifact": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md"
   },
-  "updated_at_utc": "20260529T085321Z"
+  "updated_at_utc": "20260529T090200Z"
 }

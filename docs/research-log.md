@@ -22573,3 +22573,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1510 bounds the first fixed-policy source trace runner so the next milestone can collect public trace evidence without broad rollout generation or self-ID claims.
 - follow-up manifest: `experiments/manifests/m1511-paper-route-decisive-history-bounded-runner-implementation.json`.
 - next: `m1511-paper-route-decisive-history-bounded-runner-implementation`
+
+## M1511 Paper-Route Decisive History Bounded Runner Implementation
+
+- status: completed
+- decision: `decisive_history_bounded_runner_smoke_pass_route_to_trace_audit`
+- artifact: `runs/m1511_decisive_history_bounded_runner_smoke/summary.json`
+- doc: `docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md`
+- code paths: `src/autodrift/decisive_history_bounded_runner.py`, `tests/test_decisive_history_bounded_runner.py`
+- checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_decisive_history_bounded_runner.py -q`
+- focused test result: 6 passed in 0.90s
+- smoke command: `PYTHONPATH=src python -m autodrift.decisive_history_bounded_runner --run-dir runs/m1511_decisive_history_bounded_runner_smoke --max-rollout-steps 96 --seed-count 1 --device cpu`
+- spec/source family count: 6/6
+- trace row count: 525
+- snapshot row count: 30
+- rollout success/failure count: 6/0
+- source families reached reveal/decision/post-decision: 6/6/6
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1511 proves bounded public source trace collection works for the six current source families, but it is still trace plumbing rather than decisive-history candidate or self-ID evidence.
+- follow-up manifest: `experiments/manifests/m1512-paper-route-decisive-history-bounded-runner-result-audit.json`.
+- next: `m1512-paper-route-decisive-history-bounded-runner-result-audit`

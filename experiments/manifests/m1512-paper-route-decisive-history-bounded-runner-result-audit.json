@@ -1,0 +1,152 @@
+{
+  "id": "m1512-paper-route-decisive-history-bounded-runner-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_trace_rows.csv",
+      "runs/m1511_decisive_history_bounded_runner_smoke/source_snapshot_rows.csv",
+      "docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1511-paper-route-decisive-history-bounded-runner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit bounded source traces before measured candidate materialization"
+    ],
+    "derived_from": [
+      "m1511-paper-route-decisive-history-bounded-runner-implementation"
+    ],
+    "blocked_by": [
+      "trace quality and candidate eligibility must be audited before materialization"
+    ],
+    "supersedes": [
+      "direct candidate materialization from first runner smoke without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+  "public_gates": [
+    "M1512 must audit M1511 trace quality and guardrails",
+    "M1512 must summarize source-family reachability terminal patterns labels and margins",
+    "M1512 must decide whether measured candidate materialization is admissible",
+    "M1512 must not train run PPO promote use private holdout alter actor inputs or export corpus",
+    "M1512 must not claim self-identification from trace reachability alone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during the audit",
+    "do not claim self-identification from bounded runner success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_source_trace_audit",
+    "evidence_increment": "audits M1511 bounded source traces before deciding whether candidate materialization is admissible",
+    "claim_scope": "trace-quality audit and next-route decision only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1511 guardrails were violated",
+      "stop if trace artifacts are missing or malformed",
+      "stop if source traces cannot support reveal decision and post-decision windows",
+      "stop if audit would need private holdout or corpus export"
+    ],
+    "fallback_plan": [
+      "if traces are malformed, route to runner repair",
+      "if labels or margins are uninformative, route to env-hook/source-family retargeting",
+      "if trace quality is sufficient, route to measured candidate materialization design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1511 produced bounded source trace artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded runner result audit",
+    "admission_evidence": [
+      "M1511 source traces reached reveal decision and post-decision windows for all six source families with guardrails false"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1512 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up candidate materialization or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "trace quality verdict is explicit",
+      "candidate materialization admissibility is explicit",
+      "negative evidence and limitations are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1512 audits trace plumbing only; reachability cannot distinguish history necessity from current-frame control.",
+    "history_necessity_tests": [
+      "audit whether M1511 traces preserve windows that could later support T4/T5 history interventions",
+      "do not claim history necessity until wrong/delayed/current-tiled intervention margins are measured"
+    ],
+    "temporal_evidence_window": "M1511 bounded fixed-policy source traces only.",
+    "negative_result_policy": "If trace quality is insufficient, route to runner or env-hook repair and record the reason instead of materializing weak candidates.",
+    "allowed_claims": [
+      "M1512 audits bounded source trace quality",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1511 bounded runner artifacts are complete enough to audit whether measured candidate materialization should proceed.",
+  "success_criteria": [
+    "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md exists",
+    "audit summarizes trace reachability terminal patterns labels and margin ranges",
+    "audit explicitly decides materialization-admit repair or stop",
+    "audit keeps training PPO promotion private holdout actor-input change corpus export and self-ID claims blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1511 guardrails",
+    "audit treats trace reachability as self-ID evidence",
+    "audit starts candidate materialization training PPO promotion private holdout or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1512-paper-route-decisive-history-bounded-runner-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1511_decisive_history_bounded_runner_smoke/summary.json",
+    "runs/m1511_decisive_history_bounded_runner_smoke/source_trace_rows.csv",
+    "runs/m1511_decisive_history_bounded_runner_smoke/source_snapshot_rows.csv"
+  ],
+  "decision_rule": "M1512 passes if it audits bounded runner trace quality and selects the next route without materializing candidates or claiming self-identification.",
+  "next_blocker": "m1512-paper-route-decisive-history-bounded-runner-result-audit"
+}

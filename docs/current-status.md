@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1510-paper-route-decisive-history-bounded-runner-design
+m1511-paper-route-decisive-history-bounded-runner-implementation
 ```
 
 Current next task:
 
 ```text
-m1511-paper-route-decisive-history-bounded-runner-implementation
+m1512-paper-route-decisive-history-bounded-runner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -58,12 +58,40 @@ sampling repair. M1507 designed measured rollout candidate generation before any
 candidate materialization or corpus export. M1508 implemented candidate
 materialization scaffolding and guards with a synthetic smoke. M1509 synthesized
 M1499-M1508 and promoted the work to a bounded fixed-policy runner branch.
-M1510 designed the bounded fixed-policy source trace runner. The current
-public-gate base remains M1362 alpha `0.1`:
+M1510 designed the bounded fixed-policy source trace runner. M1511 implemented
+that runner and produced bounded public source traces for all six source
+families. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1511 decisive history bounded runner implementation:
+
+```text
+decision: decisive_history_bounded_runner_smoke_pass_route_to_trace_audit
+artifact: runs/m1511_decisive_history_bounded_runner_smoke/summary.json
+doc: docs/m1511-paper-route-decisive-history-bounded-runner-implementation.md
+code_paths:
+  src/autodrift/decisive_history_bounded_runner.py
+  tests/test_decisive_history_bounded_runner.py
+focused_tests: 6 passed
+spec/source_family_count: 6/6
+trace_row_count: 525
+snapshot_row_count: 30
+rollout_success/failure_count: 6/0
+source_families_reached_reveal/decision/post_decision: 6/6/6
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1512-paper-route-decisive-history-bounded-runner-result-audit
+```
+
+M1511 is positive source-trace plumbing evidence. It does not yet prove real
+T4/T5 candidate existence or self-identification. Next is a trace-quality audit
+before any candidate materialization.
 
 M1510 decisive history bounded runner design:
 
