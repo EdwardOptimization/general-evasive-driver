@@ -21837,3 +21837,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.json`.
 - next: `m1472-paper-route-positive-neighborhood-bounded-replay-smoke`
+
+## 20260529T065000Z - m1472-paper-route-positive-neighborhood-bounded-replay-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `proof`
+- artifact: `docs/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.md`
+- run artifact: `runs/m1472_positive_neighborhood_bounded_replay_smoke/summary.json`
+- decision: `positive_neighborhood_bounded_replay_positive_local_surface_route_to_audit`
+- result class: `bounded_relocation_replay_positive`
+- selected candidate rows: `96`
+- actual replay rows: `288`
+- history positive rows: `8`
+- control positive rows: `12`
+- normal failed rows: `108`
+- actual replay diversity: `5` seeds, `8` capability pairs, `8` reveal buckets, `5` variants.
+- history-positive diversity: `1` seed, `1` capability pair, `1` reveal bucket, `1` variant, `7` relocation keys.
+- interpretation: positive-neighborhood replay expands the local relocation surface but not source diversity.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1473-paper-route-positive-neighborhood-replay-result-audit.json`.
+- next: `m1473-paper-route-positive-neighborhood-replay-result-audit`
+
+## 20260529T065100Z - m1473-paper-route-positive-neighborhood-replay-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md`
+- decision: `positive_neighborhood_replay_audit_local_surface_not_source_diverse_route_to_source_diverse_pressure_design`
+- failure type: `scenario_sampling_failure`
+- supported claim: positive-neighborhood expansion found a local outcome-sensitive relocation surface.
+- unsupported claim: source-diverse history-necessity corpus is ready for training.
+- audit: M1472 expands M1461's singleton to 8 history positives across 7 relocation keys, but all positives remain original-source and zero-current controls remain on the same family.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1474-paper-route-source-diverse-pressure-design.json`.
+- next: `m1474-paper-route-source-diverse-pressure-design`

@@ -1,0 +1,167 @@
+{
+  "id": "m1473-paper-route-positive-neighborhood-replay-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/summary.json",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/history_positive_rows.csv",
+      "docs/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.json"
+    ],
+    "parent_objective": [
+      "audit positive-neighborhood bounded replay result before corpus export or training"
+    ],
+    "derived_from": [
+      "m1472-paper-route-positive-neighborhood-bounded-replay-smoke"
+    ],
+    "blocked_by": [
+      "M1472 history positives are local-surface positive but still source-singleton"
+    ],
+    "supersedes": [
+      "direct corpus export from M1472 positive rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1473-paper-route-positive-neighborhood-replay-result-audit.md",
+  "public_gates": [
+    "M1473 must audit M1472 before corpus export or training",
+    "M1473 must separate local relocation surface evidence from source-diverse evidence",
+    "M1473 must block promotion PPO private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim source-diverse history necessity from source-singleton positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_positive_neighborhood_replay_result_audit",
+    "evidence_increment": "audits M1472 as local-surface positive but source-singleton",
+    "claim_scope": "result audit only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats source-singleton positives as source-diverse corpus",
+      "stop if audit ignores zero-current control positives",
+      "stop if audit admits promotion or corpus export"
+    ],
+    "fallback_plan": [
+      "route to source-diverse pressure design if local surface is live",
+      "route to replay schema audit if positives are artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1472 bounded replay finds local-surface positives",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "positive-neighborhood replay result audit",
+    "admission_evidence": [
+      "M1472 produced 8 history-positive rows across 7 relocation keys but only one source"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1473 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up source-diverse pressure design manifest"
+    ],
+    "next_stage_criteria": [
+      "positive rows are classified",
+      "control positives are reported separately",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1473 audits public replay rows and cannot claim level3 self-identification.",
+    "history_necessity_tests": [
+      "M1472 normal history versus warmup_removed produced eight history-positive rows",
+      "M1472 zero_current_response produced control positives on the same source family"
+    ],
+    "temporal_evidence_window": "M1472 positive-neighborhood bounded replay smoke.",
+    "negative_result_policy": "Source-singleton positives are preserved as evidence but are not exported for training until source-diverse expansion is tested.",
+    "allowed_claims": [
+      "M1472 found a live local history-positive relocation surface",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1472 positives should be treated as a live local surface but not a source-diverse training corpus.",
+  "success_criteria": [
+    "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md exists",
+    "audit records history-positive relocation diversity and source diversity",
+    "audit blocks corpus export training PPO promotion private holdout and actor-input changes",
+    "audit routes to source-diverse pressure design"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats source-singleton positives as source-diverse corpus",
+    "audit ignores zero-current control positives",
+    "audit starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1472_positive_neighborhood_bounded_replay_smoke/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md",
+    "decision": "positive_neighborhood_replay_audit_local_surface_not_source_diverse_route_to_source_diverse_pressure_design",
+    "failure_type": "scenario_sampling_failure",
+    "history_positive_rows": 8,
+    "history_positive_unique_relocation_keys": 7,
+    "history_positive_unique_source_seeds": 1,
+    "history_positive_unique_capability_pairs": 1,
+    "control_positive_rows": 12,
+    "supported_claim": "positive-neighborhood expansion found a local outcome-sensitive relocation surface",
+    "unsupported_claim": "source-diverse history-necessity corpus is ready for training",
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1474-paper-route-source-diverse-pressure-design.json"
+  },
+  "decision": "positive_neighborhood_replay_audit_local_surface_not_source_diverse_route_to_source_diverse_pressure_design",
+  "decision_rule": "M1473 passes if it audits M1472 as local-surface positive but blocks corpus export or training.",
+  "next_blocker": "m1474-paper-route-source-diverse-pressure-design"
+}

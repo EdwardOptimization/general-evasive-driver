@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1480,
+    "completed": 1482,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1471-paper-route-positive-neighborhood-bounded-replay-design.md",
+    "command_log": "docs/m1473-paper-route-positive-neighborhood-replay-result-audit.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1471-paper-route-positive-neighborhood-bounded-replay-design"
+    "task_id": "m1473-paper-route-positive-neighborhood-replay-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.json",
-    "hypothesis": "A bounded replay smoke over M1470 deduplicated positive-neighborhood candidates can test whether the M1461 singleton expands to a broader outcome-sensitive surface.",
-    "id": "m1472-paper-route-positive-neighborhood-bounded-replay-smoke",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded replay on M1470 selected candidates without training PPO promotion corpus export or actor-input changes",
-    "priority": 14670,
+    "command": "see experiments/manifests/m1474-paper-route-source-diverse-pressure-design.json",
+    "hypothesis": "A source-diverse pressure design can use M1472 neighbor-source negatives to test whether local positives can transfer beyond the original source.",
+    "id": "m1474-paper-route-source-diverse-pressure-design",
+    "kind": "gate",
+    "notes": "Pending: design no-training route to test whether local positives transfer beyond original source while separating controls",
+    "priority": 14690,
     "status": "pending",
-    "success_artifact": "docs/m1472-paper-route-positive-neighborhood-bounded-replay-smoke.md"
+    "success_artifact": "docs/m1474-paper-route-source-diverse-pressure-design.md"
   },
-  "updated_at_utc": "20260529T064000Z"
+  "updated_at_utc": "20260529T065000Z"
 }
