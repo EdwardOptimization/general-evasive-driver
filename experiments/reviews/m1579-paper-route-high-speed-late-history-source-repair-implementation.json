@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1579 high-speed/late repair produced 267 replay-ok anchors but zero matched-current hidden-divergent donor pairs from 24894 screen candidates",
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "current-frame substitution controls are missing"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T152644Z",
+  "hypothesis": "Matched-current hidden-divergent high-speed/late source repair can find anchors where wrong-history interventions affect closed-loop outcome.",
+  "lineage": {
+    "blocked_by": [
+      "M1578 design has not yet been implemented"
+    ],
+    "derived_from": [
+      "m1578-paper-route-high-speed-late-history-source-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
+      "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "implement bounded high-speed/late history-source repair with matched-current hidden-divergent donor screen"
+    ],
+    "supersedes": [
+      "generic M1576 source generation for high-speed/late"
+    ]
+  },
+  "milestone": "m1579-paper-route-high-speed-late-history-source-repair-implementation",
+  "next_blocker": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "high_speed_late_history_source_repair_smoke_matched_pair_shortfall_route_to_audit",
+  "public_gates": [
+    "M1579 must implement the M1578 bounded high-speed/late source repair",
+    "M1579 must use matched-current hidden-divergent donor screen",
+    "M1579 must use history-sensitive acceptance and current-frame controls",
+    "M1579 must write high-speed/late source, pair, intervention, and summary artifacts",
+    "M1579 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "high_speed_late_history_source_repair_smoke_matched_pair_shortfall_route_to_audit",
+    "milestone": "m1579-paper-route-high-speed-late-history-source-repair-implementation",
+    "reason": "M1579 high-speed/late repair produced 267 replay-ok anchors but zero matched-current hidden-divergent donor pairs from 24894 screen candidates",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "high-speed/late source repair module exists",
+    "focused tests cover source modes, donor screen, and summary gates",
+    "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json exists",
+    "history_interventions_executed is true",
+    "current-frame substitution controls are included",
+    "high-speed/late source-family metrics are reported",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

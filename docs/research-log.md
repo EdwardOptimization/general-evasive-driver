@@ -24614,3 +24614,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json`
 - next: `m1579-paper-route-high-speed-late-history-source-repair-implementation`
+
+## M1579 Paper-Route High-Speed/Late History-Source Repair Implementation
+
+- status: completed
+- decision: `high_speed_late_history_source_repair_smoke_matched_pair_shortfall_route_to_audit`
+- artifact: `runs/m1579_high_speed_late_history_source_repair_smoke/summary.json`
+- doc: `docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md`
+- code: `src/autodrift/high_speed_late_history_source_repair.py`
+- tests: `tests/test_high_speed_late_history_source_repair.py`
+- focused test result: `3 passed`
+- source spec count: 360
+- anchor candidate count: 384
+- replay-ok anchor count: 267
+- target anchor count: 192
+- donor pair count: 0
+- matched-current hidden-divergent pair count: 0
+- strict matched pair count: 0
+- fallback matched pair count: 0
+- screen rejected count: 24894
+- intervention row count: 0
+- high-speed-or-late history-sensitive anchor count: 0
+- high-speed history-sensitive count: 0
+- late-reveal history-sensitive count: 0
+- passes public smoke gates: false
+- passes evidence-quality targets: false
+- null result classification: `matched_pair_shortfall`
+- guardrail violation count: 0
+- diagnostic: high-speed/late pressure sources produced replay-ok anchors but no pair satisfied the pre-registered matched-current/hidden-divergent screen; a looser response/action L2 <= 0.75 and hidden L2 >= 2.0 diagnostic would produce 15 pairs but was not pre-registered and is not a pass
+- interpretation: this is a source/pairability failure, not self-ID evidence and not a training-ready result
+- history interventions executed: true, but intervention row count is 0 because no accepted pairs existed
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.json`
+- next: `m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair`

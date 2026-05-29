@@ -1,0 +1,192 @@
+{
+  "id": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+      "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+      "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+      "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json",
+      "docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.json",
+      "experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize recoverable active-set generation branch after targeted third-source, history intervention, history-sensitive miner, and high-speed/late repair"
+    ],
+    "derived_from": [
+      "m1569-paper-route-recoverable-active-set-generation-branch-synthesis",
+      "m1579-paper-route-high-speed-late-history-source-repair-implementation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1579",
+      "M1579 produced zero matched-current hidden-divergent high-speed/late donor pairs"
+    ],
+    "supersedes": [
+      "another high-speed/late source repair without synthesis",
+      "direct materialization after M1576/M1579",
+      "direct training after M1576/M1579"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+  "public_gates": [
+    "M1580 must synthesize M1570-M1579 evidence since the last branch synthesis",
+    "M1580 must separate active-set source-generation success from source-diverse self-ID evidence",
+    "M1580 must summarize M1576 positives and M1579 matched-pair shortfall",
+    "M1580 must assess public-gate overfit risk",
+    "M1580 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M1580 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax M1579 screens after result",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "S_recoverable_active_set_generation_after_high_speed_late_repair",
+    "evidence_increment": "synthesizes M1570-M1579 after source-diverse flip anchors, history interventions, history-sensitive mining, and the high-speed/late matched-pair shortfall",
+    "claim_scope": "branch synthesis only; no implementation smoke, simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1576 clean positives as source-diverse paper-level self-ID evidence",
+      "stop if synthesis ignores M1579 matched-pair shortfall",
+      "stop if synthesis routes to another narrow high-speed/late repair without a new branch",
+      "stop if synthesis routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "pivot to a pairability-first source-generation branch if matched-current hidden-divergent pairs are the blocker",
+      "stop if the current P0 simulator/source families cannot support source-diverse history evidence",
+      "keep M1576/M1579 as public diagnostic evidence only until a new branch proves pairability"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M1579 and the one allowed high-speed/late repair failed at matched-pair screening",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "recoverable active-set generation branch synthesis after high-speed/late repair",
+    "admission_evidence": [
+      "M1570 produced source-diverse local flip anchors",
+      "M1573/M1576 proved the history-intervention harness and history-sensitive miner are live",
+      "M1576 positives remain limited to two families and high-speed/late stayed null",
+      "M1579 high-speed/late repair failed at matched-pair screening",
+      "workflow synthesis cadence is due"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1580 synthesis document",
+      "M1580 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis pivots to a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is explicit",
+      "next branch is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1580 synthesizes public diagnostics; M1576 positives included controls, but high-speed/late had no matched-pair evidence.",
+    "history_necessity_tests": [
+      "M1573 source-diverse flip-anchor history interventions",
+      "M1576 history-sensitive active-set miner",
+      "M1579 matched-current hidden-divergent high-speed/late pair screen"
+    ],
+    "temporal_evidence_window": "M1570-M1579 recoverable active-set generation branch after M1569 synthesis.",
+    "negative_result_policy": "If synthesis pivots, keep current positives as public diagnostic evidence and require a pairability-first branch before materialization.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1579, the recoverable active-set generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
+  "success_criteria": [
+    "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md exists",
+    "synthesis summarizes M1570-M1579 evidence",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats M1576/M1579 as level3 self-ID evidence",
+    "synthesis ignores M1579 matched-pair shortfall",
+    "synthesis routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+    "runs/m1573_source_diverse_flip_anchor_history_intervention_smoke/summary.json",
+    "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
+    "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json",
+    "docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md"
+  ],
+  "decision_rule": "M1580 passes if it synthesizes M1570-M1579 and chooses the next route before another implementation milestone.",
+  "next_blocker": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair"
+}

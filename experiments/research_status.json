@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1587,
+    "completed": 1588,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
+    "command_log": "docs/m1579-paper-route-high-speed-late-history-source-repair-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1579_high_speed_late_history_source_repair_smoke",
     "status": "completed",
-    "task_id": "m1578-paper-route-high-speed-late-history-source-repair-design"
+    "task_id": "m1579-paper-route-high-speed-late-history-source-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json",
-    "hypothesis": "Matched-current hidden-divergent high-speed/late source repair can find anchors where wrong-history interventions affect closed-loop outcome.",
-    "id": "m1579-paper-route-high-speed-late-history-source-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement one bounded high-speed/late history-source repair with mandatory audit",
-    "priority": 15740,
+    "command": "see experiments/manifests/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.json",
+    "hypothesis": "After M1579, the recoverable active-set generation branch has enough positive and negative evidence to require synthesis before any further implementation milestone.",
+    "id": "m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1570-M1579 after high-speed/late matched-pair shortfall",
+    "priority": 15750,
     "status": "pending",
-    "success_artifact": "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
+    "success_artifact": "docs/m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair.md"
   },
-  "updated_at_utc": "20260529T151215Z"
+  "updated_at_utc": "20260529T152140Z"
 }

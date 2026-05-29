@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1578-paper-route-high-speed-late-history-source-repair-design
+m1579-paper-route-high-speed-late-history-source-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1579-paper-route-high-speed-late-history-source-repair-implementation
+m1580-paper-route-recoverable-active-set-generation-branch-synthesis-after-high-speed-late-repair
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -429,6 +429,11 @@ pressure sources plus a matched-current/hidden-divergent donor screen, keep the
 M1576 history-vs-control acceptance rule, and route to audit before any corpus
 export. If high-speed/late remain null after the bounded implementation, the
 branch should synthesize rather than continue narrow repair loops.
+M1579 implemented and ran the bounded high-speed/late repair. It produced `360`
+source specs, `384` anchors, and `267` replay-ok anchors, but the
+matched-current/hidden-divergent donor screen produced `0` accepted pairs from
+`24894` rejected screen candidates. No intervention rows were run. M1580 must
+synthesize the branch and decide the next route before any more implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
