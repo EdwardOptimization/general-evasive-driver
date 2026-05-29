@@ -1,0 +1,162 @@
+{
+  "id": "m1603-paper-route-contour-aware-source-rule-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1602_contour_aware_source_rule/summary.json",
+      "runs/m1602_contour_aware_source_rule/source_rule_summary.csv",
+      "runs/m1602_contour_aware_source_rule/primary_rule_rows.csv",
+      "runs/m1602_contour_aware_source_rule/diagnostic_rule_rows.csv",
+      "docs/m1602-paper-route-contour-aware-source-rule-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json"
+    ],
+    "parent_objective": [
+      "audit offline contour-aware source rule result before any replay design"
+    ],
+    "derived_from": [
+      "m1602-paper-route-contour-aware-source-rule-implementation"
+    ],
+    "blocked_by": [
+      "M1602 is an offline selector pass and does not itself admit replay or materialization"
+    ],
+    "supersedes": [
+      "direct replay from M1602 primary rows",
+      "training corpus export from M1602 primary rows",
+      "candidate materialization from contour-aware selected rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1603-paper-route-contour-aware-source-rule-result-audit.md",
+  "public_gates": [
+    "M1603 must audit M1602 as offline diagnostic evidence only",
+    "M1603 must summarize primary diagnostic and excluded row findings",
+    "M1603 must decide replay-design, synthesis, pivot, or stop before any replay",
+    "M1603 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "Q_contour_aware_source_rule_result_audit",
+    "evidence_increment": "audits offline source-rule pass and decides whether bounded replay design is justified",
+    "claim_scope": "result audit only; no replay, simulator rerun, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1602 as training or materialization evidence",
+      "stop if audit routes directly to replay without replay design",
+      "stop if audit ignores diagnostic dominated/control rows"
+    ],
+    "fallback_plan": [
+      "admit replay-design milestone if source-rule evidence supports it",
+      "stop if the selector is too public-row-specific",
+      "pivot to task/source redesign if the diagnostic evidence invalidates clean contour replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1602 offline source-rule selector passed and requires audit before replay design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware source rule result audit",
+    "admission_evidence": [
+      "M1602 passed offline source-rule gates with 144 primary rows, 39 clean rows, and 232 diagnostic rows"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not rerun simulator",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1603 audit document",
+      "M1603 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits replay design, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "diagnostic interpretation is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1603 audits offline source-rule diagnostics and cannot upgrade them to level3 self-identification.",
+    "history_necessity_tests": [
+      "M1602 primary rule pass",
+      "M1602 diagnostic exclusion counts",
+      "M1602 guardrail summary"
+    ],
+    "temporal_evidence_window": "M1602 offline source-rule rows over M1599 contour map.",
+    "negative_result_policy": "If M1602 is too narrow or diagnostic-heavy, stop or pivot instead of weakening standards.",
+    "allowed_claims": [
+      "public diagnostic audit and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1602's source-rule pass can justify or reject a bounded replay-design milestone before any replay.",
+  "success_criteria": [
+    "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md exists",
+    "audit summarizes M1602 primary diagnostic and excluded findings",
+    "audit decides replay-design, synthesis, pivot, or stop",
+    "training PPO promotion private holdout corpus export materialization replay and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1602 as materialization or level3 self-ID evidence",
+    "audit ignores diagnostic dominated/control rows",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes replay or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1603-paper-route-contour-aware-source-rule-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1602_contour_aware_source_rule/summary.json",
+    "docs/m1602-paper-route-contour-aware-source-rule-implementation.md"
+  ],
+  "decision_rule": "M1603 passes if it audits M1602 without weakening gates and chooses the next route before any replay or training.",
+  "next_blocker": "m1603-paper-route-contour-aware-source-rule-result-audit"
+}

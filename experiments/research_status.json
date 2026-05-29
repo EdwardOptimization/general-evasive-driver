@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1610,
+    "completed": 1611,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1601-paper-route-contour-aware-source-rule-design.md",
+    "command_log": "docs/m1602-paper-route-contour-aware-source-rule-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1602_contour_aware_source_rule",
     "status": "completed",
-    "task_id": "m1601-paper-route-contour-aware-source-rule-design"
+    "task_id": "m1602-paper-route-contour-aware-source-rule-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json",
-    "hypothesis": "An offline selector can implement the M1601 contour-aware source rule without replay or materialization.",
-    "id": "m1602-paper-route-contour-aware-source-rule-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement primary/diagnostic offline selector without replay",
-    "priority": 15970,
+    "command": "see experiments/manifests/m1603-paper-route-contour-aware-source-rule-result-audit.json",
+    "hypothesis": "M1602's source-rule pass can justify or reject a bounded replay-design milestone before any replay.",
+    "id": "m1603-paper-route-contour-aware-source-rule-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit offline selector result before any replay design",
+    "priority": 15980,
     "status": "pending",
-    "success_artifact": "runs/m1602_contour_aware_source_rule/summary.json"
+    "success_artifact": "docs/m1603-paper-route-contour-aware-source-rule-result-audit.md"
   },
-  "updated_at_utc": "20260529T171205Z"
+  "updated_at_utc": "20260529T171842Z"
 }

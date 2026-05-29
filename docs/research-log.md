@@ -25292,3 +25292,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1602-paper-route-contour-aware-source-rule-implementation.json`
 - next: `m1602-paper-route-contour-aware-source-rule-implementation`
+
+## M1602 Paper-Route Contour-Aware Source Rule Implementation
+
+- status: completed
+- decision: `contour_aware_source_rule_public_pass_route_to_audit`
+- artifact: `runs/m1602_contour_aware_source_rule/summary.json`
+- doc: `docs/m1602-paper-route-contour-aware-source-rule-implementation.md`
+- code: `src/autodrift/contour_aware_source_rule.py`
+- tests: `tests/test_contour_aware_source_rule.py`
+- focused test result: `3 passed`
+- input contour row count: 528
+- primary rule directed pair count: 144
+- primary source-edge count: 4
+- primary clean directed pair count: 39
+- primary clean source-edge count: 4
+- max primary clean source-edge share: 0.3333333333333333
+- endpoint-neighbor primary count: 0
+- negative diagnostic primary count: 0
+- mixed diagnostic primary count: 0
+- diagnostic directed pair count: 232
+- diagnostic dominated/control count: 81
+- excluded directed pair count: 152
+- passes public smoke gates: true
+- null result classification: `contour_aware_source_rule_public_pass`
+- replay started: false
+- history interventions executed: false
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1603-paper-route-contour-aware-source-rule-result-audit.json`
+- next: `m1603-paper-route-contour-aware-source-rule-result-audit`
