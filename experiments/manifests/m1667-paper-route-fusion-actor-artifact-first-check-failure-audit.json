@@ -158,6 +158,23 @@
     "runs/m1666_fusion_actor_artifact_replay_first_check/first_check_gate_summary.csv",
     "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
+    "decision": "fusion_actor_artifact_first_check_failure_audit_route_to_branch_synthesis",
+    "failure_taxonomy": [
+      "proof_washout",
+      "behavior_regression"
+    ],
+    "audited_run": "runs/m1666_fusion_actor_artifact_replay_first_check",
+    "primary_blocker": "behavior_regression",
+    "secondary_blocker": "proof_washout",
+    "lineage_invalid_count": 0,
+    "contract_violation_count": 0,
+    "metric_artifact_count": 0,
+    "route": "branch synthesis before repair",
+    "next_manifest": "experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json"
+  },
   "decision_rule": "M1667 passes if it audits the first-check failure and chooses a safe next route before repair or PPO.",
-  "next_blocker": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
+  "next_blocker": "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
 }

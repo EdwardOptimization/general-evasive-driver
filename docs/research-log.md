@@ -26710,3 +26710,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full-stack replay, PPO, repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json`
 - next: `m1667-paper-route-fusion-actor-artifact-first-check-failure-audit`
+
+## M1667 Paper-Route Fusion Actor Artifact First-Check Failure Audit
+
+- status: completed
+- decision: `fusion_actor_artifact_first_check_failure_audit_route_to_branch_synthesis`
+- artifact: `docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md`
+- audited run: `runs/m1666_fusion_actor_artifact_replay_first_check`
+- failure taxonomy: `proof_washout`, `behavior_regression`
+- primary blocker: `behavior_regression`
+- secondary blocker: `proof_washout`
+- lineage_invalid_count: `0`
+- contract_violation_count: `0`
+- metric_artifact_count: `0`
+- supported: M1666 is a clean negative showing exact-objective artifact materialization is insufficient for replay retention
+- falsified: fixed-public exact residual repair alone is enough to produce a replay-worthy checkpoint artifact
+- unsupported: repair design, PPO, full-stack replay, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json`
+- next: `m1668-paper-route-proposal-projection-artifact-branch-synthesis`

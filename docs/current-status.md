@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1666-paper-route-fusion-actor-artifact-replay-first-check
+m1667-paper-route-fusion-actor-artifact-first-check-failure-audit
 ```
 
 Current next task:
 
 ```text
-m1667-paper-route-fusion-actor-artifact-first-check-failure-audit
+m1668-paper-route-proposal-projection-artifact-branch-synthesis
 ```
 
-M1666 ran the first public replay checks for the M1663 objective-sanity
-artifact. Checkpoint checksum and P0 actor contract passed, but M183/M170 and
-M267/M264 both failed. The failure is cleanly classified as behavior/proof
-retention regression: wrong-history gap retention stayed true, but normal
-history behavior collapsed, so success-drop proof collapsed. The next task is
-M1667 failure audit before any repair, PPO, promotion, or private holdout.
+M1667 audited the M1666 first-check replay failure. The failure is real
+behavior/proof retention regression, not lineage, actor-contract, or metric
+artifact: checkpoint sanity passed, wrong-history gap retention stayed true, but
+normal-history behavior collapsed on M183/M170 and M267/M264. The next task is
+M1668 branch synthesis before any new repair, replay, PPO, promotion, or private
+holdout route.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

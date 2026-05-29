@@ -1,0 +1,186 @@
+{
+  "id": "m1668-paper-route-proposal-projection-artifact-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "proof_washout",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1659-paper-route-proposal-projection-repair-branch-synthesis.md",
+      "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md",
+      "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+      "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+      "docs/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md",
+      "docs/m1664-paper-route-fusion-actor-checkpoint-artifact-result-audit.md",
+      "docs/m1665-paper-route-fusion-actor-artifact-replay-gate-design.md",
+      "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
+      "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize proposal-projection artifact branch after first-check replay failure"
+    ],
+    "derived_from": [
+      "m1659-paper-route-proposal-projection-repair-branch-synthesis",
+      "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
+    ],
+    "blocked_by": [
+      "M1666 showed exact-residual artifact fails first public replay checks"
+    ],
+    "supersedes": [
+      "direct repair design after M1667",
+      "direct PPO after M1667",
+      "direct promotion after M1667",
+      "private holdout after M1667"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+  "public_gates": [
+    "M1668 must synthesize M1660-M1667 before another repair or artifact route",
+    "M1668 must answer required synthesis questions",
+    "M1668 must decide continue pivot stop or promote_to_next_branch",
+    "M1668 must explicitly account for behavior_regression and proof_washout",
+    "M1668 must keep PPO promotion private holdout actor-input changes and level3 claims blocked unless a later design admits them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run repair",
+    "do not run replay",
+    "do not run PPO",
+    "do not train",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not rerun artifact materialization",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "S_proposal_projection_artifact_branch_synthesis",
+    "evidence_increment": "synthesizes M1660-M1667 after exact-objective artifact failed first replay checks",
+    "claim_scope": "branch synthesis only; no repair, replay, PPO, training, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis ignores M1666 first-check replay failure",
+      "stop if synthesis routes directly to repair without explaining why behavior retention will be different",
+      "stop if synthesis treats fixed-public exact residual improvement as sufficient checkpoint evidence",
+      "stop if promotion or private holdout is admitted"
+    ],
+    "fallback_plan": [
+      "pivot to behavior-retention-constrained repair if synthesis finds the artifact route still useful",
+      "pivot to replay-aware projection if normal-branch retention can be expressed as a projection constraint",
+      "pivot to source refresh if public fixed tensors dominate",
+      "stop the artifact route if first-check failure invalidates the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1667 audits first-check failure and requests branch-level decision",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "proposal projection artifact branch synthesis",
+    "admission_evidence": [
+      "M1660-M1665 showed exact repair artifact route can be built",
+      "M1666 showed the artifact fails first replay checks",
+      "M1667 classified the failure as behavior/proof retention regression"
+    ],
+    "blocked_shortcuts": [
+      "do not run repair",
+      "do not run PPO",
+      "do not train",
+      "do not run replay",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1668 synthesis document",
+      "M1668 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1668 synthesizes public exact and replay evidence and does not prove level3 self-identification.",
+    "history_necessity_tests": [
+      "M1666 wrong-history gap retention passed but normal behavior failed; synthesis must not overclaim history necessity"
+    ],
+    "temporal_evidence_window": "M1660-M1667 public artifacts only.",
+    "negative_result_policy": "Preserve the M1666 negative result as evidence against exact-residual-only artifact promotion.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no repair, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1660-M1667 branch can be synthesized into a clear decision after exact-objective artifact materialization failed first replay checks.",
+  "success_criteria": [
+    "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and falsified claims are explicit",
+    "behavior_regression and proof_washout are summarized",
+    "public fixed-tensor overfit risk is assessed",
+    "next branch decision is explicit",
+    "repair PPO training promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1666 failure as a pass",
+    "synthesis routes directly to PPO promotion private holdout or paper evidence",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
+    "runs/m1666_fusion_actor_artifact_replay_first_check/summary.json"
+  ],
+  "decision_rule": "M1668 passes if it synthesizes the branch and chooses a route before repair PPO replay or promotion.",
+  "next_blocker": "m1668-paper-route-proposal-projection-artifact-branch-synthesis"
+}

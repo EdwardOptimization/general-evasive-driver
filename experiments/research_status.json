@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1675,
+    "completed": 1676,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1666-paper-route-fusion-actor-artifact-replay-first-check.md",
+      "command_log": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1666_fusion_actor_artifact_replay_first_check",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1666-paper-route-fusion-actor-artifact-replay-first-check"
+      "task_id": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.json",
-      "hypothesis": "The M1666 first-check replay failure can be audited as behavior/proof retention regression rather than lineage contract or metric failure.",
-      "id": "m1667-paper-route-fusion-actor-artifact-first-check-failure-audit",
+      "command": "see experiments/manifests/m1668-paper-route-proposal-projection-artifact-branch-synthesis.json",
+      "hypothesis": "The M1660-M1667 branch can be synthesized into a clear decision after exact-objective artifact materialization failed first replay checks.",
+      "id": "m1668-paper-route-proposal-projection-artifact-branch-synthesis",
       "kind": "gate",
-      "notes": "Pending: audit first-check failure before repair or PPO",
-      "priority": 16620,
+      "notes": "Pending: synthesize exact-repair artifact branch after first-check failure before any repair",
+      "priority": 16630,
       "status": "pending",
-      "success_artifact": "docs/m1667-paper-route-fusion-actor-artifact-first-check-failure-audit.md"
+      "success_artifact": "docs/m1668-paper-route-proposal-projection-artifact-branch-synthesis.md"
     },
-    "updated_at_utc": "20260529T221629Z"
+    "updated_at_utc": "20260529T221932Z"
 }
