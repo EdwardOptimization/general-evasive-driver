@@ -176,3 +176,38 @@ def test_projection_repair_reports_unreduced_zero_step_probe(tmp_path: Path) -> 
     assert summary["null_result_classification"] == "projection_residual_not_reduced"
     assert summary["positive_exact_residual_reduction_ratio"] == 0.0
     assert summary["repaired_checkpoint_written"] is False
+
+
+def test_damped_backtracking_projection_accepts_trusted_step(tmp_path: Path) -> None:
+    base_model = TinyRecurrentActor()
+    materialization_dir, checkpoint = _make_bundle(tmp_path, model=base_model, positive_count=4, diagnostic_count=2)
+
+    def loader(path: Path, device: str) -> TinyRecurrentActor:
+        del path, device
+        return copy.deepcopy(base_model)
+
+    run_dir = tmp_path / "run"
+    summary = run_contour_aware_exact_objective_projection_repair(
+        materialization_run_dir=materialization_dir,
+        checkpoint=checkpoint,
+        run_dir=run_dir,
+        expected_positive_count=4,
+        expected_diagnostic_count=2,
+        perturb_scale=0.02,
+        perturb_seed=17,
+        projection_mode="damped_backtracking",
+        max_projection_steps=10,
+        initial_step_fraction=0.25,
+        load_model_fn=loader,
+    )
+
+    assert summary["passes_public_smoke_gates"] is True
+    assert summary["projection_mode"] == "damped_backtracking"
+    assert summary["accepted_backtracking_step_count"] >= 1
+    assert summary["backtracking_candidate_count"] >= summary["accepted_backtracking_step_count"]
+    assert summary["projection_stop_reason"] == "target_reduction_reached"
+    assert summary["base_interpolation_used_for_repair"] is False
+    assert summary["repaired_actor_mean_l2_to_base"] <= summary["initial_actor_mean_l2_to_base"]
+    assert summary["positive_exact_residual_reduction_ratio"] >= 0.50
+    assert (run_dir / "projection_step_trace.csv").exists()
+    assert (run_dir / "backtracking_candidate_trace.csv").exists()

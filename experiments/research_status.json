@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1651,
+    "completed": 1652,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md",
+      "command_log": "docs/m1643-paper-route-contour-aware-damped-projection-repair-implementation.md",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1643_contour_aware_damped_projection_repair",
       "status": "completed",
-      "task_id": "m1642-paper-route-contour-aware-damped-projection-repair-design"
+      "task_id": "m1643-paper-route-contour-aware-damped-projection-repair-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1643-paper-route-contour-aware-damped-projection-repair-implementation.json",
-      "hypothesis": "A deterministic damped/backtracking actor_mean-only projection can reduce exact residual from the controlled M1636 scale_1e-3 perturbation without writing a checkpoint or violating role guardrails.",
-      "id": "m1643-paper-route-contour-aware-damped-projection-repair-implementation",
-      "kind": "objective_sanity",
-      "notes": "Pending: implement one bounded no-checkpoint damped/backtracking projection probe and route to audit",
-      "priority": 16380,
+      "command": "see experiments/manifests/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.json",
+      "hypothesis": "The M1643 damped projection pass can be audited as local exact-objective plumbing without overstating it as checkpoint, PPO, or closed-loop progress.",
+      "id": "m1644-paper-route-contour-aware-damped-projection-repair-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit local projection pass and decide checkpoint-artifact design PPO-proposal design stress-test synthesis pivot or stop",
+      "priority": 16390,
       "status": "pending",
-      "success_artifact": "runs/m1643_contour_aware_damped_projection_repair/summary.json"
+      "success_artifact": "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md"
     },
-    "updated_at_utc": "20260529T201945Z"
+    "updated_at_utc": "20260529T202657Z"
 }

@@ -185,6 +185,44 @@
     "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md",
     "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1643_contour_aware_damped_projection_repair/summary.json",
+    "doc": "docs/m1643-paper-route-contour-aware-damped-projection-repair-implementation.md",
+    "code": "src/autodrift/contour_aware_exact_objective_projection_repair.py",
+    "tests": "tests/test_contour_aware_exact_objective_projection_repair.py",
+    "decision": "contour_aware_damped_projection_public_pass_route_to_audit",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "focused_test_result": "3 passed",
+    "projection_mode": "damped_backtracking",
+    "initial_positive_exact_residual_mean": 0.0003143580979667604,
+    "repaired_positive_exact_residual_mean": 0.00003198102058377117,
+    "positive_exact_residual_reduction": 0.00028237707738298923,
+    "positive_exact_residual_reduction_ratio": 0.8982656378486144,
+    "initial_positive_action_l2_max": 0.015652701258659363,
+    "repaired_positive_action_l2_max": 0.005414916668087244,
+    "initial_actor_mean_l2_to_base": 0.019672319293022156,
+    "repaired_actor_mean_l2_to_base": 0.019625606015324593,
+    "accepted_backtracking_step_count": 1,
+    "backtracking_candidate_count": 3,
+    "projection_stop_reason": "target_reduction_reached",
+    "base_interpolation_used_for_repair": false,
+    "non_actor_mean_parameter_delta_max": 0.0,
+    "repaired_checkpoint_written": false,
+    "guardrail_violation_count": 0,
+    "passes_public_smoke_gates": true,
+    "null_result_classification": "contour_aware_exact_objective_projection_repair_public_pass",
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.json"
+  },
   "decision_rule": "M1643 passes if damped projection reduces exact residual while writing no checkpoint and preserving guardrails.",
-  "next_blocker": "m1643-paper-route-contour-aware-damped-projection-repair-implementation"
+  "next_blocker": "m1644-paper-route-contour-aware-damped-projection-repair-result-audit"
 }

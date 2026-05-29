@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1642-paper-route-contour-aware-damped-projection-repair-design
+m1643-paper-route-contour-aware-damped-projection-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1643-paper-route-contour-aware-damped-projection-repair-implementation
+m1644-paper-route-contour-aware-damped-projection-repair-result-audit
 ```
 
-M1642 designed the next projection recipe after the M1640/M1641 negative
-result: a deterministic normalized full-batch damped/backtracking update over
-`actor_mean.weight` and `actor_mean.bias` only, with diagnostics zero-weight,
-donor-plus actions excluded, no base-interpolation repair, no checkpoint
-artifact, and exact residual/trust-region acceptance rules. M1643 is admitted
-as exactly one bounded no-checkpoint implementation. PPO, closed-loop
-training/evaluation, promotion, private holdout, actor-input changes, and
-level3 self-ID claims remain blocked.
+M1643 implemented the M1642 damped/backtracking projection and passed the
+public objective-sanity gate. It reduced positive exact residual from
+`0.0003143580979667604` to `0.00003198102058377117` with one accepted
+backtracking step, a reduction ratio of `0.8982656378486144`, while preserving
+actor_mean trust-region non-expansion and writing no checkpoint. The next task
+is M1644 audit before any checkpoint artifact, PPO-proposal repair,
+closed-loop evaluation, promotion, private holdout, actor-input change, or
+level3 self-ID claim.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -26199,3 +26199,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: projection result, checkpoint artifact generation, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1643-paper-route-contour-aware-damped-projection-repair-implementation.json`
 - next: `m1643-paper-route-contour-aware-damped-projection-repair-implementation`
+
+## M1643 Paper-Route Contour-Aware Damped Projection Repair Implementation
+
+- status: completed
+- decision: `contour_aware_damped_projection_public_pass_route_to_audit`
+- artifact: `runs/m1643_contour_aware_damped_projection_repair/summary.json`
+- doc: `docs/m1643-paper-route-contour-aware-damped-projection-repair-implementation.md`
+- focused tests: `3 passed in 3.11s`
+- projection mode: `damped_backtracking`
+- initial positive exact residual mean: `0.0003143580979667604`
+- repaired positive exact residual mean: `0.00003198102058377117`
+- positive exact residual reduction ratio: `0.8982656378486144`
+- initial positive action L2 max: `0.015652701258659363`
+- repaired positive action L2 max: `0.005414916668087244`
+- initial actor_mean L2 to base: `0.019672319293022156`
+- repaired actor_mean L2 to base: `0.019625606015324593`
+- accepted backtracking step count: `1`
+- backtracking candidate count: `3`
+- accepted factor: `0.25`
+- accepted step L2: `0.0012295199558138847`
+- projection stop reason: `target_reduction_reached`
+- base interpolation used for repair: false
+- non-actor_mean parameter delta max: `0.0`
+- repaired checkpoint written: false
+- guardrail violation count: `0`
+- passes public smoke gates: true
+- null result classification: `contour_aware_exact_objective_projection_repair_public_pass`
+- supported: damped projection repairs the controlled actor_mean perturbation under exact objective and no-checkpoint guardrails
+- unsupported: checkpoint artifact generation, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.json`
+- next: `m1644-paper-route-contour-aware-damped-projection-repair-result-audit`

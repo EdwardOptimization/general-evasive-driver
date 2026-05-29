@@ -36,6 +36,12 @@ DEFAULT_PERTURB_SCALE = 1e-3
 DEFAULT_PERTURB_SEED = 1639
 DEFAULT_REPAIR_STEPS = 25
 DEFAULT_LEARNING_RATE = 1e-3
+PROJECTION_MODE_ADAM = "adam"
+PROJECTION_MODE_DAMPED_BACKTRACKING = "damped_backtracking"
+DEFAULT_PROJECTION_MODE = PROJECTION_MODE_ADAM
+DEFAULT_MAX_PROJECTION_STEPS = 10
+DEFAULT_INITIAL_STEP_FRACTION = 0.25
+DEFAULT_BACKTRACKING_FACTORS = (1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625)
 MIN_INITIAL_EXACT_RESIDUAL = 1e-8
 MIN_REDUCTION_RATIO = 0.50
 TRUST_REGION_TOLERANCE = 1e-12
@@ -189,6 +195,40 @@ def _actor_mean_l2(left: Any, right: Any) -> float:
     return float(torch.linalg.vector_norm(torch.cat(values)).item())
 
 
+def _actor_mean_named_parameters(model: Any) -> list[tuple[str, torch.nn.Parameter]]:
+    return [(name, parameter) for name, parameter in model.named_parameters() if name in {"actor_mean.weight", "actor_mean.bias"}]
+
+
+def _actor_mean_vector(model: Any) -> torch.Tensor:
+    parts = [parameter.detach().reshape(-1) for _, parameter in _actor_mean_named_parameters(model)]
+    if not parts:
+        raise ValueError("model has no actor_mean parameters")
+    return torch.cat(parts)
+
+
+def _actor_mean_grad_vector(model: Any) -> torch.Tensor:
+    parts: list[torch.Tensor] = []
+    for _, parameter in _actor_mean_named_parameters(model):
+        if parameter.grad is None:
+            parts.append(torch.zeros_like(parameter).reshape(-1))
+        else:
+            parts.append(parameter.grad.detach().reshape(-1))
+    if not parts:
+        raise ValueError("model has no actor_mean parameters")
+    return torch.cat(parts)
+
+
+def _set_actor_mean_vector(model: Any, vector: torch.Tensor) -> None:
+    offset = 0
+    with torch.no_grad():
+        for _, parameter in _actor_mean_named_parameters(model):
+            count = parameter.numel()
+            parameter.copy_(vector[offset : offset + count].reshape_as(parameter).to(device=parameter.device, dtype=parameter.dtype))
+            offset += count
+    if offset != int(vector.numel()):
+        raise ValueError("actor_mean vector length mismatch")
+
+
 def _non_actor_mean_delta_max(
     left: Any,
     snapshots: Mapping[str, torch.Tensor],
@@ -237,6 +277,50 @@ def _repair_trace_row(
     }
 
 
+def _damped_step_trace_row(
+    *,
+    step: int,
+    positive_metrics: Mapping[str, float],
+    actor_mean_l2_to_base: float,
+    grad_norm: float,
+    accepted_factor: float | None,
+    accepted_step_l2: float | None,
+    stop_reason: str,
+) -> dict[str, Any]:
+    return {
+        "step": step,
+        "positive_exact_residual_mean": positive_metrics["exact_residual_mean"],
+        "positive_policy_action_residual_l2_max": positive_metrics["policy_action_residual_l2_max"],
+        "actor_mean_l2_to_base": actor_mean_l2_to_base,
+        "grad_norm": grad_norm,
+        "accepted_factor": "" if accepted_factor is None else accepted_factor,
+        "accepted_step_l2": "" if accepted_step_l2 is None else accepted_step_l2,
+        "stop_reason": stop_reason,
+    }
+
+
+def _backtracking_candidate_row(
+    *,
+    step: int,
+    factor: float,
+    step_l2: float,
+    positive_metrics: Mapping[str, float],
+    actor_mean_l2_to_base: float,
+    accepted: bool,
+    rejection_reason: str,
+) -> dict[str, Any]:
+    return {
+        "step": step,
+        "factor": factor,
+        "step_l2": step_l2,
+        "positive_exact_residual_mean": positive_metrics["exact_residual_mean"],
+        "positive_policy_action_residual_l2_max": positive_metrics["policy_action_residual_l2_max"],
+        "actor_mean_l2_to_base": actor_mean_l2_to_base,
+        "accepted": accepted,
+        "rejection_reason": rejection_reason,
+    }
+
+
 def _phase_row(
     *,
     phase: str,
@@ -265,6 +349,7 @@ def _guardrail_rows(summary: Mapping[str, Any]) -> list[dict[str, Any]]:
         "donor_plus_action_used_as_loss_target",
         "checkpoint_weights_mutated",
         "non_actor_mean_parameter_changed",
+        "base_interpolation_used_for_repair",
         *FORBIDDEN_GUARDRAILS.keys(),
     ]
     return [{"guardrail": key, "violated": bool(summary.get(key, False)), "value": summary.get(key, False)} for key in keys]
@@ -282,6 +367,10 @@ def run_contour_aware_exact_objective_projection_repair(
     perturb_seed: int = DEFAULT_PERTURB_SEED,
     repair_steps: int = DEFAULT_REPAIR_STEPS,
     learning_rate: float = DEFAULT_LEARNING_RATE,
+    projection_mode: str = DEFAULT_PROJECTION_MODE,
+    max_projection_steps: int = DEFAULT_MAX_PROJECTION_STEPS,
+    initial_step_fraction: float = DEFAULT_INITIAL_STEP_FRACTION,
+    backtracking_factors: Sequence[float] = DEFAULT_BACKTRACKING_FACTORS,
     load_model_fn: LoadModelFunction | None = None,
 ) -> dict[str, Any]:
     """Run the M1640 actor_mean-only projection probe without writing a checkpoint."""
@@ -340,10 +429,6 @@ def run_contour_aware_exact_objective_projection_repair(
     )
     initial_actor_mean_l2_to_base = _actor_mean_l2(candidate, base_model)
 
-    optimizer = torch.optim.Adam(
-        [parameter for parameter in candidate.parameters() if parameter.requires_grad],
-        lr=float(learning_rate),
-    )
     best_snapshots = _named_parameter_snapshots(candidate)
     best_positive_metrics = dict(initial_positive_metrics)
     best_actor_mean_l2_to_base = initial_actor_mean_l2_to_base
@@ -356,54 +441,218 @@ def run_contour_aware_exact_objective_projection_repair(
             actor_mean_l2_to_base=initial_actor_mean_l2_to_base,
         )
     ]
+    projection_step_rows: list[dict[str, Any]] = [
+        _damped_step_trace_row(
+            step=0,
+            positive_metrics=initial_positive_metrics,
+            actor_mean_l2_to_base=initial_actor_mean_l2_to_base,
+            grad_norm=0.0,
+            accepted_factor=None,
+            accepted_step_l2=None,
+            stop_reason="initial",
+        )
+    ]
+    backtracking_candidate_rows: list[dict[str, Any]] = []
     grad_norm_max = 0.0
+    accepted_backtracking_step_count = 0
+    base_interpolation_used_for_repair = False
+    base_interpolation_diagnostic_used_for_repair = False
+    projection_stop_reason = "not_started"
 
-    for step in range(1, int(repair_steps) + 1):
-        optimizer.zero_grad(set_to_none=True)
-        loss = _loss_from_feature_bundle(
-            model=candidate,
-            correct_features=positive_correct_features,
-            wrong_features=positive_wrong_features,
-            preferred_action=positive_preferred,
-            wrong_history_action=positive_wrong,
-            sep_margin=sep_margin,
+    if projection_mode == PROJECTION_MODE_ADAM:
+        optimizer = torch.optim.Adam(
+            [parameter for parameter in candidate.parameters() if parameter.requires_grad],
+            lr=float(learning_rate),
         )
-        loss.backward()
-        current_grad_norm = _grad_norm(candidate)
-        grad_norm_max = max(grad_norm_max, current_grad_norm)
-        optimizer.step()
-        positive_metrics = _evaluate_feature_bundle(
-            model=candidate,
-            correct_features=positive_correct_features,
-            wrong_features=positive_wrong_features,
-            preferred_action=positive_preferred,
-            wrong_history_action=positive_wrong,
-            sep_margin=sep_margin,
-        )
-        actor_mean_l2_to_base = _actor_mean_l2(candidate, base_model)
-        trace_rows.append(
-            _repair_trace_row(
-                step=step,
-                loss=float(loss.detach().cpu().item()),
-                grad_norm=current_grad_norm,
-                positive_metrics=positive_metrics,
-                actor_mean_l2_to_base=actor_mean_l2_to_base,
+        projection_stop_reason = "adam_completed"
+        for step in range(1, int(repair_steps) + 1):
+            optimizer.zero_grad(set_to_none=True)
+            loss = _loss_from_feature_bundle(
+                model=candidate,
+                correct_features=positive_correct_features,
+                wrong_features=positive_wrong_features,
+                preferred_action=positive_preferred,
+                wrong_history_action=positive_wrong,
+                sep_margin=sep_margin,
             )
-        )
-        improves_exact = positive_metrics["exact_residual_mean"] < best_positive_metrics["exact_residual_mean"]
-        ties_exact = math.isclose(
-            positive_metrics["exact_residual_mean"],
-            best_positive_metrics["exact_residual_mean"],
-            rel_tol=0.0,
-            abs_tol=1e-15,
-        )
-        improves_trust = actor_mean_l2_to_base < best_actor_mean_l2_to_base
-        if actor_mean_l2_to_base <= initial_actor_mean_l2_to_base + TRUST_REGION_TOLERANCE and (
-            improves_exact or (ties_exact and improves_trust)
-        ):
+            loss.backward()
+            current_grad_norm = _grad_norm(candidate)
+            grad_norm_max = max(grad_norm_max, current_grad_norm)
+            optimizer.step()
+            positive_metrics = _evaluate_feature_bundle(
+                model=candidate,
+                correct_features=positive_correct_features,
+                wrong_features=positive_wrong_features,
+                preferred_action=positive_preferred,
+                wrong_history_action=positive_wrong,
+                sep_margin=sep_margin,
+            )
+            actor_mean_l2_to_base = _actor_mean_l2(candidate, base_model)
+            trace_rows.append(
+                _repair_trace_row(
+                    step=step,
+                    loss=float(loss.detach().cpu().item()),
+                    grad_norm=current_grad_norm,
+                    positive_metrics=positive_metrics,
+                    actor_mean_l2_to_base=actor_mean_l2_to_base,
+                )
+            )
+            improves_exact = positive_metrics["exact_residual_mean"] < best_positive_metrics["exact_residual_mean"]
+            ties_exact = math.isclose(
+                positive_metrics["exact_residual_mean"],
+                best_positive_metrics["exact_residual_mean"],
+                rel_tol=0.0,
+                abs_tol=1e-15,
+            )
+            improves_trust = actor_mean_l2_to_base < best_actor_mean_l2_to_base
+            if actor_mean_l2_to_base <= initial_actor_mean_l2_to_base + TRUST_REGION_TOLERANCE and (
+                improves_exact or (ties_exact and improves_trust)
+            ):
+                best_snapshots = _named_parameter_snapshots(candidate)
+                best_positive_metrics = dict(positive_metrics)
+                best_actor_mean_l2_to_base = actor_mean_l2_to_base
+    elif projection_mode == PROJECTION_MODE_DAMPED_BACKTRACKING:
+        current_positive_metrics = dict(initial_positive_metrics)
+        current_actor_mean_l2_to_base = initial_actor_mean_l2_to_base
+        base_step_l2 = float(initial_step_fraction) * float(initial_actor_mean_l2_to_base)
+        projection_stop_reason = "max_projection_steps_reached"
+        for step in range(1, int(max_projection_steps) + 1):
+            candidate.zero_grad(set_to_none=True)
+            loss = _loss_from_feature_bundle(
+                model=candidate,
+                correct_features=positive_correct_features,
+                wrong_features=positive_wrong_features,
+                preferred_action=positive_preferred,
+                wrong_history_action=positive_wrong,
+                sep_margin=sep_margin,
+            )
+            loss.backward()
+            grad_vector = _actor_mean_grad_vector(candidate)
+            grad_norm_tensor = torch.linalg.vector_norm(grad_vector.float())
+            current_grad_norm = float(grad_norm_tensor.detach().cpu().item())
+            grad_norm_max = max(grad_norm_max, current_grad_norm)
+            if not math.isfinite(current_grad_norm) or current_grad_norm <= 0.0:
+                projection_stop_reason = "gradient_null_or_nonfinite"
+                projection_step_rows.append(
+                    _damped_step_trace_row(
+                        step=step,
+                        positive_metrics=current_positive_metrics,
+                        actor_mean_l2_to_base=current_actor_mean_l2_to_base,
+                        grad_norm=current_grad_norm,
+                        accepted_factor=None,
+                        accepted_step_l2=None,
+                        stop_reason=projection_stop_reason,
+                    )
+                )
+                break
+            current_vector = _actor_mean_vector(candidate).detach().clone()
+            direction = -grad_vector / torch.clamp(grad_norm_tensor.to(dtype=grad_vector.dtype), min=torch.finfo(grad_vector.dtype).eps)
+            accepted_vector: torch.Tensor | None = None
+            accepted_metrics: dict[str, float] | None = None
+            accepted_l2: float | None = None
+            accepted_factor: float | None = None
+            accepted_step_l2: float | None = None
+            for factor in backtracking_factors:
+                step_l2 = float(base_step_l2) * float(factor)
+                proposal_vector = current_vector + step_l2 * direction
+                _set_actor_mean_vector(candidate, proposal_vector)
+                proposal_metrics = _evaluate_feature_bundle(
+                    model=candidate,
+                    correct_features=positive_correct_features,
+                    wrong_features=positive_wrong_features,
+                    preferred_action=positive_preferred,
+                    wrong_history_action=positive_wrong,
+                    sep_margin=sep_margin,
+                )
+                proposal_l2 = _actor_mean_l2(candidate, base_model)
+                finite_candidate = math.isfinite(proposal_metrics["exact_residual_mean"]) and math.isfinite(
+                    proposal_metrics["policy_action_residual_l2_max"]
+                )
+                improves_exact = proposal_metrics["exact_residual_mean"] < current_positive_metrics["exact_residual_mean"]
+                trust_current = proposal_l2 <= current_actor_mean_l2_to_base + TRUST_REGION_TOLERANCE
+                trust_initial = proposal_l2 <= initial_actor_mean_l2_to_base + TRUST_REGION_TOLERANCE
+                accepted = bool(finite_candidate and improves_exact and trust_current and trust_initial)
+                if not finite_candidate:
+                    rejection_reason = "nonfinite_candidate"
+                elif not improves_exact:
+                    rejection_reason = "residual_not_reduced"
+                elif not trust_current:
+                    rejection_reason = "current_trust_region_expansion"
+                elif not trust_initial:
+                    rejection_reason = "initial_trust_region_expansion"
+                else:
+                    rejection_reason = ""
+                backtracking_candidate_rows.append(
+                    _backtracking_candidate_row(
+                        step=step,
+                        factor=float(factor),
+                        step_l2=step_l2,
+                        positive_metrics=proposal_metrics,
+                        actor_mean_l2_to_base=proposal_l2,
+                        accepted=accepted,
+                        rejection_reason=rejection_reason,
+                    )
+                )
+                if accepted:
+                    accepted_vector = proposal_vector.detach().clone()
+                    accepted_metrics = dict(proposal_metrics)
+                    accepted_l2 = proposal_l2
+                    accepted_factor = float(factor)
+                    accepted_step_l2 = step_l2
+                    break
+            if accepted_vector is None or accepted_metrics is None or accepted_l2 is None:
+                _set_actor_mean_vector(candidate, current_vector)
+                projection_stop_reason = "no_backtracking_candidate_accepted"
+                projection_step_rows.append(
+                    _damped_step_trace_row(
+                        step=step,
+                        positive_metrics=current_positive_metrics,
+                        actor_mean_l2_to_base=current_actor_mean_l2_to_base,
+                        grad_norm=current_grad_norm,
+                        accepted_factor=None,
+                        accepted_step_l2=None,
+                        stop_reason=projection_stop_reason,
+                    )
+                )
+                break
+            _set_actor_mean_vector(candidate, accepted_vector)
+            accepted_backtracking_step_count += 1
+            current_positive_metrics = dict(accepted_metrics)
+            current_actor_mean_l2_to_base = float(accepted_l2)
             best_snapshots = _named_parameter_snapshots(candidate)
-            best_positive_metrics = dict(positive_metrics)
-            best_actor_mean_l2_to_base = actor_mean_l2_to_base
+            best_positive_metrics = dict(current_positive_metrics)
+            best_actor_mean_l2_to_base = current_actor_mean_l2_to_base
+            projection_step_rows.append(
+                _damped_step_trace_row(
+                    step=step,
+                    positive_metrics=current_positive_metrics,
+                    actor_mean_l2_to_base=current_actor_mean_l2_to_base,
+                    grad_norm=current_grad_norm,
+                    accepted_factor=accepted_factor,
+                    accepted_step_l2=accepted_step_l2,
+                    stop_reason="accepted",
+                )
+            )
+            trace_rows.append(
+                _repair_trace_row(
+                    step=step,
+                    loss=float(loss.detach().cpu().item()),
+                    grad_norm=current_grad_norm,
+                    positive_metrics=current_positive_metrics,
+                    actor_mean_l2_to_base=current_actor_mean_l2_to_base,
+                )
+            )
+            reduction = initial_positive_metrics["exact_residual_mean"] - current_positive_metrics["exact_residual_mean"]
+            reduction_ratio = (
+                reduction / initial_positive_metrics["exact_residual_mean"]
+                if initial_positive_metrics["exact_residual_mean"] > 0.0
+                else 0.0
+            )
+            if reduction_ratio >= MIN_REDUCTION_RATIO:
+                projection_stop_reason = "target_reduction_reached"
+                break
+    else:
+        raise ValueError(f"unknown projection_mode: {projection_mode}")
 
     _load_named_parameter_snapshots(candidate, best_snapshots)
     repaired_positive_metrics = _evaluate_feature_bundle(
@@ -446,6 +695,7 @@ def run_contour_aware_exact_objective_projection_repair(
         "donor_plus_action_used_as_loss_target": donor_plus_action_used_as_loss_target,
         "checkpoint_weights_mutated": bool(checksum_before != checksum_after),
         "non_actor_mean_parameter_changed": non_actor_mean_parameter_changed,
+        "base_interpolation_used_for_repair": bool(base_interpolation_used_for_repair),
     }
     guardrail_violation_count = sum(1 for value in guardrail_values.values() if bool(value))
 
@@ -459,6 +709,15 @@ def run_contour_aware_exact_objective_projection_repair(
         "perturb_seed": int(perturb_seed),
         "repair_steps": int(repair_steps),
         "learning_rate": float(learning_rate),
+        "projection_mode": projection_mode,
+        "max_projection_steps": int(max_projection_steps),
+        "initial_step_fraction": float(initial_step_fraction),
+        "backtracking_factor_count": len(tuple(backtracking_factors)),
+        "accepted_backtracking_step_count": int(accepted_backtracking_step_count),
+        "backtracking_candidate_count": len(backtracking_candidate_rows),
+        "projection_stop_reason": projection_stop_reason,
+        "base_interpolation_used_for_repair": bool(base_interpolation_used_for_repair),
+        "base_interpolation_diagnostic_used_for_repair": bool(base_interpolation_diagnostic_used_for_repair),
         "positive_policy_target_count": len(positive_rows),
         "diagnostic_policy_guardrail_count": len(diagnostic_rows),
         "positive_observation_shape": list(positive_arrays["observation"].shape),
@@ -492,6 +751,11 @@ def run_contour_aware_exact_objective_projection_repair(
         and _float(summary["repaired_positive_exact_residual_mean"]) < _float(summary["initial_positive_exact_residual_mean"])
         and _float(summary["positive_exact_residual_reduction_ratio"]) >= MIN_REDUCTION_RATIO
         and _float(summary["repaired_actor_mean_l2_to_base"]) <= _float(summary["initial_actor_mean_l2_to_base"]) + TRUST_REGION_TOLERANCE
+        and (
+            projection_mode != PROJECTION_MODE_DAMPED_BACKTRACKING
+            or int(summary["accepted_backtracking_step_count"]) >= 1
+        )
+        and not bool(summary["base_interpolation_used_for_repair"])
         and _float(summary["non_actor_mean_parameter_delta_max"]) == 0.0
         and not bool(summary["repaired_checkpoint_written"])
         and not bool(summary["training_started"])
@@ -521,12 +785,16 @@ def run_contour_aware_exact_objective_projection_repair(
         null_class = "checkpoint_mutation_violation"
     elif bool(summary["non_actor_mean_parameter_changed"]):
         null_class = "non_actor_mean_parameter_delta"
+    elif bool(summary["base_interpolation_used_for_repair"]):
+        null_class = "base_interpolation_repair_violation"
     elif _float(summary["initial_positive_exact_residual_mean"]) <= MIN_INITIAL_EXACT_RESIDUAL:
         null_class = "initial_perturbation_residual_not_measurable"
+    elif projection_mode == PROJECTION_MODE_DAMPED_BACKTRACKING and int(summary["accepted_backtracking_step_count"]) == 0:
+        null_class = str(summary["projection_stop_reason"])
     elif _float(summary["repaired_positive_exact_residual_mean"]) >= _float(summary["initial_positive_exact_residual_mean"]):
         null_class = "projection_residual_not_reduced"
     elif _float(summary["positive_exact_residual_reduction_ratio"]) < MIN_REDUCTION_RATIO:
-        null_class = "projection_residual_reduction_below_threshold"
+        null_class = "projection_partial_reduction"
     elif _float(summary["repaired_actor_mean_l2_to_base"]) > _float(summary["initial_actor_mean_l2_to_base"]) + TRUST_REGION_TOLERANCE:
         null_class = "trust_region_expansion"
     elif bool(summary["passes_public_smoke_gates"]):
@@ -554,13 +822,19 @@ def run_contour_aware_exact_objective_projection_repair(
         ],
     )
     write_csv_rows(output / "optimization_trace.csv", trace_rows)
+    write_csv_rows(output / "projection_step_trace.csv", projection_step_rows)
+    write_csv_rows(output / "backtracking_candidate_trace.csv", backtracking_candidate_rows)
     write_csv_rows(output / "guardrail_summary.csv", _guardrail_rows(summary))
     write_json(output / "summary.json", summary)
     return summary
 
 
+def _parse_backtracking_factors(value: str) -> tuple[float, ...]:
+    return tuple(float(item.strip()) for item in value.split(",") if item.strip())
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run M1640 contour-aware exact-objective projection repair.")
+    parser = argparse.ArgumentParser(description="Run contour-aware exact-objective projection repair.")
     parser.add_argument("--materialization-run-dir", type=Path, default=DEFAULT_MATERIALIZATION_RUN_DIR)
     parser.add_argument("--checkpoint", type=Path, default=DEFAULT_CHECKPOINT)
     parser.add_argument("--run-dir", type=Path, default=DEFAULT_RUN_DIR)
@@ -569,6 +843,10 @@ def main() -> None:
     parser.add_argument("--perturb-seed", type=int, default=DEFAULT_PERTURB_SEED)
     parser.add_argument("--repair-steps", type=int, default=DEFAULT_REPAIR_STEPS)
     parser.add_argument("--learning-rate", type=float, default=DEFAULT_LEARNING_RATE)
+    parser.add_argument("--projection-mode", choices=[PROJECTION_MODE_ADAM, PROJECTION_MODE_DAMPED_BACKTRACKING], default=DEFAULT_PROJECTION_MODE)
+    parser.add_argument("--max-projection-steps", type=int, default=DEFAULT_MAX_PROJECTION_STEPS)
+    parser.add_argument("--initial-step-fraction", type=float, default=DEFAULT_INITIAL_STEP_FRACTION)
+    parser.add_argument("--backtracking-factors", type=_parse_backtracking_factors, default=DEFAULT_BACKTRACKING_FACTORS)
     args = parser.parse_args()
     summary = run_contour_aware_exact_objective_projection_repair(
         materialization_run_dir=args.materialization_run_dir,
@@ -579,13 +857,20 @@ def main() -> None:
         perturb_seed=int(args.perturb_seed),
         repair_steps=int(args.repair_steps),
         learning_rate=float(args.learning_rate),
+        projection_mode=str(args.projection_mode),
+        max_projection_steps=int(args.max_projection_steps),
+        initial_step_fraction=float(args.initial_step_fraction),
+        backtracking_factors=tuple(args.backtracking_factors),
     )
     print(f"summary={args.run_dir / 'summary.json'}")
+    print(f"projection_mode={summary['projection_mode']}")
     print(f"initial_positive_exact_residual_mean={summary['initial_positive_exact_residual_mean']}")
     print(f"repaired_positive_exact_residual_mean={summary['repaired_positive_exact_residual_mean']}")
     print(f"positive_exact_residual_reduction_ratio={summary['positive_exact_residual_reduction_ratio']}")
     print(f"initial_actor_mean_l2_to_base={summary['initial_actor_mean_l2_to_base']}")
     print(f"repaired_actor_mean_l2_to_base={summary['repaired_actor_mean_l2_to_base']}")
+    print(f"accepted_backtracking_step_count={summary['accepted_backtracking_step_count']}")
+    print(f"projection_stop_reason={summary['projection_stop_reason']}")
     print(f"passes_public_smoke_gates={summary['passes_public_smoke_gates']}")
     print(f"null_result_classification={summary['null_result_classification']}")
 
