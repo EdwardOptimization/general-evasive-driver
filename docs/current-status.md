@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1526-paper-route-t5-timing-amplified-branch-synthesis
+m1527-paper-route-fresh-ambiguity-source-mining-design
 ```
 
 Current next task:
 
 ```text
-m1527-paper-route-fresh-ambiguity-source-mining-design
+m1528-paper-route-fresh-ambiguity-source-planner-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -84,12 +84,38 @@ outcome-relevant. M1525 audited this as sufficient to close the current T5
 wrong-history route and synthesize before a fresh ambiguity/source-mining pivot.
 M1526 synthesized M1521-M1525, closed the current four-row T5 route as
 insufficient for wrong-history/self-ID proof, and promoted the next branch to
-fresh ambiguity/source mining. The next task is M1527 design only.
+fresh ambiguity/source mining. M1527 designed that route: mine matched
+scene/current-state rows where hidden dynamics or older response history imply
+different preferred actions, while treating single-track fault cases as
+symmetric capability proxies rather than true wheel-specific failures. The next
+task is M1528 bounded source-planner implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1527 fresh ambiguity source-mining design:
+
+```text
+decision: fresh_ambiguity_source_mining_design_admit_bounded_planner_implementation
+artifact: docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md
+source families: existing T4/T5 decisive-history sources plus capability_step_down/up, actuator_delay_step, brake_fade_or_loss_proxy, drive_loss_proxy, grip_loss_proxy, late_reveal_boundary, curved_boundary_obstacle
+matched_scene_current_state_required: true
+hidden_dynamics_action_divergence_required: true
+proxy_fault_boundary: single-track current-sim faults are symmetric capability proxies, not true one-wheel blowout split-mu or half-shaft failure claims
+diversity_gates_defined: true
+artifact_contract_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1528-paper-route-fresh-ambiguity-source-planner-implementation
+```
+
+M1527 keeps the branch in design/source-planning mode. It blocks training and
+candidate materialization until a bounded public planner and smoke show source
+diversity beyond the closed T5 subset.
 
 M1526 T5 timing-amplified branch synthesis:
 

@@ -22982,3 +22982,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1526 closes the current four-row T5 wrong-history/self-ID proof route and promotes to fresh ambiguity/source mining before any corpus export or training.
 - follow-up manifest: `experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json`.
 - next: `m1527-paper-route-fresh-ambiguity-source-mining-design`
+
+## M1527 Paper-Route Fresh Ambiguity Source-Mining Design
+
+- status: completed
+- decision: `fresh_ambiguity_source_mining_design_admit_bounded_planner_implementation`
+- artifact: `docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md`
+- source families: existing T4/T5 decisive-history sources plus `capability_step_down`, `capability_step_up`, `actuator_delay_step`, `brake_fade_or_loss_proxy`, `drive_loss_proxy`, `grip_loss_proxy`, `late_reveal_boundary`, and `curved_boundary_obstacle`.
+- matched scene/current-state required: true
+- hidden-dynamics/action-divergence required: true
+- proxy-fault boundary: current single-track faults are symmetric capability proxies, not true one-wheel blowout, split-mu, or half-shaft failure claims.
+- matching metrics: scene context distance, current ego distance, older evidence distance.
+- divergence metrics: first action L2, steering/brake/throttle deltas, prefix action L2, terminal margin gap, success drop, termination reason changes, recovery margin.
+- diversity gates defined: true
+- artifact contract defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1527 turns the "maybe we have not mined enough extreme ambiguous scenarios" concern into a bounded public source-mining design, while preserving self-ID proof standards and no-materialization guardrails.
+- follow-up manifest: `experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json`.
+- next: `m1528-paper-route-fresh-ambiguity-source-planner-implementation`

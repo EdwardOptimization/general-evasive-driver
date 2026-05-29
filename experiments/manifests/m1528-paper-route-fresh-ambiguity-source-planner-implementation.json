@@ -1,0 +1,156 @@
+{
+  "id": "m1528-paper-route-fresh-ambiguity-source-planner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded public fresh ambiguity source planner after M1527 design"
+    ],
+    "derived_from": [
+      "m1527-paper-route-fresh-ambiguity-source-mining-design"
+    ],
+    "blocked_by": [
+      "fresh ambiguity sources need bounded planner artifacts before measured rollout or candidate materialization"
+    ],
+    "supersedes": [
+      "manual ad hoc source selection for fresh ambiguity mining"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md",
+  "public_gates": [
+    "M1528 must implement a bounded public source-spec planner",
+    "M1528 must include source diversity and guardrail summaries",
+    "M1528 must distinguish symmetric capability proxies from true asymmetric physical faults",
+    "M1528 must not materialize candidates or export a training corpus",
+    "M1528 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from source-plan smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_source_planner_implementation",
+    "evidence_increment": "implements the bounded source-spec and pair-candidate planner needed before measured fresh ambiguity mining",
+    "claim_scope": "infrastructure and bounded public smoke only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if planner only reuses the closed four-row T5 subset",
+      "stop if planner lacks source-family and proxy-fault diversity summaries",
+      "stop if planner materializes DecisiveHistoryTaskCandidate rows",
+      "stop if planner routes directly to training or private holdout"
+    ],
+    "fallback_plan": [
+      "if dry source diversity is too weak, repair source plan before rollout",
+      "if proxy-fault semantics are ambiguous, add explicit simulator-scope labels",
+      "if planner cannot express matched scene/current-state criteria, route to schema repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1527 admitted bounded source planner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "fresh ambiguity source planner implementation",
+    "admission_evidence": [
+      "M1527 defined fresh source families matching metrics action-divergence metrics and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "source planner module and focused tests",
+      "bounded public dry or tiny smoke artifacts",
+      "M1528 status queue scoreboard research log and review",
+      "one follow-up measured mining or audit manifest"
+    ],
+    "next_stage_criteria": [
+      "source diversity summary is written",
+      "guardrail summary is written",
+      "closed T5 source share is bounded",
+      "follow-up measured mining or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1528 is source planner infrastructure and cannot claim self-ID; it only prepares candidate sources for later measured tests.",
+    "history_necessity_tests": [
+      "planner must reserve matched scene/current-state fields",
+      "planner must reserve older evidence and action-divergence fields",
+      "planner must keep reset/zero-current positives separate from wrong-history evidence"
+    ],
+    "temporal_evidence_window": "future measured fresh ambiguity source-mining branch only.",
+    "negative_result_policy": "If planner cannot produce diverse public source specs, record the failure and audit instead of materializing weak candidates.",
+    "allowed_claims": [
+      "M1528 implements fresh ambiguity source planner plumbing",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded public source planner can generate a source-diverse fresh ambiguity grid with explicit proxy-fault semantics and guardrails before any measured candidate materialization.",
+  "success_criteria": [
+    "fresh ambiguity source planner module exists",
+    "focused tests cover source diversity guardrails and proxy-fault labels",
+    "bounded smoke writes source specs diversity summary guardrail summary and summary.json",
+    "closed T5 subset share is reported and capped",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked",
+    "follow-up route is one measured mining design or audit"
+  ],
+  "failure_criteria": [
+    "planner or smoke artifacts are missing",
+    "planner lacks source diversity or guardrail summaries",
+    "planner describes symmetric single-track proxies as true wheel-specific failures",
+    "planner materializes candidates or starts training/replay/PPO",
+    "planner claims self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_source_mining.py -q"
+    },
+    {
+      "name": "smoke",
+      "command": "PYTHONPATH=src python -m autodrift.fresh_ambiguity_source_mining --output-dir runs/m1528_fresh_ambiguity_source_planner_smoke --seed 1528"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
+  ],
+  "decision_rule": "M1528 passes if source planner plumbing and bounded smoke pass while all no-materialization and no-training guardrails remain false.",
+  "next_blocker": "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
+}

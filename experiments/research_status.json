@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1535,
+    "completed": 1536,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+    "command_log": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md",
+    "run_dir": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
     "status": "completed",
-    "task_id": "m1526-paper-route-t5-timing-amplified-branch-synthesis"
+    "task_id": "m1527-paper-route-fresh-ambiguity-source-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1527-paper-route-fresh-ambiguity-source-mining-design.json",
-    "hypothesis": "Fresh source mining can find more decisive ambiguity rows than the closed four-row T5 subset by requiring hidden-dynamics action divergence under matched scene/current-state.",
-    "id": "m1527-paper-route-fresh-ambiguity-source-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design fresh ambiguity/source mining after closing current T5 wrong-history route",
-    "priority": 15220,
+    "command": "see experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json",
+    "hypothesis": "A bounded public source planner can generate a source-diverse fresh ambiguity grid with explicit proxy-fault semantics and guardrails before any measured candidate materialization.",
+    "id": "m1528-paper-route-fresh-ambiguity-source-planner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded fresh ambiguity source planner and smoke before measured mining or candidate materialization",
+    "priority": 15230,
     "status": "pending",
-    "success_artifact": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
+    "success_artifact": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T102127Z"
+  "updated_at_utc": "20260529T102548Z"
 }

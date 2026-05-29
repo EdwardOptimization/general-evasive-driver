@@ -145,6 +145,45 @@
   "baseline_artifacts": [
     "docs/m1526-paper-route-t5-timing-amplified-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+    "decision": "fresh_ambiguity_source_mining_design_admit_bounded_planner_implementation",
+    "source_families_defined": [
+      "t4_staged_warmup_capability",
+      "t4_capability_step_temporal",
+      "t4_actuator_delay_response",
+      "t5_near_boundary_warmup",
+      "t5_high_speed_close_obstacle",
+      "t5_boundary_axis_retarget",
+      "capability_step_down",
+      "capability_step_up",
+      "actuator_delay_step",
+      "brake_fade_or_loss_proxy",
+      "drive_loss_proxy",
+      "grip_loss_proxy",
+      "late_reveal_boundary",
+      "curved_boundary_obstacle"
+    ],
+    "matched_scene_current_state_required": true,
+    "hidden_dynamics_action_divergence_required": true,
+    "proxy_fault_boundary": "single-track current-sim faults are symmetric capability proxies, not claims about true one-wheel blowout split-mu or half-shaft failure",
+    "diversity_gates_defined": true,
+    "artifact_contract_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json"
+  },
+  "decision": "fresh_ambiguity_source_mining_design_admit_bounded_planner_implementation",
   "decision_rule": "M1527 passes if it designs fresh ambiguity/source mining while preserving all no-training no-materialization guardrails.",
-  "next_blocker": "m1527-paper-route-fresh-ambiguity-source-mining-design"
+  "next_blocker": "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
 }
