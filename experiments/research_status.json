@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1594,
+    "completed": 1595,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+    "command_log": "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1585_source_diverse_pairability_history_intervention_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation"
+    "task_id": "m1586-paper-route-source-diverse-pairability-intervention-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1586-paper-route-source-diverse-pairability-intervention-result-audit.json",
-    "hypothesis": "M1585's public-pass control-dominated result can be audited into a defensible next route without overstating history evidence.",
-    "id": "m1586-paper-route-source-diverse-pairability-intervention-result-audit",
+    "command": "see experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json",
+    "hypothesis": "A history-vs-control active-set selector can turn M1585's control-dominated result into a cleaner next source-generation objective.",
+    "id": "m1587-paper-route-history-vs-control-active-set-selector-design",
     "kind": "gate",
-    "notes": "Pending: audit M1585 public-pass control-dominated intervention result",
-    "priority": 15810,
+    "notes": "Pending: design history-vs-control active-set selector after M1586 audit",
+    "priority": 15820,
     "status": "pending",
-    "success_artifact": "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md"
+    "success_artifact": "docs/m1587-paper-route-history-vs-control-active-set-selector-design.md"
   },
-  "updated_at_utc": "20260529T155952Z"
+  "updated_at_utc": "20260529T160355Z"
 }

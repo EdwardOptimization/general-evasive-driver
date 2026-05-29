@@ -24836,3 +24836,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1586-paper-route-source-diverse-pairability-intervention-result-audit.json`
 - next: `m1586-paper-route-source-diverse-pairability-intervention-result-audit`
+
+## M1586 Paper-Route Source-Diverse Pairability Intervention Result Audit
+
+- status: completed
+- decision: `source_diverse_pairability_intervention_audit_admit_history_vs_control_active_set_selector_design`
+- artifact: `docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md`
+- failure taxonomy: `objective_overfit`
+- M1585 public pass: true
+- M1585 evidence-quality pass: false
+- selected pair count: 72
+- directed pair count: 144
+- intervention row count: 1152
+- anchor replay failure count: 0
+- history-positive directed pair count: 23
+- history-positive source-edge count: 8
+- clean history-vs-control directed pair count: 7
+- clean history-vs-control source-edge count: 4
+- dominated history-positive directed pair count: 16
+- control-substitution dominated share: 0.7184466019417476
+- max history margin gap: 0.12908281005342204
+- max current-frame control gap: 0.3274137328831479
+- history success drop count: 0
+- high-speed endpoint directed pair count: 0
+- late-reveal endpoint directed pair count: 0
+- interpretation: pairability and intervention plumbing are live but broad selection is too control-dominated for history-necessity evidence
+- route decision: admit design-only history-vs-control active-set selector route before any more intervention implementation
+- history interventions executed: false in M1586
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json`
+- next: `m1587-paper-route-history-vs-control-active-set-selector-design`

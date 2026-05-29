@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1585-paper-route-source-diverse-pairability-history-intervention-implementation
+m1586-paper-route-source-diverse-pairability-intervention-result-audit
 ```
 
 Current next task:
 
 ```text
-m1586-paper-route-source-diverse-pairability-intervention-result-audit
+m1587-paper-route-history-vs-control-active-set-selector-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -476,6 +476,12 @@ evidence-quality failed because controls dominated:
 `max_current_frame_control_gap 0.3274`,
 `control_substitution_dominated_share 0.7184`, and no history success drops.
 M1586 must audit this before any further repair, materialization, or training.
+M1586 audited this as live intervention plumbing but not history-necessity
+evidence. The clean history-vs-control subset is small: `7` directed pairs
+across `4` source edges, while `16` history-positive pairs are control-dominated
+and `121` directed pairs are history-null. The next step is M1587 design:
+turn history-vs-control separation into the active-set selector objective before
+any further implementation.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

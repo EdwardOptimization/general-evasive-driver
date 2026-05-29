@@ -161,6 +161,45 @@
     "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
     "docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md",
+    "decision": "source_diverse_pairability_intervention_audit_admit_history_vs_control_active_set_selector_design",
+    "failure_taxonomy": [
+      "objective_overfit"
+    ],
+    "m1585_public_pass": true,
+    "m1585_evidence_quality_pass": false,
+    "selected_pair_count": 72,
+    "directed_pair_count": 144,
+    "intervention_row_count": 1152,
+    "anchor_replay_failure_count": 0,
+    "history_positive_directed_pair_count": 23,
+    "history_positive_source_edge_count": 8,
+    "clean_history_vs_control_directed_pair_count": 7,
+    "clean_history_vs_control_source_edge_count": 4,
+    "dominated_history_positive_directed_pair_count": 16,
+    "control_substitution_dominated_share": 0.7184466019417476,
+    "max_history_margin_gap": 0.12908281005342204,
+    "max_current_frame_control_gap": 0.3274137328831479,
+    "history_success_drop_count": 0,
+    "high_speed_endpoint_directed_pair_count": 0,
+    "late_reveal_endpoint_directed_pair_count": 0,
+    "audit_conclusion": "intervention plumbing and broad history effects are live, but evidence is too control-dominated for history necessity; next route must select or generate history-vs-control active-set rows",
+    "next_manifest": "experiments/manifests/m1587-paper-route-history-vs-control-active-set-selector-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1586 passes if it audits M1585 and chooses the next route before any repair, materialization, or training.",
-  "next_blocker": "m1586-paper-route-source-diverse-pairability-intervention-result-audit"
+  "next_blocker": "m1587-paper-route-history-vs-control-active-set-selector-design"
 }
