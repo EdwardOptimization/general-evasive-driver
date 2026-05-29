@@ -1,0 +1,152 @@
+{
+  "id": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+      "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json"
+    ],
+    "parent_objective": [
+      "run source smoke for a retuned staged warmup gate that targets clear near-boundary rows"
+    ],
+    "derived_from": [
+      "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
+    ],
+    "blocked_by": [
+      "M1414 admits source smoke only before outcome probing"
+    ],
+    "supersedes": [
+      "rerunning M1410 source smoke without retuning",
+      "running outcome probe before retargeted source viability is known"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md",
+  "public_gates": [
+    "M1415 must run no-training source smoke only",
+    "M1415 must report source, warmup evidence, and invasiveness metrics",
+    "M1415 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not tune only the 3 M1412 accepted-history seeds",
+    "do not claim level3 self-identification from source materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "S_clear_near_boundary_warmup_retarget_source",
+    "evidence_increment": "tests whether the retuned staged warmup gate can preserve source diversity and warmup evidence while reducing collision pressure",
+    "claim_scope": "public no-training source smoke only; no outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source reconstruction fails",
+      "stop if matched/bucketed rows are sparse",
+      "stop if warmup evidence collapses",
+      "stop if collision share remains too high",
+      "stop if actor input changes are required"
+    ],
+    "fallback_plan": [
+      "route to gate retune audit if collision share remains high",
+      "route to outcome probe if source diversity, warmup evidence, and invasiveness gates pass",
+      "route to branch synthesis if retargeted source remains sparse"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "clear near-boundary staged warmup retarget source smoke",
+    "admission_evidence": [
+      "M1414 designed source-smoke thresholds",
+      "M1412 sparse positives were not collision-only but need better source distribution"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "retargeted source-smoke configs",
+      "M1415 source artifacts under runs/",
+      "M1415 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "source structural pass/fail is classified",
+      "warmup evidence and collision share are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1415 is source smoke only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "source materialization with warmup evidence",
+      "collision/invasiveness source diagnostics",
+      "matched/bucketed current reveal metrics"
+    ],
+    "temporal_evidence_window": "No-training source smoke following M1414 design.",
+    "negative_result_policy": "If source viability or invasiveness gates fail, record the failure and audit before outcome probing.",
+    "allowed_claims": [
+      "retargeted staged warmup source-smoke result",
+      "no outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The retuned staged warmup gate can preserve source diversity and warmup command-response evidence while reducing collision pressure enough to justify a later outcome probe.",
+  "success_criteria": [
+    "retargeted source-smoke configs exist",
+    "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json exists",
+    "source diversity and warmup evidence metrics meet the M1414 design thresholds or fail cleanly",
+    "collision share is reported",
+    "result chooses next route without outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "warmup evidence metrics are missing",
+    "collision/invasiveness metrics are missing",
+    "result routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "retarget_source_smoke",
+      "command": "create retargeted configs and run no-training source smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md"
+  ],
+  "decision_rule": "M1415 passes structurally if it runs a no-training source smoke with source diversity, warmup evidence, and collision diagnostics before any outcome probing.",
+  "next_blocker": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
+}

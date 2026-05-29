@@ -20867,3 +20867,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json`.
 - next: `m1414-paper-route-clear-near-boundary-warmup-retarget-design`
+
+## 20260529T051000Z - m1414-paper-route-clear-near-boundary-warmup-retarget-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md`
+- decision: `clear_near_boundary_warmup_retarget_design_admit_source_smoke`
+- design: retune the staged warmup gate to `distance_range [10,18]`, `lateral_offset_range [-2.2,2.2]`, `half_width_range [0.25,0.45]`, and keep short active window before emergency reveal.
+- source gates: require at least `1024` source rows, `240` matched/bucketed rows, `28` matched/bucketed seeds, `12` capability pairs, `64` reveal buckets, finite metrics, and actor checksum unchanged.
+- warmup/invasiveness gates: require matched/bucketed warmup evidence in all rows, response/action history L2 p95 thresholds, matched/bucketed collision share `<= 0.50`, and at least `120` clear or clear-low-margin matched/bucketed rows.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json`.
+- next: `m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke`

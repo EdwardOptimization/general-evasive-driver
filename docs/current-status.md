@@ -16,21 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1413-paper-route-staged-warmup-outcome-result-audit
+m1414-paper-route-clear-near-boundary-warmup-retarget-design
 ```
 
 Current next task:
 
 ```text
-m1414-paper-route-clear-near-boundary-warmup-retarget-design
+m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
 ```
 
-M1413 audited the M1412 collision-stratified no-training outcome probe. The
-current public-gate base remains M1362 alpha `0.1`:
+M1414 designed the clear near-boundary staged warmup retarget. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1414 result:
+
+```text
+decision: clear_near_boundary_warmup_retarget_design_admit_source_smoke
+planned warmup_gate.distance_range: [10.0, 18.0]
+planned warmup_gate.lateral_offset_range: [-2.2, 2.2]
+planned warmup_gate.half_width_range: [0.25, 0.45]
+planned seed_count: 64
+planned reveal_steps: 48,56,64,72
+source gate: matched_or_bucketed_reveal_rows >= 240
+source gate: matched/bucketed unique_source_seeds >= 28
+invasiveness gate: matched/bucketed warmup_gate_collision_share <= 0.50
+next: m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
+```
+
+M1415 should create the retargeted configs and run no-training source smoke
+only. It must report source diversity, warmup evidence, and collision
+diagnostics before any outcome probe. It must not train, run PPO, export a
+corpus, use private holdout, promote, change actor inputs, or claim level3
+self-identification.
 
 M1413 result:
 
@@ -48,12 +69,6 @@ M1412 wrong_warmup_history_same_reveal_positive_rows: 0
 selected route: clear near-boundary warmup retarget design
 next: m1414-paper-route-clear-near-boundary-warmup-retarget-design
 ```
-
-M1414 should design a retargeted staged warmup source/outcome route with
-pre-registered source and outcome gates. It should preserve the non-collision
-signal while increasing near-boundary density and seed diversity. It must not
-run source smoke, outcome interventions, training, PPO, corpus export, private
-holdout, promotion, actor-input changes, or level3 claim expansion.
 
 M1412 result:
 

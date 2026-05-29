@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1423,
+    "completed": 1424,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md",
+    "command_log": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1413-paper-route-staged-warmup-outcome-result-audit"
+    "task_id": "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1414-paper-route-clear-near-boundary-warmup-retarget-design.json",
-    "hypothesis": "A retargeted staged warmup design can improve source-diverse near-boundary history positives without overfitting to the sparse M1412 accepted seeds.",
-    "id": "m1414-paper-route-clear-near-boundary-warmup-retarget-design",
-    "kind": "gate",
-    "notes": "Pending: design a clear near-boundary staged warmup retarget route with source/outcome thresholds before another run",
-    "priority": 14090,
+    "command": "see experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json",
+    "hypothesis": "The retuned staged warmup gate can preserve source diversity and warmup command-response evidence while reducing collision pressure enough to justify a later outcome probe.",
+    "id": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: create retargeted staged warmup configs and run no-training source smoke",
+    "priority": 14100,
     "status": "pending",
-    "success_artifact": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md"
+    "success_artifact": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T050000Z"
+  "updated_at_utc": "20260529T051000Z"
 }

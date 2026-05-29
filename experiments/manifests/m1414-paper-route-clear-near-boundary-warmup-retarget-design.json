@@ -151,6 +151,25 @@
     "runs/m1412_staged_warmup_gate_collision_stratified_outcome_probe/summary.json",
     "docs/m1413-paper-route-staged-warmup-outcome-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1414-paper-route-clear-near-boundary-warmup-retarget-design.md",
+    "decision": "clear_near_boundary_warmup_retarget_design_admit_source_smoke",
+    "selected_route": "retuned_staged_warmup_source_smoke",
+    "planned_next_manifest": "experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.json"
+  },
+  "decision": "clear_near_boundary_warmup_retarget_design_admit_source_smoke",
   "decision_rule": "M1414 passes if it designs a non-training retargeted staged warmup route with pre-registered source/outcome gates and no claim expansion.",
-  "next_blocker": "m1414-paper-route-clear-near-boundary-warmup-retarget-design"
+  "next_blocker": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
 }
