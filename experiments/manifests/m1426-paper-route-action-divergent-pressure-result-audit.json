@@ -148,6 +148,35 @@
     "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
     "docs/m1425-paper-route-action-divergent-outcome-pressure-source-smoke.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1426-paper-route-action-divergent-pressure-result-audit.md",
+    "decision": "action_divergent_pressure_audit_admit_bounded_relocation_replay_design",
+    "classification": "scenario_sampling_failure_with_proxy_limitation",
+    "supported_claims": [
+      "M1425 source rows are action-divergent and source-diverse",
+      "M1425 proxy pressure rows are source-diverse",
+      "M1425 shared-margin proxy produces zero history-positive rows"
+    ],
+    "falsified_claims": [
+      "shared-margin proxy pressure is sufficient to produce history-positive terminal-margin separation from M1421 rows",
+      "M1425 is ready for training or corpus export"
+    ],
+    "next_route": "bounded_relocation_replay_design",
+    "closed_loop_replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json"
+  },
+  "decision": "action_divergent_pressure_audit_admit_bounded_relocation_replay_design",
   "decision_rule": "M1426 passes if it classifies the M1425 negative result and chooses a guarded non-training next route.",
-  "next_blocker": "m1426-paper-route-action-divergent-pressure-result-audit"
+  "next_blocker": "m1427-paper-route-bounded-relocation-replay-design"
 }

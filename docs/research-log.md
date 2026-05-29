@@ -21068,3 +21068,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json`.
 - next: `m1426-paper-route-action-divergent-pressure-result-audit`
+
+## 20260529T021141Z - m1426-paper-route-action-divergent-pressure-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1426-paper-route-action-divergent-pressure-result-audit.md`
+- decision: `action_divergent_pressure_audit_admit_bounded_relocation_replay_design`
+- classification: `scenario_sampling_failure_with_proxy_limitation`
+- supported claims: M1425 has source-diverse action-divergent rows and source-diverse proxy pressure rows.
+- falsified claim: shared-margin proxy pressure is sufficient to produce history-positive terminal-margin separation from M1421 rows.
+- interpretation: the proxy subtracts pressure from normal and variant margins equally, so it cannot validate terminal sensitivity when the actual margin gaps are near zero.
+- route: admit a design-only bounded relocation replay milestone; still no replay run or training yet.
+- guardrail: no closed-loop replay, outcome intervention run, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json`.
+- next: `m1427-paper-route-bounded-relocation-replay-design`

@@ -16,21 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1425-paper-route-action-divergent-outcome-pressure-source-smoke
+m1426-paper-route-action-divergent-pressure-result-audit
 ```
 
 Current next task:
 
 ```text
-m1426-paper-route-action-divergent-pressure-result-audit
+m1427-paper-route-bounded-relocation-replay-design
 ```
 
-M1425 ran the no-training constructor on public M1421 outcome rows. The current
-public-gate base remains M1362 alpha `0.1`:
+M1426 audited the M1425 negative source-smoke result. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1426 result:
+
+```text
+decision: action_divergent_pressure_audit_admit_bounded_relocation_replay_design
+classification: scenario_sampling_failure_with_proxy_limitation
+supported: M1425 source rows are action-divergent and source-diverse
+falsified: shared-margin proxy pressure is sufficient for history-positive terminal separation
+next: m1427-paper-route-bounded-relocation-replay-design
+```
+
+M1427 should design a bounded no-training relocation replay probe before any
+implementation or run. Relocation remains scenario generation, not actor input.
+No training, corpus export, promotion, private holdout, or claim expansion is
+admitted.
 
 M1425 result:
 
@@ -50,11 +65,6 @@ candidate_margin_gap_max: 0.016403
 outcome_pressure_margin_gap_max: 0.002712
 next: m1426-paper-route-action-divergent-pressure-result-audit
 ```
-
-M1425 shows source-diverse action divergence and proxy pressure rows, but no
-history-positive terminal-margin separation under the shared-margin proxy. M1426
-must audit whether this is a source limitation or a proxy limitation before any
-closed-loop replay, training, corpus export, or claim expansion.
 
 M1424 result:
 

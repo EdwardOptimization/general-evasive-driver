@@ -1,0 +1,157 @@
+{
+  "id": "m1427-paper-route-bounded-relocation-replay-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "docs/m1426-paper-route-action-divergent-pressure-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded no-training relocation replay probe after proxy source rows have zero history-positive margin separation"
+    ],
+    "derived_from": [
+      "m1426-paper-route-action-divergent-pressure-result-audit"
+    ],
+    "blocked_by": [
+      "M1426 admits design-only bounded relocation replay route before any replay run"
+    ],
+    "supersedes": [
+      "threshold lowering after M1425",
+      "training from proxy rows",
+      "direct large replay sweep without design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1427-paper-route-bounded-relocation-replay-design.md",
+  "public_gates": [
+    "M1427 must design bounded relocation replay before implementation or run",
+    "M1427 must keep relocation as scenario generation and not actor input",
+    "M1427 must pre-register source caps success criteria failure criteria and forbidden shortcuts",
+    "M1427 must not run replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not lower M1425 thresholds after seeing the result",
+    "do not count proxy rows as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_action_divergent_outcome_pressure_design",
+    "evidence_axis": "D_bounded_relocation_replay_design",
+    "evidence_increment": "designs a no-training replay probe that tests whether M1425 proxy pressure rows become actual terminal-margin-sensitive under relocated scenarios",
+    "claim_scope": "design only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design needs actor input changes",
+      "stop if design cannot reconstruct warmup traces from public config and rows",
+      "stop if design counts proxy rows as actual replay evidence",
+      "stop if design routes directly to training"
+    ],
+    "fallback_plan": [
+      "route to implementation if design is mechanically feasible",
+      "route to branch synthesis if replay design is not feasible",
+      "route to constructor redesign if source columns are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1422_pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded relocation replay design",
+    "admission_evidence": [
+      "M1425 found 846 proxy pressure rows but zero history-positive rows",
+      "M1426 classifies proxy limitation and admits design-only replay route"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "M1427 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation manifest if design admits it"
+    ],
+    "next_stage_criteria": [
+      "bounded replay mechanics are specified",
+      "candidate caps and gates are specified",
+      "history-positive accounting is actual replay only",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1427 is design-only and must account for current-frame substitution in replay variants.",
+    "history_necessity_tests": [
+      "actual replay with wrong warmup and delayed warmup hiddens",
+      "reset and zero-current controls kept separate",
+      "matched-current source constraints retained from M1425 rows",
+      "terminal margin gap and success-drop criteria"
+    ],
+    "temporal_evidence_window": "M1425 pressure rows and original warmup-latched config.",
+    "negative_result_policy": "If the design cannot isolate history variants from current-frame controls, route to synthesis or redesign rather than weakening claims.",
+    "allowed_claims": [
+      "bounded relocation replay design and next route decision",
+      "no closed-loop replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded relocation replay probe can test whether M1425's action-divergent proxy pressure rows become actual history-positive terminal-margin rows under relocated obstacle geometry.",
+  "success_criteria": [
+    "docs/m1427-paper-route-bounded-relocation-replay-design.md exists",
+    "design specifies trace reconstruction inputs and replay variants",
+    "design specifies relocation bounds and candidate caps",
+    "design specifies actual replay success criteria separate from proxy criteria",
+    "design chooses a non-training next route without running replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design requires actor input changes",
+    "design counts M1425 proxy rows as actual replay evidence",
+    "design routes directly to training PPO promotion private holdout corpus export or claim expansion",
+    "design ignores reset and zero-current controls"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1427-paper-route-bounded-relocation-replay-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1427-paper-route-bounded-relocation-replay-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+    "docs/m1426-paper-route-action-divergent-pressure-result-audit.md"
+  ],
+  "decision_rule": "M1427 passes if it defines a bounded no-training relocation replay route and pre-registers gates before implementation.",
+  "next_blocker": "m1427-paper-route-bounded-relocation-replay-design"
+}

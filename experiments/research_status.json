@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1435,
+    "completed": 1436,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1425_action_divergent_outcome_pressure_source_smoke/summary.json",
+    "command_log": "docs/m1426-paper-route-action-divergent-pressure-result-audit.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1425-paper-route-action-divergent-outcome-pressure-source-smoke"
+    "task_id": "m1426-paper-route-action-divergent-pressure-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1426-paper-route-action-divergent-pressure-result-audit.json",
-    "hypothesis": "M1425's zero history-positive result is likely caused by near-zero terminal margin gaps under a shared-margin proxy, so the next route must be audited before any replay or training.",
-    "id": "m1426-paper-route-action-divergent-pressure-result-audit",
+    "command": "see experiments/manifests/m1427-paper-route-bounded-relocation-replay-design.json",
+    "hypothesis": "A bounded relocation replay probe can test whether M1425's action-divergent proxy pressure rows become actual history-positive terminal-margin rows under relocated obstacle geometry.",
+    "id": "m1427-paper-route-bounded-relocation-replay-design",
     "kind": "gate",
-    "notes": "Pending: audit M1425 zero history-positive proxy result before replay training or corpus export",
-    "priority": 14210,
+    "notes": "Pending: design no-training bounded relocation replay probe before implementation or run",
+    "priority": 14220,
     "status": "pending",
-    "success_artifact": "docs/m1426-paper-route-action-divergent-pressure-result-audit.md"
+    "success_artifact": "docs/m1427-paper-route-bounded-relocation-replay-design.md"
   },
-  "updated_at_utc": "20260529T020808Z"
+  "updated_at_utc": "20260529T021141Z"
 }
