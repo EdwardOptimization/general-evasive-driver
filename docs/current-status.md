@@ -16,21 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1405-paper-route-mild-warmup-stimulus-outcome-probe
+m1406-paper-route-mild-warmup-outcome-result-audit
 ```
 
 Current next task:
 
 ```text
-m1406-paper-route-mild-warmup-outcome-result-audit
+m1407-paper-route-pre-emergency-gate-stimulus-design
 ```
 
-M1405 ran the no-training outcome probe over M1404 figure-eight mild warmup
-matched/bucketed rows. The current public-gate base remains M1362 alpha `0.1`:
+M1406 audited the M1405 mild warmup outcome result. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1406 result:
+
+```text
+decision: mild_warmup_outcome_audit_pivot_to_pre_emergency_gate_stimulus_design
+classification: near_boundary_progress_but_history_outcome_negative
+M1405 preferred_near_boundary_candidate_rows: 26
+M1405 accepted_outcome_rows: 2
+M1405 warmup_history_positive_rows: 0
+selected route: pre_emergency_gate_stimulus_design
+next: m1407-paper-route-pre-emergency-gate-stimulus-design
+```
+
+M1406 blocks training/export from M1405 reset-only evidence. M1407 should design
+a stronger non-oracle pre-emergency gate/corridor stimulus that creates
+command-response evidence through visible geometry and existing policy actions,
+without scripted commands, actor oracle labels, actor input changes, private
+holdout, promotion, corpus export, PPO, or training.
 
 M1405 result:
 

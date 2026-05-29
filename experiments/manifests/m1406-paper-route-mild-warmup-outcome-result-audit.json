@@ -146,6 +146,27 @@
     "docs/m1405-paper-route-mild-warmup-stimulus-outcome-probe.md",
     "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+    "decision": "mild_warmup_outcome_audit_pivot_to_pre_emergency_gate_stimulus_design",
+    "classification": "near_boundary_progress_but_history_outcome_negative",
+    "preferred_near_boundary_candidate_rows": 26,
+    "accepted_outcome_rows": 2,
+    "warmup_history_positive_rows": 0,
+    "accepted_reset_rows": 2,
+    "selected_route": "pre_emergency_gate_stimulus_design",
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1407-paper-route-pre-emergency-gate-stimulus-design.json"
+  },
+  "decision": "mild_warmup_outcome_audit_pivot_to_pre_emergency_gate_stimulus_design",
   "decision_rule": "M1406 passes if it audits M1405 and chooses a redesign or synthesis route before any training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1406-paper-route-mild-warmup-outcome-result-audit"
+  "next_blocker": "m1407-paper-route-pre-emergency-gate-stimulus-design"
 }

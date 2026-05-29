@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1415,
+    "completed": 1416,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
+    "command_log": "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1405_mild_warmup_stimulus_outcome_probe",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1405-paper-route-mild-warmup-stimulus-outcome-probe"
+    "task_id": "m1406-paper-route-mild-warmup-outcome-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1406-paper-route-mild-warmup-outcome-result-audit.json",
-    "hypothesis": "A process audit can determine the next route after M1405 improves near-boundary candidates but finds no warmup-history-positive outcome rows.",
-    "id": "m1406-paper-route-mild-warmup-outcome-result-audit",
+    "command": "see experiments/manifests/m1407-paper-route-pre-emergency-gate-stimulus-design.json",
+    "hypothesis": "A non-oracle pre-emergency gate/corridor stimulus design can create stronger command-response evidence than passive figure-eight curvature without changing actor inputs.",
+    "id": "m1407-paper-route-pre-emergency-gate-stimulus-design",
     "kind": "gate",
-    "notes": "Pending: audit reset-only M1405 result before another source redesign or training",
-    "priority": 14010,
+    "notes": "Pending: design non-oracle pre-emergency gate/corridor warmup stimulus before implementation or training",
+    "priority": 14020,
     "status": "pending",
-    "success_artifact": "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md"
+    "success_artifact": "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md"
   },
-  "updated_at_utc": "20260529T034000Z"
+  "updated_at_utc": "20260529T035000Z"
 }

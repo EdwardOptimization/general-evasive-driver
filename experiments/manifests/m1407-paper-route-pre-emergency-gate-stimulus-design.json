@@ -1,0 +1,158 @@
+{
+  "id": "m1407-paper-route-pre-emergency-gate-stimulus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/normal_margin_band_summary.csv",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/variant_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1406-paper-route-mild-warmup-outcome-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a stronger non-oracle pre-emergency stimulus after passive figure-eight produced reset-only outcome evidence"
+    ],
+    "derived_from": [
+      "m1406-paper-route-mild-warmup-outcome-result-audit"
+    ],
+    "blocked_by": [
+      "M1406 blocks training/export from reset-only M1405 evidence and requires a new stimulus axis"
+    ],
+    "supersedes": [
+      "repeating the same figure-eight source/outcome grid",
+      "training from M1405 reset-only accepted rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1407-paper-route-pre-emergency-gate-stimulus-design.md",
+  "public_gates": [
+    "M1407 must design a non-oracle pre-emergency gate/corridor stimulus before implementation",
+    "M1407 must preserve the P0 human-view no-privileged actor input contract",
+    "M1407 must specify source reconstruction, outcome criteria, and history intervention controls",
+    "M1407 must not train, run PPO, run a source sweep, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run a source sweep",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not add actor oracle labels",
+    "do not add scripted controller commands",
+    "do not claim self-identification from design"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "G_pre_emergency_gate_stimulus_design",
+    "evidence_increment": "designs a stronger non-oracle warmup stimulus after passive figure-eight gives near-boundary but not history-positive outcomes",
+    "claim_scope": "task/source design only; no implementation, source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if the design requires actor oracle labels",
+      "stop if the design requires scripted control commands",
+      "stop if the design changes actor input dimensionality or semantics",
+      "stop if source reconstruction and outcome criteria are omitted"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if no non-oracle stimulus is feasible",
+      "route to simulator/task API extension design if existing env cannot represent the stimulus",
+      "route to boundary-conditioned config redesign if multi-stage geometry is unnecessary"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "pre-emergency gate stimulus design",
+    "admission_evidence": [
+      "M1405 improves preferred near-boundary candidates to 26 but finds 0 warmup-history-positive rows",
+      "M1406 audits M1405 as reset-only and blocks training/export",
+      "M1406 selects a stronger non-oracle stimulus axis before another source smoke"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not run source smoke before design"
+    ],
+    "allowed_updates": [
+      "M1407 design document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "pre-emergency stimulus route is specified",
+      "actor-contract guardrails are specified",
+      "source and outcome pass/fail criteria are specified",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1407 must design controls to prevent current/recent observations from replacing warmup-history evidence.",
+    "history_necessity_tests": [
+      "pre_emergency_gate_source_materialization",
+      "matched_or_bucketed_current_reveal",
+      "wrong_warmup_history_same_reveal",
+      "delayed_warmup_history",
+      "warmup_removed_or_shortened",
+      "zero_current_response_positive_control"
+    ],
+    "temporal_evidence_window": "Task/source design following M1406 reset-only audit.",
+    "negative_result_policy": "If no non-oracle pre-emergency stimulus can be designed, record the blocker and route to branch synthesis before training.",
+    "allowed_claims": [
+      "pre-emergency gate stimulus task/source design",
+      "no implementation, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A non-oracle pre-emergency gate/corridor stimulus design can create stronger command-response evidence than passive figure-eight curvature without changing actor inputs.",
+  "success_criteria": [
+    "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md exists",
+    "design specifies stimulus geometry, actor-contract guardrails, source reconstruction metrics, outcome criteria, intervention controls, and next implementation route",
+    "design does not route directly to training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design requires scripted control commands or actor oracle labels",
+    "design changes actor input dimensionality or semantics",
+    "design omits source or outcome criteria",
+    "design routes directly to training or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+    "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1407 passes if it designs a non-oracle pre-emergency stimulus route before implementation or training.",
+  "next_blocker": "m1407-paper-route-pre-emergency-gate-stimulus-design"
+}

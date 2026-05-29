@@ -20745,3 +20745,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1406-paper-route-mild-warmup-outcome-result-audit.json`.
 - next: `m1406-paper-route-mild-warmup-outcome-result-audit`
+
+## 20260529T035000Z - m1406-paper-route-mild-warmup-outcome-result-audit
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1406-paper-route-mild-warmup-outcome-result-audit.md`
+- decision: `mild_warmup_outcome_audit_pivot_to_pre_emergency_gate_stimulus_design`
+- classification: `near_boundary_progress_but_history_outcome_negative`
+- evidence: M1405 produced `26` preferred near-boundary candidates but `0` warmup-history-positive rows; accepted rows were `2` reset-hidden high-margin effects from one seed.
+- route: design a stronger non-oracle pre-emergency gate/corridor stimulus that creates command-response evidence through visible geometry and existing policy actions, without scripted commands or actor input changes.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1407-paper-route-pre-emergency-gate-stimulus-design.json`.
+- next: `m1407-paper-route-pre-emergency-gate-stimulus-design`
