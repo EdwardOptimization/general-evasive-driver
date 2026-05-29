@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1485 selects 112 calibrated candidates including 88 neighbor-source rows across 5 seeds 6 capability pairs 6 reveal buckets and zero duplicate keys",
+  "failure_criteria": [
+    "summary missing",
+    "selected_candidate_rows < 32",
+    "neighbor source candidates are missing",
+    "duplicate neighbor viability keys remain",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal counts as replay evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T061253Z",
+  "hypothesis": "The neighbor viability calibration generator can produce a calibrated source-diverse candidate pool from M1481 artifacts without replay or training.",
+  "lineage": {
+    "blocked_by": [
+      "neighbor viability calibration generator has not yet been run on M1481 artifacts"
+    ],
+    "derived_from": [
+      "m1484-paper-route-neighbor-viability-calibration-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1484-paper-route-neighbor-viability-calibration-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1481_source_diverse_pressure_bounded_replay_smoke/control_positive_rows.csv",
+      "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md"
+    ],
+    "parent_objective": [
+      "run neighbor viability calibration proposal smoke without preflight or replay"
+    ],
+    "supersedes": [
+      "implementation-only evidence as proposal-count evidence"
+    ]
+  },
+  "milestone": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke",
+  "next_blocker": "m1486-paper-route-neighbor-viability-preflight-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "neighbor_viability_calibration_proposal_smoke_pass_route_to_preflight_design",
+  "public_gates": [
+    "M1485 must run proposal generation only",
+    "M1485 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1485 must report selected rows source-group counts viability-class counts source diversity duplicate keys and guardrails"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1485_neighbor_viability_calibration_proposal_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "neighbor_viability_calibration_proposal_smoke_pass_route_to_preflight_design",
+    "milestone": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke",
+    "reason": "M1485 selects 112 calibrated candidates including 88 neighbor-source rows across 5 seeds 6 capability pairs 6 reveal buckets and zero duplicate keys",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1485_neighbor_viability_calibration_proposal_smoke/summary.json exists",
+    "selected_candidate_rows >= 32",
+    "selected_source_group_counts.neighbor_source > 0",
+    "selected_duplicate_neighbor_viability_key_rows == 0",
+    "candidate_step_column == source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "type": "infrastructure"
+}

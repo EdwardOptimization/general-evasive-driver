@@ -158,6 +158,50 @@
   "baseline_artifacts": [
     "docs/m1484-paper-route-neighbor-viability-calibration-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "run_dir": "runs/m1485_neighbor_viability_calibration_proposal_smoke",
+    "summary": "runs/m1485_neighbor_viability_calibration_proposal_smoke/summary.json",
+    "artifact": "docs/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.md",
+    "decision": "neighbor_viability_calibration_proposal_smoke_pass_route_to_preflight_design",
+    "actual_replay_rows": 252,
+    "viability_audit_rows": 252,
+    "proposal_rows": 2208,
+    "calibration_candidate_rows": 72,
+    "selected_candidate_rows": 112,
+    "selected_source_group_counts": {
+      "neighbor_source": 88,
+      "original_source": 8,
+      "control_diagnostic": 16
+    },
+    "selected_viability_class_counts": {
+      "too_hard": 64,
+      "near_boundary": 24,
+      "too_easy": 24
+    },
+    "selected_unique_source_seeds": 5,
+    "selected_unique_capability_pairs": 6,
+    "selected_unique_reveal_buckets": 6,
+    "selected_unique_variants": 4,
+    "selected_duplicate_neighbor_viability_key_rows": 0,
+    "selected_unique_neighbor_viability_keys": 112,
+    "max_single_seed_share": 0.21428571428571427,
+    "max_single_capability_pair_share": 0.21428571428571427,
+    "candidate_step_column": "source_step",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1486-paper-route-neighbor-viability-preflight-design.json"
+  },
+  "decision": "neighbor_viability_calibration_proposal_smoke_pass_route_to_preflight_design",
   "decision_rule": "M1485 passes if neighbor viability proposal generation produces nonempty neighbor-source candidates with no duplicate keys and no preflight or replay.",
-  "next_blocker": "m1485-paper-route-neighbor-viability-calibration-proposal-smoke"
+  "next_blocker": "m1486-paper-route-neighbor-viability-preflight-design"
 }

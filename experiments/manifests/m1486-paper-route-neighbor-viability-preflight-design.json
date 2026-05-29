@@ -1,0 +1,148 @@
+{
+  "id": "m1486-paper-route-neighbor-viability-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv",
+      "runs/m1485_neighbor_viability_calibration_proposal_smoke/summary.json",
+      "docs/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.json"
+    ],
+    "parent_objective": [
+      "design preflight-only validation over M1485 calibrated neighbor-viability candidates"
+    ],
+    "derived_from": [
+      "m1485-paper-route-neighbor-viability-calibration-proposal-smoke"
+    ],
+    "blocked_by": [
+      "source preflight has not yet been designed for M1485 calibrated candidates"
+    ],
+    "supersedes": [
+      "proposal counts as geometry viability evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1486-paper-route-neighbor-viability-preflight-design.md",
+  "public_gates": [
+    "M1486 must design source preflight only",
+    "M1486 must use M1485 neighbor_viability_candidate_rows.csv",
+    "M1486 must use candidate_step_column == source_step",
+    "M1486 must block replay training PPO promotion private holdout corpus export and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight in this design milestone",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal rows as geometry-pass evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_pressure_validation",
+    "evidence_axis": "S_neighbor_viability_preflight_design",
+    "evidence_increment": "designs preflight-only validation over M1485 calibrated source-step candidates before any replay attempt",
+    "claim_scope": "preflight design only; no preflight run, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design uses non-calibrated candidates",
+      "stop if design drops candidate_step_column source_step",
+      "stop if design admits replay or training before preflight result",
+      "stop if branch cadence requires synthesis before another narrow milestone"
+    ],
+    "fallback_plan": [
+      "route to preflight smoke if design passes",
+      "route to branch synthesis or audit if a guarded preflight command cannot be specified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1485 passes proposal-only generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "neighbor viability preflight design",
+    "admission_evidence": [
+      "M1485 proposal smoke selected 112 candidates, including 88 neighbor-source rows across 5 seeds and 6 capability pairs with zero duplicate keys"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight in this design milestone",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1486 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight-only command is explicit",
+      "guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1486 is design and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test calibrated neighbor-source rows under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1485 neighbor viability calibration proposal smoke.",
+    "negative_result_policy": "If preflight fails, audit geometry/calibration pressure rather than replaying unvalidated candidates.",
+    "allowed_claims": [
+      "neighbor viability preflight design",
+      "no preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-step preflight-only design over M1485 calibrated candidates can validate geometry viability before another bounded replay attempt.",
+  "success_criteria": [
+    "docs/m1486-paper-route-neighbor-viability-preflight-design.md exists",
+    "design uses runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv",
+    "design uses candidate_step_column source_step",
+    "design blocks replay training PPO promotion private holdout corpus export and actor-input changes",
+    "design routes to preflight smoke or synthesis"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design starts preflight",
+    "design does not use source_step",
+    "design starts replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1486-paper-route-neighbor-viability-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1486-paper-route-neighbor-viability-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1485-paper-route-neighbor-viability-calibration-proposal-smoke.md"
+  ],
+  "decision_rule": "M1486 passes if it designs a source-step preflight-only smoke over M1485 calibrated candidates without running preflight or replay.",
+  "next_blocker": "m1486-paper-route-neighbor-viability-preflight-design"
+}

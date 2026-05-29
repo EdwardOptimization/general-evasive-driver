@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1484-paper-route-neighbor-viability-calibration-implementation
+m1485-paper-route-neighbor-viability-calibration-proposal-smoke
 ```
 
 Current next task:
 
 ```text
-m1485-paper-route-neighbor-viability-calibration-proposal-smoke
+m1486-paper-route-neighbor-viability-preflight-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -31,12 +31,39 @@ M1476 ran proposal generation. M1477 synthesized the branch and promoted to
 source-diverse pressure validation. M1478 designed the preflight-only smoke,
 M1479 ran it, M1480 designed bounded replay, M1481 ran replay, M1482 audited the
 source-singleton result, M1483 designed neighbor viability calibration, and
-M1484 implemented the generator. The current public-gate base remains M1362
-alpha `0.1`:
+M1484 implemented the generator. M1485 ran proposal generation and selected a
+calibrated source-step candidate set. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1485 proposal smoke:
+
+```text
+decision: neighbor_viability_calibration_proposal_smoke_pass_route_to_preflight_design
+run: runs/m1485_neighbor_viability_calibration_proposal_smoke
+viability_audit_rows: 252
+proposal_rows: 2208
+calibration_candidate_rows: 72
+selected_candidate_rows: 112
+selected source groups: 88 neighbor-source / 8 original-source / 16 control-diagnostic
+selected viability classes: 64 too-hard / 24 near-boundary / 24 too-easy
+selected diversity: 5 seeds / 6 capability pairs / 6 reveal buckets / 4 variants
+duplicate neighbor_viability_key rows: 0
+candidate_step_column: source_step
+next: m1486-paper-route-neighbor-viability-preflight-design
+```
+
+M1486 should design source-step preflight-only validation over:
+
+```text
+runs/m1485_neighbor_viability_calibration_proposal_smoke/neighbor_viability_candidate_rows.csv
+```
+
+It must not run preflight, replay, train, run PPO, promote, use private holdout,
+export corpus, or change actor inputs.
 
 M1484 implementation:
 
@@ -67,10 +94,6 @@ selected_unique_positive_neighborhood_keys: 192
 selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
-
-M1485 should run proposal generation only. It must not run preflight, replay,
-train, run PPO, promote, use private holdout, export corpus, or change actor
-inputs.
 
 M1455 result:
 
