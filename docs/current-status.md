@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1491-paper-route-neighbor-viability-replay-result-audit
+m1492-paper-route-self-id-go-no-go-matrix-design
 ```
 
 Current next task:
 
 ```text
-m1492-paper-route-self-id-go-no-go-matrix-design
+m1493-paper-route-go-no-go-profile-config-refresh-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -37,12 +37,43 @@ validation for those candidates. M1487 ran preflight-only validation and passed.
 M1488 synthesized the branch and admits exactly one calibrated bounded replay
 design before mandatory audit. M1489 designed that replay smoke. The current
 M1490 ran the bounded replay and produced local positives that are still
-source-singleton/control-sensitive. The current public-gate base remains M1362
-alpha `0.1`:
+source-singleton/control-sensitive. M1491 audited that result and applied the
+M1488 hard stop. M1492 now designs the L0/L1/L2/L3 self-ID go/no-go matrix. The
+current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1492 go/no-go matrix design:
+
+```text
+decision: self_id_go_no_go_matrix_design_admit_profile_config_refresh
+controller families:
+  L0_current_masked
+  L1_one_step
+  L2_window_13 / 25 / 50 / 100
+  L2_window_13 / 25 / 50 / 100_current_tiled
+  L3_online_gru
+  L3_reset_control_corrected
+decisive tasks:
+  T1 reactive emergency avoidance
+  T2 delayed actuator/response feedback
+  T3 diagnostic warmup followed by obstacle reveal
+  T4 same-current same-recent-window different-older-history
+  T5 terminal-boundary near-constraint avoidance
+missing current corrected controls:
+  L2_window_50_current_tiled
+  L2_window_100_current_tiled
+next: m1493-paper-route-go-no-go-profile-config-refresh-implementation
+```
+
+M1492 preserves the existing negative/conditional evidence: M1388/M1389 did
+not support finite-window history necessity or L3 online-GRU hidden advantage on
+the standard fixed-budget public profile pilot, and M1390-M1491 did not produce
+source-diverse level3 self-ID outcome evidence. The next step is not training.
+It is a full profile-config refresh so the matrix can compare L0/L1/L2/L3 and
+current-tiled/reset controls fairly.
 
 M1491 audit:
 

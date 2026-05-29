@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1500,
+    "completed": 1501,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
+    "command_log": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1491-paper-route-neighbor-viability-replay-result-audit"
+    "task_id": "m1492-paper-route-self-id-go-no-go-matrix-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1492-paper-route-self-id-go-no-go-matrix-design.json",
-    "hypothesis": "The correct next step after the source-diverse pressure hard stop is a fair L0/L1/L2/L3 controller-family go/no-go matrix, not another replay retargeting loop.",
-    "id": "m1492-paper-route-self-id-go-no-go-matrix-design",
-    "kind": "gate",
-    "notes": "Pending: design fair L0/L1/L2/L3 controller-family matrix before any further training replay or promotion",
-    "priority": 14870,
+    "command": "see experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json",
+    "hypothesis": "The existing profile infrastructure can be refreshed into a full, contract-clean go/no-go matrix config set before any new training.",
+    "id": "m1493-paper-route-go-no-go-profile-config-refresh-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: add full current-tiled L2 controls and tests for the go/no-go matrix before runtime smoke or training",
+    "priority": 14880,
     "status": "pending",
-    "success_artifact": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
+    "success_artifact": "docs/m1493-paper-route-go-no-go-profile-config-refresh-implementation.md"
   },
-  "updated_at_utc": "20260529T065428Z"
+  "updated_at_utc": "20260529T065903Z"
 }

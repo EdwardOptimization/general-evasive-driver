@@ -146,6 +146,52 @@
     "docs/m1491-paper-route-neighbor-viability-replay-result-audit.md",
     "docs/self-id-go-no-go-paper-route-plan.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md",
+    "decision": "self_id_go_no_go_matrix_design_admit_profile_config_refresh",
+    "controller_families": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_13",
+      "L2_window_25",
+      "L2_window_50",
+      "L2_window_100",
+      "L2_window_13_current_tiled",
+      "L2_window_25_current_tiled",
+      "L2_window_50_current_tiled",
+      "L2_window_100_current_tiled",
+      "L3_online_gru",
+      "L3_reset_control_corrected"
+    ],
+    "task_families": [
+      "T1 reactive emergency avoidance",
+      "T2 delayed actuator/response feedback",
+      "T3 diagnostic warmup followed by obstacle reveal",
+      "T4 same-current same-recent-window different-older-history",
+      "T5 terminal-boundary near-constraint avoidance"
+    ],
+    "missing_in_current_corrected_configs": [
+      "L2_window_50_current_tiled",
+      "L2_window_100_current_tiled"
+    ],
+    "verdicts_supported_by_design": [
+      "self_id_positive",
+      "self_id_negative",
+      "self_id_conditional"
+    ],
+    "replay_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json"
+  },
+  "decision": "self_id_go_no_go_matrix_design_admit_profile_config_refresh",
   "decision_rule": "M1492 passes if it registers a fair controller-family go/no-go design before any new training or replay.",
-  "next_blocker": "m1492-paper-route-self-id-go-no-go-matrix-design"
+  "next_blocker": "m1493-paper-route-go-no-go-profile-config-refresh-implementation"
 }

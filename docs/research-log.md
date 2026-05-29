@@ -22192,3 +22192,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1492-paper-route-self-id-go-no-go-matrix-design.json`.
 - next: `m1492-paper-route-self-id-go-no-go-matrix-design`
+
+## M1492 Paper-Route Self-ID Go/No-Go Matrix Design
+
+- status: completed
+- decision: `self_id_go_no_go_matrix_design_admit_profile_config_refresh`
+- artifact: `docs/m1492-paper-route-self-id-go-no-go-matrix-design.md`
+- trigger: M1491 applied the M1488 hard stop because M1490 positives remain source-singleton/control-sensitive.
+- preserved evidence: M1388/M1389 fixed-budget profile pilot was negative for finite-window history necessity and online-GRU hidden advantage; M1390-M1398 causal-history branches found source generation works but self-ID positives remain source-narrow; M1491 keeps this as unproven.
+- controller families: L0 current, L1 one-step, L2 windows 13/25/50/100, L2 current-tiled controls for each window, L3 online GRU, and L3 reset-control.
+- decisive task families: T1 reactive emergency avoidance, T2 delayed response, T3 warmup reveal, T4 same-current/same-recent different-older-history, and T5 terminal-boundary near-constraint avoidance.
+- verdict policy: matrix can return self-ID positive, negative, or conditional; use the weakest supported verdict.
+- immediate gap: current corrected configs include L2 current-tiled controls for 13 and 25 only; M1493 must add 50 and 100 current-tiled controls before runtime smoke or training.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1493-paper-route-go-no-go-profile-config-refresh-implementation.json`.
+- next: `m1493-paper-route-go-no-go-profile-config-refresh-implementation`
