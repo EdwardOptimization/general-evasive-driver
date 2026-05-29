@@ -1,0 +1,155 @@
+{
+  "id": "m1522-paper-route-t5-timing-amplified-intervention-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_rows.csv",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_pair_summary.csv",
+      "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_anchor_summary.csv",
+      "docs/m1521-paper-route-t5-timing-amplified-intervention-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1521-paper-route-t5-timing-amplified-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the timing-amplified intervention smoke before candidate materialization, retarget repair, or subset closure"
+    ],
+    "derived_from": [
+      "m1521-paper-route-t5-timing-amplified-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M1521 produced outcome-relevant margin gaps but no success drops and wrong-history remained near-null"
+    ],
+    "supersedes": [
+      "direct materialization or training from timing-amplified positive margin gaps"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+  "public_gates": [
+    "M1522 must audit M1521 timing rows pair summary and anchor summary",
+    "M1522 must separate reset/zero-current timing sensitivity from wrong-history self-ID evidence",
+    "M1522 must decide audit-next route before any materialization or training",
+    "M1522 must not materialize candidates or export a training corpus",
+    "M1522 must not train run PPO promote use private holdout or alter actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates during the audit",
+    "do not claim self-identification from reset/zero-current timing sensitivity"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_t5_timing_amplified_intervention",
+    "evidence_axis": "G_t5_timing_amplified_intervention_audit",
+    "evidence_increment": "audits the first timing-amplified intervention smoke with outcome-relevant margin gaps",
+    "claim_scope": "intervention result audit only; no candidate materialization, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1521 artifacts are missing or malformed",
+      "stop if the audit treats reset/zero-current gaps as wrong-history self-identification evidence",
+      "stop if the audit routes directly to candidate materialization or training",
+      "stop if the audit ignores no-success-drop and wrong-history-near-null limitations"
+    ],
+    "fallback_plan": [
+      "if positive gaps are judged useful but not self-ID, route to terminal-boundary retarget or wrong-history stronger donor design",
+      "if no-success-drop limits dominate, route to boundary-tightening before corpus export",
+      "if current evidence is sufficient only as timing-sensitivity probe, log it and continue with a stricter self-ID design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1521 produced timing-amplified intervention artifacts requiring audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T5 timing-amplified intervention result audit",
+    "admission_evidence": [
+      "M1521 completed 112 intervention rows with max margin gap 0.02795, 9 outcome-relevant variants, zero replay failures, and guardrails false"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1522 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up audit, retarget, stricter wrong-history, subset closure, or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "positive margin result interpretation is explicit",
+      "wrong-history limitation is explicit",
+      "candidate materialization remains blocked or requires a separate stricter manifest",
+      "follow-up route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1522 audits timing-amplified reset/zero-current effects; these are not same-current wrong-history self-identification evidence.",
+    "history_necessity_tests": [
+      "audit whether earlier reset/zero-current effects are outcome-relevant",
+      "audit whether wrong-history donor effects remain near-null",
+      "separate timing sensitivity from history necessity"
+    ],
+    "temporal_evidence_window": "M1521 timing-amplified T5 high-speed rows.",
+    "negative_result_policy": "If wrong-history remains null, record that limitation and route to stricter donor/history design or retargeting instead of lowering the self-ID standard.",
+    "allowed_claims": [
+      "M1522 audits M1521 timing-amplified measured intervention effects",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1521 timing-amplified positive margin gaps can be audited into a disciplined next route without over-claiming self-identification.",
+  "success_criteria": [
+    "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md exists",
+    "audit summarizes row counts anchors margin gaps success drops divergence and guardrails",
+    "audit separates reset/zero-current timing sensitivity from wrong-history evidence",
+    "audit explicitly chooses candidate-materialization block repair retarget stricter probe or closure",
+    "audit keeps candidate materialization training PPO promotion private holdout actor-input changes corpus export and self-ID claims blocked unless future measured evidence justifies a separate manifest"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats timing sensitivity as level3 self-ID evidence",
+    "audit ignores wrong-history near-null or no-success-drop limitations",
+    "audit starts candidate materialization training PPO promotion private holdout or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+    "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_pair_summary.csv",
+    "runs/m1521_t5_timing_amplified_intervention_smoke/timing_intervention_anchor_summary.csv"
+  ],
+  "decision_rule": "M1522 passes if it audits M1521 timing-amplified results and chooses a follow-up route without materializing candidates or claiming self-identification.",
+  "next_blocker": "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
+}

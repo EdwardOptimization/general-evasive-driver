@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1529,
+    "completed": 1530,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "command_log": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "run_dir": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
     "status": "completed",
-    "task_id": "m1520-paper-route-decisive-history-bounded-runner-synthesis"
+    "task_id": "m1521-paper-route-t5-timing-amplified-intervention-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1521-paper-route-t5-timing-amplified-intervention-implementation.json",
-    "hypothesis": "A bounded timing-amplified intervention smoke can reveal whether earlier history perturbations produce action, state, or outcome gaps on the admitted T5 high-speed rows.",
-    "id": "m1521-paper-route-t5-timing-amplified-intervention-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded timing-amplified T5 intervention smoke in new branch",
-    "priority": 15160,
+    "command": "see experiments/manifests/m1522-paper-route-t5-timing-amplified-intervention-result-audit.json",
+    "hypothesis": "The M1521 timing-amplified positive margin gaps can be audited into a disciplined next route without over-claiming self-identification.",
+    "id": "m1522-paper-route-t5-timing-amplified-intervention-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1521 positive margin gaps and wrong-history near-null limitation",
+    "priority": 15170,
     "status": "pending",
-    "success_artifact": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json"
+    "success_artifact": "docs/m1522-paper-route-t5-timing-amplified-intervention-result-audit.md"
   },
-  "updated_at_utc": "20260529T095036Z"
+  "updated_at_utc": "20260529T095910Z"
 }

@@ -154,6 +154,10 @@
       "type": "py"
     },
     {
+      "path": "docs/m1521-paper-route-t5-timing-amplified-intervention-implementation.md",
+      "type": "md"
+    },
+    {
       "path": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
       "type": "json"
     }
@@ -166,6 +170,47 @@
     "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
     "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1521_t5_timing_amplified_intervention_smoke/summary.json",
+    "doc_artifact": "docs/m1521-paper-route-t5-timing-amplified-intervention-implementation.md",
+    "decision": "t5_timing_amplified_intervention_smoke_positive_margin_route_to_audit",
+    "focused_tests": "5 passed",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_target_count": 4,
+    "anchor_count": 4,
+    "variant_count": 7,
+    "intervention_row_count": 112,
+    "pair_row_count": 16,
+    "anchor_row_count": 4,
+    "normal_row_count": 16,
+    "ablation_row_count": 96,
+    "wrong_history_row_count": 16,
+    "target_replay_failure_count": 0,
+    "donor_replay_failure_count": 0,
+    "max_margin_gap_from_normal": 0.027952724375794435,
+    "max_first_action_l2": 0.5381348497698335,
+    "max_decision_state_delta_l2": 0.0996307537382291,
+    "outcome_relevant_variant_count": 9,
+    "divergence_relevant_variant_count": 46,
+    "success_drop_count": 0,
+    "strongest_anchor": "decision_minus_8",
+    "wrong_history_near_null": true,
+    "guardrail_violation_count": 0,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1522-paper-route-t5-timing-amplified-intervention-result-audit.json"
+  },
+  "decision": "t5_timing_amplified_intervention_smoke_positive_margin_route_to_audit",
   "decision_rule": "M1521 passes if bounded timing-amplified T5 interventions run or fail explicitly with artifacts and all guardrails false.",
-  "next_blocker": "m1521-paper-route-t5-timing-amplified-intervention-implementation"
+  "next_blocker": "m1522-paper-route-t5-timing-amplified-intervention-result-audit"
 }
