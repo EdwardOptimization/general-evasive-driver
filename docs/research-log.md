@@ -23089,3 +23089,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1530 defines the measured fixed-policy mining route from M1528 source specs, but does not run measured mining or claim self-ID.
 - follow-up manifest: `experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json`.
 - next: `m1531-paper-route-fresh-ambiguity-measured-mining-implementation`
+
+## M1531 Paper-Route Fresh Ambiguity Measured-Mining Implementation
+
+- status: completed
+- decision: `fresh_ambiguity_measured_mining_smoke_pass_history_interventions_missing_route_to_audit`
+- artifact: `runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json`
+- doc: `docs/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.md`
+- code paths: `src/autodrift/fresh_ambiguity_measured_mining.py`, `tests/test_fresh_ambiguity_measured_mining.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_measured_mining.py -q`
+- focused test result: 5 passed
+- smoke command: `PYTHONPATH=src python -m autodrift.fresh_ambiguity_measured_mining --output-dir runs/m1531_fresh_ambiguity_measured_mining_smoke --seed 1531`
+- source row count: 14
+- attempted source families: 14
+- reached reveal source families: 14
+- reached decision source families: 13
+- trace row count: 1226
+- snapshot row count: 68
+- measured pair candidate count: 10
+- accepted measured pair count: 3
+- intervention row count: 10
+- target replay failure count: 1
+- donor replay failure count: 0
+- history interventions executed: false
+- passes public smoke gates: true
+- passes evidence quality targets: false
+- max closed T5 subset share: 0.0
+- proxy fault family count: 7
+- guardrail violation count: 0
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1531 shows measured source mining plumbing works and finds measured pairs, but missing wrong-history/donor-response continuations keep materialization and self-ID claims blocked.
+- follow-up manifest: `experiments/manifests/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.json`.
+- next: `m1532-paper-route-fresh-ambiguity-measured-mining-result-audit`

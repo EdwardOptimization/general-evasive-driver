@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1531 measured smoke wrote 1226 trace rows 10 measured pairs and 3 accepted pairs with public gates pass but history interventions missing so materialization remains blocked",
+  "failure_criteria": [
+    "measured mining module or smoke artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation materializes candidates or starts training/replay/PPO",
+    "implementation claims self-identification"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim self-identification from measured smoke"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T104908Z",
+  "hypothesis": "A bounded measured fixed-policy miner can produce public trace, pairing, intervention, and guardrail artifacts from the M1528 source grid without materializing candidates.",
+  "lineage": {
+    "blocked_by": [
+      "measured source-mining runner is needed before source candidates can be audited"
+    ],
+    "derived_from": [
+      "m1530-paper-route-fresh-ambiguity-measured-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1530-paper-route-fresh-ambiguity-measured-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+      "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "implement bounded measured fixed-policy source mining from M1530 design"
+    ],
+    "supersedes": [
+      "candidate materialization from dry planner metadata"
+    ]
+  },
+  "milestone": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation",
+  "next_blocker": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "fresh_ambiguity_measured_mining_smoke_pass_history_interventions_missing_route_to_audit",
+  "public_gates": [
+    "M1531 must implement bounded measured fixed-policy mining",
+    "M1531 must write measured traces pair candidates intervention rows summaries and guardrails",
+    "M1531 must keep candidate materialization and training blocked",
+    "M1531 must not use private holdout or alter actor inputs",
+    "M1531 must route to audit before any corpus export"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "fresh_ambiguity_measured_mining_smoke_pass_history_interventions_missing_route_to_audit",
+    "milestone": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation",
+    "reason": "M1531 measured smoke wrote 1226 trace rows 10 measured pairs and 3 accepted pairs with public gates pass but history interventions missing so materialization remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "measured mining module exists",
+    "focused tests cover schema guardrails and bounded summary behavior",
+    "bounded smoke writes required measured artifacts and summary.json",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

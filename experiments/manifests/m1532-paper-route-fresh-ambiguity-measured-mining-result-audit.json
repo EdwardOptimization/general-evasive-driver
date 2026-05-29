@@ -1,0 +1,151 @@
+{
+  "id": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+      "docs/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1531 measured mining smoke before any continuation intervention or candidate materialization"
+    ],
+    "derived_from": [
+      "m1531-paper-route-fresh-ambiguity-measured-mining-implementation"
+    ],
+    "blocked_by": [
+      "M1531 measured smoke passed public plumbing gates but did not execute history interventions"
+    ],
+    "supersedes": [
+      "direct materialization from M1531 measured pairs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
+  "public_gates": [
+    "M1532 must audit measured pair count source diversity guardrails and missing history interventions",
+    "M1532 must decide whether to design wrong-history/donor-response continuation interventions",
+    "M1532 must keep candidate materialization and training blocked",
+    "M1532 must not claim self-identification from M1531 measured smoke"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run new measured rollout during audit",
+    "do not claim self-identification from measured-pair plumbing"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_measured_mining_audit",
+    "evidence_increment": "audits M1531 measured smoke and decides the next measured intervention route",
+    "claim_scope": "result audit only; no candidate materialization, new measured run, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats measured pair plumbing as self-ID evidence",
+      "stop if audit ignores missing history interventions",
+      "stop if audit routes directly to materialization or training",
+      "stop if guardrails were violated"
+    ],
+    "fallback_plan": [
+      "design wrong-history/donor-response continuation interventions if measured pairing is sufficient",
+      "repair measured pairing criteria if pairs are too weak",
+      "synthesize if measured source mining fails to produce useful pairs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1531 completed bounded measured mining smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity measured-mining result audit",
+    "admission_evidence": [
+      "M1531 wrote measured traces pairs intervention placeholder rows summaries and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run new measured rollout in audit",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1532 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up intervention-design or pairing-repair manifest"
+    ],
+    "next_stage_criteria": [
+      "measured-pair verdict is explicit",
+      "history-intervention gap is explicit",
+      "candidate materialization remains blocked",
+      "next intervention or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1532 audits measured-pair plumbing only; M1531 did not execute history interventions.",
+    "history_necessity_tests": [
+      "audit missing wrong-history intervention",
+      "audit missing donor response/action intervention",
+      "separate measured pairing from self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1531 bounded public measured smoke only.",
+    "negative_result_policy": "If measured pairs are insufficient or interventions are missing, route to intervention design or pairing repair instead of materializing weak candidates.",
+    "allowed_claims": [
+      "M1532 audits measured mining readiness",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1531 measured source mining is a clean plumbing pass with enough measured pairs to justify a bounded history-intervention design, but not candidate materialization.",
+  "success_criteria": [
+    "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md exists",
+    "audit reports measured pair count accepted pair count source diversity guardrails and missing history interventions",
+    "audit explicitly admits intervention design or routes to pairing repair",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores missing history interventions",
+    "audit routes directly to materialization training or private holdout",
+    "audit claims self-identification"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
+    "docs/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.md"
+  ],
+  "decision_rule": "M1532 passes if it audits M1531 and chooses intervention design or pairing repair without materialization or self-ID claims.",
+  "next_blocker": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1539,
+    "completed": 1540,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+    "command_log": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1530-paper-route-fresh-ambiguity-measured-mining-design.md",
+    "run_dir": "runs/m1531_fresh_ambiguity_measured_mining_smoke",
     "status": "completed",
-    "task_id": "m1530-paper-route-fresh-ambiguity-measured-mining-design"
+    "task_id": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.json",
-    "hypothesis": "A bounded measured fixed-policy miner can produce public trace, pairing, intervention, and guardrail artifacts from the M1528 source grid without materializing candidates.",
-    "id": "m1531-paper-route-fresh-ambiguity-measured-mining-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded measured fixed-policy mining smoke before any candidate materialization",
-    "priority": 15260,
+    "command": "see experiments/manifests/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.json",
+    "hypothesis": "M1531 measured source mining is a clean plumbing pass with enough measured pairs to justify a bounded history-intervention design, but not candidate materialization.",
+    "id": "m1532-paper-route-fresh-ambiguity-measured-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1531 measured mining result before intervention design or materialization",
+    "priority": 15270,
     "status": "pending",
-    "success_artifact": "runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json"
+    "success_artifact": "docs/m1532-paper-route-fresh-ambiguity-measured-mining-result-audit.md"
   },
-  "updated_at_utc": "20260529T104040Z"
+  "updated_at_utc": "20260529T104806Z"
 }

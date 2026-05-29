@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1530-paper-route-fresh-ambiguity-measured-mining-design
+m1531-paper-route-fresh-ambiguity-measured-mining-implementation
 ```
 
 Current next task:
 
 ```text
-m1531-paper-route-fresh-ambiguity-measured-mining-implementation
+m1532-paper-route-fresh-ambiguity-measured-mining-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -99,11 +99,51 @@ materialization and self-ID claims.
 M1530 designed that measured fixed-policy miner, including trace schema,
 scene/current-state pairing metrics, intervention variants, source-diversity
 caps, and no-materialization guardrails. The next task is implementation smoke.
+M1531 implemented the measured miner and ran a bounded public smoke: 1226 trace
+rows, 10 measured pairs, 3 accepted pairs, public smoke gates passed, but
+history interventions were not executed, so evidence-quality targets remain
+false and materialization is still blocked.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1531 fresh ambiguity measured-mining implementation:
+
+```text
+decision: fresh_ambiguity_measured_mining_smoke_pass_history_interventions_missing_route_to_audit
+artifact: runs/m1531_fresh_ambiguity_measured_mining_smoke/summary.json
+doc: docs/m1531-paper-route-fresh-ambiguity-measured-mining-implementation.md
+code: src/autodrift/fresh_ambiguity_measured_mining.py
+tests: tests/test_fresh_ambiguity_measured_mining.py
+focused test result: 5 passed
+source_row_count: 14
+attempted_source_families: 14
+reached_reveal_source_families: 14
+reached_decision_source_families: 13
+trace_row_count: 1226
+snapshot_row_count: 68
+measured_pair_candidate_count: 10
+accepted_measured_pair_count: 3
+intervention_row_count: 10
+target_replay_failure_count: 1
+history_interventions_executed: false
+passes_public_smoke_gates: true
+passes_evidence_quality_targets: false
+max_closed_t5_subset_share: 0.0
+proxy_fault_family_count: 7
+guardrail_violation_count: 0
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1532-paper-route-fresh-ambiguity-measured-mining-result-audit
+```
+
+M1531 is a measured plumbing pass, not self-ID evidence. The next audit must
+decide whether to implement wrong-history/donor-response continuations or repair
+pairing criteria.
 
 M1530 fresh ambiguity measured-mining design:
 
