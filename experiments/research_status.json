@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1536,
+    "completed": 1537,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+    "command_log": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md",
+    "run_dir": "runs/m1528_fresh_ambiguity_source_planner_smoke",
     "status": "completed",
-    "task_id": "m1527-paper-route-fresh-ambiguity-source-mining-design"
+    "task_id": "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json",
-    "hypothesis": "A bounded public source planner can generate a source-diverse fresh ambiguity grid with explicit proxy-fault semantics and guardrails before any measured candidate materialization.",
-    "id": "m1528-paper-route-fresh-ambiguity-source-planner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded fresh ambiguity source planner and smoke before measured mining or candidate materialization",
-    "priority": 15230,
+    "command": "see experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json",
+    "hypothesis": "The M1528 dry planner pass is source-diverse and guardrail-clean enough to admit a measured public source-mining design.",
+    "id": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1528 dry source planner before measured mining or candidate materialization",
+    "priority": 15240,
     "status": "pending",
-    "success_artifact": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json"
+    "success_artifact": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
   },
-  "updated_at_utc": "20260529T102548Z"
+  "updated_at_utc": "20260529T103418Z"
 }

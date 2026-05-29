@@ -151,6 +151,42 @@
   "baseline_artifacts": [
     "docs/m1527-paper-route-fresh-ambiguity-source-mining-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+    "doc": "docs/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md",
+    "decision": "fresh_ambiguity_source_planner_smoke_pass_route_to_audit",
+    "focused_tests": "PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_source_mining.py -q",
+    "focused_test_result": "6 passed",
+    "smoke_command": "PYTHONPATH=src python -m autodrift.fresh_ambiguity_source_mining --output-dir runs/m1528_fresh_ambiguity_source_planner_smoke --seed 1528",
+    "source_plan_count": 14,
+    "generated_source_specs": 112,
+    "accepted_pair_candidates": 112,
+    "unique_source_families": 14,
+    "unique_hidden_capability_pairs": 24,
+    "unique_geometry_keys": 42,
+    "unique_decision_steps": 20,
+    "max_single_source_family_share": 0.07142857142857142,
+    "closed_t5_subset_rows": 0,
+    "max_closed_t5_subset_share": 0.0,
+    "proxy_fault_family_count": 7,
+    "symmetric_proxy_fault_only": true,
+    "guardrail_violation_count": 0,
+    "passes_public_dry_gates": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json"
+  },
+  "decision": "fresh_ambiguity_source_planner_smoke_pass_route_to_audit",
   "decision_rule": "M1528 passes if source planner plumbing and bounded smoke pass while all no-materialization and no-training guardrails remain false.",
-  "next_blocker": "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
+  "next_blocker": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit"
 }

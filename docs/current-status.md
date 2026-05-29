@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1527-paper-route-fresh-ambiguity-source-mining-design
+m1528-paper-route-fresh-ambiguity-source-planner-implementation
 ```
 
 Current next task:
 
 ```text
-m1528-paper-route-fresh-ambiguity-source-planner-implementation
+m1529-paper-route-fresh-ambiguity-source-planner-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -87,13 +87,51 @@ insufficient for wrong-history/self-ID proof, and promoted the next branch to
 fresh ambiguity/source mining. M1527 designed that route: mine matched
 scene/current-state rows where hidden dynamics or older response history imply
 different preferred actions, while treating single-track fault cases as
-symmetric capability proxies rather than true wheel-specific failures. The next
-task is M1528 bounded source-planner implementation.
+symmetric capability proxies rather than true wheel-specific failures, and
+routed to M1528 bounded source-planner implementation.
+M1528 implemented that source planner and ran a dry public smoke: 112 rows, 14
+source families, 7 proxy fault families, closed T5 subset share `0.0`, and all
+no-training/no-materialization guardrails false. The next task is an audit
+before measured rollout mining.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1528 fresh ambiguity source-planner implementation:
+
+```text
+decision: fresh_ambiguity_source_planner_smoke_pass_route_to_audit
+artifact: runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json
+doc: docs/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md
+code: src/autodrift/fresh_ambiguity_source_mining.py
+tests: tests/test_fresh_ambiguity_source_mining.py
+focused test result: 6 passed
+source_plan_count: 14
+generated_source_specs: 112
+accepted_pair_candidates: 112
+unique_source_families: 14
+unique_hidden_capability_pairs: 24
+unique_geometry_keys: 42
+unique_decision_steps: 20
+max_single_source_family_share: 0.07142857142857142
+closed_t5_subset_rows: 0
+max_closed_t5_subset_share: 0.0
+proxy_fault_family_count: 7
+symmetric_proxy_fault_only: true
+guardrail_violation_count: 0
+passes_public_dry_gates: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1529-paper-route-fresh-ambiguity-source-planner-result-audit
+```
+
+M1528 is infrastructure/planner evidence only. It does not prove self-ID or run
+measured rollouts; it makes the next measured branch source-diverse enough to
+audit instead of relying on the closed four-row T5 subset.
 
 M1527 fresh ambiguity source-mining design:
 

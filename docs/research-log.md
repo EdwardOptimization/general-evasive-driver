@@ -23004,3 +23004,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1527 turns the "maybe we have not mined enough extreme ambiguous scenarios" concern into a bounded public source-mining design, while preserving self-ID proof standards and no-materialization guardrails.
 - follow-up manifest: `experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json`.
 - next: `m1528-paper-route-fresh-ambiguity-source-planner-implementation`
+
+## M1528 Paper-Route Fresh Ambiguity Source-Planner Implementation
+
+- status: completed
+- decision: `fresh_ambiguity_source_planner_smoke_pass_route_to_audit`
+- artifact: `runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json`
+- doc: `docs/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md`
+- code paths: `src/autodrift/fresh_ambiguity_source_mining.py`, `tests/test_fresh_ambiguity_source_mining.py`
+- focused tests: `PYTHONPATH=src python -m pytest tests/test_fresh_ambiguity_source_mining.py -q`
+- focused test result: 6 passed
+- smoke command: `PYTHONPATH=src python -m autodrift.fresh_ambiguity_source_mining --output-dir runs/m1528_fresh_ambiguity_source_planner_smoke --seed 1528`
+- source plan count: 14
+- generated source specs: 112
+- accepted pair candidates: 112
+- unique source families: 14
+- unique hidden capability pairs: 24
+- unique geometry keys: 42
+- unique decision steps: 20
+- max single source family share: 0.07142857142857142
+- closed T5 subset rows: 0
+- max closed T5 subset share: 0.0
+- proxy fault family count: 7
+- symmetric proxy fault only: true
+- guardrail violation count: 0
+- passes public dry gates: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1528 is a dry planner/infrastructure pass that creates a source-diverse public grid for measured ambiguity mining; it does not prove self-ID or materialize candidates.
+- follow-up manifest: `experiments/manifests/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.json`.
+- next: `m1529-paper-route-fresh-ambiguity-source-planner-result-audit`

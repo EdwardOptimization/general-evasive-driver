@@ -1,0 +1,150 @@
+{
+  "id": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+      "docs/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1528-paper-route-fresh-ambiguity-source-planner-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1528 dry source planner before measured rollout mining"
+    ],
+    "derived_from": [
+      "m1528-paper-route-fresh-ambiguity-source-planner-implementation"
+    ],
+    "blocked_by": [
+      "dry planner smoke must be audited before measured rollout or candidate materialization"
+    ],
+    "supersedes": [
+      "directly moving from dry source specs to measured rollout without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
+  "public_gates": [
+    "M1529 must audit source diversity guardrails and proxy-fault semantics",
+    "M1529 must decide whether measured source mining is admitted",
+    "M1529 must keep candidate materialization and training blocked",
+    "M1529 must not claim self-identification from dry planner evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not run measured rollout during audit",
+    "do not claim self-identification from planner smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_fresh_ambiguity_source_mining",
+    "evidence_axis": "G_fresh_ambiguity_source_planner_audit",
+    "evidence_increment": "audits whether the dry source-planner pass is sufficient to admit measured public source mining",
+    "claim_scope": "process audit only; no candidate materialization, measured rollout, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if M1528 source diversity is weak",
+      "stop if proxy-fault semantics are overclaimed",
+      "stop if guardrails were violated",
+      "stop if audit routes directly to training or materialization"
+    ],
+    "fallback_plan": [
+      "repair planner source grid if diversity is weak",
+      "repair simulator-scope labels if proxy semantics are ambiguous",
+      "route to measured source-mining design if dry gates are clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1528 completed bounded source-planner smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "fresh ambiguity source planner result audit",
+    "admission_evidence": [
+      "M1528 generated source-diverse dry planner artifacts and passed public dry gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not run measured rollout in audit",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1529 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up measured mining design or planner-repair manifest"
+    ],
+    "next_stage_criteria": [
+      "dry source diversity verdict is explicit",
+      "proxy-fault semantics verdict is explicit",
+      "measured mining admission or planner repair is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1529 audits dry source planning only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "audit whether planned rows reserve matched scene/current-state fields",
+      "audit whether planned rows reserve older evidence and action-divergence fields",
+      "route to measured tests only if dry guardrails are clean"
+    ],
+    "temporal_evidence_window": "M1528 dry source-planner smoke only.",
+    "negative_result_policy": "If M1528 dry source diversity is insufficient, repair the source grid instead of lowering evidence standards.",
+    "allowed_claims": [
+      "M1529 audits source planner readiness",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1528 dry planner pass is source-diverse and guardrail-clean enough to admit a measured public source-mining design.",
+  "success_criteria": [
+    "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md exists",
+    "audit reports generated_source_specs accepted_pair_candidates source diversity closed T5 share proxy-fault count and guardrails",
+    "audit explicitly admits measured source-mining design or routes to planner repair",
+    "candidate materialization training PPO promotion private holdout actor-input changes and corpus export remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores proxy-fault semantics or source diversity",
+    "audit routes directly to training materialization or private holdout",
+    "audit claims self-identification from dry planner artifacts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1529-paper-route-fresh-ambiguity-source-planner-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1528_fresh_ambiguity_source_planner_smoke/summary.json",
+    "docs/m1528-paper-route-fresh-ambiguity-source-planner-implementation.md"
+  ],
+  "decision_rule": "M1529 passes if it audits M1528 and chooses measured mining design or planner repair without materialization or self-ID claims.",
+  "next_blocker": "m1529-paper-route-fresh-ambiguity-source-planner-result-audit"
+}
