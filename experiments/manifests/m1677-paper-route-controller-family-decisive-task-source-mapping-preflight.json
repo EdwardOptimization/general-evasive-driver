@@ -164,6 +164,23 @@
     "runs/m1671_controller_family_decisive_matrix_protocol/matrix_protocol.json",
     "runs/m1615_contour_aware_candidate_corpus/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+    "task_source_mapping": "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json",
+    "result_class": "controller_family_decisive_task_source_mapping_preflight_pass",
+    "candidate_row_count": 62,
+    "candidate_source_family_count": 12,
+    "candidate_task_family_count": 2,
+    "candidate_edge_count": 15,
+    "candidate_window_count": 5,
+    "candidate_seed_namespace_count": 44,
+    "implementation_thresholds_pass": true,
+    "guardrail_violation_count": 0,
+    "key_violation_count": 0,
+    "m1615_use_policy": "diagnostic_metadata_only_no_hidden_tensor_or_action_targets",
+    "next_manifest": "experiments/manifests/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.json"
+  },
   "decision_rule": "M1677 passes if it writes metadata-only task-source mapping artifacts and chooses the next route without execution or leakage.",
-  "next_blocker": "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight"
+  "next_blocker": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
 }

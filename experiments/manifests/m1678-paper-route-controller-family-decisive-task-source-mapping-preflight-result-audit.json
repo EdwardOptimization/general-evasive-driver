@@ -1,0 +1,158 @@
+{
+  "id": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_mapping_audit"
+    ],
+    "parent_dataset": [
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json",
+      "docs/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-training controller-family decisive task-source metadata preflight before task-source generation"
+    ],
+    "derived_from": [
+      "m1677-paper-route-controller-family-decisive-task-source-mapping-preflight"
+    ],
+    "blocked_by": [
+      "metadata preflight must be audited before any decisive task-source generation or controller-family rollout"
+    ],
+    "supersedes": [
+      "direct task-source generation after M1677",
+      "direct controller-family benchmark after M1677",
+      "direct private holdout after M1677"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+  "public_gates": [
+    "M1678 must audit M1677 summary and task_source_mapping artifacts",
+    "M1678 must verify no hidden/action tensor target leakage",
+    "M1678 must verify source-diversity threshold pass or classify shortfall",
+    "M1678 must choose audit pass, fresh-source fallback, or stop route",
+    "M1678 must keep private holdout promotion actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not repair the M1663 artifact",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_decisive_evidence_matrix",
+    "evidence_axis": "C_decisive_task_source_mapping_audit",
+    "evidence_increment": "audits no-training task-source metadata preflight before any decisive rollout",
+    "claim_scope": "process audit only; no training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1677 artifacts are missing",
+      "stop if key leakage is nonzero",
+      "stop if source-diversity threshold failure is ignored",
+      "stop if audit routes directly to private holdout or paper evidence"
+    ],
+    "fallback_plan": [
+      "route to fresh source-generation design if metadata threshold or leakage guard fails",
+      "route to bounded task-source generation design if audit passes",
+      "route to standard-layer negative story only if decisive mapping remains impossible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1677 materializes metadata preflight artifacts and requires audit before source generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-source mapping result audit",
+    "admission_evidence": [
+      "M1677 reports 62 candidate rows across 12 source families, 2 task families, 15 edges, 5 window tags, and zero leakage guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1678 audit document",
+      "M1678 status queue scoreboard research log and review",
+      "one follow-up manifest for bounded task-source generation design if audit passes"
+    ],
+    "next_stage_criteria": [
+      "M1677 artifacts are audited",
+      "leakage and source-diversity status is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; audit must keep L1/current-tiled/reset controls as mandatory challengers for future generated tasks.",
+    "history_necessity_tests": [
+      "audit must not claim history necessity from metadata",
+      "audit must require future task generation to preserve L2 current-tiled and L3 reset controls"
+    ],
+    "temporal_evidence_window": "M1677 metadata artifacts only.",
+    "negative_result_policy": "If metadata mapping is insufficient, route to fresh source generation and record scenario-sampling limitation.",
+    "allowed_claims": [
+      "metadata audit and route decision",
+      "no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1677's no-training metadata preflight is broad and clean enough to admit bounded controller-family decisive task-source generation design.",
+  "success_criteria": [
+    "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md exists",
+    "M1677 summary and task_source_mapping artifacts are audited",
+    "leakage guardrail and source-diversity threshold status are explicit",
+    "next bounded task-source generation or fallback route is explicit",
+    "training replay PPO environment rollout promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1677 leakage status is not checked",
+    "source-diversity threshold status is omitted",
+    "audit routes directly to rollout execution private holdout promotion or paper evidence",
+    "audit claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_mapping_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/summary.json",
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json",
+    "docs/m1677-paper-route-controller-family-decisive-task-source-mapping-preflight.md"
+  ],
+  "decision_rule": "M1678 passes if it audits M1677 and admits only a bounded design/fallback route before execution.",
+  "next_blocker": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
+}

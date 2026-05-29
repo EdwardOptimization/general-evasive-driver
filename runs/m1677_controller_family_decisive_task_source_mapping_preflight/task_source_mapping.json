@@ -1,0 +1,3335 @@
+{
+  "candidate_rows": [
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0000",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163100",
+        "163800"
+      ],
+      "source_edge": "t4_staged_warmup_capability|capability_step_up",
+      "source_family_left": "t4_staged_warmup_capability",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0001",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163101",
+        "163801"
+      ],
+      "source_edge": "t4_staged_warmup_capability|capability_step_up",
+      "source_family_left": "t4_staged_warmup_capability",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0002",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163200",
+        "163701"
+      ],
+      "source_edge": "t4_capability_step_temporal|capability_step_down",
+      "source_family_left": "t4_capability_step_temporal",
+      "source_family_right": "capability_step_down",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0003",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163201",
+        "163701"
+      ],
+      "source_edge": "t4_capability_step_temporal|capability_step_down",
+      "source_family_left": "t4_capability_step_temporal",
+      "source_family_right": "capability_step_down",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0004",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163300",
+        "163801"
+      ],
+      "source_edge": "t4_actuator_delay_response|capability_step_up",
+      "source_family_left": "t4_actuator_delay_response",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0005",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163301",
+        "163900"
+      ],
+      "source_edge": "t4_actuator_delay_response|actuator_delay_step",
+      "source_family_left": "t4_actuator_delay_response",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0007",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163401",
+        "163600"
+      ],
+      "source_edge": "t5_near_boundary_warmup|t5_boundary_axis_retarget",
+      "source_family_left": "t5_near_boundary_warmup",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0010",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163600",
+        "164100"
+      ],
+      "source_edge": "t5_boundary_axis_retarget|drive_loss_proxy",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0012",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163300",
+        "163700"
+      ],
+      "source_edge": "capability_step_down|t4_actuator_delay_response",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t4_actuator_delay_response",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0013",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "163200",
+        "163901"
+      ],
+      "source_edge": "actuator_delay_step|t4_capability_step_temporal",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t4_capability_step_temporal",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0014",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "164000",
+        "164300"
+      ],
+      "source_edge": "brake_fade_or_loss_proxy|late_reveal_boundary",
+      "source_family_left": "brake_fade_or_loss_proxy",
+      "source_family_right": "late_reveal_boundary",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0015",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "164101",
+        "164401"
+      ],
+      "source_edge": "drive_loss_proxy|curved_boundary_obstacle",
+      "source_family_left": "drive_loss_proxy",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1538::pair-0017",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1538_fresh_ambiguity_history_intervention_repeat/accepted_pair_rows.csv",
+      "metadata_source_role": "public_measured_intervention_candidate",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "164101",
+        "164400"
+      ],
+      "source_edge": "curved_boundary_obstacle|drive_loss_proxy",
+      "source_family_left": "curved_boundary_obstacle",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0000|left_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0001|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0000",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0002|left_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0052",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0003|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0098",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0024|left_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0025|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0011",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0026|left_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0063",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0049|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0066",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0073|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0044",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1595_selector_balanced_clean_source_repair_smoke::selected-0074|right_target",
+      "mapping_risk": "public_diagnostic_not_private_holdout",
+      "mapping_status": "mappable_metadata_only",
+      "metadata_source": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "metadata_source_role": "clean_history_control_public_pairs",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0004",
+        "calib-0019"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0000|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0001|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0005|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0032"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0006|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0043"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0007|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0032",
+        "calib-0033"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0008|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0043"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0016|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0000",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0017|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0011",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0018|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0052",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0019|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0063",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0020|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0066",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0021|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0098",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0025|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0054",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0026|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0065",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0029|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0032",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0030|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0043",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0037|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0044",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0038|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0077",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0039|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0055",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0040|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0041|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0041|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0043|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0004",
+        "calib-0019"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0045|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0004",
+        "calib-0041"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0047|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0015",
+        "calib-0019"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0049|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0015",
+        "calib-0041"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0050|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0004",
+        "calib-0096"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0051|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0015",
+        "calib-0096"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1592_clean_repair::selected-0052|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0059",
+        "calib-0096"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0000|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0022",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0001|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0000",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0002|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0052",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0003|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0098",
+        "calib-0101"
+      ],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_24",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0024|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0033",
+        "calib-0098"
+      ],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0025|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0011",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0026|left_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0063",
+        "calib-0070"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0049|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0066",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0073|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0044",
+        "calib-0102"
+      ],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "actuator_delay_step",
+      "task_family": "T4",
+      "window_tags": [
+        "reveal_plus_4",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1615_contour_aware_candidate_corpus::m1595_balanced_repair::selected-0074|right_target",
+      "mapping_risk": "public_l3_proof_package_do_not_use_hidden_or_action_targets",
+      "mapping_status": "diagnostic_only_metadata",
+      "metadata_source": "runs/m1615_contour_aware_candidate_corpus/positive_candidate_rows.csv",
+      "metadata_source_role": "m1615_public_diagnostic_positive_package",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [
+        "calib-0004",
+        "calib-0019"
+      ],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": [
+        "decision_minus_32",
+        "rule:primary",
+        "selection:clean_edge_window"
+      ]
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|capability_step_down",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|capability_step_down",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "capability_step_down",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|capability_step_up",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|curved_boundary_obstacle",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|curved_boundary_obstacle",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|drive_loss_proxy",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|drive_loss_proxy",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|late_reveal_boundary",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|late_reveal_boundary",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "late_reveal_boundary",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|t5_boundary_axis_retarget",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::actuator_delay_step|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_family_left": "actuator_delay_step",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_down|capability_step_up",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_down|capability_step_up",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "capability_step_up",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_down|curved_boundary_obstacle",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_down|curved_boundary_obstacle",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_down|drive_loss_proxy",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_down|drive_loss_proxy",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_down|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_down|t5_boundary_axis_retarget",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_down|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_down",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_up|curved_boundary_obstacle",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_up|curved_boundary_obstacle",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "curved_boundary_obstacle",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_up|drive_loss_proxy",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_up|drive_loss_proxy",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T4",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_up|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_up|t5_boundary_axis_retarget",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::capability_step_up|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "capability_step_up|t5_near_boundary_warmup",
+      "source_family_left": "capability_step_up",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::curved_boundary_obstacle|drive_loss_proxy",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "curved_boundary_obstacle|drive_loss_proxy",
+      "source_family_left": "curved_boundary_obstacle",
+      "source_family_right": "drive_loss_proxy",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::curved_boundary_obstacle|late_reveal_boundary",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "curved_boundary_obstacle|late_reveal_boundary",
+      "source_family_left": "curved_boundary_obstacle",
+      "source_family_right": "late_reveal_boundary",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_family_left": "curved_boundary_obstacle",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::curved_boundary_obstacle|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "curved_boundary_obstacle|t5_near_boundary_warmup",
+      "source_family_left": "curved_boundary_obstacle",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::drive_loss_proxy|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "drive_loss_proxy|t5_boundary_axis_retarget",
+      "source_family_left": "drive_loss_proxy",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::drive_loss_proxy|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "drive_loss_proxy|t5_near_boundary_warmup",
+      "source_family_left": "drive_loss_proxy",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::late_reveal_boundary|t5_boundary_axis_retarget",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "late_reveal_boundary|t5_boundary_axis_retarget",
+      "source_family_left": "late_reveal_boundary",
+      "source_family_right": "t5_boundary_axis_retarget",
+      "task_family": "T5",
+      "window_tags": []
+    },
+    {
+      "allowed_controller_profiles": [
+        "L0_current_masked",
+        "L1_one_step",
+        "L2_window_13",
+        "L2_window_13_current_tiled",
+        "L2_window_25",
+        "L2_window_25_current_tiled",
+        "L2_window_50",
+        "L2_window_50_current_tiled",
+        "L2_window_100",
+        "L2_window_100_current_tiled",
+        "L3_online_gru",
+        "L3_reset_control_corrected"
+      ],
+      "mapping_id": "m1599_aggregate::t5_boundary_axis_retarget|t5_near_boundary_warmup",
+      "mapping_risk": "not_a_task_instance",
+      "mapping_status": "aggregate_inventory_only",
+      "metadata_source": "runs/m1599_clean_active_set_contour_mapper/source_edge_contour_summary.csv",
+      "metadata_source_role": "aggregate_contour_inventory",
+      "required_controls": [
+        "L1_one_step",
+        "L2_current_tiled",
+        "L3_reset_control_corrected"
+      ],
+      "safe_for_direct_benchmark_without_regeneration": false,
+      "seed_namespaces": [],
+      "source_edge": "t5_boundary_axis_retarget|t5_near_boundary_warmup",
+      "source_family_left": "t5_boundary_axis_retarget",
+      "source_family_right": "t5_near_boundary_warmup",
+      "task_family": "T5",
+      "window_tags": []
+    }
+  ],
+  "claim_scope": "metadata preflight only; no controller ranking or self-ID claim",
+  "control_profile_requirements": [
+    "L1_one_step",
+    "L2_normal_windows",
+    "matched_L2_current_tiled_windows",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "generated_at_utc": "20260529T230418Z",
+  "key_violation_count": 0,
+  "key_violations": [],
+  "m1615_use_policy": "diagnostic_metadata_only_no_hidden_tensor_or_action_targets",
+  "protocol_name": "controller_family_decisive_task_source_mapping_preflight",
+  "source_diversity": {
+    "candidate_edge_count": 15,
+    "candidate_row_count": 62,
+    "candidate_seed_namespace_count": 44,
+    "candidate_source_family_count": 12,
+    "candidate_task_family_count": 2,
+    "candidate_window_count": 5,
+    "implementation_threshold_passes": {
+      "candidate_edge_count": true,
+      "candidate_source_family_count": true,
+      "candidate_task_family_count": true,
+      "candidate_window_count": true,
+      "max_single_source_family_share": true
+    },
+    "implementation_thresholds": {
+      "candidate_edge_count_min": 8,
+      "candidate_source_family_count_min": 5,
+      "candidate_task_family_count_min": 2,
+      "candidate_window_count_min": 4,
+      "max_single_source_family_share_max": 0.35
+    },
+    "implementation_thresholds_pass": true,
+    "max_single_metadata_source_role_share": 0.6290322580645161,
+    "max_single_source_family_share": 0.23387096774193547,
+    "metadata_source_role_counts": {
+      "clean_history_control_public_pairs": 10,
+      "m1615_public_diagnostic_positive_package": 39,
+      "public_measured_intervention_candidate": 13
+    },
+    "seed_namespace_counts": {
+      "163100": 1,
+      "163101": 1,
+      "163200": 2,
+      "163201": 1,
+      "163300": 2,
+      "163301": 1,
+      "163401": 1,
+      "163600": 2,
+      "163700": 1,
+      "163701": 2,
+      "163800": 1,
+      "163801": 2,
+      "163900": 1,
+      "163901": 1,
+      "164000": 1,
+      "164100": 1,
+      "164101": 2,
+      "164300": 1,
+      "164400": 1,
+      "164401": 1,
+      "calib-0000": 3,
+      "calib-0004": 5,
+      "calib-0011": 3,
+      "calib-0015": 3,
+      "calib-0019": 4,
+      "calib-0022": 6,
+      "calib-0032": 3,
+      "calib-0033": 7,
+      "calib-0041": 2,
+      "calib-0043": 3,
+      "calib-0044": 3,
+      "calib-0052": 3,
+      "calib-0054": 1,
+      "calib-0055": 1,
+      "calib-0059": 1,
+      "calib-0063": 3,
+      "calib-0065": 1,
+      "calib-0066": 3,
+      "calib-0070": 6,
+      "calib-0077": 1,
+      "calib-0096": 3,
+      "calib-0098": 9,
+      "calib-0101": 7,
+      "calib-0102": 17
+    },
+    "source_edge_counts": {
+      "actuator_delay_step|capability_step_up": 17,
+      "actuator_delay_step|t4_capability_step_temporal": 1,
+      "actuator_delay_step|t5_near_boundary_warmup": 10,
+      "brake_fade_or_loss_proxy|late_reveal_boundary": 1,
+      "capability_step_down|t4_actuator_delay_response": 1,
+      "capability_step_down|t5_near_boundary_warmup": 7,
+      "curved_boundary_obstacle|drive_loss_proxy": 1,
+      "curved_boundary_obstacle|t5_boundary_axis_retarget": 15,
+      "drive_loss_proxy|curved_boundary_obstacle": 1,
+      "t4_actuator_delay_response|actuator_delay_step": 1,
+      "t4_actuator_delay_response|capability_step_up": 1,
+      "t4_capability_step_temporal|capability_step_down": 2,
+      "t4_staged_warmup_capability|capability_step_up": 2,
+      "t5_boundary_axis_retarget|drive_loss_proxy": 1,
+      "t5_near_boundary_warmup|t5_boundary_axis_retarget": 1
+    },
+    "source_family_counts": {
+      "actuator_delay_step": 29,
+      "brake_fade_or_loss_proxy": 1,
+      "capability_step_down": 10,
+      "capability_step_up": 20,
+      "curved_boundary_obstacle": 17,
+      "drive_loss_proxy": 3,
+      "late_reveal_boundary": 1,
+      "t4_actuator_delay_response": 3,
+      "t4_capability_step_temporal": 3,
+      "t4_staged_warmup_capability": 2,
+      "t5_boundary_axis_retarget": 17,
+      "t5_near_boundary_warmup": 18
+    },
+    "task_family_counts": {
+      "T4": 25,
+      "T5": 37
+    },
+    "window_tag_counts": {
+      "decision_minus_24": 7,
+      "decision_minus_32": 15,
+      "reveal_plus_4": 27,
+      "rule:primary": 39,
+      "selection:clean_edge_window": 39
+    }
+  }
+}

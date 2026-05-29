@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1676-paper-route-controller-family-decisive-task-source-mapping-design
+m1677-paper-route-controller-family-decisive-task-source-mapping-preflight
 ```
 
 Current next task:
 
 ```text
-m1677-paper-route-controller-family-decisive-task-source-mapping-preflight
+m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit
 ```
 
-M1676 designed the controller-family-compatible decisive task-source mapping
-route. M1615 is diagnostic metadata only, not a direct benchmark or label source,
-and direct L3 hidden/action tensors remain forbidden as controller-family
-targets. The next task is M1677 no-training metadata preflight to materialize a
-source-diverse T4/T5 task-source mapping artifact while preserving L1,
-L2-current-tiled, and L3-reset controls.
+M1677 materialized the no-training controller-family decisive task-source
+metadata preflight. The mapping has 62 candidate rows across 12 source families,
+2 task families, 15 edges, 5 window tags, and 44 seed namespaces; all source
+diversity thresholds pass, key leakage is zero, and M1615 remains diagnostic
+metadata only. The next task is M1678 audit before any task-source generation or
+controller-family rollout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
