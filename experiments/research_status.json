@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1512,
+    "completed": 1513,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1503-paper-route-decisive-history-public-planner-smoke.md",
+    "command_log": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1503_decisive_history_public_planner_smoke",
+    "run_dir": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
     "status": "completed",
-    "task_id": "m1503-paper-route-decisive-history-public-planner-smoke"
+    "task_id": "m1504-paper-route-decisive-history-env-hook-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1504-paper-route-decisive-history-env-hook-design.json",
-    "hypothesis": "The M1503 metadata planner pass can be translated into a concrete no-training current-sim env-hook design for T4/T5 candidate-generation probes.",
-    "id": "m1504-paper-route-decisive-history-env-hook-design",
-    "kind": "gate",
-    "notes": "Pending: design no-training current-sim env hooks before simulator rollout probes, replay, or training",
-    "priority": 14990,
+    "command": "see experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json",
+    "hypothesis": "The M1504 env-hook design can be implemented as no-training source-plan-to-env-config infrastructure with dry-smoke artifacts and focused tests.",
+    "id": "m1505-paper-route-decisive-history-env-hook-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training env-hook scaffolding with focused tests and dry-smoke artifacts, no simulator rollout or replay",
+    "priority": 15000,
     "status": "pending",
-    "success_artifact": "docs/m1504-paper-route-decisive-history-env-hook-design.md"
+    "success_artifact": "docs/m1505-paper-route-decisive-history-env-hook-implementation.md"
   },
-  "updated_at_utc": "20260529T081855Z"
+  "updated_at_utc": "20260529T082315Z"
 }

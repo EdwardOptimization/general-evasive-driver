@@ -144,6 +144,35 @@
     "docs/m1503-paper-route-decisive-history-public-planner-smoke.md",
     "runs/m1503_decisive_history_public_planner_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
+    "decision": "decisive_history_env_hook_design_admit_env_hook_implementation",
+    "current_env_support_reviewed": true,
+    "source_families_covered": [
+      "t4_staged_warmup_capability",
+      "t4_capability_step_temporal",
+      "t4_actuator_delay_response",
+      "t5_near_boundary_warmup",
+      "t5_high_speed_close_obstacle",
+      "t5_boundary_axis_retarget"
+    ],
+    "env_hook_module_planned": "src/autodrift/decisive_history_env_hooks.py",
+    "implementation_started": false,
+    "simulator_rollout_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json"
+  },
+  "decision": "decisive_history_env_hook_design_admit_env_hook_implementation",
   "decision_rule": "M1504 passes if it designs a no-training current-sim env-hook route before implementation, replay, or training.",
-  "next_blocker": "m1504-paper-route-decisive-history-env-hook-design"
+  "next_blocker": "m1505-paper-route-decisive-history-env-hook-implementation"
 }

@@ -22424,3 +22424,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: public metadata-scale planner smoke passes M1501 thresholds, but this is still not simulator rollout or self-ID evidence.
 - follow-up manifest: `experiments/manifests/m1504-paper-route-decisive-history-env-hook-design.json`.
 - next: `m1504-paper-route-decisive-history-env-hook-design`
+
+## M1504 Paper-Route Decisive History Env-Hook Design
+
+- status: completed
+- decision: `decisive_history_env_hook_design_admit_env_hook_implementation`
+- artifact: `docs/m1504-paper-route-decisive-history-env-hook-design.md`
+- current env support reviewed: `DriftEnvConfig`, `FrictionStepConfig`, `ObstacleTaskConfig`, `WarmupGateConfig`, `RandomizationConfig`, env `info` diagnostics
+- planned module: `src/autodrift/decisive_history_env_hooks.py`
+- source families covered: `t4_staged_warmup_capability`, `t4_capability_step_temporal`, `t4_actuator_delay_response`, `t5_near_boundary_warmup`, `t5_high_speed_close_obstacle`, `t5_boundary_axis_retarget`
+- implementation started: false
+- simulator rollout/replay/training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: M1504 designs the no-training hook/spec layer needed before current-sim rollout probes; it is not simulator candidate evidence.
+- follow-up manifest: `experiments/manifests/m1505-paper-route-decisive-history-env-hook-implementation.json`.
+- next: `m1505-paper-route-decisive-history-env-hook-implementation`

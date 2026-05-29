@@ -1,0 +1,155 @@
+{
+  "id": "m1505-paper-route-decisive-history-env-hook-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_dataset": [
+      "docs/m1504-paper-route-decisive-history-env-hook-design.md",
+      "src/autodrift/decisive_history_candidate_planner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1504-paper-route-decisive-history-env-hook-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training current-sim env-hook/spec layer for T4/T5 decisive-history source families"
+    ],
+    "derived_from": [
+      "m1504-paper-route-decisive-history-env-hook-design"
+    ],
+    "blocked_by": [
+      "env-hook design must become test-covered infrastructure before any rollout probe"
+    ],
+    "supersedes": [
+      "direct simulator rollout smoke without hook/spec scaffolding"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1505-paper-route-decisive-history-env-hook-implementation.md",
+  "public_gates": [
+    "M1505 must implement hook/spec dataclasses and source-plan conversion",
+    "M1505 must build env configs for all six M1501 source families or explicitly fail a source family with taxonomy",
+    "M1505 must write dry-smoke hook artifacts without simulator rollout",
+    "M1505 must include focused tests",
+    "M1505 must keep training replay PPO promotion private holdout corpus export and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run simulator rollout",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim simulator candidate existence from hook metadata"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_env_hook_implementation",
+    "evidence_increment": "implements the no-training hook/spec layer needed before rollout candidate-generation probes",
+    "claim_scope": "infrastructure only; no training, PPO, simulator rollout, replay, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation requires forbidden actor inputs",
+      "stop if source-plan conversion cannot preserve all six source families",
+      "stop if dry smoke starts simulator rollout or replay",
+      "stop if guardrail summary cannot distinguish metadata specs from materialized candidates"
+    ],
+    "fallback_plan": [
+      "if full six-family support is too broad, implement one T4 and one T5 family and record unsupported families",
+      "if env config construction is blocked, route to minimal config-schema repair",
+      "if current sim cannot represent a family honestly, record scenario_sampling_failure for that family"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1504 env-hook design completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "decisive-history env-hook implementation",
+    "admission_evidence": [
+      "M1504 names the hook boundary, source-family mapping, artifact contract, and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run simulator rollout",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "env-hook code",
+      "focused tests",
+      "M1505 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up dry-smoke or runtime-smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "hook/spec dataclasses exist",
+      "source-plan conversion exists",
+      "env config factory covers source families",
+      "dry-smoke artifacts exist",
+      "focused tests pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1505 implements hook infrastructure only and must not claim history necessity without rollout-measured T4/T5 candidates.",
+    "history_necessity_tests": [
+      "preserve T4 current/recent/older-history fields in hook specs",
+      "preserve T5 terminal-boundary fields in hook specs",
+      "preserve intervention labels without putting them into actor input"
+    ],
+    "temporal_evidence_window": "infrastructure only; no simulator temporal evidence generated.",
+    "negative_result_policy": "If hook implementation cannot preserve T4/T5 semantics, record a blocker before any simulator rollout or training.",
+    "allowed_claims": [
+      "M1505 implements no-training env-hook scaffolding",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1504 env-hook design can be implemented as no-training source-plan-to-env-config infrastructure with dry-smoke artifacts and focused tests.",
+  "success_criteria": [
+    "env-hook implementation code exists",
+    "focused tests pass",
+    "dry-smoke writes hook_spec_rows.csv, hook_source_family_summary.csv, hook_guardrail_summary.csv, and summary.json",
+    "all six M1501 source families are represented or unsupported families are explicitly classified",
+    "training replay PPO simulator rollout promotion private holdout corpus export and actor-input changes remain false"
+  ],
+  "failure_criteria": [
+    "implementation code is missing",
+    "focused tests fail",
+    "dry-smoke artifacts are missing",
+    "source-family mapping is incomplete without taxonomy",
+    "implementation starts simulator rollout, replay, PPO, training, promotion, corpus export, private holdout, or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_env_hooks.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1505-paper-route-decisive-history-env-hook-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_infrastructure_task"
+  ],
+  "baseline_artifacts": [
+    "docs/m1504-paper-route-decisive-history-env-hook-design.md"
+  ],
+  "decision_rule": "M1505 passes if it implements no-training env-hook scaffolding with focused tests and no simulator rollout, replay, or training.",
+  "next_blocker": "m1505-paper-route-decisive-history-env-hook-implementation"
+}

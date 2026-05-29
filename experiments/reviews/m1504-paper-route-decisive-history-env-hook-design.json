@@ -1,0 +1,82 @@
+{
+  "decision_reason": "M1504 designs no-training current-sim hook/spec layer for all six T4/T5 source families and keeps rollout replay training promotion blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "design leaves env-hook API or artifacts ambiguous",
+    "design depends on forbidden actor inputs or oracle labels entering actor observations",
+    "design starts simulator replay, PPO, training, promotion, corpus export, or private holdout"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run simulator replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim simulator candidate existence before env-hook implementation"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T082550Z",
+  "hypothesis": "The M1503 metadata planner pass can be translated into a concrete no-training current-sim env-hook design for T4/T5 candidate-generation probes.",
+  "lineage": {
+    "blocked_by": [
+      "metadata planner scale passed, but simulator hook scope must be designed before any rollout probe"
+    ],
+    "derived_from": [
+      "m1503-paper-route-decisive-history-public-planner-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_process_task"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1503-paper-route-decisive-history-public-planner-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1503-paper-route-decisive-history-public-planner-smoke.md",
+      "runs/m1503_decisive_history_public_planner_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design no-training current-sim env hooks for T4/T5 decisive-history candidate generation"
+    ],
+    "supersedes": [
+      "direct simulator replay or training after metadata planner smoke"
+    ]
+  },
+  "milestone": "m1504-paper-route-decisive-history-env-hook-design",
+  "next_blocker": "m1505-paper-route-decisive-history-env-hook-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_env_hook_design_admit_env_hook_implementation",
+  "public_gates": [
+    "M1504 must design no-training current-sim hooks for T4/T5 planner source families",
+    "M1504 must name simulator state, scenario config, logging, and matching outputs needed by M1500 rows",
+    "M1504 must separate env-hook implementation from replay, training, PPO, promotion, private holdout, actor-input changes, and corpus export",
+    "M1504 must route to an implementation milestone or record a simulator-scope blocker"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1504-paper-route-decisive-history-env-hook-design.md",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_env_hook_design_admit_env_hook_implementation",
+    "milestone": "m1504-paper-route-decisive-history-env-hook-design",
+    "reason": "M1504 designs no-training current-sim hook/spec layer for all six T4/T5 source families and keeps rollout replay training promotion blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1504-paper-route-decisive-history-env-hook-design.md exists",
+    "design names env-hook API, scenario config, logging, matching outputs, and guardrails",
+    "design covers all six M1501 source families or explicitly scopes a minimal first implementation",
+    "design routes to implementation or records a simulator-scope blocker",
+    "no simulator replay, training, PPO, promotion, corpus export, private holdout, or actor-input change occurs"
+  ],
+  "type": "gate"
+}

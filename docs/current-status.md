@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1503-paper-route-decisive-history-public-planner-smoke
+m1504-paper-route-decisive-history-env-hook-design
 ```
 
 Current next task:
 
 ```text
-m1504-paper-route-decisive-history-env-hook-design
+m1505-paper-route-decisive-history-env-hook-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -50,12 +50,31 @@ no-training task harness implementation. M1500 implemented metadata-only
 T4/T5 harness scaffolding. M1501 designed the public no-training
 candidate-generation route. M1502 implemented the no-training source-plan
 planner. M1503 ran the public metadata-scale planner smoke and passed all
-pre-registered M1501 thresholds. The current public-gate base remains M1362
-alpha `0.1`:
+pre-registered M1501 thresholds. M1504 designed the no-training current-sim
+hook/spec layer needed before rollout probes. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1504 decisive history env-hook design:
+
+```text
+decision: decisive_history_env_hook_design_admit_env_hook_implementation
+artifact: docs/m1504-paper-route-decisive-history-env-hook-design.md
+planned_module: src/autodrift/decisive_history_env_hooks.py
+source_families_covered: 6
+implementation_started: false
+simulator_rollout/replay/training/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1505-paper-route-decisive-history-env-hook-implementation
+```
+
+M1504 is design only. It maps the M1503 metadata planner route onto existing
+current-sim pieces (`friction_step`, `obstacle`, `warmup_gate`, randomization,
+and env `info` diagnostics). It does not prove simulator candidates exist.
 
 M1503 decisive history public planner smoke:
 
