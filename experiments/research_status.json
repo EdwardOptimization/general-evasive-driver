@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1631,
+    "completed": 1632,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md",
+      "command_log": "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1623_contour_aware_policy_target_traceability_preflight",
       "status": "completed",
-      "task_id": "m1622-paper-route-contour-aware-policy-target-materialization-design-audit"
+      "task_id": "m1623-paper-route-contour-aware-policy-target-traceability-preflight"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1623-paper-route-contour-aware-policy-target-traceability-preflight.json",
-      "hypothesis": "A bounded preflight can verify whether M1615 rows are traceable to source replay artifacts before tensor target materialization.",
-      "id": "m1623-paper-route-contour-aware-policy-target-traceability-preflight",
-      "kind": "infrastructure",
-      "notes": "Pending: traceability preflight only; no tensor materialization objective update PPO promotion or private holdout",
-      "priority": 16180,
+      "command": "see experiments/manifests/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.json",
+      "hypothesis": "M1623 traceability artifacts can be audited before deciding whether to implement deterministic tensor capture.",
+      "id": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit traceability result and decide tensor capture route; no objective update PPO promotion or private holdout",
+      "priority": 16190,
       "status": "pending",
-      "success_artifact": "runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json"
+      "success_artifact": "docs/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.md"
     },
-    "updated_at_utc": "20260529T184236Z"
+    "updated_at_utc": "20260529T184732Z"
 }

@@ -25826,3 +25826,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: tensor materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1623-paper-route-contour-aware-policy-target-traceability-preflight.json`
 - next: `m1623-paper-route-contour-aware-policy-target-traceability-preflight`
+
+## M1623 Paper-Route Contour-Aware Policy Target Traceability Preflight
+
+- status: completed
+- decision: `contour_aware_policy_target_traceability_preflight_public_pass_route_to_audit`
+- artifact: `runs/m1623_contour_aware_policy_target_traceability_preflight/summary.json`
+- doc: `docs/m1623-paper-route-contour-aware-policy-target-traceability-preflight.md`
+- focused tests: `2 passed in 2.10s`
+- positive candidate count: 39
+- diagnostic guardrail count: 232
+- source-run resolution failures: 0
+- positive replay pair matches: 39
+- diagnostic replay pair matches: 232
+- positive normal/wrong-history/donor-plus-hidden variant matches: 39/39/39
+- diagnostic normal/wrong-history/donor-plus-hidden variant matches: 232/232/232
+- missing traceability rows: 0
+- tensor target materialized: false
+- passes public smoke gates: true
+- null result classification: `contour_aware_policy_target_traceability_preflight_public_pass`
+- supported: source and variant traceability is complete for the public package
+- unsupported: tensor target materialization, objective update, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- follow-up manifest: `experiments/manifests/m1624-paper-route-contour-aware-policy-target-traceability-result-audit.json`
+- next: `m1624-paper-route-contour-aware-policy-target-traceability-result-audit`

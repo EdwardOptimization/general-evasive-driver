@@ -186,5 +186,5 @@
     "docs/m1622-paper-route-contour-aware-policy-target-materialization-design-audit.md"
   ],
   "decision_rule": "M1623 passes if traceability and required variant availability are measured without materializing tensors or training artifacts.",
-  "next_blocker": "m1623-paper-route-contour-aware-policy-target-traceability-preflight"
+  "next_blocker": "m1624-paper-route-contour-aware-policy-target-traceability-result-audit"
 }
