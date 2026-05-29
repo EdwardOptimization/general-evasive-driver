@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1507 designs measured rollout candidate generation with source traces matching metrics interventions and materialization guardrails before implementation or corpus export",
+  "failure_criteria": [
+    "design document is missing",
+    "design leaves rollout candidate materialization ambiguous",
+    "design relies on reset-only evidence as self-ID evidence",
+    "design starts training, PPO, promotion, private holdout, or corpus export"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from reset-only evidence",
+    "do not materialize candidates without measured rollout margins and interventions"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T084110Z",
+  "hypothesis": "The M1506 reset-viable hook specs can be extended into a no-training rollout candidate-generation design that measures T4/T5 history necessity without actor-input leakage.",
+  "lineage": {
+    "blocked_by": [
+      "env-hook specs reset successfully, but measured rollout candidate generation is not yet designed"
+    ],
+    "derived_from": [
+      "m1506-paper-route-decisive-history-env-hook-runtime-smoke"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_process_task"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1506-paper-route-decisive-history-env-hook-runtime-smoke.json"
+    ],
+    "parent_dataset": [
+      "docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
+      "runs/m1506_decisive_history_env_hook_runtime_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "design no-training rollout candidate generation after env-hook reset viability"
+    ],
+    "supersedes": [
+      "direct corpus export or training after reset-only runtime smoke"
+    ]
+  },
+  "milestone": "m1507-paper-route-decisive-history-rollout-candidate-design",
+  "next_blocker": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_rollout_candidate_design_admit_probe_implementation",
+  "public_gates": [
+    "M1507 must design no-training rollout candidate generation for T4/T5 hooks",
+    "M1507 must define source history collection, matching distances, terminal-margin measurement, and intervention variants",
+    "M1507 must preserve public/private holdout separation and actor-input contract",
+    "M1507 must block training, PPO, promotion, private holdout, and corpus export",
+    "M1507 must route to implementation or record a simulator-scope blocker"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_rollout_candidate_design_admit_probe_implementation",
+    "milestone": "m1507-paper-route-decisive-history-rollout-candidate-design",
+    "reason": "M1507 designs measured rollout candidate generation with source traces matching metrics interventions and materialization guardrails before implementation or corpus export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md exists",
+    "design names source history collection, matching metrics, terminal-margin measurement, and interventions",
+    "design defines when candidates may be materialized",
+    "design blocks training, PPO, promotion, private holdout, and corpus export",
+    "design routes to implementation or records a blocker"
+  ],
+  "type": "gate"
+}

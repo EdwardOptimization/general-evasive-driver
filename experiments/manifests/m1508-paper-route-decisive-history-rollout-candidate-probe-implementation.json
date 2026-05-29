@@ -1,0 +1,152 @@
+{
+  "id": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_infrastructure_task"
+    ],
+    "parent_dataset": [
+      "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
+      "src/autodrift/decisive_history_env_runtime_smoke.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json"
+    ],
+    "parent_objective": [
+      "implement no-training rollout candidate probe scaffolding for T4/T5 decisive-history evidence"
+    ],
+    "derived_from": [
+      "m1507-paper-route-decisive-history-rollout-candidate-design"
+    ],
+    "blocked_by": [
+      "rollout candidate-generation design must become schema/test-covered implementation before public probe"
+    ],
+    "supersedes": [
+      "training corpus export before measured rollout candidate schemas"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
+  "public_gates": [
+    "M1508 must implement rollout candidate schemas and measured-distance helpers",
+    "M1508 must keep reset-only evidence separate from materialized candidates",
+    "M1508 must include focused tests",
+    "M1508 must block training, PPO, promotion, private holdout, actor-input changes, and corpus export",
+    "M1508 must route to a public probe smoke or a bounded runner design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates from reset-only evidence",
+    "do not claim self-identification from scaffolding"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_rollout_candidate_probe_implementation",
+    "evidence_increment": "implements schemas and helpers for measured rollout candidate generation",
+    "claim_scope": "infrastructure only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation cannot distinguish reset-only rows from materialized candidates",
+      "stop if matching helpers require forbidden actor inputs",
+      "stop if policy-runner integration starts training or replay promotion",
+      "stop if focused tests cannot validate candidate materialization guards"
+    ],
+    "fallback_plan": [
+      "if fixed-policy runner is too broad, implement schemas and synthetic helper tests first",
+      "if intervention runner is too broad, route to bounded runner design",
+      "if current simulator cannot expose needed trace fields, route to trace logging repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1507 rollout candidate design completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "rollout candidate probe implementation",
+    "admission_evidence": [
+      "M1507 defines source traces, matching metrics, interventions, candidate materialization criteria, and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "rollout candidate probe code",
+      "focused tests",
+      "M1508 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up public probe smoke or bounded-runner manifest"
+    ],
+    "next_stage_criteria": [
+      "schemas exist",
+      "distance helpers exist",
+      "materialization guard exists",
+      "focused tests pass",
+      "next public probe route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1508 is infrastructure and must preserve the M1507 design separation between current/recent controls and older-history evidence.",
+    "history_necessity_tests": [
+      "schema support for T4 same-current same-recent older-different candidates",
+      "schema support for T5 terminal-boundary candidates",
+      "intervention rows for wrong delayed reset current-tiled zero-current zero-action variants"
+    ],
+    "temporal_evidence_window": "infrastructure only unless a separately pre-registered public probe smoke is run.",
+    "negative_result_policy": "If scaffolding cannot support measured candidate materialization, record a blocker before training or corpus export.",
+    "allowed_claims": [
+      "M1508 implements rollout candidate probe scaffolding",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1507 rollout candidate design can be implemented as no-training schemas, distance helpers, and materialization guards with focused tests.",
+  "success_criteria": [
+    "rollout candidate probe implementation code exists",
+    "focused tests pass",
+    "candidate materialization guard prevents reset-only evidence from becoming candidates",
+    "matching helpers avoid forbidden actor inputs",
+    "next public probe smoke or bounded-runner route is explicit"
+  ],
+  "failure_criteria": [
+    "implementation code is missing",
+    "focused tests fail",
+    "materialization guards are missing",
+    "implementation starts training, PPO, promotion, private holdout, or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_decisive_history_rollout_candidates.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_infrastructure_task"
+  ],
+  "baseline_artifacts": [
+    "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md"
+  ],
+  "decision_rule": "M1508 passes if it implements no-training rollout candidate scaffolding with focused tests and no corpus export or training.",
+  "next_blocker": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation"
+}

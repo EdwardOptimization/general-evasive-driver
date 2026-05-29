@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1506-paper-route-decisive-history-env-hook-runtime-smoke
+m1507-paper-route-decisive-history-rollout-candidate-design
 ```
 
 Current next task:
 
 ```text
-m1507-paper-route-decisive-history-rollout-candidate-design
+m1508-paper-route-decisive-history-rollout-candidate-probe-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -54,11 +54,34 @@ pre-registered M1501 thresholds. M1504 designed the no-training current-sim
 hook/spec layer needed before rollout probes. M1505 implemented that dry
 hook/spec layer and produced no-training dry-smoke artifacts. M1506 passed
 reset-only current-sim runtime smoke for all six source families after a hook
-sampling repair. The current public-gate base remains M1362 alpha `0.1`:
+sampling repair. M1507 designed measured rollout candidate generation before any
+candidate materialization or corpus export. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1507 decisive history rollout candidate design:
+
+```text
+decision: decisive_history_rollout_candidate_design_admit_probe_implementation
+artifact: docs/m1507-paper-route-decisive-history-rollout-candidate-design.md
+source_history_collection_defined: true
+matching_metrics_defined: true
+terminal_margin_measurement_defined: true
+intervention_variants_defined: true
+candidate_materialization_criteria_defined: true
+rollout_candidate_generation_started: false
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1508-paper-route-decisive-history-rollout-candidate-probe-implementation
+```
+
+M1507 is design only. Next is no-training scaffolding for measured rollout
+candidate probes; reset-only evidence still cannot support self-ID claims.
 
 M1506 decisive history env-hook runtime smoke:
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1515,
+    "completed": 1516,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1506-paper-route-decisive-history-env-hook-runtime-smoke.md",
+    "command_log": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1506_decisive_history_env_hook_runtime_smoke",
+    "run_dir": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md",
     "status": "completed",
-    "task_id": "m1506-paper-route-decisive-history-env-hook-runtime-smoke"
+    "task_id": "m1507-paper-route-decisive-history-rollout-candidate-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json",
-    "hypothesis": "The M1506 reset-viable hook specs can be extended into a no-training rollout candidate-generation design that measures T4/T5 history necessity without actor-input leakage.",
-    "id": "m1507-paper-route-decisive-history-rollout-candidate-design",
-    "kind": "gate",
-    "notes": "Pending: design measured rollout candidate generation before implementation, corpus export, or training",
-    "priority": 15020,
+    "command": "see experiments/manifests/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.json",
+    "hypothesis": "The M1507 rollout candidate design can be implemented as no-training schemas, distance helpers, and materialization guards with focused tests.",
+    "id": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-training rollout candidate probe scaffolding with focused tests and no corpus export or training",
+    "priority": 15030,
     "status": "pending",
-    "success_artifact": "docs/m1507-paper-route-decisive-history-rollout-candidate-design.md"
+    "success_artifact": "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
   },
-  "updated_at_utc": "20260529T083559Z"
+  "updated_at_utc": "20260529T083907Z"
 }

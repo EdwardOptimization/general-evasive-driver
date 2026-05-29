@@ -22490,3 +22490,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: reset/runtime viability is now proven for a tiny source-diverse hook subset, but rollout candidate evidence is still unproven.
 - follow-up manifest: `experiments/manifests/m1507-paper-route-decisive-history-rollout-candidate-design.json`.
 - next: `m1507-paper-route-decisive-history-rollout-candidate-design`
+
+## M1507 Paper-Route Decisive History Rollout Candidate Design
+
+- status: completed
+- decision: `decisive_history_rollout_candidate_design_admit_probe_implementation`
+- artifact: `docs/m1507-paper-route-decisive-history-rollout-candidate-design.md`
+- source history collection defined: true
+- matching metrics defined: true
+- terminal margin measurement defined: true
+- intervention variants defined: true
+- candidate materialization criteria defined: true
+- rollout candidate generation started: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- interpretation: M1507 designs how reset-viable hook specs become measured T4/T5 rollout candidates; it is not rollout or self-ID evidence.
+- follow-up manifest: `experiments/manifests/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.json`.
+- next: `m1508-paper-route-decisive-history-rollout-candidate-probe-implementation`
