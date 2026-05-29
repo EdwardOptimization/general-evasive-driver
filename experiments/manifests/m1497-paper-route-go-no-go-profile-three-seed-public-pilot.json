@@ -150,6 +150,36 @@
     "docs/m1496-paper-route-go-no-go-one-seed-result-audit.md",
     "runs/m1495_go_no_go_profile_one_seed_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.md",
+    "run_dir": "runs/m1497_go_no_go_profile_three_seed_public_pilot",
+    "summary": "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+    "decision": "go_no_go_three_seed_public_pilot_completed_route_to_stop_rule_audit",
+    "result_class": "corrected_profile_pilot_completed",
+    "profile_count": 12,
+    "main_profile_count": 7,
+    "diagnostic_profile_count": 5,
+    "total_seed_runs": 36,
+    "completed_seed_runs": 36,
+    "failed_seed_runs": 0,
+    "all_selected_profile_seed_runs_complete": true,
+    "all_eval_metrics_finite": true,
+    "private_holdout_used": false,
+    "promoted": false,
+    "profile_specific_tuning": false,
+    "actor_input_contract_changed": false,
+    "self_identification_claimed": false,
+    "paper_level_claimed": false,
+    "l2_current_tiled_controls_remain_close": true,
+    "l3_online_beats_reset_control": false,
+    "standard_profile_scaling_stop_rule_triggered_for_audit": true,
+    "finite_window_history_necessity": "not_supported_by_three_seed_public_pilot",
+    "online_gru_hidden_advantage": "not_supported_by_three_seed_public_pilot",
+    "current_frame_substitution_risk": "high",
+    "next_manifest": "experiments/manifests/m1498-paper-route-go-no-go-three-seed-result-audit.json"
+  },
+  "decision": "go_no_go_three_seed_public_pilot_completed_route_to_stop_rule_audit",
   "decision_rule": "M1497 passes if all 36 profile seed runs complete with finite metrics and no private holdout or promotion.",
-  "next_blocker": "m1497-paper-route-go-no-go-profile-three-seed-public-pilot"
+  "next_blocker": "m1498-paper-route-go-no-go-three-seed-result-audit"
 }

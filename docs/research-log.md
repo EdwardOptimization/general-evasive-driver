@@ -22286,3 +22286,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.json`.
 - next: `m1497-paper-route-go-no-go-profile-three-seed-public-pilot`
+
+## M1497 Paper-Route Go/No-Go Profile Three-Seed Public Pilot
+
+- status: completed
+- decision: `go_no_go_three_seed_public_pilot_completed_route_to_stop_rule_audit`
+- result class: `corrected_profile_pilot_completed`
+- run dir: `runs/m1497_go_no_go_profile_three_seed_public_pilot`
+- summary: `runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json`
+- profile count: 12
+- total seed runs: 36
+- completed seed runs: 36
+- failed seed runs: 0
+- all selected profile seed runs complete: true
+- all eval metrics finite: true
+- private holdout used: false
+- promoted: false
+- profile specific tuning: false
+- actor input contract changed: false
+- L2 trend: normal windows remain close to current-tiled controls; success deltas are 0.015625 for 13 and 0.052083 for 25/50/100.
+- L3 trend: online GRU does not beat corrected reset-control; online/reset success is 0.286458/0.317708 and mean margin is 0.480487/0.502408.
+- interpretation: public profile trend only; standard profile scaling stop-rule audit is triggered before any further profile pilot.
+- guardrail: no replay, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1498-paper-route-go-no-go-three-seed-result-audit.json`.
+- next: `m1498-paper-route-go-no-go-three-seed-result-audit`

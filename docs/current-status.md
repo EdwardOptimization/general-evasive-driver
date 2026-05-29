@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1496-paper-route-go-no-go-one-seed-result-audit
+m1497-paper-route-go-no-go-profile-three-seed-public-pilot
 ```
 
 Current next task:
 
 ```text
-m1497-paper-route-go-no-go-profile-three-seed-public-pilot
+m1498-paper-route-go-no-go-three-seed-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -42,12 +42,42 @@ M1488 hard stop. M1492 designed the L0/L1/L2/L3 self-ID go/no-go matrix. M1493
 refreshed the config layer to the full 12-profile matrix. M1494 passed
 no-training runtime smoke for all 12 configs. M1495 completed one fixed-budget
 train/eval seed per profile. M1496 audited M1495 and admits exactly one 3-seed
-public pilot with a stop rule. The current public-gate base remains M1362 alpha
-`0.1`:
+public pilot with a stop rule. M1497 completed that three-seed public pilot with
+all 36 profile seed runs finite and now requires M1498 stop-rule audit before
+any further standard profile scaling. The current public-gate base remains
+M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1497 three-seed public pilot:
+
+```text
+decision: go_no_go_three_seed_public_pilot_completed_route_to_stop_rule_audit
+run: runs/m1497_go_no_go_profile_three_seed_public_pilot
+result_class: corrected_profile_pilot_completed
+profile_count: 12
+total_seed_runs: 36
+completed_seed_runs: 36
+failed_seed_runs: 0
+all_eval_metrics_finite: true
+private_holdout_used: false
+promoted: false
+profile_specific_tuning: false
+actor_input_contract_changed: false
+finite_window_history_necessity: not_supported_by_three_seed_public_pilot
+online_gru_hidden_advantage: not_supported_by_three_seed_public_pilot
+current_frame_substitution_risk: high
+next: m1498-paper-route-go-no-go-three-seed-result-audit
+```
+
+M1497 repeated the M1496 stop-rule pattern. L2 normal windows remain close to
+current-tiled controls, and L3 online does not beat corrected reset-control on
+success, collision, or mean margin. M1498 must audit this result and route to
+decisive T4/T5 task evidence, L3 recipe repair, or a negative/conditional
+standard-distribution profile verdict. No M1497 checkpoint is promoted and no
+self-ID claim is allowed.
 
 M1496 one-seed audit:
 
@@ -60,12 +90,6 @@ online_gru_hidden_advantage: not_supported_by_one_seed
 current_frame_substitution_risk: high
 next: m1497-paper-route-go-no-go-profile-three-seed-public-pilot
 ```
-
-M1497 may run exactly one 3-seed public profile pilot. If it repeats L2
-current-tiled parity and L3 online does not beat corrected reset-control, M1498
-must stop standard profile-scaling and route to decisive T4/T5 task evidence,
-L3 recipe repair, or a negative/conditional standard-distribution profile
-verdict.
 
 M1495 one-seed smoke:
 
