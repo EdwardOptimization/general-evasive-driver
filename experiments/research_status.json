@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1669,
+    "completed": 1670,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md",
+      "command_log": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1660_fusion_actor_proposal_repair",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1660-paper-route-fusion-actor-proposal-repair-implementation"
+      "task_id": "m1661-paper-route-fusion-actor-proposal-repair-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1661-paper-route-fusion-actor-proposal-repair-result-audit.json",
-      "hypothesis": "The M1660 positive fusion_actor repair result can be audited as valid objective-sanity evidence while keeping checkpoint replay PPO and promotion claims blocked.",
-      "id": "m1661-paper-route-fusion-actor-proposal-repair-result-audit",
+      "command": "see experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json",
+      "hypothesis": "A design-only checkpoint-artifact preflight can safely specify how to materialize the M1660 fusion_actor repaired policy without making replay or promotion claims.",
+      "id": "m1662-paper-route-fusion-actor-checkpoint-artifact-design",
       "kind": "gate",
-      "notes": "Pending: audit positive fusion_actor repair result before checkpoint artifact or replay route",
-      "priority": 16560,
+      "notes": "Pending: design checkpoint artifact preflight after M1660 positive no-checkpoint repair",
+      "priority": 16570,
       "status": "pending",
-      "success_artifact": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md"
+      "success_artifact": "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md"
     },
-    "updated_at_utc": "20260529T215037Z"
+    "updated_at_utc": "20260529T215331Z"
 }

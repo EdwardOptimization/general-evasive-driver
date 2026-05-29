@@ -1,0 +1,170 @@
+{
+  "id": "m1662-paper-route-fusion-actor-checkpoint-artifact-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+      "runs/m1660_fusion_actor_proposal_repair/summary.json",
+      "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv",
+      "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1661-paper-route-fusion-actor-proposal-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded fusion_actor checkpoint artifact preflight after positive no-checkpoint repair"
+    ],
+    "derived_from": [
+      "m1661-paper-route-fusion-actor-proposal-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M1661 admits design-only checkpoint artifact planning but blocks artifact write and replay gate"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1661",
+      "direct replay gate after M1661",
+      "direct PPO after M1661",
+      "direct promotion after M1661"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+  "public_gates": [
+    "M1662 must be design-only",
+    "M1662 must choose checkpoint artifact materialization policy and candidate selection criteria",
+    "M1662 must define artifact lineage checksum and no-extra-training guardrails",
+    "M1662 must define post-artifact audit requirements before replay gates",
+    "M1662 must decide one bounded implementation route, pivot, synthesis, or stop",
+    "M1662 must keep replay PPO training promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not write checkpoint artifacts",
+    "do not run repair",
+    "do not run projection",
+    "do not run PPO",
+    "do not train",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_checkpoint_artifact_design",
+    "evidence_increment": "designs checkpoint artifact preflight after no-checkpoint fusion_actor objective-sanity pass",
+    "claim_scope": "design only; no checkpoint artifact, repair rerun, replay, PPO, training, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design routes directly to replay or promotion",
+      "stop if design omits artifact lineage and checksum guardrails",
+      "stop if design reruns or tunes repair",
+      "stop if design ignores public fixed-tensor overfit risk",
+      "stop if private holdout or actor-input changes are admitted"
+    ],
+    "fallback_plan": [
+      "admit one bounded checkpoint-artifact implementation if design is clean",
+      "pivot to source refresh if fixed-tensor overfit risk dominates",
+      "synthesize branch if cadence or route ambiguity requires it",
+      "stop artifact route if checkpoint materialization cannot be separated from replay/promotion claims"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1661 admits checkpoint artifact design after objective-sanity pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design fusion_actor checkpoint artifact preflight",
+    "admission_evidence": [
+      "M1660 no-checkpoint fusion_actor repair passed public objective-sanity gates",
+      "M1661 audited the result and kept replay and promotion blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not write checkpoint artifacts",
+      "do not rerun repair",
+      "do not run PPO",
+      "do not train",
+      "do not run closed-loop evaluation",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1662 design document",
+      "M1662 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits artifact implementation pivot synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "artifact candidate selection is explicit",
+      "artifact lineage and checksum requirements are explicit",
+      "post-artifact audit is required before replay",
+      "promotion and private holdout remain blocked unless a later design admits them"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1662 designs checkpoint artifact materialization from fixed-tensor repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design preserves exact correct/wrong hidden residual evidence only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1661 public artifacts only.",
+    "negative_result_policy": "If design cannot separate artifact materialization from replay or promotion claims, pivot or stop before implementation.",
+    "allowed_claims": [
+      "fusion_actor checkpoint artifact design route",
+      "no checkpoint write, no training, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A design-only checkpoint-artifact preflight can safely specify how to materialize the M1660 fusion_actor repaired policy without making replay or promotion claims.",
+  "success_criteria": [
+    "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md exists",
+    "design specifies artifact candidate selection and lineage",
+    "design specifies checksum and no-extra-training guardrails",
+    "design requires result audit before replay gates",
+    "design explicitly routes next step",
+    "replay PPO training promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design writes checkpoint artifacts or reruns repair",
+    "design routes directly to replay promotion private holdout actor-input changes or closed-loop evidence",
+    "design omits artifact audit before replay",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+    "runs/m1660_fusion_actor_proposal_repair/summary.json",
+    "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv"
+  ],
+  "decision_rule": "M1662 passes if it designs a bounded checkpoint-artifact preflight without writing artifacts or admitting replay promotion private holdout or actor-input changes.",
+  "next_blocker": "m1662-paper-route-fusion-actor-checkpoint-artifact-design"
+}

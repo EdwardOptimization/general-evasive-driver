@@ -26594,3 +26594,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: checkpoint artifact generation, closed-loop replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1661-paper-route-fusion-actor-proposal-repair-result-audit.json`
 - next: `m1661-paper-route-fusion-actor-proposal-repair-result-audit`
+
+## M1661 Paper-Route Fusion Actor Proposal Repair Result Audit
+
+- status: completed
+- decision: `fusion_actor_repair_audit_admit_checkpoint_artifact_design`
+- artifact: `docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md`
+- audited run: `runs/m1660_fusion_actor_proposal_repair`
+- failure taxonomy: `none`
+- candidate public pass count: `3`
+- primary alpha `0.2` pass: `true`
+- alpha `0.2` reduction ratio: `0.40519785496674926`
+- alpha `0.4` reduction ratio: `0.3681913379827455`
+- alpha `1.0` reduction ratio: `0.8524941253365563`
+- guardrail violation count: `0`
+- public fixed-tensor overfit risk: high
+- supported: M1660 is a clean objective-sanity pass and can admit design-only checkpoint artifact preflight
+- unsupported: checkpoint artifact generation, replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json`
+- next: `m1662-paper-route-fusion-actor-checkpoint-artifact-design`

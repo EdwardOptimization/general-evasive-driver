@@ -169,6 +169,23 @@
     "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv",
     "docs/m1660-paper-route-fusion-actor-proposal-repair-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+    "decision": "fusion_actor_repair_audit_admit_checkpoint_artifact_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "audited_run": "runs/m1660_fusion_actor_proposal_repair",
+    "candidate_public_pass_count": 3,
+    "primary_alpha_0_2_pass": true,
+    "alpha_0_2_reduction_ratio": 0.40519785496674926,
+    "alpha_0_4_reduction_ratio": 0.3681913379827455,
+    "alpha_1_0_reduction_ratio": 0.8524941253365563,
+    "guardrail_violation_count": 0,
+    "route": "admit design-only checkpoint artifact preflight",
+    "next_manifest": "experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json"
+  },
   "decision_rule": "M1661 passes if it audits M1660 and chooses a safe next route before checkpoint artifact replay PPO or promotion.",
-  "next_blocker": "m1661-paper-route-fusion-actor-proposal-repair-result-audit"
+  "next_blocker": "m1662-paper-route-fusion-actor-checkpoint-artifact-design"
 }

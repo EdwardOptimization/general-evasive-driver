@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1660-paper-route-fusion-actor-proposal-repair-implementation
+m1661-paper-route-fusion-actor-proposal-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m1661-paper-route-fusion-actor-proposal-repair-result-audit
+m1662-paper-route-fusion-actor-checkpoint-artifact-design
 ```
 
-M1660 implemented the no-checkpoint differentiable-feature `fusion_actor`
-selected-proposal repair probe and passed the public objective-sanity gate.
-All three selected candidates passed: alpha `0.2` reduced exact residual by
-`0.40519785496674926`, alpha `0.4` by `0.3681913379827455`, and alpha `1.0` by
-`0.8524941253365563`. No checkpoint artifacts were written, model state was
-restored after each temporary in-memory repair, excluded parameter deltas were
-zero, and training/PPO/replay/promotion/private-holdout/actor-input/level3
-guardrails stayed clean. The next task is M1661 audit before any checkpoint
-artifact design, replay gate, PPO route, or promotion.
+M1661 audited the M1660 positive `fusion_actor` repair result as a clean
+fixed-public-tensor objective-sanity pass. All three selected candidates passed
+and guardrails were clean, but the result is still not checkpoint, replay, PPO,
+promotion, private-holdout, paper-level, or level3 self-ID evidence. The next
+task is M1662 design-only checkpoint-artifact preflight: specify candidate
+selection, lineage, checksums, no-extra-training guardrails, and a mandatory
+post-artifact audit before any replay gate.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
