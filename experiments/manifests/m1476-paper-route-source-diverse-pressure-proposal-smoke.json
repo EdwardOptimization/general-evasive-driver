@@ -1,0 +1,164 @@
+{
+  "id": "m1476-paper-route-source-diverse-pressure-proposal-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/actual_replay_rows.csv",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/history_positive_rows.csv",
+      "runs/m1472_positive_neighborhood_bounded_replay_smoke/control_positive_rows.csv",
+      "runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv",
+      "docs/m1475-paper-route-source-diverse-pressure-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1475-paper-route-source-diverse-pressure-implementation.json"
+    ],
+    "parent_objective": [
+      "run source-diverse pressure proposal smoke without preflight or replay"
+    ],
+    "derived_from": [
+      "m1475-paper-route-source-diverse-pressure-implementation"
+    ],
+    "blocked_by": [
+      "source-diverse pressure generator has not yet been run on M1472 artifacts"
+    ],
+    "supersedes": [
+      "implementation-only evidence as proposal-count evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1476-paper-route-source-diverse-pressure-proposal-smoke.md",
+  "public_gates": [
+    "M1476 must run proposal generation only",
+    "M1476 must not run preflight replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1476 must report selected rows source-group counts source diversity duplicate pressure keys and guardrails"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source preflight",
+    "do not run bounded replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat proposal counts as replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_step_boundary_retarget_validation",
+    "evidence_axis": "S_source_diverse_pressure_proposal_smoke",
+    "evidence_increment": "runs source-diverse pressure generator on M1472 artifacts to test whether source-diverse candidates exist before preflight or replay",
+    "claim_scope": "proposal smoke only; no preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 32",
+      "stop if neighbor_source selected rows are zero",
+      "stop if selected candidates collapse to one seed or capability pair",
+      "stop if duplicate pressure keys remain",
+      "stop if any preflight replay training PPO promotion or corpus export starts"
+    ],
+    "fallback_plan": [
+      "route to proposal smoke audit if source-diverse pressure fails",
+      "route to preflight design if source-diverse pressure candidates are viable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1475 implemented source-diverse pressure generator",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-diverse pressure proposal smoke",
+    "admission_evidence": [
+      "M1475 implementation focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1476_source_diverse_pressure_proposal_smoke",
+      "M1476 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up preflight design or proposal audit manifest"
+    ],
+    "next_stage_criteria": [
+      "proposal smoke completed or failed clearly",
+      "selected source diversity and duplicate-key counts are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1476 is proposal-only and makes no history-necessity claim.",
+    "history_necessity_tests": [
+      "future replay must test generated neighbor-source rows under normal history, warmup interventions, reset hidden, and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1472 live local positive surface and M1475 source-diverse pressure generator.",
+    "negative_result_policy": "If proposal smoke cannot produce source-diverse candidates, route to audit or synthesis rather than corpus export.",
+    "allowed_claims": [
+      "source-diverse pressure proposal counts",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The source-diverse pressure generator can produce a source-diverse candidate pool from M1472 artifacts without replay or training.",
+  "success_criteria": [
+    "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json exists",
+    "selected_candidate_rows >= 32",
+    "selected_source_group_counts.neighbor_source > 0",
+    "selected_duplicate_pressure_key_rows == 0",
+    "candidate_step_column == source_step",
+    "source_preflight_started false",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "selected_candidate_rows < 32",
+    "neighbor source candidates are missing",
+    "duplicate pressure keys remain",
+    "run starts preflight replay training PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "proposal_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.source_diverse_pressure --actual-replay-rows runs/m1472_positive_neighborhood_bounded_replay_smoke/actual_replay_rows.csv --history-positive-rows runs/m1472_positive_neighborhood_bounded_replay_smoke/history_positive_rows.csv --control-positive-rows runs/m1472_positive_neighborhood_bounded_replay_smoke/control_positive_rows.csv --candidate-pool runs/m1470_positive_neighborhood_preflight_smoke/selected_candidate_rows.csv --max-candidates 192 --per-seed-cap 24 --per-capability-pair-cap 24 --per-reveal-bucket-cap 24 --per-relocation-key-cap 32 --per-variant-cap 64 --original-source-cap 12 --control-diagnostic-cap 32 --run-dir runs/m1476_source_diverse_pressure_proposal_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1476-paper-route-source-diverse-pressure-proposal-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1475-paper-route-source-diverse-pressure-implementation.md"
+  ],
+  "decision_rule": "M1476 passes if source-diverse proposal generation produces nonempty neighbor-source candidates with no duplicate pressure keys and no preflight or replay.",
+  "next_blocker": "m1476-paper-route-source-diverse-pressure-proposal-smoke"
+}

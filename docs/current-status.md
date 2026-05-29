@@ -16,30 +16,31 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1474-paper-route-source-diverse-pressure-design
+m1475-paper-route-source-diverse-pressure-implementation
 ```
 
 Current next task:
 
 ```text
-m1475-paper-route-source-diverse-pressure-implementation
+m1476-paper-route-source-diverse-pressure-proposal-smoke
 ```
 
-M1472 ran positive-neighborhood bounded replay, M1473 audited the result, and
-M1474 designed the source-diverse pressure route. The current public-gate base
-remains M1362 alpha `0.1`:
+M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
+designed the source-diverse pressure route, and M1475 implemented the generator.
+The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
 
-M1474 design:
+M1475 implementation:
 
 ```text
-decision: source_diverse_pressure_design_admit_implementation
-implementation target: src/autodrift/source_diverse_pressure.py
-must separate: original-source positives / neighbor-source pressure / zero-current controls
-next: m1475-paper-route-source-diverse-pressure-implementation
+decision: source_diverse_pressure_generator_implemented_admit_proposal_smoke
+implementation: src/autodrift/source_diverse_pressure.py
+tests: tests/test_source_diverse_pressure.py
+focused tests: 31 passed in 2.12s
+next: m1476-paper-route-source-diverse-pressure-proposal-smoke
 ```
 
 M1472 result:
@@ -62,9 +63,9 @@ selected_duplicate_positive_neighborhood_key_rows: 0
 selected diversity: 5 seeds / 9 capability pairs / 8 reveal buckets / 3 variants
 ```
 
-M1475 should implement the source-diverse pressure generator and focused tests
-only. It must not run preflight, replay, train, run PPO, promote, use private
-holdout, export corpus, or change actor inputs.
+M1476 should run proposal generation only. It must not run preflight, replay,
+train, run PPO, promote, use private holdout, export corpus, or change actor
+inputs.
 
 M1455 result:
 

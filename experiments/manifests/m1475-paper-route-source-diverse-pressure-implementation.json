@@ -149,6 +149,32 @@
   "baseline_artifacts": [
     "docs/m1474-paper-route-source-diverse-pressure-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1475-paper-route-source-diverse-pressure-implementation.md",
+    "decision": "source_diverse_pressure_generator_implemented_admit_proposal_smoke",
+    "implementation": "src/autodrift/source_diverse_pressure.py",
+    "tests": "tests/test_source_diverse_pressure.py",
+    "focused_test_result": "31 passed in 2.12s",
+    "candidate_step_column": "source_step",
+    "original_source_separation": true,
+    "control_positive_separation": true,
+    "source_diversity_caps": true,
+    "duplicate_pressure_key_filtering": true,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1476-paper-route-source-diverse-pressure-proposal-smoke.json"
+  },
+  "decision": "source_diverse_pressure_generator_implemented_admit_proposal_smoke",
   "decision_rule": "M1475 passes if the source-diverse pressure generator is implemented with focused tests and no preflight or replay run.",
-  "next_blocker": "m1475-paper-route-source-diverse-pressure-implementation"
+  "next_blocker": "m1476-paper-route-source-diverse-pressure-proposal-smoke"
 }

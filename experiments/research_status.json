@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1483,
+    "completed": 1484,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1474-paper-route-source-diverse-pressure-design.md",
+    "command_log": "docs/m1475-paper-route-source-diverse-pressure-implementation.md",
     "returncode": 0,
     "run_dir": null,
     "status": "completed",
-    "task_id": "m1474-paper-route-source-diverse-pressure-design"
+    "task_id": "m1475-paper-route-source-diverse-pressure-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1475-paper-route-source-diverse-pressure-implementation.json",
-    "hypothesis": "A no-training generator can convert M1472's local positive relocation surface into source-diverse pressure candidates while keeping controls separate.",
-    "id": "m1475-paper-route-source-diverse-pressure-implementation",
+    "command": "see experiments/manifests/m1476-paper-route-source-diverse-pressure-proposal-smoke.json",
+    "hypothesis": "The source-diverse pressure generator can produce a source-diverse candidate pool from M1472 artifacts without replay or training.",
+    "id": "m1476-paper-route-source-diverse-pressure-proposal-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-training source-diverse pressure generator and focused tests without preflight replay training PPO promotion or corpus export",
-    "priority": 14700,
+    "notes": "Pending: run proposal generation only without preflight replay training PPO promotion or corpus export",
+    "priority": 14710,
     "status": "pending",
-    "success_artifact": "docs/m1475-paper-route-source-diverse-pressure-implementation.md"
+    "success_artifact": "runs/m1476_source_diverse_pressure_proposal_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T065500Z"
+  "updated_at_utc": "20260529T070000Z"
 }
