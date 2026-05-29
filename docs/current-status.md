@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1570-paper-route-targeted-third-source-flip-anchor-implementation
+m1571-paper-route-targeted-third-source-flip-anchor-result-audit
 ```
 
 Current next task:
 
 ```text
-m1571-paper-route-targeted-third-source-flip-anchor-result-audit
+m1572-paper-route-source-diverse-flip-anchor-history-intervention-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -377,6 +377,13 @@ anchors, `11` distinct collision flips, `12` distinct success flips, `3` flip
 source families, `4` third-source flip anchors, and clean guardrails. The new
 third source is `t5_high_speed_close_obstacle`; `late_reveal_boundary` remains
 flip-null. M1571 must audit this before any history-intervention design.
+M1571 audited M1570 as a source-generation pass and admitted one design-only
+history-intervention milestone over the M1570 source-diverse flip anchors. The
+audit keeps the claim scope narrow: no history necessity, no wrong-history
+outcome degradation, no materialization, no training corpus, no PPO, no
+promotion, and no level3 self-ID claim. M1572 must design wrong-history,
+donor-history, delayed, reset, zero-current, zero-action-history, and zero-all
+controls, with high-speed and late-reveal reported separately.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

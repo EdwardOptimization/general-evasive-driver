@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1579,
+    "completed": 1580,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md",
+    "command_log": "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1570_targeted_third_source_flip_anchor_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
+    "task_id": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.json",
-    "hypothesis": "M1570's source-diverse flip-anchor pass can be audited into a defensible next route without overstating self-identification evidence.",
-    "id": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit",
+    "command": "see experiments/manifests/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.json",
+    "hypothesis": "A bounded history-intervention experiment can be designed over the M1570 source-diverse flip-anchor active set without weakening self-ID evidence standards.",
+    "id": "m1572-paper-route-source-diverse-flip-anchor-history-intervention-design",
     "kind": "gate",
-    "notes": "Pending: audit M1570 third-source pass and decide whether to admit bounded history-intervention design or synthesize/pivot",
-    "priority": 15660,
+    "notes": "Pending: design source-diverse history interventions over M1570 flip anchors with current-frame substitution controls",
+    "priority": 15670,
     "status": "pending",
-    "success_artifact": "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md"
+    "success_artifact": "docs/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.md"
   },
-  "updated_at_utc": "20260529T143105Z"
+  "updated_at_utc": "20260529T143452Z"
 }

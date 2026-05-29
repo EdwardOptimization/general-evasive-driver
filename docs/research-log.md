@@ -24374,3 +24374,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1570 resolves the immediate third-source source-generation blocker, but the third-source flips are high-speed only; `late_reveal_boundary` remains flip-null, so this must route to audit before any history-intervention design.
 - follow-up manifest: `experiments/manifests/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.json`
 - next: `m1571-paper-route-targeted-third-source-flip-anchor-result-audit`
+
+## M1571 Paper-Route Targeted Third-Source Flip-Anchor Result Audit
+
+- status: completed
+- decision: `targeted_third_source_result_audit_admit_source_diverse_history_intervention_design`
+- artifact: `docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md`
+- failure taxonomy: `none`
+- source spec count: 360
+- anchor candidate count: 360
+- recoverable boundary anchor count: 100
+- strong recoverable boundary anchor count: 59
+- distinct collision flip anchor count: 11
+- distinct success flip anchor count: 12
+- distinct any flip anchor count: 14
+- flip anchor source family count: 3
+- third source flip anchor count: 4
+- targeted family flip anchor count: 4
+- targeted family caveat: third-source flips came from `t5_high_speed_close_obstacle`; `late_reveal_boundary` remains flip-null
+- supported claim: M1570 resolves the immediate source-generation blocker and provides a small source-diverse flip-anchor active set for design
+- unsupported claims: history necessity, wrong-history outcome degradation, level3 anticipatory self-identification, late-reveal flip-anchor success, candidate materialization, training-corpus export, PPO, promotion, private-holdout evidence
+- route decision: admit one design-only source-diverse history-intervention milestone over M1570 flip anchors
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.json`
+- next: `m1572-paper-route-source-diverse-flip-anchor-history-intervention-design`

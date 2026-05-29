@@ -150,6 +150,54 @@
     "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
     "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md",
+    "decision": "targeted_third_source_result_audit_admit_source_diverse_history_intervention_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "source_spec_count": 360,
+    "anchor_candidate_count": 360,
+    "recoverable_boundary_anchor_count": 100,
+    "strong_recoverable_boundary_anchor_count": 59,
+    "distinct_collision_flip_anchor_count": 11,
+    "distinct_success_flip_anchor_count": 12,
+    "flip_anchor_source_family_count": 3,
+    "third_source_flip_anchor_count": 4,
+    "targeted_family_flip_anchor_count": 4,
+    "targeted_family_caveat": "third-source flips came from t5_high_speed_close_obstacle; late_reveal_boundary remains flip-null",
+    "supported_claims": [
+      "M1570 produces source-diverse distinct flip anchors",
+      "M1570 resolves the third-source blocker through t5_high_speed_close_obstacle",
+      "M1570 active set is not source-singleton or window-singleton",
+      "M1570 guardrails are clean"
+    ],
+    "unsupported_claims": [
+      "history necessity",
+      "wrong-history outcome degradation",
+      "level3 anticipatory self-identification",
+      "late_reveal_boundary flip-anchor success",
+      "candidate materialization",
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence"
+    ],
+    "next_manifest": "experiments/manifests/m1572-paper-route-source-diverse-flip-anchor-history-intervention-design.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1571 passes if it audits M1570 and chooses the next route before history interventions.",
-  "next_blocker": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit"
+  "next_blocker": "m1572-paper-route-source-diverse-flip-anchor-history-intervention-design"
 }
