@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1670,
+    "completed": 1671,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1661-paper-route-fusion-actor-proposal-repair-result-audit.md",
+      "command_log": "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1661-paper-route-fusion-actor-proposal-repair-result-audit"
+      "task_id": "m1662-paper-route-fusion-actor-checkpoint-artifact-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json",
-      "hypothesis": "A design-only checkpoint-artifact preflight can safely specify how to materialize the M1660 fusion_actor repaired policy without making replay or promotion claims.",
-      "id": "m1662-paper-route-fusion-actor-checkpoint-artifact-design",
-      "kind": "gate",
-      "notes": "Pending: design checkpoint artifact preflight after M1660 positive no-checkpoint repair",
-      "priority": 16570,
+      "command": "see experiments/manifests/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.json",
+      "hypothesis": "The M1660 alpha 0.2 fusion_actor repaired policy can be materialized as one checkpoint artifact with complete lineage and checksums while keeping replay and promotion blocked.",
+      "id": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: materialize exactly one alpha 0.2 objective-sanity artifact with metadata and checksums before audit",
+      "priority": 16580,
       "status": "pending",
-      "success_artifact": "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md"
+      "success_artifact": "runs/m1663_fusion_actor_checkpoint_artifact/summary.json"
     },
-    "updated_at_utc": "20260529T215331Z"
+    "updated_at_utc": "20260529T215918Z"
 }

@@ -1,0 +1,194 @@
+{
+  "id": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+      "runs/m1660_fusion_actor_proposal_repair/summary.json",
+      "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv",
+      "runs/m1660_fusion_actor_proposal_repair/guardrail_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json"
+    ],
+    "parent_objective": [
+      "materialize one alpha 0.2 fusion_actor repaired checkpoint artifact with lineage and checksums"
+    ],
+    "derived_from": [
+      "m1662-paper-route-fusion-actor-checkpoint-artifact-design"
+    ],
+    "blocked_by": [
+      "M1662 admits one artifact materialization only; replay PPO promotion and private holdout remain blocked"
+    ],
+    "supersedes": [
+      "direct replay gate after M1662",
+      "direct PPO after M1662",
+      "direct promotion after M1662",
+      "multi-candidate checkpoint artifact materialization after M1662"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md",
+  "public_gates": [
+    "M1663 must materialize exactly one alpha 0.2 checkpoint artifact",
+    "M1663 must record artifact metadata lineage and sha256 checksums",
+    "M1663 must reproduce the M1660 alpha 0.2 objective-sanity gate within the pre-registered thresholds",
+    "M1663 must verify excluded parameter deltas are clean outside the allowed fusion_actor scope",
+    "M1663 must not run replay PPO training promotion private holdout actor-input changes or level3 claims",
+    "M1663 must route to result audit before any replay gate"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not materialize alpha 0.4",
+    "do not materialize alpha 1.0",
+    "do not run replay",
+    "do not run PPO",
+    "do not train beyond the pre-registered exact materialization repair",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_fusion_actor_checkpoint_artifact_implementation",
+    "evidence_increment": "materializes one primary alpha 0.2 checkpoint artifact from the positive no-checkpoint fusion_actor repair with lineage and checksums",
+    "claim_scope": "checkpoint artifact infrastructure only; no replay, PPO, training curriculum, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if more than one checkpoint artifact is written",
+      "stop if metadata lineage or checksum is missing",
+      "stop if objective-sanity reproduction fails",
+      "stop if excluded parameters outside fusion_actor change",
+      "stop if replay PPO promotion private holdout or actor-input changes occur"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifact materialization passes",
+      "audit and stop if artifact materialization fails",
+      "pivot to implementation-drift diagnosis if M1660 metrics cannot be reproduced",
+      "synthesize branch if artifact route creates claim ambiguity"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1662 admits one checkpoint artifact materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize alpha 0.2 fusion_actor repaired checkpoint artifact",
+    "admission_evidence": [
+      "M1660 no-checkpoint alpha 0.2 repair passed public objective-sanity gates",
+      "M1661 audited the result",
+      "M1662 designed a bounded primary-only artifact materialization contract"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize alpha 0.4 or alpha 1.0",
+      "do not run PPO",
+      "do not run replay",
+      "do not train beyond exact materialization repair",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "checkpoint artifact materialization code if needed",
+      "focused tests",
+      "runs/m1663_fusion_actor_checkpoint_artifact artifacts",
+      "M1663 result document",
+      "M1663 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "exactly one checkpoint artifact exists",
+      "metadata and checksums are complete",
+      "M1660 alpha 0.2 objective-sanity result is reproduced",
+      "post-artifact audit manifest is created",
+      "replay promotion and private holdout remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1663 materializes a checkpoint from fixed-tensor repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "artifact preserves exact correct/wrong hidden residual objective only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1662 public artifacts only.",
+    "negative_result_policy": "If artifact materialization fails, classify implementation drift, objective reproduction failure, or guardrail violation before any replay.",
+    "allowed_claims": [
+      "primary alpha 0.2 fusion_actor checkpoint artifact materialization",
+      "no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1660 alpha 0.2 fusion_actor repaired policy can be materialized as one checkpoint artifact with complete lineage and checksums while keeping replay and promotion blocked.",
+  "success_criteria": [
+    "runs/m1663_fusion_actor_checkpoint_artifact/summary.json exists",
+    "runs/m1663_fusion_actor_checkpoint_artifact/checkpoints/alpha_0_2_fusion_actor_repaired.pt exists",
+    "artifact metadata and sha256 checksums exist",
+    "selected_alpha equals 0.2",
+    "exactly one checkpoint artifact is written",
+    "positive_exact_residual_reduction_ratio is at least 0.25",
+    "excluded_parameter_delta_violation_count equals 0",
+    "replay PPO training promotion private holdout actor-input changes and level3 claims remain blocked",
+    "M1664 audit manifest is created"
+  ],
+  "failure_criteria": [
+    "checkpoint artifact is missing",
+    "more than one checkpoint artifact is written",
+    "alpha 0.4 or alpha 1.0 is materialized",
+    "metadata lineage or checksums are missing",
+    "objective-sanity reproduction fails",
+    "excluded parameter guardrail fails",
+    "implementation runs replay PPO promotion private holdout actor-input changes or claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_test",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_fusion_actor_checkpoint_artifact.py"
+    },
+    {
+      "name": "materialize",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.fusion_actor_checkpoint_artifact --base-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --proposal-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt --candidate-summary runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --run-dir runs/m1663_fusion_actor_checkpoint_artifact --selected-alpha 0.2"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1663_fusion_actor_checkpoint_artifact/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1663_fusion_actor_checkpoint_artifact/artifact_metadata.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1663_fusion_actor_checkpoint_artifact/checksums.sha256",
+      "type": "txt"
+    },
+    {
+      "path": "docs/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md",
+    "runs/m1660_fusion_actor_proposal_repair/summary.json",
+    "runs/m1660_fusion_actor_proposal_repair/candidate_summary.csv"
+  ],
+  "decision_rule": "M1663 passes only if it materializes exactly one alpha 0.2 checkpoint artifact with complete lineage and clean guardrails, then routes to audit before replay.",
+  "next_blocker": "m1663-paper-route-fusion-actor-checkpoint-artifact-implementation"
+}

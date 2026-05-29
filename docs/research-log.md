@@ -26613,3 +26613,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: checkpoint artifact generation, replay improvement, behavior retention, PPO-proposal repair, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1662-paper-route-fusion-actor-checkpoint-artifact-design.json`
 - next: `m1662-paper-route-fusion-actor-checkpoint-artifact-design`
+
+## M1662 Paper-Route Fusion Actor Checkpoint Artifact Design
+
+- status: completed
+- decision: `fusion_actor_checkpoint_artifact_design_admit_primary_artifact_implementation`
+- artifact: `docs/m1662-paper-route-fusion-actor-checkpoint-artifact-design.md`
+- failure taxonomy: `none`
+- selected artifact candidate: alpha `0.2`
+- selected proposal checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt`
+- base checkpoint: `runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt`
+- deferred candidates: alpha `0.4`, alpha `1.0`
+- artifact label required: `objective_sanity_artifact_only`
+- post-artifact audit required: `true`
+- supported: one bounded primary-only checkpoint artifact implementation with metadata, lineage, checksums, and exact objective-sanity reproduction thresholds
+- unsupported: replay gate, PPO, training curriculum, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1663-paper-route-fusion-actor-checkpoint-artifact-implementation.json`
+- next: `m1663-paper-route-fusion-actor-checkpoint-artifact-implementation`
