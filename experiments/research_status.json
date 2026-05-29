@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1517,
+    "completed": 1518,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
+    "command_log": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1508_decisive_history_rollout_candidate_scaffold_smoke",
+    "run_dir": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
     "status": "completed",
-    "task_id": "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation"
+    "task_id": "m1509-paper-route-decisive-history-task-matrix-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1509-paper-route-decisive-history-task-matrix-synthesis.json",
-    "hypothesis": "After M1508, the decisive-history task-matrix branch should synthesize evidence before continuing to bounded fixed-policy runner work.",
-    "id": "m1509-paper-route-decisive-history-task-matrix-synthesis",
+    "command": "see experiments/manifests/m1510-paper-route-decisive-history-bounded-runner-design.json",
+    "hypothesis": "The M1509 synthesis justifies a bounded public fixed-policy runner design that collects source traces without training or corpus export.",
+    "id": "m1510-paper-route-decisive-history-bounded-runner-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1499-M1508 before bounded fixed-policy runner design or broad rollout generation",
-    "priority": 15040,
+    "notes": "Pending: design bounded fixed-policy source runner before implementation or broad rollout generation",
+    "priority": 15050,
     "status": "pending",
-    "success_artifact": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md"
+    "success_artifact": "docs/m1510-paper-route-decisive-history-bounded-runner-design.md"
   },
-  "updated_at_utc": "20260529T084345Z"
+  "updated_at_utc": "20260529T084908Z"
 }

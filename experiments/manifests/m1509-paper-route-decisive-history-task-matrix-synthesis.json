@@ -70,7 +70,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1508 reached cadence limit for paper_route_decisive_history_task_matrix",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -166,6 +166,39 @@
     "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
     "runs/m1508_decisive_history_rollout_candidate_scaffold_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
+    "decision": "decisive_history_task_matrix_synthesis_promote_to_bounded_runner_branch",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesized_range": "M1499-M1508",
+    "supported_claims": [
+      "T4/T5 task definitions and metadata harness exist",
+      "public source-plan metadata satisfies scale/diversity smoke gates",
+      "env-hook specs and reset-only runtime smoke cover six source families",
+      "materialization guard blocks reset-only rows"
+    ],
+    "unsupported_claims": [
+      "real current-sim T4/T5 candidate existence",
+      "history necessity",
+      "level3 self-identification",
+      "policy superiority"
+    ],
+    "public_gate_overfit_risk": "medium",
+    "next_branch": "paper_route_decisive_history_bounded_runner",
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1510-paper-route-decisive-history-bounded-runner-design.json"
+  },
+  "decision": "decisive_history_task_matrix_synthesis_promote_to_bounded_runner_branch",
   "decision_rule": "M1509 passes if it synthesizes M1499-M1508 and decides whether/how the branch continues before bounded runner work.",
-  "next_blocker": "m1509-paper-route-decisive-history-task-matrix-synthesis"
+  "next_blocker": "m1510-paper-route-decisive-history-bounded-runner-design"
 }

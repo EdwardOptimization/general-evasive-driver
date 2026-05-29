@@ -1,0 +1,149 @@
+{
+  "id": "m1510-paper-route-decisive-history-bounded-runner-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
+      "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1509-paper-route-decisive-history-task-matrix-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded fixed-policy source runner after task-matrix branch synthesis"
+    ],
+    "derived_from": [
+      "m1509-paper-route-decisive-history-task-matrix-synthesis"
+    ],
+    "blocked_by": [
+      "bounded runner scope must be designed before real source rollout collection"
+    ],
+    "supersedes": [
+      "broad rollout generation without runner budget and artifact contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1510-paper-route-decisive-history-bounded-runner-design.md",
+  "public_gates": [
+    "M1510 must design bounded fixed-policy source rollout collection",
+    "M1510 must name checkpoint, source-family cap, max steps, snapshot steps, and artifact schema",
+    "M1510 must block training, PPO, promotion, private holdout, actor-input changes, and corpus export",
+    "M1510 must separate public runner smoke from candidate materialization claims",
+    "M1510 must route to runner implementation or record a blocker"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not run broad rollout generation before bounding the runner",
+    "do not claim self-identification from runner plumbing"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "G_decisive_history_bounded_runner_design",
+    "evidence_increment": "bounds the fixed-policy runner needed after rollout candidate scaffolding and branch synthesis",
+    "claim_scope": "design only; no training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if runner design cannot stay public and bounded",
+      "stop if checkpoint or policy inputs violate actor contract",
+      "stop if runner design cannot separate trace collection from candidate materialization",
+      "stop if design would export a training corpus"
+    ],
+    "fallback_plan": [
+      "if fixed checkpoint runner is too broad, design reset-to-decision trace-only smoke",
+      "if checkpoint loading is a blocker, route to source action-script smoke",
+      "if trace collection fails source families, route to env-hook repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1509 promoted task-matrix branch to bounded runner branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded runner design",
+    "admission_evidence": [
+      "M1509 synthesis promoted the task-matrix infrastructure branch to bounded fixed-policy runner work"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not claim self-identification"
+    ],
+    "allowed_updates": [
+      "M1510 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up runner implementation or blocker manifest"
+    ],
+    "next_stage_criteria": [
+      "checkpoint and runner budget are explicit",
+      "snapshot and trace schema are explicit",
+      "guardrails are explicit",
+      "next implementation or blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1510 must design runner outputs that later allow current/recent/older-history separation; it does not test self-ID itself.",
+    "history_necessity_tests": [
+      "trace collection must preserve T4/T5 history windows for later interventions",
+      "runner smoke must not claim history necessity without measured intervention outcomes"
+    ],
+    "temporal_evidence_window": "design only; no new temporal evidence generated.",
+    "negative_result_policy": "If bounded runner design cannot preserve the evidence contract, record a blocker before broad rollout generation.",
+    "allowed_claims": [
+      "M1510 designs bounded fixed-policy runner",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1509 synthesis justifies a bounded public fixed-policy runner design that collects source traces without training or corpus export.",
+  "success_criteria": [
+    "docs/m1510-paper-route-decisive-history-bounded-runner-design.md exists",
+    "design names checkpoint, runner budget, snapshot schema, and guardrails",
+    "design separates trace collection from candidate materialization",
+    "design blocks training, PPO, promotion, private holdout, and corpus export",
+    "design routes to implementation or records a blocker"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "runner budget or checkpoint is ambiguous",
+    "design conflates trace collection with candidate materialization",
+    "design starts training, PPO, promotion, private holdout, or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1510-paper-route-decisive-history-bounded-runner-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
+    "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md"
+  ],
+  "decision_rule": "M1510 passes if it bounds fixed-policy runner scope before implementation or broad rollout generation.",
+  "next_blocker": "m1510-paper-route-decisive-history-bounded-runner-design"
+}

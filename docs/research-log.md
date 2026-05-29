@@ -22532,3 +22532,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1508 implements candidate materialization scaffolding and guards only; real fixed-policy source traces are still not collected.
 - follow-up manifest: `experiments/manifests/m1509-paper-route-decisive-history-task-matrix-synthesis.json`.
 - next: `m1509-paper-route-decisive-history-task-matrix-synthesis`
+
+## M1509 Paper-Route Decisive History Task Matrix Synthesis
+
+- status: completed
+- decision: `decisive_history_task_matrix_synthesis_promote_to_bounded_runner_branch`
+- synthesis decision: `promote_to_next_branch`
+- artifact: `docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md`
+- synthesized range: M1499-M1508
+- supported claims: task definitions/harness exist; source-plan metadata passes public scale gates; env-hook/reset runtime covers six source families; materialization guard blocks reset-only rows
+- unsupported claims: real T4/T5 candidate existence; history necessity; level3 self-identification; policy superiority
+- public gate overfit risk: medium
+- next branch: `paper_route_decisive_history_bounded_runner`
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: task-matrix infrastructure branch is complete enough to move to bounded fixed-policy runner design, but no self-ID evidence has been proven.
+- follow-up manifest: `experiments/manifests/m1510-paper-route-decisive-history-bounded-runner-design.json`.
+- next: `m1510-paper-route-decisive-history-bounded-runner-design`

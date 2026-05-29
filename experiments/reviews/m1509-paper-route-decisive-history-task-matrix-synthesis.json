@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M1509 synthesizes M1499-M1508 and promotes to bounded fixed-policy runner branch while blocking self-ID claims training and corpus export",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats infrastructure as real rollout evidence",
+    "synthesis ignores public-gate overfit risk",
+    "synthesis routes directly to training, PPO, promotion, private holdout, corpus export, or actor-input changes"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run broad rollout generation",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T085222Z",
+  "hypothesis": "After M1508, the decisive-history task-matrix branch should synthesize evidence before continuing to bounded fixed-policy runner work.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1499-M1508"
+    ],
+    "derived_from": [
+      "m1499-paper-route-decisive-history-task-matrix-design",
+      "m1508-paper-route-decisive-history-rollout-candidate-probe-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1499-paper-route-decisive-history-task-matrix-design.md",
+      "docs/m1508-paper-route-decisive-history-rollout-candidate-probe-implementation.md",
+      "runs/m1508_decisive_history_rollout_candidate_scaffold_smoke/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize the decisive-history task-matrix branch before continuing to fixed-policy runner design"
+    ],
+    "supersedes": [
+      "direct bounded-runner design without branch synthesis"
+    ]
+  },
+  "milestone": "m1509-paper-route-decisive-history-task-matrix-synthesis",
+  "next_blocker": "m1510-paper-route-decisive-history-bounded-runner-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "decisive_history_task_matrix_synthesis_promote_to_bounded_runner_branch",
+  "public_gates": [
+    "M1509 must synthesize M1499-M1508 before the branch continues",
+    "M1509 must separate metadata, reset-runtime, synthetic scaffolding, and real rollout evidence",
+    "M1509 must state supported and falsified claims",
+    "M1509 must assess public-gate overfit risk",
+    "M1509 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "decisive_history_task_matrix_synthesis_promote_to_bounded_runner_branch",
+    "milestone": "m1509-paper-route-decisive-history-task-matrix-synthesis",
+    "reason": "M1509 synthesizes M1499-M1508 and promotes to bounded fixed-policy runner branch while blocking self-ID claims training and corpus export",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1509-paper-route-decisive-history-task-matrix-synthesis.md exists",
+    "synthesis summarizes M1499-M1508 evidence",
+    "supported and falsified claims are explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training, PPO, promotion, private holdout, corpus export, and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}
