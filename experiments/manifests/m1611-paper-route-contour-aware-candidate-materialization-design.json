@@ -160,6 +160,63 @@
     "runs/m1609_diagnostic_complete_bounded_replay/summary.json",
     "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md",
+    "decision": "contour_aware_candidate_materialization_design_admit_offline_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "candidate_directed_pair_target": 39,
+    "candidate_source_edge_target": 4,
+    "max_candidate_source_edge_share_limit": 0.35,
+    "expected_max_candidate_source_edge_share": 0.3333333333333333,
+    "diagnostic_guardrail_directed_pair_target": 232,
+    "diagnostic_dominated_or_control_min": 75,
+    "diagnostic_clean_share_max": 0.02,
+    "row_eligibility": [
+      "source file primary_classified_rows.csv",
+      "rule_bucket primary",
+      "rule_reason clean_edge_window_primary",
+      "label history_control_separated",
+      "m1602_label history_control_separated",
+      "missing_variants empty"
+    ],
+    "required_artifact_plan": [
+      "summary.json",
+      "candidate_rows.csv",
+      "candidate_source_edge_summary.csv",
+      "diagnostic_guardrail_rows.csv",
+      "diagnostic_guardrail_summary.csv",
+      "guardrail_summary.csv"
+    ],
+    "next_manifest": "experiments/manifests/m1612-paper-route-contour-aware-candidate-materialization-implementation.json",
+    "supported_claims": [
+      "M1609 public-pass rows can be materialized as candidate artifacts under strict guardrails",
+      "primary clean rows and diagnostic guardrails must remain separate",
+      "candidate materialization can be implemented offline without replay or training"
+    ],
+    "unsupported_claims": [
+      "training corpus export",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1611 passes if it designs materialization while keeping actual materialization, corpus export, training, PPO, and promotion blocked.",
-  "next_blocker": "m1611-paper-route-contour-aware-candidate-materialization-design"
+  "next_blocker": "m1612-paper-route-contour-aware-candidate-materialization-implementation"
 }

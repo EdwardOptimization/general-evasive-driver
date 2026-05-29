@@ -25558,3 +25558,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1611-paper-route-contour-aware-candidate-materialization-design.json`
 - next: `m1611-paper-route-contour-aware-candidate-materialization-design`
+
+## M1611 Paper-Route Contour-Aware Candidate Materialization Design
+
+- status: completed
+- decision: `contour_aware_candidate_materialization_design_admit_offline_implementation`
+- artifact: `docs/m1611-paper-route-contour-aware-candidate-materialization-design.md`
+- failure taxonomy: `none`
+- candidate directed-pair target: 39
+- candidate source-edge target: 4
+- max candidate source-edge share limit: 0.35
+- expected max candidate source-edge share: 0.3333333333333333
+- diagnostic guardrail directed-pair target: 232
+- diagnostic dominated/control minimum: 75
+- diagnostic clean share maximum: 0.02
+- row eligibility: primary rows only; `clean_edge_window_primary`; `history_control_separated`; empty missing variants; stable `source_run::pair_id`
+- required artifact plan: `summary.json`, `candidate_rows.csv`, `candidate_source_edge_summary.csv`, `diagnostic_guardrail_rows.csv`, `diagnostic_guardrail_summary.csv`, `guardrail_summary.csv`
+- supported: M1609 public-pass rows can be materialized as candidate artifacts under strict guardrails; primary clean rows and diagnostics remain separate; implementation can be offline without replay or training
+- unsupported: training corpus export, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- candidate materialized: false in M1611
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1612-paper-route-contour-aware-candidate-materialization-implementation.json`
+- next: `m1612-paper-route-contour-aware-candidate-materialization-implementation`

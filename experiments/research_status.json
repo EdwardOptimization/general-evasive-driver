@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1619,
+    "completed": 1620,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1610-paper-route-diagnostic-complete-bounded-replay-result-audit.md",
+      "command_log": "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1610-paper-route-diagnostic-complete-bounded-replay-result-audit"
+      "task_id": "m1611-paper-route-contour-aware-candidate-materialization-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1611-paper-route-contour-aware-candidate-materialization-design.json",
-      "hypothesis": "A design-only materialization plan can preserve M1609 primary clean evidence and diagnostic controls before any candidate export.",
-      "id": "m1611-paper-route-contour-aware-candidate-materialization-design",
-      "kind": "gate",
-      "notes": "Pending: design candidate materialization without executing it",
-      "priority": 16060,
+      "command": "see experiments/manifests/m1612-paper-route-contour-aware-candidate-materialization-implementation.json",
+      "hypothesis": "Offline candidate materialization can preserve M1609 clean primary rows and diagnostic guardrails without exporting a training corpus.",
+      "id": "m1612-paper-route-contour-aware-candidate-materialization-implementation",
+      "kind": "infrastructure",
+      "notes": "Pending: implement offline candidate artifacts and diagnostic guardrails",
+      "priority": 16070,
       "status": "pending",
-      "success_artifact": "docs/m1611-paper-route-contour-aware-candidate-materialization-design.md"
+      "success_artifact": "runs/m1612_contour_aware_candidate_materialization/summary.json"
     },
-    "updated_at_utc": "20260529T175657Z"
+    "updated_at_utc": "20260529T175956Z"
 }
