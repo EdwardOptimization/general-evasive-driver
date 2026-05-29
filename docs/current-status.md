@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke
+m1416-paper-route-warmup-retarget-sampling-repair-design
 ```
 
 Current next task:
 
 ```text
-m1416-paper-route-warmup-retarget-sampling-repair-design
+m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
 ```
 
-M1415 attempted the clear near-boundary staged warmup retarget source smoke.
-The current public-gate base remains M1362 alpha `0.1`:
+M1416 designed a repair for the M1415 no-row source smoke. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1416 result:
+
+```text
+decision: warmup_retarget_sampling_repair_design_admit_repaired_source_smoke
+repair: preserve retuned warmup gate geometry
+repair: relax obstacle.distance_range to [4.0, 20.0]
+repair: relax obstacle.half_width_range to [0.90, 1.65]
+repair: relax obstacle.max_threshold_score to 0.50
+next: m1417-paper-route-warmup-retarget-sampling-repair-source-smoke
+```
+
+M1417 should create the repaired configs and run no-training source smoke only.
+It must report source diversity, warmup evidence, and collision share before
+any outcome probe. It must not train, run PPO, export a corpus, use private
+holdout, promote, change actor inputs, or claim level3 self-identification.
 
 M1415 result:
 
@@ -46,12 +62,6 @@ failure_type: scenario_sampling_failure
 actor_input_contract_changed: false
 next: m1416-paper-route-warmup-retarget-sampling-repair-design
 ```
-
-M1415 fails before testing retuned warmup-gate evidence because the retargeted
-obstacle filter is over-constrained. M1416 should repair sampling by relaxing
-the obstacle filter while preserving the retuned warmup gate. It must not run
-source smoke, outcome interventions, training, PPO, corpus export, private
-holdout, promotion, actor-input changes, or level3 claim expansion.
 
 M1414 result:
 

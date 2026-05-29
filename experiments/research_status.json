@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1425,
+    "completed": 1426,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke.md",
+    "command_log": "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1415-paper-route-clear-near-boundary-warmup-retarget-source-smoke"
+    "task_id": "m1416-paper-route-warmup-retarget-sampling-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json",
-    "hypothesis": "Relaxing the obstacle sampling filter while preserving the retuned warmup gate can repair M1415 source materialization without claim expansion.",
-    "id": "m1416-paper-route-warmup-retarget-sampling-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design sampling repair after M1415 no-row source smoke",
-    "priority": 14110,
+    "command": "see experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json",
+    "hypothesis": "Relaxed obstacle sampling with the retuned warmup gate will restore source materialization and reduce collision pressure enough to justify a later outcome probe.",
+    "id": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke",
+    "kind": "infrastructure",
+    "notes": "Pending: create repaired configs and run no-training source smoke",
+    "priority": 14120,
     "status": "pending",
-    "success_artifact": "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
+    "success_artifact": "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T052000Z"
+  "updated_at_utc": "20260529T053000Z"
 }

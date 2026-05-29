@@ -20898,3 +20898,16 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json`.
 - next: `m1416-paper-route-warmup-retarget-sampling-repair-design`
+
+## 20260529T053000Z - m1416-paper-route-warmup-retarget-sampling-repair-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md`
+- decision: `warmup_retarget_sampling_repair_design_admit_repaired_source_smoke`
+- repair: preserve the M1415 retuned warmup gate but relax obstacle sampling back toward M1410 with distance `[4,20]`, half width `[0.90,1.65]`, and threshold score `0.50`.
+- route: admit repaired no-training source smoke only; no outcome probe, training, PPO, corpus export, or promotion.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json`.
+- next: `m1417-paper-route-warmup-retarget-sampling-repair-source-smoke`

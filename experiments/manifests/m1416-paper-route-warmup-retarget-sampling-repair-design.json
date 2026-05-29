@@ -147,6 +147,24 @@
   "baseline_artifacts": [
     "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md",
+    "decision": "warmup_retarget_sampling_repair_design_admit_repaired_source_smoke",
+    "selected_route": "repaired_obstacle_sampling_source_smoke",
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.json"
+  },
+  "decision": "warmup_retarget_sampling_repair_design_admit_repaired_source_smoke",
   "decision_rule": "M1416 passes if it designs a repaired source-smoke route that fixes sampling without training or claim expansion.",
-  "next_blocker": "m1416-paper-route-warmup-retarget-sampling-repair-design"
+  "next_blocker": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
 }

@@ -1,0 +1,148 @@
+{
+  "id": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1415_clear_near_boundary_warmup_retarget_source_smoke/summary.json",
+      "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1416-paper-route-warmup-retarget-sampling-repair-design.json"
+    ],
+    "parent_objective": [
+      "run a repaired source smoke that relaxes obstacle sampling while preserving retuned warmup gate geometry"
+    ],
+    "derived_from": [
+      "m1416-paper-route-warmup-retarget-sampling-repair-design"
+    ],
+    "blocked_by": [
+      "M1416 admits repaired source smoke only"
+    ],
+    "supersedes": [
+      "rerunning M1415 over-constrained sampling filter",
+      "running outcome probe before source materialization is repaired"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1417-paper-route-warmup-retarget-sampling-repair-source-smoke.md",
+  "public_gates": [
+    "M1417 must run no-training repaired source smoke only",
+    "M1417 must report source diversity, warmup evidence, and collision share",
+    "M1417 must not run outcome interventions, train, run PPO, promote, use private holdout, export a training corpus, or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from source materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "S_warmup_retarget_sampling_repair_source",
+    "evidence_increment": "tests whether repaired obstacle sampling restores source materialization while preserving retuned warmup gate diagnostics",
+    "claim_scope": "public no-training source smoke only; no outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if source rows remain zero or sparse",
+      "stop if warmup evidence collapses",
+      "stop if collision share remains above threshold",
+      "stop if actor input changes are required"
+    ],
+    "fallback_plan": [
+      "route to outcome probe only if source, warmup evidence, and collision gates pass",
+      "route to sampling audit if source materialization is still sparse",
+      "route to branch synthesis if repaired source smoke fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_after_m1409_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "warmup retarget sampling repair source smoke",
+    "admission_evidence": [
+      "M1415 failed because obstacle sampling was over-constrained",
+      "M1416 repairs obstacle filter while preserving retuned warmup gate geometry"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "repaired source-smoke configs",
+      "M1417 source artifacts under runs/",
+      "M1417 result document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "source structural pass/fail is classified",
+      "warmup evidence and collision share are reported",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1417 is source smoke only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "source materialization with warmup evidence",
+      "collision/invasiveness source diagnostics",
+      "matched/bucketed current reveal metrics"
+    ],
+    "temporal_evidence_window": "No-training repaired source smoke following M1416 design.",
+    "negative_result_policy": "If repaired source smoke fails, record the failure and audit before outcome probing.",
+    "allowed_claims": [
+      "repaired staged warmup source-smoke result",
+      "no outcome intervention, promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Relaxed obstacle sampling with the retuned warmup gate will restore source materialization and reduce collision pressure enough to justify a later outcome probe.",
+  "success_criteria": [
+    "repaired source-smoke configs exist",
+    "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json exists",
+    "source diversity, warmup evidence, and collision metrics are reported",
+    "result chooses next route without outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "source smoke artifact is missing",
+    "source rows are zero or metrics are missing",
+    "result routes directly to training, PPO, promotion, private holdout, corpus export, or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "repaired_source_smoke",
+      "command": "create repaired configs and run no-training source smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1417_warmup_retarget_sampling_repair_source_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1416-paper-route-warmup-retarget-sampling-repair-design.md"
+  ],
+  "decision_rule": "M1417 passes structurally if repaired source smoke materializes rows and reports warmup/collision diagnostics before any outcome probing.",
+  "next_blocker": "m1417-paper-route-warmup-retarget-sampling-repair-source-smoke"
+}
