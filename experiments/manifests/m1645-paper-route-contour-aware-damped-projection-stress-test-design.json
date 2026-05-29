@@ -153,6 +153,48 @@
     "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md",
     "runs/m1643_contour_aware_damped_projection_repair/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md",
+    "decision": "contour_aware_damped_projection_stress_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "stress_candidate_count": 9,
+    "perturb_scales": [
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "perturb_seeds": [
+      1645,
+      1646,
+      1647
+    ],
+    "projection_mode": "damped_backtracking",
+    "checkpoint_artifact_allowed": false,
+    "next_manifest": "experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json",
+    "supported_claims": [
+      "a fixed no-checkpoint stress grid is pre-registered",
+      "one bounded stress-test implementation is admitted before checkpoint artifact or PPO route"
+    ],
+    "unsupported_claims": [
+      "projection stress result",
+      "checkpoint artifact generation",
+      "PPO-proposal repair",
+      "closed-loop improvement",
+      "promotion",
+      "private-holdout evidence",
+      "paper-level or level3 self-identification evidence"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1645 passes if it pre-registers a no-checkpoint perturbation stress test before any checkpoint artifact or PPO route.",
-  "next_blocker": "m1645-paper-route-contour-aware-damped-projection-stress-test-design"
+  "next_blocker": "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation"
 }

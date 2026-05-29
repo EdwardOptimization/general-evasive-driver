@@ -26248,3 +26248,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: checkpoint artifact generation, PPO-proposal repair, closed-loop replay improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1645-paper-route-contour-aware-damped-projection-stress-test-design.json`
 - next: `m1645-paper-route-contour-aware-damped-projection-stress-test-design`
+
+## M1645 Paper-Route Contour-Aware Damped Projection Stress Test Design
+
+- status: completed
+- decision: `contour_aware_damped_projection_stress_design_admit_bounded_implementation`
+- artifact: `docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md`
+- failure taxonomy: `none`
+- design scope: no-checkpoint perturbation stress test before checkpoint artifact or PPO route
+- stress grid: scales `[1e-4, 3e-4, 1e-3]` crossed with seeds `[1645, 1646, 1647]`
+- stress candidate count: `9`
+- projection mode: `damped_backtracking`
+- scope: actor_mean-only, diagnostics zero-weight, donor-plus excluded from loss, base interpolation forbidden
+- aggregate pass gates: 9 measurable initial residuals, 9 residual reductions, at least 8 public-pass candidates, min reduction ratio at least `0.25`, median at least `0.50`, zero guardrail/checkpoint/base-interpolation violations
+- supported: one bounded no-checkpoint stress implementation is admitted
+- unsupported: projection stress result, checkpoint artifact generation, PPO-proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json`
+- next: `m1646-paper-route-contour-aware-damped-projection-stress-test-implementation`

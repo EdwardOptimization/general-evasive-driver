@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1653,
+    "completed": 1654,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1644-paper-route-contour-aware-damped-projection-repair-result-audit.md",
+      "command_log": "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1644-paper-route-contour-aware-damped-projection-repair-result-audit"
+      "task_id": "m1645-paper-route-contour-aware-damped-projection-stress-test-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1645-paper-route-contour-aware-damped-projection-stress-test-design.json",
-      "hypothesis": "A pre-registered no-checkpoint perturbation stress test can determine whether the damped projection rule is stable across small actor_mean perturbation scales and seeds before any checkpoint artifact route.",
-      "id": "m1645-paper-route-contour-aware-damped-projection-stress-test-design",
-      "kind": "gate",
-      "notes": "Pending: design no-checkpoint multi-scale multi-seed stress test before checkpoint artifact PPO or promotion",
-      "priority": 16400,
+      "command": "see experiments/manifests/m1646-paper-route-contour-aware-damped-projection-stress-test-implementation.json",
+      "hypothesis": "The damped projection rule remains stable across the fixed M1645 perturbation scale/seed grid without writing checkpoints or violating role guardrails.",
+      "id": "m1646-paper-route-contour-aware-damped-projection-stress-test-implementation",
+      "kind": "objective_sanity",
+      "notes": "Pending: implement no-checkpoint multi-scale multi-seed projection stress test and route to audit",
+      "priority": 16410,
       "status": "pending",
-      "success_artifact": "docs/m1645-paper-route-contour-aware-damped-projection-stress-test-design.md"
+      "success_artifact": "runs/m1646_contour_aware_damped_projection_stress_test/summary.json"
     },
-    "updated_at_utc": "20260529T203103Z"
+    "updated_at_utc": "20260529T203415Z"
 }

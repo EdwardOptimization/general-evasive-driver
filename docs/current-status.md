@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1644-paper-route-contour-aware-damped-projection-repair-result-audit
+m1645-paper-route-contour-aware-damped-projection-stress-test-design
 ```
 
 Current next task:
 
 ```text
-m1645-paper-route-contour-aware-damped-projection-stress-test-design
+m1646-paper-route-contour-aware-damped-projection-stress-test-implementation
 ```
 
-M1644 audited the M1643 damped projection pass as clean local exact-objective
-plumbing, not checkpoint/PPO/closed-loop progress. The projection reduced
-positive exact residual by `0.8982656378486144` with clean no-checkpoint and
-no-base-reset guardrails, but it remains one public controlled perturbation.
-The next task is M1645 design of a no-checkpoint multi-scale multi-seed
-projection stress test before any checkpoint artifact, PPO-proposal repair,
-closed-loop evaluation, promotion, private holdout, actor-input change, or
-level3 self-ID claim.
+M1645 designed a no-checkpoint damped projection stress test before any
+checkpoint/PPO route. The fixed grid is 9 candidates: perturb scales
+`[1e-4, 3e-4, 1e-3]` crossed with seeds `[1645, 1646, 1647]`. M1646 may run
+exactly that grid with aggregate gates requiring all candidates to reduce
+residual, at least 8/9 public-pass candidates, zero checkpoint artifacts, zero
+base-interpolation repairs, and clean role/contract guardrails. Checkpoint
+artifacts, PPO-proposal repair, closed-loop evaluation, promotion, private
+holdout, actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
