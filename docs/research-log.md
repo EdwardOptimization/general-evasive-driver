@@ -20772,3 +20772,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no implementation, source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1408-paper-route-staged-obstacle-warmup-api-implementation.json`.
 - next: `m1408-paper-route-staged-obstacle-warmup-api-implementation`
+
+## 20260529T041000Z - m1408-paper-route-staged-obstacle-warmup-api-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `tests/test_env.py`
+- result doc: `docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md`
+- decision: `staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke`
+- implementation: added disabled-by-default `WarmupGateConfig`, staged slot0 warmup gate geometry, warmup gate info diagnostics, and `build_env_config` support.
+- verification: `tests/test_config.py tests/test_env.py` passed (`44 passed`); full pytest passed (`1387 passed, 4 warnings`); `python -m compileall -q src tests` passed.
+- guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json`.
+- next: `m1409-paper-route-warmup-reveal-pressure-branch-synthesis`

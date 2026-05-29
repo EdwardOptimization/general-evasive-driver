@@ -2,7 +2,7 @@
   "id": "m1408-paper-route-staged-obstacle-warmup-api-implementation",
   "type": "infrastructure",
   "gate_tier": "infrastructure",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "none"
   ],
@@ -152,6 +152,35 @@
   "baseline_artifacts": [
     "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "tests/test_env.py",
+    "result_doc": "docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md",
+    "decision": "staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke",
+    "implemented": [
+      "WarmupGateConfig",
+      "disabled_by_default_DriftEnvConfig_warmup_gate",
+      "staged_slot0_warmup_gate_geometry",
+      "warmup_gate_info_diagnostics",
+      "build_env_config_warmup_gate_support"
+    ],
+    "focused_tests": "44 passed",
+    "full_tests": "1387 passed, 4 warnings",
+    "compileall_passed": true,
+    "default_behavior_changed": false,
+    "actor_input_contract_changed": false,
+    "source_smoke_started": false,
+    "outcome_probe_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json"
+  },
+  "decision": "staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke",
   "decision_rule": "M1408 passes if staged warmup gate infrastructure is implemented and tested without running source smoke, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1408-paper-route-staged-obstacle-warmup-api-implementation"
+  "next_blocker": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
 }

@@ -16,22 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1407-paper-route-pre-emergency-gate-stimulus-design
+m1408-paper-route-staged-obstacle-warmup-api-implementation
 ```
 
 Current next task:
 
 ```text
-m1408-paper-route-staged-obstacle-warmup-api-implementation
+m1409-paper-route-warmup-reveal-pressure-branch-synthesis
 ```
 
-M1407 designed the pre-emergency gate stimulus route after M1406 blocked
-training from reset-only evidence. The current public-gate base remains M1362
-alpha `0.1`:
+M1408 implemented the disabled-by-default staged warmup gate API selected by
+M1407. The current public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1408 result:
+
+```text
+decision: staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke
+implemented: WarmupGateConfig, staged slot0 warmup gate, info diagnostics, config loading
+focused tests: 44 passed
+full tests: 1387 passed, 4 warnings
+actor_input_contract_changed: false
+source_smoke_started: false
+next: m1409-paper-route-warmup-reveal-pressure-branch-synthesis
+```
+
+M1409 should synthesize the M1399-M1408 warmup/reveal pressure branch before
+staged source smoke, because the workflow cadence has fired. It must not run
+source smoke, outcome interventions, corpus export, PPO, training, private
+holdout, promotion, or claim expansion before the synthesis decision.
 
 M1407 result:
 

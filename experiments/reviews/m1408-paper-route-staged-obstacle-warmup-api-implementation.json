@@ -1,0 +1,85 @@
+{
+  "decision_reason": "M1408 implements disabled-by-default staged slot0 warmup gate API with focused and full tests passing and routes to branch synthesis before source smoke",
+  "failure_criteria": [
+    "default env behavior changes unexpectedly",
+    "actor observation shape changes unexpectedly",
+    "warmup gate requires actor oracle labels or scripted commands",
+    "tests are missing",
+    "result routes directly to training or claim expansion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not export corpus",
+    "do not add actor oracle labels",
+    "do not add scripted controller commands",
+    "do not change default actor input dimensionality"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260529T002915Z",
+  "hypothesis": "A disabled-by-default staged warmup gate API can be added while preserving default env behavior and the actor input contract.",
+  "lineage": {
+    "blocked_by": [
+      "M1407 requires task API support before a pre-emergency gate source smoke"
+    ],
+    "derived_from": [
+      "m1407-paper-route-pre-emergency-gate-stimulus-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1407-paper-route-pre-emergency-gate-stimulus-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md",
+      "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md"
+    ],
+    "parent_objective": [
+      "implement a disabled-by-default staged warmup gate API with tests"
+    ],
+    "supersedes": [
+      "running another figure-eight-only source smoke",
+      "training from M1405 reset-only rows"
+    ]
+  },
+  "milestone": "m1408-paper-route-staged-obstacle-warmup-api-implementation",
+  "next_blocker": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke",
+  "public_gates": [
+    "M1408 must implement disabled-by-default staged warmup gate support with tests",
+    "M1408 must keep default env behavior unchanged",
+    "M1408 must keep actor observation shape and P0 human-view contract unchanged for the mainline config",
+    "M1408 must not train, run PPO, run source smoke, run outcome interventions, promote, use private holdout, or export a training corpus"
+  ],
+  "scoreboard": {
+    "checkpoint": "tests/test_env.py",
+    "clearance_margin_mean": "",
+    "decision": "staged_obstacle_warmup_api_implemented_route_to_branch_synthesis_before_source_smoke",
+    "milestone": "m1408-paper-route-staged-obstacle-warmup-api-implementation",
+    "reason": "M1408 implements disabled-by-default staged slot0 warmup gate API with focused and full tests passing and routes to branch synthesis before source smoke",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "WarmupGateConfig or equivalent disabled-by-default config exists",
+    "default env observation shape and default obstacle behavior remain unchanged",
+    "tests cover warmup gate visibility, switch to emergency obstacle, finite diagnostics, and unchanged observation shape",
+    "result chooses next route without source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, or actor-input expansion"
+  ],
+  "type": "infrastructure"
+}

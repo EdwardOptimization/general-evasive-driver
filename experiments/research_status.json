@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1417,
+    "completed": 1418,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md",
+    "command_log": "tests/test_env.py",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "src",
     "status": "completed",
-    "task_id": "m1407-paper-route-pre-emergency-gate-stimulus-design"
+    "task_id": "m1408-paper-route-staged-obstacle-warmup-api-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1408-paper-route-staged-obstacle-warmup-api-implementation.json",
-    "hypothesis": "A disabled-by-default staged warmup gate API can be added while preserving default env behavior and the actor input contract.",
-    "id": "m1408-paper-route-staged-obstacle-warmup-api-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement staged slot0 warmup gate API and focused tests; no source smoke or training",
-    "priority": 14030,
+    "command": "see experiments/manifests/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.json",
+    "hypothesis": "The M1399-M1408 warmup/reveal pressure evidence can be synthesized into a clear next route after M1408 adds staged warmup gate infrastructure.",
+    "id": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize branch before staged source smoke due workflow cadence",
+    "priority": 14040,
     "status": "pending",
-    "success_artifact": "tests/test_env.py"
+    "success_artifact": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md"
   },
-  "updated_at_utc": "20260529T040000Z"
+  "updated_at_utc": "20260529T041000Z"
 }

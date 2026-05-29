@@ -109,6 +109,33 @@ class ObstacleTaskConfig:
 
 
 @dataclass(frozen=True)
+class WarmupGateConfig:
+    enabled: bool = False
+    distance_range: tuple[float, float] = (12.0, 30.0)
+    lateral_offset_range: tuple[float, float] = (-1.2, 1.2)
+    half_width_range: tuple[float, float] = (0.35, 0.85)
+    reveal_step: int = 0
+    max_active_steps: int = 64
+    finish_pass_distance: float = 2.0
+
+    def __post_init__(self) -> None:
+        if self.distance_range[0] <= 0.0 or self.distance_range[1] <= 0.0:
+            raise ValueError("warmup_gate distance_range values must be positive")
+        if self.distance_range[1] < self.distance_range[0]:
+            raise ValueError("warmup_gate distance_range must be ordered")
+        if self.half_width_range[0] <= 0.0 or self.half_width_range[1] <= 0.0:
+            raise ValueError("warmup_gate half_width_range values must be positive")
+        if self.half_width_range[1] < self.half_width_range[0]:
+            raise ValueError("warmup_gate half_width_range must be ordered")
+        if self.reveal_step < 0:
+            raise ValueError("warmup_gate reveal_step must be non-negative")
+        if self.max_active_steps <= 0:
+            raise ValueError("warmup_gate max_active_steps must be positive")
+        if self.finish_pass_distance < 0.0:
+            raise ValueError("warmup_gate finish_pass_distance must be non-negative")
+
+
+@dataclass(frozen=True)
 class DriftEnvConfig:
     dt: float = 0.02
     max_steps: int = 800
@@ -131,6 +158,7 @@ class DriftEnvConfig:
     obstacle_slots: int = DEFAULT_OBSTACLE_SLOTS
     friction_step: FrictionStepConfig = FrictionStepConfig()
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
+    warmup_gate: WarmupGateConfig = WarmupGateConfig()
     randomization: RandomizationConfig = RandomizationConfig()
 
     def __post_init__(self) -> None:
@@ -216,6 +244,12 @@ class AutoDriftEnv(gym.Env):
         self.min_obstacle_clearance = float("inf")
         self.collision = False
         self.obstacle_completed = False
+        self.warmup_gate_position: np.ndarray | None = None
+        self.warmup_gate_half_width = float("nan")
+        self.warmup_gate_active = False
+        self.warmup_gate_passed = False
+        self.warmup_gate_collision = False
+        self.warmup_gate_min_clearance = float("inf")
 
     def reset(
         self,
@@ -251,6 +285,7 @@ class AutoDriftEnv(gym.Env):
             steer=0.0,
             drive_force=0.0,
         )
+        self._reset_warmup_gate(np.array([x, y], dtype=np.float64), initial_frame)
         self._reset_obstacle(np.array([x, y], dtype=np.float64), initial_frame)
         self.last_action = np.array([0.0, -1.0, -1.0], dtype=np.float64)
         self.last_control = np.zeros(3, dtype=np.float64)
@@ -284,6 +319,7 @@ class AutoDriftEnv(gym.Env):
         self._update_raw_wheel_state()
         frame = self.track.frame(self.state.x, self.state.y, self.state.psi)
         reward, reward_terms = self._reward(frame, control, self.last_forces)
+        self._update_warmup_gate_status(frame)
         self._update_obstacle_status(frame)
 
         terminated = self._terminated(frame)
@@ -422,6 +458,25 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_position = position + frame.tangent * obstacle_distance
         self._update_obstacle_status(frame)
 
+    def _reset_warmup_gate(self, position: np.ndarray, frame: PathFrame) -> None:
+        self.warmup_gate_position = None
+        self.warmup_gate_half_width = float("nan")
+        self.warmup_gate_active = False
+        self.warmup_gate_passed = False
+        self.warmup_gate_collision = False
+        self.warmup_gate_min_clearance = float("inf")
+        if not self.config.warmup_gate.enabled:
+            return
+        gate = self.config.warmup_gate
+        distance = float(self.rng.uniform(*gate.distance_range))
+        lateral = float(self.rng.uniform(*gate.lateral_offset_range))
+        half_width = float(self.rng.uniform(*gate.half_width_range))
+        normal_left = np.array([-frame.tangent[1], frame.tangent[0]], dtype=np.float64)
+        self.warmup_gate_position = position + frame.tangent * distance + normal_left * lateral
+        self.warmup_gate_half_width = half_width
+        self.warmup_gate_active = True
+        self._update_warmup_gate_status(frame)
+
     def _obstacle_aligned_friction_step_range(self, scenario: ObstacleScenario) -> tuple[int, int] | None:
         if not self._uses_obstacle_aligned_friction_step():
             return None
@@ -472,6 +527,49 @@ class AutoDriftEnv(gym.Env):
             ],
             dtype=np.float64,
         )
+
+    def _warmup_gate_visible(self) -> bool:
+        return bool(
+            self.config.warmup_gate.enabled
+            and self.warmup_gate_active
+            and self.warmup_gate_position is not None
+            and self.step_count >= self.config.warmup_gate.reveal_step
+        )
+
+    def _warmup_gate_longitudinal_distance(self, frame: PathFrame) -> float:
+        if self.warmup_gate_position is None:
+            return float("inf")
+        ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
+        return float(np.dot(self.warmup_gate_position - ego_position, frame.tangent))
+
+    def _update_warmup_gate_status(self, frame: PathFrame) -> None:
+        if not self.config.warmup_gate.enabled or self.warmup_gate_position is None:
+            return
+        ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
+        clearance = float(np.linalg.norm(self.warmup_gate_position - ego_position))
+        self.warmup_gate_min_clearance = min(self.warmup_gate_min_clearance, clearance)
+        collision_radius = self.config.obstacle.ego_half_width + self.warmup_gate_half_width
+        self.warmup_gate_collision = clearance <= collision_radius
+        longitudinal = self._warmup_gate_longitudinal_distance(frame)
+        if longitudinal <= -self.config.warmup_gate.finish_pass_distance:
+            self.warmup_gate_passed = True
+            self.warmup_gate_active = False
+        elif self.step_count >= self.config.warmup_gate.max_active_steps:
+            self.warmup_gate_active = False
+
+    def _warmup_gate_collision_radius(self) -> float:
+        if self.warmup_gate_position is None or not np.isfinite(self.warmup_gate_half_width):
+            return float("nan")
+        return float(self.config.obstacle.ego_half_width + self.warmup_gate_half_width)
+
+    def _active_obstacle_slot_geometry(self) -> tuple[str, np.ndarray | None, float]:
+        if self._warmup_gate_visible() and self.warmup_gate_position is not None:
+            return "warmup_gate", self.warmup_gate_position, self.warmup_gate_half_width
+        if self.config.obstacle.enabled and self.obstacle_scenario is not None and self.obstacle_position is not None:
+            body = self._body_point(self.obstacle_position)
+            if self._obstacle_perception_visible(longitudinal_distance=float(body[0])):
+                return "emergency_obstacle", self.obstacle_position, float(self.obstacle_scenario.obstacle_half_width)
+        return "none", None, float("nan")
 
     def _control_from_action(self, action: np.ndarray) -> np.ndarray:
         action = np.asarray(action, dtype=np.float64)
@@ -625,17 +723,16 @@ class AutoDriftEnv(gym.Env):
 
     def _obstacle_slot_features(self) -> list[float]:
         slots = np.zeros((self.config.obstacle_slots, OBSTACLE_SLOT_DIM), dtype=np.float64)
-        if self.config.obstacle.enabled and self.obstacle_scenario is not None and self.obstacle_position is not None:
-            body = self._body_point(self.obstacle_position)
-            if not self._obstacle_perception_visible(longitudinal_distance=float(body[0])):
-                return slots.reshape(-1).astype(float).tolist()
+        obstacle_kind, obstacle_position, half_width = self._active_obstacle_slot_geometry()
+        del obstacle_kind
+        if obstacle_position is not None and np.isfinite(half_width):
+            body = self._body_point(obstacle_position)
             if self.config.obstacle_relative_velocity_mode == "ego":
                 rel_vx = -self.state.vx + self.state.yaw_rate * body[1]
                 rel_vy = -self.state.vy - self.state.yaw_rate * body[0]
             else:
                 rel_vx = 0.0
                 rel_vy = 0.0
-            half_width = float(self.obstacle_scenario.obstacle_half_width)
             slots[0] = np.array(
                 [
                     1.0,
@@ -730,6 +827,12 @@ class AutoDriftEnv(gym.Env):
         if not self.config.obstacle.enabled or not np.isfinite(obstacle_collision_radius):
             return float("nan")
         return float(self.min_obstacle_clearance - obstacle_collision_radius)
+
+    def _warmup_gate_clearance_margin(self) -> float:
+        collision_radius = self._warmup_gate_collision_radius()
+        if not self.config.warmup_gate.enabled or not np.isfinite(collision_radius):
+            return float("nan")
+        return float(self.warmup_gate_min_clearance - collision_radius)
 
     def _terminal_clearance_margin_reward(self) -> tuple[float, dict[str, float]]:
         scale = float(self.config.obstacle.clearance_margin_reward_scale)
@@ -872,6 +975,13 @@ class AutoDriftEnv(gym.Env):
         obstacle_distance = obstacle_path[0] * 80.0 if self.config.obstacle.enabled else float("nan")
         obstacle_collision_radius = self._obstacle_collision_radius()
         min_clearance_margin = self._clearance_margin()
+        active_obstacle_kind, active_obstacle_position, active_obstacle_half_width = self._active_obstacle_slot_geometry()
+        if active_obstacle_position is None:
+            active_body = np.array([float("nan"), float("nan")], dtype=np.float64)
+        else:
+            active_body = self._body_point(active_obstacle_position)
+        warmup_gate_distance = self._warmup_gate_longitudinal_distance(frame)
+        warmup_gate_collision_radius = self._warmup_gate_collision_radius()
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
@@ -927,4 +1037,20 @@ class AutoDriftEnv(gym.Env):
             "min_clearance_margin": min_clearance_margin,
             "collision": self.collision,
             "obstacle_completed": self.obstacle_completed,
+            "active_obstacle_kind": active_obstacle_kind,
+            "active_obstacle_body_x": float(active_body[0]),
+            "active_obstacle_body_y": float(active_body[1]),
+            "active_obstacle_half_width": float(active_obstacle_half_width),
+            "warmup_gate_enabled": self.config.warmup_gate.enabled,
+            "warmup_gate_active": self.warmup_gate_active,
+            "warmup_gate_visible": self._warmup_gate_visible(),
+            "warmup_gate_passed": self.warmup_gate_passed,
+            "warmup_gate_collision": self.warmup_gate_collision,
+            "warmup_gate_distance": warmup_gate_distance,
+            "warmup_gate_half_width": self.warmup_gate_half_width,
+            "warmup_gate_collision_radius": warmup_gate_collision_radius,
+            "warmup_gate_min_clearance": (
+                self.warmup_gate_min_clearance if self.config.warmup_gate.enabled else float("nan")
+            ),
+            "warmup_gate_clearance_margin": self._warmup_gate_clearance_margin(),
         }

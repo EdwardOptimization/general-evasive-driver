@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
+from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig, WarmupGateConfig
 
 
 def _tuple2(value: Any) -> tuple[float, float]:
@@ -29,6 +29,7 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values["randomization"] = asdict(RandomizationConfig())
     values["friction_step"] = asdict(FrictionStepConfig())
     values["obstacle"] = asdict(ObstacleTaskConfig())
+    values["warmup_gate"] = asdict(WarmupGateConfig())
     for key, value in (data or {}).items():
         if key not in values:
             raise ValueError(f"unknown env config key: {key}")
@@ -65,6 +66,16 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
                 else:
                     obstacle[obstacle_key] = obstacle_value
             values["obstacle"] = obstacle
+        elif key == "warmup_gate":
+            warmup_gate = values["warmup_gate"].copy()
+            for gate_key, gate_value in value.items():
+                if gate_key not in warmup_gate:
+                    raise ValueError(f"unknown warmup_gate config key: {gate_key}")
+                if gate_key.endswith("_range"):
+                    warmup_gate[gate_key] = _tuple2(gate_value)
+                else:
+                    warmup_gate[gate_key] = gate_value
+            values["warmup_gate"] = warmup_gate
         elif key.endswith("_range"):
             values[key] = _tuple2(value)
         else:
@@ -72,6 +83,7 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values["randomization"] = build_randomization_config(values["randomization"])
     values["friction_step"] = FrictionStepConfig(**values["friction_step"])
     values["obstacle"] = ObstacleTaskConfig(**values["obstacle"])
+    values["warmup_gate"] = WarmupGateConfig(**values["warmup_gate"])
     return DriftEnvConfig(**values)
 
 
@@ -94,6 +106,10 @@ def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str
             obstacle = dict(merged.get("obstacle", {}))
             obstacle.update(value)
             merged["obstacle"] = obstacle
+        elif key == "warmup_gate":
+            warmup_gate = dict(merged.get("warmup_gate", {}))
+            warmup_gate.update(value)
+            merged["warmup_gate"] = warmup_gate
         else:
             merged[key] = value
     return merged

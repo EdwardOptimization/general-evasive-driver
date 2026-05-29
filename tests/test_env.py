@@ -4,7 +4,7 @@ import pytest
 from autodrift.artifacts import read_json
 from autodrift.config import build_env_config
 from autodrift.dynamics import RandomizationConfig, VehicleState
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig, WarmupGateConfig
 from autodrift.policies import HeuristicPolicy
 from autodrift.scenarios import ObstacleScenario
 
@@ -202,6 +202,143 @@ def test_obstacle_perception_reveal_can_hide_obstacle_slots_until_step_or_distan
     _, info = env.reset(seed=22)
     assert info["obstacle_perception_visible"] is False
     assert env._obstacle_slot_features()[0] == 0.0
+
+
+def test_warmup_gate_defaults_preserve_obstacle_slot_behavior():
+    base_env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(8.0, 8.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+            ),
+        )
+    )
+    explicit_disabled_env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(8.0, 8.0),
+            friction_limited_speed=False,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+            ),
+            warmup_gate=WarmupGateConfig(enabled=False),
+        )
+    )
+
+    base_obs, base_info = base_env.reset(seed=220)
+    disabled_obs, disabled_info = explicit_disabled_env.reset(seed=220)
+
+    assert base_obs.shape == disabled_obs.shape == (72,)
+    np.testing.assert_allclose(base_env._obstacle_slot_features(), explicit_disabled_env._obstacle_slot_features())
+    assert base_info["active_obstacle_kind"] == disabled_info["active_obstacle_kind"] == "emergency_obstacle"
+    assert base_info["warmup_gate_enabled"] is False
+    assert disabled_info["warmup_gate_enabled"] is False
+
+
+def test_warmup_gate_can_occupy_slot0_before_emergency_reveal():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(8.0, 8.0),
+            friction_limited_speed=False,
+            obstacle_relative_velocity_mode="zero",
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(30.0, 30.0),
+                half_width_range=(0.8, 0.8),
+                perception_reveal_step=20,
+            ),
+            warmup_gate=WarmupGateConfig(
+                enabled=True,
+                distance_range=(12.0, 12.0),
+                lateral_offset_range=(1.0, 1.0),
+                half_width_range=(0.5, 0.5),
+                reveal_step=0,
+                max_active_steps=30,
+            ),
+        )
+    )
+
+    obs, info = env.reset(seed=221)
+    slot0 = obs[44:51]
+
+    assert obs.shape == (72,)
+    assert info["active_obstacle_kind"] == "warmup_gate"
+    assert info["warmup_gate_active"] is True
+    assert info["warmup_gate_visible"] is True
+    assert info["obstacle_perception_visible"] is False
+    assert slot0[0] == 1.0
+    assert np.isclose(slot0[5], 0.1)
+    assert np.isclose(slot0[6], 0.1)
+    assert np.allclose(slot0[3:5], [0.0, 0.0])
+
+
+def test_warmup_gate_switches_slot0_to_emergency_obstacle_after_timeout():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            speed_range=(8.0, 8.0),
+            friction_limited_speed=False,
+            obstacle_relative_velocity_mode="zero",
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(30.0, 30.0),
+                half_width_range=(0.8, 0.8),
+                perception_reveal_step=0,
+                perception_reveal_distance=100.0,
+            ),
+            warmup_gate=WarmupGateConfig(
+                enabled=True,
+                distance_range=(12.0, 12.0),
+                lateral_offset_range=(1.0, 1.0),
+                half_width_range=(0.5, 0.5),
+                reveal_step=0,
+                max_active_steps=1,
+            ),
+        )
+    )
+
+    reset_obs, reset_info = env.reset(seed=222)
+    reset_slot0 = reset_obs[44:51].copy()
+    next_obs, _, _, _, next_info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
+    next_slot0 = next_obs[44:51]
+
+    assert reset_info["active_obstacle_kind"] == "warmup_gate"
+    assert next_info["active_obstacle_kind"] == "emergency_obstacle"
+    assert next_info["warmup_gate_active"] is False
+    assert next_info["warmup_gate_min_clearance"] < float("inf")
+    assert np.isfinite(next_info["warmup_gate_clearance_margin"])
+    assert next_obs.shape == (72,)
+    assert reset_slot0[0] == next_slot0[0] == 1.0
+    assert not np.allclose(reset_slot0[1:3], next_slot0[1:3])
+    assert np.isclose(next_slot0[5], 0.16)
+    assert np.isclose(next_slot0[6], 0.16)
+
+
+def test_warmup_gate_config_can_be_loaded_from_json_dict():
+    config = build_env_config(
+        {
+            "warmup_gate": {
+                "enabled": True,
+                "distance_range": [10.0, 12.0],
+                "lateral_offset_range": [-0.5, 0.5],
+                "half_width_range": [0.4, 0.6],
+                "reveal_step": 3,
+                "max_active_steps": 12,
+                "finish_pass_distance": 1.0,
+            }
+        }
+    )
+
+    assert config.warmup_gate.enabled is True
+    assert config.warmup_gate.distance_range == (10.0, 12.0)
+    assert config.warmup_gate.lateral_offset_range == (-0.5, 0.5)
+    assert config.warmup_gate.half_width_range == (0.4, 0.6)
+    assert config.warmup_gate.reveal_step == 3
+    assert config.warmup_gate.max_active_steps == 12
+    assert config.warmup_gate.finish_pass_distance == 1.0
 
 
 def test_obstacle_relative_velocity_mode_rejects_unknown_mode():

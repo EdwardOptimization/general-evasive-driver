@@ -1,0 +1,185 @@
+{
+  "id": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1399-paper-route-warmup-reveal-pressure-redesign.md",
+      "runs/m1400_warmup_reveal_pressure_source_smoke/summary.json",
+      "runs/m1401_warmup_reveal_pressure_outcome_probe/summary.json",
+      "docs/m1402-paper-route-warmup-reveal-pressure-outcome-result-audit.md",
+      "docs/m1403-paper-route-mild-warmup-stimulus-design.md",
+      "runs/m1404_mild_warmup_stimulus_source_smoke/summary.json",
+      "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json",
+      "docs/m1406-paper-route-mild-warmup-outcome-result-audit.md",
+      "docs/m1407-paper-route-pre-emergency-gate-stimulus-design.md",
+      "docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1408-paper-route-staged-obstacle-warmup-api-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M1399-M1408 warmup/reveal pressure branch before continuing to staged source smoke"
+    ],
+    "derived_from": [
+      "m1399-paper-route-warmup-reveal-pressure-redesign",
+      "m1408-paper-route-staged-obstacle-warmup-api-implementation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1408",
+      "M1405 remained reset-only despite near-boundary progress",
+      "M1408 added new task API but no source smoke has been run"
+    ],
+    "supersedes": [
+      "running M1409 staged source smoke without branch synthesis",
+      "continuing local warmup/reveal tuning without summarizing evidence",
+      "training from M1405 reset-only rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+  "public_gates": [
+    "M1409 must synthesize M1399-M1408 evidence before more source smoke or training",
+    "M1409 must separate near-boundary task-design progress from unsupported self-identification claims",
+    "M1409 must classify public-gate overfit risk before staged warmup source smoke",
+    "M1409 must choose continue, pivot, stop, or promote-to-next-branch before corpus export, training, PPO, promotion, or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not count M1405 reset-only rows as self-identification",
+    "do not continue local branch work without synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_warmup_reveal_pressure_redesign",
+    "evidence_axis": "S_warmup_reveal_pressure_branch_synthesis",
+    "evidence_increment": "synthesizes M1399-M1408 and decides whether staged warmup gate source smoke is justified after cadence reached",
+    "claim_scope": "branch synthesis only; no source smoke, outcome intervention, training, PPO, promotion, private holdout, corpus export, paper-level, or strong self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1405 reset-only rows as self-ID evidence",
+      "stop if near-boundary progress is ignored",
+      "stop if staged source smoke is admitted without warmup diagnostics",
+      "stop if private holdout or training is proposed before public source viability"
+    ],
+    "fallback_plan": [
+      "continue to staged warmup source smoke if M1408 API gives a credible new evidence axis",
+      "pivot to road-boundary-only stimulus if staged obstacle is too invasive",
+      "stop the branch if repeated source/outcome probes remain action-only or reset-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1408 reaches the 10-20 milestone workflow synthesis cadence for paper_route_warmup_reveal_pressure_redesign",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "warmup/reveal pressure branch synthesis",
+    "admission_evidence": [
+      "M1400 source smoke passed but M1401 was action-only",
+      "M1404 source smoke passed and M1405 created preferred near-boundary candidates but remained reset-only",
+      "M1408 implemented a new disabled-by-default staged warmup API and full tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke before synthesis",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1409 synthesis document",
+      "status, queue, scoreboard, research log, and review",
+      "one follow-up manifest if synthesis admits it"
+    ],
+    "next_stage_criteria": [
+      "supported and unsupported claims are documented",
+      "failure taxonomy and public overfit risk are summarized",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1409 must synthesize current/recent substitution risk and keep M1405 reset-only evidence below level3.",
+    "history_necessity_tests": [
+      "summarize M1401 action-only result",
+      "summarize M1405 reset-only result",
+      "summarize M1408 staged warmup API as infrastructure only",
+      "decide whether staged source smoke is justified"
+    ],
+    "temporal_evidence_window": "M1399-M1408 warmup/reveal pressure public artifacts.",
+    "negative_result_policy": "Action-only and reset-only outcomes must be recorded as constraints before staged source smoke.",
+    "allowed_claims": [
+      "warmup/reveal pressure branch synthesis and next route decision",
+      "no promotion, corpus export, training, PPO, private-holdout, high-fidelity, paper-level, or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1399-M1408 warmup/reveal pressure evidence can be synthesized into a clear next route after M1408 adds staged warmup gate infrastructure.",
+  "success_criteria": [
+    "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md exists",
+    "synthesis summarizes M1399-M1408 evidence",
+    "synthesis lists supported and unsupported claims",
+    "synthesis classifies failure taxonomy and public-gate overfit risk",
+    "synthesis chooses the next branch step before source smoke, corpus export, training, PPO, promotion, private holdout, or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims M1405 reset-only accepted rows",
+    "synthesis ignores near-boundary progress",
+    "synthesis routes directly to training, PPO, promotion, private holdout, or corpus export"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md from M1399-M1408 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1409-paper-route-warmup-reveal-pressure-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1408-paper-route-staged-obstacle-warmup-api-implementation.md",
+    "runs/m1405_mild_warmup_stimulus_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1409 passes if it synthesizes M1399-M1408 with explicit supported/unsupported claims and chooses the next route before any source smoke, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
+  "next_blocker": "m1409-paper-route-warmup-reveal-pressure-branch-synthesis"
+}
