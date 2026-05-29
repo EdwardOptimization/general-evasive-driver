@@ -152,6 +152,18 @@
     "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1685-paper-route-controller-family-measured-execution-design.md",
+    "decision": "measured_execution_design_admit_small_public_routing_smoke",
+    "execution_strategy": "two_stage_smoke_then_full_rollout",
+    "next_stage": "small_public_routing_smoke",
+    "target_profiles": 12,
+    "target_executable_specs": 4,
+    "target_episodes": 48,
+    "claim_scope": "routing_smoke_only_no_controller_ranking",
+    "next_manifest": "experiments/manifests/m1686-paper-route-controller-family-measured-routing-smoke.json"
+  },
   "decision_rule": "M1685 passes if it designs measured execution and keeps execution blocked.",
-  "next_blocker": "m1685-paper-route-controller-family-measured-execution-design"
+  "next_blocker": "m1686-paper-route-controller-family-measured-routing-smoke"
 }

@@ -1,0 +1,176 @@
+{
+  "id": "m1686-paper-route-controller-family-measured-routing-smoke",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1685-paper-route-controller-family-measured-execution-design.md",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json",
+      "runs/m1674_controller_family_one_seed_public_pilot/configs/*_seed167400.json"
+    ],
+    "parent_objective": [
+      "execute bounded public routing smoke over 12 controller profiles and a small executable task-source subset"
+    ],
+    "derived_from": [
+      "m1685-paper-route-controller-family-measured-execution-design"
+    ],
+    "blocked_by": [
+      "need measured routing-smoke evidence before full 864-cell rollout design or execution"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1685",
+      "direct private holdout after M1685",
+      "direct controller-family ranking after M1685"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1686-paper-route-controller-family-measured-routing-smoke.md",
+  "public_gates": [
+    "M1686 may run bounded public environment rollout only for routing smoke",
+    "M1686 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1686 must run 12 profiles over at least 4 executable public specs",
+    "M1686 must report episode profile and spec aggregates with finite selected metrics",
+    "M1686 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not use profile-specific tuning",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_measured_routing_smoke",
+    "evidence_increment": "executes small public routing smoke before full rollout",
+    "claim_scope": "routing smoke only; environment rollout allowed, but no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if profile checkpoints/configs are missing",
+      "stop if P0 actor contract is violated",
+      "stop if runner exceptions or non-finite metrics occur",
+      "stop if profile-specific tuning or private holdout is used"
+    ],
+    "fallback_plan": [
+      "route to routing smoke audit if pass",
+      "route to runner repair if plumbing fails",
+      "route to measured-execution redesign if executable spec mapping is invalid"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1685 admits exactly one small public routing smoke before full rollout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "public measured routing smoke",
+    "admission_evidence": [
+      "M1685 designs two-stage smoke-then-full execution and keeps controller ranking blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "routing smoke runner if needed",
+      "runs/m1686_controller_family_measured_routing_smoke artifacts",
+      "M1686 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "routing smoke artifacts exist",
+      "episode profile and spec aggregate metrics are finite",
+      "guardrails are clean",
+      "next audit or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; routing smoke must include L1, L2-current-tiled, and L3-reset profiles but cannot claim history necessity.",
+    "history_necessity_tests": [
+      "routing smoke must report profile coverage",
+      "routing smoke must not claim ranking or self-ID from small public execution"
+    ],
+    "temporal_evidence_window": "M1685 design and M1683 protocol only.",
+    "negative_result_policy": "If smoke results look negative or positive, record them as routing diagnostics until audited and scaled.",
+    "allowed_claims": [
+      "routing smoke execution and plumbing status",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded public routing smoke can execute the 12 controller profiles on a small executable task-source subset with clean guardrails and finite metrics.",
+  "success_criteria": [
+    "runs/m1686_controller_family_measured_routing_smoke/summary.json exists",
+    "runs/m1686_controller_family_measured_routing_smoke/episode_rows.csv exists",
+    "runs/m1686_controller_family_measured_routing_smoke/profile_aggregate.csv exists",
+    "runs/m1686_controller_family_measured_routing_smoke/spec_aggregate.csv exists",
+    "episode_count == 48",
+    "profile_count == 12",
+    "spec_count >= 4",
+    "selected metrics are finite",
+    "guardrail_violation_count == 0",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "episode count profile count or spec count is below target",
+    "runner exceptions or non-finite selected metrics occur",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "smoke claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "routing_smoke",
+      "command": "run bounded public routing smoke over M1674 profile checkpoints and executable task-source subset"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1686_controller_family_measured_routing_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1686_controller_family_measured_routing_smoke/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1686_controller_family_measured_routing_smoke/profile_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1686_controller_family_measured_routing_smoke/spec_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1685-paper-route-controller-family-measured-execution-design.md",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+    "runs/m1674_controller_family_one_seed_public_pilot/summary.json"
+  ],
+  "decision_rule": "M1686 passes if it executes the bounded public routing smoke with complete artifacts finite metrics and clean guardrails.",
+  "next_blocker": "m1686-paper-route-controller-family-measured-routing-smoke"
+}

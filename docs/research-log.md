@@ -26977,3 +26977,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json`
 - next: `m1685-paper-route-controller-family-measured-execution-design`
+
+## M1685 Paper-Route Controller-Family Measured Execution Design
+
+- status: completed
+- decision: `measured_execution_design_admit_small_public_routing_smoke`
+- artifact: `docs/m1685-paper-route-controller-family-measured-execution-design.md`
+- execution strategy: two-stage smoke then full rollout
+- next stage: small public routing smoke using M1674 one-seed public profile checkpoints
+- target profiles / executable specs / episodes: `12` / `4` / `48`
+- claim scope: routing smoke only; no controller-family ranking, no paper-level evidence, no level3 self-ID
+- blocked: training, replay, PPO, private holdout, promotion, actor-input changes, profile-specific tuning, full rollout execution
+- supported: one bounded public routing-smoke execution is justified before full 864-cell rollout
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1686-paper-route-controller-family-measured-routing-smoke.json`
+- next: `m1686-paper-route-controller-family-measured-routing-smoke`

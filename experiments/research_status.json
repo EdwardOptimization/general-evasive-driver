@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1693,
+    "completed": 1694,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md",
+      "command_log": "docs/m1685-paper-route-controller-family-measured-execution-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit"
+      "task_id": "m1685-paper-route-controller-family-measured-execution-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1685-paper-route-controller-family-measured-execution-design.json",
-      "hypothesis": "A staged public measured execution route can be designed from the M1683 protocol without executing rollout or weakening controller-family controls.",
-      "id": "m1685-paper-route-controller-family-measured-execution-design",
+      "command": "see experiments/manifests/m1686-paper-route-controller-family-measured-routing-smoke.json",
+      "hypothesis": "A bounded public routing smoke can execute the 12 controller profiles on a small executable task-source subset with clean guardrails and finite metrics.",
+      "id": "m1686-paper-route-controller-family-measured-routing-smoke",
       "kind": "gate",
-      "notes": "Pending: design measured execution scope before any rollout",
-      "priority": 16800,
+      "notes": "Pending: execute small public routing smoke before full rollout",
+      "priority": 16810,
       "status": "pending",
-      "success_artifact": "docs/m1685-paper-route-controller-family-measured-execution-design.md"
+      "success_artifact": "runs/m1686_controller_family_measured_routing_smoke/summary.json"
     },
-    "updated_at_utc": "20260529T232939Z"
+    "updated_at_utc": "20260529T233353Z"
 }

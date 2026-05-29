@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit
+m1685-paper-route-controller-family-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m1685-paper-route-controller-family-measured-execution-design
+m1686-paper-route-controller-family-measured-routing-smoke
 ```
 
-M1684 audited the no-rollout protocol as complete enough to design measured
-execution. It keeps execution blocked and preserves the required 72-spec,
-12-profile, 864-cell public protocol with `all_72_specs` and
-`explicit_window_subset` strata. The next task is M1685 measured-execution
-design, still without running rollout.
+M1685 designed the measured execution route and chose a staged path: first run a
+small public routing smoke, then audit it, then decide whether to scale to the
+full 864-cell public rollout. The next task is M1686: execute 12 profiles over a
+small executable task-source subset as routing-smoke evidence only, with no
+training, PPO, promotion, private holdout, or controller ranking.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
