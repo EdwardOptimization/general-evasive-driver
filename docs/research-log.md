@@ -21281,3 +21281,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source mining run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1439-paper-route-trace-backed-source-geometry-materialization-design.json`.
 - next: `m1439-paper-route-trace-backed-source-geometry-materialization-design`
+
+## 20260529T032343Z - m1439-paper-route-trace-backed-source-geometry-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md`
+- decision: `trace_backed_source_geometry_materialization_design_admit_implementation`
+- design: materialize preferred-branch emergency-obstacle body-frame geometry from trace-backed `OutcomeSnapshot` rows at source steps `[-32, -24, -16, -8, 0]` relative to reveal.
+- canonical source pool: M1419 `matched_or_bucketed_rows.csv` or `warmup_reveal_rows.csv`, not M1425 `outcome_pressure_rows.csv`.
+- geometry rule: `active_obstacle_body_x` is diagnostic-only because active obstacle can be the warmup gate while bounded relocation replay relocates the emergency obstacle.
+- boundary: M1440 should implement materialization only; source-step action-divergence enrichment is still required before any public source smoke.
+- guardrail: no source materialization run, source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.json`.
+- next: `m1440-paper-route-trace-backed-source-geometry-materialization-implementation`

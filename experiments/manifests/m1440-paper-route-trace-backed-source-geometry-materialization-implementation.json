@@ -1,0 +1,160 @@
+{
+  "id": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md",
+      "src/autodrift/forward_geometry_source_miner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1439-paper-route-trace-backed-source-geometry-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement trace-backed source geometry materialization without running it"
+    ],
+    "derived_from": [
+      "m1439-paper-route-trace-backed-source-geometry-materialization-design"
+    ],
+    "blocked_by": [
+      "M1439 admits implementation only; no source materialization run, source smoke, preflight, replay, or training is admitted yet"
+    ],
+    "supersedes": [
+      "fabricating source_body_x/source_body_y/source_half_width from stale reveal-step CSV metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+  "public_gates": [
+    "M1440 must implement trace-backed source geometry materialization without running it on public data",
+    "M1440 must include focused tests for emergency-obstacle geometry extraction and schema validation",
+    "M1440 must not run source materialization source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source materialization on public data",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not use active-obstacle geometry as the canonical selector geometry",
+    "do not reuse M1425 pressure rows as the new source pool"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "I_trace_backed_source_geometry_materialization_implementation",
+    "evidence_increment": "implements trace-backed source geometry materialization and tests before any source materialization run",
+    "claim_scope": "infrastructure only; no source materialization run, source preflight, replay, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation fabricates source geometry without trace reconstruction",
+      "stop if implementation requires actor input changes",
+      "stop if implementation uses active-obstacle geometry as canonical selector geometry",
+      "stop if implementation routes directly to source smoke or training"
+    ],
+    "fallback_plan": [
+      "route to geometry-first action-divergence enrichment design if implementation passes",
+      "route to environment API repair if emergency obstacle geometry is inaccessible from TracePoint",
+      "route to task-family redesign if earlier source steps still cannot expose forward obstacles"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1439 admits implementation after trace-backed source geometry design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "trace-backed source geometry materialization implementation",
+    "admission_evidence": [
+      "M1439 defines canonical emergency-obstacle source geometry",
+      "M1439 blocks direct source smoke until source-step geometry and action-divergence enrichment are explicit"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source materialization on public data",
+      "do not run source mining",
+      "do not run source preflight",
+      "do not run replay",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "source geometry materializer implementation",
+      "focused tests",
+      "M1440 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up geometry-first action-divergence enrichment manifest if implementation passes"
+    ],
+    "next_stage_criteria": [
+      "trace-backed materializer implementation exists",
+      "focused tests pass",
+      "source geometry output schema is implemented",
+      "next route is not a public source smoke until source-step action-divergence enrichment is designed"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1440 is infrastructure and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future materialized source rows only enable later history replay tests",
+      "source geometry rows cannot count as actual history-positive replay evidence"
+    ],
+    "temporal_evidence_window": "M1439 trace-backed source geometry materialization design.",
+    "negative_result_policy": "If implementation cannot compute source geometry from traces, route to environment API repair or task redesign rather than fabricating geometry fields.",
+    "allowed_claims": [
+      "source geometry materializer implementation and focused test result",
+      "no source-mining result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Trace-backed source geometry materialization can be implemented to compute emergency-obstacle source_body_x/source_body_y/source_half_width rows at earlier source steps without running public source mining.",
+  "success_criteria": [
+    "implementation exists",
+    "focused tests cover trace-backed emergency-obstacle geometry extraction",
+    "focused tests cover active-obstacle diagnostic-only handling",
+    "focused tests cover source row schema validation",
+    "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md exists",
+    "no source materialization run source mining source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "tests are missing",
+    "implementation fabricates source geometry fields",
+    "implementation treats active-obstacle geometry as canonical selector geometry",
+    "implementation runs source materialization or replay",
+    "implementation changes actor inputs"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "edit source and tests for trace-backed source geometry materializer"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1440-paper-route-trace-backed-source-geometry-materialization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md"
+  ],
+  "decision_rule": "M1440 passes if it implements trace-backed source geometry materialization with focused tests and no run.",
+  "next_blocker": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation"
+}

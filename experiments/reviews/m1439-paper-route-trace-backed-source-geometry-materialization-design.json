@@ -1,0 +1,83 @@
+{
+  "decision_reason": "M1439 designs trace-backed emergency-obstacle source geometry materialization and blocks direct source smoke until source-step action-divergence enrichment is explicit",
+  "failure_criteria": [
+    "design document is missing",
+    "design fabricates source geometry fields",
+    "design routes directly to source smoke replay training PPO promotion private holdout corpus export or claim expansion",
+    "design ignores M1438 row-level input schema"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source mining",
+    "do not run source preflight",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not fabricate source geometry fields"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T032735Z",
+  "hypothesis": "Trace-backed materialization can generate source_body_x/source_body_y/source_half_width rows at earlier source steps for the M1438 row-level miner.",
+  "lineage": {
+    "blocked_by": [
+      "M1438 implements row-level source-geometry mining but not trace-backed materialization"
+    ],
+    "derived_from": [
+      "m1438-paper-route-forward-geometry-source-miner-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md",
+      "src/autodrift/forward_geometry_source_miner.py"
+    ],
+    "parent_objective": [
+      "design trace-backed source geometry materialization before public source smoke"
+    ],
+    "supersedes": [
+      "running source miner without source_body_x/source_body_y/source_half_width materialization"
+    ]
+  },
+  "milestone": "m1439-paper-route-trace-backed-source-geometry-materialization-design",
+  "next_blocker": "m1440-paper-route-trace-backed-source-geometry-materialization-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "trace_backed_source_geometry_materialization_design_admit_implementation",
+  "public_gates": [
+    "M1439 must design trace-backed source geometry materialization before implementation or run",
+    "M1439 must specify source step offsets and trace reconstruction inputs",
+    "M1439 must not run source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "trace_backed_source_geometry_materialization_design_admit_implementation",
+    "milestone": "m1439-paper-route-trace-backed-source-geometry-materialization-design",
+    "reason": "M1439 designs trace-backed emergency-obstacle source geometry materialization and blocks direct source smoke until source-step action-divergence enrichment is explicit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md exists",
+    "design specifies trace reconstruction inputs and source step offsets",
+    "design specifies source geometry output schema",
+    "design chooses a non-training next route without source mining preflight replay PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "type": "gate"
+}

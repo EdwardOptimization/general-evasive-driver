@@ -16,21 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1438-paper-route-forward-geometry-source-miner-implementation
+m1439-paper-route-trace-backed-source-geometry-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1439-paper-route-trace-backed-source-geometry-materialization-design
+m1440-paper-route-trace-backed-source-geometry-materialization-implementation
 ```
 
-M1438 implemented the row-level forward-geometry source miner. The current public-gate base
-remains M1362 alpha `0.1`:
+M1439 designed trace-backed source geometry materialization. The current
+public-gate base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1439 result:
+
+```text
+decision: trace_backed_source_geometry_materialization_design_admit_implementation
+canonical geometry: preferred-branch emergency obstacle body-frame geometry from trace-backed OutcomeSnapshot
+source_step_offsets_from_reveal: [-32, -24, -16, -8, 0]
+blocked source pool: M1425 outcome_pressure_rows.csv
+direct_source_smoke_admitted: false
+action_divergence_enrichment_required_before_source_smoke: true
+next: m1440-paper-route-trace-backed-source-geometry-materialization-implementation
+```
+
+M1440 should implement the trace-backed materializer and focused tests only. It
+must not run source materialization on public data, source mining, source
+preflight, replay, training, PPO, promotion, private holdout, corpus export, or
+actor-input changes.
 
 M1438 result:
 
@@ -45,8 +62,9 @@ negative_longitudinal_offsets_allowed: false
 next: m1439-paper-route-trace-backed-source-geometry-materialization-design
 ```
 
-M1439 must design trace-backed materialization of `source_body_x`,
-`source_body_y`, and `source_half_width` rows before any public source smoke.
+M1438 implemented the row-level forward-geometry source miner. It consumes
+precomputed source-geometry rows and exposed that trace-backed materialization
+was still missing. M1439 completed that design.
 
 M1437 result:
 
