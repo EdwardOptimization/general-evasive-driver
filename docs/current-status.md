@@ -10684,5 +10684,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   synthesis before executable workload materialization. The logical technical
   route after synthesis remains executable materialization before any 864-cell
   rollout execution.
+- M1689 synthesizes M1669-M1688 and continues the route to executable workload
+  materialization preflight. Direct 864-cell rollout and controller-family
+  ranking remain blocked.
 - Current next blocker:
-  `m1689-paper-route-controller-family-task-source-branch-synthesis`.
+  `m1690-paper-route-controller-family-executable-workload-materialization-preflight`.

@@ -180,6 +180,20 @@
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
     "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+    "decision": "continue_to_executable_workload_materialization_preflight",
+    "workflow_synthesis_decision": "continue",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "evidence_summary": "M1669-M1688 built a public controller-family measurement pipeline with 12 profiles, 72 metadata specs, an 864-cell workload protocol, and a clean 48-episode routing smoke.",
+    "supported_claim": "executable workload materialization is justified before any full rollout execution.",
+    "falsified_claim": "the M1680/M1683 metadata workload is directly executable as a full rollout.",
+    "public_gate_overfit_risk": "moderate_to_high",
+    "next_manifest": "experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json"
+  },
   "decision_rule": "M1689 passes if it synthesizes the branch and chooses a route before materialization or full rollout execution.",
-  "next_blocker": "m1689-paper-route-controller-family-task-source-branch-synthesis"
+  "next_blocker": "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
 }

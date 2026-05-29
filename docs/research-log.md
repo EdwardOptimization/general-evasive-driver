@@ -27038,3 +27038,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: direct full rollout execution, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json`
 - next: `m1689-paper-route-controller-family-task-source-branch-synthesis`
+
+## M1689 Paper-Route Controller-Family Task-Source Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `continue`
+- decision: `continue_to_executable_workload_materialization_preflight`
+- artifact: `docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md`
+- synthesized range: M1669-M1688
+- evidence summary: the branch built a public controller-family measurement pipeline with 12 profiles, 72 source-budgeted metadata specs, 864 no-rollout workload cells, and a clean 48-episode routing smoke
+- supported: executable workload materialization is justified before full rollout execution
+- falsified/rejected: M1680/M1683 metadata workload is not directly executable as a full rollout, and M1686 routing smoke is not ranking evidence
+- public-gate overfit risk: moderate to high
+- blocked: direct 864-cell rollout, controller-family ranking, private holdout, promotion, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json`
+- next: `m1690-paper-route-controller-family-executable-workload-materialization-preflight`

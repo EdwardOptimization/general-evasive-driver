@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1697,
+    "completed": 1698,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1688-paper-route-controller-family-full-measured-rollout-design.md",
+    "command_log": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1688-paper-route-controller-family-full-measured-rollout-design"
+    "task_id": "m1689-paper-route-controller-family-task-source-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json",
-    "hypothesis": "The M1669-M1688 controller-family task-source branch is mature enough to decide whether executable workload materialization is justified.",
-    "id": "m1689-paper-route-controller-family-task-source-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize controller-family task-source branch before materialization",
-    "priority": 16840,
+    "command": "see experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json",
+    "hypothesis": "All 72 M1680 source-budgeted metadata specs can be deterministically materialized into executable P0-compatible env specs and an 864-cell workload matrix without running rollout.",
+    "id": "m1690-paper-route-controller-family-executable-workload-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize executable workload before full rollout execution",
+    "priority": 16850,
     "status": "pending",
-    "success_artifact": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md"
+    "success_artifact": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260529T234815Z"
+  "updated_at_utc": "20260529T235321Z"
 }

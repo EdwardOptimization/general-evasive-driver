@@ -1,0 +1,177 @@
+{
+  "id": "m1690-paper-route-controller-family-executable-workload-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1689-paper-route-controller-family-task-source-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "materialize all 72 M1680 metadata specs into executable P0-compatible env specs without rollout"
+    ],
+    "derived_from": [
+      "m1689-paper-route-controller-family-task-source-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1680/M1683 workload metadata is not directly executable"
+    ],
+    "supersedes": [
+      "direct 864-cell rollout execution after M1689"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1690-paper-route-controller-family-executable-workload-materialization-preflight.md",
+  "public_gates": [
+    "M1690 must not run environment rollout",
+    "M1690 must materialize 72 executable task specs and 864 workload cells",
+    "Every executable env spec must be P0/no-wheel/no-oracle compatible",
+    "M1690 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1690 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not drop unmappable specs silently",
+    "do not use hidden/action tensor targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_executable_workload_materialization",
+    "evidence_increment": "turns 72 source-budgeted metadata specs into executable P0-compatible task specs before full rollout",
+    "claim_scope": "materialization preflight only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if any M1680 spec cannot be materialized deterministically",
+      "stop if any executable env config violates P0/no-wheel/no-oracle contract",
+      "stop if workload cell count is not 864",
+      "stop if profile checkpoints/configs are incomplete"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if source mapping is incomplete",
+      "route to workload redesign if M1680 metadata is insufficient",
+      "route to full rollout execution design only if materialization passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1689 synthesis continues the branch to executable materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize executable public workload without rollout",
+    "admission_evidence": [
+      "M1689 synthesis continues the task-source branch and admits executable workload materialization preflight"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "materialization preflight code if needed",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight artifacts",
+      "M1690 status queue scoreboard research log and review",
+      "one follow-up audit or execution-design manifest"
+    ],
+    "next_stage_criteria": [
+      "72 executable specs exist",
+      "864 workload cells exist",
+      "contract checks pass",
+      "guardrails are clean",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1690 is no-rollout infrastructure and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "materialization must preserve L1, L2-current-tiled, and L3-reset controls in the workload matrix"
+    ],
+    "temporal_evidence_window": "M1689 synthesis only.",
+    "negative_result_policy": "If materialization fails, record unmappable source families or contract violations and route to repair before rollout.",
+    "allowed_claims": [
+      "executable workload materialization status",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "All 72 M1680 source-budgeted metadata specs can be deterministically materialized into executable P0-compatible env specs and an 864-cell workload matrix without running rollout.",
+  "success_criteria": [
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json exists",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json exists",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.csv exists",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv exists",
+    "executable_spec_count == 72",
+    "workload_cell_count == 864",
+    "contract_violation_count == 0",
+    "unmappable_spec_count == 0",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "any M1680 spec is silently dropped",
+    "any executable env config violates P0/no-wheel/no-oracle contract",
+    "workload cell count is below 864",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "materialize executable workload specs without environment rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+    "runs/m1674_controller_family_one_seed_public_pilot/summary.json"
+  ],
+  "decision_rule": "M1690 passes if it materializes all 72 executable specs and 864 workload cells with zero contract or guardrail violations.",
+  "next_blocker": "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
+}
