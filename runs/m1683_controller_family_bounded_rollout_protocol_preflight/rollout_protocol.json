@@ -1,0 +1,67 @@
+{
+  "claim_scope": "no-rollout protocol preflight only",
+  "controller_profiles": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_13",
+    "L2_window_13_current_tiled",
+    "L2_window_25",
+    "L2_window_25_current_tiled",
+    "L2_window_50",
+    "L2_window_50_current_tiled",
+    "L2_window_100",
+    "L2_window_100_current_tiled",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "execution_policy": {
+    "environment_rollout_started": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "generated_at_utc": "20260529T232527Z",
+  "metric_columns": [
+    "success_rate",
+    "collision_rate",
+    "road_departure_rate",
+    "spin_rate",
+    "clearance_margin_mean",
+    "clearance_margin_p10",
+    "termination_reason_histogram",
+    "control_smoothness",
+    "L2_normal_minus_current_tiled_success_delta",
+    "L2_normal_minus_current_tiled_margin_delta",
+    "L3_online_minus_reset_success_delta",
+    "L3_online_minus_reset_margin_delta"
+  ],
+  "protocol_name": "controller_family_bounded_rollout_protocol_preflight",
+  "specs_source": "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+  "strata": {
+    "all_72_specs_count": 72,
+    "diagnostic": "explicit_window_subset",
+    "explicit_window_subset_count": 33,
+    "mapping_window_unspecified_count": 39,
+    "primary": "all_72_specs",
+    "stratum_counts": {
+      "all_72_specs": 72,
+      "explicit_window_subset": 33,
+      "mapping_window_unspecified": 39,
+      "task_family_T4": 36,
+      "task_family_T5": 36
+    },
+    "task_family_counts": {
+      "T4": 36,
+      "T5": 36
+    },
+    "window_tag_counts": {
+      "decision_minus_24": 9,
+      "decision_minus_32": 9,
+      "mapping_window_unspecified": 39,
+      "reveal_plus_4": 15
+    }
+  },
+  "workload_matrix": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv"
+}

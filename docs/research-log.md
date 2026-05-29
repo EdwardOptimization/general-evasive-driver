@@ -26950,3 +26950,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json`
 - next: `m1683-paper-route-controller-family-bounded-rollout-protocol-preflight`
+
+## M1683 Paper-Route Controller-Family Bounded Rollout Protocol Preflight
+
+- status: completed
+- result class: `controller_family_bounded_rollout_protocol_preflight_pass`
+- artifact: `runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json`
+- protocol: `runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json`
+- workload: `runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv`
+- specs / profiles / workload cells: `72` / `12` / `864`
+- strata: `all_72_specs=72`, `explicit_window_subset=33`, `mapping_window_unspecified=39`, `task_family_T4=36`, `task_family_T5=36`
+- hidden-action key violations / guardrail violations / rollout started / training started: `0` / `0` / `false` / `false`
+- reserved future metric columns include success/collision/road-departure/spin/margin/control-smoothness and L2 current-tiled/L3 reset deltas
+- supported: no-rollout protocol layer is complete enough for audit before measured-execution design
+- unsupported: rollout task quality, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json`
+- next: `m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit`

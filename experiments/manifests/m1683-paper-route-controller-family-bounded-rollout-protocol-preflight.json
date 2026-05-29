@@ -161,6 +161,22 @@
     "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
     "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+    "rollout_protocol": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/rollout_protocol.json",
+    "workload_matrix": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
+    "result_class": "controller_family_bounded_rollout_protocol_preflight_pass",
+    "spec_count": 72,
+    "profile_count": 12,
+    "workload_cell_count": 864,
+    "all_72_specs_count": 72,
+    "explicit_window_subset_count": 33,
+    "mapping_window_unspecified_count": 39,
+    "hidden_action_target_key_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json"
+  },
   "decision_rule": "M1683 passes if it writes no-rollout protocol artifacts with complete strata/profile workload coverage.",
-  "next_blocker": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
+  "next_blocker": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit"
 }

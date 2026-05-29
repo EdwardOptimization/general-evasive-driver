@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1691,
+    "completed": 1692,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1682-paper-route-controller-family-bounded-task-source-rollout-design.md",
+      "command_log": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1683_controller_family_bounded_rollout_protocol_preflight",
       "status": "completed",
-      "task_id": "m1682-paper-route-controller-family-bounded-task-source-rollout-design"
+      "task_id": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1683-paper-route-controller-family-bounded-rollout-protocol-preflight.json",
-      "hypothesis": "A no-rollout protocol preflight can materialize a 72-spec by 12-profile workload matrix with required strata and controls before measured execution.",
-      "id": "m1683-paper-route-controller-family-bounded-rollout-protocol-preflight",
-      "kind": "infrastructure",
-      "notes": "Pending: materialize no-rollout rollout protocol and workload matrix",
-      "priority": 16780,
+      "command": "see experiments/manifests/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.json",
+      "hypothesis": "M1683's no-rollout protocol is complete enough to admit measured-execution design while preserving strata and controller controls.",
+      "id": "m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit M1683 protocol before measured-execution design",
+      "priority": 16790,
       "status": "pending",
-      "success_artifact": "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json"
+      "success_artifact": "docs/m1684-paper-route-controller-family-bounded-rollout-protocol-preflight-result-audit.md"
     },
-    "updated_at_utc": "20260529T232239Z"
+    "updated_at_utc": "20260529T232642Z"
 }
