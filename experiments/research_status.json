@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1627,
+    "completed": 1628,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis.md",
+      "command_log": "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json",
       "returncode": 0,
-      "run_dir": "docs",
+      "run_dir": "runs/m1619_contour_aware_candidate_objective_evaluator",
       "status": "completed",
-      "task_id": "m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis"
+      "task_id": "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation.json",
-      "hypothesis": "A no-update exact evaluator can measure the M1615 positive candidate package while preserving diagnostic guardrail and metadata integrity.",
-      "id": "m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation",
-      "kind": "infrastructure",
-      "notes": "Pending: implement exact evaluator only; no optimizer actor update PPO promotion or private holdout",
-      "priority": 16140,
+      "command": "see experiments/manifests/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.json",
+      "hypothesis": "M1619 evaluator artifacts can be audited before any objective-update design or broader route decision.",
+      "id": "m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit",
+      "kind": "gate",
+      "notes": "Pending: audit evaluator residual and decide route; no optimizer actor update PPO promotion or private holdout",
+      "priority": 16150,
       "status": "pending",
-      "success_artifact": "runs/m1619_contour_aware_candidate_objective_evaluator/summary.json"
+      "success_artifact": "docs/m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit.md"
     },
-    "updated_at_utc": "20260529T182829Z"
+    "updated_at_utc": "20260529T183348Z"
 }

@@ -16,23 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1618-paper-route-contour-aware-candidate-objective-design-audit-and-synthesis
+m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation
 ```
 
 Current next task:
 
 ```text
-m1619-paper-route-contour-aware-candidate-objective-evaluator-implementation
+m1620-paper-route-contour-aware-candidate-objective-evaluator-result-audit
 ```
 
-M1618 audited M1617 as a clean design-only milestone and synthesized the branch
-with decision `continue`. The evidence remains a public candidate package, not
-paper-level or training-ready evidence: 39 positive candidates, 232 diagnostic
-guardrails, diagnostics kept non-positive, and high public-overfit risk. The
-next task is M1619: implement exactly one no-update exact evaluator/sanity
-checker. Loss/objective config construction, objective update, actor update,
-training, PPO, promotion, private holdout, actor-input changes,
-diagnostics-as-positive-candidates, and level3 self-ID claims remain blocked.
+M1619 implemented a no-update exact evaluator over the public M1615 candidate
+package. It passed public smoke gates with 39 positive candidates, 232
+diagnostic guardrails, zero diagnostic-positive weight, finite row-metric
+residuals, verified role metadata, and no checkpoint mutation. The result is
+infrastructure evidence, not training or paper-level evidence. The next task is
+M1620: audit whether the evaluator residual is sufficient for a future
+objective-update design or whether the route should pivot to action/hidden
+target materialization or broader candidate refresh. Loss/objective config
+construction, objective update, actor update, training, PPO, promotion, private
+holdout, actor-input changes, diagnostics-as-positive-candidates, and level3
+self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
