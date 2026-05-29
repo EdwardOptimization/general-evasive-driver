@@ -26890,3 +26890,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, direct M1615 benchmark validity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json`
 - next: `m1679-paper-route-controller-family-bounded-task-source-generation-design`
+
+## M1679 Paper-Route Controller-Family Bounded Task-Source Generation Design
+
+- status: completed
+- decision: `bounded_task_source_generation_design_admit_no_training_preflight`
+- artifact: `docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md`
+- route: generate fresh bounded task-source specs from M1677 source-family/edge/window metadata rather than using M1615 rows as direct benchmarks
+- target total specs / max total specs: `72` / `96`
+- balance and caps: min task-family share `0.40`, min source families `8`, min source edges `10`, min window tags `3`, max source-family share `0.30`, max source-edge share `0.20`, max metadata-role share `0.55`
+- mandatory controls: L0/L1/L2 normal windows/L2 current-tiled/L3 online/L3 reset-control corrected profiles
+- blocked: task materialization in M1679, rollout, training, replay, PPO, private holdout, promotion, actor-input changes, paper-level evidence, level3 self-ID claims
+- supported: one no-training task-source spec preflight is justified
+- unsupported: controller-family ranking, generated task quality, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json`
+- next: `m1680-paper-route-controller-family-bounded-task-source-generation-preflight`

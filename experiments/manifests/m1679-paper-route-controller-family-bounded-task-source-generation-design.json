@@ -156,6 +156,21 @@
     "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
     "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+    "decision": "bounded_task_source_generation_design_admit_no_training_preflight",
+    "target_total_specs": 72,
+    "max_total_specs": 96,
+    "min_task_family_share": 0.4,
+    "min_source_family_count": 8,
+    "min_source_edge_count": 10,
+    "min_window_tag_count": 3,
+    "max_single_source_family_share": 0.3,
+    "max_single_source_edge_share": 0.2,
+    "max_single_metadata_role_share": 0.55,
+    "next_manifest": "experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json"
+  },
   "decision_rule": "M1679 passes if it designs a bounded no-execution task-source generation route from audited metadata.",
-  "next_blocker": "m1679-paper-route-controller-family-bounded-task-source-generation-design"
+  "next_blocker": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
 }

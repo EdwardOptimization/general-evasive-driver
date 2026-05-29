@@ -1,0 +1,166 @@
+{
+  "id": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_spec_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+      "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json"
+    ],
+    "parent_objective": [
+      "materialize deterministic no-training bounded task-source specs from audited metadata"
+    ],
+    "derived_from": [
+      "m1679-paper-route-controller-family-bounded-task-source-generation-design"
+    ],
+    "blocked_by": [
+      "need spec-level source budget preflight before any environment rollout"
+    ],
+    "supersedes": [
+      "direct environment rollout after M1679",
+      "direct controller-family benchmark after M1679",
+      "direct private holdout after M1679"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.md",
+  "public_gates": [
+    "M1680 must write summary task_source_specs and source_budget_summary artifacts",
+    "M1680 must not run environment rollout training replay PPO or promotion",
+    "M1680 must not use M1615 hidden/action labels as task targets",
+    "M1680 must report source caps T4/T5 balance and control coverage",
+    "M1680 must keep private holdout actor-input changes paper-level claims and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run environment rollout",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use M1615 hidden tensors or actions as benchmark targets",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "D_bounded_task_source_generation_preflight",
+    "evidence_increment": "materializes no-training task-source specs and source-budget summary before rollout",
+    "claim_scope": "spec preflight only; no rollout, training, replay, PPO, promotion, private holdout, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if task_source_specs are missing",
+      "stop if hidden/action target keys appear",
+      "stop if source caps or control coverage are not reported",
+      "stop if environment rollout or profile-specific tuning occurs"
+    ],
+    "fallback_plan": [
+      "route to spec-preflight audit if caps pass",
+      "route to source-budget repair design if caps fail",
+      "route to mapping repair if leakage guard fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1679 admits exactly one no-training task-source spec preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded task-source spec preflight",
+    "admission_evidence": [
+      "M1679 designs bounded generation with target 72 specs and source caps before rollout"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not run environment rollout",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "task-source spec generator if needed",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight artifacts",
+      "M1680 status queue scoreboard research log and review",
+      "one follow-up audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary and task_source_specs artifacts exist",
+      "source-budget metrics are reported",
+      "hidden/action target leakage is zero",
+      "next audit or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; spec preflight must preserve L1, L2-current-tiled, and L3-reset controls for future rollout.",
+    "history_necessity_tests": [
+      "preflight must report control profile coverage",
+      "preflight must not claim history necessity from specs"
+    ],
+    "temporal_evidence_window": "M1679 design and M1677 metadata mapping only.",
+    "negative_result_policy": "If source caps cannot be met, record source-budget limitation and route to repair before rollout.",
+    "allowed_claims": [
+      "no-training spec preflight and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic no-training generator can materialize source-diverse controller-family task-source specs from the audited M1677 mapping without leakage or rollout.",
+  "success_criteria": [
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json exists",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json exists",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv exists",
+    "source caps T4/T5 balance and control coverage are reported",
+    "hidden/action target key violation count is zero",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "hidden/action target keys appear in specs",
+    "source caps or control coverage are omitted",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "create or run no-training bounded task-source spec generation preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1680_controller_family_bounded_task_source_generation_preflight/source_budget_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_spec_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
+    "runs/m1677_controller_family_decisive_task_source_mapping_preflight/task_source_mapping.json"
+  ],
+  "decision_rule": "M1680 passes if it writes source-budgeted no-training specs with zero leakage and no rollout.",
+  "next_blocker": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight"
+}

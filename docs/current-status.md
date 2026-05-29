@@ -16,21 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit
+m1679-paper-route-controller-family-bounded-task-source-generation-design
 ```
 
 Current next task:
 
 ```text
-m1679-paper-route-controller-family-bounded-task-source-generation-design
+m1680-paper-route-controller-family-bounded-task-source-generation-preflight
 ```
 
-M1678 audited the M1677 metadata preflight as clean and broad enough to admit
-bounded task-source generation design. The audit preserves the key caveat:
-M1615 is metadata inventory only and must not become a direct controller-family
-benchmark or hidden/action label source. The next task is M1679 design-only
-fresh task-source generation from source-family, edge, window, and seed metadata
-before any rollout.
+M1679 designed bounded fresh task-source generation from the audited M1677
+mapping. The next step is M1680 no-training spec preflight: generate compact
+source-budgeted task-source specs only, with target 72 specs, T4/T5 balance,
+source-family and source-edge caps, mandatory L1/L2-current-tiled/L3-reset
+controls, and zero hidden/action target leakage before any rollout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

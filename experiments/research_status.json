@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1687,
+    "completed": 1688,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit.md",
+      "command_log": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1678-paper-route-controller-family-decisive-task-source-mapping-preflight-result-audit"
+      "task_id": "m1679-paper-route-controller-family-bounded-task-source-generation-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1679-paper-route-controller-family-bounded-task-source-generation-design.json",
-      "hypothesis": "A bounded fresh task-source generation route can convert the audited M1677 metadata mapping into controller-family-compatible task specs without leaking L3-specific proof artifacts.",
-      "id": "m1679-paper-route-controller-family-bounded-task-source-generation-design",
-      "kind": "gate",
-      "notes": "Pending: design bounded fresh task-source generation from audited metadata before execution",
-      "priority": 16740,
+      "command": "see experiments/manifests/m1680-paper-route-controller-family-bounded-task-source-generation-preflight.json",
+      "hypothesis": "A deterministic no-training generator can materialize source-diverse controller-family task-source specs from the audited M1677 mapping without leakage or rollout.",
+      "id": "m1680-paper-route-controller-family-bounded-task-source-generation-preflight",
+      "kind": "infrastructure",
+      "notes": "Pending: materialize no-training source-budgeted task-source specs",
+      "priority": 16750,
       "status": "pending",
-      "success_artifact": "docs/m1679-paper-route-controller-family-bounded-task-source-generation-design.md"
+      "success_artifact": "runs/m1680_controller_family_bounded_task_source_generation_preflight/summary.json"
     },
-    "updated_at_utc": "20260529T230845Z"
+    "updated_at_utc": "20260529T231135Z"
 }
