@@ -1,0 +1,87 @@
+# m1639-paper-route-contour-aware-exact-objective-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T200142Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_bounded_no_checkpoint_projection_implementation
+- Decision reason: M1639 synthesizes M1629-M1638 and continues to one bounded no-checkpoint projection implementation while blocking PPO promotion and private holdout
+
+## Hypothesis
+
+The M1629-M1638 branch evidence is sufficient to decide whether one bounded projection implementation should be admitted.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1628-paper-route-contour-aware-policy-target-materialization-branch-synthesis.md, runs/m1630_contour_aware_full_target_materialization/summary.json, runs/m1633_contour_aware_policy_target_exact_evaluator/summary.json, runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json, docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md
+- parent_config: experiments/manifests/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.json
+- parent_objective: synthesize contour-aware exact-objective branch before projection implementation
+- derived_from: m1629-paper-route-contour-aware-full-target-materialization-design, m1630-paper-route-contour-aware-full-target-materialization-implementation, m1631-paper-route-contour-aware-full-target-materialization-result-audit, m1632-paper-route-contour-aware-policy-target-objective-design, m1633-paper-route-contour-aware-policy-target-exact-evaluator-implementation, m1634-paper-route-contour-aware-policy-target-exact-evaluator-result-audit, m1635-paper-route-contour-aware-exact-objective-sensitivity-probe-design, m1636-paper-route-contour-aware-exact-objective-sensitivity-probe-implementation, m1637-paper-route-contour-aware-exact-objective-sensitivity-probe-result-audit, m1638-paper-route-contour-aware-exact-objective-projection-repair-design
+- blocked_by: M1638 routes to synthesis before any projection/repair implementation
+- supersedes: direct projection implementation after M1638, direct PPO after M1638, direct checkpoint promotion after M1638
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md exists
+- synthesis questions are answered
+- supported and unsupported claims are explicit
+- public-gate overfit risk is assessed
+- next branch decision is explicit
+- PPO promotion and private holdout remain blocked unless a later design admits them
+
+## Failure Criteria
+
+- synthesis document is missing
+- synthesis skips required questions
+- synthesis routes directly to PPO promotion private holdout or actor-input changes
+- synthesis claims paper-level or level3 self-identification evidence
+
+## Evidence Gates
+
+- M1639 must synthesize M1629-M1638 before another implementation
+- M1639 must summarize supported claims and rejected claims
+- M1639 must assess public-gate overfit risk
+- M1639 must decide continue pivot stop or promote_to_next_branch
+- M1639 must keep PPO promotion and private holdout blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run actor update
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not add actor inputs
+- do not treat diagnostics as positive targets
+- do not treat donor_plus_hidden_action as a loss target
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1639-paper-route-contour-aware-exact-objective-branch-synthesis
+- type: gate
+- checkpoint: docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_bounded_no_checkpoint_projection_implementation
+- reason: M1639 synthesizes M1629-M1638 and continues to one bounded no-checkpoint projection implementation while blocking PPO promotion and private holdout
+
+## Next Blocker
+
+m1639-paper-route-contour-aware-exact-objective-branch-synthesis

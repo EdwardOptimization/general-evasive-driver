@@ -1,0 +1,171 @@
+{
+  "id": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation",
+  "type": "objective_sanity",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
+      "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md",
+      "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "bounded no-checkpoint exact-objective projection repair probe"
+    ],
+    "derived_from": [
+      "m1639-paper-route-contour-aware-exact-objective-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1639 admits exactly one bounded no-checkpoint projection implementation and blocks PPO/promotion"
+    ],
+    "supersedes": [
+      "direct checkpoint artifact after M1639",
+      "direct PPO after M1639",
+      "direct checkpoint promotion after M1639"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.md",
+  "public_gates": [
+    "M1640 must start from the controlled M1636 scale_1e-3 actor_mean perturbation",
+    "M1640 must optimize only actor_mean.weight and actor_mean.bias in memory",
+    "M1640 must reduce positive exact residual versus the perturbed candidate",
+    "M1640 must write no checkpoint",
+    "M1640 must not run PPO promotion private holdout or actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not write repaired checkpoint files",
+    "do not run PPO",
+    "do not run closed-loop training",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_exact_objective_projection_repair_probe",
+    "evidence_increment": "implements one bounded no-checkpoint projection probe after branch synthesis",
+    "claim_scope": "objective-sanity projection probe only; no checkpoint artifact, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if residual is not reduced",
+      "stop if non-actor_mean parameters change",
+      "stop if a repaired checkpoint file is written",
+      "stop after implementation for mandatory result audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if projection gates pass",
+      "pivot to projection design repair if residual does not reduce",
+      "pivot to exact objective redesign if diagnostics or donor-plus guardrails fail"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1639 synthesis admits exactly one bounded no-checkpoint projection implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run bounded in-memory exact-objective projection probe",
+    "admission_evidence": [
+      "M1636 sensitivity probe public pass",
+      "M1638 projection repair design",
+      "M1639 synthesis continued to one bounded implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not write repaired checkpoint files",
+      "do not run PPO",
+      "do not run closed-loop training",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "projection repair module and focused tests",
+      "M1640 run artifacts",
+      "M1640 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "projection metrics are written",
+      "no checkpoint artifact is written",
+      "audit route is explicit before any further implementation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1640 tests fixed-tensor exact-objective projection only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates correct/wrong hidden branch exact residual before and after controlled projection"
+    ],
+    "temporal_evidence_window": "public M1630/M1633/M1636 tensor rows only.",
+    "negative_result_policy": "If projection fails, record whether optimization scope, objective semantics, or guardrails caused the null before any further implementation.",
+    "allowed_claims": [
+      "bounded no-checkpoint exact-objective projection result",
+      "no PPO, no promotion, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded actor_mean-only projection can reduce exact residual from the controlled M1636 scale_1e-3 perturbation without writing a checkpoint or violating role guardrails.",
+  "success_criteria": [
+    "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json exists",
+    "initial_positive_exact_residual_mean > 1e-8",
+    "repaired_positive_exact_residual_mean < initial_positive_exact_residual_mean",
+    "positive_exact_residual_reduction_ratio >= 0.50",
+    "repaired_actor_mean_l2_to_base <= initial_actor_mean_l2_to_base",
+    "non_actor_mean_parameter_delta_max == 0.0",
+    "repaired_checkpoint_written is false",
+    "training_started ppo_used promoted private_holdout_used actor_input_contract_changed labels_enter_actor_input level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "initial perturbation residual is not measurable",
+    "projection fails to reduce exact residual",
+    "non-actor_mean parameters change",
+    "a repaired checkpoint file is written",
+    "PPO promotion private holdout or actor-input changes are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_contour_aware_exact_objective_projection_repair.py"
+    },
+    {
+      "name": "run_projection",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.contour_aware_exact_objective_projection_repair --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --run-dir runs/m1640_contour_aware_exact_objective_projection_repair"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1640_contour_aware_exact_objective_projection_repair/repair_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1640_contour_aware_exact_objective_projection_repair/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1636_contour_aware_exact_objective_sensitivity_probe/summary.json",
+    "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md"
+  ],
+  "decision_rule": "M1640 passes if projection reduces exact residual while writing no checkpoint and preserving guardrails.",
+  "next_blocker": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation"
+}

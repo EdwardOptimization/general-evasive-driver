@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1647,
+    "completed": 1648,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1638-paper-route-contour-aware-exact-objective-projection-repair-design.md",
+      "command_log": "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1638-paper-route-contour-aware-exact-objective-projection-repair-design"
+      "task_id": "m1639-paper-route-contour-aware-exact-objective-branch-synthesis"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.json",
-      "hypothesis": "The M1629-M1638 branch evidence is sufficient to decide whether one bounded projection implementation should be admitted.",
-      "id": "m1639-paper-route-contour-aware-exact-objective-branch-synthesis",
-      "kind": "gate",
-      "notes": "Pending: synthesize exact-objective branch before projection implementation; no actor update training PPO promotion or private holdout",
-      "priority": 16340,
+      "command": "see experiments/manifests/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.json",
+      "hypothesis": "A bounded actor_mean-only projection can reduce exact residual from the controlled M1636 scale_1e-3 perturbation without writing a checkpoint or violating role guardrails.",
+      "id": "m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation",
+      "kind": "objective_sanity",
+      "notes": "Pending: bounded in-memory projection probe only; no checkpoint write PPO promotion or private holdout",
+      "priority": 16350,
       "status": "pending",
-      "success_artifact": "docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md"
+      "success_artifact": "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json"
     },
-    "updated_at_utc": "20260529T195809Z"
+    "updated_at_utc": "20260529T200102Z"
 }

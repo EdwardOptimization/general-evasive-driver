@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1638-paper-route-contour-aware-exact-objective-projection-repair-design
+m1639-paper-route-contour-aware-exact-objective-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1639-paper-route-contour-aware-exact-objective-branch-synthesis
+m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation
 ```
 
-M1638 designed a bounded `actor_mean`-only projection/repair probe for the
-contour-aware exact objective. The proposed probe would start from the M1636
-`scale_1e-3` controlled perturbation, freeze encoders/GRU/context/critic/log_std,
-optimize only `actor_mean.weight` and `actor_mean.bias`, and require exact
-residual reduction without writing a checkpoint or touching diagnostics as
-positive targets. Because M1629-M1638 now form another narrow branch sequence,
-the next task is M1639 synthesis before any projection implementation. Actor
-update implementation, training, PPO, promotion, private holdout, actor-input
-changes, and level3 self-ID claims remain blocked.
+M1639 synthesized the M1629-M1638 contour-aware exact-objective sequence. It
+continues to exactly one bounded no-checkpoint projection implementation:
+start from the M1636 `scale_1e-3` actor_mean perturbation, optimize only
+`actor_mean.weight` and `actor_mean.bias` in memory, reduce positive exact
+residual, preserve diagnostics as zero-weight guardrails, and write metrics but
+no `.pt`. The next task is M1640 implementation. Training, PPO, promotion,
+private holdout, actor-input changes, and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -26114,3 +26114,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair works, actor update safety, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.json`
 - next: `m1639-paper-route-contour-aware-exact-objective-branch-synthesis`
+
+## M1639 Paper-Route Contour-Aware Exact Objective Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- route decision: `admit one bounded no-checkpoint projection implementation`
+- artifact: `docs/m1639-paper-route-contour-aware-exact-objective-branch-synthesis.md`
+- failure taxonomy: `none`
+- evidence summary: M1630 full tensor materialization passed, M1633 exact evaluator passed with zero base residual, M1636 sensitivity probe passed with measurable actor_mean perturbation residual, and M1638 designed bounded projection repair semantics
+- supported: exact-objective plumbing can materialize public tensors, reproduce base actions, detect controlled policy-output drift, and support a bounded projection smoke
+- rejected: direct base update is meaningful, donor-plus actions can be loss targets without donor-plus observations, exact-objective public success proves closed-loop behavior or level3 self-identification, PPO or promotion is admitted
+- public-gate overfit risk: high; mitigation is one no-checkpoint actor_mean-only implementation followed by audit
+- follow-up manifest: `experiments/manifests/m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation.json`
+- next: `m1640-paper-route-contour-aware-exact-objective-projection-repair-implementation`
