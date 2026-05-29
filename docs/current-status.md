@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1641-paper-route-contour-aware-exact-objective-projection-repair-result-audit
+m1642-paper-route-contour-aware-damped-projection-repair-design
 ```
 
 Current next task:
 
 ```text
-m1642-paper-route-contour-aware-damped-projection-repair-design
+m1643-paper-route-contour-aware-damped-projection-repair-implementation
 ```
 
-M1641 audited M1640 as a clean negative result. M1640 projection plumbing and
-guardrails worked, but Adam `lr=1e-3` was too aggressive for the
-`scale_1e-3` actor_mean perturbation: step 1 moved residual from
-`0.0003143580979667604` to `0.03115139901638031`, and no post-step candidate
-beat the initial residual. M1641 classifies this as optimizer-step instability
-and admits M1642 design of a deterministic damped/backtracking full-batch exact
-projection rule. Projection reruns, checkpoint artifacts, PPO, promotion,
-private holdout, actor-input changes, and level3 self-ID claims remain blocked
-until that design is written.
+M1642 designed the next projection recipe after the M1640/M1641 negative
+result: a deterministic normalized full-batch damped/backtracking update over
+`actor_mean.weight` and `actor_mean.bias` only, with diagnostics zero-weight,
+donor-plus actions excluded, no base-interpolation repair, no checkpoint
+artifact, and exact residual/trust-region acceptance rules. M1643 is admitted
+as exactly one bounded no-checkpoint implementation. PPO, closed-loop
+training/evaluation, promotion, private holdout, actor-input changes, and
+level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

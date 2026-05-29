@@ -157,6 +157,50 @@
     "runs/m1640_contour_aware_exact_objective_projection_repair/summary.json",
     "runs/m1640_contour_aware_exact_objective_projection_repair/optimization_trace.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md",
+    "decision": "contour_aware_damped_projection_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "designed_projection_mode": "damped_backtracking",
+    "max_projection_steps": 10,
+    "initial_step_fraction": 0.25,
+    "backtracking_factors": [
+      1.0,
+      0.5,
+      0.25,
+      0.125,
+      0.0625,
+      0.03125,
+      0.015625
+    ],
+    "base_interpolation_used_for_repair": false,
+    "diagnostic_rows_used_as_positive": false,
+    "donor_plus_action_used_as_loss_target": false,
+    "next_manifest": "experiments/manifests/m1643-paper-route-contour-aware-damped-projection-repair-implementation.json",
+    "supported_claims": [
+      "M1640 needs a deterministic damped/backtracking exact projection rather than Adam lr=1e-3",
+      "one bounded no-checkpoint damped projection implementation is admitted"
+    ],
+    "unsupported_claims": [
+      "projection repair result",
+      "checkpoint artifact generation",
+      "PPO proposal repair",
+      "closed-loop improvement",
+      "promotion",
+      "private-holdout evidence",
+      "paper-level or level3 self-identification evidence"
+    ],
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1642 passes if it pre-registers a deterministic damped projection repair route before any rerun.",
-  "next_blocker": "m1642-paper-route-contour-aware-damped-projection-repair-design"
+  "next_blocker": "m1643-paper-route-contour-aware-damped-projection-repair-implementation"
 }

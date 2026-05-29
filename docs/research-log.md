@@ -26179,3 +26179,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit one damped/backtracking exact-objective projection design before any rerun
 - follow-up manifest: `experiments/manifests/m1642-paper-route-contour-aware-damped-projection-repair-design.json`
 - next: `m1642-paper-route-contour-aware-damped-projection-repair-design`
+
+## M1642 Paper-Route Contour-Aware Damped Projection Repair Design
+
+- status: completed
+- decision: `contour_aware_damped_projection_design_admit_bounded_implementation`
+- artifact: `docs/m1642-paper-route-contour-aware-damped-projection-repair-design.md`
+- failure taxonomy: `none`
+- design scope: deterministic damped/backtracking full-batch exact-objective projection after M1640 optimizer-step instability
+- fixed inputs: M1630 materialization and M1636 `scale_1e-3` perturbation seed `1639`
+- gradient scope: `actor_mean.weight` and `actor_mean.bias` only
+- backtracking rule: normalized negative full-batch gradient; base step L2 is `0.25 * initial_actor_mean_l2_to_base`; factors `[1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625]`
+- max projection steps: `10`
+- acceptance: exact residual reduction, finite action metrics, actor_mean distance to base non-expansion, and non-actor_mean delta `0.0`
+- no-base-reset guard: `base_interpolation_used_for_repair=false`
+- diagnostics: zero-weight evaluation only; donor-plus actions excluded from loss
+- outputs required for implementation: summary, projection step trace, backtracking candidate trace, repair summary, guardrail summary
+- supported: one bounded no-checkpoint damped projection implementation is admitted
+- unsupported: projection result, checkpoint artifact generation, PPO proposal repair, closed-loop improvement, promotion, private-holdout evidence, paper-level or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1643-paper-route-contour-aware-damped-projection-repair-implementation.json`
+- next: `m1643-paper-route-contour-aware-damped-projection-repair-implementation`
