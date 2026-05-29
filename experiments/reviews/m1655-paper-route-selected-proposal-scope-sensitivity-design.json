@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M1655 designs frozen-feature and differentiable-feature scope-sensitivity metrics for actor_mean fusion_actor context_fusion_actor response_fusion_actor and full_policy_actor before any wider repair",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs projection repair training PPO or closed-loop evaluation",
+    "design tunes M1653 after seeing the result",
+    "design routes directly to checkpoint artifact replay promotion private holdout actor-input changes or closed-loop evidence",
+    "design claims paper-level or level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run repair",
+    "do not run projection",
+    "do not tune M1653 parameters",
+    "do not run PPO",
+    "do not train",
+    "do not run closed-loop evaluation",
+    "do not write checkpoint artifacts",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T212819Z",
+  "hypothesis": "A design-only scope-sensitivity preflight can decide whether the M1653 failure is likely trainable-scope limited before any wider-scope repair implementation.",
+  "lineage": {
+    "blocked_by": [
+      "M1654 audits M1653 as actor_mean-only scope insufficiency and blocks direct rerun or checkpoint route"
+    ],
+    "derived_from": [
+      "m1654-paper-route-selected-proposal-repair-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1654-paper-route-selected-proposal-repair-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1654-paper-route-selected-proposal-repair-result-audit.md",
+      "runs/m1653_selected_proposal_repair/summary.json",
+      "runs/m1653_selected_proposal_repair/candidate_summary.csv",
+      "runs/m1653_selected_proposal_repair/guardrail_summary.csv"
+    ],
+    "parent_objective": [
+      "design no-checkpoint selected-proposal scope-sensitivity preflight after actor_mean-only repair failure"
+    ],
+    "supersedes": [
+      "direct selected-proposal repair rerun after M1654",
+      "direct wider-scope repair implementation after M1654",
+      "direct checkpoint artifact after M1654",
+      "direct replay gate after M1654",
+      "direct PPO after M1654",
+      "direct promotion after M1654"
+    ]
+  },
+  "milestone": "m1655-paper-route-selected-proposal-scope-sensitivity-design",
+  "next_blocker": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "selected_proposal_scope_sensitivity_design_admit_no_checkpoint_implementation",
+  "public_gates": [
+    "M1655 must be design-only",
+    "M1655 must define candidate trainable scopes without running repair",
+    "M1655 must define no-checkpoint scope-sensitivity metrics over the M1653 selected proposals",
+    "M1655 must define guardrails that keep diagnostics and donor-plus actions out of positive loss targets",
+    "M1655 must decide one bounded implementation route, pivot, or stop",
+    "M1655 must keep checkpoint artifacts replay gates PPO training promotion private holdout actor-input changes and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+    "clearance_margin_mean": "",
+    "decision": "selected_proposal_scope_sensitivity_design_admit_no_checkpoint_implementation",
+    "milestone": "m1655-paper-route-selected-proposal-scope-sensitivity-design",
+    "reason": "M1655 designs frozen-feature and differentiable-feature scope-sensitivity metrics for actor_mean fusion_actor context_fusion_actor response_fusion_actor and full_policy_actor before any wider repair",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md exists",
+    "design defines candidate trainable scopes",
+    "design defines no-checkpoint scope-sensitivity metrics over the M1653 selected proposals",
+    "design defines exact-objective and role guardrails",
+    "design explicitly routes next step",
+    "checkpoint artifacts replay gates PPO training promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

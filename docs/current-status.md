@@ -16,24 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1654-paper-route-selected-proposal-repair-result-audit
+m1655-paper-route-selected-proposal-scope-sensitivity-design
 ```
 
 Current next task:
 
 ```text
-m1655-paper-route-selected-proposal-scope-sensitivity-design
+m1656-paper-route-selected-proposal-scope-sensitivity-implementation
 ```
 
-M1654 audited the M1653 selected-proposal repair result as a clean negative for
-the pre-registered actor_mean-only repair rule. The primary alpha `0.2`
-proposal did not improve, alpha `0.4` did not improve, and alpha `1.0` reduced
-exact residual by only `0.07257319479554114`, below the `0.25` candidate gate.
-All M1653 guardrails were clean, so the failure is classified as
-projection/scope insufficiency rather than plumbing or contamination. The next
-task is M1655 design-only scope-sensitivity planning before any wider-scope
-repair implementation, checkpoint artifact, replay gate, PPO, promotion, private
-holdout, actor-input change, or level3 claim.
+M1655 designed the selected-proposal scope-sensitivity preflight after the
+M1653 actor_mean-only repair failure. The important design point is that the
+M1640-M1653 exact objective path is feature-frozen: recurrent policy features
+are computed under `no_grad` and detached, so wider upstream scopes cannot be
+tested by merely setting more parameters trainable. M1656 must compare
+frozen-feature and differentiable-feature modes across `actor_mean`,
+`fusion_actor`, `context_fusion_actor`, `response_fusion_actor`, and
+`full_policy_actor`, writing metrics only and keeping checkpoint artifacts,
+training, PPO, replay, promotion, private holdout, actor-input changes, and
+level3 claims blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

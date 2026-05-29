@@ -1,0 +1,190 @@
+{
+  "id": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation",
+  "type": "objective_sanity",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_2.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_4.pt",
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_1_0.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+      "runs/m1653_selected_proposal_repair/summary.json",
+      "runs/m1653_selected_proposal_repair/candidate_summary.csv",
+      "runs/m1630_contour_aware_full_target_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1655-paper-route-selected-proposal-scope-sensitivity-design.json"
+    ],
+    "parent_objective": [
+      "implement no-checkpoint two-mode selected-proposal scope-sensitivity preflight"
+    ],
+    "derived_from": [
+      "m1655-paper-route-selected-proposal-scope-sensitivity-design"
+    ],
+    "blocked_by": [
+      "M1655 admits exactly one no-checkpoint scope-sensitivity implementation before wider-scope repair"
+    ],
+    "supersedes": [
+      "direct wider-scope repair after M1655",
+      "direct checkpoint artifact after M1655",
+      "direct replay gate after M1655",
+      "direct PPO after M1655",
+      "direct promotion after M1655"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.md",
+  "public_gates": [
+    "M1656 must implement frozen-feature and differentiable-feature scope metrics",
+    "M1656 must run the selected alpha 0.2 0.4 and 1.0 proposals",
+    "M1656 must compare at least actor_mean fusion_actor context_fusion_actor response_fusion_actor and full_policy_actor",
+    "M1656 must write metrics and no checkpoint artifacts",
+    "M1656 must restore model state after temporary in-memory candidate steps",
+    "M1656 must keep diagnostics zero-weight and donor-plus actions excluded from loss",
+    "M1656 must route to result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not write checkpoint artifacts",
+    "do not base-interpolate repair candidates",
+    "do not run a training loop",
+    "do not run PPO",
+    "do not run closed-loop evaluation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not treat diagnostics as positive targets",
+    "do not treat donor_plus_hidden_action as a loss target",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_ppo_proposal_projection_repair",
+    "evidence_axis": "E_selected_proposal_scope_sensitivity_implementation",
+    "evidence_increment": "tests whether selected-proposal exact residuals expose wider deterministic policy-scope gradient/reduction signal",
+    "claim_scope": "objective-sanity implementation only; no PPO, training, checkpoint artifact, closed-loop gate, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if checkpoint artifacts are written",
+      "stop if the implementation silently uses frozen features for wider scopes",
+      "stop if model state is not restored after temporary candidate steps",
+      "stop if diagnostics or donor-plus actions enter loss targets",
+      "stop after implementation for mandatory result audit"
+    ],
+    "fallback_plan": [
+      "route to result audit whether implementation passes or fails",
+      "if wider scopes show no signal, audit proposal source or active-set limitations before another repair design",
+      "if wider scopes show signal, audit before any full wider-scope repair implementation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1655 admits one scope-sensitivity implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run no-checkpoint selected-proposal scope-sensitivity metrics",
+    "admission_evidence": [
+      "M1653 actor_mean-only repair failed with clean guardrails",
+      "M1654 audited the failure",
+      "M1655 designed frozen-feature and differentiable-feature scope metrics"
+    ],
+    "blocked_shortcuts": [
+      "do not write checkpoint artifacts",
+      "do not run PPO",
+      "do not train",
+      "do not run closed-loop evaluation",
+      "do not promote a checkpoint",
+      "do not use private holdout",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "selected-proposal scope-sensitivity module or extension and focused tests",
+      "M1656 run artifacts",
+      "M1656 docs status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "scope-sensitivity metrics are written",
+      "no checkpoint artifact is written",
+      "result audit route is explicit before wider repair or checkpoint artifact"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1656 tests fixed-tensor scope sensitivity and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "evaluates exact correct/wrong hidden residual sensitivity only; no new closed-loop history intervention"
+    ],
+    "temporal_evidence_window": "M1362, M1630, M1650-M1655 public artifacts only.",
+    "negative_result_policy": "If scope sensitivity is null, classify active-set or proposal-source limitation and audit before any rerun.",
+    "allowed_claims": [
+      "bounded no-checkpoint selected-proposal scope-sensitivity result",
+      "no PPO, no training, no checkpoint artifact, no private-holdout, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Differentiable-feature wider deterministic actor scopes expose measurable gradient and at least one one-step residual reduction on the primary alpha 0.2 proposal where actor_mean-only repair failed.",
+  "success_criteria": [
+    "runs/m1656_selected_proposal_scope_sensitivity/summary.json exists",
+    "selected_candidate_count == 3",
+    "scope_count >= 5",
+    "frozen_feature_upstream_grad_zero == true",
+    "differentiable_feature_scope_measurable_count >= scope_count",
+    "primary_alpha_0_2_wider_scope_nonzero_grad_count >= 1",
+    "primary_alpha_0_2_wider_scope_reduction_count >= 1",
+    "checkpoint_artifact_count == 0",
+    "model_restored_after_probe_count == selected_candidate_count * scope_count",
+    "diagnostic_rows_used_as_positive_count donor_plus_action_used_as_loss_target_count training_started_count ppo_used_count promoted_count private_holdout_used_count actor_input_contract_changed_count level3_self_id_claim_count are 0"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "selected proposal candidates differ from design without audit",
+    "frozen-feature wider-scope gradients are reported as nonzero",
+    "differentiable feature mode is not implemented for wider scopes",
+    "model state is not restored after temporary sensitivity steps",
+    "any checkpoint artifact is written",
+    "diagnostics or donor-plus actions enter the loss target",
+    "PPO promotion private holdout actor-input changes or level3 claims are produced"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_selected_proposal_scope_sensitivity.py"
+    },
+    {
+      "name": "run_scope_sensitivity",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.selected_proposal_scope_sensitivity --base-checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --candidate-summary runs/m1650_proposal_source_preflight/candidate_summary.csv --materialization-run-dir runs/m1630_contour_aware_full_target_materialization --run-dir runs/m1656_selected_proposal_scope_sensitivity --selected-alphas 0.2,0.4,1.0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1656_selected_proposal_scope_sensitivity/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1656_selected_proposal_scope_sensitivity/scope_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1656_selected_proposal_scope_sensitivity/guardrail_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+    "runs/m1653_selected_proposal_repair/summary.json",
+    "runs/m1653_selected_proposal_repair/candidate_summary.csv",
+    "runs/m1630_contour_aware_full_target_materialization/summary.json"
+  ],
+  "decision_rule": "M1656 passes if differentiable wider scopes expose nonzero primary alpha 0.2 gradient and at least one one-step residual reduction with clean no-checkpoint guardrails.",
+  "next_blocker": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
+}

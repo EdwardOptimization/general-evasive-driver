@@ -26474,3 +26474,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: admit M1655 design-only selected-proposal scope-sensitivity preflight before any wider-scope repair implementation
 - follow-up manifest: `experiments/manifests/m1655-paper-route-selected-proposal-scope-sensitivity-design.json`
 - next: `m1655-paper-route-selected-proposal-scope-sensitivity-design`
+
+## M1655 Paper-Route Selected Proposal Scope Sensitivity Design
+
+- status: completed
+- decision: `selected_proposal_scope_sensitivity_design_admit_no_checkpoint_implementation`
+- artifact: `docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md`
+- failure taxonomy: `none`
+- key finding: current M1640-M1653 exact-objective repair path is feature-frozen, so upstream scope sensitivity requires a differentiable-feature mode
+- required modes: `frozen_feature`, `differentiable_feature`
+- candidate scopes: `actor_mean`, `fusion_actor`, `context_fusion_actor`, `response_fusion_actor`, `full_policy_actor`
+- excluded parameters: `critic.*`, `response_prediction_head.*`, `log_std`
+- blocked: checkpoint artifacts, repair/projection run in M1655, training, PPO, closed-loop replay, promotion, private holdout, actor-input changes, paper-level evidence, level3 self-ID claims
+- supported: one no-checkpoint two-mode scope-sensitivity implementation is admitted
+- unsupported: wider-scope repair works, checkpoint artifact generation, replay improvement, behavior retention, promotion, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json`
+- next: `m1656-paper-route-selected-proposal-scope-sensitivity-implementation`

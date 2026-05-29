@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1663,
+    "completed": 1664,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "docs/m1654-paper-route-selected-proposal-repair-result-audit.md",
+      "command_log": "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
       "returncode": 0,
       "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1654-paper-route-selected-proposal-repair-result-audit"
+      "task_id": "m1655-paper-route-selected-proposal-scope-sensitivity-design"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1655-paper-route-selected-proposal-scope-sensitivity-design.json",
-      "hypothesis": "A design-only scope-sensitivity preflight can decide whether the M1653 failure is likely trainable-scope limited before any wider-scope repair implementation.",
-      "id": "m1655-paper-route-selected-proposal-scope-sensitivity-design",
-      "kind": "gate",
-      "notes": "Pending: design no-checkpoint scope-sensitivity preflight after M1653 actor_mean-only selected-proposal repair failure",
-      "priority": 16500,
+      "command": "see experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json",
+      "hypothesis": "Differentiable-feature wider deterministic actor scopes expose measurable gradient and at least one one-step residual reduction on the primary alpha 0.2 proposal where actor_mean-only repair failed.",
+      "id": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation",
+      "kind": "objective_sanity",
+      "notes": "Pending: implement no-checkpoint two-mode selected-proposal scope-sensitivity metrics",
+      "priority": 16510,
       "status": "pending",
-      "success_artifact": "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md"
+      "success_artifact": "runs/m1656_selected_proposal_scope_sensitivity/summary.json"
     },
-    "updated_at_utc": "20260529T212236Z"
+    "updated_at_utc": "20260529T212610Z"
 }

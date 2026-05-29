@@ -168,6 +168,30 @@
     "runs/m1653_selected_proposal_repair/candidate_summary.csv",
     "runs/m1630_contour_aware_full_target_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1655-paper-route-selected-proposal-scope-sensitivity-design.md",
+    "decision": "selected_proposal_scope_sensitivity_design_admit_no_checkpoint_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "scope_count": 5,
+    "required_modes": [
+      "frozen_feature",
+      "differentiable_feature"
+    ],
+    "candidate_scopes": [
+      "actor_mean",
+      "fusion_actor",
+      "context_fusion_actor",
+      "response_fusion_actor",
+      "full_policy_actor"
+    ],
+    "checkpoint_artifacts_allowed": false,
+    "training_allowed": false,
+    "ppo_allowed": false,
+    "next_manifest": "experiments/manifests/m1656-paper-route-selected-proposal-scope-sensitivity-implementation.json"
+  },
   "decision_rule": "M1655 passes if it designs a bounded no-checkpoint scope-sensitivity preflight without running repair projection PPO replay or writing checkpoints.",
-  "next_blocker": "m1655-paper-route-selected-proposal-scope-sensitivity-design"
+  "next_blocker": "m1656-paper-route-selected-proposal-scope-sensitivity-implementation"
 }
