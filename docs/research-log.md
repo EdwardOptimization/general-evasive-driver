@@ -24591,3 +24591,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - M1576 gates relaxed: false
 - follow-up manifest: `experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json`
 - next: `m1578-paper-route-high-speed-late-history-source-repair-design`
+
+## M1578 Paper-Route High-Speed/Late History-Source Repair Design
+
+- status: completed
+- decision: `high_speed_late_history_source_repair_design_admit_bounded_implementation`
+- artifact: `docs/m1578-paper-route-high-speed-late-history-source-repair-design.md`
+- failure taxonomy: `none`
+- repair targets: `hs_history_pressure`, `late_history_pressure`
+- source repair: high-speed/late modes with speed pressure, low-authority/AEB-infeasible variants, and reveal/decision windows designed to expose history before terminal outcome is fixed
+- donor screen: matched-current / hidden-divergent
+- strict donor screen: response/action L2 <= 0.55 and hidden L2 >= 3.0
+- fallback donor screen: response/action L2 <= 0.75 and hidden L2 >= 4.0
+- acceptance: M1576-compatible history-vs-control rule; wrong-history/donor-plus-hidden must degrade outcome or terminal margin beyond controls
+- public gate target: at least 8 high-speed-or-late history-sensitive anchors, at least 6 clean, and high-speed or late count >= 4
+- mandatory fallback: if high-speed/late remain null after one implementation and audit, route to branch synthesis rather than another narrow repair
+- history interventions executed: false in M1578
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json`
+- next: `m1579-paper-route-high-speed-late-history-source-repair-implementation`

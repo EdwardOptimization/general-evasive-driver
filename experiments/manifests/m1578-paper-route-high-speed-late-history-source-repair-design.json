@@ -152,6 +152,36 @@
     "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json",
     "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
+    "decision": "high_speed_late_history_source_repair_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "source_repair_targets": [
+      "hs_history_pressure",
+      "late_history_pressure"
+    ],
+    "matched_current_hidden_divergent_screen": true,
+    "strict_response_action_l2_max": 0.55,
+    "strict_hidden_l2_min": 3.0,
+    "fallback_response_action_l2_max": 0.75,
+    "fallback_hidden_l2_min": 4.0,
+    "implementation_manifest": "experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1578 passes if it designs a concrete high-speed/late history-source repair before implementation.",
-  "next_blocker": "m1578-paper-route-high-speed-late-history-source-repair-design"
+  "next_blocker": "m1579-paper-route-high-speed-late-history-source-repair-implementation"
 }

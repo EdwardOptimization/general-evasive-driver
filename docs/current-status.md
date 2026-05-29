@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1577-paper-route-history-sensitive-active-set-miner-result-audit
+m1578-paper-route-high-speed-late-history-source-repair-design
 ```
 
 Current next task:
 
 ```text
-m1578-paper-route-high-speed-late-history-source-repair-design
+m1579-paper-route-high-speed-late-history-source-repair-implementation
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -424,6 +424,11 @@ history gaps stayed below threshold while current-frame controls were strong.
 The next route is exactly one design-only high-speed/late history-source repair
 with synthesis fallback; no gate relaxation, materialization, or training is
 admitted.
+M1578 designed that repair. The next implementation must use high-speed/late
+pressure sources plus a matched-current/hidden-divergent donor screen, keep the
+M1576 history-vs-control acceptance rule, and route to audit before any corpus
+export. If high-speed/late remain null after the bounded implementation, the
+branch should synthesize rather than continue narrow repair loops.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

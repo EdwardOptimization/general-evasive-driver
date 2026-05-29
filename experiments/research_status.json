@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1586,
+    "completed": 1587,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1577-paper-route-history-sensitive-active-set-miner-result-audit.md",
+    "command_log": "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1577-paper-route-history-sensitive-active-set-miner-result-audit"
+    "task_id": "m1578-paper-route-high-speed-late-history-source-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json",
-    "hypothesis": "A bounded source repair can be designed to generate high-speed or late-reveal anchors where wrong-history interventions affect closed-loop outcome.",
-    "id": "m1578-paper-route-high-speed-late-history-source-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design high-speed/late history-source repair after M1576 null",
-    "priority": 15730,
+    "command": "see experiments/manifests/m1579-paper-route-high-speed-late-history-source-repair-implementation.json",
+    "hypothesis": "Matched-current hidden-divergent high-speed/late source repair can find anchors where wrong-history interventions affect closed-loop outcome.",
+    "id": "m1579-paper-route-high-speed-late-history-source-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement one bounded high-speed/late history-source repair with mandatory audit",
+    "priority": 15740,
     "status": "pending",
-    "success_artifact": "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md"
+    "success_artifact": "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T150901Z"
+  "updated_at_utc": "20260529T151215Z"
 }

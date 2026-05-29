@@ -1,0 +1,165 @@
+{
+  "id": "m1579-paper-route-high-speed-late-history-source-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
+      "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1578-paper-route-high-speed-late-history-source-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded high-speed/late history-source repair with matched-current hidden-divergent donor screen"
+    ],
+    "derived_from": [
+      "m1578-paper-route-high-speed-late-history-source-repair-design"
+    ],
+    "blocked_by": [
+      "M1578 design has not yet been implemented"
+    ],
+    "supersedes": [
+      "generic M1576 source generation for high-speed/late"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1579-paper-route-high-speed-late-history-source-repair-implementation.md",
+  "public_gates": [
+    "M1579 must implement the M1578 bounded high-speed/late source repair",
+    "M1579 must use matched-current hidden-divergent donor screen",
+    "M1579 must use history-sensitive acceptance and current-frame controls",
+    "M1579 must write high-speed/late source, pair, intervention, and summary artifacts",
+    "M1579 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "I_high_speed_late_history_source_repair_implementation",
+    "evidence_increment": "implements the one allowed high-speed/late history-source repair after M1576 nulls",
+    "claim_scope": "public bounded implementation only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation smoke and route to audit",
+      "stop if implementation changes actor inputs or writes training corpus",
+      "stop if implementation omits matched-current hidden-divergent donor screen",
+      "stop if implementation omits current-frame controls"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "route to branch synthesis after audit if high-speed/late remain null",
+      "keep M1576/M1579 as public diagnostics until audited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1578 admits exactly one bounded implementation with mandatory audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "high-speed/late history-source repair implementation",
+    "admission_evidence": [
+      "M1578 pre-registers source modes, donor screen, interventions, artifacts, gates, and synthesis fallback"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "high-speed/late source repair module and focused tests",
+      "bounded public smoke artifacts",
+      "M1579 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "matched donor pairs are written",
+      "history-sensitive high-speed/late summaries are written",
+      "control-substitution summary is written",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1579 explicitly tests current-frame substitution via donor response/action stream, reset hidden, zero-current, zero-action-history, and zero-all controls.",
+    "history_necessity_tests": [
+      "wrong-history donor hidden",
+      "donor response/action plus hidden",
+      "matched-current donor response/action stream control",
+      "reset hidden controls",
+      "zero current response",
+      "zero action history",
+      "zero all response"
+    ],
+    "temporal_evidence_window": "public high-speed/late source repair smoke.",
+    "negative_result_policy": "If high-speed/late remain null, route to audit and branch synthesis rather than more narrow repair.",
+    "allowed_claims": [
+      "public bounded high-speed/late repair evidence",
+      "at most level2 history-encoded reactive evidence if high-speed/late history surgery causes outcome degradation and controls do not dominate",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Matched-current hidden-divergent high-speed/late source repair can find anchors where wrong-history interventions affect closed-loop outcome.",
+  "success_criteria": [
+    "high-speed/late source repair module exists",
+    "focused tests cover source modes, donor screen, and summary gates",
+    "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json exists",
+    "history_interventions_executed is true",
+    "current-frame substitution controls are included",
+    "high-speed/late source-family metrics are reported",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "current-frame substitution controls are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_high_speed_late_history_source_repair.py -q"
+    },
+    {
+      "name": "high_speed_late_repair_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.high_speed_late_history_source_repair --output-dir runs/m1579_high_speed_late_history_source_repair_smoke --seed 1877 --seed-count 6 --max-source-specs 360 --max-anchor-candidates 384 --max-anchors 192 --continuation-steps 64"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1579_high_speed_late_history_source_repair_smoke/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1578-paper-route-high-speed-late-history-source-repair-design.md",
+    "runs/m1576_history_sensitive_active_set_miner_smoke/summary.json"
+  ],
+  "decision_rule": "M1579 passes as implementation if it runs bounded public high-speed/late repair with clean guardrails and writes required metrics; it must still route to audit before materialization.",
+  "next_blocker": "m1579-paper-route-high-speed-late-history-source-repair-implementation"
+}
