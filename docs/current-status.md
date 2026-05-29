@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1497-paper-route-go-no-go-profile-three-seed-public-pilot
+m1498-paper-route-go-no-go-three-seed-result-audit
 ```
 
 Current next task:
 
 ```text
-m1498-paper-route-go-no-go-three-seed-result-audit
+m1499-paper-route-decisive-history-task-matrix-design
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -43,13 +43,37 @@ refreshed the config layer to the full 12-profile matrix. M1494 passed
 no-training runtime smoke for all 12 configs. M1495 completed one fixed-budget
 train/eval seed per profile. M1496 audited M1495 and admits exactly one 3-seed
 public pilot with a stop rule. M1497 completed that three-seed public pilot with
-all 36 profile seed runs finite and now requires M1498 stop-rule audit before
-any further standard profile scaling. The current public-gate base remains
-M1362 alpha `0.1`:
+all 36 profile seed runs finite. M1498 audited the result, stopped standard
+profile scaling, and pivoted the paper route to decisive T4/T5
+history-necessity task design. The current public-gate base remains M1362 alpha
+`0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1498 three-seed result audit:
+
+```text
+decision: go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks
+artifact: docs/m1498-paper-route-go-no-go-three-seed-result-audit.md
+audited_run: runs/m1497_go_no_go_profile_three_seed_public_pilot
+M1497 completion: pass
+L2 current-tiled controls remain close: true
+L3 online beats corrected reset-control: false
+stop_rule_triggered: true
+standard_profile_scaling_continues: false
+failure_type: scenario_sampling_failure
+synthesis_decision: pivot
+next_branch: paper_route_decisive_history_task_matrix
+next: m1499-paper-route-decisive-history-task-matrix-design
+```
+
+M1498 closes the standard profile-scaling branch. The current standard public
+profile distribution does not support finite-window history necessity,
+online-GRU hidden advantage, or level3 self-ID. Next work should design T4/T5
+decisive tasks where current frame and short recent windows are insufficient by
+construction.
 
 M1497 three-seed public pilot:
 
@@ -74,9 +98,7 @@ next: m1498-paper-route-go-no-go-three-seed-result-audit
 
 M1497 repeated the M1496 stop-rule pattern. L2 normal windows remain close to
 current-tiled controls, and L3 online does not beat corrected reset-control on
-success, collision, or mean margin. M1498 must audit this result and route to
-decisive T4/T5 task evidence, L3 recipe repair, or a negative/conditional
-standard-distribution profile verdict. No M1497 checkpoint is promoted and no
+success, collision, or mean margin. No M1497 checkpoint is promoted and no
 self-ID claim is allowed.
 
 M1496 one-seed audit:

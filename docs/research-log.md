@@ -22310,3 +22310,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1498-paper-route-go-no-go-three-seed-result-audit.json`.
 - next: `m1498-paper-route-go-no-go-three-seed-result-audit`
+
+## M1498 Paper-Route Go/No-Go Three-Seed Result Audit
+
+- status: completed
+- decision: `go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks`
+- artifact: `docs/m1498-paper-route-go-no-go-three-seed-result-audit.md`
+- audited run: `runs/m1497_go_no_go_profile_three_seed_public_pilot`
+- M1497 completion: pass
+- L2 current-tiled controls remain close: true
+- L3 online beats corrected reset-control: false
+- stop rule triggered: true
+- standard profile scaling continues: false
+- failure taxonomy: `scenario_sampling_failure`
+- synthesis decision: `pivot`
+- next branch: `paper_route_decisive_history_task_matrix`
+- interpretation: the standard fixed-budget public profile distribution does not currently support finite-window history necessity, online-GRU hidden advantage, or level3 self-ID; the next evidence should be T4/T5 decisive history tasks rather than another profile pilot.
+- guardrail: no replay, training, PPO, promotion, private holdout, actor update, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json`.
+- next: `m1499-paper-route-decisive-history-task-matrix-design`

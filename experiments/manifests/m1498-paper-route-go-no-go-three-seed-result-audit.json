@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -70,7 +70,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1496 stop rule and M1497 three-seed pilot completion",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "process",
@@ -148,6 +157,33 @@
     "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
     "runs/m1497_go_no_go_profile_three_seed_public_pilot/profile_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "decision": "go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks",
+    "audited_run": "runs/m1497_go_no_go_profile_three_seed_public_pilot",
+    "m1497_completion": "pass",
+    "l2_current_tiled_controls_remain_close": true,
+    "l3_online_beats_reset_control": false,
+    "stop_rule_triggered": true,
+    "standard_profile_scaling_continues": false,
+    "branch_decision": "pivot_to_decisive_history_task_matrix",
+    "finite_window_history_necessity_on_standard_profile": "not_supported",
+    "online_gru_hidden_advantage_on_standard_profile": "not_supported",
+    "level3_self_identification_on_standard_profile": "not_supported",
+    "failure_type": "scenario_sampling_failure",
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json"
+  },
+  "decision": "go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks",
   "decision_rule": "M1498 passes if it audits M1497 and routes the standard-profile branch without overclaiming public trends.",
-  "next_blocker": "m1498-paper-route-go-no-go-three-seed-result-audit"
+  "next_blocker": "m1499-paper-route-decisive-history-task-matrix-design"
 }

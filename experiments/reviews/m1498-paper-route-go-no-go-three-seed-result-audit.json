@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1498 audits M1497 stop-rule patterns and pivots from standard profile scaling to decisive T4/T5 history-necessity task design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1497 public trends as profile ranking",
+    "audit ignores controls",
+    "audit starts training replay PPO promotion private holdout corpus export or actor-input change"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not treat M1497 as architecture ranking",
+    "do not continue standard profile pilots if the stop rule is triggered"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T074851Z",
+  "hypothesis": "M1497 should be audited as a clean public profile pilot whose trends trigger the M1496 stop rule before any further standard-profile scaling.",
+  "lineage": {
+    "blocked_by": [
+      "M1497 is a public trend pilot and cannot support private-holdout promotion, profile superiority, or level3 self-identification claims"
+    ],
+    "derived_from": [
+      "m1497-paper-route-go-no-go-profile-three-seed-public-pilot"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.json"
+    ],
+    "parent_dataset": [
+      "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+      "runs/m1497_go_no_go_profile_three_seed_public_pilot/profile_aggregate.csv",
+      "docs/m1497-paper-route-go-no-go-profile-three-seed-public-pilot.md"
+    ],
+    "parent_objective": [
+      "audit the full 12-profile three-seed public go/no-go matrix before any further standard-profile scaling"
+    ],
+    "supersedes": [
+      "another standard fixed-budget profile pilot without stop-rule audit",
+      "direct profile ranking from M1497"
+    ]
+  },
+  "milestone": "m1498-paper-route-go-no-go-three-seed-result-audit",
+  "next_blocker": "m1499-paper-route-decisive-history-task-matrix-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks",
+  "public_gates": [
+    "M1498 must audit M1497 before any further standard-profile scaling",
+    "M1498 must evaluate the M1496 stop rule",
+    "M1498 must separate public trend evidence from paper-level and private-holdout evidence",
+    "M1498 must block promotion, private holdout, profile-specific tuning, corpus export, and self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "go_no_go_three_seed_audit_stop_standard_profile_scaling_pivot_to_decisive_history_tasks",
+    "milestone": "m1498-paper-route-go-no-go-three-seed-result-audit",
+    "reason": "M1498 audits M1497 stop-rule patterns and pivots from standard profile scaling to decisive T4/T5 history-necessity task design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md exists",
+    "audit records M1497 completion and finite metrics",
+    "audit records L2 normal/current-tiled three-seed trend",
+    "audit records L3 online/reset three-seed trend",
+    "audit evaluates the M1496 stop rule",
+    "audit blocks promotion private holdout profile ranking corpus export and self-ID claims",
+    "audit routes to a clear next branch"
+  ],
+  "type": "gate"
+}

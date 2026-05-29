@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1506,
+    "completed": 1507,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1497_go_no_go_profile_three_seed_public_pilot/summary.json",
+    "command_log": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1497_go_no_go_profile_three_seed_public_pilot",
+    "run_dir": null,
     "status": "completed",
-    "task_id": "m1497-paper-route-go-no-go-profile-three-seed-public-pilot"
+    "task_id": "m1498-paper-route-go-no-go-three-seed-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1498-paper-route-go-no-go-three-seed-result-audit.json",
-    "hypothesis": "M1497 should be audited as a clean public profile pilot whose trends trigger the M1496 stop rule before any further standard-profile scaling.",
-    "id": "m1498-paper-route-go-no-go-three-seed-result-audit",
+    "command": "see experiments/manifests/m1499-paper-route-decisive-history-task-matrix-design.json",
+    "hypothesis": "After the standard profile stop rule, the correct next paper route is to design decisive T4/T5 tasks that make older action-response history necessary under fair controls.",
+    "id": "m1499-paper-route-decisive-history-task-matrix-design",
     "kind": "gate",
-    "notes": "Pending: audit M1497 public trends and apply the M1496 stop rule before any further standard-profile scaling",
-    "priority": 14930,
+    "notes": "Pending: design T4/T5 task matrix where current frame and short recent windows should be insufficient under fair controls",
+    "priority": 14940,
     "status": "pending",
-    "success_artifact": "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md"
+    "success_artifact": "docs/m1499-paper-route-decisive-history-task-matrix-design.md"
   },
-  "updated_at_utc": "20260529T073800Z"
+  "updated_at_utc": "20260529T074200Z"
 }

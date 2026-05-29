@@ -1,0 +1,153 @@
+{
+  "id": "m1499-paper-route-decisive-history-task-matrix-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+      "runs/m1497_go_no_go_profile_three_seed_public_pilot/profile_aggregate.csv",
+      "docs/m1492-paper-route-self-id-go-no-go-matrix-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1498-paper-route-go-no-go-three-seed-result-audit.json"
+    ],
+    "parent_objective": [
+      "design decisive T4/T5 history-necessity task matrix after standard profile scaling stop rule"
+    ],
+    "derived_from": [
+      "m1498-paper-route-go-no-go-three-seed-result-audit"
+    ],
+    "blocked_by": [
+      "standard public profile distribution does not support finite-window history necessity or online-GRU hidden advantage"
+    ],
+    "supersedes": [
+      "another standard fixed-budget profile pilot without decisive history tasks",
+      "immediate L3 recipe repair before proving the task needs older history"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1499-paper-route-decisive-history-task-matrix-design.md",
+  "public_gates": [
+    "M1499 must design T4 same-current same-recent-window different-older-history tasks",
+    "M1499 must design T5 terminal-boundary near-constraint tasks",
+    "M1499 must define L0/L1/L2/L2-current-tiled/L3/reset controls under shared budgets",
+    "M1499 must block training, PPO, replay, private holdout, promotion, corpus export, and actor-input changes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run replay",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim level3 self-identification from design alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_task_matrix",
+    "evidence_axis": "G_decisive_history_task_design",
+    "evidence_increment": "opens a new branch that designs tasks where current frame and short recent windows should be insufficient by construction",
+    "claim_scope": "design only; no training, PPO, replay, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if tasks cannot separate current frame from older action-response history",
+      "stop if tasks require non-deployable actor inputs",
+      "stop if control profiles receive unequal budgets",
+      "stop if design uses private holdout for tuning"
+    ],
+    "fallback_plan": [
+      "if T4 construction is infeasible, first build a no-training paired-state miner",
+      "if T5 near-boundary construction is too brittle, use an audited public candidate bank before training",
+      "if both T4 and T5 are infeasible, record a negative self-ID task-design verdict"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new decisive-history branch opened by M1498 pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "decisive history-necessity task matrix design",
+    "admission_evidence": [
+      "M1498 stops standard profile scaling after M1497 repeated current-frame substitution and reset-control trends",
+      "M1492 pre-registered T4 and T5 as decisive self-ID task families"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1499 design document",
+      "status queue scoreboard research log and review",
+      "one follow-up implementation or no-training task-smoke manifest"
+    ],
+    "next_stage_criteria": [
+      "T4 and T5 task families are explicitly defined",
+      "controls and shared budgets are explicit",
+      "success and falsification criteria are pre-registered",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1499 is a design milestone whose purpose is to create tasks that control current-frame substitution directly.",
+    "history_necessity_tests": [
+      "define same-current same-recent-window different-older-history T4 pairs",
+      "define terminal-boundary T5 tasks where early belief changes collision or clearance",
+      "define current-tiled and reset controls as mandatory diagnostics"
+    ],
+    "temporal_evidence_window": "design only; no new temporal evidence generated.",
+    "negative_result_policy": "If decisive tasks cannot be constructed without shortcuts, record that as negative task-design evidence instead of weakening level3 self-ID standards.",
+    "allowed_claims": [
+      "M1499 designs decisive history-necessity tasks",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After the standard profile stop rule, the correct next paper route is to design decisive T4/T5 tasks that make older action-response history necessary under fair controls.",
+  "success_criteria": [
+    "docs/m1499-paper-route-decisive-history-task-matrix-design.md exists",
+    "design defines T4 same-current same-recent-window different-older-history task family",
+    "design defines T5 terminal-boundary near-constraint task family",
+    "design defines required controls and shared budgets",
+    "design pre-registers success and falsification criteria",
+    "design blocks training PPO replay promotion private holdout corpus export and actor-input changes"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "T4/T5 tasks do not isolate older-history necessity",
+    "controls or budgets are omitted",
+    "design uses private holdout for tuning",
+    "design starts training replay PPO promotion corpus export or actor-input change"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1499-paper-route-decisive-history-task-matrix-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1499-paper-route-decisive-history-task-matrix-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1498-paper-route-go-no-go-three-seed-result-audit.md",
+    "runs/m1497_go_no_go_profile_three_seed_public_pilot/profile_aggregate.csv"
+  ],
+  "decision_rule": "M1499 passes if it defines a fair decisive-history task matrix before any implementation or training.",
+  "next_blocker": "m1499-paper-route-decisive-history-task-matrix-design"
+}
