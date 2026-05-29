@@ -151,6 +151,26 @@
     {
       "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
       "type": "json"
+    },
+    {
+      "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/selected_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/variant_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1585_source_diverse_pairability_history_intervention_smoke/source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md",
+      "type": "md"
     }
   ],
   "baseline_checkpoints": [
@@ -160,6 +180,53 @@
     "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
     "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+    "doc": "docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md",
+    "code": "src/autodrift/source_diverse_pairability_history_interventions.py",
+    "tests": "tests/test_source_diverse_pairability_history_interventions.py",
+    "decision": "source_diverse_pairability_history_intervention_smoke_public_pass_control_dominated_route_to_audit",
+    "failure_taxonomy": [
+      "objective_overfit"
+    ],
+    "focused_test_result": "3 passed",
+    "selected_pair_count": 72,
+    "selected_source_edge_count": 19,
+    "selected_endpoint_source_family_count": 7,
+    "selected_window_count": 6,
+    "max_selected_source_edge_share": 0.05555555555555555,
+    "same_window_selected_pair_count": 72,
+    "directed_pair_count": 144,
+    "intervention_row_count": 1152,
+    "anchor_replay_failure_count": 0,
+    "history_positive_directed_pair_count": 23,
+    "history_positive_source_edge_count": 8,
+    "history_positive_endpoint_source_family_count": 7,
+    "history_success_drop_count": 0,
+    "max_history_margin_gap": 0.12908281005342204,
+    "max_current_frame_control_gap": 0.3274137328831479,
+    "control_substitution_dominated_share": 0.7184466019417476,
+    "high_speed_endpoint_directed_pair_count": 0,
+    "late_reveal_endpoint_directed_pair_count": 0,
+    "passes_public_smoke_gates": true,
+    "passes_evidence_quality_targets": false,
+    "null_result_classification": "control_dominated",
+    "guardrail_violation_count": 0,
+    "history_interventions_executed": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": true,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1586-paper-route-source-diverse-pairability-intervention-result-audit.json"
+  },
   "decision_rule": "M1585 passes as implementation if it runs bounded public interventions with clean guardrails and writes required metrics; it must still route to audit before materialization or training.",
-  "next_blocker": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation"
+  "next_blocker": "m1586-paper-route-source-diverse-pairability-intervention-result-audit"
 }

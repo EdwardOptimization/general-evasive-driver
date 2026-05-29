@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1584-paper-route-source-diverse-pairability-history-intervention-design
+m1585-paper-route-source-diverse-pairability-history-intervention-implementation
 ```
 
 Current next task:
 
 ```text
-m1585-paper-route-source-diverse-pairability-history-intervention-implementation
+m1586-paper-route-source-diverse-pairability-intervention-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -467,6 +467,15 @@ run `normal`, `wrong_history_hidden`, `donor_response_action_plus_hidden`,
 effects. Public gates target at least `64` selected pairs, `8` source edges, `6`
 endpoint families, `4` windows, and clean guardrails. High-speed endpoint
 coverage remains diagnostic only.
+M1585 implemented and ran that smoke. Public gates passed with `72` selected
+pairs, `144` directed pairs, `1152` intervention rows, `19` selected source
+edges, `7` endpoint families, `6` windows, and zero replay failures. It found
+nontrivial history effects (`max_history_margin_gap 0.1291`,
+`23` history-positive directed pairs, `8` positive source edges), but
+evidence-quality failed because controls dominated:
+`max_current_frame_control_gap 0.3274`,
+`control_substitution_dominated_share 0.7184`, and no history success drops.
+M1586 must audit this before any further repair, materialization, or training.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

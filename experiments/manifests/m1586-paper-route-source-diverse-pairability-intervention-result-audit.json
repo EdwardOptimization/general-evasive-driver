@@ -1,0 +1,166 @@
+{
+  "id": "m1586-paper-route-source-diverse-pairability-intervention-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+      "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+      "docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1585 public-pass evidence-quality-fail source-diverse intervention result"
+    ],
+    "derived_from": [
+      "m1585-paper-route-source-diverse-pairability-history-intervention-implementation"
+    ],
+    "blocked_by": [
+      "M1585 public gates passed but evidence-quality targets failed as control_dominated"
+    ],
+    "supersedes": [
+      "candidate materialization after M1585",
+      "training corpus export after M1585",
+      "direct PPO after M1585"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md",
+  "public_gates": [
+    "M1586 must audit M1585 public pass and evidence-quality failure",
+    "M1586 must separate live source-diverse intervention plumbing from history-necessity evidence",
+    "M1586 must explain control dominance and high-speed endpoint absence",
+    "M1586 must choose next route before any implementation, materialization, or training",
+    "M1586 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "M_source_diverse_intervention_result_audit",
+    "evidence_increment": "audits public-pass control-dominated source-diverse intervention result",
+    "claim_scope": "audit only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats M1585 as history-necessity evidence",
+      "stop if audit ignores zero-action/current-frame control dominance",
+      "stop if audit treats high-speed endpoint absence as solved",
+      "stop if audit routes directly to materialization, training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "admit stricter history-vs-control active-set design if diagnostics justify it",
+      "admit source repair if endpoint absence is the main blocker",
+      "route to branch synthesis if the pairability branch is overfitting public rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1585 completed bounded public intervention smoke and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse pairability intervention result audit",
+    "admission_evidence": [
+      "M1585 public gates passed",
+      "M1585 evidence-quality targets failed",
+      "M1585 null classification is control_dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1586 audit document",
+      "M1586 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "control dominance is classified",
+      "high-speed endpoint caveat is discussed",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1585 included current-frame controls and they dominated, so audit must not strengthen the claim.",
+    "history_necessity_tests": [
+      "wrong_history_hidden",
+      "donor_response_action_plus_hidden",
+      "donor_response_action_only",
+      "reset_hidden",
+      "zero_current_response",
+      "zero_action_history",
+      "zero_all_response"
+    ],
+    "temporal_evidence_window": "M1585 source-diverse pairability intervention smoke.",
+    "negative_result_policy": "If control dominance remains the blocker, record it and route to stricter active-set or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "public bounded intervention audit",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1585's public-pass control-dominated result can be audited into a defensible next route without overstating history evidence.",
+  "success_criteria": [
+    "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md exists",
+    "audit summarizes M1585 public and evidence-quality results",
+    "audit separates live harness evidence from history-necessity evidence",
+    "audit discusses zero-action/current-frame control dominance and high-speed endpoint absence",
+    "audit chooses the next route",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1585 as level3 self-ID evidence",
+    "audit ignores control dominance or high-speed caveat",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1586-paper-route-source-diverse-pairability-intervention-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+    "runs/m1585_source_diverse_pairability_history_intervention_smoke/intervention_rows.csv",
+    "docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md"
+  ],
+  "decision_rule": "M1586 passes if it audits M1585 and chooses the next route before any repair, materialization, or training.",
+  "next_blocker": "m1586-paper-route-source-diverse-pairability-intervention-result-audit"
+}

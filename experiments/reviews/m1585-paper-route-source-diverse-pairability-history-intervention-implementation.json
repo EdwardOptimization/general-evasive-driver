@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1585 public gates pass with 1152 rows and max history gap 0.129 but evidence-quality fails because controls dominate at share 0.718",
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "implementation omits current-frame controls or high-speed caveat"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T160231Z",
+  "hypothesis": "Source-diverse matched-current hidden-divergent pairs can expose history-dependent closed-loop outcome changes beyond current-frame controls.",
+  "lineage": {
+    "blocked_by": [
+      "M1584 design has not yet been implemented"
+    ],
+    "derived_from": [
+      "m1584-paper-route-source-diverse-pairability-history-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1584-paper-route-source-diverse-pairability-history-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m1582_history_pairability_source_miner_smoke/pairability_pair_rows.csv",
+      "docs/m1584-paper-route-source-diverse-pairability-history-intervention-design.md"
+    ],
+    "parent_objective": [
+      "implement bounded source-diverse pairability-grounded history interventions"
+    ],
+    "supersedes": [
+      "training or materialization before source-diverse public intervention evidence"
+    ]
+  },
+  "milestone": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation",
+  "next_blocker": "m1586-paper-route-source-diverse-pairability-intervention-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_pairability_history_intervention_smoke_public_pass_control_dominated_route_to_audit",
+  "public_gates": [
+    "M1585 must implement bounded source-edge/window capped pair selection over M1582 pair rows",
+    "M1585 must run the pre-registered intervention variants and current-frame controls",
+    "M1585 must report public gates, evidence-quality targets, and null taxonomy",
+    "M1585 must report high-speed endpoint coverage as diagnostic only",
+    "M1585 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_pairability_history_intervention_smoke_public_pass_control_dominated_route_to_audit",
+    "milestone": "m1585-paper-route-source-diverse-pairability-history-intervention-implementation",
+    "reason": "M1585 public gates pass with 1152 rows and max history gap 0.129 but evidence-quality fails because controls dominate at share 0.718",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "intervention implementation module exists",
+    "focused tests cover pair selection and summary gates",
+    "runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json exists",
+    "selected pair and intervention artifacts exist",
+    "public gates and evidence-quality targets are reported",
+    "high-speed endpoint coverage is reported as diagnostic only",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "type": "infrastructure"
+}

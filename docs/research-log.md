@@ -24796,3 +24796,43 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.json`
 - next: `m1585-paper-route-source-diverse-pairability-history-intervention-implementation`
+
+## M1585 Paper-Route Source-Diverse Pairability History-Intervention Implementation
+
+- status: completed
+- decision: `source_diverse_pairability_history_intervention_smoke_public_pass_control_dominated_route_to_audit`
+- artifact: `runs/m1585_source_diverse_pairability_history_intervention_smoke/summary.json`
+- doc: `docs/m1585-paper-route-source-diverse-pairability-history-intervention-implementation.md`
+- code: `src/autodrift/source_diverse_pairability_history_interventions.py`
+- tests: `tests/test_source_diverse_pairability_history_interventions.py`
+- focused test result: `3 passed`
+- selected pair count: 72
+- selected source-edge count: 19
+- selected endpoint source-family count: 7
+- selected window count: 6
+- max selected source-edge share: 0.05555555555555555
+- same-window selected pair count: 72
+- directed pair count: 144
+- intervention row count: 1152
+- anchor replay failure count: 0
+- history-positive directed pair count: 23
+- history-positive source-edge count: 8
+- history-positive endpoint source-family count: 7
+- history success drop count: 0
+- max history margin gap: 0.12908281005342204
+- max current-frame control gap: 0.3274137328831479
+- control-substitution dominated share: 0.7184466019417476
+- high-speed endpoint directed pair count: 0
+- late-reveal endpoint directed pair count: 0
+- passes public smoke gates: true
+- passes evidence-quality targets: false
+- null result classification: `control_dominated`
+- interpretation: the source-diverse intervention harness is live and history variants have margin effects, but current-frame/action-history controls dominate so this is not history-necessity evidence
+- history interventions executed: true
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1586-paper-route-source-diverse-pairability-intervention-result-audit.json`
+- next: `m1586-paper-route-source-diverse-pairability-intervention-result-audit`
