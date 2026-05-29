@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1442,
+    "completed": 1443,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1432-paper-route-geometry-aware-selector-implementation.md",
+    "command_log": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1432-paper-route-geometry-aware-selector-implementation"
+    "task_id": "m1433-paper-route-action-divergent-geometry-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json",
-    "hypothesis": "The M1423-M1432 branch can be synthesized into a clear next route before any geometry-aware source preflight or replay run.",
-    "id": "m1433-paper-route-action-divergent-geometry-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M1423-M1432 before source preflight replay training PPO promotion corpus export or actor-input changes",
-    "priority": 14280,
+    "command": "see experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json",
+    "hypothesis": "A preflight-only command can expose M1432 geometry-aware selector outputs without running bounded replay.",
+    "id": "m1434-paper-route-geometry-preflight-only-command-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-replay preflight command before public preflight smoke",
+    "priority": 14290,
     "status": "pending",
-    "success_artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md"
+    "success_artifact": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
   },
-  "updated_at_utc": "20260529T025219Z"
+  "updated_at_utc": "20260529T025602Z"
 }

@@ -16,21 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1432-paper-route-geometry-aware-selector-implementation
+m1433-paper-route-action-divergent-geometry-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1433-paper-route-action-divergent-geometry-branch-synthesis
+m1434-paper-route-geometry-preflight-only-command-implementation
 ```
 
-M1432 implemented the geometry-aware replay selector. The current public-gate base
+M1433 synthesized the action-divergent geometry branch. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1433 result:
+
+```text
+decision: action_divergent_geometry_synthesis_promote_to_preflight_validation
+synthesis_decision: promote_to_next_branch
+closed_branch: paper_route_action_divergent_outcome_pressure_design
+new_branch: paper_route_geometry_aware_preflight_validation
+M1425 candidate_rows: 256
+M1425 outcome_pressure_rows: 846
+M1425 history_positive_rows: 0
+M1429 actual_replay_rows: 384
+M1429 history_positive_rows: 0
+M1429 source_body_x_median: -1.678050
+M1429 relocated_body_x_clipped_groups: 126
+M1432 focused_tests: 8 passed
+public_gate_overfit_risk: medium_to_high
+next: m1434-paper-route-geometry-preflight-only-command-implementation
+```
+
+M1433 promotes to a new geometry-aware preflight validation branch. M1434 should
+implement a preflight-only command so the selector can be tested without running
+bounded replay.
 
 M1432 result:
 
@@ -48,7 +71,8 @@ next: m1433-paper-route-action-divergent-geometry-branch-synthesis
 M1432 adds optional geometry-aware preflight for bounded relocation replay. It
 rejects too-close/behind source obstacles and clipped relocations, and adds
 source/variant diversity caps. M1433 must synthesize M1423-M1432 before any
-source preflight or replay run.
+source preflight or replay run. M1433 completed that synthesis and promoted to
+preflight validation.
 
 M1431 result:
 

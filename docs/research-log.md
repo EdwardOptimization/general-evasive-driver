@@ -21181,3 +21181,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json`.
 - next: `m1433-paper-route-action-divergent-geometry-branch-synthesis`
+
+## 20260529T025602Z - m1433-paper-route-action-divergent-geometry-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- gate tier: `process`
+- artifact: `docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md`
+- decision: `action_divergent_geometry_synthesis_promote_to_preflight_validation`
+- synthesis decision: `promote_to_next_branch`
+- closed branch: `paper_route_action_divergent_outcome_pressure_design`
+- new branch: `paper_route_geometry_aware_preflight_validation`
+- evidence summary: M1425 found `256` candidates and `846` proxy pressure rows but `0` history-positive rows; M1429 ran `384` actual replay rows but still found `0` history-positive rows with geometry-poor selection; M1432 implemented optional geometry preflight with focused tests passing.
+- supported claims: action-divergent public rows exist; proxy pressure is insufficient; bounded replay tooling works; M1429 is selector-failure evidence; geometry-aware selector infrastructure exists.
+- falsified claims: M1429 zero positives prove history is unnecessary; M1429 selected rows are valid forward replay proof; full replay should continue without geometry preflight.
+- public-gate overfit risk: `medium_to_high`.
+- selected route: implement a no-replay preflight-only command before any public preflight smoke or bounded replay.
+- guardrail: no source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json`.
+- next: `m1434-paper-route-geometry-preflight-only-command-implementation`

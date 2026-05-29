@@ -77,7 +77,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1432 reaches the 10-milestone workflow synthesis cadence for paper_route_action_divergent_outcome_pressure_design",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -179,6 +179,37 @@
     "runs/m1429_bounded_relocation_replay_smoke/summary.json",
     "docs/m1432-paper-route-geometry-aware-selector-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+    "decision": "action_divergent_geometry_synthesis_promote_to_preflight_validation",
+    "synthesis_decision": "promote_to_next_branch",
+    "closed_branch": "paper_route_action_divergent_outcome_pressure_design",
+    "new_branch": "paper_route_geometry_aware_preflight_validation",
+    "m1425_candidate_rows": 256,
+    "m1425_outcome_pressure_rows": 846,
+    "m1425_history_positive_rows": 0,
+    "m1429_actual_replay_rows": 384,
+    "m1429_history_positive_rows": 0,
+    "m1429_source_body_x_median": -1.67805,
+    "m1429_relocated_body_x_clipped_groups": 126,
+    "m1432_focused_tests": "8 passed",
+    "public_gate_overfit_risk": "medium_to_high",
+    "selected_route": "preflight_only_command_implementation_then_public_preflight_smoke",
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json"
+  },
+  "decision": "action_divergent_geometry_synthesis_promote_to_preflight_validation",
   "decision_rule": "M1433 passes if it synthesizes M1423-M1432 and chooses the next route before any source preflight, replay, training, PPO, promotion, private holdout, corpus export, or actor-input expansion.",
-  "next_blocker": "m1433-paper-route-action-divergent-geometry-branch-synthesis"
+  "next_blocker": "m1434-paper-route-geometry-preflight-only-command-implementation"
 }

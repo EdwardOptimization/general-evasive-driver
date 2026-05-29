@@ -1,0 +1,156 @@
+{
+  "id": "m1434-paper-route-geometry-preflight-only-command-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+      "src/autodrift/bounded_relocation_replay_probe.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1433-paper-route-action-divergent-geometry-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement a preflight-only command before public geometry-aware source smoke"
+    ],
+    "derived_from": [
+      "m1433-paper-route-action-divergent-geometry-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1433 promotes to preflight validation but current CLI runs replay after selection"
+    ],
+    "supersedes": [
+      "running geometry-aware bounded replay without a preflight-only smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1434-paper-route-geometry-preflight-only-command-implementation.md",
+  "public_gates": [
+    "M1434 must implement a preflight-only mode or command",
+    "M1434 must write geometry preflight rows selected rows rejected rows diversity summaries and summary JSON",
+    "M1434 must produce focused tests for no-replay guardrails",
+    "M1434 must not run full replay train PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not lower geometry gates",
+    "do not count preflight rows as actual replay evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "I_preflight_only_command_implementation",
+    "evidence_increment": "implements a no-replay preflight command so geometry-aware source validity can be tested before bounded replay",
+    "claim_scope": "infrastructure only; no source preflight run, replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation requires actor input changes",
+      "stop if preflight-only mode still calls replay_probe_variant",
+      "stop if focused tests cannot prove replay_started remains false",
+      "stop if implementation changes geometry gates after M1433"
+    ],
+    "fallback_plan": [
+      "route to public preflight smoke if implementation passes",
+      "route to command redesign if no-replay separation is not clean",
+      "route back to branch synthesis if implementation reveals selector mechanics are too coupled to replay"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1433 promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "preflight-only command implementation",
+    "admission_evidence": [
+      "M1433 promotes to geometry-aware preflight validation",
+      "M1432 implements selector functions but no preflight-only CLI"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "preflight-only command implementation",
+      "focused tests",
+      "M1434 implementation document",
+      "status queue scoreboard research log and review",
+      "one follow-up public preflight smoke manifest if implementation passes"
+    ],
+    "next_stage_criteria": [
+      "preflight-only command exists",
+      "summary output schema is tested",
+      "replay_started remains false",
+      "next route is public preflight smoke only"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1434 is infrastructure and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "future preflight smoke only checks source geometry and diversity",
+      "preflight rows cannot count as actual history-positive replay evidence",
+      "future replay still needs reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1433 synthesis and M1432 selector functions.",
+    "negative_result_policy": "If no-replay preflight cannot be separated from replay, route to redesign rather than weakening evidence standards.",
+    "allowed_claims": [
+      "preflight-only command implementation and focused test result",
+      "no source preflight result, replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A preflight-only command can expose M1432 geometry-aware selector outputs without running bounded replay.",
+  "success_criteria": [
+    "preflight-only command or mode exists",
+    "focused tests prove replay is not called",
+    "focused tests cover summary outputs",
+    "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md exists",
+    "no source preflight run replay training PPO promotion private holdout corpus export or actor-input change occurs"
+  ],
+  "failure_criteria": [
+    "preflight-only implementation is missing",
+    "implementation calls replay_probe_variant in preflight-only mode",
+    "tests are missing",
+    "implementation changes actor inputs",
+    "implementation runs replay or training"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "edit source and tests for preflight-only command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+    "src/autodrift/bounded_relocation_replay_probe.py"
+  ],
+  "decision_rule": "M1434 passes if it implements a no-replay preflight command with focused tests and preserves actor/replay guardrails.",
+  "next_blocker": "m1434-paper-route-geometry-preflight-only-command-implementation"
+}
