@@ -158,6 +158,39 @@
     "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
     "docs/m1593-paper-route-clean-source-repair-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md",
+    "decision": "selector_balanced_clean_source_repair_design_admit_bounded_implementation",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "design": {
+      "target_selected_pairs": 96,
+      "max_selected_pairs_per_source_edge": 12,
+      "minimum_selected_source_edges": 8,
+      "source_edge_round_robin_selection": true,
+      "source_seed": 1901,
+      "max_source_specs": 480,
+      "max_anchor_candidates": 640,
+      "continuation_steps": 64,
+      "preserve_clean_selector_thresholds": true,
+      "max_clean_source_edge_share_gate": 0.35
+    },
+    "next_manifest": "experiments/manifests/m1595-paper-route-selector-balanced-clean-source-repair-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
   "decision_rule": "M1594 passes if it designs a threshold-preserving source-balanced cap repair route before any replay, materialization, or training.",
-  "next_blocker": "m1594-paper-route-selector-balanced-clean-source-repair-design"
+  "next_blocker": "m1595-paper-route-selector-balanced-clean-source-repair-implementation"
 }

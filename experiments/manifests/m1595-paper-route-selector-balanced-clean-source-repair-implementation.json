@@ -1,0 +1,199 @@
+{
+  "id": "m1595-paper-route-selector-balanced-clean-source-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+      "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement selector-balanced source-edge cap repair after M1594 design"
+    ],
+    "derived_from": [
+      "m1594-paper-route-selector-balanced-clean-source-repair-design"
+    ],
+    "blocked_by": [
+      "M1592 max clean source-edge share was 0.35294117647058826 above the 0.35 gate"
+    ],
+    "supersedes": [
+      "rerunning M1592 with unchanged source-edge cap",
+      "relaxing the max clean source-edge share gate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md",
+  "public_gates": [
+    "M1595 must implement the M1594 selector-balanced cap",
+    "M1595 must use max selected pairs per source edge 12",
+    "M1595 must select at least 8 source edges before replay",
+    "M1595 must preserve clean selector thresholds and max clean source-edge share <= 0.35",
+    "M1595 must keep materialization training PPO promotion and private holdout blocked",
+    "M1595 must route to audit whether gates pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not relax clean selector thresholds",
+    "do not relax the max clean source-edge share threshold",
+    "do not claim level3 self-identification",
+    "do not continue to another implementation without audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_pairability_source_generation",
+    "evidence_axis": "I_selector_balanced_clean_source_repair_implementation",
+    "evidence_increment": "implements the selector-balanced cap repair designed by M1594",
+    "claim_scope": "public diagnostic implementation only; no candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop after one bounded implementation and route to audit",
+      "stop if implementation relaxes thresholds or source-share gate",
+      "stop if implementation writes a training corpus or materializes candidates",
+      "stop if implementation starts training, PPO, promotion, or private holdout"
+    ],
+    "fallback_plan": [
+      "route to result audit whether gates pass or fail",
+      "if source concentration persists, audit whether to stop or synthesize",
+      "if the repair passes, audit before materialization or training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1594 admits exactly one selector-balanced cap implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "selector-balanced clean-source repair implementation",
+    "admission_evidence": [
+      "M1592 produced 34 clean rows but failed source share at 0.35294117647058826",
+      "M1594 pre-registers max selected pairs per source edge 12 and minimum selected source edges 8"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not relax thresholds",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "selector-balanced repair implementation update and focused tests",
+      "bounded public smoke artifacts",
+      "M1595 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json is written",
+      "selection source-edge count and cap are reported",
+      "clean/dominated/control-only/null counts are reported",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1595 must preserve dominated/control-only diagnostics and cannot count them as clean.",
+    "history_necessity_tests": [
+      "selector-balanced clean repair",
+      "history-vs-control selector criteria",
+      "source-share gate"
+    ],
+    "temporal_evidence_window": "M1592/M1594 clean-source repair branch.",
+    "negative_result_policy": "If the balanced cap still fails, route to audit or synthesis instead of weakening standards.",
+    "allowed_claims": [
+      "public clean-source diagnostic evidence",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A stricter source-edge balanced pair selector can preserve M1592's clean-row growth while bringing max clean source-edge share below 0.35.",
+  "success_criteria": [
+    "selector-balanced implementation update exists",
+    "focused tests cover source-edge cap and minimum selected source-edge count",
+    "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json exists",
+    "selected_pair_count >= 96",
+    "selected_source_edge_count >= 8",
+    "clean_directed_pair_count >= 12",
+    "clean_source_edge_count >= 5",
+    "clean_endpoint_source_family_count >= 6",
+    "max_clean_source_edge_share <= 0.35",
+    "required_variant_coverage_complete is true",
+    "invalid_directed_pair_count == 0",
+    "guardrail_violation_count == 0",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "selection does not enforce the source-edge cap",
+    "clean selector thresholds or source-share gate are relaxed",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification",
+    "implementation continues directly to another repair without audit"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_clean_history_control_source_generation_repair.py -q"
+    },
+    {
+      "name": "selector_balanced_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.clean_history_control_source_generation_repair --output-dir runs/m1595_selector_balanced_clean_source_repair_smoke --seed 1901 --max-source-specs 480 --max-selected-pairs 96 --max-pairs-per-source-edge 12 --min-selected-source-edges 8"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/source_spec_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/classified_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/clean_directed_pair_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/source_edge_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1595_selector_balanced_clean_source_repair_smoke/guardrail_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1595-paper-route-selector-balanced-clean-source-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1592_clean_history_control_source_generation_repair_smoke/summary.json",
+    "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md"
+  ],
+  "decision_rule": "M1595 passes as implementation only if the stricter source-balanced cap preserves clean count while satisfying the 0.35 clean source-share gate, then routes to audit.",
+  "next_blocker": "m1595-paper-route-selector-balanced-clean-source-repair-implementation"
+}

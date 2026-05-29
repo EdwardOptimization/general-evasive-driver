@@ -25071,3 +25071,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json`
 - next: `m1594-paper-route-selector-balanced-clean-source-repair-design`
+
+## M1594 Paper-Route Selector-Balanced Clean-Source Repair Design
+
+- status: completed
+- decision: `selector_balanced_clean_source_repair_design_admit_bounded_implementation`
+- artifact: `docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md`
+- failure taxonomy: `scenario_sampling_failure`
+- target selected pairs: 96
+- max selected pairs per source edge: 12
+- minimum selected source edges: 8
+- source-edge round-robin selection: true
+- source seed: 1901
+- max source specs: 480
+- max anchor candidates: 640
+- continuation steps: 64
+- preserved clean selector thresholds: true
+- preserved max clean source-edge share gate: 0.35
+- history interventions executed: false in M1594
+- candidate materialized: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- follow-up manifest: `experiments/manifests/m1595-paper-route-selector-balanced-clean-source-repair-implementation.json`
+- next: `m1595-paper-route-selector-balanced-clean-source-repair-implementation`

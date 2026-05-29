@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1593-paper-route-clean-source-repair-result-audit
+m1594-paper-route-selector-balanced-clean-source-repair-design
 ```
 
 Current next task:
 
 ```text
-m1594-paper-route-selector-balanced-clean-source-repair-design
+m1595-paper-route-selector-balanced-clean-source-repair-implementation
 ```
 
-M1593 audited M1592 as a near-pass, not a pass. The clean-source repair is
-useful, but the strict `0.35` max clean source-edge share gate remains binding.
-The next task is M1594, a design-only selector-balanced cap repair. Do not rerun
-the implementation, relax the threshold, materialize candidates, train, run PPO,
-or promote before that design.
+M1594 designed the selector-balanced cap repair after the M1592 near-pass. It
+preserves the clean selector and `0.35` source-share gate, but changes the next
+selection rule to max `12` selected pairs per source edge, at least `8` selected
+source edges, and source-edge round-robin before replay. M1595 is the only
+admitted bounded implementation and must route to audit whether it passes or
+fails.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

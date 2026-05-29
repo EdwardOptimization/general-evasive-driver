@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1602,
+    "completed": 1603,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1593-paper-route-clean-source-repair-result-audit.md",
+    "command_log": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1593-paper-route-clean-source-repair-result-audit"
+    "task_id": "m1594-paper-route-selector-balanced-clean-source-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1594-paper-route-selector-balanced-clean-source-repair-design.json",
-    "hypothesis": "M1592's near-pass can be converted into a threshold-preserving selector-balanced cap design before any rerun.",
-    "id": "m1594-paper-route-selector-balanced-clean-source-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design threshold-preserving selector-balanced cap repair",
-    "priority": 15890,
+    "command": "see experiments/manifests/m1595-paper-route-selector-balanced-clean-source-repair-implementation.json",
+    "hypothesis": "A stricter source-edge balanced pair selector can preserve M1592's clean-row growth while bringing max clean source-edge share below 0.35.",
+    "id": "m1595-paper-route-selector-balanced-clean-source-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement selector-balanced cap repair and route to audit",
+    "priority": 15900,
     "status": "pending",
-    "success_artifact": "docs/m1594-paper-route-selector-balanced-clean-source-repair-design.md"
+    "success_artifact": "runs/m1595_selector_balanced_clean_source_repair_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T163915Z"
+  "updated_at_utc": "20260529T164203Z"
 }
