@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1527,
+    "completed": 1528,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+    "command_log": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+    "run_dir": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
     "status": "completed",
-    "task_id": "m1518-paper-route-decisive-history-t5-intervention-result-audit"
+    "task_id": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json",
-    "hypothesis": "Earlier-window interventions can test whether M1517 was null because decision-step injection was too late, while preserving no-training and no-materialization guardrails.",
-    "id": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design",
+    "command": "see experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json",
+    "hypothesis": "After M1519, the bounded-runner branch should synthesize evidence before any timing-amplified implementation continues.",
+    "id": "m1520-paper-route-decisive-history-bounded-runner-synthesis",
     "kind": "gate",
-    "notes": "Pending: design bounded timing-amplified T5 interventions after M1517 null result",
-    "priority": 15140,
+    "notes": "Pending: synthesize M1510-M1519 bounded-runner branch before further implementation",
+    "priority": 15150,
     "status": "pending",
-    "success_artifact": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md"
+    "success_artifact": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md"
   },
-  "updated_at_utc": "20260529T093911Z"
+  "updated_at_utc": "20260529T094338Z"
 }

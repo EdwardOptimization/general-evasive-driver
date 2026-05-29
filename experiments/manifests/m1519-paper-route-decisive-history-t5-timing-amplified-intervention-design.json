@@ -147,6 +147,41 @@
     "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
     "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+    "decision": "t5_timing_amplified_intervention_design_route_to_branch_synthesis",
+    "eligible_source_family": "t5_high_speed_close_obstacle",
+    "eligible_target_count": 4,
+    "anchor_names": [
+      "decision",
+      "decision_minus_8",
+      "reveal_plus_4",
+      "reveal"
+    ],
+    "implementation_may_narrow_anchors": [
+      "decision_minus_8",
+      "reveal"
+    ],
+    "variant_count": 7,
+    "same_current_diagnostic_separated": true,
+    "diverging_trajectory_diagnostic_separated": true,
+    "primary_outcome_relevance_threshold": "success_drop_from_normal or margin_gap_from_normal >= 0.02",
+    "secondary_divergence_diagnostic_defined": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json"
+  },
+  "decision": "t5_timing_amplified_intervention_design_route_to_branch_synthesis",
   "decision_rule": "M1519 passes if it designs bounded earlier-window T5 interventions and preserves all no-training no-materialization guardrails.",
-  "next_blocker": "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
+  "next_blocker": "m1520-paper-route-decisive-history-bounded-runner-synthesis"
 }

@@ -1,0 +1,178 @@
+{
+  "id": "m1520-paper-route-decisive-history-bounded-runner-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+      "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+      "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+      "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M1510-M1519 bounded-runner evidence before any further implementation"
+    ],
+    "derived_from": [
+      "m1510-paper-route-decisive-history-bounded-runner-design",
+      "m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after 10 non-synthesis bounded-runner milestones"
+    ],
+    "supersedes": [
+      "direct timing-amplified implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+  "public_gates": [
+    "M1520 must synthesize M1510-M1519 before the bounded-runner branch continues",
+    "M1520 must separate trace plumbing, retargeting, decision-step interventions, and timing-amplified design evidence",
+    "M1520 must state supported and falsified claims",
+    "M1520 must assess public-gate overfit risk",
+    "M1520 must choose continue, pivot, stop, or promote_to_next_branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_decisive_history_bounded_runner",
+    "evidence_axis": "S_decisive_history_bounded_runner_synthesis",
+    "evidence_increment": "synthesizes M1510-M1519 bounded fixed-policy runner, source retarget, T5 intervention, and timing-amplification design evidence before another implementation milestone",
+    "claim_scope": "branch synthesis only; no implementation smoke, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if synthesis treats M1517 null/weak interventions as self-ID evidence",
+      "stop if synthesis ignores branch cadence or public overfit risk",
+      "stop if synthesis admits corpus export or training before outcome-relevant intervention evidence",
+      "stop if synthesis skips the decision between timing amplification and terminal-boundary retarget repair"
+    ],
+    "fallback_plan": [
+      "continue to a new timing-amplified intervention implementation branch if M1519 is judged the highest-leverage next test",
+      "pivot to terminal-boundary retarget repair if M1517/M1518 show rows remain too safe",
+      "stop or close the T5 subset if current evidence suggests weak history-necessity signal"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1519 reaches the cadence limit for paper_route_decisive_history_bounded_runner",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "decisive-history bounded-runner branch synthesis",
+    "admission_evidence": [
+      "M1510-M1519 completed bounded runner design/implementation/audit, source retarget design/implementation/audit, T5 decision-step intervention design/implementation/audit, and timing-amplified design"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1520 synthesis document",
+      "status queue scoreboard research log and review",
+      "one follow-up branch manifest"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit",
+      "public-gate overfit risk is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1520 is synthesis and must not convert retarget or intervention plumbing into level3 self-identification evidence.",
+    "history_necessity_tests": [
+      "synthesize whether M1517 decision-step interventions are informative",
+      "synthesize whether M1519 timing amplification is justified",
+      "separate null/weak intervention evidence from supported infrastructure claims"
+    ],
+    "temporal_evidence_window": "M1510-M1519 bounded-runner branch evidence only.",
+    "negative_result_policy": "If synthesis judges current T5 probes uninformative, pivot or stop before adding more narrow intervention tweaks.",
+    "allowed_claims": [
+      "branch synthesis and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After M1519, the bounded-runner branch should synthesize evidence before any timing-amplified implementation continues.",
+  "success_criteria": [
+    "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md exists",
+    "synthesis summarizes M1510-M1519 evidence",
+    "supported and falsified claims are explicit",
+    "failure taxonomy summary is explicit",
+    "public-gate overfit risk is explicit",
+    "next branch decision is explicit",
+    "training, PPO, promotion, private holdout, corpus export, materialization, and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis treats intervention plumbing or sub-threshold effects as self-ID evidence",
+    "synthesis ignores public-gate overfit risk",
+    "synthesis routes directly to training, PPO, promotion, private holdout, corpus export, actor-input changes, or candidate materialization"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1520-paper-route-decisive-history-bounded-runner-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1510-paper-route-decisive-history-bounded-runner-design.md",
+    "docs/m1518-paper-route-decisive-history-t5-intervention-result-audit.md",
+    "docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md",
+    "runs/m1517_decisive_history_t5_intervention_smoke/summary.json"
+  ],
+  "decision_rule": "M1520 passes if it synthesizes M1510-M1519 and chooses the next route before more bounded-runner implementation work.",
+  "next_blocker": "m1520-paper-route-decisive-history-bounded-runner-synthesis"
+}

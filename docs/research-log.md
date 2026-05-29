@@ -22781,3 +22781,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1518 audits M1517 as clean intervention plumbing but not history-necessity evidence; decision-step injection is likely too late or the rows have too much slack.
 - follow-up manifest: `experiments/manifests/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.json`.
 - next: `m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design`
+
+## M1519 Paper-Route Decisive History T5 Timing-Amplified Intervention Design
+
+- status: completed
+- decision: `t5_timing_amplified_intervention_design_route_to_branch_synthesis`
+- artifact: `docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md`
+- eligible source family: `t5_high_speed_close_obstacle`
+- eligible target count: 4
+- intervention anchors: `decision`, `decision_minus_8`, `reveal_plus_4`, `reveal`
+- implementation may narrow anchors: `decision_minus_8`, `reveal`
+- variants: `normal`, `reset_hidden_once_at_anchor`, `reset_hidden_every_step_from_anchor`, `zero_current_response_from_anchor`, `zero_action_history_from_anchor`, `delayed_hidden_8_at_anchor`, `wrong_history_donor_hidden_at_anchor`
+- same-current diagnostic separated: true
+- diverging-trajectory diagnostic separated: true
+- primary outcome-relevance threshold: `success_drop_from_normal or margin_gap_from_normal >= 0.02`
+- secondary divergence diagnostic defined: true
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1519 designs earlier-window intervention implementation boundaries, but workflow cadence requires branch synthesis before another implementation milestone; no self-ID claim is allowed from design or plumbing alone.
+- follow-up manifest: `experiments/manifests/m1520-paper-route-decisive-history-bounded-runner-synthesis.json`.
+- next: `m1520-paper-route-decisive-history-bounded-runner-synthesis`

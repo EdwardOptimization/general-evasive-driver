@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1518-paper-route-decisive-history-t5-intervention-result-audit
+m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design
 ```
 
 Current next task:
 
 ```text
-m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design
+m1520-paper-route-decisive-history-bounded-runner-synthesis
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -70,12 +70,49 @@ intervention smoke; intervention plumbing worked but measured effects were
 null/weak, with max margin gap `0.0165` below the pre-registered `0.02`
 threshold and zero success drops. M1518 audited that result as clean plumbing
 but not history-necessity evidence, kept candidate materialization blocked, and
-routes to timing-amplified earlier-window intervention design. The current
-public-gate base remains M1362 alpha `0.1`:
+routes to timing-amplified earlier-window intervention design. M1519 designed
+that timing-amplified smoke, but workflow cadence now requires M1520 branch
+synthesis before another implementation milestone. The current public-gate base
+remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1519 decisive history T5 timing-amplified intervention design:
+
+```text
+decision: t5_timing_amplified_intervention_design_route_to_branch_synthesis
+artifact: docs/m1519-paper-route-decisive-history-t5-timing-amplified-intervention-design.md
+eligible_source_family: t5_high_speed_close_obstacle
+eligible_target_count: 4
+anchors:
+  decision
+  decision_minus_8
+  reveal_plus_4
+  reveal
+variants:
+  normal
+  reset_hidden_once_at_anchor
+  reset_hidden_every_step_from_anchor
+  zero_current_response_from_anchor
+  zero_action_history_from_anchor
+  delayed_hidden_8_at_anchor
+  wrong_history_donor_hidden_at_anchor
+same_current_diagnostic_separated: true
+diverging_trajectory_diagnostic_separated: true
+primary_outcome_relevance_threshold: success_drop_from_normal or margin_gap_from_normal >= 0.02
+secondary_divergence_diagnostic_defined: true
+candidate_materialized: false
+training/replay/PPO used: false
+private_holdout_used: false
+actor_input_contract_changed: false
+next: m1520-paper-route-decisive-history-bounded-runner-synthesis
+```
+
+M1519 is design only. It keeps the no-training/no-materialization guardrails and
+routes to branch synthesis before any implementation because the bounded-runner
+branch reached its 10-milestone synthesis cadence.
 
 M1518 decisive history T5 intervention result audit:
 
