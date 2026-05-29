@@ -1,0 +1,162 @@
+{
+  "id": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+      "runs/m1560_recoverable_active_set_generator_smoke/recoverable_active_anchor_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json"
+    ],
+    "parent_objective": [
+      "implement deterministic source-balanced selector over M1560 recoverable active-set artifacts"
+    ],
+    "derived_from": [
+      "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
+    ],
+    "blocked_by": [
+      "source-balanced selector has not yet been implemented"
+    ],
+    "supersedes": [
+      "direct history interventions over raw M1560 source-concentrated pool"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.md",
+  "public_gates": [
+    "M1563 must implement deterministic source-balanced selection over M1560 artifacts",
+    "M1563 must not rerun simulator or run history interventions",
+    "M1563 must keep selected artifacts diagnostic-only and not a training corpus",
+    "M1563 must preserve P0 actor input contract",
+    "M1563 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_source_balanced_recoverable_active_set_selector_implementation",
+    "evidence_increment": "implements deterministic source-balanced diagnostic selection over the M1560 recoverable active-set pool",
+    "claim_scope": "infrastructure and public artifact selection only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if implementation reruns simulator",
+      "stop if implementation runs history interventions",
+      "stop if implementation exports a training corpus",
+      "stop after selector run and route to audit"
+    ],
+    "fallback_plan": [
+      "route to audit if selector gates fail",
+      "route to history-intervention design only if selector gates pass and audit admits it",
+      "route back to source generation if balanced selection is impossible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1562 admits one bounded source-balanced selector implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-balanced recoverable active-set selector implementation",
+    "admission_evidence": [
+      "M1562 pre-registered deterministic selector gates and diagnostic-only artifact policy"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not rerun simulator",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "selector module and tests",
+      "bounded public selector artifacts",
+      "M1563 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "selected active-set artifacts are written",
+      "source and window balance metrics are reported",
+      "no simulator rerun or history interventions are executed",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1563 selects local-control anchors only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1563; history interventions remain blocked until selector audit"
+    ],
+    "temporal_evidence_window": "M1563 public selector over M1560 artifacts only.",
+    "negative_result_policy": "If source-balanced selection fails, record scenario_sampling_failure and audit before further generator work.",
+    "allowed_claims": [
+      "source-balanced recoverable active-set selector implementation and public artifact selection",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic source-balanced selector can produce a compact balanced diagnostic active set from M1560 recoverable anchors without rerunning simulation or running history interventions.",
+  "success_criteria": [
+    "source-balanced selector module exists",
+    "focused tests cover ranking caps and summary schema",
+    "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json exists",
+    "simulator is not rerun",
+    "history interventions are not run",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "implementation or artifacts are missing",
+    "implementation reruns simulator",
+    "implementation runs history interventions",
+    "implementation changes actor inputs or uses private holdout",
+    "implementation exports a training corpus or starts training/PPO",
+    "implementation claims level3 self-identification"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_source_balanced_recoverable_active_set_selector.py -q"
+    },
+    {
+      "name": "selector",
+      "command": "PYTHONPATH=src python -m autodrift.source_balanced_recoverable_active_set_selector --output-dir runs/m1563_source_balanced_recoverable_active_set_selector --input-dir runs/m1560_recoverable_active_set_generator_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+    "runs/m1560_recoverable_active_set_generator_smoke/recoverable_active_anchor_rows.csv"
+  ],
+  "decision_rule": "M1563 passes if it implements and runs a deterministic diagnostic selector with no simulator rerun, no history interventions, and clean guardrails.",
+  "next_blocker": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation"
+}

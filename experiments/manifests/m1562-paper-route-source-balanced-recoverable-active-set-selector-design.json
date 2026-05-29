@@ -150,6 +150,41 @@
     "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
     "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+    "decision": "source_balanced_recoverable_active_set_selector_design_admit_bounded_selector",
+    "input_artifacts": [
+      "runs/m1560_recoverable_active_set_generator_smoke/recoverable_active_anchor_rows.csv",
+      "runs/m1560_recoverable_active_set_generator_smoke/local_hold_rows.csv",
+      "runs/m1560_recoverable_active_set_generator_smoke/summary.json"
+    ],
+    "max_per_source_family": 12,
+    "max_per_anchor_window": 12,
+    "max_selected_rows": 48,
+    "min_selected_recoverable_anchor_count": 40,
+    "min_selected_strong_recoverable_anchor_count": 24,
+    "min_selected_source_family_count": 5,
+    "min_selected_window_count": 5,
+    "max_selected_source_family_share": 0.30,
+    "max_selected_window_share": 0.35,
+    "admitted_route": "bounded_source_balanced_selector_implementation",
+    "next_manifest": "experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "simulator_rerun_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "source_balanced_recoverable_active_set_selector_design_admit_bounded_selector",
   "decision_rule": "M1562 passes if it designs a source-balanced selector route while preserving all no-materialization guardrails.",
-  "next_blocker": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
+  "next_blocker": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation"
 }

@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1562 designs a diagnostic-only source-balanced selector over M1560 recoverable anchors with source/window caps and no simulator rerun",
+  "failure_criteria": [
+    "design document is missing",
+    "design routes directly to history interventions training promotion private holdout or materialization",
+    "design changes actor inputs or weakens self-ID standards",
+    "design treats selected rows as a training corpus"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260529T133603Z",
+  "hypothesis": "A deterministic source-balanced selector can convert M1560's raw source-concentrated recoverable pool into a balanced diagnostic active set before history interventions.",
+  "lineage": {
+    "blocked_by": [
+      "M1560 raw recoverable active-set pool is source-family concentrated"
+    ],
+    "derived_from": [
+      "m1561-paper-route-recoverable-active-set-generator-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1561-paper-route-recoverable-active-set-generator-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m1560_recoverable_active_set_generator_smoke/summary.json",
+      "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md"
+    ],
+    "parent_objective": [
+      "design source-balanced selector over M1560 recoverable active-set pool"
+    ],
+    "supersedes": [
+      "direct history intervention design after raw M1560 pool"
+    ]
+  },
+  "milestone": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
+  "next_blocker": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_balanced_recoverable_active_set_selector_design_admit_bounded_selector",
+  "public_gates": [
+    "M1562 must design source-balanced selection over M1560 recoverable anchors",
+    "M1562 must not rerun simulator or run history interventions",
+    "M1562 must keep selected active-set artifacts diagnostic only, not a training corpus",
+    "M1562 must preserve P0 actor input contract",
+    "M1562 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_balanced_recoverable_active_set_selector_design_admit_bounded_selector",
+    "milestone": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
+    "reason": "M1562 designs a diagnostic-only source-balanced selector over M1560 recoverable anchors with source/window caps and no simulator rerun",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md exists",
+    "design specifies source-family and window concentration caps",
+    "design prioritizes strong recoverable anchors while retaining source/window diversity",
+    "design keeps selected artifacts diagnostic-only and not a training corpus",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "type": "gate"
+}

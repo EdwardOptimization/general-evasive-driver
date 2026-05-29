@@ -24090,3 +24090,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1561 blocks direct history replay but admits a diagnostic-only source-balanced selector design over M1560 artifacts. The selector should repair evidence governance, not create a training corpus.
 - follow-up manifest: `experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json`.
 - next: `m1562-paper-route-source-balanced-recoverable-active-set-selector-design`
+
+## M1562 Paper-Route Source-Balanced Recoverable Active-Set Selector Design
+
+- status: completed
+- decision: `source_balanced_recoverable_active_set_selector_design_admit_bounded_selector`
+- artifact: `docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md`
+- input artifacts:
+  - `runs/m1560_recoverable_active_set_generator_smoke/recoverable_active_anchor_rows.csv`
+  - `runs/m1560_recoverable_active_set_generator_smoke/local_hold_rows.csv`
+  - `runs/m1560_recoverable_active_set_generator_smoke/summary.json`
+- max per source family: 12
+- max per anchor window: 12
+- max selected rows: 48
+- min selected recoverable anchors: 40
+- min selected strong recoverable anchors: 24
+- min selected source families: 5
+- min selected windows: 5
+- max selected source family share: 0.30
+- max selected window share: 0.35
+- simulator rerun started: false
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1562 admits only a deterministic diagnostic selector over M1560 artifacts. It explicitly blocks simulator rerun, history interventions, and training-corpus export.
+- follow-up manifest: `experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json`.
+- next: `m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation`

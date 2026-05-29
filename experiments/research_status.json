@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1570,
+    "completed": 1571,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1561-paper-route-recoverable-active-set-generator-result-audit.md",
+    "command_log": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1561-paper-route-recoverable-active-set-generator-result-audit"
+    "task_id": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.json",
-    "hypothesis": "A deterministic source-balanced selector can convert M1560's raw source-concentrated recoverable pool into a balanced diagnostic active set before history interventions.",
-    "id": "m1562-paper-route-source-balanced-recoverable-active-set-selector-design",
-    "kind": "gate",
-    "notes": "Pending: design diagnostic-only source-balanced selector over M1560 recoverable pool",
-    "priority": 15570,
+    "command": "see experiments/manifests/m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation.json",
+    "hypothesis": "A deterministic source-balanced selector can produce a compact balanced diagnostic active set from M1560 recoverable anchors without rerunning simulation or running history interventions.",
+    "id": "m1563-paper-route-source-balanced-recoverable-active-set-selector-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement deterministic selector over M1560 artifacts without simulator rerun or history interventions",
+    "priority": 15580,
     "status": "pending",
-    "success_artifact": "docs/m1562-paper-route-source-balanced-recoverable-active-set-selector-design.md"
+    "success_artifact": "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json"
   },
-  "updated_at_utc": "20260529T132920Z"
+  "updated_at_utc": "20260529T133256Z"
 }
