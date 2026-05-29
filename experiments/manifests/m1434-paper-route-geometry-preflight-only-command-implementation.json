@@ -151,6 +151,37 @@
     "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
     "src/autodrift/bounded_relocation_replay_probe.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md",
+    "decision": "preflight_only_command_implemented_admit_public_smoke",
+    "implementation_files": [
+      "src/autodrift/bounded_relocation_replay_probe.py",
+      "tests/test_bounded_relocation_replay_probe.py"
+    ],
+    "implemented_functions": [
+      "write_geometry_preflight_outputs",
+      "run_geometry_preflight_only_probe"
+    ],
+    "cli_mode": "--preflight-only",
+    "focused_tests": "tests/test_bounded_relocation_replay_probe.py",
+    "focused_test_result": "10 passed",
+    "cli_help_exposes_preflight_only": true,
+    "source_preflight_run_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json"
+  },
+  "decision": "preflight_only_command_implemented_admit_public_smoke",
   "decision_rule": "M1434 passes if it implements a no-replay preflight command with focused tests and preserves actor/replay guardrails.",
-  "next_blocker": "m1434-paper-route-geometry-preflight-only-command-implementation"
+  "next_blocker": "m1435-paper-route-geometry-aware-preflight-smoke"
 }

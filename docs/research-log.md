@@ -21200,3 +21200,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json`.
 - next: `m1434-paper-route-geometry-preflight-only-command-implementation`
+
+## 20260529T030059Z - m1434-paper-route-geometry-preflight-only-command-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1434-paper-route-geometry-preflight-only-command-implementation.md`
+- decision: `preflight_only_command_implemented_admit_public_smoke`
+- implementation: `src/autodrift/bounded_relocation_replay_probe.py`
+- tests: `tests/test_bounded_relocation_replay_probe.py`
+- focused result: `10 passed`
+- CLI: `--preflight-only`
+- capability: preflight-only mode writes geometry preflight rows, selected rows, rejected rows, source-diversity summary, and summary JSON, then exits before bounded replay.
+- CLI smoke: help output exposes `--preflight-only`.
+- guardrail: no source preflight run, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json`.
+- next: `m1435-paper-route-geometry-aware-preflight-smoke`

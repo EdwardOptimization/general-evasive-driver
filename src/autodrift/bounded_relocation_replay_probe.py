@@ -443,6 +443,40 @@ def build_geometry_preflight_summary(
     }
 
 
+def write_geometry_preflight_outputs(
+    *,
+    run_dir: Path,
+    preflight: pd.DataFrame,
+    selected: pd.DataFrame,
+    rejected_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    run_dir.mkdir(parents=True, exist_ok=True)
+    preflight_records = _records(preflight)
+    selected_records = _records(selected)
+    summary = build_geometry_preflight_summary(
+        preflight_rows=preflight_records,
+        selected_rows=selected_records,
+        rejected_rows=rejected_rows,
+    )
+    summary["run_type"] = "geometry_aware_preflight_only_probe"
+    summary["source_preflight_started"] = True
+    summary["geometry_preflight_rows_csv"] = run_dir / "geometry_preflight_rows.csv"
+    summary["selected_candidate_rows_csv"] = run_dir / "selected_candidate_rows.csv"
+    summary["geometry_rejected_rows_csv"] = run_dir / "geometry_rejected_rows.csv"
+    summary["source_diversity_summary_csv"] = run_dir / "source_diversity_summary.csv"
+    summary["summary_json"] = run_dir / "summary.json"
+    source_diversity_summary = [
+        {"row_set": "geometry_preflight_rows", **source_diversity(preflight_records)},
+        {"row_set": "selected_candidate_rows", **source_diversity(selected_records)},
+    ]
+    write_csv_rows(run_dir / "geometry_preflight_rows.csv", preflight_records)
+    write_csv_rows(run_dir / "selected_candidate_rows.csv", selected_records)
+    write_csv_rows(run_dir / "geometry_rejected_rows.csv", rejected_rows)
+    write_csv_rows(run_dir / "source_diversity_summary.csv", source_diversity_summary)
+    write_json(run_dir / "summary.json", summary)
+    return summary
+
+
 def _trace_to_outcome_snapshot(point: TracePoint) -> OutcomeSnapshot:
     return OutcomeSnapshot(
         seed=int(point.seed),
@@ -640,6 +674,81 @@ def _records(frame: pd.DataFrame) -> list[dict[str, Any]]:
     return frame.to_dict("records") if not frame.empty else []
 
 
+def _history_candidate_pool(frame: pd.DataFrame, *, min_sequence_action_l2: float) -> pd.DataFrame:
+    candidate_pool = prepare_candidate_frame(frame)
+    return candidate_pool[
+        candidate_pool["history_variant"]
+        & (candidate_pool["sequence_action_l2_mean"] >= float(min_sequence_action_l2))
+    ].copy()
+
+
+def run_geometry_preflight_only_probe(
+    *,
+    checkpoint_path: Path,
+    config_path: Path,
+    candidate_rows_path: Path,
+    max_candidate_rows: int,
+    per_seed_cap: int,
+    per_capability_pair_cap: int,
+    per_reveal_bucket_cap: int,
+    per_variant_cap: int,
+    history_length: int,
+    min_sequence_action_l2: float,
+    min_source_body_x: float,
+    device: str,
+    run_dir: Path,
+) -> dict[str, Any]:
+    frame = pd.read_csv(candidate_rows_path)
+    config = load_scenario_config(config_path)
+    env_config = load_env_config(Path(config.get("env_config", "configs/ppo_m541_matched_l3_variance_4096.json")))
+    fault_by_name = fault_map_from_config(config)
+    resolved_device = resolve_device(device)
+    model, _ = load_actor_critic_checkpoint(checkpoint_path, device=str(resolved_device))
+    model.eval()
+    trace_cache: dict[tuple[int, str, int, int], list[TracePoint]] = {}
+
+    def trace_for(seed: int, fault_name: str, step: int) -> list[TracePoint]:
+        key = (int(seed), str(fault_name), int(step), int(history_length))
+        if key not in trace_cache:
+            trace_cache[key] = collect_fault_trace_window(
+                model=model,
+                env_config=env_config,
+                fault=fault_by_name[str(fault_name)],
+                seed=int(seed),
+                target_step=int(step),
+                history_length=int(history_length),
+                device=resolved_device,
+            )
+        return trace_cache[key]
+
+    candidate_pool = _history_candidate_pool(frame, min_sequence_action_l2=min_sequence_action_l2)
+    preflight, rejected_rows = geometry_preflight_from_trace_candidates(
+        candidate_pool,
+        trace_for=trace_for,
+        min_source_body_x=min_source_body_x,
+    )
+    selected = select_geometry_aware_replay_candidates(
+        preflight,
+        max_candidate_rows=max_candidate_rows,
+        per_seed_cap=per_seed_cap,
+        per_capability_pair_cap=per_capability_pair_cap,
+        per_reveal_bucket_cap=per_reveal_bucket_cap,
+        per_variant_cap=per_variant_cap,
+        min_sequence_action_l2=min_sequence_action_l2,
+    )
+    summary = write_geometry_preflight_outputs(
+        run_dir=run_dir,
+        preflight=preflight,
+        selected=selected,
+        rejected_rows=rejected_rows,
+    )
+    summary["checkpoint_path"] = str(checkpoint_path)
+    summary["config_path"] = str(config_path)
+    summary["candidate_rows_path"] = str(candidate_rows_path)
+    summary["actor_parameters_changed"] = False
+    return summary
+
+
 def run_bounded_relocation_replay_probe(
     *,
     checkpoint_path: Path,
@@ -697,11 +806,7 @@ def run_bounded_relocation_replay_probe(
         return trace_cache[key]
 
     if geometry_aware_selector:
-        candidate_pool = prepare_candidate_frame(frame)
-        candidate_pool = candidate_pool[
-            candidate_pool["history_variant"]
-            & (candidate_pool["sequence_action_l2_mean"] >= float(min_sequence_action_l2))
-        ].copy()
+        candidate_pool = _history_candidate_pool(frame, min_sequence_action_l2=min_sequence_action_l2)
         preflight_frame, geometry_rejected_rows = geometry_preflight_from_trace_candidates(
             candidate_pool,
             trace_for=trace_for,
@@ -892,6 +997,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--min-margin-gap", type=float, default=DEFAULT_MIN_MARGIN_GAP)
     parser.add_argument("--min-sequence-action-l2", type=float, default=DEFAULT_MIN_SEQUENCE_ACTION_L2)
     parser.add_argument("--geometry-aware-selector", action="store_true")
+    parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--min-source-body-x", type=float, default=DEFAULT_MIN_SOURCE_BODY_X)
     parser.add_argument("--per-seed-cap", type=int, default=DEFAULT_PER_SEED_CAP)
     parser.add_argument("--per-reveal-bucket-cap", type=int, default=DEFAULT_PER_REVEAL_BUCKET_CAP)
@@ -904,6 +1010,27 @@ def build_arg_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> None:
     args = build_arg_parser().parse_args(argv)
     run_dir = args.run_dir or make_run_dir(prefix="bounded_relocation_replay_probe")
+    if args.preflight_only:
+        summary = run_geometry_preflight_only_probe(
+            checkpoint_path=args.checkpoint,
+            config_path=args.config,
+            candidate_rows_path=args.candidate_rows,
+            max_candidate_rows=args.max_candidate_rows,
+            per_seed_cap=args.per_seed_cap,
+            per_capability_pair_cap=args.per_capability_pair_cap,
+            per_reveal_bucket_cap=args.per_reveal_bucket_cap,
+            per_variant_cap=args.per_variant_cap,
+            history_length=args.history_length,
+            min_sequence_action_l2=args.min_sequence_action_l2,
+            min_source_body_x=args.min_source_body_x,
+            device=args.device,
+            run_dir=run_dir,
+        )
+        print(f"summary_json={run_dir / 'summary.json'}")
+        print(f"geometry_pass_rows={summary['geometry_pass_rows']}")
+        print(f"selected_candidate_rows={summary['selected_candidate_rows']}")
+        print("replay_started=false")
+        return
     summary = run_bounded_relocation_replay_probe(
         checkpoint_path=args.checkpoint,
         config_path=args.config,

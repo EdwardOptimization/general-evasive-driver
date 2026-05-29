@@ -1,0 +1,172 @@
+{
+  "id": "m1435-paper-route-geometry-aware-preflight-smoke",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+      "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json"
+    ],
+    "parent_objective": [
+      "run public geometry-aware preflight-only smoke before bounded replay"
+    ],
+    "derived_from": [
+      "m1434-paper-route-geometry-preflight-only-command-implementation"
+    ],
+    "blocked_by": [
+      "M1434 implemented preflight-only command but source viability has not been measured"
+    ],
+    "supersedes": [
+      "running bounded replay before geometry-aware preflight smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1435-paper-route-geometry-aware-preflight-smoke.md",
+  "public_gates": [
+    "M1435 must run --preflight-only on public M1425 rows",
+    "M1435 must report forward geometry rows selected rows clipping share and source diversity",
+    "M1435 must not run bounded replay train PPO promote use private holdout export corpus or change actor inputs",
+    "M1435 must route to audit if geometry/source gates fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run closed-loop replay",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export a training corpus",
+    "do not lower geometry gates after seeing the result",
+    "do not count preflight rows as actual replay or history-positive evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_geometry_aware_preflight_validation",
+    "evidence_axis": "R_geometry_aware_preflight_public_smoke",
+    "evidence_increment": "runs preflight-only source geometry validation on public M1425 rows before any bounded replay",
+    "claim_scope": "public source preflight smoke only; no replay run, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if selected_candidate_rows < 64",
+      "stop if geometry_pass_rows < 64",
+      "stop if unique_source_seeds < 6",
+      "stop if unique_history_variants < 2",
+      "stop if relocation_clipped_share > 0.10",
+      "stop if replay_started is true"
+    ],
+    "fallback_plan": [
+      "route to preflight result audit if source gates fail",
+      "route to bounded replay design if source gates pass",
+      "route to source mining if M1425 rows remain geometry-poor"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1434 implemented preflight-only command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "geometry-aware preflight public smoke",
+    "admission_evidence": [
+      "M1434 implements --preflight-only",
+      "M1433 requires source geometry validation before replay"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run replay",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus"
+    ],
+    "allowed_updates": [
+      "runs/m1435_geometry_aware_preflight_smoke",
+      "M1435 result document",
+      "status queue scoreboard research log and review",
+      "one follow-up audit or replay-design manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight run completed",
+      "source geometry and diversity gates pass or fail clearly",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1435 only checks source geometry and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "preflight verifies source rows before future history replay",
+      "preflight rows cannot count as actual history-positive replay evidence",
+      "future replay still needs reset and zero-current controls"
+    ],
+    "temporal_evidence_window": "M1425 public pressure rows filtered through M1434 preflight-only command.",
+    "negative_result_policy": "If preflight gates fail, record source limitation and audit instead of weakening replay or history standards.",
+    "allowed_claims": [
+      "public geometry-aware preflight smoke result",
+      "no replay result, promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1425 pressure rows contain enough forward unclipped source-diverse geometry to justify a later bounded relocation replay design.",
+  "success_criteria": [
+    "runs/m1435_geometry_aware_preflight_smoke/summary.json exists",
+    "geometry_pass_rows >= 64",
+    "selected_candidate_rows >= 64",
+    "selected_diversity.unique_source_seeds >= 6",
+    "selected_diversity.unique_capability_pairs >= 8",
+    "selected_diversity.unique_reveal_buckets >= 6",
+    "selected_diversity.unique_variants >= 2",
+    "selected_diversity.max_single_seed_share <= 0.35",
+    "relocation_clipped_share <= 0.10",
+    "source_body_x_min >= 4.0",
+    "replay_started false",
+    "training_started false",
+    "ppo_used false",
+    "promoted false",
+    "private_holdout_used false",
+    "training_corpus_exported false",
+    "actor_input_contract_changed false"
+  ],
+  "failure_criteria": [
+    "summary missing",
+    "geometry or diversity gates fail",
+    "preflight rows are counted as replay evidence",
+    "run starts replay training PPO promotion private holdout corpus export or actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "preflight_smoke",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.bounded_relocation_replay_probe --preflight-only --checkpoint runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt --config configs/m1419_warmup_gate_invasiveness_retune_source_wave.json --candidate-rows runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv --max-candidate-rows 128 --per-capability-pair-cap 12 --per-seed-cap 24 --per-reveal-bucket-cap 12 --per-variant-cap 48 --history-length 56 --min-sequence-action-l2 0.025 --min-source-body-x 4.0 --device cpu --run-dir runs/m1435_geometry_aware_preflight_smoke"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1435_geometry_aware_preflight_smoke/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1435-paper-route-geometry-aware-preflight-smoke.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1425_action_divergent_outcome_pressure_source_smoke/outcome_pressure_rows.csv",
+    "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
+  ],
+  "decision_rule": "M1435 passes only if preflight-only source geometry and diversity gates pass without replay or training.",
+  "next_blocker": "m1435-paper-route-geometry-aware-preflight-smoke"
+}

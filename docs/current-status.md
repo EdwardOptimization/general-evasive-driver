@@ -16,21 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1433-paper-route-action-divergent-geometry-branch-synthesis
+m1434-paper-route-geometry-preflight-only-command-implementation
 ```
 
 Current next task:
 
 ```text
-m1434-paper-route-geometry-preflight-only-command-implementation
+m1435-paper-route-geometry-aware-preflight-smoke
 ```
 
-M1433 synthesized the action-divergent geometry branch. The current public-gate base
+M1434 implemented the no-replay preflight-only command. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1434 result:
+
+```text
+decision: preflight_only_command_implemented_admit_public_smoke
+implementation: src/autodrift/bounded_relocation_replay_probe.py
+tests: tests/test_bounded_relocation_replay_probe.py
+focused_test_result: 10 passed
+cli_mode: --preflight-only
+source_preflight_run_started: false
+replay_started: false
+training_started: false
+next: m1435-paper-route-geometry-aware-preflight-smoke
+```
+
+M1435 should run the preflight-only command on public M1425 rows. It must not
+run bounded replay, train, run PPO, promote, use private holdout, export corpus,
+or change actor inputs.
 
 M1433 result:
 
@@ -53,7 +71,7 @@ next: m1434-paper-route-geometry-preflight-only-command-implementation
 
 M1433 promotes to a new geometry-aware preflight validation branch. M1434 should
 implement a preflight-only command so the selector can be tested without running
-bounded replay.
+bounded replay. M1434 completed that implementation.
 
 M1432 result:
 

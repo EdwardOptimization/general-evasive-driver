@@ -2,6 +2,7 @@ import pandas as pd
 
 from autodrift.bounded_relocation_replay_probe import (
     bounded_relocation_geometry,
+    build_arg_parser,
     build_geometry_preflight_summary,
     build_replay_summary,
     classify_actual_replay_result,
@@ -9,6 +10,7 @@ from autodrift.bounded_relocation_replay_probe import (
     geometry_preflight_frame,
     select_geometry_aware_replay_candidates,
     select_replay_candidates,
+    write_geometry_preflight_outputs,
 )
 
 
@@ -214,6 +216,49 @@ def test_build_geometry_preflight_summary_reports_gates():
     assert summary["relocation_clipped_share"] == 0.0
     assert summary["source_body_x_min"] == 8.0
     assert summary["replay_started"] is False
+
+
+def test_write_geometry_preflight_outputs_is_no_replay_path(tmp_path):
+    frame = pd.DataFrame(
+        [
+            {**_candidate(seed=1, capability_pair="a->b"), "source_body_x": 8.0, "source_body_y": 0.0, "source_half_width": 0.5, "body_longitudinal_offset": 0.5},
+            {**_candidate(seed=2, capability_pair="c->d"), "source_body_x": 3.0, "source_body_y": 0.0, "source_half_width": 0.5, "body_longitudinal_offset": 2.0},
+        ]
+    )
+    preflight = geometry_preflight_frame(frame)
+    selected = preflight[preflight["geometry_pass"]].copy()
+
+    summary = write_geometry_preflight_outputs(
+        run_dir=tmp_path,
+        preflight=preflight,
+        selected=selected,
+        rejected_rows=[],
+    )
+
+    assert summary["run_type"] == "geometry_aware_preflight_only_probe"
+    assert summary["source_preflight_started"] is True
+    assert summary["replay_started"] is False
+    assert summary["training_started"] is False
+    assert (tmp_path / "geometry_preflight_rows.csv").exists()
+    assert (tmp_path / "selected_candidate_rows.csv").exists()
+    assert (tmp_path / "summary.json").exists()
+
+
+def test_arg_parser_exposes_preflight_only_without_replay_flag():
+    args = build_arg_parser().parse_args(
+        [
+            "--checkpoint",
+            "checkpoint.pt",
+            "--config",
+            "config.json",
+            "--candidate-rows",
+            "rows.csv",
+            "--preflight-only",
+        ]
+    )
+
+    assert args.preflight_only is True
+    assert args.geometry_aware_selector is False
 
 
 def test_build_replay_summary_emits_contract_flags(tmp_path):

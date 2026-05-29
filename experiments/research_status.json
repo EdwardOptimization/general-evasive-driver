@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1443,
+    "completed": 1444,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1433-paper-route-action-divergent-geometry-branch-synthesis.md",
+    "command_log": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1433-paper-route-action-divergent-geometry-branch-synthesis"
+    "task_id": "m1434-paper-route-geometry-preflight-only-command-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1434-paper-route-geometry-preflight-only-command-implementation.json",
-    "hypothesis": "A preflight-only command can expose M1432 geometry-aware selector outputs without running bounded replay.",
-    "id": "m1434-paper-route-geometry-preflight-only-command-implementation",
+    "command": "see experiments/manifests/m1435-paper-route-geometry-aware-preflight-smoke.json",
+    "hypothesis": "The M1425 pressure rows contain enough forward unclipped source-diverse geometry to justify a later bounded relocation replay design.",
+    "id": "m1435-paper-route-geometry-aware-preflight-smoke",
     "kind": "infrastructure",
-    "notes": "Pending: implement no-replay preflight command before public preflight smoke",
-    "priority": 14290,
+    "notes": "Pending: run preflight-only source geometry validation on public M1425 rows without replay or training",
+    "priority": 14300,
     "status": "pending",
-    "success_artifact": "docs/m1434-paper-route-geometry-preflight-only-command-implementation.md"
+    "success_artifact": "runs/m1435_geometry_aware_preflight_smoke/summary.json"
   },
-  "updated_at_utc": "20260529T025602Z"
+  "updated_at_utc": "20260529T030059Z"
 }
