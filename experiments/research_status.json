@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1621,
+    "completed": 1622,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-      "command_log": "runs/m1612_contour_aware_candidate_materialization/summary.json",
+      "command_log": "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md",
       "returncode": 0,
-      "run_dir": "runs/m1612_contour_aware_candidate_materialization",
+      "run_dir": "docs",
       "status": "completed",
-      "task_id": "m1612-paper-route-contour-aware-candidate-materialization-implementation"
+      "task_id": "m1613-paper-route-contour-aware-candidate-materialization-result-audit"
     },
     "next_task": {
-      "command": "see experiments/manifests/m1613-paper-route-contour-aware-candidate-materialization-result-audit.json",
-      "hypothesis": "M1612's candidate artifacts should be audited before any corpus-design, training, or PPO decision.",
-      "id": "m1613-paper-route-contour-aware-candidate-materialization-result-audit",
+      "command": "see experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json",
+      "hypothesis": "A design-only corpus plan can preserve candidate and diagnostic roles before any corpus export or training.",
+      "id": "m1614-paper-route-contour-aware-candidate-corpus-design",
       "kind": "gate",
-      "notes": "Pending: audit candidate artifacts before any corpus design",
-      "priority": 16080,
+      "notes": "Pending: design candidate corpus roles without exporting it",
+      "priority": 16090,
       "status": "pending",
-      "success_artifact": "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md"
+      "success_artifact": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md"
     },
-    "updated_at_utc": "20260529T180501Z"
+    "updated_at_utc": "20260529T180754Z"
 }

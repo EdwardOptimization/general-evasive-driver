@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1612-paper-route-contour-aware-candidate-materialization-implementation
+m1613-paper-route-contour-aware-candidate-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1613-paper-route-contour-aware-candidate-materialization-result-audit
+m1614-paper-route-contour-aware-candidate-corpus-design
 ```
 
-M1612 implemented offline contour-aware candidate materialization. It wrote 39
-candidate rows from primary clean rows and 232 diagnostic guardrail rows,
-preserved source-edge balance (`max_candidate_source_edge_share=0.3333333333333333`),
-and did not export a training corpus. The next task is M1613 result audit.
-Training-corpus export, training, PPO, promotion, private holdout,
-actor-input changes, threshold relaxation, label-selected diagnostics, and
-level3 self-ID claims remain blocked.
+M1613 audited the M1612 candidate artifacts and admits design-only corpus
+planning. The artifacts remain public and narrow: 39 candidate rows plus 232
+diagnostic guardrails. The next task is M1614 candidate-corpus design. Corpus
+export, loss construction, training, PPO, promotion, private holdout,
+actor-input changes, threshold relaxation, diagnostics-as-positive-candidates,
+and level3 self-ID claims remain blocked.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

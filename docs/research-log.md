@@ -25618,3 +25618,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: training corpus export, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
 - follow-up manifest: `experiments/manifests/m1613-paper-route-contour-aware-candidate-materialization-result-audit.json`
 - next: `m1613-paper-route-contour-aware-candidate-materialization-result-audit`
+
+## M1613 Paper-Route Contour-Aware Candidate Materialization Result Audit
+
+- status: completed
+- decision: `contour_aware_candidate_materialization_audit_admit_corpus_design`
+- artifact: `docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md`
+- failure taxonomy: `none`
+- candidate directed pairs: 39
+- candidate source-edge count: 4
+- max candidate source-edge share: 0.3333333333333333
+- diagnostic guardrail directed pairs: 232
+- diagnostic dominated/control count: 81
+- diagnostic clean share: 0.008620689655172414
+- training corpus exported: false
+- training/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- public-gate overfit risk: `high`
+- supported: M1612 correctly materialized public-pass candidate artifacts; diagnostic guardrails remain separate; artifacts are eligible for design-only corpus planning; exact pair ids and source-edge accounting are preserved
+- unsupported: training corpus export, loss/objective construction, actor update, PPO continuation, checkpoint promotion, private-holdout evidence, paper-level or level3 self-identification
+- route decision: admit design-only candidate corpus planning
+- follow-up manifest: `experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json`
+- next: `m1614-paper-route-contour-aware-candidate-corpus-design`

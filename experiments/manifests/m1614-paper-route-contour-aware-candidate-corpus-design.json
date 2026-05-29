@@ -1,0 +1,160 @@
+{
+  "id": "m1614-paper-route-contour-aware-candidate-corpus-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1612_contour_aware_candidate_materialization/summary.json",
+      "runs/m1612_contour_aware_candidate_materialization/candidate_rows.csv",
+      "runs/m1612_contour_aware_candidate_materialization/diagnostic_guardrail_rows.csv",
+      "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1613-paper-route-contour-aware-candidate-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design contour-aware candidate corpus after materialization audit"
+    ],
+    "derived_from": [
+      "m1613-paper-route-contour-aware-candidate-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1613 admits design-only corpus planning but blocks actual corpus export and training"
+    ],
+    "supersedes": [
+      "direct corpus export from M1612",
+      "direct actor update from M1612",
+      "direct PPO after M1612"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1614-paper-route-contour-aware-candidate-corpus-design.md",
+  "public_gates": [
+    "M1614 must design corpus assembly without exporting a corpus",
+    "M1614 must keep candidate and diagnostic roles separate",
+    "M1614 must define public-proof metadata and no-paper-claim metadata",
+    "M1614 must require corpus-export audit before actor update or PPO",
+    "M1614 must keep training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not export a training corpus",
+    "do not construct a loss",
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun replay",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not include diagnostic rows as positive candidates",
+    "do not relax clean selector thresholds",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clean_active_set_contour_mapping",
+    "evidence_axis": "D_contour_aware_candidate_corpus_design",
+    "evidence_increment": "designs candidate corpus assembly from M1612 artifacts without exporting it",
+    "claim_scope": "design only; no corpus export, loss construction, training, PPO, promotion, private holdout, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if design exports a corpus",
+      "stop if design treats diagnostics as positive candidates",
+      "stop if design routes directly to training or PPO"
+    ],
+    "fallback_plan": [
+      "admit one corpus-export implementation only if export guardrails and audit route are explicit",
+      "pivot if public-overfit risk is too high for export",
+      "stop if no next step can preserve diagnostic guardrails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1613 admits design-only candidate corpus planning",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "contour-aware candidate corpus design",
+    "admission_evidence": [
+      "M1612 materializes 39 candidate rows and 232 diagnostic guardrails",
+      "M1613 audits the artifacts and admits design-only corpus planning"
+    ],
+    "blocked_shortcuts": [
+      "do not export a training corpus",
+      "do not construct a loss",
+      "do not train",
+      "do not run PPO",
+      "do not run implementation smoke",
+      "do not use private holdout",
+      "do not promote a checkpoint",
+      "do not change actor inputs",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1614 design document",
+      "M1614 status queue scoreboard research log and review",
+      "one follow-up manifest if design admits implementation, synthesis, pivot, or stop"
+    ],
+    "next_stage_criteria": [
+      "corpus roles are explicit",
+      "public-proof metadata is explicit",
+      "diagnostic guardrails are explicit",
+      "post-export audit is required",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1614 is design-only over public artifacts and cannot strengthen self-ID claims.",
+    "history_necessity_tests": [
+      "M1612 candidate rows",
+      "M1612 diagnostic guardrails"
+    ],
+    "temporal_evidence_window": "M1612 materialized candidate artifacts.",
+    "negative_result_policy": "If corpus design cannot preserve diagnostic guardrails and public-proof metadata, stop or pivot.",
+    "allowed_claims": [
+      "candidate corpus design and next route",
+      "no promotion, corpus export, training, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A design-only corpus plan can preserve candidate and diagnostic roles before any corpus export or training.",
+  "success_criteria": [
+    "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md exists",
+    "candidate and diagnostic roles are explicit",
+    "public-proof and no-paper-claim metadata are explicit",
+    "post-export audit requirement is explicit",
+    "training PPO promotion private holdout corpus export and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design exports a corpus or constructs a loss",
+    "design treats diagnostic rows as positive candidates",
+    "design routes directly to training PPO promotion private holdout corpus export actor-input changes"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1614-paper-route-contour-aware-candidate-corpus-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1614-paper-route-contour-aware-candidate-corpus-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1612_contour_aware_candidate_materialization/summary.json",
+    "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md"
+  ],
+  "decision_rule": "M1614 passes if it designs corpus assembly while keeping actual corpus export, loss construction, training, PPO, and promotion blocked.",
+  "next_blocker": "m1614-paper-route-contour-aware-candidate-corpus-design"
+}

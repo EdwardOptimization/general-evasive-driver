@@ -152,6 +152,46 @@
     "runs/m1612_contour_aware_candidate_materialization/summary.json",
     "docs/m1612-paper-route-contour-aware-candidate-materialization-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1613-paper-route-contour-aware-candidate-materialization-result-audit.md",
+    "decision": "contour_aware_candidate_materialization_audit_admit_corpus_design",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "candidate_directed_pair_count": 39,
+    "candidate_source_edge_count": 4,
+    "max_candidate_source_edge_share": 0.3333333333333333,
+    "diagnostic_guardrail_directed_pair_count": 232,
+    "diagnostic_dominated_or_control_count": 81,
+    "diagnostic_clean_share": 0.008620689655172414,
+    "training_corpus_exported": false,
+    "training_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "public_gate_overfit_risk": "high",
+    "supported_claims": [
+      "M1612 correctly materialized public-pass candidate artifacts",
+      "diagnostic guardrails remain separate from candidate rows",
+      "the materialized artifacts are eligible for design-only corpus planning",
+      "exact pair ids and source-edge accounting are preserved"
+    ],
+    "unsupported_claims": [
+      "training corpus export",
+      "loss/objective construction",
+      "actor update",
+      "PPO continuation",
+      "checkpoint promotion",
+      "private-holdout evidence",
+      "paper-level self-identification",
+      "level3 anticipatory self-identification"
+    ],
+    "next_manifest": "experiments/manifests/m1614-paper-route-contour-aware-candidate-corpus-design.json"
+  },
   "decision_rule": "M1613 passes if it audits M1612 and chooses the next route before corpus export, training, PPO, or promotion.",
-  "next_blocker": "m1613-paper-route-contour-aware-candidate-materialization-result-audit"
+  "next_blocker": "m1614-paper-route-contour-aware-candidate-corpus-design"
 }
