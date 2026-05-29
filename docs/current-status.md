@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1569-paper-route-recoverable-active-set-generation-branch-synthesis
+m1570-paper-route-targeted-third-source-flip-anchor-implementation
 ```
 
 Current next task:
 
 ```text
-m1570-paper-route-targeted-third-source-flip-anchor-implementation
+m1571-paper-route-targeted-third-source-flip-anchor-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -370,6 +370,13 @@ self-ID. M1570 must target `t5_high_speed_close_obstacle` and
 `late_reveal_boundary`, report `third_source_flip_anchor_count` and
 `targeted_family_flip_anchor_count`, and route to audit whether it passes or
 fails.
+M1570 implemented and ran that targeted smoke. It passed public and
+evidence-quality source-generation gates with `360` source specs, `360` anchor
+candidates, `287` replay-ok anchors, `100` recoverable anchors, `59` strong
+anchors, `11` distinct collision flips, `12` distinct success flips, `3` flip
+source families, `4` third-source flip anchors, and clean guardrails. The new
+third source is `t5_high_speed_close_obstacle`; `late_reveal_boundary` remains
+flip-null. M1571 must audit this before any history-intervention design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

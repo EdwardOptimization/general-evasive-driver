@@ -1,0 +1,155 @@
+{
+  "id": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+      "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1570-paper-route-targeted-third-source-flip-anchor-implementation.json"
+    ],
+    "parent_objective": [
+      "audit targeted third-source flip-anchor implementation before any history-intervention design"
+    ],
+    "derived_from": [
+      "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
+    ],
+    "blocked_by": [
+      "M1570 passes source-generation gates but has not been audited",
+      "third-source flips come from t5_high_speed_close_obstacle while late_reveal_boundary remains flip-null"
+    ],
+    "supersedes": [
+      "direct history-intervention design after M1570 without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md",
+  "public_gates": [
+    "M1571 must audit M1570 public and evidence-quality gates",
+    "M1571 must separate source-generation pass from history-necessity evidence",
+    "M1571 must explicitly discuss that the third-source flips came from t5_high_speed_close_obstacle and not late_reveal_boundary",
+    "M1571 must decide whether to admit bounded history-intervention design, synthesize, stop, or pivot",
+    "M1571 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "A_targeted_third_source_flip_anchor_result_audit",
+    "evidence_increment": "audits M1570 targeted third-source source-generation pass and chooses the next route",
+    "claim_scope": "audit only; no simulator run, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats source-generation pass as history-necessity evidence",
+      "stop if audit ignores late_reveal_boundary remaining flip-null",
+      "stop if audit routes directly to training, PPO, corpus export, materialization, or promotion"
+    ],
+    "fallback_plan": [
+      "admit bounded history-intervention design only if source-diverse flip-anchor evidence is judged sufficient",
+      "route to synthesis or pivot if high-speed-only third-source evidence is too narrow",
+      "keep M1570 as public source-generation evidence only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1570 targeted implementation completed and requires audit before next evidence layer",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "targeted third-source flip-anchor result audit",
+    "admission_evidence": [
+      "M1570 passes public source-generation gates with 3 flip source families and 4 third-source flip anchors",
+      "M1570 did not run history interventions, materialize candidates, export a corpus, train, or promote"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1571 audit document",
+      "M1571 status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "source-generation pass is separated from history evidence",
+      "late-reveal null is discussed",
+      "next route is explicit",
+      "guardrails remain clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1571 audits source generation only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1571; decide whether a later design should run wrong-history, donor-history, reset, zero-current, and delayed-history tests"
+    ],
+    "temporal_evidence_window": "M1570 public targeted source-generation smoke.",
+    "negative_result_policy": "If M1570 is judged too narrow because late-reveal remains flip-null, route to synthesis or pivot instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "targeted source-generation result audit and next route",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1570's source-diverse flip-anchor pass can be audited into a defensible next route without overstating self-identification evidence.",
+  "success_criteria": [
+    "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md exists",
+    "audit summarizes M1570 public gate results",
+    "audit separates source-generation evidence from history-necessity evidence",
+    "audit discusses high-speed third-source pass and late-reveal null",
+    "audit chooses the next route",
+    "training PPO promotion private holdout corpus export materialization and self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1570 source-generation pass as level3 self-ID evidence",
+    "audit ignores late_reveal_boundary remaining flip-null",
+    "audit routes directly to training PPO promotion private holdout corpus export actor-input changes candidate materialization or history interventions"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+    "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md"
+  ],
+  "decision_rule": "M1571 passes if it audits M1570 and chooses the next route before history interventions.",
+  "next_blocker": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit"
+}

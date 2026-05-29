@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "scenario_sampling_failure"
+    "none"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -166,6 +166,54 @@
     "docs/m1568-paper-route-targeted-third-source-flip-anchor-design.md",
     "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json",
+    "doc": "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md",
+    "decision": "targeted_third_source_flip_anchor_smoke_pass_route_to_audit",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "source_spec_count": 360,
+    "anchor_candidate_count": 360,
+    "replay_ok_anchor_count": 287,
+    "local_hold_row_count": 42840,
+    "local_hold_failure_count": 8687,
+    "recoverable_boundary_anchor_count": 100,
+    "strong_recoverable_boundary_anchor_count": 59,
+    "predecision_recoverable_anchor_count": 94,
+    "active_source_family_count": 5,
+    "active_window_count": 5,
+    "max_single_active_family_share": 0.35,
+    "distinct_collision_flip_anchor_count": 11,
+    "distinct_success_flip_anchor_count": 12,
+    "distinct_any_flip_anchor_count": 14,
+    "flip_anchor_source_family_count": 3,
+    "third_source_flip_anchor_count": 4,
+    "targeted_family_flip_anchor_count": 4,
+    "targeted_flip_family_counts": {
+      "t5_high_speed_close_obstacle": 4
+    },
+    "flip_anchor_window_count": 4,
+    "max_single_flip_source_family_share": 0.35714285714285715,
+    "passes_public_smoke_gates": true,
+    "passes_evidence_quality_targets": true,
+    "guardrail_violation_count": 0,
+    "simulator_rerun_started": true,
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.json"
+  },
   "decision_rule": "M1570 passes as an implementation milestone if it runs one bounded public targeted repair smoke with clean guardrails and explicit third-source flip metrics; it must still route to audit before history interventions.",
-  "next_blocker": "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
+  "next_blocker": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit"
 }

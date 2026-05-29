@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1578,
+    "completed": 1579,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1569-paper-route-recoverable-active-set-generation-branch-synthesis.md",
+    "command_log": "docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1570_targeted_third_source_flip_anchor_smoke",
     "status": "completed",
-    "task_id": "m1569-paper-route-recoverable-active-set-generation-branch-synthesis"
+    "task_id": "m1570-paper-route-targeted-third-source-flip-anchor-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1570-paper-route-targeted-third-source-flip-anchor-implementation.json",
-    "hypothesis": "A bounded targeted source-generation repair can add at least one third-source flip anchor from high-speed or late-reveal families without history interventions or actor input changes.",
-    "id": "m1570-paper-route-targeted-third-source-flip-anchor-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement exactly one targeted third-source source-generation smoke admitted by M1569 synthesis",
-    "priority": 15650,
+    "command": "see experiments/manifests/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.json",
+    "hypothesis": "M1570's source-diverse flip-anchor pass can be audited into a defensible next route without overstating self-identification evidence.",
+    "id": "m1571-paper-route-targeted-third-source-flip-anchor-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1570 third-source pass and decide whether to admit bounded history-intervention design or synthesize/pivot",
+    "priority": 15660,
     "status": "pending",
-    "success_artifact": "runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json"
+    "success_artifact": "docs/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.md"
   },
-  "updated_at_utc": "20260529T141835Z"
+  "updated_at_utc": "20260529T143105Z"
 }

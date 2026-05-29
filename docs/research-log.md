@@ -24331,3 +24331,46 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - training corpus exported: false
 - follow-up manifest: `experiments/manifests/m1570-paper-route-targeted-third-source-flip-anchor-implementation.json`
 - next: `m1570-paper-route-targeted-third-source-flip-anchor-implementation`
+
+## M1570 Paper-Route Targeted Third-Source Flip-Anchor Implementation
+
+- status: completed
+- decision: `targeted_third_source_flip_anchor_smoke_pass_route_to_audit`
+- artifact: `runs/m1570_targeted_third_source_flip_anchor_smoke/summary.json`
+- doc: `docs/m1570-paper-route-targeted-third-source-flip-anchor-implementation.md`
+- code: `src/autodrift/targeted_third_source_flip_anchor.py`
+- tests: `tests/test_targeted_third_source_flip_anchor.py`
+- focused test result: `4 passed`
+- source spec count: 360
+- anchor candidate count: 360
+- replay ok anchor count: 287
+- local hold row count: 42840
+- local hold failure count: 8687
+- recoverable boundary anchor count: 100
+- strong recoverable boundary anchor count: 59
+- predecision recoverable anchor count: 94
+- active source family count: 5
+- active window count: 5
+- max single active family share: 0.35
+- distinct collision flip anchor count: 11
+- distinct success flip anchor count: 12
+- distinct any flip anchor count: 14
+- flip anchor source family count: 3
+- third source flip anchor count: 4
+- targeted family flip anchor count: 4
+- targeted flip family counts: `t5_high_speed_close_obstacle: 4`
+- flip anchor window count: 4
+- max single flip source family share: 0.35714285714285715
+- passes public smoke gates: true
+- passes evidence quality targets: true
+- guardrail violation count: 0
+- simulator rerun started: true
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1570 resolves the immediate third-source source-generation blocker, but the third-source flips are high-speed only; `late_reveal_boundary` remains flip-null, so this must route to audit before any history-intervention design.
+- follow-up manifest: `experiments/manifests/m1571-paper-route-targeted-third-source-flip-anchor-result-audit.json`
+- next: `m1571-paper-route-targeted-third-source-flip-anchor-result-audit`
