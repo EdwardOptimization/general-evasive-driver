@@ -16,21 +16,48 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis
+m1421-paper-route-m1419-source-collision-stratified-outcome-probe
 ```
 
 Current next task:
 
 ```text
-m1421-paper-route-m1419-source-collision-stratified-outcome-probe
+m1422-paper-route-m1419-outcome-result-audit
 ```
 
-M1420 synthesized the staged warmup retune branch. The current public-gate base
-remains M1362 alpha `0.1`:
+M1421 ran the no-training M1419 source outcome probe. The current public-gate
+base remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1421 result:
+
+```text
+decision: m1419_source_outcome_reset_or_current_only_route_to_result_audit
+result_class: warmup_latched_outcome_reset_or_current_only
+selected_candidate_rows: 252
+outcome_rows: 2016
+normal_margin_candidate_rows: 252
+broad_near_boundary_candidate_rows: 25
+preferred_near_boundary_candidate_rows: 11
+accepted_outcome_rows: 1
+warmup_history_positive_rows: 0
+accepted_reset_rows: 0
+accepted_zero_current_rows: 1
+action_critical_rows: 1524
+normal_failed_rows: 800
+wrong_warmup_history_same_reveal_positive_rows: 0
+same_recent_wrong_warmup_history_positive_rows: 0
+actor_input_contract_changed: false
+next: m1422-paper-route-m1419-outcome-result-audit
+```
+
+M1421 is negative for staged warmup history necessity: the cleaner M1419 source
+produced zero warmup-history-positive rows, and the only accepted row was a
+zero-current control effect. M1422 must audit this before any further
+experiment.
 
 M1420 result:
 

@@ -20983,3 +20983,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source smoke, outcome probe, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json`.
 - next: `m1421-paper-route-m1419-source-collision-stratified-outcome-probe`
+
+## 20260529T062000Z - m1421-paper-route-m1419-source-collision-stratified-outcome-probe
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json`
+- result doc: `docs/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.md`
+- decision: `m1419_source_outcome_reset_or_current_only_route_to_result_audit`
+- result class: `warmup_latched_outcome_reset_or_current_only`
+- counts: `252` selected candidates, `2016` outcome rows, `252` normal-margin candidates, `25` broad near-boundary candidates, `11` preferred near-boundary candidates.
+- outcome: `1` accepted outcome row, `0` warmup-history-positive rows, `0` reset rows, and `1` zero-current row.
+- variants: delayed/wrong/same-recent/warmup-removed/warmup-shortened variants all have `0` warmup-history-positive rows.
+- strata: the single outcome-critical row appears in the clear source stratum and high-normal-margin band, not in warmup-history evidence.
+- interpretation: M1419 lower-invasiveness source rows are evaluable but do not reproduce M1412 sparse warmup-history positives.
+- guardrail: no training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1422-paper-route-m1419-outcome-result-audit.json`.
+- next: `m1422-paper-route-m1419-outcome-result-audit`

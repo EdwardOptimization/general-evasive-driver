@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1430,
+    "completed": 1431,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis.md",
+    "command_log": "docs/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m1421_m1419_source_collision_stratified_outcome_probe",
     "status": "completed",
-    "task_id": "m1420-paper-route-warmup-reveal-pressure-retune-branch-synthesis"
+    "task_id": "m1421-paper-route-m1419-source-collision-stratified-outcome-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json",
-    "hypothesis": "The less invasive M1419 source rows will reveal whether staged warmup command-response history interventions produce more source-diverse outcome-critical effects than M1412.",
-    "id": "m1421-paper-route-m1419-source-collision-stratified-outcome-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: run one no-training collision-stratified outcome probe on M1419 matched/bucketed rows",
-    "priority": 14160,
+    "command": "see experiments/manifests/m1422-paper-route-m1419-outcome-result-audit.json",
+    "hypothesis": "M1421 is a reset/current-only negative result that should stop direct staged warmup outcome probing unless a clearly new diagnostic axis is justified.",
+    "id": "m1422-paper-route-m1419-outcome-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1421 zero warmup-history result before any further experiment",
+    "priority": 14170,
     "status": "pending",
-    "success_artifact": "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
+    "success_artifact": "docs/m1422-paper-route-m1419-outcome-result-audit.md"
   },
-  "updated_at_utc": "20260529T061000Z"
+  "updated_at_utc": "20260529T062000Z"
 }

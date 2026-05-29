@@ -1,0 +1,155 @@
+{
+  "id": "m1422-paper-route-m1419-outcome-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json",
+      "docs/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.md"
+    ],
+    "parent_config": [
+      "configs/m1419_warmup_gate_invasiveness_retune_source_wave.json",
+      "experiments/manifests/m1421-paper-route-m1419-source-collision-stratified-outcome-probe.json"
+    ],
+    "parent_objective": [
+      "audit M1421 reset/current-only outcome result before any further experiment"
+    ],
+    "derived_from": [
+      "m1421-paper-route-m1419-source-collision-stratified-outcome-probe"
+    ],
+    "blocked_by": [
+      "M1421 found zero warmup-history-positive rows and one zero-current control row"
+    ],
+    "supersedes": [
+      "continuing staged warmup outcome probing without audit",
+      "training from M1419 source rows",
+      "claiming self-identification from M1421"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1422-paper-route-m1419-outcome-result-audit.md",
+  "public_gates": [
+    "M1422 must audit M1421 negative outcome result before another run",
+    "M1422 must classify reset/current-only versus warmup-history evidence",
+    "M1422 must decide stop pivot synthesis or one clearly new diagnostic route",
+    "M1422 must not run source smoke outcome interventions train run PPO promote use private holdout export corpus or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run source smoke",
+    "do not run outcome interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export corpus",
+    "do not claim self-identification from zero warmup-history rows",
+    "do not ignore that M1421 lost the M1412 sparse positives"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_staged_warmup_outcome_validation",
+    "evidence_axis": "A_m1419_source_outcome_result_audit",
+    "evidence_increment": "audits M1421 reset/current-only outcome result and decides whether staged warmup outcome validation should stop or pivot",
+    "claim_scope": "process audit only; no source smoke outcome intervention training PPO promotion private holdout corpus export paper-level or strong self-identification claim",
+    "stop_condition": [
+      "stop if M1421 zero warmup-history rows are treated as positive evidence",
+      "stop if audit routes to training or corpus export",
+      "stop if another local outcome probe is proposed without a new evidence axis",
+      "stop if actor input changes are proposed"
+    ],
+    "fallback_plan": [
+      "stop staged warmup outcome validation if no credible next diagnostic exists",
+      "pivot to another task-design branch if M1421 falsifies lower-invasiveness warmup outcome sensitivity",
+      "admit one new diagnostic only if it addresses a distinct failure mode"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_due_new_branch_after_m1420_promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "M1419 outcome result audit",
+    "admission_evidence": [
+      "M1421 selected 252 candidates and evaluated 2016 outcome rows",
+      "M1421 found zero warmup-history-positive rows",
+      "M1421 found one zero-current control row in the high-margin/clear stratum"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run source smoke",
+      "do not run outcome interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export corpus"
+    ],
+    "allowed_updates": [
+      "M1422 audit document",
+      "status queue scoreboard research log and review",
+      "one follow-up manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1421 result is classified",
+      "unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "M1422 must keep M1421 zero-current-only result separate from warmup-history evidence.",
+    "history_necessity_tests": [
+      "audit warmup-history-positive rows",
+      "audit wrong-warmup variants",
+      "audit reset and zero-current controls",
+      "audit collision and normal-margin strata"
+    ],
+    "temporal_evidence_window": "M1421 no-training M1419 outcome probe artifacts.",
+    "negative_result_policy": "Zero warmup-history rows must remain negative evidence and cannot be used to weaken the self-ID standard.",
+    "allowed_claims": [
+      "M1421 outcome-result audit and next route decision",
+      "no promotion corpus export training PPO private-holdout high-fidelity paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1421 is a reset/current-only negative result that should stop direct staged warmup outcome probing unless a clearly new diagnostic axis is justified.",
+  "success_criteria": [
+    "docs/m1422-paper-route-m1419-outcome-result-audit.md exists",
+    "audit records M1421 selected candidates outcome rows accepted rows and variant breakdown",
+    "audit classifies the result without claiming self-identification",
+    "audit chooses stop pivot synthesis or one clearly new diagnostic route without training PPO promotion private holdout corpus export or actor-input expansion"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats zero warmup-history rows as positive self-ID evidence",
+    "audit ignores the zero-current-only accepted row",
+    "audit routes directly to training PPO promotion private holdout corpus export or claim expansion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1422-paper-route-m1419-outcome-result-audit.md from M1421 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1422-paper-route-m1419-outcome-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1421_m1419_source_collision_stratified_outcome_probe/summary.json"
+  ],
+  "decision_rule": "M1422 passes if it classifies M1421 and chooses a non-training next route.",
+  "next_blocker": "m1422-paper-route-m1419-outcome-result-audit"
+}
