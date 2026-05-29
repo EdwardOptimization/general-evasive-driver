@@ -1,0 +1,149 @@
+{
+  "id": "m1567-paper-route-flip-anchor-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+      "docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M1566 near-miss after recoverable and success-flip counts improve but collision-flip/source-family gates still fail"
+    ],
+    "derived_from": [
+      "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
+    ],
+    "blocked_by": [
+      "M1566 has 7 distinct collision-flip anchors and 2 flip source families against thresholds 8 and 3"
+    ],
+    "supersedes": [
+      "direct history interventions after M1566 near-miss"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1567-paper-route-flip-anchor-repair-result-audit.md",
+  "public_gates": [
+    "M1567 must audit M1566 improvements and remaining failures separately",
+    "M1567 must decide whether another narrow source repair is justified or whether branch synthesis is required",
+    "M1567 must preserve P0 actor input contract",
+    "M1567 must keep materialization training PPO promotion and private holdout blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not run implementation smoke",
+    "do not rerun simulator",
+    "do not run history interventions",
+    "do not promote",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not export training corpus",
+    "do not materialize candidates",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_recoverable_active_set_generation",
+    "evidence_axis": "G_distinct_flip_anchor_source_generation_repair_result_audit",
+    "evidence_increment": "audits M1566 after near-miss source-generation repair",
+    "claim_scope": "process audit only; no simulator rerun, history interventions, candidate materialization, training, PPO, promotion, private holdout, corpus export, paper-level or level3 self-identification claim",
+    "stop_condition": [
+      "stop if audit treats the M1566 near-miss as a pass",
+      "stop if audit routes directly to history interventions",
+      "stop if audit ignores the missing third flip source family"
+    ],
+    "fallback_plan": [
+      "admit one targeted third-source repair design only if M1566 evidence shows a credible route",
+      "route to branch synthesis if another repair would only chase public gates",
+      "route to broader task-family source expansion if late_reveal, high_speed, or curved sources remain flip-null"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1566 completed with near-miss public gate failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "flip-anchor source-generation repair result audit",
+    "admission_evidence": [
+      "M1566 wrote bounded repair artifacts with clean guardrails and explicit near-miss metrics"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run PPO",
+      "do not run history interventions",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not export training corpus",
+      "do not materialize candidates",
+      "do not claim level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1567 audit document",
+      "M1567 status queue scoreboard research log and review",
+      "one follow-up manifest if the audit admits a route"
+    ],
+    "next_stage_criteria": [
+      "M1566 improvements and failures are audited separately",
+      "history interventions remain blocked unless audit explicitly admits a later design",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M1567 audits source generation only and cannot claim history necessity.",
+    "history_necessity_tests": [
+      "none in M1567; M1566 did not run history interventions"
+    ],
+    "temporal_evidence_window": "M1566 public fixed-policy source-generation repair smoke.",
+    "negative_result_policy": "Record remaining collision/source-family shortage as scenario_sampling_failure unless audit admits a bounded repair.",
+    "allowed_claims": [
+      "M1567 audits M1566",
+      "no promotion, training corpus export, PPO, private-holdout, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1566's near-miss can be audited cleanly enough to decide whether another bounded source repair is scientifically justified before history interventions.",
+  "success_criteria": [
+    "docs/m1567-paper-route-flip-anchor-repair-result-audit.md exists",
+    "M1566 improvements and remaining public-gate failures are audited separately",
+    "candidate materialization training PPO promotion private holdout actor-input changes and training-corpus export remain blocked",
+    "the next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit treats M1566 as positive self-ID evidence",
+    "audit routes directly to training promotion private holdout materialization or history interventions",
+    "audit changes actor inputs or weakens the evidence standard"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+    "docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md"
+  ],
+  "decision_rule": "M1567 passes if it audits M1566 and selects the next route while preserving all no-materialization guardrails.",
+  "next_blocker": "m1567-paper-route-flip-anchor-repair-result-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1565-paper-route-flip-anchor-source-generation-repair-design
+m1566-paper-route-flip-anchor-source-generation-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m1566-paper-route-flip-anchor-source-generation-repair-implementation
+m1567-paper-route-flip-anchor-repair-result-audit
 ```
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
@@ -339,6 +339,13 @@ distinct collision-flip anchors, `8` distinct success-flip anchors, `3` flip
 source families, and `3` flip windows while preserving the P0 actor contract and
 blocking history interventions, training-corpus export, materialization,
 training, PPO, promotion, private holdout, and level3 self-ID claims.
+M1566 implemented and ran the bounded repair smoke. It improved the active set
+substantially: `111` recoverable anchors, `59` strong anchors, `8` distinct
+success-flip anchors, and `7` distinct collision-flip anchors. Public gates
+still fail because collision flips are one anchor short and flip anchors cover
+only `2` source families (`t5_boundary_axis_retarget` and
+`t5_near_boundary_warmup`). M1567 must audit this near-miss before any further
+source repair or history-intervention design.
 The current public-gate base remains M1362 alpha `0.1`:
 
 ```text

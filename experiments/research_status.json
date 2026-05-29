@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1574,
+    "completed": 1575,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1565-paper-route-flip-anchor-source-generation-repair-design.md",
+    "command_log": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1566_flip_anchor_source_generation_repair_smoke",
     "status": "completed",
-    "task_id": "m1565-paper-route-flip-anchor-source-generation-repair-design"
+    "task_id": "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json",
-    "hypothesis": "A bounded repair implementation can increase source-diverse distinct collision/success flip anchors without history interventions or actor input changes.",
-    "id": "m1566-paper-route-flip-anchor-source-generation-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement repair smoke with distinct flip-anchor metrics and no history interventions",
-    "priority": 15610,
+    "command": "see experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json",
+    "hypothesis": "M1566's near-miss can be audited cleanly enough to decide whether another bounded source repair is scientifically justified before history interventions.",
+    "id": "m1567-paper-route-flip-anchor-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1566 near-miss before any further implementation or history intervention design",
+    "priority": 15620,
     "status": "pending",
-    "success_artifact": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json"
+    "success_artifact": "docs/m1567-paper-route-flip-anchor-repair-result-audit.md"
   },
-  "updated_at_utc": "20260529T135409Z"
+  "updated_at_utc": "20260529T140019Z"
 }

@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -137,7 +137,7 @@
     },
     {
       "name": "repair_smoke",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.flip_anchor_source_generation_repair --output-dir runs/m1566_flip_anchor_source_generation_repair_smoke --seed 1843 --seed-count 4 --max-source-specs 320 --max-anchors 320"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.flip_anchor_source_generation_repair --output-dir runs/m1566_flip_anchor_source_generation_repair_smoke --seed 1843 --seed-count 6 --max-source-specs 320 --max-anchors 320"
     }
   ],
   "required_artifacts": [
@@ -154,5 +154,67 @@
     "runs/m1563_source_balanced_recoverable_active_set_selector/summary.json"
   ],
   "decision_rule": "M1566 passes as an implementation milestone if it runs a bounded public repair smoke with clean guardrails and explicit distinct flip-anchor metrics.",
-  "next_blocker": "m1566-paper-route-flip-anchor-source-generation-repair-implementation"
+  "next_blocker": "m1567-paper-route-flip-anchor-repair-result-audit",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json",
+    "doc": "docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md",
+    "decision": "flip_anchor_source_generation_repair_smoke_near_miss_route_to_audit",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "source_spec_count": 300,
+    "anchor_candidate_count": 320,
+    "replay_ok_anchor_count": 262,
+    "local_hold_row_count": 19200,
+    "local_hold_failure_count": 3480,
+    "recoverable_boundary_anchor_count": 111,
+    "strong_recoverable_boundary_anchor_count": 59,
+    "predecision_recoverable_anchor_count": 105,
+    "active_source_family_count": 5,
+    "active_window_count": 5,
+    "max_single_active_family_share": 0.3783783783783784,
+    "distinct_collision_flip_anchor_count": 7,
+    "distinct_success_flip_anchor_count": 8,
+    "distinct_any_flip_anchor_count": 10,
+    "flip_anchor_source_family_count": 2,
+    "flip_anchor_window_count": 3,
+    "max_single_flip_source_family_share": 0.5,
+    "max_single_flip_window_share": 0.5,
+    "collision_flip_variant_count": 121,
+    "success_flip_variant_count": 143,
+    "passes_public_smoke_gates": false,
+    "passes_evidence_quality_targets": false,
+    "active_source_family_counts": {
+      "curved_boundary_obstacle": 2,
+      "late_reveal_boundary": 18,
+      "t5_boundary_axis_retarget": 20,
+      "t5_high_speed_close_obstacle": 29,
+      "t5_near_boundary_warmup": 42
+    },
+    "flip_source_family_counts": {
+      "t5_boundary_axis_retarget": 5,
+      "t5_near_boundary_warmup": 5
+    },
+    "flip_window_counts": {
+      "decision_minus_16": 4,
+      "decision_minus_24": 5,
+      "reveal": 1
+    },
+    "next_manifest": "experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json",
+    "candidate_materialized": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "replay_started": false,
+    "simulator_rerun_started": true,
+    "history_interventions_executed": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "training_corpus_exported": false,
+    "labels_enter_actor_input": false,
+    "level3_self_id_claim_made": false
+  },
+  "decision": "flip_anchor_source_generation_repair_smoke_near_miss_route_to_audit"
 }

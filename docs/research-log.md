@@ -24218,3 +24218,44 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M1565 keeps M1563's selector but repairs the upstream source-generation distribution. M1566 may rerun public simulator traces for source generation only; it must not run history interventions or export a training corpus.
 - follow-up manifest: `experiments/manifests/m1566-paper-route-flip-anchor-source-generation-repair-implementation.json`.
 - next: `m1566-paper-route-flip-anchor-source-generation-repair-implementation`
+
+## M1566 Paper-Route Flip-Anchor Source-Generation Repair Implementation
+
+- status: completed
+- decision: `flip_anchor_source_generation_repair_smoke_near_miss_route_to_audit`
+- artifact: `runs/m1566_flip_anchor_source_generation_repair_smoke/summary.json`
+- doc: `docs/m1566-paper-route-flip-anchor-source-generation-repair-implementation.md`
+- code: `src/autodrift/flip_anchor_source_generation_repair.py`
+- tests: `tests/test_flip_anchor_source_generation_repair.py`
+- focused test result: `3 passed`
+- source spec count: 300
+- anchor candidate count: 320
+- replay ok anchor count: 262
+- local hold row count: 19200
+- recoverable boundary anchor count: 111
+- strong recoverable boundary anchor count: 59
+- predecision recoverable anchor count: 105
+- active source family count: 5
+- active window count: 5
+- max single active family share: 0.3783783783783784
+- distinct collision flip anchor count: 7
+- distinct success flip anchor count: 8
+- distinct any flip anchor count: 10
+- flip anchor source family count: 2
+- flip anchor window count: 3
+- max single flip source family share: 0.5
+- collision flip variant count: 121
+- success flip variant count: 143
+- passes public smoke gates: false
+- passes evidence quality targets: false
+- guardrail violation count: 0
+- simulator rerun started: true
+- history interventions executed: false
+- candidate materialized: false
+- training/replay/PPO used: false
+- private holdout used: false
+- actor input contract changed: false
+- training corpus exported: false
+- interpretation: M1566 is a source-generation near-miss. It improves success flips and adds `t5_near_boundary_warmup` flip anchors, but still misses the collision-flip threshold by one anchor and has only two flip source families.
+- follow-up manifest: `experiments/manifests/m1567-paper-route-flip-anchor-repair-result-audit.json`.
+- next: `m1567-paper-route-flip-anchor-repair-result-audit`

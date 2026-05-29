@@ -217,6 +217,7 @@ def run_hold_continuation(
     continuation_steps: int,
     override: str | None = None,
     hold_steps: int = 0,
+    override_fn: Any = apply_local_override,
 ) -> ContinuationResult:
     """Continue from a replay anchor, optionally holding a local override."""
 
@@ -260,7 +261,7 @@ def run_hold_continuation(
             if step_index == 0:
                 first_action = action.copy()
             if override is not None and step_index < int(hold_steps):
-                executed = apply_local_override(action, override)
+                executed = override_fn(action, override)
             else:
                 executed = action
             if step_index == 0:
