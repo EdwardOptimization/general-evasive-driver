@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1447,
+    "completed": 1448,
     "failed": 0,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1437-paper-route-forward-geometry-source-mining-design.md",
+    "command_log": "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m1437-paper-route-forward-geometry-source-mining-design"
+    "task_id": "m1438-paper-route-forward-geometry-source-miner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json",
-    "hypothesis": "A geometry-first source miner can be implemented to sample earlier forward obstacle snapshots before action divergence or replay.",
-    "id": "m1438-paper-route-forward-geometry-source-miner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement geometry-first source miner and tests without source-mining run or replay",
-    "priority": 14330,
+    "command": "see experiments/manifests/m1439-paper-route-trace-backed-source-geometry-materialization-design.json",
+    "hypothesis": "Trace-backed materialization can generate source_body_x/source_body_y/source_half_width rows at earlier source steps for the M1438 row-level miner.",
+    "id": "m1439-paper-route-trace-backed-source-geometry-materialization-design",
+    "kind": "gate",
+    "notes": "Pending: design trace-backed materialization of source geometry rows before public source smoke",
+    "priority": 14340,
     "status": "pending",
-    "success_artifact": "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md"
+    "success_artifact": "docs/m1439-paper-route-trace-backed-source-geometry-materialization-design.md"
   },
-  "updated_at_utc": "20260529T031048Z"
+  "updated_at_utc": "20260529T031739Z"
 }

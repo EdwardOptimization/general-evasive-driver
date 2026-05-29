@@ -21265,3 +21265,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail: no source mining, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
 - follow-up manifest: `experiments/manifests/m1438-paper-route-forward-geometry-source-miner-implementation.json`.
 - next: `m1438-paper-route-forward-geometry-source-miner-implementation`
+
+## 20260529T031739Z - m1438-paper-route-forward-geometry-source-miner-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- gate tier: `infrastructure`
+- artifact: `docs/m1438-paper-route-forward-geometry-source-miner-implementation.md`
+- decision: `forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design`
+- implementation: `src/autodrift/forward_geometry_source_miner.py`
+- tests: `tests/test_forward_geometry_source_miner.py`
+- focused result: `6 passed`
+- capability: row-level geometry-first expansion and selection from precomputed source geometry rows, with negative longitudinal offsets rejected and source/variant caps enforced.
+- boundary: trace-backed materialization of source geometry rows is not implemented yet, so no public source smoke should run next.
+- guardrail: no source mining run, source preflight, replay, training, PPO, promotion, private holdout, actor update, checkpoint mutation, actor-input expansion, corpus export, high-fidelity claim, paper-level claim, recurrent-belief advantage claim, or level3 self-ID claim occurred.
+- follow-up manifest: `experiments/manifests/m1439-paper-route-trace-backed-source-geometry-materialization-design.json`.
+- next: `m1439-paper-route-trace-backed-source-geometry-materialization-design`

@@ -151,6 +151,45 @@
   "baseline_artifacts": [
     "docs/m1437-paper-route-forward-geometry-source-mining-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1438-paper-route-forward-geometry-source-miner-implementation.md",
+    "decision": "forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design",
+    "implementation_files": [
+      "src/autodrift/forward_geometry_source_miner.py",
+      "tests/test_forward_geometry_source_miner.py"
+    ],
+    "implemented_functions": [
+      "source_steps_for_reveal",
+      "validate_forward_longitudinal_offsets",
+      "forward_relocation_grid",
+      "prepare_source_geometry_frame",
+      "expand_forward_geometry_sources",
+      "select_forward_geometry_source_rows",
+      "build_forward_geometry_source_summary",
+      "run_forward_geometry_source_miner_from_rows"
+    ],
+    "focused_tests": "tests/test_forward_geometry_source_miner.py",
+    "focused_test_result": "6 passed",
+    "row_level_source_geometry_only": true,
+    "trace_backed_materialization_implemented": false,
+    "negative_longitudinal_offsets_allowed": false,
+    "source_mining_started": false,
+    "source_preflight_started": false,
+    "replay_started": false,
+    "outcome_interventions_started": false,
+    "training_started": false,
+    "evaluation_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "training_corpus_exported": false,
+    "actor_parameters_changed": false,
+    "actor_input_contract_changed": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1439-paper-route-trace-backed-source-geometry-materialization-design.json"
+  },
+  "decision": "forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design",
   "decision_rule": "M1438 passes if it implements geometry-first source mining with focused tests and no run.",
-  "next_blocker": "m1438-paper-route-forward-geometry-source-miner-implementation"
+  "next_blocker": "m1439-paper-route-trace-backed-source-geometry-materialization-design"
 }

@@ -1,0 +1,88 @@
+# m1438-paper-route-forward-geometry-source-miner-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260529T032124Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design
+- Decision reason: M1438 implements row-level geometry-first source miner and focused tests then routes to trace-backed source geometry materialization design
+
+## Hypothesis
+
+A geometry-first source miner can be implemented to sample earlier forward obstacle snapshots before action divergence or replay.
+
+## Lineage
+
+- parent_checkpoint: runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
+- parent_dataset: docs/m1437-paper-route-forward-geometry-source-mining-design.md
+- parent_config: experiments/manifests/m1437-paper-route-forward-geometry-source-mining-design.json
+- parent_objective: implement a no-training forward-geometry source miner after M1437 design
+- derived_from: m1437-paper-route-forward-geometry-source-mining-design
+- blocked_by: M1437 admits implementation only; no source-mining run is admitted yet
+- supersedes: source mining that scores action divergence before geometry, negative longitudinal relocation offsets in the first source pass
+- invalidates: None
+
+## Success Criteria
+
+- implementation exists
+- focused tests cover geometry-first rejection
+- focused tests cover source step offsets
+- focused tests cover no negative longitudinal offsets
+- docs/m1438-paper-route-forward-geometry-source-miner-implementation.md exists
+- no source mining source preflight replay training PPO promotion private holdout corpus export or actor-input change occurs
+
+## Failure Criteria
+
+- implementation is missing
+- tests are missing
+- implementation lowers M1437 geometry gates
+- implementation runs source mining or replay
+- implementation changes actor inputs
+
+## Evidence Gates
+
+- M1438 must implement forward geometry source miner without running it
+- M1438 must include focused tests for geometry-first filtering and no negative longitudinal offsets
+- M1438 must not run source mining source preflight replay train PPO promote use private holdout export corpus or change actor inputs
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not run source mining
+- do not run source preflight
+- do not run closed-loop replay
+- do not run outcome interventions
+- do not promote
+- do not use private holdout
+- do not add actor inputs
+- do not export corpus
+- do not lower source geometry gates
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1438-paper-route-forward-geometry-source-miner-implementation
+- type: infrastructure
+- checkpoint: docs/m1438-paper-route-forward-geometry-source-miner-implementation.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design
+- reason: M1438 implements row-level geometry-first source miner and focused tests then routes to trace-backed source geometry materialization design
+
+## Next Blocker
+
+m1439-paper-route-trace-backed-source-geometry-materialization-design

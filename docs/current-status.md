@@ -16,21 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1437-paper-route-forward-geometry-source-mining-design
+m1438-paper-route-forward-geometry-source-miner-implementation
 ```
 
 Current next task:
 
 ```text
-m1438-paper-route-forward-geometry-source-miner-implementation
+m1439-paper-route-trace-backed-source-geometry-materialization-design
 ```
 
-M1437 designed forward-geometry source mining. The current public-gate base
+M1438 implemented the row-level forward-geometry source miner. The current public-gate base
 remains M1362 alpha `0.1`:
 
 ```text
 runs/m1362_bidirectional_active_set_interpolation_preflight/checkpoints/alpha_0_1.pt
 ```
+
+M1438 result:
+
+```text
+decision: forward_geometry_source_miner_row_level_implemented_route_to_trace_materialization_design
+implementation: src/autodrift/forward_geometry_source_miner.py
+tests: tests/test_forward_geometry_source_miner.py
+focused_test_result: 6 passed
+row_level_source_geometry_only: true
+trace_backed_materialization_implemented: false
+negative_longitudinal_offsets_allowed: false
+next: m1439-paper-route-trace-backed-source-geometry-materialization-design
+```
+
+M1439 must design trace-backed materialization of `source_body_x`,
+`source_body_y`, and `source_half_width` rows before any public source smoke.
 
 M1437 result:
 
@@ -49,7 +65,9 @@ next: m1438-paper-route-forward-geometry-source-miner-implementation
 
 M1438 should implement the geometry-first source miner and focused tests only.
 It must not run source mining, source preflight, replay, training, PPO,
-promotion, private holdout, corpus export, or actor-input changes.
+promotion, private holdout, corpus export, or actor-input changes. M1438
+completed the row-level implementation and exposed the missing materialization
+boundary.
 
 M1436 result:
 
