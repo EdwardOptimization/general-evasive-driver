@@ -176,6 +176,26 @@
     "runs/m1724_off_track_repair_panel_execution/summary.json",
     "runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+    "decision": "pivot_to_task_quality_scenario_taxonomy_design",
+    "workflow_synthesis_decision": "pivot",
+    "synthesized_range": "M1718-M1725",
+    "failure_taxonomy": [
+      "none",
+      "task_quality_off_track_dominance",
+      "public_gate_overfit_risk",
+      "scenario_sampling_failure_risk",
+      "metric_artifact_risk"
+    ],
+    "evidence_summary": "M1718-M1725 completed a clean repair branch and found conditional repair retained, but the composite wide-relaxed-extended variant missed the full and composite repair thresholds.",
+    "supported_claim": "the task-quality repair axes can reduce off-track under at least one collision-guarded public variant.",
+    "falsified_claim": "another narrow repair on the same public track-width/finish/max-step axes is ready to support controller-family comparison or paper-level claims.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_task_quality_scenario_taxonomy",
+    "next_manifest": "experiments/manifests/m1727-paper-route-task-quality-scenario-taxonomy-design.json"
+  },
   "decision_rule": "M1726 passes if it synthesizes M1718-M1725 and chooses a route before task-quality redesign, controller comparison, or paper-route claims.",
-  "next_blocker": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis"
+  "next_blocker": "m1727-paper-route-task-quality-scenario-taxonomy-design"
 }

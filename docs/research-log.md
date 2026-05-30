@@ -27714,3 +27714,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.json`
 - next: `m1726-paper-route-controller-family-task-quality-repair-branch-synthesis`
+
+## M1726 Paper-Route Controller-Family Task-Quality Repair Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `pivot`
+- decision: `pivot_to_task_quality_scenario_taxonomy_design`
+- artifact: `docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md`
+- synthesized range: M1718-M1725
+- parent audit: `docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md`
+- evidence summary: repair branch executed cleanly and found conditional repair retained, but composite wide-relaxed-extended missed both full and composite repair thresholds
+- supported: task-quality repair axes can reduce off-track under at least one collision-guarded public variant
+- falsified: the current narrow repair axes are ready for controller-family comparison or paper-level claims
+- risk summary: task-quality off-track dominance high, public-gate overfit high, scenario sampling failure risk high, metric artifact risk moderate
+- next branch: `paper_route_task_quality_scenario_taxonomy`
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1727-paper-route-task-quality-scenario-taxonomy-design.json`
+- next: `m1727-paper-route-task-quality-scenario-taxonomy-design`

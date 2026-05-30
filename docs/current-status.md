@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1725-paper-route-controller-family-off-track-repair-panel-result-audit
+m1726-paper-route-controller-family-task-quality-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1726-paper-route-controller-family-task-quality-repair-branch-synthesis
+m1727-paper-route-task-quality-scenario-taxonomy-design
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -114,7 +114,14 @@ off-track `0.7315` is above the full-positive `0.70` threshold, collision delta
 `0.0509` is just above the guard, and composite delta versus prior-control best
 is only `-0.0046` versus the required `<= -0.0300`. The next task is M1726:
 synthesize the M1718-M1725 repair branch before any new repair panel, scenario
-redesign, or controller-family comparison.
+redesign, or controller-family comparison. M1726 synthesizes the repair branch
+and pivots to `paper_route_task_quality_scenario_taxonomy`: the repair branch
+worked mechanically and found a conditional signal, but public-gate overfit risk
+and off-track dominance remain high. The next task is M1727: design a
+paper-route scenario taxonomy covering ordinary avoidance, AEB-infeasible stable
+AES, drift-required avoidance, unavoidable mitigation, off-track boundary
+stress, and hidden-dynamics stress before any no-rollout materialization or
+controller-family comparison.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1734,
+    "completed": 1735,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md",
+    "command_log": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit"
+    "task_id": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.json",
-    "hypothesis": "The M1718-M1725 task-quality repair branch should synthesize before another repair panel, broader scenario route, or controller-family comparison.",
-    "id": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis",
+    "command": "see experiments/manifests/m1727-paper-route-task-quality-scenario-taxonomy-design.json",
+    "hypothesis": "A paper-route scenario taxonomy can be designed to replace narrow public off-track repair with structured task-quality distributions before controller-family comparison.",
+    "id": "m1727-paper-route-task-quality-scenario-taxonomy-design",
     "kind": "gate",
-    "notes": "Pending: synthesize conditional repair retained composite miss and public overfit risk into next branch decision",
-    "priority": 17210,
+    "notes": "Pending: design ordinary/AEB-infeasible/drift-required/mitigation/off-track/hidden-dynamics scenario taxonomy without rollout",
+    "priority": 17220,
     "status": "pending",
-    "success_artifact": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md"
+    "success_artifact": "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md"
   },
-  "updated_at_utc": "20260530T024745Z"
+  "updated_at_utc": "20260530T025154Z"
 }
