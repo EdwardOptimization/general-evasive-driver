@@ -28713,3 +28713,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1766-completed-taxonomy-outcome-audit.json`
 - next: `m1766-completed-taxonomy-outcome-audit`
+
+## M1766 Completed Taxonomy Outcome Audit
+
+- status: completed
+- decision: `completed_outcome_audit_blocks_ranking_admit_outcome_dominance_localization`
+- artifact: `docs/m1766-completed-taxonomy-outcome-audit.md`
+- audited output: `runs/m1764_revised_scenario_taxonomy_single_seed_completion`
+- overall success obstacle pass rate: `0.0845`
+- overall collision failure rate: `0.3241`
+- overall off-track noncollision noncompletion rate: `0.5914`
+- benchmark success rate: `0.0949`
+- benchmark collision failure rate: `0.1157`
+- benchmark off-track noncollision noncompletion rate: `0.7894`
+- diagnostic stress success rate: `0.0972`
+- diagnostic stress collision failure rate: `0.3194`
+- diagnostic stress off-track noncollision noncompletion rate: `0.5833`
+- mitigation diagnostic success rate: `0.0278`
+- mitigation diagnostic collision failure rate: `0.9583`
+- mitigation diagnostic off-track noncollision noncompletion rate: `0.0139`
+- ranking admissible: `false`
+- outcome dominance blocks ranking: `true`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: outcome audit and ranking block
+- unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1767-completed-taxonomy-outcome-dominance-localization.json`
+- next: `m1767-completed-taxonomy-outcome-dominance-localization`

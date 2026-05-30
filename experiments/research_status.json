@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1774,
+    "completed": 1775,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1765-single-cell-seed-repair-completion-result-audit.md",
+    "command_log": "docs/m1766-completed-taxonomy-outcome-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1765-single-cell-seed-repair-completion-result-audit"
+    "task_id": "m1766-completed-taxonomy-outcome-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1766-completed-taxonomy-outcome-audit.json",
-    "hypothesis": "The completed M1764 taxonomy outcomes can be audited to decide whether ranking is admissible or outcome dominance still blocks interpretation.",
-    "id": "m1766-completed-taxonomy-outcome-audit",
+    "command": "see experiments/manifests/m1767-completed-taxonomy-outcome-dominance-localization.json",
+    "hypothesis": "Existing completed M1764 rows can localize the outcome dominance that blocks ranking.",
+    "id": "m1767-completed-taxonomy-outcome-dominance-localization",
     "kind": "gate",
-    "notes": "Pending: audit completed taxonomy outcome aggregates before ranking or repair route",
-    "priority": 17610,
+    "notes": "Pending: localize outcome dominance from existing M1764 artifacts",
+    "priority": 17620,
     "status": "pending",
-    "success_artifact": "docs/m1766-completed-taxonomy-outcome-audit.md"
+    "success_artifact": "docs/m1767-completed-taxonomy-outcome-dominance-localization.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

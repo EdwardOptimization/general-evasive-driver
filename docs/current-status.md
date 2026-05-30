@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1765-single-cell-seed-repair-completion-result-audit
+m1766-completed-taxonomy-outcome-audit
 ```
 
 Current next task:
 
 ```text
-m1766-completed-taxonomy-outcome-audit
+m1767-completed-taxonomy-outcome-dominance-localization
 ```
 
 M1760 designs the explicit one-cell seed-repair completion protocol. M1758
@@ -40,8 +40,10 @@ focused monkeypatched tests and still does not run the real missing episode.
 M1764 runs exactly one replacement-seed row and writes an `864`-row,
 zero-failure, provenance-aware completed public diagnostic artifact. M1765
 audits that completion as valid and admits M1766 completed taxonomy outcome
-audit. M1766 must classify outcome dominance and decide whether ranking is
-admissible or a repair/synthesis route is still needed.
+audit. M1766 blocks controller-family ranking because outcomes are dominated by
+off-track/collision failure (`73/864` success, `280/864` collision, `511/864`
+off-track). M1767 must localize the dominant slices from existing artifacts
+before any repair, comparison, or paper route.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
