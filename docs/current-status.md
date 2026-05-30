@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit
+m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization
 ```
 
 Current next task:
 
 ```text
-m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization
+m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -192,7 +192,15 @@ collision failures, and `504` off-track noncollision noncompletions. It blocks
 controller-family ranking, best-profile selection, scenario-quality conclusion,
 paper-level evidence, recurrent advantage, and level3 self-ID claims from those
 public rows. The next task is M1740: no-rollout outcome dominance localization
-from existing M1738 episode rows before redesign or comparison.
+from existing M1738 episode rows before redesign or comparison. M1740
+materializes that localization without new rollout: `143` dominant slices,
+covering all `6` scenario families and all `12` profiles, with
+`outcome_dominance_class=diffuse_outcome_dominance`. The top diagnostic slice
+is `aeb_infeasible_stable_aes::L2_window_100_current_tiled` with off-track
+noncollision noncompletion rate `1.0` over `12` episodes, but this is not a
+profile ranking claim. The next task is M1741: audit whether diffuse dominance
+requires task-quality redesign, a bounded evaluation-panel route, branch
+synthesis, or stop.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

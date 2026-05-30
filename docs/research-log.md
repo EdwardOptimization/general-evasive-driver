@@ -27989,3 +27989,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: localize off-track/collision dominance from existing M1738 rows before redesign or comparison
 - follow-up manifest: `experiments/manifests/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.json`
 - next: `m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization`
+
+## M1740 Paper-Route Task-Quality Repaired Taxonomy Outcome Dominance Localization
+
+- status: completed
+- result class: `task_quality_outcome_dominance_localization_pass`
+- artifact: `runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json`
+- doc: `docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md`
+- parent audit: `docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md`
+- completed episodes audited: `864`
+- selected metrics finite: `true`
+- dominant slice count: `143`
+- dominant family count: `6`
+- dominant profile count: `12`
+- outcome dominance class: `diffuse_outcome_dominance`
+- guardrail violation count: `0`
+- top dominant slice: `aeb_infeasible_stable_aes::L2_window_100_current_tiled`, off-track noncollision noncompletion rate `1.0`, non-success rate `1.0`, `12` episodes
+- supported: M1738 off-track/collision dominance is localized into durable no-rollout artifacts
+- unsupported: controller-family ranking, best-profile selection, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.json`
+- next: `m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit`

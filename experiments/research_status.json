@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1748,
+    "completed": 1749,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
+    "command_log": "docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit"
+    "task_id": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.json",
-    "hypothesis": "M1738 non-success dominance can be localized from existing episode rows before any redesign or controller-family comparison.",
-    "id": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization",
+    "command": "see experiments/manifests/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.json",
+    "hypothesis": "M1740 can be audited to decide whether diffuse outcome dominance requires task-quality redesign or a bounded evaluation-panel route.",
+    "id": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit",
     "kind": "gate",
-    "notes": "Pending: no-rollout localization of M1738 off-track and collision dominance before redesign or ranking",
-    "priority": 17350,
+    "notes": "Pending: audit M1740 diffuse outcome dominance before redesign, bounded panel, synthesis, or stop",
+    "priority": 17360,
     "status": "pending",
-    "success_artifact": "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json"
+    "success_artifact": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md"
   },
-  "updated_at_utc": "20260530T041600Z"
+  "updated_at_utc": "20260530T042600Z"
 }

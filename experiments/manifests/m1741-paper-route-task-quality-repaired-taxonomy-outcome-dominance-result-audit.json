@@ -1,0 +1,159 @@
+{
+  "id": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/dominant_slices.csv",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/scenario_family_aggregate.csv",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout outcome dominance localization before task-quality redesign or evaluation-panel design"
+    ],
+    "derived_from": [
+      "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization"
+    ],
+    "blocked_by": [
+      "need audit of diffuse outcome dominance before next branch decision"
+    ],
+    "supersedes": [
+      "direct redesign or profile comparison from M1740 localization rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+  "public_gates": [
+    "M1741 must audit M1740 localization counts and guardrails",
+    "M1741 must classify diffuse versus localized dominance before deciding the next route",
+    "M1741 must not run environment rollout train replay PPO promote use private holdout change actor inputs tune profiles or rank controller families",
+    "M1741 must decide task-quality redesign bounded evaluation-panel design branch synthesis or stop",
+    "M1741 must preserve unsupported-feature and no-paper-claim boundaries"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_dominance_result_audit",
+    "evidence_increment": "audits M1740 diffuse localization and decides the next task-quality route",
+    "claim_scope": "localization audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1740 artifacts are missing",
+      "stop if audit ranks profiles from public localization rows",
+      "stop if audit treats diffuse outcome dominance as paper-ready evidence",
+      "stop if unsupported faults are treated as covered"
+    ],
+    "fallback_plan": [
+      "route to task-quality redesign if dominance is diffuse",
+      "route to bounded evaluation-panel design if dominance localizes to clean slices",
+      "route to branch synthesis if another branch decision is needed before more milestones"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1740 materializes no-rollout outcome dominance localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit outcome dominance localization",
+    "admission_evidence": [
+      "M1740 passed localization with diffuse dominance across all scenario families and profiles"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1741 audit document",
+      "M1741 status queue scoreboard research log and review",
+      "one follow-up route manifest if audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1740 localization is audited",
+      "diffuse/localized diagnosis is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; localization audit cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit may preserve profile controls but must not interpret localization rows as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1740 no-rollout localization artifacts.",
+    "negative_result_policy": "If dominance is diffuse, record it as task-quality redesign evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "outcome dominance localization audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1740 can be audited to decide whether diffuse outcome dominance requires task-quality redesign or a bounded evaluation-panel route.",
+  "success_criteria": [
+    "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md exists",
+    "M1740 result_class guardrails and dominant slice counts are audited",
+    "diffuse versus localized outcome dominance is classified",
+    "next route is task-quality redesign bounded evaluation-panel design branch synthesis or stop",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits M1740 dominant slice counts",
+    "audit ranks controller-family profiles from public localization rows",
+    "audit treats diffuse dominance as paper-ready evidence",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write outcome dominance localization result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json",
+    "runs/m1740_repaired_taxonomy_outcome_dominance_localization/dominant_slices.csv",
+    "docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md"
+  ],
+  "decision_rule": "M1741 passes if it audits localization and chooses a route without overclaiming public diagnostic rows.",
+  "next_blocker": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
+}
