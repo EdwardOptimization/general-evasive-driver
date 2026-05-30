@@ -31318,3 +31318,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source mining results materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1852-executable-v2-support-first-source-mining-implementation.json`
 - next: `m1852-executable-v2-support-first-source-mining-implementation`
+
+## M1852 Executable V2 Support-First Source Mining Implementation
+
+- status: completed
+- decision: `support_first_source_mining_implementation_pass_route_to_candidate_template_design`
+- artifact: `docs/m1852-executable-v2-support-first-source-mining-implementation.md`
+- helper: `src/autodrift/executable_v2_support_first_source_mining.py`
+- tests: `tests/test_executable_v2_support_first_source_mining.py`
+- focused tests: `7 passed in 0.08s`
+- full tests: `1763 passed, 4 warnings in 9.05s`
+- source mining run on project artifacts: `false`
+- project artifact scan: `false`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: support-first source mining helper implementation focused and full tests candidate-template design route
+- unsupported: project artifact source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1853-executable-v2-support-first-candidate-template-design.json`
+- next: `m1853-executable-v2-support-first-candidate-template-design`

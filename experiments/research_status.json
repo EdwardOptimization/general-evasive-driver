@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1860,
+    "completed": 1861,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1851-executable-v2-support-first-source-mining-design.md",
+    "command_log": "docs/m1852-executable-v2-support-first-source-mining-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1851-executable-v2-support-first-source-mining-design"
+    "task_id": "m1852-executable-v2-support-first-source-mining-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1852-executable-v2-support-first-source-mining-implementation.json",
-    "hypothesis": "A no-reset helper can implement role-specific support-first source mining outputs without executing project artifact mining or changing the actor contract.",
-    "id": "m1852-executable-v2-support-first-source-mining-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement support-first source mining helper and tests",
-    "priority": 18470,
+    "command": "see experiments/manifests/m1853-executable-v2-support-first-candidate-template-design.json",
+    "hypothesis": "An explicit candidate source template design can make project artifact source mining reproducible and role-separated before execution.",
+    "id": "m1853-executable-v2-support-first-candidate-template-design",
+    "kind": "gate",
+    "notes": "Pending: design explicit source candidate templates before mining execution",
+    "priority": 18480,
     "status": "pending",
-    "success_artifact": "docs/m1852-executable-v2-support-first-source-mining-implementation.md"
+    "success_artifact": "docs/m1853-executable-v2-support-first-candidate-template-design.md"
   },
-  "updated_at_utc": "20260530T130240Z"
+  "updated_at_utc": "20260530T130937Z"
 }
