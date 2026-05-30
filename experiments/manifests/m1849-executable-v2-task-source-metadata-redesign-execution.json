@@ -1,0 +1,186 @@
+{
+  "id": "m1849-executable-v2-task-source-metadata-redesign-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_metadata_redesign_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1848-executable-v2-task-source-metadata-redesign-execution-design.json"
+    ],
+    "parent_objective": [
+      "run support-first metadata redesign over M1843 support evidence"
+    ],
+    "derived_from": [
+      "m1848-executable-v2-task-source-metadata-redesign-execution-design"
+    ],
+    "blocked_by": [
+      "M1848 admits exact metadata redesign execution but it has not been run"
+    ],
+    "supersedes": [
+      "manual metadata redesign execution",
+      "source materialization before admissibility evidence",
+      "context-insensitive claim-boundary output"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1849-executable-v2-task-source-metadata-redesign-execution.md",
+  "public_gates": [
+    "M1849 must run only the command pre-registered by M1848",
+    "M1849 must not run scan reset rollout policy action measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level or level3 claims",
+    "M1849 must write all metadata redesign output tables and summary"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_task_source_metadata_redesign",
+    "evidence_axis": "Q_task_source_metadata_redesign_execution",
+    "evidence_increment": "executes support-first metadata redesign over M1843 no-support evidence",
+    "claim_scope": "metadata execution only; no source repair payload, scan, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if unsupported stable AES sources are admitted",
+      "stop if output tables are missing",
+      "stop if environment reset or rollout is run",
+      "stop if source repair payload or ranking claim is made"
+    ],
+    "fallback_plan": [
+      "route to helper repair if execution fails due to code or artifact errors",
+      "route to result audit if execution succeeds",
+      "route to design repair if expected counts are ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1848 pre-registers exact metadata redesign execution command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "task/source metadata redesign execution",
+    "admission_evidence": [
+      "M1848 exact command and expected counts are registered"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact feasibility scan",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1849 run artifacts",
+      "M1849 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "metadata redesign summary exists",
+      "expected counts are evaluated",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; metadata redesign execution is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1843 support evidence only; no reset or rollout.",
+    "negative_result_policy": "If execution blocks sources, record as task/source metadata evidence rather than weakening labels.",
+    "allowed_claims": [
+      "support-first task/source metadata execution result",
+      "no source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1847 helper will block the two current stable AES-only sources from materialization when run over M1843 no-support evidence.",
+  "success_criteria": [
+    "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json exists",
+    "input_source_count equals 2",
+    "input_profile_count equals 24",
+    "supported_source_count equals 0",
+    "unsupported_source_count equals 2",
+    "materialization_admissible_source_count equals 0",
+    "materialization_blocked_source_count equals 2",
+    "labels_enter_actor_input_count equals 0",
+    "ranking_admissible_by_default_count equals 0",
+    "guardrail_violation_count equals 0",
+    "all expected output tables exist"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "unsupported stable AES source is admitted",
+    "target counts do not match",
+    "execution runs scan reset rollout measured rollout training replay PPO or ranking",
+    "execution changes actor inputs reward dynamics or termination behavior",
+    "execution generates source repair payload"
+  ],
+  "commands": [
+    {
+      "name": "metadata_redesign",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_task_source_metadata_redesign --profile-summary runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv --label-counts runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv --reject-reason-counts runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv --output-dir runs/m1849_executable_v2_task_source_metadata_redesign --support-evidence-artifact runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json --support-evidence-stage pre_materialization_scan --claim-boundary-context project_artifact_execution --default-source-role stable_aes_only --next-blocker m1850-executable-v2-task-source-metadata-redesign-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_support_contract.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_materialization_admissibility.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_metadata_redesign_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+    "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+  ],
+  "decision_rule": "M1849 passes if it writes complete metadata redesign artifacts and blocks unsupported stable AES sources without scan, reset, rollout, ranking, paper-level claims, or repair payload generation.",
+  "next_blocker": "m1849-executable-v2-task-source-metadata-redesign-execution"
+}

@@ -166,6 +166,37 @@
     "src/autodrift/executable_v2_task_source_metadata_redesign.py",
     "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+    "decision": "task_source_metadata_redesign_execution_design_admit_run",
+    "profile_summary": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv",
+    "label_counts": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv",
+    "reject_reason_counts": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv",
+    "output_dir": "runs/m1849_executable_v2_task_source_metadata_redesign",
+    "default_source_role": "stable_aes_only",
+    "claim_boundary_context": "project_artifact_execution",
+    "expected_input_source_count": 2,
+    "expected_input_profile_count": 24,
+    "project_artifact_execution_run": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1849-executable-v2-task-source-metadata-redesign-execution.json"
+  },
   "decision_rule": "M1848 passes if it fixes exact M1849 metadata redesign command without running execution, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1848-executable-v2-task-source-metadata-redesign-execution-design"
+  "next_blocker": "m1849-executable-v2-task-source-metadata-redesign-execution"
 }

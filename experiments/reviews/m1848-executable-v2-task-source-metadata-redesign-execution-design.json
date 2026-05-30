@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M1848 fixes exact metadata redesign execution command over M1843 support evidence without running it",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project artifact execution",
+    "design omits M1843 support evidence paths",
+    "design omits claim-boundary context",
+    "design routes directly to source repair payload generation",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run project artifact execution",
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T125320Z",
+  "hypothesis": "The M1847 helper can be given an exact project-artifact command over M1843 support evidence with stable_aes_only default role and project_artifact_execution claim context.",
+  "lineage": {
+    "blocked_by": [
+      "M1847 helper implementation is complete but project artifact execution remains unrun"
+    ],
+    "derived_from": [
+      "m1847-executable-v2-task-source-metadata-redesign-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_source_metadata_redesign_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md",
+      "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+    ],
+    "parent_objective": [
+      "fix exact project-artifact metadata redesign command before execution"
+    ],
+    "supersedes": [
+      "manual metadata redesign execution",
+      "materialization before support-first admissibility",
+      "context-insensitive claim-boundary output"
+    ]
+  },
+  "milestone": "m1848-executable-v2-task-source-metadata-redesign-execution-design",
+  "next_blocker": "m1849-executable-v2-task-source-metadata-redesign-execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_source_metadata_redesign_execution_design_admit_run",
+  "public_gates": [
+    "M1848 must fix the exact M1849 metadata redesign command over M1843 support evidence",
+    "M1848 must keep source rows derived from support profile summaries unless explicit audited source rows are provided",
+    "M1848 must keep execution reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_source_metadata_redesign_execution_design_admit_run",
+    "milestone": "m1848-executable-v2-task-source-metadata-redesign-execution-design",
+    "reason": "M1848 fixes exact metadata redesign execution command over M1843 support evidence without running it",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md exists",
+    "design specifies exact command using src/autodrift/executable_v2_task_source_metadata_redesign.py",
+    "design consumes M1843 profile label and reject reason support evidence",
+    "design uses claim-boundary-context project_artifact_execution",
+    "design routes to M1849 execution without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "type": "gate"
+}

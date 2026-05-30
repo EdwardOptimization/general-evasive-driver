@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1856,
+    "completed": 1857,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md",
+    "command_log": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1847-executable-v2-task-source-metadata-redesign-implementation"
+    "task_id": "m1848-executable-v2-task-source-metadata-redesign-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1848-executable-v2-task-source-metadata-redesign-execution-design.json",
-    "hypothesis": "The M1847 helper can be given an exact project-artifact command over M1843 support evidence with stable_aes_only default role and project_artifact_execution claim context.",
-    "id": "m1848-executable-v2-task-source-metadata-redesign-execution-design",
-    "kind": "gate",
-    "notes": "Pending: fix exact metadata redesign execution command without running it",
-    "priority": 18430,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_task_source_metadata_redesign --profile-summary runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv --label-counts runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv --reject-reason-counts runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv --output-dir runs/m1849_executable_v2_task_source_metadata_redesign --support-evidence-artifact runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json --support-evidence-stage pre_materialization_scan --claim-boundary-context project_artifact_execution --default-source-role stable_aes_only --next-blocker m1850-executable-v2-task-source-metadata-redesign-result-audit",
+    "hypothesis": "The M1847 helper will block the two current stable AES-only sources from materialization when run over M1843 no-support evidence.",
+    "id": "m1849-executable-v2-task-source-metadata-redesign-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact metadata redesign command from M1848",
+    "priority": 18440,
     "status": "pending",
-    "success_artifact": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md"
+    "success_artifact": "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json"
   },
-  "updated_at_utc": "20260530T124844Z"
+  "updated_at_utc": "20260530T125058Z"
 }

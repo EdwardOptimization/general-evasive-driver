@@ -31190,3 +31190,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project artifact execution source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1848-executable-v2-task-source-metadata-redesign-execution-design.json`
 - next: `m1848-executable-v2-task-source-metadata-redesign-execution-design`
+
+## M1848 Executable V2 Task-Source Metadata Redesign Execution Design
+
+- status: completed
+- decision: `task_source_metadata_redesign_execution_design_admit_run`
+- artifact: `docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md`
+- profile summary: `runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv`
+- label counts: `runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv`
+- reject reason counts: `runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv`
+- output dir: `runs/m1849_executable_v2_task_source_metadata_redesign`
+- default source role: `stable_aes_only`
+- claim boundary context: `project_artifact_execution`
+- expected input source count: `2`
+- expected input profile count: `24`
+- project artifact execution run: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact M1849 metadata redesign command and expected counts
+- unsupported: execution result source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1849-executable-v2-task-source-metadata-redesign-execution.json`
+- next: `m1849-executable-v2-task-source-metadata-redesign-execution`
