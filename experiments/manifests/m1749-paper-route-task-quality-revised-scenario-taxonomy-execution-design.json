@@ -1,0 +1,158 @@
+{
+  "id": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+      "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design revised public diagnostic execution over semantics-aware instrumented scenario taxonomy"
+    ],
+    "derived_from": [
+      "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    ],
+    "blocked_by": [
+      "revised execution must be designed before any rerun"
+    ],
+    "supersedes": [
+      "direct rerun after M1748 synthesis without execution design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
+  "public_gates": [
+    "M1749 must design revised public diagnostic execution before rollout",
+    "M1749 must use M1743 semantics and M1746 logging-only metrics",
+    "M1749 must specify metric completeness gates and aggregate artifacts",
+    "M1749 must keep training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_scenario_taxonomy_execution_design",
+    "evidence_increment": "designs revised public diagnostic execution after branch synthesis and metric instrumentation",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design omits M1743 semantics joins",
+      "stop if design omits M1746 metric completeness gates",
+      "stop if design admits profile ranking from public diagnostic rows",
+      "stop if design changes actor inputs reward or termination behavior"
+    ],
+    "fallback_plan": [
+      "route to design repair if metric completeness or guardrails are incomplete",
+      "route to bounded-panel design if full 864-cell revised execution is too broad",
+      "route to revised execution if design is complete and guardrail-clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1748 synthesis decision continue",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design revised scenario taxonomy execution",
+    "admission_evidence": [
+      "M1748 synthesis continues the branch to revised execution design",
+      "M1743 provides semantics-aware matrix",
+      "M1746 provides logging-only metric instrumentation"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1749 design document",
+      "M1749 status queue scoreboard research log and review",
+      "one follow-up execution manifest"
+    ],
+    "next_stage_criteria": [
+      "execution design defines workload, metrics, aggregates, and guardrails",
+      "claim boundary remains diagnostic",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; execution design cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1748 synthesis and public scenario taxonomy artifacts only.",
+    "negative_result_policy": "If revised execution design remains too broad, route to bounded-panel design rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "revised execution design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A revised public diagnostic execution can be designed over the fixed semantics matrix and logging-only metric instrumentation before any rerun.",
+  "success_criteria": [
+    "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md exists",
+    "design references M1743 semantics matrix and M1746 metrics",
+    "metric completeness gates and aggregate artifacts are specified",
+    "next route is revised execution bounded-panel design repair or stop",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits semantics joins or metric completeness gates",
+    "design admits public diagnostic ranking or paper-level claim",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write revised scenario taxonomy execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+    "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md"
+  ],
+  "decision_rule": "M1749 passes if it designs revised public diagnostic execution with complete metric and guardrail requirements before rollout.",
+  "next_blocker": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design"
+}

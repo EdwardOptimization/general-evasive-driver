@@ -28149,3 +28149,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
 - next: `m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis`
+
+## M1748 Paper-Route Task-Quality Scenario Taxonomy Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_revised_scenario_taxonomy_execution_design`
+- synthesized range: `M1738-M1747`
+- artifact: `docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`, `public_gate_overfit_risk`
+- evidence summary: repaired taxonomy executed cleanly, outcome dominance was diffuse, semantics were redesigned/materialized, and logging-only metrics were defined/implemented/audited
+- supported claim: the public repaired taxonomy is executable and now has semantics-aware metric instrumentation ready for revised execution design
+- falsified claim: M1738 raw success aggregate or unrevised outcome semantics are sufficient for controller-family ranking
+- public gate overfit risk: `moderate_high`
+- supported: branch synthesis and continuation to revised public diagnostic execution design
+- unsupported: revised rollout result, profile ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.json`
+- next: `m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design`

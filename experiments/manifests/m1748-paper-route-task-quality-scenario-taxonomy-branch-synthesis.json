@@ -178,6 +178,24 @@
     "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
     "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "decision": "continue_to_revised_scenario_taxonomy_execution_design",
+    "workflow_synthesis_decision": "continue",
+    "synthesized_range": "M1738-M1747",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "metric_artifact",
+      "public_gate_overfit_risk"
+    ],
+    "evidence_summary": "M1738 executed the repaired taxonomy, M1740 localized diffuse outcome dominance, M1742-M1744 redesigned/materialized semantics, and M1745-M1747 defined/implemented/audited logging-only metrics.",
+    "supported_claim": "the public repaired taxonomy is executable and now has semantics-aware metric instrumentation ready for revised execution design.",
+    "falsified_claim": "the M1738 raw success aggregate or unrevised outcome semantics are sufficient for controller-family ranking.",
+    "public_gate_overfit_risk": "moderate_high",
+    "next_branch": "paper_route_task_quality_scenario_taxonomy",
+    "next_manifest": "experiments/manifests/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.json"
+  },
   "decision_rule": "M1748 passes if it synthesizes M1738-M1747 and chooses a route before revised execution, redesign, or paper-route claims.",
-  "next_blocker": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+  "next_blocker": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design"
 }

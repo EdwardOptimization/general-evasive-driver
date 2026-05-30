@@ -10967,5 +10967,10 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   reaches the 10-milestone workflow-synthesis cadence, direct revised execution
   design is still blocked until branch synthesis summarizes repaired execution,
   outcome dominance, semantics redesign, materialization, and instrumentation.
+- M1748 synthesizes M1738-M1747 and continues the
+  `paper_route_task_quality_scenario_taxonomy` branch to revised public
+  diagnostic execution design. It preserves the no-ranking/no-paper-claim
+  boundary: the next step can design a rerun, but cannot yet interpret profiles
+  or claim self-identification evidence.
 - Current next blocker:
-  `m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis`.
+  `m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design`.

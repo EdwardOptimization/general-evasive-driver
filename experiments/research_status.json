@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1756,
+    "completed": 1757,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md",
+    "command_log": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
+    "task_id": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
-    "hypothesis": "The M1738-M1747 scenario taxonomy branch should synthesize before revised execution design to avoid milestone over-fragmentation and public-gate overfit.",
-    "id": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "command": "see experiments/manifests/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.json",
+    "hypothesis": "A revised public diagnostic execution can be designed over the fixed semantics matrix and logging-only metric instrumentation before any rerun.",
+    "id": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1738-M1747 repaired execution outcome semantics and metric instrumentation branch before execution design",
-    "priority": 17430,
+    "notes": "Pending: design revised public diagnostic execution using M1743 semantics matrix and M1746 metrics before rerun",
+    "priority": 17440,
     "status": "pending",
-    "success_artifact": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    "success_artifact": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md"
   },
-  "updated_at_utc": "20260530T045710Z"
+  "updated_at_utc": "20260530T050101Z"
 }

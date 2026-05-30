@@ -1,0 +1,93 @@
+# m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260530T050319Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_revised_scenario_taxonomy_execution_design
+- Decision reason: M1748 synthesizes M1738-M1747 and continues to revised public diagnostic execution design
+
+## Hypothesis
+
+The M1738-M1747 scenario taxonomy branch should synthesize before revised execution design to avoid milestone over-fragmentation and public-gate overfit.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_branch_synthesis
+- parent_dataset: docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md, docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md, runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json, docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md, runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json, docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md
+- parent_config: experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json
+- parent_objective: synthesize M1738-M1747 scenario taxonomy and outcome-metric instrumentation branch before another execution design
+- derived_from: m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution, m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit
+- blocked_by: workflow synthesis cadence reached after M1747
+- supersedes: direct revised scenario execution design after M1747
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists
+- synthesis questions are answered
+- M1738 outcome dominance and M1746 instrumentation status are explicit
+- public-gate and task-quality risks are assessed
+- next branch decision is explicit
+- rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked
+
+## Failure Criteria
+
+- synthesis document is missing
+- synthesis skips required questions
+- synthesis treats instrumentation as rollout evidence
+- synthesis routes directly to ranking or paper-level claims
+- synthesis claims level3 self-identification evidence
+
+## Evidence Gates
+
+- M1748 must synthesize M1738-M1747 before another execution-design milestone
+- M1748 must answer required synthesis questions
+- M1748 must assess outcome dominance, semantics redesign, metric gaps, and instrumentation status
+- M1748 must decide continue pivot stop or promote_to_next_branch
+- M1748 must keep rollout training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment rollout
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change reward
+- do not change termination behavior
+- do not tune profiles
+- do not rank controller families
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- metric_artifact
+- scenario_sampling_failure
+
+## Scoreboard
+
+- milestone: m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis
+- type: gate
+- checkpoint: docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_revised_scenario_taxonomy_execution_design
+- reason: M1748 synthesizes M1738-M1747 and continues to revised public diagnostic execution design
+
+## Next Blocker
+
+m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design
