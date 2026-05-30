@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1730,
+    "completed": 1731,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1721_off_track_repair_panel_preflight/summary.json",
+    "command_log": "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1721-paper-route-controller-family-off-track-repair-panel-preflight"
+    "task_id": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.json",
-    "hypothesis": "M1721 can be audited as a clean no-rollout off-track repair panel preflight and routed to execution design.",
-    "id": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit",
+    "command": "see experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json",
+    "hypothesis": "A measured execution protocol can be designed for the M1721 repair panel subset without overclaiming or changing the actor contract.",
+    "id": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit repair panel counts controls variants contract checks and route to execution design or repair",
-    "priority": 17170,
+    "notes": "Pending: design repair panel execution artifacts variant aggregates thresholds and claim boundaries",
+    "priority": 17180,
     "status": "pending",
-    "success_artifact": "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md"
+    "success_artifact": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md"
   },
-  "updated_at_utc": "20260530T022135Z"
+  "updated_at_utc": "20260530T022436Z"
 }

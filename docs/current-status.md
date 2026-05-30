@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1721-paper-route-controller-family-off-track-repair-panel-preflight
+m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit
+m1723-paper-route-controller-family-off-track-repair-panel-execution-design
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -91,6 +91,10 @@ repair panel cleanly: `18` base specs, `T4=12/T5=6`, `72` repair specs, `864`
 matrix cells, all four variants present, all `12` profiles present, contract
 `0`, missing config/checkpoint `0/0`, guardrail `0`, and no rollout. The next
 task is M1722: audit this repair panel preflight before any execution design.
+M1722 audits M1721 as clean and admits measured repair panel execution design.
+The next task is M1723: design the execution protocol, required repair-variant
+aggregates, collision/off-track repair thresholds, and claim boundaries before
+any rollout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

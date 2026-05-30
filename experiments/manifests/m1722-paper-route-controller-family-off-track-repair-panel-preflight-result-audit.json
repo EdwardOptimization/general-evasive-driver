@@ -152,6 +152,42 @@
     "runs/m1721_off_track_repair_panel_preflight/summary.json",
     "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+    "decision": "off_track_repair_panel_preflight_audit_admit_execution_design",
+    "audited_result_class": "off_track_repair_panel_preflight_pass",
+    "selected_base_spec_count": 18,
+    "selected_task_family_counts": {
+      "T4": 12,
+      "T5": 6
+    },
+    "repair_panel_spec_count": 72,
+    "repair_panel_matrix_cell_count": 864,
+    "profile_count": 12,
+    "variant_label_counts": {
+      "original_axis_baseline": 18,
+      "best_off_track_variant": 18,
+      "collision_control_wide_relaxed": 18,
+      "wide_relaxed_extended": 18
+    },
+    "contract_violation_count": 0,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json"
+  },
   "decision_rule": "M1722 passes if it audits M1721 and routes to repair panel execution design or repair without overclaiming.",
-  "next_blocker": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
+  "next_blocker": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design"
 }

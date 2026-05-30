@@ -1,0 +1,153 @@
+{
+  "id": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_specs.json",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution for off-track repair panel"
+    ],
+    "derived_from": [
+      "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "need execution design before measured rollout over repair panel"
+    ],
+    "supersedes": [
+      "direct repair panel execution after M1722"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+  "public_gates": [
+    "M1723 must design execution over the M1721 864-cell repair panel matrix without running it",
+    "M1723 must require repair variant outcome and termination aggregates",
+    "M1723 must pre-register collision/off-track repair audit thresholds",
+    "M1723 must keep task-quality repair separate from controller-family ranking",
+    "M1723 must not train replay PPO promote use private holdout or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_execution_design",
+    "evidence_increment": "designs measured execution after clean repair panel preflight audit",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design omits repair variant aggregates",
+      "stop if design omits collision/off-track repair thresholds",
+      "stop if design ranks profiles directly",
+      "stop if design changes actor inputs or profile configs"
+    ],
+    "fallback_plan": [
+      "route to measured repair panel execution if design is accepted",
+      "route to runner repair design if existing runner cannot consume repair labels",
+      "route to branch synthesis if task-quality repair becomes underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1722 admits repair panel execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design off-track repair panel execution",
+    "admission_evidence": [
+      "M1722 audits the M1721 repair panel subset as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout in M1723",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1723 execution design document",
+      "M1723 status queue scoreboard research log and review",
+      "one follow-up measured execution manifest"
+    ],
+    "next_stage_criteria": [
+      "repair panel execution protocol is specified",
+      "variant aggregates and audit thresholds are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1723 is design-only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must keep L1, L2-current-tiled, L3-online, and L3-reset rows in the execution matrix"
+    ],
+    "temporal_evidence_window": "M1721 subset and M1722 audit only.",
+    "negative_result_policy": "If execution design cannot preserve controls and task-quality metrics, stop before execution.",
+    "allowed_claims": [
+      "off-track repair panel execution design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A measured execution protocol can be designed for the M1721 repair panel subset without overclaiming or changing the actor contract.",
+  "success_criteria": [
+    "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "repair variant outcome and termination aggregates are required",
+    "collision/off-track repair audit thresholds are specified",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design executes rollout",
+    "design ranks profiles directly",
+    "design omits variant aggregates or repair thresholds",
+    "design changes actor inputs or profile configs",
+    "training replay PPO private holdout promotion or level3 claims occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write off-track repair panel execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+    "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+  ],
+  "decision_rule": "M1723 passes if it designs repair panel execution while preserving task-quality claim boundaries.",
+  "next_blocker": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design"
+}

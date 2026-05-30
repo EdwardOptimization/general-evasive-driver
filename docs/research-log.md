@@ -27634,3 +27634,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair panel execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.json`
 - next: `m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit`
+
+## M1722 Paper-Route Controller-Family Off-Track Repair Panel Preflight Result Audit
+
+- status: completed
+- decision: `off_track_repair_panel_preflight_audit_admit_execution_design`
+- artifact: `docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md`
+- audited M1721 result class: `off_track_repair_panel_preflight_pass`
+- selected base specs: `18`
+- selected task family counts: `T4=12`, `T5=6`
+- repair panel specs / matrix cells: `72` / `864`
+- profiles: `12`
+- variant labels: `original_axis_baseline=18`, `best_off_track_variant=18`, `collision_control_wide_relaxed=18`, `wide_relaxed_extended=18`
+- contract violation count: `0`
+- missing config / checkpoint count: `0` / `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- supported: measured repair panel execution design is admitted
+- unsupported: repair panel execution result, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json`
+- next: `m1723-paper-route-controller-family-off-track-repair-panel-execution-design`
