@@ -10746,5 +10746,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   keeping and finish semantics.
 - Because M1690-M1699 reached the 10-milestone synthesis cadence, the next step
   is branch synthesis before another narrow rollout, repair, or profile tweak.
+- M1700 synthesizes M1690-M1699 and pivots the route from
+  `paper_route_controller_family_task_source_generation` to
+  `paper_route_controller_family_task_quality_calibration`. The current
+  executable rollout pipeline is useful, but not yet a ranking benchmark.
 - Current next blocker:
-  `m1700-paper-route-controller-family-outcome-semantics-branch-synthesis`.
+  `m1701-paper-route-controller-family-task-quality-calibration-design`.

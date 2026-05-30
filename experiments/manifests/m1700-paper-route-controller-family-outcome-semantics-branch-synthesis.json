@@ -180,6 +180,21 @@
     "runs/m1693_controller_family_full_rollout_execution/summary.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+    "decision": "pivot_to_controller_family_task_quality_calibration_branch",
+    "workflow_synthesis_decision": "pivot",
+    "failure_taxonomy": [
+      "none"
+    ],
+    "evidence_summary": "M1690-M1699 built an executable public 72-spec x 12-profile rollout pipeline, added logging-only outcome semantics, and showed the current workload is dominated by off-track noncollision noncompletion.",
+    "supported_claim": "the controller-family measurement pipeline is executable and outcome instrumentation works.",
+    "falsified_claim": "the current raw success metric and workload are sufficient for controller-family ranking or recurrent-advantage claims.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_controller_family_task_quality_calibration",
+    "next_manifest": "experiments/manifests/m1701-paper-route-controller-family-task-quality-calibration-design.json"
+  },
   "decision_rule": "M1700 passes if it synthesizes M1690-M1699 and chooses a route before further rollout, task-quality repair, or controller interpretation.",
-  "next_blocker": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis"
+  "next_blocker": "m1701-paper-route-controller-family-task-quality-calibration-design"
 }

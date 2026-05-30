@@ -27215,3 +27215,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json`
 - next: `m1700-paper-route-controller-family-outcome-semantics-branch-synthesis`
+
+## M1700 Paper-Route Controller-Family Outcome-Semantics Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `pivot`
+- decision: `pivot_to_controller_family_task_quality_calibration_branch`
+- artifact: `docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md`
+- synthesized range: M1690-M1699
+- evidence summary: M1690-M1699 built an executable 72-spec x 12-profile public rollout pipeline added outcome semantics instrumentation and showed the current workload is off-track dominated
+- supported: executable public rollout pipeline and logging-only outcome semantics are working
+- falsified: raw success and the current workload are sufficient for controller-family ranking or recurrent-advantage claims
+- public-gate overfit risk: `high`
+- next branch: `paper_route_controller_family_task_quality_calibration`
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1701-paper-route-controller-family-task-quality-calibration-design.json`
+- next: `m1701-paper-route-controller-family-task-quality-calibration-design`

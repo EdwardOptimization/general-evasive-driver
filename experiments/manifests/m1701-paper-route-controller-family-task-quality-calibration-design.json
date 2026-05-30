@@ -1,0 +1,156 @@
+{
+  "id": "m1701-paper-route-controller-family-task-quality-calibration-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+      "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design calibrated task-quality route after off-track dominated instrumented rerun"
+    ],
+    "derived_from": [
+      "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1700 pivots to task-quality calibration because current workload is off-track dominated"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M1698",
+      "direct profile tuning from M1698"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+  "public_gates": [
+    "M1701 must design but not execute the calibrated task-quality route",
+    "M1701 must separate off-track, collision, obstacle pass, and max-step noncompletion metrics",
+    "M1701 must preserve P0 actor input contract and no profile-specific tuning",
+    "M1701 must specify source/spec/corridor/finish semantics checks before any rerun",
+    "M1701 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_task_quality_calibration_design",
+    "evidence_increment": "designs the calibrated task-quality route after M1700 pivot",
+    "claim_scope": "task-quality calibration design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design ignores off-track dominance",
+      "stop if design allows profile tuning",
+      "stop if design changes actor inputs",
+      "stop if design claims ranking before calibrated audit"
+    ],
+    "fallback_plan": [
+      "route to calibration preflight if design is complete",
+      "route to branch stop if no calibrated metrics can be defined",
+      "route to workload redesign if source specs cannot be stratified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1700 pivots to task-quality calibration",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design task-quality calibration",
+    "admission_evidence": [
+      "M1700 pivots the branch because M1698 is off-track dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1701 calibration design document",
+      "M1701 status queue scoreboard research log and review",
+      "one follow-up calibration preflight manifest"
+    ],
+    "next_stage_criteria": [
+      "calibration axes are specified",
+      "metrics and artifacts are specified",
+      "next preflight route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1701 is task-quality design and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must retain L1, L2-current-tiled, L3-online, and L3-reset comparison rows in later calibrated evaluation"
+    ],
+    "temporal_evidence_window": "M1700 synthesis only.",
+    "negative_result_policy": "If calibrated task-quality cannot separate boundary failure from obstacle avoidance, stop before controller ranking.",
+    "allowed_claims": [
+      "task-quality calibration design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A task-quality calibration plan can define outcome-conditional metrics and workload checks that avoid ranking controllers on off-track dominated raw success.",
+  "success_criteria": [
+    "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md exists",
+    "design specifies outcome-conditional metrics",
+    "design specifies corridor/boundary and finish semantics checks",
+    "design specifies source/spec stratification or filters",
+    "design preserves P0 actor input contract and no-tuning boundary",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design ignores off-track dominance",
+    "design allows ranking from raw success",
+    "design changes actor inputs or profile configs",
+    "design routes directly to training or profile tuning",
+    "rollout execution training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write task-quality calibration design without execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+    "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+    "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
+  ],
+  "decision_rule": "M1701 passes if it writes a calibrated task-quality design and routes to a separate preflight before any execution or ranking.",
+  "next_blocker": "m1701-paper-route-controller-family-task-quality-calibration-design"
+}

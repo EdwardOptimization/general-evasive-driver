@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1708,
+    "completed": 1709,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+    "command_log": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
+    "task_id": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json",
-    "hypothesis": "The M1690-M1699 controller-family task-source branch should synthesize and likely pivot because instrumented outcomes are off-track dominated.",
-    "id": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis",
+    "command": "see experiments/manifests/m1701-paper-route-controller-family-task-quality-calibration-design.json",
+    "hypothesis": "A task-quality calibration plan can define outcome-conditional metrics and workload checks that avoid ranking controllers on off-track dominated raw success.",
+    "id": "m1701-paper-route-controller-family-task-quality-calibration-design",
     "kind": "gate",
-    "notes": "Pending: synthesize materialization full rollout instrumentation and off-track dominated audit before next branch decision",
-    "priority": 16950,
+    "notes": "Pending: design outcome-conditional metrics corridor boundary finish semantics and source stratification before execution",
+    "priority": 16960,
     "status": "pending",
-    "success_artifact": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md"
+    "success_artifact": "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md"
   },
-  "updated_at_utc": "20260530T004319Z"
+  "updated_at_utc": "20260530T004642Z"
 }
