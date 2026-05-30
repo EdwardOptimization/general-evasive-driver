@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T082739Z
+- Generated at UTC: 20260530T083102Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1788 passes if it audits M1787 and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: materialization_audit_admit_executable_panel_spec_design_before_reset
+- Decision reason: M1788 audits v2 contract materialization as complete but not reset-ready because executable scenario spec fields are still missing
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1787 v2 materialization can be audited as complete and ready for reset-only fea
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1788-role-specific-panel-metric-repair-materialization-result-audit
+- type: gate
+- checkpoint: docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: materialization_audit_admit_executable_panel_spec_design_before_reset
+- reason: M1788 audits v2 contract materialization as complete but not reset-ready because executable scenario spec fields are still missing
 
 ## Next Blocker
 
-m1788-role-specific-panel-metric-repair-materialization-result-audit
+m1789-executable-v2-panel-spec-design

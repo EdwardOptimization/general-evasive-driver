@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1788 passes if it audits M1787 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1788 audits v2 contract materialization as complete but not reset-ready because executable scenario spec fields are still missing",
   "failure_criteria": [
     "audit document is missing",
     "audit reruns reset or rollout",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T082739Z",
+  "generated_at_utc": "20260530T083102Z",
   "hypothesis": "M1787 v2 materialization can be audited as complete and ready for reset-only feasibility preflight.",
   "lineage": {
     "blocked_by": [
@@ -61,16 +61,29 @@
     ]
   },
   "milestone": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
-  "next_blocker": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
+  "next_blocker": "m1789-executable-v2-panel-spec-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "materialization_audit_admit_executable_panel_spec_design_before_reset",
   "public_gates": [
     "M1788 must use only M1787 artifacts and must not rerun reset or rollout",
     "M1788 must audit role surface metric admissibility matrix claim-boundary and guardrail completeness",
     "M1788 must decide whether to admit reset-only feasibility preflight, materialization repair, or design repair",
     "M1788 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "materialization_audit_admit_executable_panel_spec_design_before_reset",
+    "milestone": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
+    "reason": "M1788 audits v2 contract materialization as complete but not reset-ready because executable scenario spec fields are still missing",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md exists",
     "M1788 uses only M1787 artifacts",

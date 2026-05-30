@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1796,
+    "completed": 1797,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1787-role-specific-panel-metric-repair-materialization-preflight.md",
+    "command_log": "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1787-role-specific-panel-metric-repair-materialization-preflight"
+    "task_id": "m1788-role-specific-panel-metric-repair-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1788-role-specific-panel-metric-repair-materialization-result-audit.json",
-    "hypothesis": "M1787 v2 materialization can be audited as complete and ready for reset-only feasibility preflight.",
-    "id": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
+    "command": "see experiments/manifests/m1789-executable-v2-panel-spec-design.json",
+    "hypothesis": "A reset-ready executable v2 panel spec schema can be designed from M1787 contracts and reusable M1771 bounded-panel fields without running reset or rollout.",
+    "id": "m1789-executable-v2-panel-spec-design",
     "kind": "gate",
-    "notes": "Pending: audit M1787 materialization artifacts before reset feasibility",
-    "priority": 17830,
+    "notes": "Pending: design reset-ready executable v2 panel spec schema before reset feasibility",
+    "priority": 17840,
     "status": "pending",
-    "success_artifact": "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md"
+    "success_artifact": "docs/m1789-executable-v2-panel-spec-design.md"
   },
-  "updated_at_utc": "20260530T082641Z"
+  "updated_at_utc": "20260530T082958Z"
 }

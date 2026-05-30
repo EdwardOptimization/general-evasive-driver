@@ -157,6 +157,37 @@
     "docs/m1787-role-specific-panel-metric-repair-materialization-preflight.md",
     "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md",
+    "decision": "materialization_audit_admit_executable_panel_spec_design_before_reset",
+    "audited_result_class": "role_specific_panel_metric_repair_materialization_preflight_pass",
+    "role_surface_count": 6,
+    "profile_control_count": 12,
+    "metric_contract_rows": 33,
+    "admissibility_contract_rows": 6,
+    "panel_repair_matrix_rows": 276,
+    "ranking_admissible_by_default": false,
+    "mitigation_uses_obstacle_pass_success_as_primary": false,
+    "profile_controls_preserved": true,
+    "contract_materialization_complete": true,
+    "reset_ready": false,
+    "reset_readiness_blocker": "v2 contract lacks executable scenario spec fields",
+    "guardrail_violation_count": 0,
+    "environment_reset_started_in_audit": false,
+    "environment_rollout_started_in_audit": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1789-executable-v2-panel-spec-design.json"
+  },
   "decision_rule": "M1788 passes if it audits M1787 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1788-role-specific-panel-metric-repair-materialization-result-audit"
+  "next_blocker": "m1789-executable-v2-panel-spec-design"
 }

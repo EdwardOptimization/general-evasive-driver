@@ -29356,3 +29356,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1788-role-specific-panel-metric-repair-materialization-result-audit.json`
 - next: `m1788-role-specific-panel-metric-repair-materialization-result-audit`
+
+## M1788 Role-Specific Panel/Metric Repair Materialization Result Audit
+
+- status: completed
+- decision: `materialization_audit_admit_executable_panel_spec_design_before_reset`
+- artifact: `docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md`
+- audited summary: `runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json`
+- audited result class: `role_specific_panel_metric_repair_materialization_preflight_pass`
+- contract materialization complete: `true`
+- reset ready: `false`
+- reset-readiness blocker: v2 contract lacks executable scenario spec fields
+- role surface count: `6`
+- profile control count: `12`
+- metric contract rows: `33`
+- admissibility contract rows: `6`
+- panel repair matrix rows: `276`
+- ranking admissible by default: `false`
+- mitigation uses obstacle-pass success as primary: `false`
+- profile controls preserved: `true`
+- environment reset started in audit: `false`
+- environment rollout started in audit: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: complete v2 contract materialization and need for executable spec design
+- unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1789-executable-v2-panel-spec-design.json`
+- next: `m1789-executable-v2-panel-spec-design`
