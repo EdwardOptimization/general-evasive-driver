@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1801,
+    "completed": 1802,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md",
+    "command_log": "docs/m1793-executable-v2-reset-feasibility-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1792-executable-v2-reset-feasibility-adapter-implementation"
+    "task_id": "m1793-executable-v2-reset-feasibility-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1793-executable-v2-reset-feasibility-execution-design.json",
-    "hypothesis": "The full 312-row executable v2 reset-only feasibility preflight can be specified as a fixed command with clear target counts and guardrails.",
-    "id": "m1793-executable-v2-reset-feasibility-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design exact full 312-row reset-only command and gates before execution",
-    "priority": 17880,
+    "command": "see experiments/manifests/m1794-executable-v2-reset-feasibility-preflight.json",
+    "hypothesis": "All 312 executable v2 panel specs can reset successfully without rollout or label leakage.",
+    "id": "m1794-executable-v2-reset-feasibility-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact full 312-row executable v2 reset-only feasibility preflight",
+    "priority": 17890,
     "status": "pending",
-    "success_artifact": "docs/m1793-executable-v2-reset-feasibility-execution-design.md"
+    "success_artifact": "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T084746Z"
+  "updated_at_utc": "20260530T085142Z"
 }

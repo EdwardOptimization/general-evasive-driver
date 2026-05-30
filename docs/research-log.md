@@ -29507,3 +29507,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full 312-row reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1793-executable-v2-reset-feasibility-execution-design.json`
 - next: `m1793-executable-v2-reset-feasibility-execution-design`
+
+## M1793 Executable V2 Reset-Feasibility Execution Design
+
+- status: completed
+- decision: `executable_v2_reset_execution_design_admit_full_reset_preflight`
+- artifact: `docs/m1793-executable-v2-reset-feasibility-execution-design.md`
+- reset run in this milestone: `false`
+- target spec count: `312`
+- target profile count: `12`
+- target role surface count: `6`
+- target labels enter actor input count: `0`
+- target ranking admissible by default count: `0`
+- output dir: `runs/m1794_executable_v2_reset_feasibility_preflight`
+- execution command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_reset_feasibility_preflight --executable-v2-panel-specs runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json --output-dir runs/m1794_executable_v2_reset_feasibility_preflight --eval-seed-base 179400 --target-spec-count 312 --target-profile-count 12 --target-role-surface-count 6 --next-blocker m1795-executable-v2-reset-feasibility-result-audit`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact full executable v2 reset-only preflight command and gates
+- unsupported: reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1794-executable-v2-reset-feasibility-preflight.json`
+- next: `m1794-executable-v2-reset-feasibility-preflight`

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T085007Z
+- Generated at UTC: 20260530T085417Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1793 passes if it fixes the executable v2 reset-only preflight command and gates without running reset or rollout.
+- Promotion decision: executable_v2_reset_execution_design_admit_full_reset_preflight
+- Decision reason: M1793 fixes the exact 312-row executable v2 reset-only command target counts output directory and guardrails
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ The full 312-row executable v2 reset-only feasibility preflight can be specified
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1793-executable-v2-reset-feasibility-execution-design
+- type: gate
+- checkpoint: docs/m1793-executable-v2-reset-feasibility-execution-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_reset_execution_design_admit_full_reset_preflight
+- reason: M1793 fixes the exact 312-row executable v2 reset-only command target counts output directory and guardrails
 
 ## Next Blocker
 
-m1793-executable-v2-reset-feasibility-execution-design
+m1794-executable-v2-reset-feasibility-preflight
