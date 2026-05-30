@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1822,
+    "completed": 1823,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+    "command_log": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1813-executable-v2-stable-source-materialization-reset-validation-design"
+    "task_id": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.json",
-    "hypothesis": "A no-reset conversion adapter can transform materialized stable source artifacts into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config and claim boundaries.",
-    "id": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement reset-validation conversion adapter with focused tests only",
-    "priority": 18090,
+    "command": "see experiments/manifests/m1815-executable-v2-stable-source-reset-validation-execution-design.json",
+    "hypothesis": "The no-reset adapter execution over M1811 artifacts can be pre-registered with unambiguous target counts and guardrails before running conversion.",
+    "id": "m1815-executable-v2-stable-source-reset-validation-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact no-reset adapter execution command for M1811 artifacts",
+    "priority": 18100,
     "status": "pending",
-    "success_artifact": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md"
+    "success_artifact": "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md"
   },
-  "updated_at_utc": "20260530T115000Z"
+  "updated_at_utc": "20260530T115500Z"
 }

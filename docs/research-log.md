@@ -30114,3 +30114,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: conversion adapter implementation result targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.json`
 - next: `m1814-executable-v2-stable-source-reset-validation-adapter-implementation`
+
+## M1814 Executable V2 Stable Source Reset Validation Adapter Implementation
+
+- status: completed
+- decision: `stable_source_reset_validation_adapter_implementation_pass_route_to_execution_design`
+- module: `src/autodrift/executable_v2_stable_source_reset_validation_adapter.py`
+- test: `tests/test_executable_v2_stable_source_reset_validation_adapter.py`
+- focused test result: `2 passed in 0.07s`
+- project artifact conversion run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- promoted: `false`
+- expected input materialization specs: `3`
+- expected input materialization matrix rows: `36`
+- expected targeted reset executable specs: `36`
+- expected profile control count: `12`
+- expected role surface count: `1`
+- expected reset ready spec count: `36`
+- expected reset validation required count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected missing join count: `0`
+- expected duplicate workload count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset conversion adapter implementation and focused tests
+- unsupported: project artifact conversion result targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1815-executable-v2-stable-source-reset-validation-execution-design.json`
+- next: `m1815-executable-v2-stable-source-reset-validation-execution-design`

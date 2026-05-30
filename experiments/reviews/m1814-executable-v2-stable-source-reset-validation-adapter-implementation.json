@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M1814 implements no-reset conversion adapter with focused tests and keeps reset and ranking blocked",
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "adapter drops env_config or profile controls",
+    "adapter admits ranking by default",
+    "implementation runs reset rollout or project artifacts"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute project artifact conversion",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260530T102913Z",
+  "hypothesis": "A no-reset conversion adapter can transform materialized stable source artifacts into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M1813 finds conversion is required before M1792 reset adapter can consume M1811 artifacts"
+    ],
+    "derived_from": [
+      "m1813-executable-v2-stable-source-materialization-reset-validation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_reset_validation_adapter"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+    ],
+    "parent_objective": [
+      "implement no-reset conversion adapter from stable materialization artifacts to executable v2 reset specs"
+    ],
+    "supersedes": [
+      "direct reset execution over materialization artifacts",
+      "manual conversion to executable v2 specs",
+      "measured execution before reset validation"
+    ]
+  },
+  "milestone": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation",
+  "next_blocker": "m1815-executable-v2-stable-source-reset-validation-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stable_source_reset_validation_adapter_implementation_pass_route_to_execution_design",
+  "public_gates": [
+    "M1814 must implement a no-reset conversion adapter and focused tests",
+    "M1814 must produce executable_v2_panel_specs-shaped artifacts from synthetic fixtures",
+    "M1814 must preserve env_config profile controls v2 metadata no-label-leakage and ranking-block flags",
+    "M1814 must not run reset rollout measured execution training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level or level3 claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "stable_source_reset_validation_adapter_implementation_pass_route_to_execution_design",
+    "milestone": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation",
+    "reason": "M1814 implements no-reset conversion adapter with focused tests and keeps reset and ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover executable_v2_panel_specs payload shape",
+    "tests verify expected counts env_config preservation no-label-leakage reset-ready flags and ranking-block flags",
+    "no real environment reset rollout or project artifact execution is run"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,165 @@
+{
+  "id": "m1815-executable-v2-stable-source-reset-validation-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_validation_adapter_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact no-reset stable source reset-validation adapter execution over M1811 artifacts"
+    ],
+    "derived_from": [
+      "m1814-executable-v2-stable-source-reset-validation-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1814 adapter exists but has not been executed over M1811 project artifacts"
+    ],
+    "supersedes": [
+      "direct reset execution before converted executable_v2_panel_specs payload",
+      "manual conversion to targeted reset payload",
+      "measured execution before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1815-executable-v2-stable-source-reset-validation-execution-design.md",
+  "public_gates": [
+    "M1815 must design the exact no-reset adapter execution command without running it",
+    "M1815 must pre-register M1811 input artifacts output directory target counts next blocker and guardrails",
+    "M1815 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute project artifact conversion",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_reset_adapter_execution_design",
+    "evidence_increment": "pre-registers exact no-reset adapter execution after M1814 implementation",
+    "claim_scope": "adapter execution design only; no project conversion execution, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design would run project conversion",
+      "stop if design would run reset or rollout",
+      "stop if target counts are ambiguous",
+      "stop if measured execution or ranking is admitted before reset support"
+    ],
+    "fallback_plan": [
+      "route to adapter implementation repair if command cannot address M1811 artifacts",
+      "route to no-reset adapter execution if command and counts are explicit",
+      "route to materialization repair if M1811 artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1814 implements focused-tested no-reset adapter",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source reset-validation adapter execution design",
+    "admission_evidence": [
+      "M1814 focused tests pass and adapter payload shape is implemented"
+    ],
+    "blocked_shortcuts": [
+      "do not execute project artifacts",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1815 design document",
+      "M1815 status queue scoreboard research log and review",
+      "one follow-up manifest for no-reset adapter execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is explicit",
+      "target counts are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1811 artifacts and M1814 adapter implementation only; no reset or rollout.",
+    "negative_result_policy": "If exact adapter execution cannot be specified, route to implementation repair or materialization repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source reset-validation adapter execution design",
+      "no project conversion execution, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The no-reset adapter execution over M1811 artifacts can be pre-registered with unambiguous target counts and guardrails before running conversion.",
+  "success_criteria": [
+    "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md exists",
+    "design lists exact command input artifacts output directory target counts and next blocker",
+    "design keeps reset measured execution and ranking blocked",
+    "next route is explicit",
+    "no project conversion reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project conversion reset or rollout",
+    "design omits target counts or output directory",
+    "design routes directly to reset measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_validation_adapter_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+  ],
+  "decision_rule": "M1815 passes if it pre-registers exact no-reset adapter execution without running conversion, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1815-executable-v2-stable-source-reset-validation-execution-design"
+}
