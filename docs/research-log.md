@@ -30591,3 +30591,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset validation result measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.json`
 - next: `m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight`
+
+## M1828 Executable V2 Stable Source Repaired Targeted Reset Feasibility Preflight
+
+- status: completed with fail result
+- decision: `stable_source_repaired_targeted_reset_feasibility_fail_route_to_result_audit`
+- artifact: `runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json`
+- docs: `docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md`
+- result class: `executable_v2_reset_feasibility_preflight_fail`
+- attempted spec count: `36`
+- reset success count: `12`
+- sampling failure count: `24`
+- profile count: `12`
+- role surface count: `1`
+- reset ready spec count: `36`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- sampled label counts: `aeb_feasible=12 empty=24`
+- hidden bucket counts: `brake_variation=12 friction_step=12 nominal=12`
+- environment reset started: `true`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: repaired reset-only preflight was executed and persistent AES failures were observed
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json`
+- next: `m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis`

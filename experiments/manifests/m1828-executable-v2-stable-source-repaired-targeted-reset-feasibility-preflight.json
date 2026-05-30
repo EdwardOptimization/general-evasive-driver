@@ -167,6 +167,47 @@
     "docs/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.md",
     "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json",
+    "docs_artifact": "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
+    "decision": "stable_source_repaired_targeted_reset_feasibility_fail_route_to_result_audit",
+    "result_class": "executable_v2_reset_feasibility_preflight_fail",
+    "attempted_spec_count": 36,
+    "reset_success_count": 12,
+    "sampling_failure_count": 24,
+    "profile_count": 12,
+    "role_surface_count": 1,
+    "reset_ready_spec_count": 36,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "metadata_join_incomplete_count": 0,
+    "sampled_label_counts": {
+      "": 24,
+      "aeb_feasible": 12
+    },
+    "hidden_bucket_counts": {
+      "brake_variation": 12,
+      "friction_step": 12,
+      "nominal": 12
+    },
+    "environment_reset_started": true,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json"
+  },
   "decision_rule": "M1828 passes if the repaired targeted reset-only preflight succeeds for all 36 rows without rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight"
+  "next_blocker": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
 }

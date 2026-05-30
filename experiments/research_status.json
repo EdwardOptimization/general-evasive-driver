@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1836,
+    "completed": 1837,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.md",
+    "command_log": "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design"
+    "task_id": "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.json",
-    "hypothesis": "The 36-row M1825 repaired targeted reset payload can pass M1792 reset-only feasibility with zero sampling failures and clean guardrails.",
-    "id": "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact repaired reset-only preflight command from M1827",
-    "priority": 18230,
+    "command": "see experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json",
+    "hypothesis": "M1819-M1828 targeted reset-validation evidence is sufficient to decide whether the branch should pivot from broad repaired reset attempts to reset-time AES sampler diagnostics.",
+    "id": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1819-M1828 and audit persistent AES reset failures before further repair",
+    "priority": 18240,
     "status": "pending",
-    "success_artifact": "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json"
+    "success_artifact": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T130000Z"
+  "updated_at_utc": "20260530T130500Z"
 }

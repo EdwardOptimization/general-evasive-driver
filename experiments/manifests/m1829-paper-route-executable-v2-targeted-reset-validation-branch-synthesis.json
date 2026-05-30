@@ -1,0 +1,191 @@
+{
+  "id": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_validation_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.md",
+      "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.json",
+      "experiments/manifests/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize M1819-M1828 targeted reset validation evidence before further sampler repair"
+    ],
+    "derived_from": [
+      "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+      "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1819-M1828 targeted reset validation work",
+      "M1828 repaired reset preflight still failed for 24 AES rows"
+    ],
+    "supersedes": [
+      "direct measured execution after failed reset",
+      "profile-specific tuning after reset failure",
+      "additional narrow sampler repair without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+  "public_gates": [
+    "M1829 must synthesize M1819-M1828 targeted reset-validation evidence before any further branch work",
+    "M1829 must audit the M1828 repaired reset failure as part of the synthesis",
+    "M1829 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M1829 must keep additional reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "evidence_axis": "Q_branch_synthesis",
+    "evidence_increment": "synthesizes targeted reset validation evidence from M1819 through M1828 and decides whether to pivot to reset-time AES sampler diagnostics",
+    "claim_scope": "branch synthesis and failure audit only; no additional reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1828 failure cannot be localized",
+      "stop if reset failure implies metadata corruption",
+      "stop if another reset is needed before a diagnostic design",
+      "stop if branch should pivot to reset-time sampler diagnostics"
+    ],
+    "fallback_plan": [
+      "pivot to reset-time AES sampler diagnostic branch if offline density and reset outcomes disagree",
+      "continue targeted reset validation only if synthesis finds a simple documented execution issue",
+      "route to adapter repair if metadata/count guardrails are implicated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow cadence reached after M1819-M1828 branch work and M1828 failed repaired targeted reset preflight",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "targeted reset validation branch synthesis",
+    "admission_evidence": [
+      "M1828 failed repaired reset preflight with 24 AES sampling failures and clean guardrails",
+      "workflow cadence requires synthesis before further branch work"
+    ],
+    "blocked_shortcuts": [
+      "do not run additional environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1829 synthesis document",
+      "M1829 status queue scoreboard research log and review",
+      "one follow-up manifest for the next branch if synthesis chooses pivot or continue"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "M1828 failure is classified",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Synthesis must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1819-M1828 reset-only diagnostics; no rollout.",
+    "negative_result_policy": "If reset still fails, synthesize and pivot to diagnostic repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "targeted reset validation branch synthesis and next-branch decision",
+      "no additional reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1819-M1828 targeted reset-validation evidence is sufficient to decide whether the branch should pivot from broad repaired reset attempts to reset-time AES sampler diagnostics.",
+  "success_criteria": [
+    "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md exists",
+    "synthesis summarizes M1819-M1828 evidence",
+    "synthesis answers all required synthesis questions",
+    "synthesis classifies M1828 failure distribution",
+    "synthesis chooses pivot, continue, stop, or promote_to_next_branch",
+    "next branch and next manifest are explicit if work continues",
+    "no additional reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs additional reset or rollout",
+    "synthesis routes directly to measured execution or ranking",
+    "synthesis changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_targeted_reset_validation_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.md",
+    "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
+    "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json"
+  ],
+  "decision_rule": "M1829 passes if it synthesizes M1819-M1828 and chooses a next branch without running additional reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
+}
