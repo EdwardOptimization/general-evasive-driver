@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1750,
+    "completed": 1751,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+    "command_log": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
+    "task_id": "m1742-paper-route-task-quality-outcome-semantics-redesign"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json",
-    "hypothesis": "Diffuse outcome dominance can be addressed first by redesigning family-specific task-quality outcome semantics before another rollout or comparison.",
-    "id": "m1742-paper-route-task-quality-outcome-semantics-redesign",
-    "kind": "gate",
-    "notes": "Pending: design family-specific outcome semantics and next no-rollout route after diffuse dominance audit",
-    "priority": 17370,
+    "command": "see experiments/manifests/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.json",
+    "hypothesis": "The revised outcome semantics can be materialized as no-rollout metadata over the repaired scenario taxonomy before another execution.",
+    "id": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize revised semantics registry and joined repaired taxonomy metadata without rollout",
+    "priority": 17380,
     "status": "pending",
-    "success_artifact": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md"
+    "success_artifact": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T043600Z"
+  "updated_at_utc": "20260530T044600Z"
 }

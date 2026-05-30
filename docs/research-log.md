@@ -28027,3 +28027,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json`
 - next: `m1742-paper-route-task-quality-outcome-semantics-redesign`
+
+## M1742 Paper-Route Task-Quality Outcome Semantics Redesign
+
+- status: completed
+- decision: `outcome_semantics_redesign_admit_no_rollout_materialization_preflight`
+- artifact: `docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md`
+- parent audit: `docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md`
+- evaluation roles: `benchmark`, `diagnostic_stress`, `mitigation_diagnostic`
+- primary metric families: `avoidance_success`, `controlled_drift_recovery`, `collision_mitigation`, `boundary_robustness`, `hidden_dynamics_robustness`
+- family-specific semantics: ordinary and stable AES as benchmark avoidance; drift-required as controlled drift recovery; unavoidable as mitigation diagnostic; off-track boundary as diagnostic stress; hidden dynamics split by label
+- supported: no-rollout semantics design and benchmark/diagnostic separation
+- unsupported: rollout result, controller-family ranking, profile promotion, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.json`
+- next: `m1743-paper-route-task-quality-outcome-semantics-materialization-preflight`

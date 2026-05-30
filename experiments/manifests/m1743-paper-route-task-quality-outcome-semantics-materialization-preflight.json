@@ -1,0 +1,166 @@
+{
+  "id": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json"
+    ],
+    "parent_objective": [
+      "materialize revised outcome semantics as no-rollout metadata before any execution"
+    ],
+    "derived_from": [
+      "m1742-paper-route-task-quality-outcome-semantics-redesign"
+    ],
+    "blocked_by": [
+      "need durable semantics artifacts before rerun or comparison"
+    ],
+    "supersedes": [
+      "direct repaired taxonomy rerun with old success/off-track semantics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.md",
+  "public_gates": [
+    "M1743 must be no-rollout metadata materialization only",
+    "M1743 must write semantics registry artifacts with evaluation_role and primary_metric_family",
+    "M1743 must join semantics to the repaired scenario specs and matrix",
+    "M1743 must report unsupported metric gaps explicitly",
+    "M1743 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_semantics_materialization",
+    "evidence_increment": "materializes revised outcome semantics into no-rollout artifacts before any rerun",
+    "claim_scope": "no-rollout semantics metadata only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if semantics registry is missing",
+      "stop if benchmark and diagnostic roles are not both represented",
+      "stop if unsupported metric gaps are silent",
+      "stop if materialization admits rollout directly without audit"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if joins or coverage fail",
+      "route to preflight result audit if materialization passes",
+      "route to branch synthesis if semantics expose scope growth"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1742 admits no-rollout semantics materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize revised outcome semantics metadata",
+    "admission_evidence": [
+      "M1742 defines family-specific outcome semantics and benchmark/diagnostic separation"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1743 semantics materialization script",
+      "M1743 no-rollout artifacts",
+      "M1743 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "semantics registry and joined matrix exist",
+      "unsupported metric gaps are explicit",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; semantics materialization cannot prove history necessity.",
+    "history_necessity_tests": [
+      "materialization should preserve profile controls but must not interpret them as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1742 semantics design only.",
+    "negative_result_policy": "If materialization exposes unsupported metrics, record task-design limitation rather than self-ID failure.",
+    "allowed_claims": [
+      "no-rollout outcome semantics materialization",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The revised outcome semantics can be materialized as no-rollout metadata over the repaired scenario taxonomy before another execution.",
+  "success_criteria": [
+    "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json exists",
+    "semantics registry json/csv artifacts exist",
+    "joined repaired scenario specs and matrix include evaluation_role and primary_metric_family",
+    "benchmark diagnostic_stress and mitigation_diagnostic roles are present",
+    "unsupported metric gaps are explicit and silent unsupported approximations are zero",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "semantics artifacts are missing",
+    "benchmark or diagnostic roles are absent",
+    "unsupported metric gaps are silent",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "PYTHONPATH=src python -m autodrift.task_quality_outcome_semantics_materialization_preflight --scenario-specs runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json --workload runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv --output-dir runs/m1743_task_quality_outcome_semantics_materialization_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/outcome_semantics_registry.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+  ],
+  "decision_rule": "M1743 passes if revised semantics are materialized as no-rollout metadata with explicit unsupported gaps and clean guardrails.",
+  "next_blocker": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight"
+}

@@ -154,6 +154,40 @@
     "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
     "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+    "decision": "outcome_semantics_redesign_admit_no_rollout_materialization_preflight",
+    "evaluation_roles_defined": [
+      "benchmark",
+      "diagnostic_stress",
+      "mitigation_diagnostic"
+    ],
+    "primary_metric_families_defined": [
+      "avoidance_success",
+      "controlled_drift_recovery",
+      "collision_mitigation",
+      "boundary_robustness",
+      "hidden_dynamics_robustness"
+    ],
+    "family_specific_semantics_defined": true,
+    "benchmark_diagnostic_separation_defined": true,
+    "unavoidable_mitigation_metrics_defined": true,
+    "off_track_stress_metrics_defined": true,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.json"
+  },
   "decision_rule": "M1742 passes if it defines revised outcome semantics and chooses a no-rollout next route without overclaiming.",
-  "next_blocker": "m1742-paper-route-task-quality-outcome-semantics-redesign"
+  "next_blocker": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight"
 }

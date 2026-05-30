@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit
+m1742-paper-route-task-quality-outcome-semantics-redesign
 ```
 
 Current next task:
 
 ```text
-m1742-paper-route-task-quality-outcome-semantics-redesign
+m1743-paper-route-task-quality-outcome-semantics-materialization-preflight
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -205,7 +205,12 @@ the issue is not a local profile/slice repair target, so direct rerun or
 controller-family comparison remains blocked. The next task is M1742: design
 family-specific task-quality outcome semantics, including benchmark versus
 diagnostic row separation, mitigation metrics, off-track/recovery semantics,
-and a no-rollout next route.
+and a no-rollout next route. M1742 completes that design: future rows must
+explicitly carry `evaluation_role` (`benchmark`, `diagnostic_stress`, or
+`mitigation_diagnostic`) and `primary_metric_family` (`avoidance_success`,
+`controlled_drift_recovery`, `collision_mitigation`, `boundary_robustness`, or
+`hidden_dynamics_robustness`). The next task is M1743: materialize this revised
+semantics registry and joined repaired taxonomy metadata without rollout.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
