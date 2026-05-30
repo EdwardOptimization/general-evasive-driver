@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1738,
+    "completed": 1739,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+    "command_log": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
+    "task_id": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed for the M1728 scenario taxonomy while preserving metadata joins and unsupported-feature boundaries.",
-    "id": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design",
+    "command": "see experiments/manifests/m1731-paper-route-task-quality-scenario-taxonomy-execution.json",
+    "hypothesis": "The M1728 scenario taxonomy matrix can be executed as a fixed public diagnostic run with complete scenario aggregates and preserved unsupported-feature boundaries.",
+    "id": "m1731-paper-route-task-quality-scenario-taxonomy-execution",
     "kind": "gate",
-    "notes": "Pending: design 864-cell execution protocol requiring scenario metadata joins aggregates and unsupported-fault boundaries",
-    "priority": 17250,
+    "notes": "Pending: run 864 public diagnostic episodes with scenario metadata aggregates and unsupported-fault boundary checks",
+    "priority": 17260,
     "status": "pending",
-    "success_artifact": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md"
+    "success_artifact": "runs/m1731_task_quality_scenario_taxonomy_execution/summary.json"
   },
-  "updated_at_utc": "20260530T030740Z"
+  "updated_at_utc": "20260530T031135Z"
 }

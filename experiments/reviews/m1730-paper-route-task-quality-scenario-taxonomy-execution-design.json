@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1730 designs 864-cell scenario taxonomy execution with metadata joins scenario aggregates and unsupported-fault boundaries",
+  "failure_criteria": [
+    "design executes rollout",
+    "design omits scenario metadata join",
+    "design omits family or hidden-dynamics aggregates",
+    "design treats unsupported faults as covered",
+    "design changes actor inputs or profile configs",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T031254Z",
+  "hypothesis": "A measured execution protocol can be designed for the M1728 scenario taxonomy while preserving metadata joins and unsupported-feature boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "need execution design before measured scenario taxonomy rollout"
+    ],
+    "derived_from": [
+      "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_specs.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_matrix.csv"
+    ],
+    "parent_objective": [
+      "design measured scenario taxonomy execution"
+    ],
+    "supersedes": [
+      "direct scenario taxonomy execution after M1729"
+    ]
+  },
+  "milestone": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design",
+  "next_blocker": "m1731-paper-route-task-quality-scenario-taxonomy-execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "scenario_taxonomy_execution_design_admit_measured_execution",
+  "public_gates": [
+    "M1730 must design execution over the fixed M1728 864-cell scenario taxonomy matrix without running it",
+    "M1730 must require joining scenario_specs.json metadata into every episode row",
+    "M1730 must require scenario-family, hidden-dynamics, road-boundary, obstacle-timing, outcome, termination, and profile-outcome aggregates",
+    "M1730 must preserve unsupported-fault reporting boundaries",
+    "M1730 must not train replay PPO promote use private holdout change actor inputs tune profiles or rank controller families"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "scenario_taxonomy_execution_design_admit_measured_execution",
+    "milestone": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design",
+    "reason": "M1730 designs 864-cell scenario taxonomy execution with metadata joins scenario aggregates and unsupported-fault boundaries",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "scenario metadata join is required",
+    "scenario-family hidden-dynamics road-boundary obstacle-timing outcome termination and profile-outcome aggregates are required",
+    "unsupported fault boundaries are preserved",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

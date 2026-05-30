@@ -27790,3 +27790,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.json`
 - next: `m1730-paper-route-task-quality-scenario-taxonomy-execution-design`
+
+## M1730 Paper-Route Task-Quality Scenario Taxonomy Execution Design
+
+- status: completed
+- decision: `scenario_taxonomy_execution_design_admit_measured_execution`
+- artifact: `docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md`
+- parent audit: `docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md`
+- planned episodes: `864`
+- planned scenario families: `6`
+- planned scenario specs: `72`
+- planned profiles: `12`
+- required implementation detail: join `scenario_matrix.csv` with `scenario_specs.json` and copy scenario metadata into each episode row
+- required aggregates: scenario family, scenario role, hidden dynamics bucket, road boundary bucket, obstacle timing bucket, obstacle lateral bucket, outcome, termination, profile-outcome, scenario-family-outcome
+- unsupported boundary: copy unsupported feature report and keep `unsupported_faults_treated_as_covered=false`
+- supported: measured scenario taxonomy execution is admitted
+- unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1731-paper-route-task-quality-scenario-taxonomy-execution.json`
+- next: `m1731-paper-route-task-quality-scenario-taxonomy-execution`

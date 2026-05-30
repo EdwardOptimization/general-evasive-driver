@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit
+m1730-paper-route-task-quality-scenario-taxonomy-execution-design
 ```
 
 Current next task:
 
 ```text
-m1730-paper-route-task-quality-scenario-taxonomy-execution-design
+m1731-paper-route-task-quality-scenario-taxonomy-execution
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -136,7 +136,12 @@ before any scenario taxonomy execution design. M1729 audits it as clean and
 admits M1730 execution design, with one important implementation requirement:
 the measured runner must join `scenario_matrix.csv` with `scenario_specs.json`
 so every episode row preserves scenario family, role, obstacle timing, road
-boundary, hidden dynamics bucket, and unsupported-feature boundaries.
+boundary, hidden dynamics bucket, and unsupported-feature boundaries. M1730
+completes that execution design and admits M1731 measured execution over the
+fixed `864`-cell taxonomy matrix. M1731 must produce scenario-family,
+hidden-dynamics, road-boundary, obstacle-timing, outcome, termination,
+profile-outcome, and scenario-family-outcome aggregates, and it must keep
+`unsupported_faults_treated_as_covered=false`.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
