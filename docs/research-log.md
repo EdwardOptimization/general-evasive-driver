@@ -28424,3 +28424,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: execution pass, controller-family ranking, profile comparison, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json`
 - next: `m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit`
+
+## M1757 Paper-Route Task-Quality Revised Scenario Taxonomy Single Sampling Failure Audit
+
+- status: completed
+- decision: `single_sampling_failure_audit_admit_reset_only_probe`
+- artifact: `docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md`
+- audited rerun: `docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md`
+- attribute error count: `0`
+- failure count: `1`
+- failure workload: `m1728-s4-02::L2_window_13_current_tiled`
+- workload index: `461`
+- eval seed: `175761`
+- scenario spec: `m1728-s4-02`
+- profile: `L2_window_13_current_tiled`
+- scenario family: `unavoidable_mitigation`
+- evaluation role: `mitigation_diagnostic`
+- primary metric family: `collision_mitigation`
+- hidden dynamics bucket: `low_mu`
+- error type: `RuntimeError`
+- error message: `failed to sample an obstacle scenario matching the configured filters`
+- partial rows interpretable as ranking: `false`
+- reset-only probe admitted: `true`
+- spec repair deferred: `true`
+- seed redesign deferred: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: single-row failure localization and reset-only probe route
+- unsupported: completed-row interpretation, seed/spec repair, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1758-single-sampling-failure-reset-only-feasibility-probe.json`
+- next: `m1758-single-sampling-failure-reset-only-feasibility-probe`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1765,
+    "completed": 1766,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
-    "returncode": 1,
+    "command_log": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+    "returncode": 0,
     "status": "completed",
-    "task_id": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
+    "task_id": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json",
-    "hypothesis": "The single remaining M1756 failure can be localized and routed without interpreting partial completed rows.",
-    "id": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit",
-    "kind": "gate",
-    "notes": "Pending: audit the single remaining reset-time sampling failure after wrapper repair",
-    "priority": 17520,
+    "command": "see experiments/manifests/m1758-single-sampling-failure-reset-only-feasibility-probe.json",
+    "hypothesis": "A reset-only probe can classify the single failed row before changing seeds or scenario specs.",
+    "id": "m1758-single-sampling-failure-reset-only-feasibility-probe",
+    "kind": "infrastructure",
+    "notes": "Pending: probe exact failed seed and neighboring seeds without policy rollout",
+    "priority": 17530,
     "status": "pending",
-    "success_artifact": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md"
+    "success_artifact": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md"
   },
-  "updated_at_utc": "20260530T054936Z"
+  "updated_at_utc": "20260530T055330Z"
 }

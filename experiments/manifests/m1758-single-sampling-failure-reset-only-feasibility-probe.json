@@ -1,0 +1,157 @@
+{
+  "id": "m1758-single-sampling-failure-reset-only-feasibility-probe",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_only_probe"
+    ],
+    "parent_dataset": [
+      "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json"
+    ],
+    "parent_objective": [
+      "probe exact and neighboring reset-only sampling feasibility for the single failed row"
+    ],
+    "derived_from": [
+      "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit"
+    ],
+    "blocked_by": [
+      "M1756 leaves one reset-time sampling failure at seed 175761"
+    ],
+    "supersedes": [
+      "changing scenario specs or execution seed before reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+  "public_gates": [
+    "M1758 must probe only reset-time feasibility for the single failed row",
+    "M1758 must include exact seed 175761 and bounded neighboring seeds",
+    "M1758 must not run policy rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence",
+    "M1758 must classify the failure as exact_seed_infeasible seed_fragile_but_feasible spec_filter_infeasible or probe_inconclusive"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_execution_single_sampling_reset_probe",
+    "evidence_increment": "probes whether the single failed row is exact-seed infeasible, seed-fragile, or spec-filter infeasible",
+    "claim_scope": "reset-only sampling feasibility; no policy rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if exact failed row cannot be reconstructed",
+      "stop if probe requires spec/profile/seed changes before evidence",
+      "stop if policy rollout is attempted"
+    ],
+    "fallback_plan": [
+      "route to same-spec seed repair if neighboring seeds pass",
+      "route to scenario spec sampling repair if all bounded seeds fail",
+      "route to probe repair if reconstruction fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1757 admits reset-only feasibility probe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "probe single failed row reset-only feasibility",
+    "admission_evidence": [
+      "M1757 localizes the only remaining failure to seed 175761"
+    ],
+    "blocked_shortcuts": [
+      "do not run policy rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "reset-only probe helper or direct probe artifact",
+      "M1758 run artifacts",
+      "M1758 documentation status queue scoreboard research log and review",
+      "one follow-up repair or rerun manifest"
+    ],
+    "next_stage_criteria": [
+      "exact seed result is recorded",
+      "neighboring seed feasibility is recorded",
+      "next repair or rerun route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; reset-only sampling probe cannot prove history necessity.",
+    "history_necessity_tests": [
+      "probe must preserve future L1 L2-current-tiled L2 history-window L3-online and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1757 localized failure only.",
+    "negative_result_policy": "Classify reset feasibility as scenario sampling evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "single-row reset-only sampling feasibility",
+      "no policy rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A reset-only probe can classify the single failed row before changing seeds or scenario specs.",
+  "success_criteria": [
+    "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md exists",
+    "exact seed 175761 result is recorded",
+    "bounded neighboring seed results are recorded",
+    "failure class is one of exact_seed_infeasible seed_fragile_but_feasible spec_filter_infeasible probe_inconclusive",
+    "policy rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "probe document is missing",
+    "exact failed row or seed is not probed",
+    "probe runs policy rollout or changes specs/profile configs",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "probe",
+      "command": "run reset-only feasibility probe for m1728-s4-02::L2_window_13_current_tiled at seed 175761 and neighboring seeds"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_only_probe"
+  ],
+  "baseline_artifacts": [
+    "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
+  ],
+  "decision_rule": "M1758 passes if it classifies the single reset-time sampling failure without policy rollout or contract changes.",
+  "next_blocker": "m1758-single-sampling-failure-reset-only-feasibility-probe"
+}

@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1757 localizes the remaining sampling failure to index 461 seed 175761 and admits reset-only probe",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits AttributeError-zero confirmation or failure-row localization",
+    "audit interprets M1756 partial rows as ranking evidence",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T055459Z",
+  "hypothesis": "The single remaining M1756 failure can be localized and routed without interpreting partial completed rows.",
+  "lineage": {
+    "blocked_by": [
+      "M1756 leaves one reset-time sampling failure"
+    ],
+    "derived_from": [
+      "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_sampling_failure_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json"
+    ],
+    "parent_dataset": [
+      "docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
+    ],
+    "parent_objective": [
+      "audit single remaining reset-time sampling failure after wrapper repair"
+    ],
+    "supersedes": [
+      "interpreting M1756 partial rows as complete execution"
+    ]
+  },
+  "milestone": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit",
+  "next_blocker": "m1758-single-sampling-failure-reset-only-feasibility-probe",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "single_sampling_failure_audit_admit_reset_only_probe",
+  "public_gates": [
+    "M1757 must audit the single M1756 sampling failure before repair or rerun",
+    "M1757 must confirm AttributeError count is zero after wrapper repair",
+    "M1757 must block interpretation of M1756 partial rows",
+    "M1757 must decide whether to route to reset-only sampling repair, seed redesign, spec repair, bounded rerun, or stop"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "single_sampling_failure_audit_admit_reset_only_probe",
+    "milestone": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit",
+    "reason": "M1757 localizes the remaining sampling failure to index 461 seed 175761 and admits reset-only probe",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md exists",
+    "audit confirms AttributeError count is zero",
+    "audit localizes the single sampling failure row",
+    "audit blocks partial-row ranking interpretation",
+    "next route is reset-only probe scenario repair rerun design or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

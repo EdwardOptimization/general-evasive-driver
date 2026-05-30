@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair
+m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit
 ```
 
 Current next task:
 
 ```text
-m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit
+m1758-single-sampling-failure-reset-only-feasibility-probe
 ```
 
-M1756 reruns the same fixed revised execution after the wrapper repair. The
-M1753 `AttributeError` failure mode is gone (`0` remaining), but the execution
-still fails the pass gate with `863/864` completed rows and one reset-time
-sampling failure at `m1728-s4-02::L2_window_13_current_tiled`. M1757 must audit
-that single sampling failure before any seed/spec repair, rerun, or
-interpretation of partial completed rows.
+M1757 localizes the only remaining M1756 failure:
+`m1728-s4-02::L2_window_13_current_tiled`, workload index `461`, eval seed
+`175761`, `unavoidable_mitigation`, `collision_mitigation`, `low_mu`. M1758 is
+a reset-only feasibility probe over that exact row and neighboring seeds. Do not
+change specs or execution seed before this probe determines whether the row is
+exact-seed infeasible, seed-fragile, or spec-filter infeasible.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -11017,5 +11017,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   coverage is back to all `12`, and metric completeness remains clean. The run
   is still incomplete because one mitigation-diagnostic low-mu row fails reset
   sampling. Partial rows remain non-ranking diagnostic evidence only.
+- M1757 audits the single remaining failure and admits a reset-only probe. The
+  failed row is workload index `461`, eval seed `175761`; partial M1756 rows
+  remain non-ranking and non-paper evidence.
 - Current next blocker:
-  `m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit`.
+  `m1758-single-sampling-failure-reset-only-feasibility-probe`.
