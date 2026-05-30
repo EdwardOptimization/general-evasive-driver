@@ -1,0 +1,175 @@
+{
+  "id": "m1798-executable-v2-label-source-compatibility-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_compatibility_preflight_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1797-executable-v2-label-source-compatibility-repair-design.md",
+      "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/sampling_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1797-executable-v2-label-source-compatibility-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-reset source-label compatibility preflight helper with focused tests"
+    ],
+    "derived_from": [
+      "m1797-executable-v2-label-source-compatibility-repair-design"
+    ],
+    "blocked_by": [
+      "M1797 admits implementation before execution or reset rerun"
+    ],
+    "supersedes": [
+      "manual filtering of M1794 failed rows",
+      "direct reset rerun without compatibility artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1798-executable-v2-label-source-compatibility-preflight-implementation.md",
+  "public_gates": [
+    "M1798 must implement a no-reset compatibility preflight helper and focused tests",
+    "M1798 must write or test source_label_support compatibility_violation sparse_failure compatible_specs replacement_need and claim_boundary outputs",
+    "M1798 must preserve v2 metadata profile controls and no-label-leakage guardrails",
+    "M1798 must not run the real M1790/M1794 preflight execution unless a later execution milestone admits it",
+    "M1798 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run the full compatibility preflight on project artifacts",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_label_source_compatibility_preflight_implementation",
+    "evidence_increment": "implements the no-reset compatibility helper needed before execution or reset rerun",
+    "claim_scope": "infrastructure implementation only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if focused tests cannot preserve v2 metadata",
+      "stop if helper cannot distinguish systematic and sparse failures",
+      "stop if helper drops profile controls",
+      "stop if implementation runs project artifact execution instead of tests"
+    ],
+    "fallback_plan": [
+      "route to design repair if metadata or profile-control requirements are inconsistent",
+      "route to adapter repair if helper output is not compatible with reset preflight input",
+      "route to execution design only after focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1797 admits compatibility preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-label compatibility preflight implementation",
+    "admission_evidence": [
+      "M1797 defines support statuses artifacts and deterministic repair rules"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run full project artifact execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source module and focused tests",
+      "M1798 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "metadata preservation is tested",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; compatibility helper is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Helper tests must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "focused synthetic fixtures only; no real reset execution.",
+    "negative_result_policy": "If implementation cannot preserve controls, route to design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "compatibility preflight implementation and focused tests",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset helper can convert executable v2 specs plus reset rows into compatibility support and quarantine artifacts while preserving v2 metadata and profile controls.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover supported_observed unsupported_systematic and sparse_fragile groups",
+    "tests verify compatible specs violation rows sparse rows replacement needs and claim boundary outputs",
+    "tests verify labels do not enter actor input and ranking remains blocked",
+    "no real environment reset or rollout is run"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "helper drops profile controls or v2 metadata",
+    "helper runs real reset or rollout",
+    "implementation changes actor inputs or tunes profiles"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_label_source_compatibility_preflight.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_label_source_compatibility_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_label_source_compatibility_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1798-executable-v2-label-source-compatibility-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_compatibility_preflight_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1797-executable-v2-label-source-compatibility-repair-design.md",
+    "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+    "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1798 passes if it implements and tests the no-reset compatibility helper without running real reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1798-executable-v2-label-source-compatibility-preflight-implementation"
+}

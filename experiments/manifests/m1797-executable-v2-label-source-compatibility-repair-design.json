@@ -163,6 +163,41 @@
     "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv",
     "runs/m1794_executable_v2_reset_feasibility_preflight/sampling_failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1797-executable-v2-label-source-compatibility-repair-design.md",
+    "decision": "label_source_compatibility_repair_design_admit_preflight_implementation",
+    "result_class": "label_source_compatibility_repair_design_complete",
+    "expected_input_spec_count": 312,
+    "expected_input_reset_row_count": 312,
+    "expected_compatible_spec_count": 272,
+    "expected_compatibility_violation_count": 36,
+    "expected_sparse_failure_count": 4,
+    "source_label_support_statuses": [
+      "supported_observed",
+      "unsupported_systematic",
+      "sparse_fragile",
+      "unobserved"
+    ],
+    "next_manifest": "experiments/manifests/m1798-executable-v2-label-source-compatibility-preflight-implementation.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1797 passes if it designs the compatibility repair and chooses a next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1797-executable-v2-label-source-compatibility-repair-design"
+  "next_blocker": "m1798-executable-v2-label-source-compatibility-preflight-implementation"
 }

@@ -29621,3 +29621,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - guardrail violation count: `0`
 - next: `m1797-executable-v2-label-source-compatibility-repair-design`
+
+## M1797 Executable V2 Label-Source Compatibility Repair Design
+
+- status: completed
+- decision: `label_source_compatibility_repair_design_admit_preflight_implementation`
+- artifact: `docs/m1797-executable-v2-label-source-compatibility-repair-design.md`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- expected input specs: `312`
+- expected compatible specs: `272`
+- expected compatibility violations: `36`
+- expected sparse failures: `4`
+- support statuses: `supported_observed`, `unsupported_systematic`, `sparse_fragile`, `unobserved`
+- required artifacts for implementation: `source_label_support.csv`, `compatibility_violation_rows.csv`, `sparse_failure_rows.csv`, `compatible_executable_v2_panel_specs.json`, `replacement_need_rows.csv`, `claim_boundary.csv`
+- measured execution admissible after design: `false`
+- controller-family ranking admissible after design: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset source-label compatibility repair design and implementation route
+- unsupported: repaired executable panel pass, reset rerun, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1798-executable-v2-label-source-compatibility-preflight-implementation.json`
+- next: `m1798-executable-v2-label-source-compatibility-preflight-implementation`
