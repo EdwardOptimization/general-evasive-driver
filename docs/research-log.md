@@ -30486,3 +30486,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project repair result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1825-executable-v2-stable-source-targeted-reset-sampler-repair.json`
 - next: `m1825-executable-v2-stable-source-targeted-reset-sampler-repair`
+
+## M1825 Executable V2 Stable Source Targeted Reset Sampler Repair
+
+- status: completed
+- decision: `stable_source_targeted_reset_sampler_repair_pass_route_to_result_audit`
+- artifact: `runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/summary.json`
+- docs: `docs/m1825-executable-v2-stable-source-targeted-reset-sampler-repair.md`
+- result class: `targeted_reset_sampler_repair_planner_pass`
+- input spec count: `36`
+- input reset row count: `36`
+- repair target source count: `3`
+- systematic source count: `2`
+- sparse source count: `1`
+- profile control count: `12`
+- repaired executable spec count: `36`
+- reset ready spec count: `36`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset source-level sampler repair planner result and repaired 36-row targeted reset payload
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit.json`
+- next: `m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit`
