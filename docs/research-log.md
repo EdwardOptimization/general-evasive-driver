@@ -27231,3 +27231,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1701-paper-route-controller-family-task-quality-calibration-design.json`
 - next: `m1701-paper-route-controller-family-task-quality-calibration-design`
+
+## M1701 Paper-Route Controller-Family Task-Quality Calibration Design
+
+- status: completed
+- decision: `task_quality_calibration_design_admit_no_rollout_preflight`
+- artifact: `docs/m1701-paper-route-controller-family-task-quality-calibration-design.md`
+- parent synthesis: `docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md`
+- branch: `paper_route_controller_family_task_quality_calibration`
+- calibration axes: `track_width_scale`, `finish_pass_distance`, `max_steps_scale`, `source_family`, `task_family`
+- planned track-width scales: `1.0`, `1.5`, `2.0`
+- raw matrix scale before later pruning: `10368` cells
+- guardrails: no rollout in design, no profile-specific tuning, no private holdout, no actor input changes, no ranking claim
+- supported: a no-rollout calibration matrix preflight is justified before further measured execution
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1702-paper-route-controller-family-task-quality-calibration-preflight.json`
+- next: `m1702-paper-route-controller-family-task-quality-calibration-preflight`

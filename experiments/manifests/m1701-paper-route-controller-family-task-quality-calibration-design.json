@@ -151,6 +151,38 @@
     "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
     "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+    "decision": "task_quality_calibration_design_admit_no_rollout_preflight",
+    "calibration_axes": [
+      "track_width_scale",
+      "finish_pass_distance",
+      "max_steps_scale",
+      "source_family",
+      "task_family"
+    ],
+    "track_width_scales": [
+      1.0,
+      1.5,
+      2.0
+    ],
+    "finish_variant_count": 2,
+    "max_steps_variant_count": 2,
+    "raw_matrix_cell_count": 10368,
+    "environment_rollout_started": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1702-paper-route-controller-family-task-quality-calibration-preflight.json"
+  },
   "decision_rule": "M1701 passes if it writes a calibrated task-quality design and routes to a separate preflight before any execution or ranking.",
-  "next_blocker": "m1701-paper-route-controller-family-task-quality-calibration-design"
+  "next_blocker": "m1702-paper-route-controller-family-task-quality-calibration-preflight"
 }

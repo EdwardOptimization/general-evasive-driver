@@ -10750,5 +10750,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   `paper_route_controller_family_task_source_generation` to
   `paper_route_controller_family_task_quality_calibration`. The current
   executable rollout pipeline is useful, but not yet a ranking benchmark.
+- M1701 designs the task-quality calibration route: outcome-conditional metrics,
+  track-width variants `1.0/1.5/2.0`, finish/pass semantics checks, max-step
+  variants, source/spec stratification, and no profile-specific tuning.
 - Current next blocker:
-  `m1701-paper-route-controller-family-task-quality-calibration-design`.
+  `m1702-paper-route-controller-family-task-quality-calibration-preflight`.
