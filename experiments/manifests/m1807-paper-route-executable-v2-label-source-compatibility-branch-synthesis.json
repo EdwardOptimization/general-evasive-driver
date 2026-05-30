@@ -191,6 +191,41 @@
     "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
     "runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+    "decision": "continue_to_stable_source_materialization_design",
+    "workflow_synthesis_decision": "continue",
+    "synthesized_range": "M1797-M1806",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "evidence_summary": "M1797-M1806 produced clean source-label compatibility and stable top-up planning infrastructure, then M1805/M1806 showed zero trusted direct replacements for the three stable gaps.",
+    "supported_claim": "source-label compatibility repair is coherent and stable source materialization is the next technical repair direction.",
+    "falsified_claim": "existing stable source metadata contains trusted direct replacements for all unsupported stable label-source groups.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "next_manifest": "experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1807 passes if it synthesizes M1797-M1806 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
+  "next_blocker": "m1808-executable-v2-stable-source-materialization-design"
 }

@@ -1,0 +1,170 @@
+{
+  "id": "m1808-executable-v2-stable-source-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_materialization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_topup_candidate_rows.csv",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design no-reset stable source materialization for three missing source-label support groups"
+    ],
+    "derived_from": [
+      "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1805/M1806 show direct_replacement_count == 0 and new_materialization_need_count == 3"
+    ],
+    "supersedes": [
+      "direct reset rerun with missing stable sources",
+      "direct materialization without source provenance and guardrail design",
+      "controller-family ranking before reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1808-executable-v2-stable-source-materialization-design.md",
+  "public_gates": [
+    "M1808 must design stable source materialization without running reset or rollout",
+    "M1808 must define materialization targets source provenance duplicate avoidance profile-control preservation and no-label-leakage checks",
+    "M1808 must choose the next implementation or repair route explicitly",
+    "M1808 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not materialize source artifacts",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_materialization_design",
+    "evidence_increment": "designs source materialization after M1807 synthesis confirms zero direct replacements",
+    "claim_scope": "source materialization design only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if materialization would use labels as actor inputs",
+      "stop if target source rules depend on profile-specific tuning",
+      "stop if duplicate avoidance or provenance cannot be stated",
+      "stop if route jumps directly to measured execution or ranking"
+    ],
+    "fallback_plan": [
+      "route to source-pool audit if materialization fields are insufficient",
+      "route to targeted reset-probe design if source materialization is unnecessary",
+      "route to implementation only after materialization contract is fixed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1807 synthesis continues the branch toward stable source materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source materialization design",
+    "admission_evidence": [
+      "M1807 synthesis continues toward stable source materialization",
+      "M1805 leaves three stable new-materialization needs and zero direct replacements"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not materialize source artifacts",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1808 design document",
+      "M1808 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation, audit, or repair"
+    ],
+    "next_stage_criteria": [
+      "materialization targets are explicit",
+      "source provenance and duplicate avoidance are explicit",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization design covers task-quality source support.",
+    "history_necessity_tests": [
+      "Design must preserve all profile controls for later L1/L2/L3 comparisons."
+    ],
+    "temporal_evidence_window": "M1805/M1807 public artifacts only.",
+    "negative_result_policy": "If materialization cannot be designed cleanly, route to source-pool audit or stop rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source materialization design and route decision",
+      "no reset, rollout, measured rollout, source materialization execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset stable source materialization design can specify how to create or select trusted source-label support for the three stable gaps without profile tuning or label leakage.",
+  "success_criteria": [
+    "docs/m1808-executable-v2-stable-source-materialization-design.md exists",
+    "design lists all three stable materialization targets",
+    "design specifies source provenance duplicate avoidance profile-control preservation and no-label-leakage checks",
+    "design keeps reset measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits any stable materialization target",
+    "design relies on metadata-only unsupported candidates as direct replacements",
+    "design changes actor inputs reward dynamics or termination behavior",
+    "design routes directly to measured execution or ranking"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1808-executable-v2-stable-source-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1808-executable-v2-stable-source-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+    "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+  ],
+  "decision_rule": "M1808 passes if it designs stable source materialization without reset, rollout, materialization execution, ranking, or paper-level claims.",
+  "next_blocker": "m1808-executable-v2-stable-source-materialization-design"
+}

@@ -29908,3 +29908,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility pass, stable source materialization result, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json`
 - next: `m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis`
+
+## M1807 Paper-Route Executable V2 Label-Source Compatibility Branch Synthesis
+
+- status: completed
+- decision: `continue_to_stable_source_materialization_design`
+- workflow synthesis decision: `continue`
+- synthesized range: `M1797-M1806`
+- artifact: `docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- primary evidence: M1800 compatibility preflight produced 272 compatible rows 36 systematic stable violations 4 sparse hidden-robust failures
+- stable top-up evidence: M1805 produced 3 targets 5 candidate rows zero direct replacements and 3 new materialization needs
+- supported: source-label compatibility infrastructure is coherent and stable source materialization is the next technical repair direction
+- falsified: existing stable source metadata contains trusted direct replacements for all unsupported stable source-label groups
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- public gate overfit risk: `high`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- unsupported: repaired reset feasibility pass, stable source materialization result, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json`
+- next: `m1808-executable-v2-stable-source-materialization-design`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1815,
+    "completed": 1816,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md",
+    "command_log": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1806-executable-v2-stable-source-label-topup-result-audit"
+    "task_id": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json",
-    "hypothesis": "The M1797-M1806 executable v2 label-source compatibility branch should synthesize before stable source materialization because the 10-milestone cadence has been reached and M1805/M1806 leave zero direct replacements.",
-    "id": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+    "command": "see experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json",
+    "hypothesis": "A no-reset stable source materialization design can specify how to create or select trusted source-label support for the three stable gaps without profile tuning or label leakage.",
+    "id": "m1808-executable-v2-stable-source-materialization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize compatibility repair branch before stable source materialization or reset rerun",
-    "priority": 18020,
+    "notes": "Pending: design stable source materialization before implementation or reset probes",
+    "priority": 18030,
     "status": "pending",
-    "success_artifact": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
+    "success_artifact": "docs/m1808-executable-v2-stable-source-materialization-design.md"
   },
-  "updated_at_utc": "20260530T111500Z"
+  "updated_at_utc": "20260530T112000Z"
 }
