@@ -1,0 +1,187 @@
+{
+  "id": "m1859-executable-v2-support-first-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_materialization_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1858-executable-v2-support-first-materialization-design.md",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_accepted_cells.csv",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
+      "configs/executable_v2_support_first_candidate_templates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1858-executable-v2-support-first-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset bounded materialization helper and tests"
+    ],
+    "derived_from": [
+      "m1858-executable-v2-support-first-materialization-design"
+    ],
+    "blocked_by": [
+      "M1858 admits bounded materialization implementation"
+    ],
+    "supersedes": [
+      "direct materialization of all accepted cells"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1859-executable-v2-support-first-materialization-implementation.md",
+  "public_gates": [
+    "M1859 must implement bounded materialization helper without running project materialization execution",
+    "M1859 must select supported sources only",
+    "M1859 must enforce source and cell caps",
+    "M1859 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project materialization execution",
+    "do not rerun source mining",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_materialization",
+    "evidence_axis": "Q_support_first_materialization_implementation",
+    "evidence_increment": "implements no-reset bounded materialization helper and tests without project materialization execution",
+    "claim_scope": "implementation only; no project materialization execution, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if helper uses unsupported sources",
+      "stop if helper exceeds materialization caps",
+      "stop if labels enter actor inputs",
+      "stop if implementation runs reset or measured execution"
+    ],
+    "fallback_plan": [
+      "repair helper if focused tests fail",
+      "route to execution design if implementation passes",
+      "route to materialization design repair if schema is incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1858 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first materialization helper implementation",
+    "admission_evidence": [
+      "M1858 specifies source and cell selection caps"
+    ],
+    "blocked_shortcuts": [
+      "do not run project materialization execution",
+      "do not rerun source mining",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_support_first_materialization.py",
+      "tests/test_executable_v2_support_first_materialization.py",
+      "M1859 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for materialization execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "full pytest passes",
+      "project materialization execution remains blocked until execution design"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1858 design only; no reset or rollout.",
+    "negative_result_policy": "Unsupported sources remain blocked rather than being repaired by weakening labels.",
+    "allowed_claims": [
+      "support-first materialization helper implementation",
+      "no project materialization execution, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset helper can implement bounded support-first materialization without using unsupported sources or changing actor inputs.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_materialization.py exists",
+    "tests/test_executable_v2_support_first_materialization.py exists",
+    "focused tests and full pytest pass",
+    "implementation routes to materialization execution design without running project materialization reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "helper is missing",
+    "tests are missing",
+    "helper uses unsupported sources",
+    "helper exceeds source or cell caps",
+    "helper changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "edit src/autodrift/executable_v2_support_first_materialization.py and tests/test_executable_v2_support_first_materialization.py"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_support_first_materialization.py -q"
+    },
+    {
+      "name": "full_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1859-executable-v2-support-first-materialization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_materialization_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1858-executable-v2-support-first-materialization-design.md",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_accepted_cells.csv",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
+    "configs/executable_v2_support_first_candidate_templates_v0.json"
+  ],
+  "decision_rule": "M1859 passes if it implements bounded materialization helper and tests without project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1859-executable-v2-support-first-materialization-implementation"
+}

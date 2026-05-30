@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1866,
+    "completed": 1867,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1857-executable-v2-support-first-source-mining-result-audit.md",
+    "command_log": "docs/m1858-executable-v2-support-first-materialization-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1857-executable-v2-support-first-source-mining-result-audit"
+    "task_id": "m1858-executable-v2-support-first-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1858-executable-v2-support-first-materialization-design.json",
-    "hypothesis": "A bounded materialization design can convert supported source evidence into executable-v2 candidate rows without biasing or over-expanding the corpus.",
-    "id": "m1858-executable-v2-support-first-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded materialization from supported source evidence",
-    "priority": 18530,
+    "command": "see experiments/manifests/m1859-executable-v2-support-first-materialization-implementation.json",
+    "hypothesis": "A no-reset helper can implement bounded support-first materialization without using unsupported sources or changing actor inputs.",
+    "id": "m1859-executable-v2-support-first-materialization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded materialization helper and tests",
+    "priority": 18540,
     "status": "pending",
-    "success_artifact": "docs/m1858-executable-v2-support-first-materialization-design.md"
+    "success_artifact": "docs/m1859-executable-v2-support-first-materialization-implementation.md"
   },
-  "updated_at_utc": "20260530T132728Z"
+  "updated_at_utc": "20260530T133000Z"
 }

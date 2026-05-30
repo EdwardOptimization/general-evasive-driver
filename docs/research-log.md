@@ -31521,3 +31521,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1858-executable-v2-support-first-materialization-design.json`
 - next: `m1858-executable-v2-support-first-materialization-design`
+
+## M1858 Executable V2 Support-First Materialization Design
+
+- status: completed
+- decision: `support_first_materialization_design_admit_implementation`
+- artifact: `docs/m1858-executable-v2-support-first-materialization-design.md`
+- materialization contract id: `support_first_materialization_v0`
+- max sources per role: `24`
+- max sources per role surface: `12`
+- max cells per source: `2`
+- expected selected source cap: `96`
+- expected materialized row cap: `192`
+- materialized executable-v2 rows generated: `false`
+- source mining rerun: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: bounded materialization design source/cell caps row schema M1859 implementation route
+- unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1859-executable-v2-support-first-materialization-implementation.json`
+- next: `m1859-executable-v2-support-first-materialization-implementation`
