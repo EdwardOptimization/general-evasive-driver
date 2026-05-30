@@ -154,6 +154,43 @@
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/unsupported_metric_gaps.csv",
     "docs/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.md",
+    "decision": "materialization_audit_route_to_metric_instrumentation_design",
+    "audited_result_class": "task_quality_outcome_semantics_materialization_preflight_pass",
+    "scenario_spec_count": 72,
+    "scenario_matrix_cell_count": 864,
+    "evaluation_role_counts": {
+      "benchmark": 36,
+      "diagnostic_stress": 24,
+      "mitigation_diagnostic": 12
+    },
+    "matrix_evaluation_role_counts": {
+      "benchmark": 432,
+      "diagnostic_stress": 288,
+      "mitigation_diagnostic": 144
+    },
+    "unsupported_metric_gap_count": 7,
+    "benchmark_critical_gap_count": 3,
+    "direct_execution_admitted": false,
+    "bounded_supported_panel_admitted_as_main_route": false,
+    "metric_instrumentation_design_admitted": true,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_metric_gaps_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json"
+  },
   "decision_rule": "M1744 passes if it audits M1743 and chooses a route without treating unsupported metric gaps as covered.",
-  "next_blocker": "m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit"
+  "next_blocker": "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
 }

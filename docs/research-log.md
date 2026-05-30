@@ -28065,3 +28065,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout result, controller-family ranking, profile promotion, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.json`
 - next: `m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit`
+
+## M1744 Paper-Route Task-Quality Outcome Semantics Materialization Preflight Result Audit
+
+- status: completed
+- decision: `materialization_audit_route_to_metric_instrumentation_design`
+- artifact: `docs/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.md`
+- audited preflight: `runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json`
+- audited result class: `task_quality_outcome_semantics_materialization_preflight_pass`
+- scenario specs: `72`
+- scenario matrix cells: `864`
+- evaluation-role counts: benchmark `36`, diagnostic stress `24`, mitigation diagnostic `12`
+- matrix-role counts: benchmark `432`, diagnostic stress `288`, mitigation diagnostic `144`
+- unsupported metric gaps: `7`
+- benchmark-critical gaps: `3`
+- direct execution admitted: `false`
+- bounded supported-only panel admitted as main route: `false`
+- metric instrumentation design admitted: `true`
+- guardrail violation count: `0`
+- supported: M1743 materialization is complete and gap-clean
+- unsupported: direct execution, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json`
+- next: `m1745-paper-route-task-quality-outcome-metric-instrumentation-design`

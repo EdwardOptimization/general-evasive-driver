@@ -10948,5 +10948,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   diagnostic-stress cells, and `144` mitigation-diagnostic cells. This is
   metadata-only evidence; it is not a rollout result, profile ranking,
   paper-level result, or level3 self-identification result.
+- M1744 audits M1743 as clean materialization but blocks direct revised
+  execution. The seven explicit metric gaps include benchmark-critical
+  recovery, recovery-time, and controlled-drift-recovery definitions; direct
+  execution would silently narrow the revised semantics.
 - Current next blocker:
-  `m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit`.
+  `m1745-paper-route-task-quality-outcome-metric-instrumentation-design`.
