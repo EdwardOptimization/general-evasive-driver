@@ -178,6 +178,46 @@
     "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
     "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json",
+    "docs_artifact": "docs/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md",
+    "decision": "reset_time_aes_feasibility_scan_no_support_route_to_result_audit",
+    "result_class": "reset_time_aes_feasibility_scan_no_support",
+    "target_source_count": 2,
+    "target_profile_count_total": 24,
+    "feasible_profile_count_total": 0,
+    "feasible_source_count": 0,
+    "grid_cell_count_total": 175680,
+    "accepted_cell_count_total": 0,
+    "label_counts": {
+      "aeb_feasible": 159820,
+      "drift_required": 284,
+      "unavoidable": 15576
+    },
+    "reject_reason_counts": {
+      "aeb_feasible_rejected": 159820,
+      "label_not_allowed": 15860
+    },
+    "expected_source_match": true,
+    "expected_profile_match": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.json"
+  },
   "decision_rule": "M1843 passes if it writes complete feasibility scan artifacts for all 24 failed AES rows without reset, rollout, ranking, paper-level claims, or repair payload generation.",
-  "next_blocker": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution"
+  "next_blocker": "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit"
 }

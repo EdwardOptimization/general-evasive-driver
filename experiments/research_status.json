@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1851,
+    "completed": 1852,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
+    "command_log": "docs/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design"
+    "task_id": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_reset_time_aes_feasibility_scan --repaired-specs runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json --reset-rows runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1843_executable_v2_reset_time_aes_feasibility_scan --distance-min 1.0 --distance-max 60.0 --distance-count 120 --half-width-min 0.2 --half-width-max 1.4 --half-width-count 61 --max-boundary-examples-per-profile 8 --expected-target-source-count 2 --expected-target-profile-count-total 24 --next-blocker m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit",
-    "hypothesis": "The M1841 helper can scan all 24 M1828 failed AES rows across two sources over a 120x61 obstacle grid without running environment reset or rollout.",
-    "id": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-reset feasibility scan command from M1842",
-    "priority": 18380,
+    "command": "see experiments/manifests/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.json",
+    "hypothesis": "M1843's zero accepted AES-only cells can be audited as a clean no-support result for the current source-repair route, unless count tables reveal a scan/filter artifact.",
+    "id": "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit no-support scan result and choose next route",
+    "priority": 18390,
     "status": "pending",
-    "success_artifact": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+    "success_artifact": "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md"
   },
-  "updated_at_utc": "20260530T122714Z"
+  "updated_at_utc": "20260530T123055Z"
 }

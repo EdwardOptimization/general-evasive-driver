@@ -31034,3 +31034,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.json`
 - next: `m1843-executable-v2-reset-time-aes-feasibility-scan-execution`
+
+## M1843 Executable V2 Reset-Time AES Feasibility Scan Execution
+
+- status: completed
+- decision: `reset_time_aes_feasibility_scan_no_support_route_to_result_audit`
+- artifact: `runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json`
+- docs artifact: `docs/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md`
+- result class: `reset_time_aes_feasibility_scan_no_support`
+- target source count: `2`
+- target profile count total: `24`
+- feasible profile count total: `0`
+- feasible source count: `0`
+- grid cell count total: `175680`
+- accepted cell count total: `0`
+- label counts: `aeb_feasible=159820`, `drift_required=284`, `unavoidable=15576`
+- reject reason counts: `aeb_feasible_rejected=159820`, `label_not_allowed=15860`
+- expected source/profile match: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset feasibility scan execution result for M1825/M1828 target rows
+- unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.json`
+- next: `m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit`

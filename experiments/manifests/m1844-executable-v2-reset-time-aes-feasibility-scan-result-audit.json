@@ -1,0 +1,171 @@
+{
+  "id": "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_scan_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.json"
+    ],
+    "parent_objective": [
+      "audit no-support feasibility scan result and choose next route"
+    ],
+    "derived_from": [
+      "m1843-executable-v2-reset-time-aes-feasibility-scan-execution"
+    ],
+    "blocked_by": [
+      "M1843 found zero accepted AES-only cells across all target profiles"
+    ],
+    "supersedes": [
+      "source repair v3 from nonexistent accepted cells",
+      "reset preflight after no-support scan",
+      "claiming source repair impossibility without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+  "public_gates": [
+    "M1844 must audit M1843 no-support evidence before any repair or pivot",
+    "M1844 must classify whether the failure is source/task support absence or scan/design artifact",
+    "M1844 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_reset_time_aes_feasibility_scan_result_audit",
+    "evidence_increment": "audits whether M1843 no-support scan closes the current source-repair route or exposes scan/task design gaps",
+    "claim_scope": "result audit only; no new scan, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if audit shows no accepted cells are due to scan implementation error",
+      "stop if audit cannot distinguish source/task no-support from filter artifact",
+      "stop if branch synthesis is required before further repair",
+      "stop if audit would run reset or source repair"
+    ],
+    "fallback_plan": [
+      "route to helper repair if M1843 no-support is a scan artifact",
+      "route to task/source metadata pivot if current sources lack AES-only support",
+      "route to branch synthesis if this branch has exhausted actionable repair evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1843 no-support result after M1833/M1838 static failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES feasibility scan result audit",
+    "admission_evidence": [
+      "M1843 scan completed with zero accepted AES-only cells across 175680 grid cells"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact feasibility scan",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1844 audit doc",
+      "M1844 status queue scoreboard research log and review",
+      "one follow-up manifest for branch synthesis or task/source redesign"
+    ],
+    "next_stage_criteria": [
+      "audit classifies the no-support result",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1843 scan artifacts only; no reset or rollout.",
+    "negative_result_policy": "Record no-support evidence as task/source design evidence and route explicitly rather than weakening labels.",
+    "allowed_claims": [
+      "reset-time AES feasibility scan result audit",
+      "no source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1843's zero accepted AES-only cells can be audited as a clean no-support result for the current source-repair route, unless count tables reveal a scan/filter artifact.",
+  "success_criteria": [
+    "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md exists",
+    "audit records M1843 result_class target counts grid count accepted-cell count label counts and guardrails",
+    "audit classifies no-support as source/task support absence or scan/filter artifact",
+    "audit chooses explicit next route without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit reruns scan reset or rollout",
+    "audit routes to source repair v3 despite zero accepted cells without justification",
+    "audit makes controller ranking or paper-level claims",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_scan_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_label_counts.csv",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_reject_reason_counts.csv"
+  ],
+  "decision_rule": "M1844 passes if it audits the M1843 no-support result and chooses a next route without scan, reset, rollout, ranking, paper-level claims, or repair payload generation.",
+  "next_blocker": "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit"
+}
