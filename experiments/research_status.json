@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1702,
+    "completed": 1703,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1693-paper-route-controller-family-full-rollout-execution.md",
+    "command_log": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1693_controller_family_full_rollout_execution",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1693-paper-route-controller-family-full-rollout-execution"
+    "task_id": "m1694-paper-route-controller-family-full-rollout-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json",
-    "hypothesis": "M1693 can be audited as a clean public execution pass and routed to the next paper-route step without overclaiming raw controller-family diagnostics.",
-    "id": "m1694-paper-route-controller-family-full-rollout-result-audit",
+    "command": "see experiments/manifests/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.json",
+    "hypothesis": "A logging-only termination/completion instrumentation design can make the M1693-style rollout interpretable without changing actor inputs or policy behavior.",
+    "id": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design",
     "kind": "gate",
-    "notes": "Pending: audit full rollout artifacts diagnostic comparison caveats and next route before ranking claims",
-    "priority": 16890,
+    "notes": "Pending: design termination reason and completion outcome logging without actor input changes or ranking claims",
+    "priority": 16900,
     "status": "pending",
-    "success_artifact": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md"
+    "success_artifact": "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md"
   },
-  "updated_at_utc": "20260530T001516Z"
+  "updated_at_utc": "20260530T002149Z"
 }

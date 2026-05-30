@@ -10708,5 +10708,15 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1693 is execution evidence only. Raw profile/comparison diagnostics are not
   controller-family ranking, paper-level evidence, private-holdout evidence, or
   level3 self-identification evidence until audited.
+- M1694 audits M1693 as a clean execution pass, but blocks raw controller-family
+  interpretation. The dominant outcome bucket is `794/864` terminated
+  non-collision non-completion rows with high mean clearance margin, and M1693
+  rows do not record termination reason.
+- M1694 diagnostic caveat: L2 normal versus current-tiled has zero success-rate
+  deltas across all four windows, and `L3_reset_control_corrected` has higher
+  raw success than `L3_online_gru` on this workload. This is not recurrent
+  advantage evidence.
+- M1694 routes to logging-only outcome-semantics instrumentation design before
+  any ranking or paper-route comparison claim.
 - Current next blocker:
-  `m1694-paper-route-controller-family-full-rollout-result-audit`.
+  `m1695-paper-route-controller-family-outcome-semantics-instrumentation-design`.

@@ -157,6 +157,29 @@
     "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv",
     "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+    "decision": "full_rollout_audit_pass_route_to_outcome_semantics_instrumentation_design",
+    "m1693_result_class": "controller_family_full_rollout_execution_pass",
+    "episode_count": 864,
+    "profile_count": 12,
+    "spec_count": 72,
+    "failure_count": 0,
+    "all_selected_metrics_finite": true,
+    "guardrail_violation_count": 0,
+    "success_count": 32,
+    "collision_failure_count": 38,
+    "terminated_noncollision_noncompletion_count": 794,
+    "terminated_noncollision_noncompletion_share": 0.9189814814814815,
+    "zero_success_spec_count": 46,
+    "l2_normal_vs_current_tiled_success_deltas_all_zero": true,
+    "l3_online_minus_l3_reset_success_delta": -0.06944444444444445,
+    "raw_controller_family_ranking_admitted": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.json"
+  },
   "decision_rule": "M1694 passes if it audits M1693 as a clean execution result or records explicit artifact/task-quality caveats and routes to the next milestone without overclaiming.",
-  "next_blocker": "m1694-paper-route-controller-family-full-rollout-result-audit"
+  "next_blocker": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design"
 }

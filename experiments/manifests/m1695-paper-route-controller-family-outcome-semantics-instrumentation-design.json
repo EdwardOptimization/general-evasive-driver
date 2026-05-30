@@ -1,0 +1,156 @@
+{
+  "id": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+      "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+      "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json"
+    ],
+    "parent_objective": [
+      "design outcome-semantics instrumentation before interpreting M1693 controller-family diagnostics"
+    ],
+    "derived_from": [
+      "m1694-paper-route-controller-family-full-rollout-result-audit"
+    ],
+    "blocked_by": [
+      "M1693 has 794 terminated non-collision non-completion rows without termination reason, so raw success is not interpretable enough for ranking"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M1693 raw success",
+      "direct recurrent-advantage claim from M1693 L3/L2 comparisons"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md",
+  "public_gates": [
+    "M1695 must design but not yet execute the outcome-semantics instrumentation route",
+    "M1695 must identify which termination/completion fields are missing from M1693 rows",
+    "M1695 must preserve the P0 actor input contract and keep instrumentation in info/logging only",
+    "M1695 must specify whether the next step is a lightweight re-run, a replay-free row relabel, or an instrumentation implementation",
+    "M1695 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles from M1693 diagnostics",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_outcome_semantics_instrumentation_design",
+    "evidence_increment": "designs the instrumentation needed to interpret M1693 non-collision non-completion outcomes",
+    "claim_scope": "instrumentation design only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design would add actor inputs",
+      "stop if termination reason cannot be logged without changing policy behavior",
+      "stop if the design does not distinguish collision, obstacle pass, off-track, speed, yaw-rate, non-finite, and max-step outcomes",
+      "stop if it still permits direct ranking from M1693 raw success"
+    ],
+    "fallback_plan": [
+      "route to instrumentation implementation if design is clean",
+      "route to task-definition audit if success/completion semantics are ambiguous",
+      "route to branch synthesis if the current workload is judged unsuitable for controller-family comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1694 identifies outcome semantics as the blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design outcome-semantics instrumentation",
+    "admission_evidence": [
+      "M1694 audits M1693 and finds 794 terminated non-collision non-completion rows without termination reason"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1695 instrumentation design document",
+      "M1695 status queue scoreboard research log and review",
+      "one follow-up instrumentation implementation or task-definition audit manifest"
+    ],
+    "next_stage_criteria": [
+      "termination and completion fields are specified",
+      "logging-only contract boundary is explicit",
+      "next implementation or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1695 is instrumentation design and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, L3-online, and L3-reset comparison rows for later audit"
+    ],
+    "temporal_evidence_window": "M1694 audit of M1693 public rollout.",
+    "negative_result_policy": "If instrumented rerun still shows reset/current-tiled controls matching history profiles, record that as a history-necessity gap rather than weakening the claim standard.",
+    "allowed_claims": [
+      "outcome-semantics instrumentation design",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A logging-only termination/completion instrumentation design can make the M1693-style rollout interpretable without changing actor inputs or policy behavior.",
+  "success_criteria": [
+    "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md exists",
+    "design specifies termination_reason values",
+    "design specifies completion/outcome buckets",
+    "design preserves actor input contract and changes logging/info only",
+    "design states whether rerun or row relabel is required",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design changes actor inputs",
+    "design cannot distinguish dominant M1693 non-collision non-completion outcomes",
+    "design allows ranking from raw M1693 success without instrumentation",
+    "design routes directly to training or profile tuning",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write outcome-semantics instrumentation design without executing rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+    "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+    "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+    "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv"
+  ],
+  "decision_rule": "M1695 passes if it writes a logging-only outcome-semantics instrumentation design and routes to a follow-up implementation or task-definition audit without overclaiming.",
+  "next_blocker": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design"
+}

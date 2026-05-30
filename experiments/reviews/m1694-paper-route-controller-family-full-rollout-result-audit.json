@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1694 audits M1693 as a clean execution pass but blocks raw controller-family ranking because dominant noncollision noncompletion outcomes lack termination reason",
+  "failure_criteria": [
+    "audit omits required M1693 artifacts",
+    "audit interprets M1693 raw diagnostics as controller-family ranking or paper-level evidence",
+    "audit ignores reset/current-tiled controls",
+    "audit routes to training or profile tuning without a design milestone",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles from M1693 diagnostics",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T002323Z",
+  "hypothesis": "M1693 can be audited as a clean public execution pass and routed to the next paper-route step without overclaiming raw controller-family diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "need result audit before interpreting controller-family comparison aggregates or selecting the next paper-route branch"
+    ],
+    "derived_from": [
+      "m1693-paper-route-controller-family-full-rollout-execution"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json"
+    ],
+    "parent_dataset": [
+      "runs/m1693_controller_family_full_rollout_execution/summary.json",
+      "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+      "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv"
+    ],
+    "parent_objective": [
+      "audit the completed 864-cell public controller-family rollout before interpretation or next route"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M1693 raw aggregates",
+      "direct recurrent-advantage claim from M1693 raw aggregates"
+    ]
+  },
+  "milestone": "m1694-paper-route-controller-family-full-rollout-result-audit",
+  "next_blocker": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "full_rollout_audit_pass_route_to_outcome_semantics_instrumentation_design",
+  "public_gates": [
+    "M1694 must audit M1693 required artifacts, counts, finite metrics, failure rows, and guardrails",
+    "M1694 may inspect diagnostic profile/spec/stratum/comparison aggregates but must not treat them as private-holdout or paper-level evidence",
+    "M1694 must classify whether the rollout is a clean execution pass, an execution artifact failure, or a task-quality/comparison-semantics issue",
+    "M1694 must route to the next explicit design, synthesis, repair, or scenario-quality audit before any ranking claim"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "full_rollout_audit_pass_route_to_outcome_semantics_instrumentation_design",
+    "milestone": "m1694-paper-route-controller-family-full-rollout-result-audit",
+    "reason": "M1694 audits M1693 as a clean execution pass but blocks raw controller-family ranking because dominant noncollision noncompletion outcomes lack termination reason",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md exists",
+    "M1693 required artifacts are verified",
+    "M1693 counts finite metrics failure rows and guardrails are audited",
+    "diagnostic aggregate interpretation caveats are recorded",
+    "next route is explicit",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

@@ -27116,3 +27116,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json`
 - next: `m1694-paper-route-controller-family-full-rollout-result-audit`
+
+## M1694 Paper-Route Controller-Family Full Rollout Result Audit
+
+- status: completed
+- decision: `full_rollout_audit_pass_route_to_outcome_semantics_instrumentation_design`
+- artifact: `docs/m1694-paper-route-controller-family-full-rollout-result-audit.md`
+- audited M1693 result class: `controller_family_full_rollout_execution_pass`
+- episodes / profiles / specs / failures: `864` / `12` / `72` / `0`
+- guardrail violation count: `0`
+- outcome buckets: success `32`, collision failure `38`, terminated non-collision non-completion `794`
+- key caveat: M1693 lacks termination reason, so the dominant non-collision non-completion bucket cannot be interpreted as a controller-quality ranking
+- diagnostic caveat: L2 normal versus current-tiled success deltas are all `0.0`; `L3_online_gru` minus `L3_reset_control_corrected` success delta is `-0.0694`
+- supported: M1693 is a clean execution pass and a useful diagnostic dataset
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.json`
+- next: `m1695-paper-route-controller-family-outcome-semantics-instrumentation-design`
