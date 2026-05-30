@@ -16,20 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1685-paper-route-controller-family-measured-execution-design
+m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1686-paper-route-controller-family-measured-routing-smoke
+m1704-paper-route-controller-family-bounded-calibration-smoke-design
 ```
 
-M1685 designed the measured execution route and chose a staged path: first run a
-small public routing smoke, then audit it, then decide whether to scale to the
-full 864-cell public rollout. The next task is M1686: execute 12 profiles over a
-small executable task-source subset as routing-smoke evidence only, with no
-training, PPO, promotion, private holdout, or controller ranking.
+M1702 materialized the no-rollout task-quality calibration matrix: `72` base
+specs, `864` calibration specs, `12` controller-family profiles, and `10368`
+matrix cells, with zero P0 contract violations and no rollout. M1703 audited the
+matrix as clean metadata but blocked direct full-matrix execution. The next task
+is M1704: design a bounded diagnostic calibration smoke subset before any
+measured execution, without training, PPO, replay, promotion, private holdout,
+actor-input changes, profile-specific tuning, or controller-family ranking.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

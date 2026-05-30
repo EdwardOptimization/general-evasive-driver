@@ -27266,3 +27266,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.json`
 - next: `m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit`
+
+## M1703 Paper-Route Controller-Family Task-Quality Calibration Preflight Result Audit
+
+- status: completed
+- decision: `calibration_preflight_audit_admit_bounded_smoke_design`
+- artifact: `docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md`
+- audited M1702 result class: `controller_family_task_quality_calibration_preflight_pass`
+- base executable specs: `72`
+- calibration specs: `864`
+- profiles: `12`
+- calibration matrix cells: `10368`
+- contract violation count: `0`
+- missing profile artifact count: `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- coverage: track-width scales balanced at `288` specs each, finish variants balanced at `432` specs each, max-step scales balanced at `432` specs each, and each controller profile appears in `864` matrix rows
+- interpretation: the metadata matrix is clean but too large for the next step; direct full-matrix rollout would mix task-quality calibration with controller-family ranking before outcome modes are interpretable
+- supported: no-rollout calibration matrix is complete and P0 contract-clean; bounded calibration smoke design is admitted
+- unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1704-paper-route-controller-family-bounded-calibration-smoke-design.json`
+- next: `m1704-paper-route-controller-family-bounded-calibration-smoke-design`

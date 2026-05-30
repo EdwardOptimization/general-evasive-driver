@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1711,
+    "completed": 1712,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1702-paper-route-controller-family-task-quality-calibration-preflight.md",
+    "command_log": "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1702_controller_family_task_quality_calibration_preflight",
     "status": "completed",
-    "task_id": "m1702-paper-route-controller-family-task-quality-calibration-preflight"
+    "task_id": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.json",
-    "hypothesis": "M1702 can be audited as a clean no-rollout calibration preflight and routed to bounded calibration smoke design.",
-    "id": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit",
+    "command": "see experiments/manifests/m1704-paper-route-controller-family-bounded-calibration-smoke-design.json",
+    "hypothesis": "A bounded diagnostic calibration smoke can be designed from M1702 to test whether calibration axes reduce off-track dominance without ranking controllers.",
+    "id": "m1704-paper-route-controller-family-bounded-calibration-smoke-design",
     "kind": "gate",
-    "notes": "Pending: audit calibration matrix counts contract checks scale and next bounded smoke route",
-    "priority": 16980,
+    "notes": "Pending: design bounded smoke subset metrics and controls before execution",
+    "priority": 16990,
     "status": "pending",
-    "success_artifact": "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md"
+    "success_artifact": "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md"
   },
-  "updated_at_utc": "20260530T005414Z"
+  "updated_at_utc": "20260530T005808Z"
 }
