@@ -158,6 +158,52 @@
     "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
     "runs/m1861_executable_v2_support_first_materialization/support_first_materialization_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
+    "decision": "materialization_result_clean_admit_reset_validation_design",
+    "input_supported_source_count": 202,
+    "selected_source_count": 90,
+    "materialized_spec_count": 180,
+    "materialization_matrix_row_count": 180,
+    "duplicate_key_count": 0,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "role_counts": {
+      "drift_required_recovery": 48,
+      "stable_aeb": 48,
+      "stable_aes_only": 48,
+      "unavoidable_mitigation": 36
+    },
+    "surface_counts": {
+      "post_friction_step": 84,
+      "steady_surface": 96
+    },
+    "speed_count": 5,
+    "mu_count": 6,
+    "unavoidable_shortage_flag": true,
+    "materialization_rerun": false,
+    "source_mining_rerun": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1863-executable-v2-support-first-reset-validation-design.json"
+  },
   "decision_rule": "M1862 passes if it audits materialization and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1862-executable-v2-support-first-materialization-result-audit"
+  "next_blocker": "m1863-executable-v2-support-first-reset-validation-design"
 }

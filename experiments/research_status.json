@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1870,
+    "completed": 1871,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1861-executable-v2-support-first-materialization-execution.md",
+    "command_log": "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1861-executable-v2-support-first-materialization-execution"
+    "task_id": "m1862-executable-v2-support-first-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json",
-    "hypothesis": "M1861 materialization artifacts are clean enough to design reset validation.",
-    "id": "m1862-executable-v2-support-first-materialization-result-audit",
+    "command": "see experiments/manifests/m1863-executable-v2-support-first-reset-validation-design.json",
+    "hypothesis": "A reset-only validation design can verify whether the 180 support-first materialized specs are reset-ready before measured execution.",
+    "id": "m1863-executable-v2-support-first-reset-validation-design",
     "kind": "gate",
-    "notes": "Pending: audit bounded materialization before reset-validation design",
-    "priority": 18570,
+    "notes": "Pending: design reset-only validation over materialized specs",
+    "priority": 18580,
     "status": "pending",
-    "success_artifact": "docs/m1862-executable-v2-support-first-materialization-result-audit.md"
+    "success_artifact": "docs/m1863-executable-v2-support-first-reset-validation-design.md"
   },
-  "updated_at_utc": "20260530T134030Z"
+  "updated_at_utc": "20260530T134244Z"
 }

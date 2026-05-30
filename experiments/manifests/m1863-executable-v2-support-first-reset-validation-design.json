@@ -1,0 +1,157 @@
+{
+  "id": "m1863-executable-v2-support-first-reset-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
+      "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+      "runs/m1861_executable_v2_support_first_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation over materialized support-first executable-v2 specs"
+    ],
+    "derived_from": [
+      "m1862-executable-v2-support-first-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1862 admits reset-validation design but blocks direct reset execution"
+    ],
+    "supersedes": [
+      "direct measured execution after materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1863-executable-v2-support-first-reset-validation-design.md",
+  "public_gates": [
+    "M1863 must design reset-only validation over 180 materialized specs",
+    "M1863 must keep measured rollout training replay PPO promotion ranking and paper-level claims blocked",
+    "M1863 must carry role/surface counts and unavoidable shortage flag"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_reset_validation",
+    "evidence_axis": "Q_support_first_reset_validation_design",
+    "evidence_increment": "designs reset-only validation over support-first materialized specs before any reset run",
+    "claim_scope": "design only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design skips reset-only validation",
+      "stop if design changes actor inputs reward dynamics or termination behavior",
+      "stop if expected counts are missing"
+    ],
+    "fallback_plan": [
+      "route to reset-validation implementation or execution design if design is complete",
+      "route to materialization repair if reset payload schema is incomplete",
+      "route to branch synthesis if reset validation should not proceed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1862 admits reset-validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first reset-validation design",
+    "admission_evidence": [
+      "M1862 audits clean materialized specs"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1863 design document",
+      "M1863 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation implementation or execution design"
+    ],
+    "next_stage_criteria": [
+      "reset-only validation command or adapter plan is specified",
+      "expected spec count and role counts are specified",
+      "reset remains unrun"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset-validation design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1861 materialization artifacts only; no reset or rollout.",
+    "negative_result_policy": "Reset failures must be recorded and audited rather than turned into measured execution claims.",
+    "allowed_claims": [
+      "reset-validation design",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A reset-only validation design can verify whether the 180 support-first materialized specs are reset-ready before measured execution.",
+  "success_criteria": [
+    "docs/m1863-executable-v2-support-first-reset-validation-design.md exists",
+    "design specifies reset-only inputs expected counts and blocked measured-execution claims",
+    "design routes forward without running reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs reward dynamics or termination behavior",
+    "design makes ranking paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1863-executable-v2-support-first-reset-validation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1863-executable-v2-support-first-reset-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_reset_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
+    "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+    "runs/m1861_executable_v2_support_first_materialization/summary.json"
+  ],
+  "decision_rule": "M1863 passes if it designs reset-only validation without running reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1863-executable-v2-support-first-reset-validation-design"
+}

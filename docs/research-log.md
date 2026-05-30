@@ -31642,3 +31642,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json`
 - next: `m1862-executable-v2-support-first-materialization-result-audit`
+
+## M1862 Executable V2 Support-First Materialization Result Audit
+
+- status: completed
+- decision: `materialization_result_clean_admit_reset_validation_design`
+- artifact: `docs/m1862-executable-v2-support-first-materialization-result-audit.md`
+- parent result: `runs/m1861_executable_v2_support_first_materialization/summary.json`
+- input supported source count: `202`
+- selected source count: `90`
+- materialized spec count: `180`
+- materialization matrix row count: `180`
+- duplicate key count: `0`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- role counts: `drift_required_recovery=48 stable_aeb=48 stable_aes_only=48 unavoidable_mitigation=36`
+- surface counts: `post_friction_step=84 steady_surface=96`
+- speed count: `5`
+- mu count: `6`
+- unavoidable shortage flag: `true`
+- materialization rerun: `false`
+- source mining rerun: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: bounded materialization result audit reset-validation design route
+- unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1863-executable-v2-support-first-reset-validation-design.json`
+- next: `m1863-executable-v2-support-first-reset-validation-design`
