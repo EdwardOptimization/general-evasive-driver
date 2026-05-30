@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T081536Z
+- Generated at UTC: 20260530T081933Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1785 passes if it localizes blockers from existing scorecards and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: scorecard_blocker_localization_route_to_role_specific_panel_repair_design
+- Decision reason: M1785 localizes scorecard blockers as stable off-track dominance drift recovery deficit hidden task-label mixing and separate mitigation severity semantics
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1783 scorecard blockers can be localized from existing artifacts well enough to
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1785-role-specific-scorecard-blocker-localization
+- type: gate
+- checkpoint: docs/m1785-role-specific-scorecard-blocker-localization.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: scorecard_blocker_localization_route_to_role_specific_panel_repair_design
+- reason: M1785 localizes scorecard blockers as stable off-track dominance drift recovery deficit hidden task-label mixing and separate mitigation severity semantics
 
 ## Next Blocker
 
-m1785-role-specific-scorecard-blocker-localization
+m1786-role-specific-panel-metric-repair-design

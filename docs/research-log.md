@@ -29274,3 +29274,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1785-role-specific-scorecard-blocker-localization.json`
 - next: `m1785-role-specific-scorecard-blocker-localization`
+
+## M1785 Role-Specific Scorecard Blocker Localization
+
+- status: completed
+- decision: `scorecard_blocker_localization_route_to_role_specific_panel_repair_design`
+- artifact: `docs/m1785-role-specific-scorecard-blocker-localization.md`
+- source artifacts: `runs/m1783_role_specific_metric_scorecard_extraction/`
+- ranking blocked: `true`
+- blocker localization completed: `true`
+- stable blocker: pervasive off-track dominance across hidden buckets and labels
+- drift blocker: controlled-recovery deficit with mixed collision/off-track non-success
+- hidden robustness blocker: task-label mixing and mixed collision/off-track failure modes
+- mitigation blocker: separate impact-severity task, not avoidance-success task
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-rollout scorecard blocker localization and route to role-specific panel/metric repair design
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1786-role-specific-panel-metric-repair-design.json`
+- next: `m1786-role-specific-panel-metric-repair-design`

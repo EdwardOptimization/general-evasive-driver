@@ -160,6 +160,45 @@
     "runs/m1783_role_specific_metric_scorecard_extraction/profile_role_hidden_bucket_scorecard.csv",
     "runs/m1783_role_specific_metric_scorecard_extraction/profile_role_sampled_label_scorecard.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1785-role-specific-scorecard-blocker-localization.md",
+    "decision": "scorecard_blocker_localization_route_to_role_specific_panel_repair_design",
+    "ranking_blocked": true,
+    "blocker_localization_completed": true,
+    "dominant_blockers": {
+      "stable_avoidance_aes": [
+        "pervasive_off_track_dominance_across_hidden_buckets_and_labels",
+        "success_low"
+      ],
+      "drift_required_recovery": [
+        "controlled_recovery_deficit",
+        "mixed_collision_and_off_track_non_success"
+      ],
+      "hidden_dynamics_robustness": [
+        "task_label_mixing",
+        "mixed_collision_and_off_track_failure_modes"
+      ],
+      "unavoidable_mitigation": [
+        "separate_impact_severity_task_not_avoidance_success_task"
+      ]
+    },
+    "next_branch": "role_specific_panel_metric_repair_design",
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1786-role-specific-panel-metric-repair-design.json"
+  },
   "decision_rule": "M1785 passes if it localizes blockers from existing scorecards and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1785-role-specific-scorecard-blocker-localization"
+  "next_blocker": "m1786-role-specific-panel-metric-repair-design"
 }
