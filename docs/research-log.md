@@ -27367,3 +27367,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.json`
 - next: `m1708-paper-route-controller-family-bounded-calibration-smoke-execution`
+
+## M1708 Paper-Route Controller-Family Bounded Calibration Smoke Execution
+
+- status: completed
+- result class: `controller_family_bounded_calibration_smoke_execution_pass`
+- artifact: `runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json`
+- documentation: `docs/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.md`
+- episodes / target: `864` / `864`
+- selected base specs / calibration specs / profiles: `6` / `72` / `12`
+- failure count: `0`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- aggregate rows: outcome `3`, termination `3`, profile outcome `24`, calibration variant `12`
+- outcome buckets: `success_obstacle_pass=91`, `collision_failure=57`, `off_track_noncollision_noncompletion=716`
+- original-axis baseline off-track rate: `0.9028`
+- best raw variant before audit: `track_width_scale=2.0`, `finish_variant=original`, `max_steps_scale=1.5`, off-track rate `0.6944`, success rate `0.2083`, collision rate `0.0972`
+- supported: bounded execution path works and artifacts are ready for task-quality audit
+- unsupported: controller-family ranking, calibrated task-quality conclusion before M1709 audit, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json`
+- next: `m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit`

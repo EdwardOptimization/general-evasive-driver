@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1716,
+    "completed": 1717,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
+    "command_log": "docs/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.md",
     "returncode": 0,
+    "run_dir": "runs/m1708_controller_family_bounded_calibration_smoke_execution",
     "status": "completed",
-    "task_id": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design"
+    "task_id": "m1708-paper-route-controller-family-bounded-calibration-smoke-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.json",
-    "hypothesis": "The M1705 bounded calibration smoke can be executed as a resumable 864-episode public diagnostic run with outcome aggregates and clean guardrails.",
-    "id": "m1708-paper-route-controller-family-bounded-calibration-smoke-execution",
+    "command": "see experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json",
+    "hypothesis": "M1708 can be audited as clean execution and the calibration variants can be classified under the pre-registered M1707 task-quality rules.",
+    "id": "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit",
     "kind": "gate",
-    "notes": "Pending: run or implement runner for 864-cell bounded calibration smoke with no training or ranking claims",
-    "priority": 17030,
+    "notes": "Pending: audit execution pass best calibration variant baseline improvement and next route",
+    "priority": 17040,
     "status": "pending",
-    "success_artifact": "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json"
+    "success_artifact": "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md"
   },
-  "updated_at_utc": "20260530T011327Z"
+  "updated_at_utc": "20260530T012010Z"
 }

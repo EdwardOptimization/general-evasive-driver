@@ -1,0 +1,4 @@
+outcome_bucket,episode_count,success_obstacle_pass_rate,collision_failure_rate,off_track_noncollision_noncompletion_rate,max_steps_noncompletion_rate,safe_noncollision_noncompletion_rate,clearance_margin_mean,clearance_margin_p10,return_mean,steps_mean,all_selected_metrics_finite,diagnostic_only_no_ranking_claim
+collision_failure,57,0.0,1.0,0.0,0.0,0.0,-0.07528988256110285,-0.12970886640403884,23.404207183412154,77.6140350877193,True,True
+off_track_noncollision_noncompletion,716,0.0,0.0,1.0,0.0,0.0,10.301199519432563,1.9038982332601688,11.957503296833659,83.97486033519553,True,True
+success_obstacle_pass,91,1.0,0.0,0.0,0.0,0.0,4.208335021010937,0.5380219256967171,82.11108531744893,110.54945054945055,True,True

@@ -1,0 +1,3 @@
+task_family,episode_count,success_obstacle_pass_rate,collision_failure_rate,off_track_noncollision_noncompletion_rate,max_steps_noncompletion_rate,safe_noncollision_noncompletion_rate,clearance_margin_mean,clearance_margin_p10,return_mean,steps_mean,all_selected_metrics_finite,diagnostic_only_no_ranking_claim
+T4,432,0.09490740740740741,0.037037037037037035,0.8680555555555556,0.0,0.0,11.801076598121643,1.7140970738256092,19.45713907781912,89.82870370370371,True,True
+T5,432,0.11574074074074074,0.09490740740740741,0.7893518518518519,0.0,0.0,6.148751687803652,0.06517354493980954,20.745918639484678,82.87962962962963,True,True
