@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1789,
+    "completed": 1790,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+    "command_log": "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis"
+    "task_id": "m1781-paper-route-role-specific-metric-scorecard-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json",
-    "hypothesis": "A role-specific scorecard can be designed from M1777/M1779 evidence before extraction or ranking.",
-    "id": "m1781-paper-route-role-specific-metric-scorecard-design",
-    "kind": "gate",
-    "notes": "Pending: design role-specific metric scorecard without rollout or ranking",
-    "priority": 17760,
+    "command": "see experiments/manifests/m1782-role-specific-metric-scorecard-extraction-implementation.json",
+    "hypothesis": "A role-specific scorecard extractor can be implemented and tested without rerunning rollout or ranking profiles.",
+    "id": "m1782-role-specific-metric-scorecard-extraction-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout role-specific metric scorecard extractor",
+    "priority": 17770,
     "status": "pending",
-    "success_artifact": "docs/m1781-paper-route-role-specific-metric-scorecard-design.md"
+    "success_artifact": "docs/m1782-role-specific-metric-scorecard-extraction-implementation.md"
   },
-  "updated_at_utc": "20260530T075515Z"
+  "updated_at_utc": "20260530T075818Z"
 }

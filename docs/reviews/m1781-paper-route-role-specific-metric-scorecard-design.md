@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T075657Z
+- Generated at UTC: 20260530T075955Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1781 passes if it defines a complete role-specific scorecard design without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: role_specific_scorecard_design_admit_no_rollout_extraction
+- Decision reason: M1781 designs role-specific score contracts and admits no-rollout scorecard extraction with ranking blocked
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A role-specific scorecard can be designed from M1777/M1779 evidence before extra
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1781-paper-route-role-specific-metric-scorecard-design
+- type: gate
+- checkpoint: docs/m1781-paper-route-role-specific-metric-scorecard-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: role_specific_scorecard_design_admit_no_rollout_extraction
+- reason: M1781 designs role-specific score contracts and admits no-rollout scorecard extraction with ranking blocked
 
 ## Next Blocker
 
-m1781-paper-route-role-specific-metric-scorecard-design
+m1782-role-specific-metric-scorecard-extraction-implementation

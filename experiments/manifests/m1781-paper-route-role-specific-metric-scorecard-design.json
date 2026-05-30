@@ -155,6 +155,36 @@
     "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv",
     "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
+    "decision": "role_specific_scorecard_design_admit_no_rollout_extraction",
+    "roles_defined": [
+      "stable_avoidance_aes",
+      "drift_required_recovery",
+      "hidden_dynamics_robustness",
+      "unavoidable_mitigation"
+    ],
+    "global_ranking_blocked": true,
+    "unavoidable_success_as_primary_blocked": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1782-role-specific-metric-scorecard-extraction-implementation.json"
+  },
   "decision_rule": "M1781 passes if it defines a complete role-specific scorecard design without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1781-paper-route-role-specific-metric-scorecard-design"
+  "next_blocker": "m1782-role-specific-metric-scorecard-extraction-implementation"
 }

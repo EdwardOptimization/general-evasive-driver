@@ -29154,3 +29154,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail violation count: `0`
 - follow-up manifest: `experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json`
 - next: `m1781-paper-route-role-specific-metric-scorecard-design`
+
+## M1781 Paper-Route Role-Specific Metric Scorecard Design
+
+- status: completed
+- decision: `role_specific_scorecard_design_admit_no_rollout_extraction`
+- artifact: `docs/m1781-paper-route-role-specific-metric-scorecard-design.md`
+- roles defined: `stable_avoidance_aes`, `drift_required_recovery`, `hidden_dynamics_robustness`, `unavoidable_mitigation`
+- global ranking blocked: `true`
+- unavoidable success as primary blocked: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: role-specific scorecard design and no-rollout extraction route
+- unsupported: profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1782-role-specific-metric-scorecard-extraction-implementation.json`
+- next: `m1782-role-specific-metric-scorecard-extraction-implementation`

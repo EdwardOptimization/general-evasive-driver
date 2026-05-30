@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1781 passes if it defines a complete role-specific scorecard design without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1781 designs role-specific score contracts and admits no-rollout scorecard extraction with ranking blocked",
   "failure_criteria": [
     "design document is missing",
     "design uses one global success metric for all roles",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T075657Z",
+  "generated_at_utc": "20260530T075955Z",
   "hypothesis": "A role-specific scorecard can be designed from M1777/M1779 evidence before extraction or ranking.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1781-paper-route-role-specific-metric-scorecard-design",
-  "next_blocker": "m1781-paper-route-role-specific-metric-scorecard-design",
+  "next_blocker": "m1782-role-specific-metric-scorecard-extraction-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "role_specific_scorecard_design_admit_no_rollout_extraction",
   "public_gates": [
     "M1781 must define role-specific score fields and admissibility gates before score extraction",
     "M1781 must use existing M1777/M1779 artifacts only and must not rerun reset or rollout",
     "M1781 must keep profile ranking blocked unless a later audit admits it",
     "M1781 must not train replay PPO promote use private holdout change actor inputs tune profiles or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
+    "clearance_margin_mean": "",
+    "decision": "role_specific_scorecard_design_admit_no_rollout_extraction",
+    "milestone": "m1781-paper-route-role-specific-metric-scorecard-design",
+    "reason": "M1781 designs role-specific score contracts and admits no-rollout scorecard extraction with ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1781-paper-route-role-specific-metric-scorecard-design.md exists",
     "design defines metrics for stable avoidance AES drift recovery hidden dynamics robustness and unavoidable mitigation",

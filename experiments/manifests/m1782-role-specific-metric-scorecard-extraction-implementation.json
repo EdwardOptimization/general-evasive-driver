@@ -1,0 +1,160 @@
+{
+  "id": "m1782-role-specific-metric-scorecard-extraction-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scorecard_extraction"
+    ],
+    "parent_dataset": [
+      "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv",
+      "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout role-specific scorecard extraction"
+    ],
+    "derived_from": [
+      "m1781-paper-route-role-specific-metric-scorecard-design"
+    ],
+    "blocked_by": [
+      "M1781 admits scorecard extraction after defining role-specific metrics and blockers"
+    ],
+    "supersedes": [
+      "direct profile ranking from M1777 global success metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1782-role-specific-metric-scorecard-extraction-implementation.md",
+  "public_gates": [
+    "M1782 must implement no-rollout role-specific scorecard extraction",
+    "M1782 must add focused tests for role metric contracts and blocker output",
+    "M1782 must write profile-role scorecard role scorecard admissibility blockers and metric contract artifacts",
+    "M1782 must not rerun reset or rollout train replay PPO promote use private holdout tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_role_specific_metric_scorecard",
+    "evidence_axis": "Q_role_specific_metric_scorecard_extraction",
+    "evidence_increment": "implements no-rollout extraction for the M1781 role-specific scorecard design",
+    "claim_scope": "infrastructure implementation only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if scorecard extraction loses role/profile metadata",
+      "stop if unavoidable mitigation uses obstacle-pass success as primary metric",
+      "stop if extraction writes a leaderboard instead of blocked scorecard rows"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if outputs are incomplete",
+      "route to no-rollout extraction execution if implementation tests pass",
+      "route to design repair if role contracts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1781 admits scorecard extraction implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "role-specific scorecard extraction implementation",
+    "admission_evidence": [
+      "M1781 defines role-specific score contracts and extraction artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "scorecard extraction helper",
+      "focused tests",
+      "M1782 implementation document",
+      "M1782 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout extraction execution or repair"
+    ],
+    "next_stage_criteria": [
+      "scorecard helper exists",
+      "focused tests pass",
+      "ranking remains blocked",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; scorecard extraction is task-quality metric infrastructure.",
+    "history_necessity_tests": [
+      "Extraction must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1777/M1779 public artifacts only.",
+    "negative_result_policy": "If extraction shows no role is admissible, record that as scorecard evidence and route to audit rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "role-specific scorecard extraction implementation",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A role-specific scorecard extractor can be implemented and tested without rerunning rollout or ranking profiles.",
+  "success_criteria": [
+    "src/autodrift/role_specific_metric_scorecard.py exists",
+    "tests/test_role_specific_metric_scorecard.py exists",
+    "focused tests pass",
+    "docs/m1782-role-specific-metric-scorecard-extraction-implementation.md exists",
+    "research validation passes"
+  ],
+  "failure_criteria": [
+    "scorecard module or tests are missing",
+    "scorecard extraction reruns reset or rollout",
+    "scorecard extraction ranks profiles or claims paper-level evidence",
+    "role metric contracts are lost"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "implement role-specific scorecard extraction and focused tests without rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1782-role-specific-metric-scorecard-extraction-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scorecard_extraction"
+  ],
+  "baseline_artifacts": [
+    "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
+    "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1782 passes if it implements tested no-rollout scorecard extraction while preserving no-ranking claim boundaries.",
+  "next_blocker": "m1782-role-specific-metric-scorecard-extraction-implementation"
+}
