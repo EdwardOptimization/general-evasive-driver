@@ -28220,3 +28220,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level benchmark evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json`
 - next: `m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit`
+
+## M1751 Paper-Route Task-Quality Revised Scenario Taxonomy Execution Adapter Result Audit
+
+- status: completed
+- decision: `adapter_audit_admit_revised_execution_design`
+- artifact: `docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md`
+- audited milestone: `docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md`
+- semantics loading audited: `true`
+- semantics pass-through audited: `true`
+- separate executable specs path audited: `true`
+- metric completeness audited: `true`
+- aggregate hooks audited: `true`
+- focused scenario-taxonomy tests: `10 passed`
+- affected execution/metric tests: `21 passed`
+- full test suite: `1707 passed`, `4 warnings`
+- research validation passed: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean adapter audit and route to adapter-aware revised measured-execution design
+- unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level benchmark result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.json`
+- next: `m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design`

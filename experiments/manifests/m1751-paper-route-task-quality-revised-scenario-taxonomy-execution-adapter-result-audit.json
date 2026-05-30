@@ -148,6 +148,35 @@
     "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
     "experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+    "decision": "adapter_audit_admit_revised_execution_design",
+    "semantics_loading_audited": true,
+    "semantics_passthrough_audited": true,
+    "separate_executable_specs_path_audited": true,
+    "metric_completeness_audited": true,
+    "aggregate_hooks_audited": true,
+    "focused_scenario_taxonomy_tests": "10 passed",
+    "affected_execution_metric_tests": "21 passed",
+    "full_pytest": "1707 passed, 4 warnings",
+    "research_validation_passed": true,
+    "full_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.json"
+  },
   "decision_rule": "M1751 passes if it audits M1750 as logging-only, semantics-preserving, and test-covered before any revised rollout.",
-  "next_blocker": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
+  "next_blocker": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design"
 }

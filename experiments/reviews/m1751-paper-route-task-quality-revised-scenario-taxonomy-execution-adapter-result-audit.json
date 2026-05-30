@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M1751 audits M1750 adapter as clean and admits adapter-aware revised measured-execution design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits semantics pass-through or metric completeness",
+    "audit admits execution without validation",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T052815Z",
+  "hypothesis": "The revised scenario execution adapter can be audited as semantics-preserving and logging-only before revised execution design.",
+  "lineage": {
+    "blocked_by": [
+      "adapter implementation must be audited before revised execution design or rollout"
+    ],
+    "derived_from": [
+      "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_logging_only_adapter"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit revised scenario execution adapter before any revised rollout"
+    ],
+    "supersedes": [
+      "direct revised execution after adapter implementation without audit"
+    ]
+  },
+  "milestone": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit",
+  "next_blocker": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "adapter_audit_admit_revised_execution_design",
+  "public_gates": [
+    "M1751 must audit semantics pass-through and metric completeness helpers",
+    "M1751 must verify M1750 remained logging-only and did not change actor inputs reward termination profiles training replay PPO or promotion state",
+    "M1751 must decide whether to admit revised execution design, adapter repair, bounded-panel design, or stop"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "adapter_audit_admit_revised_execution_design",
+    "milestone": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit",
+    "reason": "M1751 audits M1750 adapter as clean and admits adapter-aware revised measured-execution design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md exists",
+    "audit covers semantics pass-through and metric completeness helpers",
+    "audit covers focused tests and research validation",
+    "next route is revised execution design bounded-panel design adapter repair or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

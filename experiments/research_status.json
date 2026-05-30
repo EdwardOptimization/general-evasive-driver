@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1759,
+    "completed": 1760,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
+    "command_log": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
+    "task_id": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json",
-    "hypothesis": "The revised scenario execution adapter can be audited as semantics-preserving and logging-only before revised execution design.",
-    "id": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit",
+    "command": "see experiments/manifests/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.json",
+    "hypothesis": "A revised measured execution can be designed over the fixed M1743 semantics matrix and M1734 executable specs before any rollout.",
+    "id": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1750 adapter before revised execution design or rollout",
-    "priority": 17460,
+    "notes": "Pending: design adapter-aware revised measured execution before rollout",
+    "priority": 17470,
     "status": "pending",
-    "success_artifact": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md"
+    "success_artifact": "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md"
   },
-  "updated_at_utc": "20260530T051802Z"
+  "updated_at_utc": "20260530T052722Z"
 }

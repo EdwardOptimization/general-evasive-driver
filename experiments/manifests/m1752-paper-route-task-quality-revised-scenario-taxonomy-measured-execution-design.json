@@ -1,0 +1,157 @@
+{
+  "id": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_specs.json",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json"
+    ],
+    "parent_objective": [
+      "design adapter-aware revised scenario taxonomy measured execution"
+    ],
+    "derived_from": [
+      "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
+    ],
+    "blocked_by": [
+      "measured execution must be designed before any revised rollout"
+    ],
+    "supersedes": [
+      "direct revised rollout after adapter audit without execution design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md",
+  "public_gates": [
+    "M1752 must pre-register exact metadata specs workload executable specs unsupported-feature input output directory and seed base",
+    "M1752 must pre-register required episode counts aggregate artifacts and metric completeness gates",
+    "M1752 must keep execution interpretation deferred to a later audit",
+    "M1752 must not run rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_scenario_taxonomy_measured_execution_design",
+    "evidence_increment": "designs adapter-aware revised measured execution after clean adapter audit",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design does not separate semantics specs from executable specs",
+      "stop if metric completeness gates or aggregate artifacts are omitted",
+      "stop if design admits interpretation without later audit",
+      "stop if design changes actor inputs reward termination behavior or profile configs"
+    ],
+    "fallback_plan": [
+      "route to design repair if execution protocol is incomplete",
+      "route to bounded-panel design if full 864-cell execution is too broad",
+      "route to measured execution if design is complete and guardrail-clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1751 admits revised execution design after adapter audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design adapter-aware revised scenario taxonomy measured execution",
+    "admission_evidence": [
+      "M1751 audits M1750 adapter as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1752 execution design document",
+      "M1752 status queue scoreboard research log and review",
+      "one follow-up measured-execution manifest"
+    ],
+    "next_stage_criteria": [
+      "design fixes exact inputs output dir seed base and required artifacts",
+      "metric completeness and no-ranking guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; execution design cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1751 adapter audit only.",
+    "negative_result_policy": "If execution design is too broad or incomplete, route to bounded-panel design instead of weakening claim standards.",
+    "allowed_claims": [
+      "revised measured-execution design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A revised measured execution can be designed over the fixed M1743 semantics matrix and M1734 executable specs before any rollout.",
+  "success_criteria": [
+    "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md exists",
+    "design fixes scenario specs workload executable specs unsupported features output dir and seed base",
+    "design lists required artifacts metric completeness gates and guardrails",
+    "next route is measured execution bounded-panel design repair or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits exact input paths output dir seed base metric completeness or required artifacts",
+    "design admits interpretation without later audit",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write adapter-aware revised scenario taxonomy measured execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+    "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json"
+  ],
+  "decision_rule": "M1752 passes if it pre-registers a complete adapter-aware revised measured execution protocol before any rollout.",
+  "next_blocker": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design"
+}
