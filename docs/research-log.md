@@ -29324,3 +29324,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired panel execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1787-role-specific-panel-metric-repair-materialization-preflight.json`
 - next: `m1787-role-specific-panel-metric-repair-materialization-preflight`
+
+## M1787 Role-Specific Panel/Metric Repair Materialization Preflight
+
+- status: completed
+- decision: `role_specific_panel_metric_repair_materialization_pass_route_to_result_audit`
+- artifact: `runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json`
+- review document: `docs/m1787-role-specific-panel-metric-repair-materialization-preflight.md`
+- result class: `role_specific_panel_metric_repair_materialization_preflight_pass`
+- role surface count: `6`
+- profile control count: `12`
+- metric contract rows: `33`
+- admissibility contract rows: `6`
+- panel repair matrix rows: `276`
+- metric-only repair plan rows: `4`
+- new materialization required rows: `6`
+- claim boundary rows: `7`
+- ranking admissible by default: `false`
+- mitigation uses obstacle-pass success as primary: `false`
+- profile controls preserved: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-rollout v2 role-specific contract materialization
+- unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1788-role-specific-panel-metric-repair-materialization-result-audit.json`
+- next: `m1788-role-specific-panel-metric-repair-materialization-result-audit`

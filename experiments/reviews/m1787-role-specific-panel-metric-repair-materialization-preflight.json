@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1787 passes if it materializes complete v2 role-specific repair contracts without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1787 materializes six v2 role surfaces 276 matrix rows ranking blocked by default preserved profile controls and zero guardrail violations",
   "failure_criteria": [
     "required artifacts are missing",
     "materialization reruns reset or rollout",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T082305Z",
+  "generated_at_utc": "20260530T082739Z",
   "hypothesis": "The M1786 repair design can be materialized into complete v2 role-specific panel and metric contract artifacts without running reset or rollout.",
   "lineage": {
     "blocked_by": [
@@ -60,16 +60,29 @@
     ]
   },
   "milestone": "m1787-role-specific-panel-metric-repair-materialization-preflight",
-  "next_blocker": "m1787-role-specific-panel-metric-repair-materialization-preflight",
+  "next_blocker": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "role_specific_panel_metric_repair_materialization_pass_route_to_result_audit",
   "public_gates": [
     "M1787 must materialize the v2 role surface metric and admissibility contract without reset or rollout",
     "M1787 must write summary role_surface_contract metric_contract_v2 admissibility_contract panel_repair_specs panel_repair_matrix metric_only_repair_plan new_materialization_required and claim_boundary artifacts",
     "M1787 must preserve profile controls and keep ranking_admissible_by_default false",
     "M1787 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "role_specific_panel_metric_repair_materialization_pass_route_to_result_audit",
+    "milestone": "m1787-role-specific-panel-metric-repair-materialization-preflight",
+    "reason": "M1787 materializes six v2 role surfaces 276 matrix rows ranking blocked by default preserved profile controls and zero guardrail violations",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json exists",
     "all v2 contract artifacts from M1786 exist",

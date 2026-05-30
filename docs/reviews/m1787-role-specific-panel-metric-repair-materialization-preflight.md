@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T082305Z
+- Generated at UTC: 20260530T082739Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1787 passes if it materializes complete v2 role-specific repair contracts without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: role_specific_panel_metric_repair_materialization_pass_route_to_result_audit
+- Decision reason: M1787 materializes six v2 role surfaces 276 matrix rows ranking blocked by default preserved profile controls and zero guardrail violations
 
 ## Hypothesis
 
@@ -78,8 +78,19 @@ The M1786 repair design can be materialized into complete v2 role-specific panel
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1787-role-specific-panel-metric-repair-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: role_specific_panel_metric_repair_materialization_pass_route_to_result_audit
+- reason: M1787 materializes six v2 role surfaces 276 matrix rows ranking blocked by default preserved profile controls and zero guardrail violations
 
 ## Next Blocker
 
-m1787-role-specific-panel-metric-repair-materialization-preflight
+m1788-role-specific-panel-metric-repair-materialization-result-audit

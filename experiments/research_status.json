@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1795,
+    "completed": 1796,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1786-role-specific-panel-metric-repair-design.md",
+    "command_log": "docs/m1787-role-specific-panel-metric-repair-materialization-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1786-role-specific-panel-metric-repair-design"
+    "task_id": "m1787-role-specific-panel-metric-repair-materialization-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1787-role-specific-panel-metric-repair-materialization-preflight.json",
-    "hypothesis": "The M1786 repair design can be materialized into complete v2 role-specific panel and metric contract artifacts without running reset or rollout.",
-    "id": "m1787-role-specific-panel-metric-repair-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize v2 role-specific panel/metric repair contract without reset or rollout",
-    "priority": 17820,
+    "command": "see experiments/manifests/m1788-role-specific-panel-metric-repair-materialization-result-audit.json",
+    "hypothesis": "M1787 v2 materialization can be audited as complete and ready for reset-only feasibility preflight.",
+    "id": "m1788-role-specific-panel-metric-repair-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1787 materialization artifacts before reset feasibility",
+    "priority": 17830,
     "status": "pending",
-    "success_artifact": "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1788-role-specific-panel-metric-repair-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260530T082204Z"
+  "updated_at_utc": "20260530T082641Z"
 }
