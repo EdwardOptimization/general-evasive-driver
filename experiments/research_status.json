@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1841,
+    "completed": 1842,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.md",
+    "command_log": "docs/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design"
+    "task_id": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.json",
-    "hypothesis": "The M1831 helper can diagnose all 24 M1828 failed AES rows across two sources without running environment reset or rollout.",
-    "id": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact diagnostic command from M1832",
-    "priority": 18280,
+    "command": "see experiments/manifests/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.json",
+    "hypothesis": "The M1833 diagnostic evidence can be audited into a clean route decision: repaired AES sources are being sampled in the AEB-feasible band at reset time.",
+    "id": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit detailed M1833 attempt-count CSVs and choose the next repair route without reset",
+    "priority": 18290,
     "status": "pending",
-    "success_artifact": "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json"
+    "success_artifact": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md"
   },
-  "updated_at_utc": "20260530T132500Z"
+  "updated_at_utc": "20260530T132600Z"
 }

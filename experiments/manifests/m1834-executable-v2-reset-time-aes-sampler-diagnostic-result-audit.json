@@ -1,0 +1,175 @@
+{
+  "id": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_sampler_diagnostic_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_attempt_summary.csv",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_reject_reason_counts.csv",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_label_counts.csv",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_candidate_examples.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.json"
+    ],
+    "parent_objective": [
+      "audit M1833 reset-time AES sampler diagnostic result before source repair v2"
+    ],
+    "derived_from": [
+      "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution"
+    ],
+    "blocked_by": [
+      "M1833 shows 24 persistent AES rows have zero reset-time sampler acceptance"
+    ],
+    "supersedes": [
+      "source repair v2 without detailed reject-reason audit",
+      "additional reset rerun before interpreting M1833",
+      "measured execution before executable reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md",
+  "public_gates": [
+    "M1834 must audit all M1833 diagnostic tables before proposing repair",
+    "M1834 must distinguish top-level row-count summary from detailed attempt-count CSVs",
+    "M1834 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_sampler_diagnostic",
+    "evidence_axis": "Q_reset_time_aes_sampler_diagnostic_result_audit",
+    "evidence_increment": "audits M1833 reset-time rejection mechanism and decides the source repair v2 route",
+    "claim_scope": "diagnostic result audit only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1833 detailed attempt counts cannot be reconciled with summary row counts",
+      "stop if the audit cannot identify whether AEB-feasible rejection dominates",
+      "stop if the audit would require new reset or rollout evidence",
+      "stop if actor input or ranking guardrails are weakened"
+    ],
+    "fallback_plan": [
+      "route to diagnostic summary aggregation repair if counts are ambiguous",
+      "route to reset-time source repair v2 design if AEB-feasible rejection dominates",
+      "route to helper instrumentation repair if detailed CSVs are incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1833 completed reset-time AES sampler diagnostic execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES sampler diagnostic result audit",
+    "admission_evidence": [
+      "M1833 result_class is reset_time_aes_sampler_diagnostic_pass",
+      "M1833 wrote summary and detailed diagnostic CSVs for all 24 failed AES rows"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1834 result-audit doc",
+      "M1834 status queue scoreboard research log and review",
+      "one follow-up manifest for source repair v2 design or diagnostic aggregation repair"
+    ],
+    "next_stage_criteria": [
+      "M1833 counts are audited",
+      "failure mechanism is classified",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler diagnostic result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1833 diagnostic tables only; no reset or rollout.",
+    "negative_result_policy": "If M1833 shows zero reset-time AES acceptance, record it as source/task support evidence and route to repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "reset-time AES sampler diagnostic result audit",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1833 diagnostic evidence can be audited into a clean route decision: the repaired AES sources are being sampled in the AEB-feasible band at reset time, so source repair v2 must optimize reset-time AES-only acceptance rather than offline density.",
+  "success_criteria": [
+    "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md exists",
+    "audit confirms 24 target rows across 2 sources",
+    "audit confirms 240000 total attempts and 0 accepted candidates from detailed CSVs",
+    "audit confirms all detailed candidates were labeled aeb_feasible and rejected by require_aeb_infeasible",
+    "audit classifies the top-level summary aggregation weakness if needed",
+    "audit states a next repair route without running reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits detailed attempt-count evidence",
+    "audit treats top-level row-count summary as total attempts",
+    "audit runs reset or rollout",
+    "audit routes directly to measured execution or ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_sampler_diagnostic_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_attempt_summary.csv",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_reject_reason_counts.csv",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_label_counts.csv",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_candidate_examples.csv"
+  ],
+  "decision_rule": "M1834 passes if it audits M1833 counts, classifies the reset-time AES sampler failure mechanism, and routes to the next repair without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit"
+}
