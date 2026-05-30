@@ -154,6 +154,39 @@
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/unsupported_metric_gaps.csv",
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/metric_support.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
+    "decision": "metric_instrumentation_design_admit_logging_only_implementation",
+    "metric_gap_count": 7,
+    "metric_gap_definition_count": 7,
+    "existing_row_computable_metric_count": 0,
+    "evaluator_time_series_metric_count": 4,
+    "evaluator_terminal_metric_count": 2,
+    "aggregate_metric_count": 1,
+    "env_info_logging_fields_required": [
+      "yaw_rate",
+      "track_width"
+    ],
+    "implementation_admitted": true,
+    "direct_execution_admitted": false,
+    "bounded_supported_panel_admitted_as_main_route": false,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json"
+  },
   "decision_rule": "M1745 passes if every explicit M1743 metric gap has a bounded definition and data route without admitting execution prematurely.",
-  "next_blocker": "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
+  "next_blocker": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
 }

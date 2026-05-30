@@ -28087,3 +28087,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: direct execution, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json`
 - next: `m1745-paper-route-task-quality-outcome-metric-instrumentation-design`
+
+## M1745 Paper-Route Task-Quality Outcome Metric Instrumentation Design
+
+- status: completed
+- decision: `metric_instrumentation_design_admit_logging_only_implementation`
+- artifact: `docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md`
+- parent audit: `docs/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.md`
+- metric gaps defined: `7`
+- evaluator time-series metric routes: `4`
+- evaluator terminal metric routes: `2`
+- aggregate metric routes: `1`
+- required env info logging fields: `yaw_rate`, `track_width`
+- direct execution admitted: `false`
+- implementation admitted: `true`
+- reward changed: `false`
+- termination behavior changed: `false`
+- guardrail violation count: `0`
+- supported: all M1743 metric gaps have bounded logging-only definitions and data routes
+- unsupported: implementation result, rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json`
+- next: `m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation`

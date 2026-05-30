@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1753,
+    "completed": 1754,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.md",
+    "command_log": "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit"
+    "task_id": "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json",
-    "hypothesis": "The explicit M1743 metric gaps can be converted into bounded metric definitions and instrumentation routes before implementation or rerun.",
-    "id": "m1745-paper-route-task-quality-outcome-metric-instrumentation-design",
-    "kind": "gate",
-    "notes": "Pending: define recovery drift mitigation off-track severity and hidden-dynamics robustness metric routes before implementation or rollout",
-    "priority": 17400,
+    "command": "see experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json",
+    "hypothesis": "The M1745 outcome metric definitions can be implemented as logging-only evaluator/env instrumentation without changing actor, reward, termination, policy, profile, or training behavior.",
+    "id": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement logging-only recovery drift mitigation off-track severity and hidden-dynamics metric fields with focused tests",
+    "priority": 17410,
     "status": "pending",
-    "success_artifact": "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md"
+    "success_artifact": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md"
   },
-  "updated_at_utc": "20260530T043848Z"
+  "updated_at_utc": "20260530T044315Z"
 }

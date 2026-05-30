@@ -10952,5 +10952,10 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   execution. The seven explicit metric gaps include benchmark-critical
   recovery, recovery-time, and controlled-drift-recovery definitions; direct
   execution would silently narrow the revised semantics.
+- M1745 defines all seven gap metrics as bounded logging-only routes. Recovery,
+  recovery-time, controlled-drift recovery, off-track severity, and mitigation
+  severity require evaluator terminal/time-series logging; hidden-dynamics
+  robustness is an aggregate over episode rows. The design admits implementation
+  but still blocks revised-semantics rollout and controller-family ranking.
 - Current next blocker:
-  `m1745-paper-route-task-quality-outcome-metric-instrumentation-design`.
+  `m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation`.

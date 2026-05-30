@@ -1,0 +1,160 @@
+{
+  "id": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_logging_only_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json"
+    ],
+    "parent_objective": [
+      "implement logging-only outcome metric fields required by revised task-quality semantics"
+    ],
+    "derived_from": [
+      "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
+    ],
+    "blocked_by": [
+      "revised-semantics execution needs recovery, drift, mitigation, boundary, and hidden-dynamics metric fields"
+    ],
+    "supersedes": [
+      "direct revised-semantics execution without metric instrumentation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+  "public_gates": [
+    "M1746 must be logging-only instrumentation",
+    "M1746 must not change reward dynamics termination actor observations policy checkpoints or profile masks",
+    "M1746 must add focused tests for all metric families defined by M1745",
+    "M1746 must not run the 864-cell rollout train replay PPO promote use private holdout rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_metric_instrumentation_implementation",
+    "evidence_increment": "implements logging-only metrics needed before revised-semantics execution",
+    "claim_scope": "infrastructure only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if implementation changes reward or termination behavior",
+      "stop if actor observation shape changes",
+      "stop if focused tests cannot cover every M1745 metric family",
+      "stop if full rollout is attempted before implementation audit"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if tests fail",
+      "route to bounded-panel design if logging-only implementation becomes too broad",
+      "route to instrumentation result audit if implementation passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1745 admits logging-only metric instrumentation implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement logging-only outcome metric instrumentation",
+    "admission_evidence": [
+      "M1745 defines all seven metric gaps and routes them to bounded logging-only instrumentation"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not change reward or termination behavior",
+      "do not tune profiles",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "logging-only env info fields",
+      "evaluation metric helpers",
+      "episode-row and aggregate-row metric fields",
+      "focused tests",
+      "M1746 documentation, status, queue, scoreboard, research log, review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "research validation passes",
+      "no actor/reward/termination contract changes",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; logging metrics cannot prove history necessity.",
+    "history_necessity_tests": [
+      "implementation should preserve profile controls but must not interpret metric fields as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1745 metric design only.",
+    "negative_result_policy": "If metric implementation exposes missing telemetry, record instrumentation limitation rather than self-ID failure.",
+    "allowed_claims": [
+      "logging-only outcome metric instrumentation",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1745 outcome metric definitions can be implemented as logging-only evaluator/env instrumentation without changing actor, reward, termination, policy, profile, or training behavior.",
+  "success_criteria": [
+    "logging-only fields for recovery drift mitigation off-track severity and hidden-dynamics aggregates are implemented",
+    "focused tests cover all M1745 metric families",
+    "research validation passes",
+    "actor observation reward termination policy checkpoint profile and training behavior remain unchanged",
+    "full rollout training replay PPO promotion private holdout ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation changes reward termination dynamics actor observation or profile behavior",
+    "one or more M1745 metric families lacks focused tests",
+    "research validation fails",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "implement logging-only outcome metric instrumentation and focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_logging_only_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
+    "runs/m1743_task_quality_outcome_semantics_materialization_preflight/metric_support.csv"
+  ],
+  "decision_rule": "M1746 passes if logging-only instrumentation and tests cover all M1745 metric definitions without changing policy behavior.",
+  "next_blocker": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
+}
