@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1771 passes if it materializes the bounded panel and metric contract with exact counts and zero guardrail violations.",
+  "decision_reason": "M1771 materializes 24 specs 4 role panels 12 profiles and 288 cells with zero contract or guardrail violations",
   "failure_criteria": [
     "required artifacts are missing",
     "materialization runs reset or policy rollout",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T070351Z",
+  "generated_at_utc": "20260530T071240Z",
   "hypothesis": "The M1770 bounded panel can be materialized as 24 role-balanced specs crossed with 12 profiles without violating the actor/input or no-ranking contracts.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight",
-  "next_blocker": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight",
+  "next_blocker": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "metric_specific_bounded_panel_materialization_pass_route_to_result_audit",
   "public_gates": [
     "M1771 must be no-rollout materialization only",
     "M1771 must produce 24 specs, 4 role panels, 6 specs per role, 12 profiles, and 288 cells",
     "M1771 must write a role/metric contract and preserve labels as metadata-only",
     "M1771 must not run reset, policy rollout, train, replay, PPO, promote, use private holdout, tune profiles, or rank controller families"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "metric_specific_bounded_panel_materialization_pass_route_to_result_audit",
+    "milestone": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight",
+    "reason": "M1771 materializes 24 specs 4 role panels 12 profiles and 288 cells with zero contract or guardrail violations",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json exists",
     "bounded_panel_specs.json and bounded_panel_matrix.csv exist",

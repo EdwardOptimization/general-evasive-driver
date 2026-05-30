@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T070351Z
+- Generated at UTC: 20260530T071240Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1771 passes if it materializes the bounded panel and metric contract with exact counts and zero guardrail violations.
+- Promotion decision: metric_specific_bounded_panel_materialization_pass_route_to_result_audit
+- Decision reason: M1771 materializes 24 specs 4 role panels 12 profiles and 288 cells with zero contract or guardrail violations
 
 ## Hypothesis
 
@@ -78,8 +78,19 @@ The M1770 bounded panel can be materialized as 24 role-balanced specs crossed wi
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1771-paper-route-metric-specific-bounded-panel-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: metric_specific_bounded_panel_materialization_pass_route_to_result_audit
+- reason: M1771 materializes 24 specs 4 role panels 12 profiles and 288 cells with zero contract or guardrail violations
 
 ## Next Blocker
 
-m1771-paper-route-metric-specific-bounded-panel-materialization-preflight
+m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit

@@ -1,0 +1,158 @@
+{
+  "id": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_panel_materialization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.md",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_metric_contract.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout bounded panel materialization before reset or measured execution"
+    ],
+    "derived_from": [
+      "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M1771 must be audited before reset feasibility or execution design"
+    ],
+    "supersedes": [
+      "direct bounded-panel reset preflight without materialization audit",
+      "direct bounded-panel measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md",
+  "public_gates": [
+    "M1772 must use only M1771 artifacts and M1770 design context",
+    "M1772 must decide whether to admit reset-only feasibility preflight, materialization repair, metric-contract audit, or stop",
+    "M1772 must not run reset, rollout, train, replay, PPO, promote, use private holdout, tune profiles, or rank controller families",
+    "M1772 must preserve that M1771 is no-rollout materialization evidence only"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "Q_metric_specific_panel_materialization_audit",
+    "evidence_increment": "audits no-rollout bounded panel materialization before any reset or measured execution",
+    "claim_scope": "result audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1771 counts or role balance are inconsistent",
+      "stop if actor/input or no-ranking guardrails were violated",
+      "stop if reset feasibility would be attempted before metric-contract ambiguity is resolved"
+    ],
+    "fallback_plan": [
+      "route to reset-only feasibility preflight if M1771 is coherent",
+      "route to materialization repair if counts or contracts are wrong",
+      "route to metric-contract audit if role metrics remain ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1771 materialization preflight completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded panel materialization result audit",
+    "admission_evidence": [
+      "M1771 reports 24 specs, 4 role panels, 288 cells, zero contract violations, and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1772 audit document",
+      "M1772 status queue scoreboard research log and review",
+      "one follow-up manifest for reset preflight or repair"
+    ],
+    "next_stage_criteria": [
+      "M1772 route decision is explicit",
+      "claim boundary remains enforced",
+      "ranking remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; M1772 audits task-quality panel materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1771 materialization artifacts only.",
+    "negative_result_policy": "If audit finds materialization insufficient, classify as panel-design or metric-contract issue, not self-ID evidence.",
+    "allowed_claims": [
+      "bounded panel materialization result audit",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1771 materialization can be audited as coherent enough to admit a reset-only feasibility preflight.",
+  "success_criteria": [
+    "docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md exists",
+    "M1772 uses only M1771 artifacts",
+    "M1772 makes the next route explicit",
+    "M1772 preserves no-reset no-rollout no-training no-ranking and no-paper-claim guardrails"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit ranks profiles or claims paper-level evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1771 materialization artifacts without reset or rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_panel_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.md",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M1772 passes if it audits M1771 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit"
+}

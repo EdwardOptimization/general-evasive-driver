@@ -28867,3 +28867,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.json`
 - next: `m1771-paper-route-metric-specific-bounded-panel-materialization-preflight`
+
+## M1771 Paper-Route Metric-Specific Bounded Panel Materialization Preflight
+
+- status: completed
+- decision: `metric_specific_bounded_panel_materialization_pass_route_to_result_audit`
+- artifact: `runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json`
+- doc: `docs/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.md`
+- panel spec count: `24`
+- role panel count: `4`
+- specs per role: `6`
+- profile count: `12`
+- panel cell count: `288`
+- role balance passed: `true`
+- missing config count: `0`
+- missing checkpoint count: `0`
+- contract violation count: `0`
+- labels entering actor input count: `0`
+- unsupported faults treated as covered count: `0`
+- metric contract rows: `23`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-rollout 24-spec 288-cell role-separated panel materialization
+- unsupported: reset feasibility, policy rollout, controller-family ranking, profile promotion, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.json`
+- next: `m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit`
