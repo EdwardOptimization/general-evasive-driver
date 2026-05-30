@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T083912Z
+- Generated at UTC: 20260530T084235Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1791 passes if it audits M1790 and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: executable_v2_materialization_audit_admit_reset_feasibility_adapter
+- Decision reason: M1791 audits M1790 executable specs as complete and reset-ready but requires a v2 reset-feasibility adapter before full reset execution
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1790 executable v2 specs can be audited as ready for reset-only feasibility pre
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1791-executable-v2-panel-spec-materialization-result-audit
+- type: gate
+- checkpoint: docs/m1791-executable-v2-panel-spec-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_materialization_audit_admit_reset_feasibility_adapter
+- reason: M1791 audits M1790 executable specs as complete and reset-ready but requires a v2 reset-feasibility adapter before full reset execution
 
 ## Next Blocker
 
-m1791-executable-v2-panel-spec-materialization-result-audit
+m1792-executable-v2-reset-feasibility-adapter-implementation

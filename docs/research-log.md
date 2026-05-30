@@ -29448,3 +29448,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1791-executable-v2-panel-spec-materialization-result-audit.json`
 - next: `m1791-executable-v2-panel-spec-materialization-result-audit`
+
+## M1791 Executable V2 Panel Spec Materialization Result Audit
+
+- status: completed
+- decision: `executable_v2_materialization_audit_admit_reset_feasibility_adapter`
+- artifact: `docs/m1791-executable-v2-panel-spec-materialization-result-audit.md`
+- audited summary: `runs/m1790_executable_v2_panel_spec_materialization_preflight/summary.json`
+- audited result class: `executable_v2_panel_spec_materialization_preflight_pass`
+- v2 panel spec count: `312`
+- role surface count: `6`
+- profile control count: `12`
+- reset-ready spec count: `312`
+- labels enter actor input count: `0`
+- environment reset scheduled count: `0`
+- environment rollout scheduled count: `0`
+- training scheduled count: `0`
+- profile-specific tuning count: `0`
+- missing config count: `0`
+- missing checkpoint count: `0`
+- ranking admissible by default: `false`
+- diagnostic-only no-ranking rows: `312`
+- adapter required before reset: `true`
+- environment reset started in audit: `false`
+- environment rollout started in audit: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: executable v2 specs pass materialization audit and admit reset-feasibility adapter implementation
+- unsupported: reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1792-executable-v2-reset-feasibility-adapter-implementation.json`
+- next: `m1792-executable-v2-reset-feasibility-adapter-implementation`

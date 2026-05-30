@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1799,
+    "completed": 1800,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1790-executable-v2-panel-spec-materialization-preflight.md",
+    "command_log": "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1790-executable-v2-panel-spec-materialization-preflight"
+    "task_id": "m1791-executable-v2-panel-spec-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1791-executable-v2-panel-spec-materialization-result-audit.json",
-    "hypothesis": "M1790 executable v2 specs can be audited as ready for reset-only feasibility preflight.",
-    "id": "m1791-executable-v2-panel-spec-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1790 executable spec artifacts before reset feasibility",
-    "priority": 17860,
+    "command": "see experiments/manifests/m1792-executable-v2-reset-feasibility-adapter-implementation.json",
+    "hypothesis": "A reset-only adapter can be implemented and tested for M1790 executable v2 specs without running the full reset preflight.",
+    "id": "m1792-executable-v2-reset-feasibility-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement v2 reset feasibility adapter and focused tests without full reset preflight",
+    "priority": 17870,
     "status": "pending",
-    "success_artifact": "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md"
+    "success_artifact": "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md"
   },
-  "updated_at_utc": "20260530T083820Z"
+  "updated_at_utc": "20260530T084134Z"
 }

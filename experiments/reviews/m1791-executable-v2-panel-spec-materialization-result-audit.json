@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1791 passes if it audits M1790 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1791 audits M1790 executable specs as complete and reset-ready but requires a v2 reset-feasibility adapter before full reset execution",
   "failure_criteria": [
     "audit document is missing",
     "audit reruns reset or rollout",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T083912Z",
+  "generated_at_utc": "20260530T084235Z",
   "hypothesis": "M1790 executable v2 specs can be audited as ready for reset-only feasibility preflight.",
   "lineage": {
     "blocked_by": [
@@ -60,16 +60,29 @@
     ]
   },
   "milestone": "m1791-executable-v2-panel-spec-materialization-result-audit",
-  "next_blocker": "m1791-executable-v2-panel-spec-materialization-result-audit",
+  "next_blocker": "m1792-executable-v2-reset-feasibility-adapter-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "executable_v2_materialization_audit_admit_reset_feasibility_adapter",
   "public_gates": [
     "M1791 must use only M1790 artifacts and must not rerun reset or rollout",
     "M1791 must audit spec count role surface balance profile controls label leakage reset scheduling rollout scheduling and claim boundary",
     "M1791 must decide whether to admit reset-only feasibility preflight or materialization repair",
     "M1791 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "executable_v2_materialization_audit_admit_reset_feasibility_adapter",
+    "milestone": "m1791-executable-v2-panel-spec-materialization-result-audit",
+    "reason": "M1791 audits M1790 executable specs as complete and reset-ready but requires a v2 reset-feasibility adapter before full reset execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md exists",
     "M1791 uses only M1790 artifacts",
