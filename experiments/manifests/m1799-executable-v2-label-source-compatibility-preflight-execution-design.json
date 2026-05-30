@@ -162,6 +162,45 @@
     "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
     "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+    "decision": "label_source_compatibility_execution_design_admit_preflight_run",
+    "execution_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_label_source_compatibility_preflight --executable-v2-panel-specs runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json --reset-rows runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1800_executable_v2_label_source_compatibility_preflight --target-input-spec-count 312 --target-profile-count 12 --next-blocker m1801-executable-v2-label-source-compatibility-result-audit",
+    "output_dir": "runs/m1800_executable_v2_label_source_compatibility_preflight",
+    "expected_input_spec_count": 312,
+    "expected_input_reset_row_count": 312,
+    "expected_compatible_spec_count": 272,
+    "expected_compatibility_violation_count": 36,
+    "expected_sparse_failure_count": 4,
+    "expected_replacement_need_count": 6,
+    "expected_profile_control_count": 12,
+    "expected_role_surface_count": 6,
+    "expected_support_status_counts": {
+      "supported_observed": 20,
+      "unsupported_systematic": 3,
+      "sparse_fragile": 3
+    },
+    "next_manifest": "experiments/manifests/m1800-executable-v2-label-source-compatibility-preflight.json",
+    "compatibility_preflight_executed": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1799 passes if it fixes the execution command and expected counts without executing it or making ranking claims.",
-  "next_blocker": "m1799-executable-v2-label-source-compatibility-preflight-execution-design"
+  "next_blocker": "m1800-executable-v2-label-source-compatibility-preflight"
 }

@@ -29674,3 +29674,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: M1790/M1794 compatibility execution result, repaired reset feasibility pass, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1799-executable-v2-label-source-compatibility-preflight-execution-design.json`
 - next: `m1799-executable-v2-label-source-compatibility-preflight-execution-design`
+
+## M1799 Executable V2 Label-Source Compatibility Preflight Execution Design
+
+- status: completed
+- decision: `label_source_compatibility_execution_design_admit_preflight_run`
+- artifact: `docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md`
+- compatibility preflight executed in M1799: `false`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- output dir: `runs/m1800_executable_v2_label_source_compatibility_preflight`
+- execution command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_label_source_compatibility_preflight --executable-v2-panel-specs runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json --reset-rows runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1800_executable_v2_label_source_compatibility_preflight --target-input-spec-count 312 --target-profile-count 12 --next-blocker m1801-executable-v2-label-source-compatibility-result-audit`
+- expected input specs: `312`
+- expected input reset rows: `312`
+- expected compatible specs: `272`
+- expected compatibility violations: `36`
+- expected sparse failures: `4`
+- expected replacement need groups: `6`
+- expected support status groups: `supported_observed=20`, `unsupported_systematic=3`, `sparse_fragile=3`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact no-reset compatibility execution design and pre-registered expected counts
+- unsupported: compatibility execution result, reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1800-executable-v2-label-source-compatibility-preflight.json`
+- next: `m1800-executable-v2-label-source-compatibility-preflight`

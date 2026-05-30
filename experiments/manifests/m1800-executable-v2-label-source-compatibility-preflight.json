@@ -1,0 +1,171 @@
+{
+  "id": "m1800-executable-v2-label-source-compatibility-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_compatibility_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+      "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1799-executable-v2-label-source-compatibility-preflight-execution-design.json"
+    ],
+    "parent_objective": [
+      "run the exact no-reset compatibility preflight on M1790/M1794 artifacts"
+    ],
+    "derived_from": [
+      "m1799-executable-v2-label-source-compatibility-preflight-execution-design"
+    ],
+    "blocked_by": [
+      "M1799 fixes the exact command and expected counts"
+    ],
+    "supersedes": [
+      "manual source-label compatibility filtering",
+      "reset rerun before compatibility quarantine"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1800-executable-v2-label-source-compatibility-preflight.md",
+  "public_gates": [
+    "M1800 must run the exact M1799 no-reset command",
+    "M1800 must produce compatibility support violation sparse replacement compatible-spec and claim-boundary artifacts",
+    "M1800 must match pre-registered target counts",
+    "M1800 must keep reset rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_label_source_compatibility_preflight_execution",
+    "evidence_increment": "executes the no-reset compatibility helper over M1790/M1794 artifacts",
+    "claim_scope": "compatibility preflight only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts do not match",
+      "stop if artifacts are missing",
+      "stop if guardrails are violated",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if output shape is wrong",
+      "route to result audit if expected counts match",
+      "route to design repair if expected counts were wrong"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1799 admits project-artifact compatibility execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-label compatibility preflight execution",
+    "admission_evidence": [
+      "M1799 fixes the exact command and expected counts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1800 compatibility preflight artifacts",
+      "M1800 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "expected counts match",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; compatibility preflight is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Compatibility artifacts must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1790/M1794 public artifacts only.",
+    "negative_result_policy": "If compatibility preflight fails, route to repair or audit rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "compatibility preflight result",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1798 helper will convert M1790/M1794 artifacts into expected compatibility support and quarantine artifacts without reset or rollout.",
+  "success_criteria": [
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json exists",
+    "result_class == executable_v2_label_source_compatibility_preflight_pass",
+    "input_spec_count == 312",
+    "input_reset_row_count == 312",
+    "compatible_spec_count == 272",
+    "compatibility_violation_count == 36",
+    "sparse_failure_count == 4",
+    "replacement_need_count == 6",
+    "profile_control_count == 12",
+    "role_surface_count == 6",
+    "labels_enter_actor_input_count == 0",
+    "ranking_admissible_by_default_count == 0",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "expected counts do not match",
+    "artifacts are missing",
+    "reset or rollout starts",
+    "guardrails are violated",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_label_source_compatibility_preflight --executable-v2-panel-specs runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json --reset-rows runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1800_executable_v2_label_source_compatibility_preflight --target-input-spec-count 312 --target-profile-count 12 --next-blocker m1801-executable-v2-label-source-compatibility-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_compatibility_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+    "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+    "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1800 passes if the no-reset compatibility preflight matches target counts and writes artifacts without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1800-executable-v2-label-source-compatibility-preflight"
+}
