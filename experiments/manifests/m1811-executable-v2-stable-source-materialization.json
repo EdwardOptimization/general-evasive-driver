@@ -1,0 +1,178 @@
+{
+  "id": "m1811-executable-v2-stable-source-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m1810-executable-v2-stable-source-materialization-execution-design.md",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_topup_candidate_rows.csv",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1810-executable-v2-stable-source-materialization-execution-design.json"
+    ],
+    "parent_objective": [
+      "run the exact no-reset stable source materialization helper on M1805/M1771 artifacts"
+    ],
+    "derived_from": [
+      "m1810-executable-v2-stable-source-materialization-execution-design"
+    ],
+    "blocked_by": [
+      "M1810 fixes the exact command and expected counts"
+    ],
+    "supersedes": [
+      "manual stable source materialization",
+      "reset validation before materialization artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1811-executable-v2-stable-source-materialization.md",
+  "public_gates": [
+    "M1811 must run the exact M1810 no-reset source materialization command",
+    "M1811 must produce source materialization target spec matrix duplicate and claim-boundary artifacts",
+    "M1811 must match pre-registered target profile and matrix counts",
+    "M1811 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_materialization_execution",
+    "evidence_increment": "executes no-reset stable source materialization over M1805/M1771 artifacts",
+    "claim_scope": "source materialization artifact execution only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts do not match",
+      "stop if duplicate keys are present",
+      "stop if artifacts are missing",
+      "stop if guardrails are violated",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if output shape is wrong",
+      "route to result audit if expected counts match",
+      "route to design repair if expected counts were wrong"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1810 admits project-artifact source materialization execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable source materialization execution",
+    "admission_evidence": [
+      "M1810 fixes the exact command and expected counts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1811 materialization artifacts",
+      "M1811 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "expected counts match",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source materialization is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Materialization artifacts must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1805/M1771 public artifacts only.",
+    "negative_result_policy": "If materialization execution fails, route to repair or audit rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source materialization artifact result",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1809 helper will convert M1805/M1771 artifacts into expected stable source materialization artifacts without reset or rollout.",
+  "success_criteria": [
+    "runs/m1811_executable_v2_stable_source_materialization/summary.json exists",
+    "result_class == executable_v2_stable_source_materialization_pass",
+    "stable_materialization_target_count == 3",
+    "stable_materialization_spec_count == 3",
+    "stable_materialization_matrix_row_count == 36",
+    "profile_control_count == 12",
+    "materialization_strategy_counts.label_specific_stable_sampler_repair_v1 == 3",
+    "duplicate_key_count == 0",
+    "labels_enter_actor_input_count == 0",
+    "reset_validation_required_count == 3",
+    "measured_execution_admissible_count == 0",
+    "controller_family_ranking_admissible_count == 0",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "expected counts do not match",
+    "artifacts are missing",
+    "duplicate keys are present",
+    "reset rollout measured rollout or policy action starts",
+    "guardrails are violated",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_stable_source_materialization --new-materialization-needs runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv --topup-candidates runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_topup_candidate_rows.csv --bounded-panel-specs runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json --bounded-panel-matrix runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv --output-dir runs/m1811_executable_v2_stable_source_materialization --target-materialization-count 3 --target-profile-count 12 --id-prefix m1811 --next-blocker m1812-executable-v2-stable-source-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1810-executable-v2-stable-source-materialization-execution-design.md",
+    "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
+  ],
+  "decision_rule": "M1811 passes if no-reset source materialization matches target counts and writes artifacts without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1812-executable-v2-stable-source-materialization-result-audit"
+}

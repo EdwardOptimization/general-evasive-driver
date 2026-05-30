@@ -165,6 +165,45 @@
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1810-executable-v2-stable-source-materialization-execution-design.md",
+    "decision": "stable_source_materialization_execution_design_admit_preflight_run",
+    "execution_in_this_milestone": false,
+    "exact_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_stable_source_materialization --new-materialization-needs runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv --topup-candidates runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_topup_candidate_rows.csv --bounded-panel-specs runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json --bounded-panel-matrix runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv --output-dir runs/m1811_executable_v2_stable_source_materialization --target-materialization-count 3 --target-profile-count 12 --id-prefix m1811 --next-blocker m1812-executable-v2-stable-source-materialization-result-audit",
+    "expected_stable_materialization_target_count": 3,
+    "expected_stable_materialization_spec_count": 3,
+    "expected_stable_materialization_matrix_row_count": 36,
+    "expected_profile_control_count": 12,
+    "expected_materialization_strategy_counts": {
+      "label_specific_stable_sampler_repair_v1": 3
+    },
+    "expected_duplicate_key_count": 0,
+    "expected_labels_enter_actor_input_count": 0,
+    "expected_reset_validation_required_count": 3,
+    "expected_measured_execution_admissible_count": 0,
+    "expected_controller_family_ranking_admissible_count": 0,
+    "expected_guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1811-executable-v2-stable-source-materialization.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1810 passes if it fixes the materialization execution command and expected counts without executing it or making ranking claims.",
-  "next_blocker": "m1810-executable-v2-stable-source-materialization-execution-design"
+  "next_blocker": "m1811-executable-v2-stable-source-materialization"
 }
