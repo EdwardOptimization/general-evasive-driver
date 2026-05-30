@@ -30801,3 +30801,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json`
 - next: `m1835-executable-v2-reset-time-aes-source-repair-v2-design`
+
+## M1835 Executable V2 Reset-Time AES Source Repair V2 Design
+
+- status: completed
+- decision: `reset_time_aes_source_repair_v2_design_admit_implementation`
+- artifact: `docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md`
+- target sources: `m1771-bp1-00 m1771-bp1-02`
+- target profiles per source: `12`
+- total target profiles: `24`
+- acceptance objective: `reset_time_aes_only_acceptance_under_require_aeb_infeasible`
+- offline density usage: `diagnostic_only`
+- main attempt budget: `10000`
+- summary aggregation requirement: `row_and_attempt_counts_v1`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-time AES source repair v2 design and implementation admission
+- unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.json`
+- next: `m1836-executable-v2-reset-time-aes-source-repair-v2-implementation`

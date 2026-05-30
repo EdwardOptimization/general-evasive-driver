@@ -1,0 +1,183 @@
+{
+  "id": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_source_repair_v2_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md",
+      "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py",
+      "src/autodrift/executable_v2_stable_source_targeted_reset_sampler_repair.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset reset-time AES source repair v2 helper and focused tests"
+    ],
+    "derived_from": [
+      "m1835-executable-v2-reset-time-aes-source-repair-v2-design"
+    ],
+    "blocked_by": [
+      "M1835 admits implementation of reset-time AES source repair v2"
+    ],
+    "supersedes": [
+      "offline-density-only repair implementation",
+      "project artifact execution before focused tests",
+      "reset rerun before repair implementation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md",
+  "public_gates": [
+    "M1836 must implement the helper and focused tests only",
+    "M1836 must not run project artifact repair or reset",
+    "M1836 must preserve profile controls actor-input contract and ranking blocks"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact repair execution",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_source_repair_v2",
+    "evidence_axis": "Q_reset_time_aes_source_repair_v2_implementation",
+    "evidence_increment": "implements tested no-reset helper for reset-time AES source repair v2",
+    "claim_scope": "helper implementation only; no project artifact execution, source repair result, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if focused tests cannot cover AEB-feasible rejection and AES-only acceptance",
+      "stop if helper would require env reset",
+      "stop if helper would tune per-profile controls",
+      "stop if summary aggregation cannot expose attempt counts"
+    ],
+    "fallback_plan": [
+      "route to design repair if implementation cannot meet M1835 contract",
+      "route to focused helper repair if tests reveal aggregation or source-level bugs",
+      "route to execution design only after focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1835 admits helper implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "reset-time AES source repair v2 helper implementation",
+    "admission_evidence": [
+      "M1835 defines target sources acceptance objective artifacts pass criteria and focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact repair execution",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source helper implementation",
+      "focused tests",
+      "M1836 implementation doc",
+      "M1836 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "full pytest passes if source code changes are made",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source repair helper implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "helper unit/focused tests only; no project artifact run.",
+    "negative_result_policy": "If focused tests fail, repair the helper or design instead of weakening AES acceptance labels.",
+    "allowed_claims": [
+      "reset-time AES source repair v2 helper implementation and tests",
+      "no project artifact repair result, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset helper can implement M1835's reset-time AES-only acceptance objective, source-level candidate selection, and row/attempt summary aggregation with focused tests.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_reset_time_aes_source_repair_v2.py exists",
+    "tests/test_executable_v2_reset_time_aes_source_repair_v2.py exists",
+    "focused tests pass",
+    "full pytest passes if source code changed",
+    "implementation does not run project artifact repair or environment reset",
+    "implementation preserves actor input reward dynamics termination and profile controls"
+  ],
+  "failure_criteria": [
+    "implementation file is missing",
+    "focused tests are missing or fail",
+    "helper runs project artifact repair as part of implementation",
+    "helper calls environment reset or rollout",
+    "helper tunes per-profile controls",
+    "helper omits row and attempt summary aggregation"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_reset_time_aes_source_repair_v2.py -q"
+    },
+    {
+      "name": "full_pytest",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_reset_time_aes_source_repair_v2.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_reset_time_aes_source_repair_v2.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_source_repair_v2_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md",
+    "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py",
+    "src/autodrift/executable_v2_stable_source_targeted_reset_sampler_repair.py"
+  ],
+  "decision_rule": "M1836 passes if the helper and focused tests implement M1835 without project artifact execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation"
+}

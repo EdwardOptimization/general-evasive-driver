@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1843,
+    "completed": 1844,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md",
+    "command_log": "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit"
+    "task_id": "m1835-executable-v2-reset-time-aes-source-repair-v2-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json",
-    "hypothesis": "A reset-time source repair v2 can be specified that searches for accepted AES-only candidates under require_aeb_infeasible for the two persistent AES sources.",
-    "id": "m1835-executable-v2-reset-time-aes-source-repair-v2-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-time AES source repair v2 without reset",
-    "priority": 18300,
+    "command": "see experiments/manifests/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.json",
+    "hypothesis": "A no-reset helper can implement M1835's reset-time AES-only acceptance objective, source-level candidate selection, and row/attempt summary aggregation with focused tests.",
+    "id": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement helper and focused tests without project artifact execution",
+    "priority": 18310,
     "status": "pending",
-    "success_artifact": "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md"
+    "success_artifact": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md"
   },
-  "updated_at_utc": "20260530T132700Z"
+  "updated_at_utc": "20260530T132800Z"
 }
