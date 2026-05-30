@@ -31414,3 +31414,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1855-executable-v2-support-first-source-mining-execution-design.json`
 - next: `m1855-executable-v2-support-first-source-mining-execution-design`
+
+## M1855 Executable V2 Support-First Source Mining Execution Design
+
+- status: completed
+- decision: `support_first_source_mining_execution_design_admit_run`
+- artifact: `docs/m1855-executable-v2-support-first-source-mining-execution-design.md`
+- candidate rows: `configs/executable_v2_support_first_candidate_templates_v0.json`
+- output dir: `runs/m1856_executable_v2_support_first_source_mining`
+- expected template id: `support_first_candidate_templates_v0`
+- expected candidate row count: `288`
+- expected grid cell count total: `465264`
+- source mining run: `false`
+- project artifact scan: `false`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact M1856 source mining command expected input counts output directory execution route
+- unsupported: source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1856-executable-v2-support-first-source-mining-execution.json`
+- next: `m1856-executable-v2-support-first-source-mining-execution`
