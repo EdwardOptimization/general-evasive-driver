@@ -152,6 +152,48 @@
     "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
     "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+    "run_summary": "runs/m1758_single_sampling_failure_reset_only_probe/summary.json",
+    "probe_rows": "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv",
+    "failed_probe_rows": "runs/m1758_single_sampling_failure_reset_only_probe/failed_probe_rows.csv",
+    "result_class": "seed_fragile_but_feasible",
+    "workload_id": "m1728-s4-02::L2_window_13_current_tiled",
+    "scenario_spec_id": "m1728-s4-02",
+    "profile_name": "L2_window_13_current_tiled",
+    "exact_seed": 175761,
+    "neighbor_radius": 50,
+    "probe_seed_count": 101,
+    "success_count": 95,
+    "failure_count": 6,
+    "exact_reset_success": false,
+    "neighbor_success_count": 95,
+    "neighbor_failure_count": 5,
+    "sampled_label_counts": {
+      "unavoidable": 95
+    },
+    "nearest_successful_seed_candidates": [
+      175760,
+      175762
+    ],
+    "policy_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+  },
   "decision_rule": "M1758 passes if it classifies the single reset-time sampling failure without policy rollout or contract changes.",
-  "next_blocker": "m1758-single-sampling-failure-reset-only-feasibility-probe"
+  "next_blocker": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
 }

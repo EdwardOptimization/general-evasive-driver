@@ -28462,3 +28462,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: completed-row interpretation, seed/spec repair, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1758-single-sampling-failure-reset-only-feasibility-probe.json`
 - next: `m1758-single-sampling-failure-reset-only-feasibility-probe`
+
+## M1758 Single Sampling Failure Reset-Only Feasibility Probe
+
+- status: completed
+- result class: `seed_fragile_but_feasible`
+- artifact: `docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md`
+- summary: `runs/m1758_single_sampling_failure_reset_only_probe/summary.json`
+- workload: `m1728-s4-02::L2_window_13_current_tiled`
+- scenario spec: `m1728-s4-02`
+- profile: `L2_window_13_current_tiled`
+- exact seed: `175761`
+- neighbor radius: `50`
+- probe seed count: `101`
+- exact reset success: `false`
+- success count: `95`
+- failure count: `6`
+- neighbor success count: `95`
+- neighbor failure count: `5`
+- sampled label counts: `unavoidable=95`
+- nearest successful seed candidates: `175760`, `175762`
+- policy rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact seed is reproducibly reset-infeasible while the same spec/profile is feasible for neighboring seeds
+- unsupported: policy rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
+- next: `m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1766,
+    "completed": 1767,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+    "command_log": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit"
+    "task_id": "m1758-single-sampling-failure-reset-only-feasibility-probe"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1758-single-sampling-failure-reset-only-feasibility-probe.json",
-    "hypothesis": "A reset-only probe can classify the single failed row before changing seeds or scenario specs.",
-    "id": "m1758-single-sampling-failure-reset-only-feasibility-probe",
-    "kind": "infrastructure",
-    "notes": "Pending: probe exact failed seed and neighboring seeds without policy rollout",
-    "priority": 17530,
+    "command": "see experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
+    "hypothesis": "The M1749-M1758 revised scenario taxonomy branch should synthesize before seed repair design to avoid over-fragmentation and preserve evidence boundaries.",
+    "id": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1749-M1758 before seed-repair completion design",
+    "priority": 17540,
     "status": "pending",
-    "success_artifact": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md"
+    "success_artifact": "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T055330Z"
+  "updated_at_utc": "20260530T060232Z"
 }
