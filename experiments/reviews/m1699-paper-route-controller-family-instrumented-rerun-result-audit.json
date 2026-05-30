@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1699 audits M1698 as clean instrumented execution but blocks ranking because outcomes are dominated by off-track noncollision noncompletion",
+  "failure_criteria": [
+    "audit omits required M1698 artifacts",
+    "audit ignores off-track dominance",
+    "audit interprets raw diagnostics as controller-family ranking or paper-level evidence",
+    "audit routes directly to training or profile tuning without design",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles from M1698 diagnostics",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T004442Z",
+  "hypothesis": "M1698 can be audited into an explicit next route by separating off-track dominance from obstacle-collision avoidance outcomes.",
+  "lineage": {
+    "blocked_by": [
+      "need outcome-semantics audit before interpreting off-track dominated instrumented rerun results"
+    ],
+    "derived_from": [
+      "m1698-paper-route-controller-family-instrumented-rerun-execution"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json"
+    ],
+    "parent_dataset": [
+      "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+      "runs/m1698_controller_family_instrumented_full_rollout/episode_rows.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit the instrumented public rerun before controller-family interpretation"
+    ],
+    "supersedes": [
+      "raw success interpretation without outcome semantics",
+      "direct ranking from M1698 execution artifacts"
+    ]
+  },
+  "milestone": "m1699-paper-route-controller-family-instrumented-rerun-result-audit",
+  "next_blocker": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "instrumented_rerun_audit_blocks_ranking_route_to_branch_synthesis",
+  "public_gates": [
+    "M1699 must audit M1698 required artifacts, outcome fields, finite metrics, and guardrails",
+    "M1699 must interpret off-track/collision/pass buckets before any controller-family comparison",
+    "M1699 must decide whether the next route is task-quality repair, corridor/boundary tuning, or branch synthesis",
+    "M1699 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "instrumented_rerun_audit_blocks_ranking_route_to_branch_synthesis",
+    "milestone": "m1699-paper-route-controller-family-instrumented-rerun-result-audit",
+    "reason": "M1699 audits M1698 as clean instrumented execution but blocks ranking because outcomes are dominated by off-track noncollision noncompletion",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md exists",
+    "M1698 required artifacts are verified",
+    "outcome and termination-reason aggregates are audited",
+    "off-track dominance is addressed",
+    "next route is explicit",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

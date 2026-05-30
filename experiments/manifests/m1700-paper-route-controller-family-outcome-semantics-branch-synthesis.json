@@ -1,0 +1,185 @@
+{
+  "id": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1690-paper-route-controller-family-executable-workload-materialization-preflight.md",
+      "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+      "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+      "runs/m1693_controller_family_full_rollout_execution/summary.json",
+      "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+      "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md",
+      "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
+      "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+      "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+      "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1690-M1699 before further controller-family task-quality work"
+    ],
+    "derived_from": [
+      "m1690-paper-route-controller-family-executable-workload-materialization-preflight",
+      "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1699 and M1698 shows off-track dominated outcomes"
+    ],
+    "supersedes": [
+      "direct task-quality repair after M1699",
+      "direct controller-family ranking after M1698"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+  "public_gates": [
+    "M1700 must synthesize M1690-M1699 before another narrow rollout or task-quality design",
+    "M1700 must answer required synthesis questions",
+    "M1700 must assess off-track dominance and public-gate overfit risk",
+    "M1700 must decide continue pivot stop or promote_to_next_branch",
+    "M1700 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "S_controller_family_outcome_semantics_branch_synthesis",
+    "evidence_increment": "synthesizes M1690-M1699 after executable materialization, full rollout, outcome instrumentation, and instrumented rerun audit",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores off-track dominance",
+      "stop if synthesis treats M1693 or M1698 as ranking evidence",
+      "stop if synthesis skips public-gate overfit and task-quality risks",
+      "stop if synthesis routes directly to training or profile tuning"
+    ],
+    "fallback_plan": [
+      "pivot to an outcome-semantics task-quality branch if off-track dominance blocks ranking",
+      "continue controller-family rollout only if outcome buckets are interpretable enough",
+      "stop the branch if task-source workload is unsuitable for comparison",
+      "promote_to_next_branch only if a different evidence axis is selected"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M1699 and outcome audit blocks raw ranking",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controller-family outcome-semantics branch synthesis",
+    "admission_evidence": [
+      "M1699 audits the instrumented rerun and finds off-track dominance blocks raw ranking",
+      "workflow cadence requires synthesis before another narrow branch step"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1700 synthesis document",
+      "M1700 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits a pivot continue stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task-quality and outcome semantics, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, and L3-reset controls in any continued or pivoted route"
+    ],
+    "temporal_evidence_window": "M1690-M1699 public artifacts only.",
+    "negative_result_policy": "If synthesis finds off-track dominance blocks history claims, pivot to task-quality evidence before further controller comparison.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1690-M1699 controller-family task-source branch should synthesize and likely pivot because instrumented outcomes are off-track dominated.",
+  "success_criteria": [
+    "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "off-track dominance and unsupported ranking claims are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1693 or M1698 as controller-family ranking evidence",
+    "synthesis routes directly to training or profile tuning",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+    "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+    "runs/m1693_controller_family_full_rollout_execution/summary.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M1700 passes if it synthesizes M1690-M1699 and chooses a route before further rollout, task-quality repair, or controller interpretation.",
+  "next_blocker": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis"
+}

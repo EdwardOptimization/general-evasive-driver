@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1707,
+    "completed": 1708,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1698-paper-route-controller-family-instrumented-rerun-execution.md",
+    "command_log": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1698_controller_family_instrumented_full_rollout",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1698-paper-route-controller-family-instrumented-rerun-execution"
+    "task_id": "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json",
-    "hypothesis": "M1698 can be audited into an explicit next route by separating off-track dominance from obstacle-collision avoidance outcomes.",
-    "id": "m1699-paper-route-controller-family-instrumented-rerun-result-audit",
+    "command": "see experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json",
+    "hypothesis": "The M1690-M1699 controller-family task-source branch should synthesize and likely pivot because instrumented outcomes are off-track dominated.",
+    "id": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit off-track dominated outcome buckets and route next step without ranking claims",
-    "priority": 16940,
+    "notes": "Pending: synthesize materialization full rollout instrumentation and off-track dominated audit before next branch decision",
+    "priority": 16950,
     "status": "pending",
-    "success_artifact": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md"
+    "success_artifact": "docs/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T003930Z"
+  "updated_at_utc": "20260530T004319Z"
 }

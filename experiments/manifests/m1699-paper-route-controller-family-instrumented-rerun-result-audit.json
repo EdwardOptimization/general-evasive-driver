@@ -153,6 +153,33 @@
     "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv",
     "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+    "decision": "instrumented_rerun_audit_blocks_ranking_route_to_branch_synthesis",
+    "m1698_result_class": "controller_family_full_rollout_execution_pass",
+    "episode_count": 864,
+    "profile_count": 12,
+    "spec_count": 72,
+    "failure_count": 0,
+    "guardrail_violation_count": 0,
+    "success_obstacle_pass_count": 32,
+    "collision_failure_count": 38,
+    "off_track_noncollision_noncompletion_count": 794,
+    "dominant_outcome_bucket": "off_track_noncollision_noncompletion",
+    "raw_controller_family_ranking_admitted": false,
+    "recurrent_advantage_claim_admitted": false,
+    "workflow_synthesis_required": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json"
+  },
   "decision_rule": "M1699 passes if it audits M1698 outcome semantics and routes to an explicit next milestone without overclaiming.",
-  "next_blocker": "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
+  "next_blocker": "m1700-paper-route-controller-family-outcome-semantics-branch-synthesis"
 }

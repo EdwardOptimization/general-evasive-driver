@@ -27199,3 +27199,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json`
 - next: `m1699-paper-route-controller-family-instrumented-rerun-result-audit`
+
+## M1699 Paper-Route Controller-Family Instrumented Rerun Result Audit
+
+- status: completed
+- decision: `instrumented_rerun_audit_blocks_ranking_route_to_branch_synthesis`
+- artifact: `docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md`
+- audited M1698 result class: `controller_family_full_rollout_execution_pass`
+- episodes / profiles / specs / failures: `864` / `12` / `72` / `0`
+- dominant outcome bucket: `off_track_noncollision_noncompletion`
+- outcome buckets: `success_obstacle_pass=32`, `collision_failure=38`, `off_track_noncollision_noncompletion=794`
+- interpretation: current workload is road-boundary/off-track dominated, so raw success would conflate obstacle avoidance, boundary keeping, completion semantics, and geometry strictness
+- cadence: M1690-M1699 reaches the 10-milestone synthesis cadence
+- supported: M1698 instrumentation resolves the prior outcome ambiguity and shows why direct ranking is blocked
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1700-paper-route-controller-family-outcome-semantics-branch-synthesis.json`
+- next: `m1700-paper-route-controller-family-outcome-semantics-branch-synthesis`

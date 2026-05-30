@@ -10740,5 +10740,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1698 outcome snapshot: `32` success obstacle passes, `38` collision failures,
   and `794` off-track non-collision non-completions. This identifies the
   dominant blocker as off-track outcome semantics, not obstacle collision alone.
+- M1699 audits M1698 as a clean instrumented execution pass but blocks raw
+  controller-family interpretation. The workload is road-boundary/off-track
+  dominated, so raw success would conflate obstacle avoidance with boundary
+  keeping and finish semantics.
+- Because M1690-M1699 reached the 10-milestone synthesis cadence, the next step
+  is branch synthesis before another narrow rollout, repair, or profile tweak.
 - Current next blocker:
-  `m1699-paper-route-controller-family-instrumented-rerun-result-audit`.
+  `m1700-paper-route-controller-family-outcome-semantics-branch-synthesis`.
