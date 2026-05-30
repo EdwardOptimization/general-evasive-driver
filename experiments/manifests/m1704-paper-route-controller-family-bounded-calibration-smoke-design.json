@@ -148,6 +148,32 @@
     "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md",
     "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+    "decision": "bounded_calibration_smoke_design_admit_no_rollout_subset_preflight",
+    "full_matrix_cell_count": 10368,
+    "selected_base_spec_count": 6,
+    "planned_bounded_calibration_spec_count": 72,
+    "planned_profile_count": 12,
+    "planned_bounded_smoke_cell_count": 864,
+    "planned_task_family_split": {
+      "T4": 3,
+      "T5": 3
+    },
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json"
+  },
   "decision_rule": "M1704 passes if it designs a bounded diagnostic calibration smoke that preserves controls and avoids controller ranking.",
-  "next_blocker": "m1704-paper-route-controller-family-bounded-calibration-smoke-design"
+  "next_blocker": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight"
 }

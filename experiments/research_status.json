@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1712,
+    "completed": 1713,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md",
+    "command_log": "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit"
+    "task_id": "m1704-paper-route-controller-family-bounded-calibration-smoke-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1704-paper-route-controller-family-bounded-calibration-smoke-design.json",
-    "hypothesis": "A bounded diagnostic calibration smoke can be designed from M1702 to test whether calibration axes reduce off-track dominance without ranking controllers.",
-    "id": "m1704-paper-route-controller-family-bounded-calibration-smoke-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded smoke subset metrics and controls before execution",
-    "priority": 16990,
+    "command": "see experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json",
+    "hypothesis": "The M1704 bounded calibration smoke subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
+    "id": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize 6-base-spec 72-calibration-spec 864-cell bounded smoke subset with contract checks",
+    "priority": 17000,
     "status": "pending",
-    "success_artifact": "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md"
+    "success_artifact": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T005808Z"
+  "updated_at_utc": "20260530T010317Z"
 }

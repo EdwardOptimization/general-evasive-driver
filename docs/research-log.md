@@ -27287,3 +27287,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1704-paper-route-controller-family-bounded-calibration-smoke-design.json`
 - next: `m1704-paper-route-controller-family-bounded-calibration-smoke-design`
+
+## M1704 Paper-Route Controller-Family Bounded Calibration Smoke Design
+
+- status: completed
+- decision: `bounded_calibration_smoke_design_admit_no_rollout_subset_preflight`
+- artifact: `docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md`
+- parent audit: `docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md`
+- full matrix cells: `10368`
+- planned selected base specs: `6`
+- planned task split: `T4=3`, `T5=3`
+- planned calibration specs: `72`
+- planned profiles: `12`
+- planned bounded smoke cells: `864`
+- selection rule: source-diverse deterministic base-spec selection with full `track_width_scale`, `finish_variant`, and `max_steps_scale` product retained
+- interpretation rule: aggregate first by calibration variant and outcome bucket; treat profile rows as controls/diagnostics rather than ranking evidence
+- supported: bounded smoke protocol is specified and keeps execution scale equal to the already tested 864-episode public rollout scale
+- unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json`
+- next: `m1705-paper-route-controller-family-bounded-calibration-smoke-preflight`

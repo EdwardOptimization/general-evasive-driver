@@ -1,0 +1,171 @@
+{
+  "id": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1704-paper-route-controller-family-bounded-calibration-smoke-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-rollout bounded calibration smoke subset"
+    ],
+    "derived_from": [
+      "m1704-paper-route-controller-family-bounded-calibration-smoke-design"
+    ],
+    "blocked_by": [
+      "need bounded smoke subset preflight before any execution"
+    ],
+    "supersedes": [
+      "direct execution of the full M1702 10368-cell matrix"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.md",
+  "public_gates": [
+    "M1705 must materialize a no-rollout 864-cell bounded smoke subset",
+    "M1705 must select 6 source-diverse base specs with 3 T4 and 3 T5 specs",
+    "M1705 must preserve all 12 calibration variants per selected base spec",
+    "M1705 must preserve all 12 controller-family profiles per calibration spec",
+    "M1705 must preserve P0 no-wheel no-oracle actor contract for every env variant",
+    "M1705 must not execute rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1705 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_bounded_calibration_smoke_preflight",
+    "evidence_increment": "materializes the bounded smoke subset after M1704 design",
+    "claim_scope": "no-rollout subset preflight only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if selected subset is not 864 cells",
+      "stop if selected base specs do not cover 3 T4 and 3 T5 specs",
+      "stop if any calibration axis or required profile is dropped",
+      "stop if any env variant violates P0 contract"
+    ],
+    "fallback_plan": [
+      "route to selection repair if subset coverage fails",
+      "route to bounded smoke audit if subset is clean",
+      "route to branch stop if source diversity cannot be preserved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1704 admits bounded smoke subset preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-rollout bounded calibration smoke subset",
+    "admission_evidence": [
+      "M1704 designs an 864-cell bounded smoke subset protocol"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "bounded smoke preflight code if needed",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight artifacts",
+      "M1705 status queue scoreboard research log and review",
+      "one follow-up bounded smoke audit manifest"
+    ],
+    "next_stage_criteria": [
+      "subset matrix exists",
+      "source/task/profile/calibration coverage passes",
+      "contract checks pass",
+      "no rollout occurred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1705 is infrastructure and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "preflight must preserve L1, L2-current-tiled, L3-online, and L3-reset controls for later smoke"
+    ],
+    "temporal_evidence_window": "M1704 design only.",
+    "negative_result_policy": "If the subset cannot preserve task/source/profile coverage, stop before execution.",
+    "allowed_claims": [
+      "bounded smoke subset preflight",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1704 bounded calibration smoke subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
+  "success_criteria": [
+    "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json exists",
+    "bounded_smoke_matrix.csv exists and contains 864 rows",
+    "selected_base_specs.csv contains 6 rows with 3 T4 and 3 T5 specs",
+    "bounded_calibration_specs.csv contains 72 rows",
+    "all 12 profiles appear for each selected calibration spec",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "selected subset does not match the M1704 scale",
+    "required task family calibration axis or profile coverage is missing",
+    "any env variant violates P0 contract",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "materialize no-rollout bounded calibration smoke subset"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/selected_base_specs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_calibration_specs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+    "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
+  ],
+  "decision_rule": "M1705 passes if it materializes the bounded 864-cell calibration smoke subset with zero P0 contract violations and no rollout.",
+  "next_blocker": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight"
+}
