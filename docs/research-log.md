@@ -30558,3 +30558,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.json`
 - next: `m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design`
+
+## M1827 Executable V2 Stable Source Repaired Targeted Reset Execution Design
+
+- status: completed
+- decision: `stable_source_repaired_targeted_reset_execution_design_admit_preflight_run`
+- artifact: `docs/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.md`
+- input payload: `runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json`
+- output dir: `runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight`
+- expected attempted spec count: `36`
+- expected reset success count: `36`
+- expected sampling failure count: `0`
+- expected profile count: `12`
+- expected role surface count: `1`
+- expected reset ready spec count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected metadata join incomplete count: `0`
+- expected guardrail violation count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact repaired targeted reset-only command and target counts
+- unsupported: repaired reset validation result measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.json`
+- next: `m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight`

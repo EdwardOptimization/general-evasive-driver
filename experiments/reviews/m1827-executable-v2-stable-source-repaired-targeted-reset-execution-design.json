@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1827 fixes exact repaired reset-only command over the M1825 repaired payload and admits M1828 preflight",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design omits target counts or output directory",
+    "design routes directly to measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T111617Z",
+  "hypothesis": "The M1825 repaired payload can be targeted by an exact M1792-compatible reset-only preflight command with fixed target counts and guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1826 admits repaired reset-only design but exact command has not been registered"
+    ],
+    "derived_from": [
+      "m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_targeted_reset_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit.md",
+      "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json"
+    ],
+    "parent_objective": [
+      "pre-register exact reset-only command over repaired targeted reset payload"
+    ],
+    "supersedes": [
+      "direct repaired reset rerun without command registration",
+      "measured execution before reset support",
+      "controller-family ranking before executable reset validation"
+    ]
+  },
+  "milestone": "m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design",
+  "next_blocker": "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stable_source_repaired_targeted_reset_execution_design_admit_preflight_run",
+  "public_gates": [
+    "M1827 must fix exact M1792-compatible reset-only command over the M1825 repaired payload",
+    "M1827 must pre-register target counts and next output directory",
+    "M1827 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "stable_source_repaired_targeted_reset_execution_design_admit_preflight_run",
+    "milestone": "m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design",
+    "reason": "M1827 fixes exact repaired reset-only command over the M1825 repaired payload and admits M1828 preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.md exists",
+    "design lists exact command input payload output directory target counts and next blocker",
+    "design targets 36 specs, 12 profiles, 1 role surface, 36 reset-ready specs, and zero expected guardrail violations",
+    "design keeps reset measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
