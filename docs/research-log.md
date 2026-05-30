@@ -29482,3 +29482,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1792-executable-v2-reset-feasibility-adapter-implementation.json`
 - next: `m1792-executable-v2-reset-feasibility-adapter-implementation`
+
+## M1792 Executable V2 Reset-Feasibility Adapter Implementation
+
+- status: completed
+- decision: `executable_v2_reset_adapter_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md`
+- module: `src/autodrift/executable_v2_reset_feasibility_preflight.py`
+- test: `tests/test_executable_v2_reset_feasibility_preflight.py`
+- focused test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_reset_feasibility_preflight.py -q`
+- focused test result: `2 passed in 0.93s`
+- full 312-row reset preflight run: `false`
+- adapter preserves v2 metadata: `true`
+- adapter preserves sampling failures: `true`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: v2 reset-only adapter implementation and focused tests
+- unsupported: full 312-row reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1793-executable-v2-reset-feasibility-execution-design.json`
+- next: `m1793-executable-v2-reset-feasibility-execution-design`

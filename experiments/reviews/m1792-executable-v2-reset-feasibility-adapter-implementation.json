@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1792 passes if it implements and tests the v2 reset-feasibility adapter without rollout, ranking, or full reset execution.",
+  "decision_reason": "M1792 implements the executable v2 reset-only adapter with focused tests and preserves v2 metadata without running full reset",
   "failure_criteria": [
     "adapter or tests are missing",
     "adapter loses v2 metadata",
@@ -29,7 +29,7 @@
     "do not run the full 312-row reset preflight in this implementation milestone"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T084235Z",
+  "generated_at_utc": "20260530T085007Z",
   "hypothesis": "A reset-only adapter can be implemented and tested for M1790 executable v2 specs without running the full reset preflight.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1792-executable-v2-reset-feasibility-adapter-implementation",
-  "next_blocker": "m1792-executable-v2-reset-feasibility-adapter-implementation",
+  "next_blocker": "m1793-executable-v2-reset-feasibility-execution-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "executable_v2_reset_adapter_implementation_pass_route_to_execution_design",
   "public_gates": [
     "M1792 must implement a reset-only adapter for executable_v2_panel_specs without running the real 312-row reset preflight",
     "M1792 must add focused tests using monkeypatched env reset behavior",
     "M1792 must preserve v2 spec identifiers role surfaces profile labels hidden buckets and guardrail fields in outputs",
     "M1792 must not run rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "executable_v2_reset_adapter_implementation_pass_route_to_execution_design",
+    "milestone": "m1792-executable-v2-reset-feasibility-adapter-implementation",
+    "reason": "M1792 implements the executable v2 reset-only adapter with focused tests and preserves v2 metadata without running full reset",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "v2 reset adapter module exists",
     "focused tests pass",

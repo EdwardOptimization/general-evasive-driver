@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T084235Z
+- Generated at UTC: 20260530T085007Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1792 passes if it implements and tests the v2 reset-feasibility adapter without rollout, ranking, or full reset execution.
+- Promotion decision: executable_v2_reset_adapter_implementation_pass_route_to_execution_design
+- Decision reason: M1792 implements the executable v2 reset-only adapter with focused tests and preserves v2 metadata without running full reset
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ A reset-only adapter can be implemented and tested for M1790 executable v2 specs
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1792-executable-v2-reset-feasibility-adapter-implementation
+- type: infrastructure
+- checkpoint: docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_reset_adapter_implementation_pass_route_to_execution_design
+- reason: M1792 implements the executable v2 reset-only adapter with focused tests and preserves v2 metadata without running full reset
 
 ## Next Blocker
 
-m1792-executable-v2-reset-feasibility-adapter-implementation
+m1793-executable-v2-reset-feasibility-execution-design

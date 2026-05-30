@@ -1,0 +1,159 @@
+{
+  "id": "m1793-executable-v2-reset-feasibility-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md",
+      "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1792-executable-v2-reset-feasibility-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "design the full 312-row executable v2 reset-only feasibility preflight before running it"
+    ],
+    "derived_from": [
+      "m1792-executable-v2-reset-feasibility-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1792 implements and tests the v2 reset-feasibility adapter"
+    ],
+    "supersedes": [
+      "running the full 312-row reset preflight without a fixed command and target-count manifest"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1793-executable-v2-reset-feasibility-execution-design.md",
+  "public_gates": [
+    "M1793 must fix the exact reset-only command input output target counts and next blocker before execution",
+    "M1793 must preserve M1790 target counts: 312 specs six role surfaces twelve profiles and zero label leakage",
+    "M1793 must forbid rollout training replay PPO promotion private holdout actor input changes tuning ranking paper-level claims and level3 self-ID claims",
+    "M1793 must not itself run the full reset preflight"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_role_specific_panel_metric_repair",
+    "evidence_axis": "Q_executable_v2_reset_feasibility_execution_design",
+    "evidence_increment": "fixes the full reset-only preflight command and gates after M1792 adapter implementation",
+    "claim_scope": "execution design only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts are ambiguous",
+      "stop if output directory or next blocker is ambiguous",
+      "stop if the command would start rollout or training",
+      "stop if branch synthesis cadence requires synthesis before execution"
+    ],
+    "fallback_plan": [
+      "route to reset execution if command and gates are fixed",
+      "route to adapter repair if command cannot satisfy adapter contract",
+      "route to executable spec repair if M1790 artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1792 adapter tests passed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "executable v2 reset feasibility execution design",
+    "admission_evidence": [
+      "M1792 adapter focused tests pass and no full reset preflight has been run"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1793 execution design document",
+      "M1793 status queue scoreboard research log and review",
+      "one follow-up manifest for full reset-only execution or repair"
+    ],
+    "next_stage_criteria": [
+      "exact reset-only command is fixed",
+      "target counts are explicit",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1790 executable v2 artifacts and M1792 adapter only.",
+    "negative_result_policy": "If reset design cannot be made safe, route to adapter or spec repair without weakening self-ID standards.",
+    "allowed_claims": [
+      "executable v2 reset-feasibility execution design",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The full 312-row executable v2 reset-only feasibility preflight can be specified as a fixed command with clear target counts and guardrails.",
+  "success_criteria": [
+    "docs/m1793-executable-v2-reset-feasibility-execution-design.md exists",
+    "M1793 specifies the exact command and output directory",
+    "M1793 target counts are explicit: 312 specs six role surfaces twelve profiles zero label leakage",
+    "M1793 preserves no-reset no-rollout no-training no-ranking and no-paper-claim guardrails",
+    "next route is explicit"
+  ],
+  "failure_criteria": [
+    "execution design document is missing",
+    "command or target counts are ambiguous",
+    "design starts reset or rollout",
+    "design ranks profiles or claims paper-level evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write executable v2 reset feasibility execution design without running reset"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1793-executable-v2-reset-feasibility-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md",
+    "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json"
+  ],
+  "decision_rule": "M1793 passes if it fixes the executable v2 reset-only preflight command and gates without running reset or rollout.",
+  "next_blocker": "m1793-executable-v2-reset-feasibility-execution-design"
+}

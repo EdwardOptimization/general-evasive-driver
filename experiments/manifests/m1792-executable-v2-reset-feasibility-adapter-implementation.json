@@ -158,6 +158,31 @@
     "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md",
     "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1792-executable-v2-reset-feasibility-adapter-implementation.md",
+    "decision": "executable_v2_reset_adapter_implementation_pass_route_to_execution_design",
+    "module": "src/autodrift/executable_v2_reset_feasibility_preflight.py",
+    "test": "tests/test_executable_v2_reset_feasibility_preflight.py",
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_reset_feasibility_preflight.py -q",
+    "focused_test_result": "2 passed in 0.93s",
+    "full_312_row_reset_preflight_run": false,
+    "adapter_preserves_v2_metadata": true,
+    "adapter_preserves_sampling_failures": true,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1793-executable-v2-reset-feasibility-execution-design.json"
+  },
   "decision_rule": "M1792 passes if it implements and tests the v2 reset-feasibility adapter without rollout, ranking, or full reset execution.",
-  "next_blocker": "m1792-executable-v2-reset-feasibility-adapter-implementation"
+  "next_blocker": "m1793-executable-v2-reset-feasibility-execution-design"
 }
