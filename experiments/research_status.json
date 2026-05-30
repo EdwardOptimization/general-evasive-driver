@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1865,
+    "completed": 1866,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1856-executable-v2-support-first-source-mining-execution.md",
+    "command_log": "docs/m1857-executable-v2-support-first-source-mining-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1856-executable-v2-support-first-source-mining-execution"
+    "task_id": "m1857-executable-v2-support-first-source-mining-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1857-executable-v2-support-first-source-mining-result-audit.json",
-    "hypothesis": "M1856 produced clean role-separated source support evidence that can be audited before materialization design.",
-    "id": "m1857-executable-v2-support-first-source-mining-result-audit",
+    "command": "see experiments/manifests/m1858-executable-v2-support-first-materialization-design.json",
+    "hypothesis": "A bounded materialization design can convert supported source evidence into executable-v2 candidate rows without biasing or over-expanding the corpus.",
+    "id": "m1858-executable-v2-support-first-materialization-design",
     "kind": "gate",
-    "notes": "Pending: audit source mining support evidence before materialization",
-    "priority": 18520,
+    "notes": "Pending: design bounded materialization from supported source evidence",
+    "priority": 18530,
     "status": "pending",
-    "success_artifact": "docs/m1857-executable-v2-support-first-source-mining-result-audit.md"
+    "success_artifact": "docs/m1858-executable-v2-support-first-materialization-design.md"
   },
-  "updated_at_utc": "20260530T132451Z"
+  "updated_at_utc": "20260530T132728Z"
 }

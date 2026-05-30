@@ -31485,3 +31485,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1857-executable-v2-support-first-source-mining-result-audit.json`
 - next: `m1857-executable-v2-support-first-source-mining-result-audit`
+
+## M1857 Executable V2 Support-First Source Mining Result Audit
+
+- status: completed
+- decision: `source_mining_result_clean_admit_materialization_design`
+- artifact: `docs/m1857-executable-v2-support-first-source-mining-result-audit.md`
+- parent result: `runs/m1856_executable_v2_support_first_source_mining/summary.json`
+- candidate source count: `288`
+- supported source count: `202`
+- unsupported source count: `86`
+- accepted cell count total: `149759`
+- stable AEB supported source count: `62`
+- stable AES supported source count: `49`
+- drift required supported source count: `49`
+- unavoidable mitigation supported source count: `42`
+- speed bucket count: `6`
+- mu bucket count: `6`
+- blank unsupported failure reason count: `0`
+- source mining rerun: `false`
+- project artifact scan rerun: `false`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1856 role-separated source support audit bounded materialization design route
+- unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1858-executable-v2-support-first-materialization-design.json`
+- next: `m1858-executable-v2-support-first-materialization-design`
