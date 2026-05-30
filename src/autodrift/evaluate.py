@@ -19,6 +19,7 @@ from autodrift.env import (
     FRONT_REAR_WHEEL_OBS_DIM,
     FRONT_REAR_WHEEL_OBSERVATION_MODES,
 )
+from autodrift.outcome_metric_instrumentation import compute_episode_outcome_metrics
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
 
@@ -208,6 +209,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     betas: list[float] = []
     speeds: list[float] = []
     actions: list[np.ndarray] = []
+    step_infos: list[dict] = []
     plan_action_rates: list[float] = []
     plan_first_action_errors: list[float] = []
     segment_stats = empty_segment_stats()
@@ -222,6 +224,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
             if len(sequence) > 1:
                 plan_action_rates.append(float(np.mean(np.linalg.norm(np.diff(sequence, axis=0), axis=1))))
         obs, reward, terminated, truncated, info = env.step(action)
+        step_infos.append(dict(info))
         beta_error = abs(float(info["beta"])) - float(info["beta_target"])
         segment = curvature_segment(float(info.get("curvature", 0.0)))
         rewards.append(float(reward))
@@ -236,6 +239,11 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         segment_stats[segment]["rewards"].append(float(reward))
         friction_step_applied = friction_step_applied or bool(info.get("friction_step_applied", False))
 
+    outcome_metric_fields = compute_episode_outcome_metrics(
+        step_infos,
+        default_dt=float(getattr(env.config, "dt", 0.02)),
+        default_track_width=float(getattr(env.config, "track_width", 5.0)),
+    )
     row = {
         "seed": seed,
         "policy": policy_name,
@@ -282,6 +290,7 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "plan_first_action_error_mean": (
             float(np.mean(plan_first_action_errors)) if plan_first_action_errors else float("nan")
         ),
+        **outcome_metric_fields,
     }
     return add_segment_metrics(row, segment_stats)
 

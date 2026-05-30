@@ -45,12 +45,28 @@ def test_episode_row_includes_obstacle_clearance_margin():
 
     row = run_episode(env, "heuristic", seed=24)
 
+    assert row["dt"] == env.config.dt
+    assert row["track_width"] == env.config.track_width
     assert np.isclose(row["obstacle_collision_radius"], 1.70)
     assert np.isfinite(row["min_clearance_margin"])
+    assert "recovery_success" in row
+    assert "controlled_drift_recovery_success" in row
+    assert "impact_severity_proxy" in row
+    assert "off_track_severity_proxy" in row
+    assert np.isfinite(row["max_abs_yaw_rate"])
     assert "termination_reason" in row
     assert "obstacle_passed_raw" in row
     assert "completion_reason" in row
     assert "outcome_bucket" in row
+
+
+def test_env_info_exposes_logging_only_outcome_metric_fields() -> None:
+    env = AutoDriftEnv(DriftEnvConfig(max_steps=2))
+    _, info = env.reset(seed=25)
+
+    assert "yaw_rate" in info
+    assert info["dt"] == env.config.dt
+    assert info["track_width"] == env.config.track_width
 
 
 def test_outcome_bucket_classifies_terminal_semantics() -> None:

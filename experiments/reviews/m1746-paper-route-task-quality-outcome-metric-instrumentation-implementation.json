@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1746 implements logging-only outcome metric fields and aggregate hooks with focused tests before any revised rollout",
+  "failure_criteria": [
+    "implementation changes reward termination dynamics actor observation or profile behavior",
+    "one or more M1745 metric families lacks focused tests",
+    "research validation fails",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260530T045529Z",
+  "hypothesis": "The M1745 outcome metric definitions can be implemented as logging-only evaluator/env instrumentation without changing actor, reward, termination, policy, profile, or training behavior.",
+  "lineage": {
+    "blocked_by": [
+      "revised-semantics execution needs recovery, drift, mitigation, boundary, and hidden-dynamics metric fields"
+    ],
+    "derived_from": [
+      "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_logging_only_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv"
+    ],
+    "parent_objective": [
+      "implement logging-only outcome metric fields required by revised task-quality semantics"
+    ],
+    "supersedes": [
+      "direct revised-semantics execution without metric instrumentation"
+    ]
+  },
+  "milestone": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation",
+  "next_blocker": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "outcome_metric_instrumentation_implementation_pass_route_to_result_audit",
+  "public_gates": [
+    "M1746 must be logging-only instrumentation",
+    "M1746 must not change reward dynamics termination actor observations policy checkpoints or profile masks",
+    "M1746 must add focused tests for all metric families defined by M1745",
+    "M1746 must not run the 864-cell rollout train replay PPO promote use private holdout rank controller families or claim paper-level evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "outcome_metric_instrumentation_implementation_pass_route_to_result_audit",
+    "milestone": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation",
+    "reason": "M1746 implements logging-only outcome metric fields and aggregate hooks with focused tests before any revised rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "logging-only fields for recovery drift mitigation off-track severity and hidden-dynamics aggregates are implemented",
+    "focused tests cover all M1745 metric families",
+    "research validation passes",
+    "actor observation reward termination policy checkpoint profile and training behavior remain unchanged",
+    "full rollout training replay PPO promotion private holdout ranking and level3 claims remain blocked"
+  ],
+  "type": "infrastructure"
+}

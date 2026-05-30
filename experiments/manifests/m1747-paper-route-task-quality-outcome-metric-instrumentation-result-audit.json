@@ -1,0 +1,155 @@
+{
+  "id": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+      "src/autodrift/outcome_metric_instrumentation.py",
+      "tests/test_outcome_metric_instrumentation.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit logging-only metric instrumentation implementation before rerun design"
+    ],
+    "derived_from": [
+      "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
+    ],
+    "blocked_by": [
+      "implementation must be audited before revised-semantics execution design"
+    ],
+    "supersedes": [
+      "direct revised-semantics execution immediately after instrumentation implementation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md",
+  "public_gates": [
+    "M1747 must audit that M1746 is logging-only and test-covered",
+    "M1747 must decide whether to route to smoke execution design repair bounded-panel design or branch synthesis",
+    "M1747 must not run full rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_metric_instrumentation_audit",
+    "evidence_increment": "audits logging-only metric instrumentation before execution design",
+    "claim_scope": "implementation audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1746 changed actor observation reward or termination behavior",
+      "stop if focused tests do not cover every metric family",
+      "stop if audit admits execution without smoke design",
+      "stop if audit ranks controller-family profiles"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if guardrails or tests fail",
+      "route to bounded-panel design if instrumentation is too broad for a safe rerun",
+      "route to scenario execution design if audit passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1746 implements logging-only metric instrumentation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit logging-only metric instrumentation",
+    "admission_evidence": [
+      "M1746 implements metric helpers and focused tests for the M1745 definitions"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not change reward or termination behavior",
+      "do not tune profiles",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1747 audit document",
+      "M1747 status queue scoreboard research log and review",
+      "one follow-up execution-design or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "logging-only contract is audited",
+      "test evidence is audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; instrumentation audit cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit may preserve profile controls but must not interpret metric logging as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1746 implementation and tests only.",
+    "negative_result_policy": "If instrumentation audit fails, record implementation limitation rather than self-ID failure.",
+    "allowed_claims": [
+      "logging-only outcome metric instrumentation audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1746 can be audited as logging-only, test-covered outcome metric instrumentation and routed safely before revised execution.",
+  "success_criteria": [
+    "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md exists",
+    "M1746 logging-only contract and focused tests are audited",
+    "next route is execution design repair bounded-panel design branch synthesis or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits logging-only contract or test evidence",
+    "audit admits rollout without execution design",
+    "full rollout training replay PPO private holdout promotion actor-input reward or termination changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write outcome metric instrumentation result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+    "tests/test_outcome_metric_instrumentation.py"
+  ],
+  "decision_rule": "M1747 passes if it audits M1746 as logging-only and chooses a route without admitting execution prematurely.",
+  "next_blocker": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
+}

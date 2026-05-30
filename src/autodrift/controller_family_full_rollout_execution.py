@@ -24,6 +24,11 @@ from autodrift.controller_family_measured_routing_smoke import (
 from autodrift.controller_profile_runtime import profile_runtime_summary, wrap_env_with_profile_mask
 from autodrift.env import AutoDriftEnv, DriftEnvConfig
 from autodrift.evaluate import ActorPolicy, run_episode_with_policy
+from autodrift.outcome_metric_instrumentation import (
+    hidden_dynamics_aggregate_rows,
+    outcome_metric_aggregate_fields,
+    profile_hidden_dynamics_worst_rows,
+)
 
 
 DEFAULT_EXECUTABLE_SPECS = Path(
@@ -285,6 +290,7 @@ def aggregate_rows(rows: list[dict[str, Any]], group_key: str) -> list[dict[str,
             "failure_rate": 0.0,
             "all_selected_metrics_finite": selected_metrics_are_finite(group),
         }
+        aggregate.update(outcome_metric_aggregate_fields(group))
         if group_key != "profile_name":
             aggregate["task_family"] = group[0].get("task_family", "")
             aggregate["source_family"] = group[0].get("executable_source_family", "")
@@ -456,6 +462,8 @@ def finalize_outputs(
         if episode_rows and "outcome_bucket" in episode_rows[0]
         else []
     )
+    hidden_dynamics_aggregate = hidden_dynamics_aggregate_rows(episode_rows) if episode_rows else []
+    profile_hidden_dynamics_worst = profile_hidden_dynamics_worst_rows(episode_rows) if episode_rows else []
     comparisons = comparison_rows(episode_rows) if episode_rows else []
     write_csv_rows(output_dir / "profile_aggregate.csv", profile_aggregate)
     write_csv_rows(output_dir / "spec_aggregate.csv", spec_aggregate)
@@ -463,6 +471,8 @@ def finalize_outputs(
     write_csv_rows(output_dir / "outcome_aggregate.csv", outcome_aggregate)
     write_csv_rows(output_dir / "termination_reason_aggregate.csv", termination_reason_aggregate)
     write_csv_rows(output_dir / "profile_outcome_aggregate.csv", profile_outcome_aggregate)
+    write_csv_rows(output_dir / "hidden_dynamics_aggregate.csv", hidden_dynamics_aggregate)
+    write_csv_rows(output_dir / "profile_hidden_dynamics_worst_bucket.csv", profile_hidden_dynamics_worst)
     write_csv_rows(output_dir / "comparison_aggregate.csv", comparisons)
 
     guardrail_flags = {key: False for key in FORBIDDEN_GUARDRAILS}
@@ -494,6 +504,8 @@ def finalize_outputs(
         "outcome_aggregate_rows": len(outcome_aggregate),
         "termination_reason_aggregate_rows": len(termination_reason_aggregate),
         "profile_outcome_aggregate_rows": len(profile_outcome_aggregate),
+        "hidden_dynamics_aggregate_rows": len(hidden_dynamics_aggregate),
+        "profile_hidden_dynamics_worst_bucket_rows": len(profile_hidden_dynamics_worst),
         "guardrail_flags": guardrail_flags,
         "guardrail_violation_count": guardrail_violation_count,
         "environment_rollout_started": bool(episode_rows or failure_rows),
@@ -517,6 +529,8 @@ def finalize_outputs(
             "outcome_aggregate": str(output_dir / "outcome_aggregate.csv"),
             "termination_reason_aggregate": str(output_dir / "termination_reason_aggregate.csv"),
             "profile_outcome_aggregate": str(output_dir / "profile_outcome_aggregate.csv"),
+            "hidden_dynamics_aggregate": str(output_dir / "hidden_dynamics_aggregate.csv"),
+            "profile_hidden_dynamics_worst_bucket": str(output_dir / "profile_hidden_dynamics_worst_bucket.csv"),
             "failure_rows": str(output_dir / "failure_rows.csv"),
             "run_state": str(output_dir / "run_state.json"),
         },
@@ -568,6 +582,8 @@ def run_full_rollout_execution(
             output / "outcome_aggregate.csv",
             output / "termination_reason_aggregate.csv",
             output / "profile_outcome_aggregate.csv",
+            output / "hidden_dynamics_aggregate.csv",
+            output / "profile_hidden_dynamics_worst_bucket.csv",
         ):
             if path.exists():
                 path.unlink()

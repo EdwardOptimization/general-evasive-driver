@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1754,
+    "completed": 1755,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
+    "command_log": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1745-paper-route-task-quality-outcome-metric-instrumentation-design"
+    "task_id": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json",
-    "hypothesis": "The M1745 outcome metric definitions can be implemented as logging-only evaluator/env instrumentation without changing actor, reward, termination, policy, profile, or training behavior.",
-    "id": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement logging-only recovery drift mitigation off-track severity and hidden-dynamics metric fields with focused tests",
-    "priority": 17410,
+    "command": "see experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json",
+    "hypothesis": "M1746 can be audited as logging-only, test-covered outcome metric instrumentation and routed safely before revised execution.",
+    "id": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit logging-only metric instrumentation before revised scenario execution design",
+    "priority": 17420,
     "status": "pending",
-    "success_artifact": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md"
+    "success_artifact": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md"
   },
-  "updated_at_utc": "20260530T044315Z"
+  "updated_at_utc": "20260530T045333Z"
 }

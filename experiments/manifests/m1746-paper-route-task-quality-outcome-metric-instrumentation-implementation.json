@@ -155,6 +155,36 @@
     "docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md",
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/metric_support.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+    "decision": "outcome_metric_instrumentation_implementation_pass_route_to_result_audit",
+    "result_class": "outcome_metric_instrumentation_implementation_pass",
+    "episode_metric_field_count": 20,
+    "new_helper_module": "src/autodrift/outcome_metric_instrumentation.py",
+    "env_info_logging_fields_added": [
+      "yaw_rate",
+      "dt",
+      "track_width"
+    ],
+    "focused_test_count": 22,
+    "affected_aggregate_test_count": 11,
+    "guardrail_violation_count": 0,
+    "full_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json"
+  },
   "decision_rule": "M1746 passes if logging-only instrumentation and tests cover all M1745 metric definitions without changing policy behavior.",
-  "next_blocker": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
+  "next_blocker": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
 }

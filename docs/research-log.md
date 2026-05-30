@@ -28108,3 +28108,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: implementation result, rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.json`
 - next: `m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation`
+
+## M1746 Paper-Route Task-Quality Outcome Metric Instrumentation Implementation
+
+- status: completed
+- result class: `outcome_metric_instrumentation_implementation_pass`
+- artifact: `docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md`
+- parent design: `docs/m1745-paper-route-task-quality-outcome-metric-instrumentation-design.md`
+- helper module: `src/autodrift/outcome_metric_instrumentation.py`
+- episode metric fields: `20`
+- env info logging fields added: `yaw_rate`, `dt`, `track_width`
+- focused tests: `22 passed`
+- affected aggregate tests: `11 passed`
+- full rollout started: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- actor input contract changed: `false`
+- guardrail violation count: `0`
+- supported: logging-only metric fields and aggregate hooks are implemented
+- unsupported: revised rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json`
+- next: `m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit`

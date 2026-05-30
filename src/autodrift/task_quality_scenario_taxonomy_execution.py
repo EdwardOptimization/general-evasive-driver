@@ -24,6 +24,7 @@ from autodrift.controller_family_full_rollout_execution import (
     selected_metrics_are_finite,
     write_run_state,
 )
+from autodrift.outcome_metric_instrumentation import profile_hidden_dynamics_worst_rows
 from autodrift.task_quality_scenario_taxonomy_preflight import DEFAULT_OUTPUT_DIR as DEFAULT_M1728_OUTPUT_DIR
 
 
@@ -190,6 +191,7 @@ def _write_scenario_aggregates(output_dir: Path, episode_rows: list[dict[str, An
             episode_rows,
             ("scenario_family", "sampled_obstacle_label"),
         ),
+        "profile_hidden_dynamics_worst_bucket": profile_hidden_dynamics_worst_rows(episode_rows),
     }
     for name, rows in aggregates.items():
         write_csv_rows(output_dir / f"{name}.csv", rows)
@@ -309,6 +311,9 @@ def finalize_scenario_taxonomy_outputs(
             "scenario_family_sampled_label_aggregate": str(
                 output_dir / "scenario_family_sampled_label_aggregate.csv"
             ),
+            "profile_hidden_dynamics_worst_bucket": str(
+                output_dir / "profile_hidden_dynamics_worst_bucket.csv"
+            ),
             "unsupported_scenario_features": str(output_dir / "unsupported_scenario_features.csv"),
         },
         "next_blocker": str(next_blocker),
@@ -367,6 +372,7 @@ def run_scenario_taxonomy_execution(
             output / "profile_outcome_aggregate.csv",
             output / "scenario_family_outcome_aggregate.csv",
             output / "scenario_family_sampled_label_aggregate.csv",
+            output / "profile_hidden_dynamics_worst_bucket.csv",
             output / "unsupported_scenario_features.csv",
         ):
             if path.exists():

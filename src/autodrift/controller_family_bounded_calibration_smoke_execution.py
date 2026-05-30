@@ -25,6 +25,7 @@ from autodrift.controller_family_full_rollout_execution import (
     selected_metrics_are_finite,
     write_run_state,
 )
+from autodrift.outcome_metric_instrumentation import outcome_metric_aggregate_fields
 
 
 DEFAULT_BOUNDED_CALIBRATION_SPECS = DEFAULT_M1705_OUTPUT_DIR / "bounded_calibration_specs.json"
@@ -158,6 +159,7 @@ def aggregate_outcome_rows(rows: list[dict[str, Any]], group_keys: tuple[str, ..
                 "diagnostic_only_no_ranking_claim": True,
             }
         )
+        aggregate.update(outcome_metric_aggregate_fields(group))
         aggregates.append(aggregate)
     return aggregates
 

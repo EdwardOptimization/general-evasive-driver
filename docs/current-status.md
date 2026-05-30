@@ -10957,5 +10957,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   severity require evaluator terminal/time-series logging; hidden-dynamics
   robustness is an aggregate over episode rows. The design admits implementation
   but still blocks revised-semantics rollout and controller-family ranking.
+- M1746 implements that logging-only instrumentation: evaluator episode rows now
+  include recovery, controlled-drift, impact-severity, off-track-severity, and
+  hidden-dynamics aggregate hooks. It adds `yaw_rate`, `dt`, and `track_width`
+  to env `info` only; actor inputs, rewards, dynamics, and termination behavior
+  are unchanged. Focused tests passed, but revised rollout remains blocked until
+  audit.
 - Current next blocker:
-  `m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation`.
+  `m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit`.

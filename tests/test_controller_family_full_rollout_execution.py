@@ -13,6 +13,7 @@ from autodrift.controller_family_full_rollout_execution import (
     selected_metrics_are_finite,
 )
 from autodrift.controller_family_measured_routing_smoke import assert_human_view_env_contract
+from autodrift.outcome_metric_instrumentation import hidden_dynamics_aggregate_rows, profile_hidden_dynamics_worst_rows
 
 
 def _first_executable_spec() -> dict:
@@ -84,6 +85,7 @@ def test_aggregates_parse_csv_boolean_strings_correctly() -> None:
     assert aggregates[0]["success_rate"] == 0.5
     assert aggregates[0]["collision_rate"] == 0.5
     assert np.isfinite(float(aggregates[0]["clearance_margin_p10"]))
+    assert "recovery_success_rate" in aggregates[0]
 
 
 def test_comparison_rows_include_required_diagnostic_boundaries() -> None:
@@ -171,3 +173,34 @@ def test_profile_outcome_aggregate_uses_profile_and_outcome_bucket() -> None:
         "L3_online_gru::success_obstacle_pass",
         "L3_online_gru::off_track_noncollision_noncompletion",
     }
+
+
+def test_hidden_dynamics_outcome_metric_aggregates_are_diagnostic() -> None:
+    rows = [
+        {
+            "profile_name": "L3_online_gru",
+            "hidden_dynamics_bucket": "low_mu",
+            "success": True,
+            "collision": False,
+            "termination_reason": "",
+            "recovery_success": True,
+            "controlled_drift_recovery_success": True,
+        },
+        {
+            "profile_name": "L3_online_gru",
+            "hidden_dynamics_bucket": "high_mu",
+            "success": False,
+            "collision": False,
+            "termination_reason": "off_track",
+            "recovery_success": False,
+            "controlled_drift_recovery_success": False,
+        },
+    ]
+
+    hidden = hidden_dynamics_aggregate_rows(rows)
+    worst = profile_hidden_dynamics_worst_rows(rows)
+
+    assert len(hidden) == 2
+    assert all(row["diagnostic_only_no_ranking_claim"] for row in hidden)
+    assert worst[0]["worst_bucket_success_rate"] == 0.0
+    assert worst[0]["success_rate_bucket_spread"] == 1.0
