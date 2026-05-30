@@ -10730,5 +10730,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   outcome, termination-reason, and profile-outcome aggregates.
 - M1696 verification: focused env/evaluate/full-rollout tests pass (`55
   passed`). No full 864-cell rollout was executed in the implementation step.
+- M1697 designs the instrumented rerun. It preserves the M1693 workload,
+  profile checkpoints, deterministic seed base `169300`, and actor input
+  contract, and targets
+  `runs/m1698_controller_family_instrumented_full_rollout/`.
 - Current next blocker:
-  `m1697-paper-route-controller-family-instrumented-rerun-design`.
+  `m1698-paper-route-controller-family-instrumented-rerun-execution`.

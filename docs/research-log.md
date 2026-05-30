@@ -27164,3 +27164,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json`
 - next: `m1697-paper-route-controller-family-instrumented-rerun-design`
+
+## M1697 Paper-Route Controller-Family Instrumented Rerun Design
+
+- status: completed
+- decision: `instrumented_rerun_design_admit_public_execution`
+- artifact: `docs/m1697-paper-route-controller-family-instrumented-rerun-design.md`
+- parent implementation: `docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md`
+- execution target: same `72` specs x `12` profiles = `864` cells as M1693
+- output dir: `runs/m1698_controller_family_instrumented_full_rollout`
+- eval seed base: `169300`
+- required new artifacts: `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`
+- guardrails: no direct ranking, no private holdout, no training, no replay, no PPO, no promotion, no actor input changes
+- supported: an instrumented rerun can now be executed under a fixed design
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json`
+- next: `m1698-paper-route-controller-family-instrumented-rerun-execution`

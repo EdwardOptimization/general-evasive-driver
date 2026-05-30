@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1705,
+    "completed": 1706,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
+    "command_log": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation"
+    "task_id": "m1697-paper-route-controller-family-instrumented-rerun-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json",
-    "hypothesis": "A guarded instrumented rerun plan can preserve M1693 comparability while adding outcome semantics needed for later audit.",
-    "id": "m1697-paper-route-controller-family-instrumented-rerun-design",
+    "command": "see experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json",
+    "hypothesis": "The same 864-cell public workload can rerun with outcome semantics artifacts while preserving M1693 comparability and clean guardrails.",
+    "id": "m1698-paper-route-controller-family-instrumented-rerun-execution",
     "kind": "gate",
-    "notes": "Pending: design same-workload instrumented rerun with outcome aggregates and no-ranking audit boundary",
-    "priority": 16920,
+    "notes": "Pending: run instrumented full public rerun with outcome termination and profile-outcome aggregates",
+    "priority": 16930,
     "status": "pending",
-    "success_artifact": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md"
+    "success_artifact": "runs/m1698_controller_family_instrumented_full_rollout/summary.json"
   },
-  "updated_at_utc": "20260530T003033Z"
+  "updated_at_utc": "20260530T003357Z"
 }

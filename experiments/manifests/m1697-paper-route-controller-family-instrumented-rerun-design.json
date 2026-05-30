@@ -147,6 +147,32 @@
     "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+    "decision": "instrumented_rerun_design_admit_public_execution",
+    "target_episode_count": 864,
+    "target_profile_count": 12,
+    "target_spec_count": 72,
+    "output_dir": "runs/m1698_controller_family_instrumented_full_rollout",
+    "eval_seed_base": 169300,
+    "required_new_artifacts": [
+      "outcome_aggregate.csv",
+      "termination_reason_aggregate.csv",
+      "profile_outcome_aggregate.csv"
+    ],
+    "direct_execution_started": false,
+    "actor_input_contract_changed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json"
+  },
   "decision_rule": "M1697 passes if it writes a complete instrumented rerun design and routes to a separate execution manifest without overclaiming.",
-  "next_blocker": "m1697-paper-route-controller-family-instrumented-rerun-design"
+  "next_blocker": "m1698-paper-route-controller-family-instrumented-rerun-execution"
 }

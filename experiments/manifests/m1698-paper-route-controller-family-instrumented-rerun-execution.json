@@ -1,0 +1,189 @@
+{
+  "id": "m1698-paper-route-controller-family-instrumented-rerun-execution",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json"
+    ],
+    "parent_objective": [
+      "execute the instrumented public rerun of the M1693 workload"
+    ],
+    "derived_from": [
+      "m1697-paper-route-controller-family-instrumented-rerun-design"
+    ],
+    "blocked_by": [
+      "need instrumented outcome-semantics rollout before interpreting M1693 dominant noncollision noncompletion outcomes"
+    ],
+    "supersedes": [
+      "uninstrumented raw-success ranking from M1693"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1698-paper-route-controller-family-instrumented-rerun-execution.md",
+  "public_gates": [
+    "M1698 may run the public instrumented 864-cell workload exactly once",
+    "M1698 must preserve M1693 workload, profiles, checkpoints, seeds, and actor input contract",
+    "M1698 must write outcome, termination-reason, and profile-outcome aggregates",
+    "M1698 must not train, replay, PPO, promote, use private holdout, tune profiles, or change actor inputs",
+    "M1698 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not reduce the 864-cell workload",
+    "do not drop failed cells silently",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_instrumented_public_rerun_execution",
+    "evidence_increment": "executes the instrumented public rerun needed for outcome-semantics audit",
+    "claim_scope": "instrumented public rerun execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if required outcome fields are missing",
+      "stop if any failed cell lacks a failure row",
+      "stop if selected metrics are non-finite",
+      "stop if guardrails are violated",
+      "stop if runtime requires workload reduction"
+    ],
+    "fallback_plan": [
+      "route to execution failure audit if rollout is partial or fails",
+      "route to outcome-semantics result audit if rollout completes cleanly",
+      "route to instrumentation repair if outcome fields are missing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1697 admits instrumented rerun execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "execute instrumented public rerun",
+    "admission_evidence": [
+      "M1697 designs a same-workload instrumented rerun with required outcome artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "runs/m1698_controller_family_instrumented_full_rollout artifacts",
+      "M1698 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "864 workload cells complete or failures are recorded",
+      "outcome aggregates exist",
+      "guardrails are clean",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1698 can measure instrumented public behavior but cannot by itself prove history necessity.",
+    "history_necessity_tests": [
+      "execution must preserve L1, L2-current-tiled, L3-online, and L3-reset rows for later audit"
+    ],
+    "temporal_evidence_window": "M1697 rerun design.",
+    "negative_result_policy": "If reset/current-tiled controls match or beat history profiles, record that as history-necessity evidence gap during the later audit.",
+    "allowed_claims": [
+      "instrumented public rerun execution status",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The same 864-cell public workload can rerun with outcome semantics artifacts while preserving M1693 comparability and clean guardrails.",
+  "success_criteria": [
+    "runs/m1698_controller_family_instrumented_full_rollout/summary.json exists",
+    "runs/m1698_controller_family_instrumented_full_rollout/episode_rows.csv exists",
+    "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv exists",
+    "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv exists",
+    "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv exists",
+    "episode_count == 864",
+    "profile_count == 12",
+    "spec_count == 72",
+    "failure_count == 0",
+    "selected metrics are finite",
+    "outcome aggregate rows are present",
+    "guardrail_violation_count == 0",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "episode count profile count or spec count is below target without recorded failure",
+    "outcome fields or outcome aggregates are missing",
+    "selected metrics are non-finite",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "execution claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "instrumented_rerun",
+      "command": "run instrumented public controller-family rollout over the materialized workload"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1698_controller_family_instrumented_full_rollout/run_state.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1698 passes if it completes the instrumented 864-cell public rerun with outcome artifacts finite metrics and clean guardrails.",
+  "next_blocker": "m1698-paper-route-controller-family-instrumented-rerun-execution"
+}
