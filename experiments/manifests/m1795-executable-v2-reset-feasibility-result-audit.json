@@ -156,6 +156,54 @@
     "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
     "runs/m1794_executable_v2_reset_feasibility_preflight/sampling_failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1795-executable-v2-reset-feasibility-result-audit.md",
+    "decision": "executable_v2_reset_failures_localized_route_to_branch_synthesis",
+    "result_class": "executable_v2_reset_feasibility_result_audit_complete",
+    "source_summary": "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
+    "attempted_spec_count": 312,
+    "reset_success_count": 272,
+    "sampling_failure_count": 40,
+    "guardrail_violation_count": 0,
+    "failure_error_type": "RuntimeError",
+    "failure_error_message": "failed to sample an obstacle scenario matching the configured filters",
+    "failure_role_surface_counts": {
+      "stable_avoidance_aes": 36,
+      "hidden_robust_aes_feasible": 4
+    },
+    "failure_task_label_counts": {
+      "aes_feasible": 28,
+      "aeb_feasible": 12
+    },
+    "failure_hidden_bucket_counts": {
+      "brake_variation": 12,
+      "nominal": 12,
+      "friction_step": 12,
+      "brake_drive_variation": 2,
+      "actuator_delay": 1,
+      "mass_cg_shift": 1
+    },
+    "source_label_interpretation": {
+      "stable_avoidance_aes": "systematic source-label compatibility failure across three full 12-profile blocks",
+      "hidden_robust_aes_feasible": "sparse tight-filter or seed/profile-fragile cells"
+    },
+    "next_manifest": "experiments/manifests/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.json",
+    "environment_reset_rerun": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1795 passes if it audits M1794 failures and chooses the next route without rerunning reset or rollout.",
-  "next_blocker": "m1795-executable-v2-reset-feasibility-result-audit"
+  "next_blocker": "m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis"
 }

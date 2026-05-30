@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1803,
+    "completed": 1804,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1794-executable-v2-reset-feasibility-preflight.md",
+    "command_log": "docs/m1795-executable-v2-reset-feasibility-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1794-executable-v2-reset-feasibility-preflight"
+    "task_id": "m1795-executable-v2-reset-feasibility-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1795-executable-v2-reset-feasibility-result-audit.json",
-    "hypothesis": "M1794 sampling failures can be localized well enough to choose a seed probe, spec repair, adapter repair, or synthesis route without rerunning reset.",
-    "id": "m1795-executable-v2-reset-feasibility-result-audit",
+    "command": "see experiments/manifests/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.json",
+    "hypothesis": "The M1786-M1795 role-specific panel metric repair branch should synthesize before another repair or reset rerun because M1794/M1795 reveal systematic source-label compatibility failures and the 10-milestone cadence has been reached.",
+    "id": "m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1794 40 sampling failures without rerunning reset or rollout",
+    "notes": "Pending: synthesize M1786-M1795 before any executable v2 repair or reset rerun",
     "priority": 17900,
     "status": "pending",
-    "success_artifact": "docs/m1795-executable-v2-reset-feasibility-result-audit.md"
+    "success_artifact": "docs/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T085726Z"
+  "updated_at_utc": "20260530T093300Z"
 }

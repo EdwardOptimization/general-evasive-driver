@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1795 passes if it audits M1794 failures and chooses the next route without rerunning reset or rollout.",
+  "decision_reason": "M1795 localizes M1794 failures as systematic stable source-label compatibility plus sparse hidden-robust tight-filter cells and keeps ranking blocked",
   "failure_criteria": [
     "audit document is missing",
     "audit reruns reset or rollout",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T085843Z",
+  "generated_at_utc": "20260530T090921Z",
   "hypothesis": "M1794 sampling failures can be localized well enough to choose a seed probe, spec repair, adapter repair, or synthesis route without rerunning reset.",
   "lineage": {
     "blocked_by": [
@@ -59,16 +59,29 @@
     ]
   },
   "milestone": "m1795-executable-v2-reset-feasibility-result-audit",
-  "next_blocker": "m1795-executable-v2-reset-feasibility-result-audit",
+  "next_blocker": "m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "executable_v2_reset_failures_localized_route_to_branch_synthesis",
   "public_gates": [
     "M1795 must use only M1794 artifacts and must not rerun reset or rollout",
     "M1795 must localize sampling failures by role surface task label hidden bucket source spec and error message",
     "M1795 must decide whether failures are seed-fragile inherited M1771 artifacts v2 surface repair issues or adapter bugs",
     "M1795 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1795-executable-v2-reset-feasibility-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "executable_v2_reset_failures_localized_route_to_branch_synthesis",
+    "milestone": "m1795-executable-v2-reset-feasibility-result-audit",
+    "reason": "M1795 localizes M1794 failures as systematic stable source-label compatibility plus sparse hidden-robust tight-filter cells and keeps ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1795-executable-v2-reset-feasibility-result-audit.md exists",
     "M1795 uses only M1794 artifacts",

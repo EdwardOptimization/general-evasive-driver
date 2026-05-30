@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T085843Z
+- Generated at UTC: 20260530T090921Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1795 passes if it audits M1794 failures and chooses the next route without rerunning reset or rollout.
+- Promotion decision: executable_v2_reset_failures_localized_route_to_branch_synthesis
+- Decision reason: M1795 localizes M1794 failures as systematic stable source-label compatibility plus sparse hidden-robust tight-filter cells and keeps ranking blocked
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1794 sampling failures can be localized well enough to choose a seed probe, spe
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1795-executable-v2-reset-feasibility-result-audit
+- type: gate
+- checkpoint: docs/m1795-executable-v2-reset-feasibility-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_reset_failures_localized_route_to_branch_synthesis
+- reason: M1795 localizes M1794 failures as systematic stable source-label compatibility plus sparse hidden-robust tight-filter cells and keeps ranking blocked
 
 ## Next Blocker
 
-m1795-executable-v2-reset-feasibility-result-audit
+m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis

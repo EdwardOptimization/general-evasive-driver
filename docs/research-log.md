@@ -29566,3 +29566,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1795-executable-v2-reset-feasibility-result-audit.json`
 - next: `m1795-executable-v2-reset-feasibility-result-audit`
+
+## M1795 Executable V2 Reset-Feasibility Result Audit
+
+- status: completed
+- decision: `executable_v2_reset_failures_localized_route_to_branch_synthesis`
+- artifact: `docs/m1795-executable-v2-reset-feasibility-result-audit.md`
+- source artifact: `runs/m1794_executable_v2_reset_feasibility_preflight/summary.json`
+- reset rerun: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- attempted spec count: `312`
+- reset success count: `272`
+- sampling failure count: `40`
+- failure error type: `RuntimeError`
+- failure error message: `failed to sample an obstacle scenario matching the configured filters`
+- failure surfaces: `stable_avoidance_aes=36`, `hidden_robust_aes_feasible=4`
+- failure task labels: `aes_feasible=28`, `aeb_feasible=12`
+- primary localization: three full `stable_avoidance_aes` source-label blocks fail across all `12` profiles while their sibling label succeeds
+- secondary localization: four sparse `hidden_robust_aes_feasible` cells are likely tight-filter or seed/profile-fragile
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1794 failures are localized and dominated by executable v2 source-label compatibility
+- unsupported: reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.json`
+- next: `m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis`
