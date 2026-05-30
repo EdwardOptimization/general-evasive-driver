@@ -1,0 +1,173 @@
+{
+  "id": "m1825-executable-v2-stable-source-targeted-reset-sampler-repair",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_sampler_repair"
+    ],
+    "parent_dataset": [
+      "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md",
+      "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.json"
+    ],
+    "parent_objective": [
+      "run no-reset source-level sampler repair planner over M1816/M1820 artifacts"
+    ],
+    "derived_from": [
+      "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design"
+    ],
+    "blocked_by": [
+      "M1824 admits no-reset repair planner execution but repaired payload does not yet exist"
+    ],
+    "supersedes": [
+      "manual source-level sampler repair",
+      "reset rerun before repaired payload exists",
+      "measured execution before reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1825-executable-v2-stable-source-targeted-reset-sampler-repair.md",
+  "public_gates": [
+    "M1825 must run only the no-reset planner command pre-registered by M1824",
+    "M1825 must write repaired targeted reset payload artifacts with expected counts",
+    "M1825 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "evidence_axis": "Q_stable_source_targeted_reset_sampler_repair_execution",
+    "evidence_increment": "runs no-reset repair planner over M1816/M1820 artifacts to create repaired targeted reset payload",
+    "claim_scope": "sampler repair execution only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repaired payload is missing",
+      "stop if expected repair counts do not match",
+      "stop if labels enter actor input or ranking is admitted",
+      "stop if reset or rollout is run"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if planner fails",
+      "route to design repair if counts are ambiguous",
+      "route to result audit if planner passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1824 pre-registers exact no-reset repair execution command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable source targeted reset sampler repair execution",
+    "admission_evidence": [
+      "M1824 exact command and target counts are registered"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1825 run artifacts",
+      "M1825 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "repair planner summary exists",
+      "target counts match",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler repair execution is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1816/M1820 artifacts and no-reset repair planner only; no reset or rollout.",
+    "negative_result_policy": "If planner fails, route to implementation or design repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "stable source targeted reset sampler repair execution result",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1823 no-reset planner can produce a repaired 36-row targeted reset payload with three repaired sources and clean guardrails.",
+  "success_criteria": [
+    "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/summary.json exists",
+    "result_class is targeted_reset_sampler_repair_planner_pass",
+    "repair_target_source_count equals 3",
+    "systematic_source_count equals 2",
+    "sparse_source_count equals 1",
+    "profile_control_count equals 12",
+    "repaired_executable_spec_count equals 36",
+    "reset_ready_spec_count equals 36",
+    "labels_enter_actor_input_count equals 0",
+    "ranking_admissible_by_default_count equals 0",
+    "guardrail_violation_count equals 0",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "result_class is fail",
+    "target counts do not match",
+    "labels enter actor input or ranking is admitted",
+    "execution runs reset rollout measured rollout training replay PPO or ranking"
+  ],
+  "commands": [
+    {
+      "name": "repair_planner",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_stable_source_targeted_reset_sampler_repair --targeted-reset-specs runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json --reset-rows runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair --target-repair-source-count 3 --target-profile-count 12 --target-repaired-spec-count 36 --next-blocker m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_targeted_reset_sampler_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md",
+    "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1825 passes if the no-reset planner writes a repaired 36-row targeted reset payload without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1825-executable-v2-stable-source-targeted-reset-sampler-repair"
+}

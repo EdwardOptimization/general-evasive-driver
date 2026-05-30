@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1832,
+    "completed": 1833,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md",
+    "command_log": "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation"
+    "task_id": "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.json",
-    "hypothesis": "The no-reset repair planner execution over M1816/M1820 artifacts can be pre-registered with exact target counts and guardrails before running project repair.",
-    "id": "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design exact no-reset repair planner execution command",
-    "priority": 18190,
+    "command": "see experiments/manifests/m1825-executable-v2-stable-source-targeted-reset-sampler-repair.json",
+    "hypothesis": "The M1823 no-reset planner can produce a repaired 36-row targeted reset payload with three repaired sources and clean guardrails.",
+    "id": "m1825-executable-v2-stable-source-targeted-reset-sampler-repair",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact no-reset repair planner command from M1824",
+    "priority": 18200,
     "status": "pending",
-    "success_artifact": "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md"
+    "success_artifact": "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/summary.json"
   },
-  "updated_at_utc": "20260530T124000Z"
+  "updated_at_utc": "20260530T124500Z"
 }

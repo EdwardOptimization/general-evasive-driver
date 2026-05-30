@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1824 fixes exact no-reset repair planner command and target counts before M1825 execution",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project repair reset or rollout",
+    "design omits target counts or output directory",
+    "design routes directly to reset measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute project artifact repair",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T110524Z",
+  "hypothesis": "The no-reset repair planner execution over M1816/M1820 artifacts can be pre-registered with exact target counts and guardrails before running project repair.",
+  "lineage": {
+    "blocked_by": [
+      "M1823 planner exists but has not been executed over project artifacts"
+    ],
+    "derived_from": [
+      "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_sampler_repair_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md",
+      "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_objective": [
+      "design exact no-reset sampler repair planner execution over M1816/M1820 artifacts"
+    ],
+    "supersedes": [
+      "manual source-level sampler repair",
+      "reset rerun before repaired payload exists",
+      "measured execution before reset support"
+    ]
+  },
+  "milestone": "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design",
+  "next_blocker": "m1825-executable-v2-stable-source-targeted-reset-sampler-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stable_source_targeted_reset_sampler_repair_execution_design_admit_no_reset_run",
+  "public_gates": [
+    "M1824 must design the exact no-reset repair planner execution command without running it",
+    "M1824 must name input artifacts output directory target counts and next blocker",
+    "M1824 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "stable_source_targeted_reset_sampler_repair_execution_design_admit_no_reset_run",
+    "milestone": "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design",
+    "reason": "M1824 fixes exact no-reset repair planner command and target counts before M1825 execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md exists",
+    "design lists exact command input artifacts output directory target counts and next blocker",
+    "design keeps reset measured execution and ranking blocked",
+    "next route is explicit",
+    "no project repair reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
