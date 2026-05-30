@@ -30025,3 +30025,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source materialization execution result targeted reset validation repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1811-executable-v2-stable-source-materialization.json`
 - next: `m1811-executable-v2-stable-source-materialization`
+
+## M1811 Executable V2 Stable Source Materialization
+
+- status: completed
+- decision: `stable_source_materialization_pass_route_to_result_audit`
+- artifact: `runs/m1811_executable_v2_stable_source_materialization/summary.json`
+- result class: `executable_v2_stable_source_materialization_pass`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- stable materialization target count: `3`
+- stable materialization spec count: `3`
+- stable materialization matrix row count: `36`
+- profile control count: `12`
+- materialization strategy count: `label_specific_stable_sampler_repair_v1=3`
+- duplicate key count: `0`
+- labels enter actor input count: `0`
+- reset validation required count: `3`
+- measured execution admissible count: `0`
+- controller-family ranking admissible count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset stable source materialization artifacts and reset-validation-ready matrix
+- unsupported: targeted reset validation repaired reset feasibility pass measured execution controller-family ranking private-holdout evidence paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1812-executable-v2-stable-source-materialization-result-audit.json`
+- next: `m1812-executable-v2-stable-source-materialization-result-audit`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1819,
+    "completed": 1820,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1810-executable-v2-stable-source-materialization-execution-design.md",
+    "command_log": "docs/m1811-executable-v2-stable-source-materialization.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1810-executable-v2-stable-source-materialization-execution-design"
+    "task_id": "m1811-executable-v2-stable-source-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1811-executable-v2-stable-source-materialization.json",
-    "hypothesis": "The M1809 helper will convert M1805/M1771 artifacts into expected stable source materialization artifacts without reset or rollout.",
-    "id": "m1811-executable-v2-stable-source-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-reset stable source materialization and verify pre-registered counts",
-    "priority": 18060,
+    "command": "see experiments/manifests/m1812-executable-v2-stable-source-materialization-result-audit.json",
+    "hypothesis": "M1811 artifacts can be audited well enough to choose between targeted reset-validation design, implementation repair, design repair, or synthesis.",
+    "id": "m1812-executable-v2-stable-source-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1811 materialization artifacts before targeted reset validation",
+    "priority": 18070,
     "status": "pending",
-    "success_artifact": "runs/m1811_executable_v2_stable_source_materialization/summary.json"
+    "success_artifact": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260530T113500Z"
+  "updated_at_utc": "20260530T114000Z"
 }

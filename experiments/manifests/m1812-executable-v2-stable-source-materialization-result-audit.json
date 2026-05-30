@@ -1,0 +1,169 @@
+{
+  "id": "m1812-executable-v2-stable-source-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_materialization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1811-executable-v2-stable-source-materialization.md",
+      "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1811-executable-v2-stable-source-materialization.json"
+    ],
+    "parent_objective": [
+      "audit M1811 source materialization artifacts before targeted reset validation"
+    ],
+    "derived_from": [
+      "m1811-executable-v2-stable-source-materialization"
+    ],
+    "blocked_by": [
+      "M1811 produces materialized source artifacts but reset validation has not run"
+    ],
+    "supersedes": [
+      "direct targeted reset validation without materialization result audit",
+      "direct measured execution after M1811",
+      "direct controller-family ranking after M1811"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1812-executable-v2-stable-source-materialization-result-audit.md",
+  "public_gates": [
+    "M1812 must audit M1811 artifacts without running reset or rollout",
+    "M1812 must assess target counts specs matrix duplicate keys env deltas reset-validation requirements and claim boundary",
+    "M1812 must choose the next route explicitly",
+    "M1812 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_materialization_result_audit",
+    "evidence_increment": "audits M1811 materialization artifacts before choosing targeted reset validation, helper repair, or design repair",
+    "claim_scope": "result audit only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if materialization artifacts are misread as reset feasibility",
+      "stop if reset validation requirements are missing",
+      "stop if next route is ambiguous",
+      "stop if measured execution is admitted before reset support is observed"
+    ],
+    "fallback_plan": [
+      "route to targeted reset-validation design if artifacts are complete",
+      "route to implementation repair if artifact fields are malformed",
+      "route to design repair if materialization target semantics are wrong",
+      "route to branch synthesis if cadence or repeated infrastructure loop requires a higher-level decision"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1811 stable source materialization completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source materialization result audit",
+    "admission_evidence": [
+      "M1811 matched expected target spec matrix duplicate and guardrail counts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1812 audit document",
+      "M1812 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation design, implementation repair, design repair, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "audit questions are answered",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit covers task-quality materialization artifacts.",
+    "history_necessity_tests": [
+      "Audit must preserve profile-control evidence for later history-necessity comparisons."
+    ],
+    "temporal_evidence_window": "M1811 materialization artifacts only.",
+    "negative_result_policy": "If M1811 evidence is insufficient, route to task-quality repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source materialization result audit and route decision",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1811 artifacts can be audited well enough to choose between targeted reset-validation design, implementation repair, design repair, or synthesis.",
+  "success_criteria": [
+    "docs/m1812-executable-v2-stable-source-materialization-result-audit.md exists",
+    "audit assesses materialization counts env deltas duplicate keys reset-validation requirements and claim boundary",
+    "audit keeps measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset rollout or measured execution",
+    "audit treats materialization artifacts as reset feasibility",
+    "audit ignores reset-validation requirements",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1812-executable-v2-stable-source-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_materialization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1811-executable-v2-stable-source-materialization.md",
+    "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_claim_boundary.csv"
+  ],
+  "decision_rule": "M1812 passes if it audits M1811 and chooses a next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1812-executable-v2-stable-source-materialization-result-audit"
+}
