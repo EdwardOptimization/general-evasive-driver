@@ -155,6 +155,35 @@
     "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
     "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
+    "doc": "docs/m1779-metric-specific-bounded-panel-outcome-localization.md",
+    "decision": "bounded_panel_outcome_localization_route_to_branch_synthesis",
+    "result_class": "metric_specific_bounded_panel_outcome_localization_pass",
+    "episode_count": 288,
+    "dominant_slice_count": 96,
+    "target_dominant_slice_count": 96,
+    "dominant_role_panel_count": 4,
+    "dominant_profile_count": 11,
+    "dominant_primary_metric_count": 4,
+    "outcome_dominance_class": "diffuse_role_profile_outcome_dominance",
+    "ranking_blocked": true,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.json"
+  },
   "decision_rule": "M1779 passes if it localizes M1777 outcome dominance from existing artifacts and keeps ranking blocked or explicitly admitted by audit criteria.",
-  "next_blocker": "m1779-metric-specific-bounded-panel-outcome-localization"
+  "next_blocker": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis"
 }

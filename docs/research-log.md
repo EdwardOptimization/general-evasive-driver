@@ -29097,3 +29097,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1779-metric-specific-bounded-panel-outcome-localization.json`
 - next: `m1779-metric-specific-bounded-panel-outcome-localization`
+
+## M1779 Metric-Specific Bounded Panel Outcome Localization
+
+- status: completed
+- decision: `bounded_panel_outcome_localization_route_to_branch_synthesis`
+- artifact: `runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json`
+- doc: `docs/m1779-metric-specific-bounded-panel-outcome-localization.md`
+- result class: `metric_specific_bounded_panel_outcome_localization_pass`
+- episode count: `288`
+- dominant slice count: `96`
+- target dominant slice count: `96`
+- dominant role panel count: `4`
+- dominant profile count: `11`
+- dominant primary metric count: `4`
+- outcome dominance class: `diffuse_role_profile_outcome_dominance`
+- ranking blocked: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1777 outcome dominance is diffuse across role/profile/metric dimensions and ranking remains blocked
+- unsupported: profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.json`
+- next: `m1780-paper-route-metric-specific-bounded-panel-branch-synthesis`

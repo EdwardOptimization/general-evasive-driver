@@ -1,0 +1,187 @@
+{
+  "id": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1770-paper-route-metric-specific-bounded-panel-design.md",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json",
+      "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+      "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
+      "docs/m1779-metric-specific-bounded-panel-outcome-localization.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1779-metric-specific-bounded-panel-outcome-localization.json"
+    ],
+    "parent_objective": [
+      "synthesize M1770-M1779 metric-specific bounded-panel branch before repair or ranking"
+    ],
+    "derived_from": [
+      "m1770-paper-route-metric-specific-bounded-panel-design",
+      "m1779-metric-specific-bounded-panel-outcome-localization"
+    ],
+    "blocked_by": [
+      "M1779 finds diffuse role/profile/metric outcome dominance and cadence reaches branch synthesis"
+    ],
+    "supersedes": [
+      "direct role-specific repair after M1779 without synthesis",
+      "direct controller-family ranking after M1779"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+  "public_gates": [
+    "M1780 must synthesize M1770-M1779 before another repair, execution, ranking, or paper-route claim",
+    "M1780 must answer required synthesis questions",
+    "M1780 must assess materialization, reset feasibility, execution adapter, measured execution, result audit, and outcome localization",
+    "M1780 must decide continue pivot stop or promote_to_next_branch",
+    "M1780 must keep rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "S_metric_specific_bounded_panel_branch_synthesis",
+    "evidence_increment": "synthesizes M1770-M1779 after panel design materialization reset feasibility adapter execution and diffuse localization",
+    "claim_scope": "branch synthesis only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis treats M1777/M1779 as ranking evidence",
+      "stop if synthesis ignores diffuse role/profile/metric outcome dominance",
+      "stop if synthesis routes directly to paper-level claims",
+      "stop if synthesis skips public-gate overfit and task-quality risks"
+    ],
+    "fallback_plan": [
+      "pivot to role-specific metric repair if outcome semantics are too broad",
+      "pivot to split claim-specific panels if one panel cannot support all claims",
+      "continue to localization audit if synthesis finds repairable localized blockers",
+      "stop branch if public diagnostic evidence cannot support ranking"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1779 outcome localization completes the M1770-M1779 branch and finds diffuse dominance",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "metric-specific bounded-panel branch synthesis",
+    "admission_evidence": [
+      "M1777 produced a complete 288-row bounded-panel execution artifact",
+      "M1779 localized diffuse role/profile/metric outcome dominance and keeps ranking blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1780 synthesis document",
+      "M1780 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; synthesis covers task-quality bounded-panel evidence, not history necessity.",
+    "history_necessity_tests": [
+      "Any continued route must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for later self-ID evidence."
+    ],
+    "temporal_evidence_window": "M1770-M1779 public artifacts only.",
+    "negative_result_policy": "If synthesis finds bounded-panel evidence insufficient, route to repair, split-panel design, or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1770-M1779 metric-specific bounded-panel branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
+  "success_criteria": [
+    "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "materialization reset feasibility adapter measured execution result audit and outcome localization are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "reset rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1777/M1779 as ranking evidence",
+    "synthesis routes directly to paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1779-metric-specific-bounded-panel-outcome-localization.md",
+    "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
+    "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json"
+  ],
+  "decision_rule": "M1780 passes if it synthesizes the bounded-panel branch and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis"
+}

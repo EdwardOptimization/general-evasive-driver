@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1787,
+    "completed": 1788,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md",
+    "command_log": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
+    "task_id": "m1779-metric-specific-bounded-panel-outcome-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1779-metric-specific-bounded-panel-outcome-localization.json",
-    "hypothesis": "M1777 outcome dominance can be localized from existing artifacts before ranking or repair.",
-    "id": "m1779-metric-specific-bounded-panel-outcome-localization",
+    "command": "see experiments/manifests/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.json",
+    "hypothesis": "The M1770-M1779 metric-specific bounded-panel branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
+    "id": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: no-rollout localization of M1777 bounded-panel outcome dominance",
-    "priority": 17740,
+    "notes": "Pending: synthesize M1770-M1779 bounded-panel branch before repair or ranking",
+    "priority": 17750,
     "status": "pending",
-    "success_artifact": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json"
+    "success_artifact": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T074704Z"
+  "updated_at_utc": "20260530T075214Z"
 }

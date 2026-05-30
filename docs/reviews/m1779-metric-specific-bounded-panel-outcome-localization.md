@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T074841Z
+- Generated at UTC: 20260530T075411Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1779 passes if it localizes M1777 outcome dominance from existing artifacts and keeps ranking blocked or explicitly admitted by audit criteria.
+- Promotion decision: bounded_panel_outcome_localization_route_to_branch_synthesis
+- Decision reason: M1779 localizes diffuse role/profile/metric outcome dominance across 96 slices and keeps ranking blocked
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ M1777 outcome dominance can be localized from existing artifacts before ranking 
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1779-metric-specific-bounded-panel-outcome-localization
+- type: gate
+- checkpoint: runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_outcome_localization_route_to_branch_synthesis
+- reason: M1779 localizes diffuse role/profile/metric outcome dominance across 96 slices and keeps ranking blocked
 
 ## Next Blocker
 
-m1779-metric-specific-bounded-panel-outcome-localization
+m1780-paper-route-metric-specific-bounded-panel-branch-synthesis
