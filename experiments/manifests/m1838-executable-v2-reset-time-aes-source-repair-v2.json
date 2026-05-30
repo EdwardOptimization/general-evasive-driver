@@ -170,6 +170,49 @@
     "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
     "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
+    "docs_artifact": "docs/m1838-executable-v2-reset-time-aes-source-repair-v2.md",
+    "decision": "reset_time_aes_source_repair_v2_clean_fail_route_to_result_audit",
+    "result_class": "reset_time_aes_source_repair_v2_fail",
+    "target_source_count": 2,
+    "target_profile_count_total": 24,
+    "selected_source_count": 2,
+    "accepted_source_count": 0,
+    "accepted_profile_count_total": 0,
+    "candidate_score_row_count": 10,
+    "candidate_attempt_count_total": 1200000,
+    "selected_attempt_count_total": 240000,
+    "attempt_count_by_label": {
+      "aeb_feasible": 240000
+    },
+    "attempt_count_by_reject_reason": {
+      "aeb_feasible_rejected": 240000
+    },
+    "summary_aggregation_version": "row_and_attempt_counts_v1",
+    "repaired_spec_count": 36,
+    "unchanged_non_target_count": 12,
+    "reset_ready_spec_count": 36,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.json"
+  },
   "decision_rule": "M1838 passes as execution if it writes complete source repair v2 artifacts and clean guardrails; repair pass or fail must be audited by M1839 before reset.",
-  "next_blocker": "m1838-executable-v2-reset-time-aes-source-repair-v2"
+  "next_blocker": "m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit"
 }

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1846,
+    "completed": 1847,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.md",
+    "command_log": "docs/m1838-executable-v2-reset-time-aes-source-repair-v2.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design"
+    "task_id": "m1838-executable-v2-reset-time-aes-source-repair-v2"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1838-executable-v2-reset-time-aes-source-repair-v2.json",
-    "hypothesis": "The M1836 helper can run over M1825/M1828 artifacts and either produce a full reset-time AES source repair candidate or clean fail evidence without reset or rollout.",
-    "id": "m1838-executable-v2-reset-time-aes-source-repair-v2",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact source repair v2 command from M1837",
-    "priority": 18330,
+    "command": "see experiments/manifests/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.json",
+    "hypothesis": "The M1838 clean fail can be audited into a route decision: static source-level candidate families are insufficient, so the next step must either scan reset-time feasibility conditional on speed/mu or synthesize and pivot.",
+    "id": "m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1838 clean fail and choose feasibility scan, repair v3, or synthesis route",
+    "priority": 18340,
     "status": "pending",
-    "success_artifact": "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json"
+    "success_artifact": "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md"
   },
-  "updated_at_utc": "20260530T133000Z"
+  "updated_at_utc": "20260530T133100Z"
 }

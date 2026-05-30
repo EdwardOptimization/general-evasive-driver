@@ -30882,3 +30882,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1838-executable-v2-reset-time-aes-source-repair-v2.json`
 - next: `m1838-executable-v2-reset-time-aes-source-repair-v2`
+
+## M1838 Executable V2 Reset-Time AES Source Repair V2
+
+- status: completed
+- decision: `reset_time_aes_source_repair_v2_clean_fail_route_to_result_audit`
+- artifact: `runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json`
+- docs artifact: `docs/m1838-executable-v2-reset-time-aes-source-repair-v2.md`
+- result class: `reset_time_aes_source_repair_v2_fail`
+- target source count: `2`
+- target profile count total: `24`
+- selected source count: `2`
+- accepted source count: `0`
+- accepted profile count total: `0`
+- candidate score row count: `10`
+- candidate attempt count total: `1200000`
+- selected attempt count total: `240000`
+- attempt count by label: `aeb_feasible=240000`
+- attempt count by reject reason: `aeb_feasible_rejected=240000`
+- summary aggregation version: `row_and_attempt_counts_v1`
+- repaired spec count: `36`
+- unchanged non-target count: `12`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean negative result for M1836 static source-level candidate families
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.json`
+- next: `m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit`
