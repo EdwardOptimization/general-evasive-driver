@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1723 designs 864-episode repair panel execution protocol with repair-variant aggregates and collision/off-track thresholds",
+  "failure_criteria": [
+    "design executes rollout",
+    "design ranks profiles directly",
+    "design omits variant aggregates or repair thresholds",
+    "design changes actor inputs or profile configs",
+    "training replay PPO private holdout promotion or level3 claims occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T023434Z",
+  "hypothesis": "A measured execution protocol can be designed for the M1721 repair panel subset without overclaiming or changing the actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "need execution design before measured rollout over repair panel"
+    ],
+    "derived_from": [
+      "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_specs.json",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+    ],
+    "parent_objective": [
+      "design measured execution for off-track repair panel"
+    ],
+    "supersedes": [
+      "direct repair panel execution after M1722"
+    ]
+  },
+  "milestone": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design",
+  "next_blocker": "m1724-paper-route-controller-family-off-track-repair-panel-execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "off_track_repair_panel_execution_design_admit_measured_execution",
+  "public_gates": [
+    "M1723 must design execution over the M1721 864-cell repair panel matrix without running it",
+    "M1723 must require repair variant outcome and termination aggregates",
+    "M1723 must pre-register collision/off-track repair audit thresholds",
+    "M1723 must keep task-quality repair separate from controller-family ranking",
+    "M1723 must not train replay PPO promote use private holdout or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "off_track_repair_panel_execution_design_admit_measured_execution",
+    "milestone": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design",
+    "reason": "M1723 designs 864-episode repair panel execution protocol with repair-variant aggregates and collision/off-track thresholds",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "repair variant outcome and termination aggregates are required",
+    "collision/off-track repair audit thresholds are specified",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

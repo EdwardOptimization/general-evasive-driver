@@ -1,0 +1,184 @@
+{
+  "id": "m1724-paper-route-controller-family-off-track-repair-panel-execution",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_specs.json",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute measured off-track repair panel over fixed 864-cell matrix"
+    ],
+    "derived_from": [
+      "m1723-paper-route-controller-family-off-track-repair-panel-execution-design"
+    ],
+    "blocked_by": [
+      "need measured execution before repair panel result audit"
+    ],
+    "supersedes": [
+      "direct repair panel result audit without execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1724-paper-route-controller-family-off-track-repair-panel-execution.md",
+  "public_gates": [
+    "M1724 must execute exactly the M1721 864-cell repair panel matrix",
+    "M1724 must write episode, failure, state, repair-variant, outcome, termination, task-family, source-edge, profile, and profile-outcome artifacts",
+    "M1724 must preserve repair_variant_label and repair_panel_workload_id in episode rows",
+    "M1724 must keep all selected metrics finite and failure_count zero for an execution pass",
+    "M1724 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1724 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_execution",
+    "evidence_increment": "executes fixed-budget off-track repair panel after design-only admission",
+    "claim_scope": "public diagnostic task-quality repair execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if episode_count != 864",
+      "stop if failure_count != 0",
+      "stop if selected metrics are non-finite",
+      "stop if guardrail_violation_count != 0",
+      "stop if required repair variant or outcome aggregates are missing"
+    ],
+    "fallback_plan": [
+      "route to runner repair if execution plumbing fails",
+      "route to M1725 result audit if execution passes",
+      "route to task-quality source redesign if repair remains off-track dominated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1723 admits repair panel measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "execute off-track repair panel diagnostic rollout",
+    "admission_evidence": [
+      "M1723 pre-registers repair panel execution artifacts and audit thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "repair panel execution runner or adapter if needed",
+      "M1724 execution artifacts",
+      "M1724 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "864 repair panel episodes complete",
+      "repair variant and outcome aggregates are present",
+      "execution pass/fail is recorded without interpreting profile rank"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1724 is a task-quality diagnostic execution and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "execution matrix preserves L1, L2-current-tiled, L3-online, and L3-reset controls for later audit"
+    ],
+    "temporal_evidence_window": "M1721 fixed repair panel subset.",
+    "negative_result_policy": "If repair variants do not improve task quality under collision guards, record as task-quality repair evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "off-track repair-panel public diagnostic execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1721 off-track repair panel matrix can be executed as a fixed public diagnostic run with complete repair-variant/outcome aggregates and no guardrail violations.",
+  "success_criteria": [
+    "runs/m1724_off_track_repair_panel_execution/summary.json exists",
+    "episode_count == 864",
+    "failure_count == 0",
+    "all_selected_metrics_finite == true",
+    "guardrail_violation_count == 0",
+    "repair_variant_aggregate.csv exists and includes all four labels",
+    "outcome and termination aggregates exist",
+    "repair_panel_workload_id and repair_variant_label are preserved in episode rows",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "episode_count != 864",
+    "failure_count != 0",
+    "selected metrics are non-finite",
+    "required aggregates are missing",
+    "repair_variant_label is dropped",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "controller-family ranking or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.controller_family_off_track_repair_panel_execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/outcome_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1724_off_track_repair_panel_execution/termination_reason_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+    "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+  ],
+  "decision_rule": "M1724 passes as execution plumbing if the 864 repair panel episodes complete with finite metrics, zero failures, complete aggregates, and no guardrail violations. Result interpretation is deferred to M1725.",
+  "next_blocker": "m1724-paper-route-controller-family-off-track-repair-panel-execution"
+}

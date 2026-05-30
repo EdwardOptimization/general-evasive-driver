@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1731,
+    "completed": 1732,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+    "command_log": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
+    "task_id": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed for the M1721 repair panel subset without overclaiming or changing the actor contract.",
-    "id": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design",
+    "command": "see experiments/manifests/m1724-paper-route-controller-family-off-track-repair-panel-execution.json",
+    "hypothesis": "The M1721 off-track repair panel matrix can be executed as a fixed public diagnostic run with complete repair-variant/outcome aggregates and no guardrail violations.",
+    "id": "m1724-paper-route-controller-family-off-track-repair-panel-execution",
     "kind": "gate",
-    "notes": "Pending: design repair panel execution artifacts variant aggregates thresholds and claim boundaries",
-    "priority": 17180,
+    "notes": "Pending: run 864 public diagnostic episodes and write repair-variant outcome termination aggregates",
+    "priority": 17190,
     "status": "pending",
-    "success_artifact": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md"
+    "success_artifact": "runs/m1724_off_track_repair_panel_execution/summary.json"
   },
-  "updated_at_utc": "20260530T022436Z"
+  "updated_at_utc": "20260530T022736Z"
 }

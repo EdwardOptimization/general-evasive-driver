@@ -27654,3 +27654,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repair panel execution result, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.json`
 - next: `m1723-paper-route-controller-family-off-track-repair-panel-execution-design`
+
+## M1723 Paper-Route Controller-Family Off-Track Repair Panel Execution Design
+
+- status: completed
+- decision: `off_track_repair_panel_execution_design_admit_measured_execution`
+- artifact: `docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md`
+- parent audit: `docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md`
+- execution input matrix: `runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv`
+- planned episodes: `864`
+- planned repair panel specs: `72`
+- profiles: `12`
+- required episode identifiers: `repair_panel_workload_id`, `calibration_workload_id`, `calibration_spec_id`, `repair_variant_label`
+- required aggregates: `repair_variant_aggregate.csv`, `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`
+- M1725 audit thresholds: execution count `864`, failure count `0`, finite metrics, guardrails `0`, full repair off-track `<=0.70`, weak off-track improvement `>=0.10`, collision delta `<=0.05`, composite delta vs prior best `<=-0.03`
+- supported: measured off-track repair panel execution is admitted
+- unsupported: controller-family ranking, repair result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1724-paper-route-controller-family-off-track-repair-panel-execution.json`
+- next: `m1724-paper-route-controller-family-off-track-repair-panel-execution`
