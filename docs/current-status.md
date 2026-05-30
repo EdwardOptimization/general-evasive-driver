@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit
+m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis
+m1711-paper-route-controller-family-calibrated-scale-up-design
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -41,8 +41,11 @@ public diagnostic episodes, with zero failures, finite selected metrics, zero
 guardrail violations, and outcome/termination/calibration aggregates. M1709
 audited the task-quality result as positive under the pre-registered thresholds:
 best variant off-track rate `0.6944` versus original-axis baseline `0.9028`,
-with `0.2083` improvement, while noting collision/off-track tradeoff. The next
-task is M1710 branch synthesis before any scale-up or repair.
+with `0.2083` improvement, while noting collision/off-track tradeoff. M1710
+synthesized M1701-M1709 and continues the branch to source-expanded calibrated
+scale-up design. The next task is M1711: design an `864`-episode fixed-budget
+scale-up with `18` base specs and four variants that preserve the original
+baseline, best off-track variant, collision-control variant, and mid variant.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

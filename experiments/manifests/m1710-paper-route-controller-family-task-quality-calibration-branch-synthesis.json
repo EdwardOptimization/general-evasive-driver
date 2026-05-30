@@ -178,6 +178,25 @@
     "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json",
     "runs/m1708_controller_family_bounded_calibration_smoke_execution/calibration_variant_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+    "decision": "continue_to_source_expanded_calibrated_scale_up_design",
+    "workflow_synthesis_decision": "continue",
+    "synthesized_range": "M1701-M1709",
+    "failure_taxonomy": [
+      "none",
+      "scenario_sampling_failure_risk",
+      "metric_artifact_risk",
+      "objective_overfit_risk"
+    ],
+    "evidence_summary": "M1701-M1709 built task-quality calibration infrastructure, executed a bounded public smoke, and found an interpretable calibration variant that reduced off-track rate from 0.9028 to 0.6944.",
+    "supported_claim": "the task-quality calibration route works and a source-expanded calibrated scale-up is justified.",
+    "falsified_claim": "the original strict axis or best off-track variant alone is sufficient for controller-family ranking.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_controller_family_task_quality_calibration",
+    "next_manifest": "experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json"
+  },
   "decision_rule": "M1710 passes if it synthesizes M1701-M1709 and chooses a route before scale-up, repair, or controller interpretation.",
-  "next_blocker": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis"
+  "next_blocker": "m1711-paper-route-controller-family-calibrated-scale-up-design"
 }

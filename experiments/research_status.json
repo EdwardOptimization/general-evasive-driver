@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1718,
+    "completed": 1719,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md",
+    "command_log": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit"
+    "task_id": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.json",
-    "hypothesis": "The M1701-M1709 task-quality calibration branch should synthesize before any calibrated scale-up or repair.",
-    "id": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis",
+    "command": "see experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json",
+    "hypothesis": "A source-expanded fixed-budget calibrated scale-up can be designed from M1709/M1710 without overfitting to the best off-track variant.",
+    "id": "m1711-paper-route-controller-family-calibrated-scale-up-design",
     "kind": "gate",
-    "notes": "Pending: synthesize positive calibration signal collision tradeoff public overfit risk and next route",
-    "priority": 17050,
+    "notes": "Pending: design 18-base-spec 4-variant 864-cell scale-up preserving baseline and collision controls",
+    "priority": 17060,
     "status": "pending",
-    "success_artifact": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md"
+    "success_artifact": "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md"
   },
-  "updated_at_utc": "20260530T012449Z"
+  "updated_at_utc": "20260530T012952Z"
 }

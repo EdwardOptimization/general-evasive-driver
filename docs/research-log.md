@@ -27404,3 +27404,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
 - follow-up manifest: `experiments/manifests/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.json`
 - next: `m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis`
+
+## M1710 Paper-Route Controller-Family Task-Quality Calibration Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `continue`
+- decision: `continue_to_source_expanded_calibrated_scale_up_design`
+- artifact: `docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md`
+- synthesized range: M1701-M1709
+- evidence summary: task-quality calibration infrastructure now works end to end, and bounded public smoke found an interpretable variant reducing off-track rate from `0.9028` to `0.6944`
+- supported: source-expanded calibrated scale-up is justified before returning to controller-family comparisons
+- falsified: original strict axis, best off-track variant alone, or off-track rate alone is enough for controller-family ranking
+- failure taxonomy summary: structural `none`, scenario sampling risk moderate, metric artifact risk moderate, public/objective overfit risk high
+- public-gate overfit risk: `high`
+- next branch decision: continue the task-quality calibration branch with a fixed-budget scale-up design
+- planned M1711 shape: `18` selected base specs, `4` calibration variants, `12` profiles, `864` episodes
+- required variants: original baseline, best off-track variant, collision-control wide variant, and mid calibration variant
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
+- follow-up manifest: `experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json`
+- next: `m1711-paper-route-controller-family-calibrated-scale-up-design`

@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1710 synthesizes M1701-M1709 and continues to source-expanded fixed-budget calibrated scale-up design with baseline and collision controls",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1708 as controller-family ranking evidence",
+    "synthesis routes directly to training or profile tuning",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T013056Z",
+  "hypothesis": "The M1701-M1709 task-quality calibration branch should synthesize before any calibrated scale-up or repair.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence and need to decide scale-up versus repair after positive bounded smoke"
+    ],
+    "derived_from": [
+      "m1701-paper-route-controller-family-task-quality-calibration-design",
+      "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/summary.json",
+      "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md",
+      "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json",
+      "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+      "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
+      "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json",
+      "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md"
+    ],
+    "parent_objective": [
+      "synthesize task-quality calibration branch before scale-up or repair"
+    ],
+    "supersedes": [
+      "direct calibrated scale-up after M1709",
+      "direct controller-family ranking after M1708"
+    ]
+  },
+  "milestone": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis",
+  "next_blocker": "m1711-paper-route-controller-family-calibrated-scale-up-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_source_expanded_calibrated_scale_up_design",
+  "public_gates": [
+    "M1710 must synthesize M1701-M1709 before another narrow calibration milestone",
+    "M1710 must answer required synthesis questions",
+    "M1710 must assess the positive calibration signal and collision/off-track tradeoff",
+    "M1710 must decide continue pivot stop or promote_to_next_branch",
+    "M1710 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_source_expanded_calibrated_scale_up_design",
+    "milestone": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis",
+    "reason": "M1710 synthesizes M1701-M1709 and continues to source-expanded fixed-budget calibrated scale-up design with baseline and collision controls",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "positive calibration signal and collision/off-track tradeoff are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}
