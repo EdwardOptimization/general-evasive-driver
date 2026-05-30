@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1733,
+    "completed": 1734,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1724-paper-route-controller-family-off-track-repair-panel-execution.md",
+    "command_log": "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1724-paper-route-controller-family-off-track-repair-panel-execution"
+    "task_id": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.json",
-    "hypothesis": "M1724 can be audited under the pre-registered M1723 collision/off-track rules to decide whether the repair panel gives a positive, conditional, tradeoff-only, or failed task-quality signal.",
-    "id": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit",
+    "command": "see experiments/manifests/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.json",
+    "hypothesis": "The M1718-M1725 task-quality repair branch should synthesize before another repair panel, broader scenario route, or controller-family comparison.",
+    "id": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit repair variant off-track improvements collision deltas and composite repair thresholds without ranking profiles",
-    "priority": 17200,
+    "notes": "Pending: synthesize conditional repair retained composite miss and public overfit risk into next branch decision",
+    "priority": 17210,
     "status": "pending",
-    "success_artifact": "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md"
+    "success_artifact": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T024226Z"
+  "updated_at_utc": "20260530T024745Z"
 }

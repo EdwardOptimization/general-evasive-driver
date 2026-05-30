@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1724-paper-route-controller-family-off-track-repair-panel-execution
+m1725-paper-route-controller-family-off-track-repair-panel-result-audit
 ```
 
 Current next task:
 
 ```text
-m1725-paper-route-controller-family-off-track-repair-panel-result-audit
+m1726-paper-route-controller-family-task-quality-repair-branch-synthesis
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -105,7 +105,16 @@ variant `0.7361`, collision-control wide relaxed `0.7824`, and
 wide-relaxed-extended `0.7315`; collision rates were `0.0324`, `0.1019`,
 `0.0648`, and `0.0833` respectively. The next task is M1725: audit those
 results under the M1723 pre-registered repair thresholds before any repair
-conclusion, branch synthesis, redesign, or controller-family comparison.
+conclusion, branch synthesis, redesign, or controller-family comparison. M1725
+audits this as `conditional_repair_retained`: `collision_control_wide_relaxed`
+improves off-track by `0.1528` with collision delta `0.0324`, inside the
+`0.05` guard, so the repair panel is not a failed repair. However, the new
+`wide_relaxed_extended` composite variant misses the composite-positive rule:
+off-track `0.7315` is above the full-positive `0.70` threshold, collision delta
+`0.0509` is just above the guard, and composite delta versus prior-control best
+is only `-0.0046` versus the required `<= -0.0300`. The next task is M1726:
+synthesize the M1718-M1725 repair branch before any new repair panel, scenario
+redesign, or controller-family comparison.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -1,0 +1,181 @@
+{
+  "id": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1718-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
+      "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
+      "runs/m1721_off_track_repair_panel_preflight/summary.json",
+      "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+      "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+      "runs/m1724_off_track_repair_panel_execution/summary.json",
+      "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize task-quality repair evidence before another repair panel, scenario redesign, or controller-family comparison"
+    ],
+    "derived_from": [
+      "m1718-paper-route-controller-family-off-track-dominance-localization",
+      "m1725-paper-route-controller-family-off-track-repair-panel-result-audit"
+    ],
+    "blocked_by": [
+      "M1725 produced conditional repair but not composite-positive repair"
+    ],
+    "supersedes": [
+      "direct second repair panel after M1725",
+      "direct controller-family comparison after M1724"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+  "public_gates": [
+    "M1726 must synthesize M1718-M1725 before another narrow task-quality repair milestone",
+    "M1726 must answer required synthesis questions",
+    "M1726 must assess conditional repair retained and composite repair miss",
+    "M1726 must decide continue pivot stop or promote_to_next_branch",
+    "M1726 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "S_task_quality_repair_branch_synthesis",
+    "evidence_increment": "synthesizes M1718-M1725 after repair panel finds conditional repair retained but composite target missed",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores the composite repair miss",
+      "stop if synthesis treats M1724 as controller-family ranking evidence",
+      "stop if synthesis skips public-gate overfit risk",
+      "stop if synthesis routes directly to training or profile tuning"
+    ],
+    "fallback_plan": [
+      "continue to task-quality scenario redesign if off-track remains too dominant",
+      "pivot to controller-family comparison only if task-quality evidence is judged sufficient and claim scope remains diagnostic",
+      "pivot to broader scenario taxonomy if repaired panel is still public-set overfit",
+      "stop branch if public overfit risk dominates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1725 audits repair panel as conditional repair retained but not composite positive",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality repair branch synthesis",
+    "admission_evidence": [
+      "M1725 finds conditional repair retained but composite repair positive fails",
+      "off-track remains dominant enough to require route decision before another narrow milestone"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1726 synthesis document",
+      "M1726 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task quality and public profile controls, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, and L3-reset controls in any continued or pivoted route"
+    ],
+    "temporal_evidence_window": "M1718-M1725 public artifacts only.",
+    "negative_result_policy": "If synthesis finds task-quality repair insufficient, route to scenario redesign or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1718-M1725 task-quality repair branch should synthesize before another repair panel, broader scenario route, or controller-family comparison.",
+  "success_criteria": [
+    "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "conditional repair retained and composite repair miss are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1724 as controller-family ranking evidence",
+    "synthesis routes directly to training or profile tuning",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md",
+    "runs/m1724_off_track_repair_panel_execution/summary.json",
+    "runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv"
+  ],
+  "decision_rule": "M1726 passes if it synthesizes M1718-M1725 and chooses a route before task-quality redesign, controller comparison, or paper-route claims.",
+  "next_blocker": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis"
+}

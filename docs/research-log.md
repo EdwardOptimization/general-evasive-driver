@@ -27695,3 +27695,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, repair conclusion before M1725, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.json`
 - next: `m1725-paper-route-controller-family-off-track-repair-panel-result-audit`
+
+## M1725 Paper-Route Controller-Family Off-Track Repair Panel Result Audit
+
+- status: completed
+- decision: `conditional_repair_retained_route_to_branch_synthesis`
+- artifact: `docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md`
+- audited summary: `runs/m1724_off_track_repair_panel_execution/summary.json`
+- audited variant aggregate: `runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv`
+- execution plumbing: `864/864`, failure `0`, finite metrics `true`, guardrail `0`
+- baseline original-axis off-track/collision: `0.9352` / `0.0324`
+- best-off-track off-track/collision/improvement/delta: `0.7361` / `0.1019` / `0.1991` / `0.0694`
+- collision-control wide relaxed off-track/collision/improvement/delta: `0.7824` / `0.0648` / `0.1528` / `0.0324`
+- wide-relaxed-extended off-track/collision/improvement/delta: `0.7315` / `0.0833` / `0.2037` / `0.0509`
+- wide-relaxed-extended composite delta vs prior best: `-0.0046` versus required `<= -0.0300`
+- classification: full repair positive `false`, composite repair positive `false`, conditional repair retained `true`, tradeoff-only `false`, repair failed `false`
+- supported: repair axes can reduce off-track under a collision-guarded variant
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.json`
+- next: `m1726-paper-route-controller-family-task-quality-repair-branch-synthesis`
