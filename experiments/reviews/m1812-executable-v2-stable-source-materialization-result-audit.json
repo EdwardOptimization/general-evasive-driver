@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1812 audits M1811 materialization artifacts as complete and routes to targeted reset-validation design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset rollout or measured execution",
+    "audit treats materialization artifacts as reset feasibility",
+    "audit ignores reset-validation requirements",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T101742Z",
+  "hypothesis": "M1811 artifacts can be audited well enough to choose between targeted reset-validation design, implementation repair, design repair, or synthesis.",
+  "lineage": {
+    "blocked_by": [
+      "M1811 produces materialized source artifacts but reset validation has not run"
+    ],
+    "derived_from": [
+      "m1811-executable-v2-stable-source-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_materialization_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1811-executable-v2-stable-source-materialization.json"
+    ],
+    "parent_dataset": [
+      "docs/m1811-executable-v2-stable-source-materialization.md",
+      "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit M1811 source materialization artifacts before targeted reset validation"
+    ],
+    "supersedes": [
+      "direct targeted reset validation without materialization result audit",
+      "direct measured execution after M1811",
+      "direct controller-family ranking after M1811"
+    ]
+  },
+  "milestone": "m1812-executable-v2-stable-source-materialization-result-audit",
+  "next_blocker": "m1813-executable-v2-stable-source-materialization-reset-validation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stable_source_materialization_audit_route_to_reset_validation_design",
+  "public_gates": [
+    "M1812 must audit M1811 artifacts without running reset or rollout",
+    "M1812 must assess target counts specs matrix duplicate keys env deltas reset-validation requirements and claim boundary",
+    "M1812 must choose the next route explicitly",
+    "M1812 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "stable_source_materialization_audit_route_to_reset_validation_design",
+    "milestone": "m1812-executable-v2-stable-source-materialization-result-audit",
+    "reason": "M1812 audits M1811 materialization artifacts as complete and routes to targeted reset-validation design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1812-executable-v2-stable-source-materialization-result-audit.md exists",
+    "audit assesses materialization counts env deltas duplicate keys reset-validation requirements and claim boundary",
+    "audit keeps measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

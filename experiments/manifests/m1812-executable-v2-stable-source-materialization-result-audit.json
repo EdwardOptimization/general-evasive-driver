@@ -164,6 +164,37 @@
     "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv",
     "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_claim_boundary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+    "decision": "stable_source_materialization_audit_route_to_reset_validation_design",
+    "stable_materialization_spec_count": 3,
+    "stable_materialization_matrix_row_count": 36,
+    "profile_control_count": 12,
+    "duplicate_key_count": 0,
+    "reset_validation_required_count": 3,
+    "measured_execution_admissible": false,
+    "controller_family_ranking_admissible": false,
+    "next_manifest": "experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1812 passes if it audits M1811 and chooses a next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1812-executable-v2-stable-source-materialization-result-audit"
+  "next_blocker": "m1813-executable-v2-stable-source-materialization-reset-validation-design"
 }

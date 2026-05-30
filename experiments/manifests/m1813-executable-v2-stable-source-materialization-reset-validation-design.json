@@ -1,0 +1,168 @@
+{
+  "id": "m1813-executable-v2-stable-source-materialization-reset-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+      "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1812-executable-v2-stable-source-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design targeted reset-only validation for M1811 materialized stable sources"
+    ],
+    "derived_from": [
+      "m1812-executable-v2-stable-source-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1811 materialized sources require reset validation before repaired reset feasibility or measured execution"
+    ],
+    "supersedes": [
+      "direct reset execution without validation design",
+      "direct measured execution after materialization",
+      "controller-family ranking before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+  "public_gates": [
+    "M1813 must design targeted reset-only validation without running reset or rollout",
+    "M1813 must define inputs expected counts conversion or adapter requirements pass/fail criteria and claim boundary",
+    "M1813 must choose the next implementation execution-design or repair route explicitly",
+    "M1813 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_reset_validation_design",
+    "evidence_increment": "designs targeted reset-only validation after M1812 audits materialized sources as complete",
+    "claim_scope": "reset-validation design only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design would run reset",
+      "stop if materialized artifacts cannot be converted to reset-ready specs",
+      "stop if expected counts are ambiguous",
+      "stop if measured execution or ranking is admitted before reset support"
+    ],
+    "fallback_plan": [
+      "route to reset-validation adapter implementation if conversion is required",
+      "route to execution design if existing adapter can consume the artifacts",
+      "route to materialization repair if artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1812 admits targeted reset-validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source reset-validation design",
+    "admission_evidence": [
+      "M1812 audits M1811 artifacts as complete and ranking-blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1813 design document",
+      "M1813 status queue scoreboard research log and review",
+      "one follow-up manifest for adapter implementation execution design or repair"
+    ],
+    "next_stage_criteria": [
+      "reset-validation inputs and counts are explicit",
+      "adapter/conversion route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset-validation design covers task-quality source support.",
+    "history_necessity_tests": [
+      "Design must preserve all profile controls for later L1/L2/L3 comparisons."
+    ],
+    "temporal_evidence_window": "M1811/M1812 public artifacts only.",
+    "negative_result_policy": "If reset validation cannot be designed cleanly, route to adapter repair or materialization repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "targeted reset-validation design and route decision",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A targeted reset-only validation protocol can be designed for the three M1811 materialized stable sources without running reset or admitting measured execution.",
+  "success_criteria": [
+    "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md exists",
+    "design lists input artifacts and expected target counts",
+    "design states whether adapter/conversion is required",
+    "design keeps measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design omits adapter/conversion decision",
+    "design routes directly to measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+    "runs/m1811_executable_v2_stable_source_materialization/summary.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+  ],
+  "decision_rule": "M1813 passes if it designs targeted reset-only validation without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1813-executable-v2-stable-source-materialization-reset-validation-design"
+}

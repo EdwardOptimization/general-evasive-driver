@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1820,
+    "completed": 1821,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1811-executable-v2-stable-source-materialization.md",
+    "command_log": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1811-executable-v2-stable-source-materialization"
+    "task_id": "m1812-executable-v2-stable-source-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1812-executable-v2-stable-source-materialization-result-audit.json",
-    "hypothesis": "M1811 artifacts can be audited well enough to choose between targeted reset-validation design, implementation repair, design repair, or synthesis.",
-    "id": "m1812-executable-v2-stable-source-materialization-result-audit",
+    "command": "see experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json",
+    "hypothesis": "A targeted reset-only validation protocol can be designed for the three M1811 materialized stable sources without running reset or admitting measured execution.",
+    "id": "m1813-executable-v2-stable-source-materialization-reset-validation-design",
     "kind": "gate",
-    "notes": "Pending: audit M1811 materialization artifacts before targeted reset validation",
-    "priority": 18070,
+    "notes": "Pending: design targeted reset-only validation protocol for M1811 materialized sources",
+    "priority": 18080,
     "status": "pending",
-    "success_artifact": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md"
+    "success_artifact": "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md"
   },
-  "updated_at_utc": "20260530T114000Z"
+  "updated_at_utc": "20260530T114500Z"
 }
