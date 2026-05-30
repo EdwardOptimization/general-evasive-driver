@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1699,
+    "completed": 1700,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+    "command_log": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1690_controller_family_executable_workload_materialization_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
+    "task_id": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.json",
-    "hypothesis": "M1690 materialization artifacts are complete enough to admit a separately designed 864-cell public rollout execution.",
-    "id": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit",
+    "command": "see experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json",
+    "hypothesis": "A safe full rollout execution plan can be specified from M1690 executable workload artifacts without executing or interpreting the rollout yet.",
+    "id": "m1692-paper-route-controller-family-full-rollout-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit materialization before rollout execution design",
-    "priority": 16860,
+    "notes": "Pending: design full rollout execution before implementation",
+    "priority": 16870,
     "status": "pending",
-    "success_artifact": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md"
+    "success_artifact": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md"
   },
-  "updated_at_utc": "20260529T235856Z"
+  "updated_at_utc": "20260530T000214Z"
 }

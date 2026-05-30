@@ -152,6 +152,30 @@
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+    "decision": "materialization_audit_pass_route_to_full_rollout_execution_design",
+    "audited_summary": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+    "executable_spec_count": 72,
+    "workload_cell_count": 864,
+    "reference_workload_cell_count": 864,
+    "profile_count": 12,
+    "unmappable_spec_count": 0,
+    "contract_violation_count": 0,
+    "forbidden_key_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json"
+  },
   "decision_rule": "M1691 passes if it audits M1690 materialization as complete clean no-rollout evidence and routes explicitly to rollout execution design or repair.",
-  "next_blocker": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
+  "next_blocker": "m1692-paper-route-controller-family-full-rollout-execution-design"
 }

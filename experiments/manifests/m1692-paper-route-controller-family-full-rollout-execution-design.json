@@ -1,0 +1,153 @@
+{
+  "id": "m1692-paper-route-controller-family-full-rollout-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design full 864-cell public rollout execution after materialization audit pass"
+    ],
+    "derived_from": [
+      "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "need execution design before starting full 864-cell rollout"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1691",
+      "direct controller-family ranking after M1691"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+  "public_gates": [
+    "M1692 must design but not execute the 864-cell public rollout",
+    "M1692 must specify runtime budget, resumability, artifacts, finite metric checks, and failure handling",
+    "M1692 must preserve no-training no-replay no-PPO no-promotion no-private-holdout and no-actor-input-change guardrails",
+    "M1692 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute full rollout in M1692",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_full_rollout_execution_design",
+    "evidence_increment": "designs the full 864-cell public rollout execution after materialization audit pass",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if execution cannot be made resumable",
+      "stop if artifacts omit profile/spec/stratum/comparison aggregates",
+      "stop if design lacks failure handling for partial rollout",
+      "stop if design would interpret results before audit"
+    ],
+    "fallback_plan": [
+      "route to runner implementation if design is complete",
+      "route to execution-design repair if runtime or resumability is underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1691 audits executable workload materialization as pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design full rollout execution",
+    "admission_evidence": [
+      "M1691 audits M1690 materialization as complete clean no-rollout evidence"
+    ],
+    "blocked_shortcuts": [
+      "do not execute full rollout in M1692",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1692 execution design document",
+      "M1692 status queue scoreboard research log and review",
+      "one follow-up execution implementation or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "execution artifacts and resumability are specified",
+      "finite metric and guardrail checks are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1692 is execution design only.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, and L3-reset comparison rows"
+    ],
+    "temporal_evidence_window": "M1691 audit only.",
+    "negative_result_policy": "If execution design is incomplete, do not run rollout.",
+    "allowed_claims": [
+      "full rollout execution design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A safe full rollout execution plan can be specified from M1690 executable workload artifacts without executing or interpreting the rollout yet.",
+  "success_criteria": [
+    "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md exists",
+    "design specifies 864-cell execution target",
+    "design specifies resumability and partial-failure handling",
+    "design specifies required artifacts and aggregate metrics",
+    "design specifies no-ranking no-paper no-level3 claim boundary",
+    "rollout execution training replay PPO promotion private holdout actor-input changes remain blocked"
+  ],
+  "failure_criteria": [
+    "design omits resumability or artifact schema",
+    "design allows execution before implementation manifest",
+    "design claims controller-family ranking or level3 self-ID",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write full rollout execution design without executing rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1692 passes if it writes a complete full-rollout execution design and routes to a separate implementation or repair manifest.",
+  "next_blocker": "m1692-paper-route-controller-family-full-rollout-execution-design"
+}

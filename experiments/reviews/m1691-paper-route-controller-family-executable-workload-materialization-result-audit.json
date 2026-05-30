@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1691 audits M1690 as complete clean executable workload materialization and routes to full rollout execution design without direct execution",
+  "failure_criteria": [
+    "required M1690 artifacts are missing",
+    "M1690 counts or contract checks fail",
+    "M1690 guardrails are violated",
+    "audit claims controller-family ranking or level3 self-ID",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T000357Z",
+  "hypothesis": "M1690 materialization artifacts are complete enough to admit a separately designed 864-cell public rollout execution.",
+  "lineage": {
+    "blocked_by": [
+      "need materialization audit before 864-cell rollout execution"
+    ],
+    "derived_from": [
+      "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_materialization_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit executable workload materialization before full rollout execution"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1690",
+      "direct controller-family ranking after M1690"
+    ]
+  },
+  "milestone": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit",
+  "next_blocker": "m1692-paper-route-controller-family-full-rollout-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "materialization_audit_pass_route_to_full_rollout_execution_design",
+  "public_gates": [
+    "M1691 must audit M1690 artifacts before rollout execution",
+    "M1690 must have 72 executable specs and 864 workload cells",
+    "M1690 must have zero contract and guardrail violations",
+    "M1691 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1691 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "materialization_audit_pass_route_to_full_rollout_execution_design",
+    "milestone": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit",
+    "reason": "M1691 audits M1690 as complete clean executable workload materialization and routes to full rollout execution design without direct execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md exists",
+    "M1690 summary and materialization artifacts are readable",
+    "M1690 executable_spec_count == 72",
+    "M1690 workload_cell_count == 864",
+    "M1690 contract_violation_count == 0",
+    "M1690 guardrail_violation_count == 0",
+    "audit preserves no-ranking no-paper no-level3 claim boundary",
+    "next route is explicit"
+  ],
+  "type": "gate"
+}

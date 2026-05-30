@@ -10690,5 +10690,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1690 materializes all 72 metadata specs into executable P0-compatible specs
   and an 864-cell workload matrix with zero unmappable specs, zero contract
   violations, zero forbidden key violations, and no environment rollout.
+- M1691 audits M1690 as a clean materialization pass and routes to full rollout
+  execution design. Direct execution and controller-family ranking remain
+  blocked until that design and a later execution/audit pair.
 - Current next blocker:
-  `m1691-paper-route-controller-family-executable-workload-materialization-result-audit`.
+  `m1692-paper-route-controller-family-full-rollout-execution-design`.
