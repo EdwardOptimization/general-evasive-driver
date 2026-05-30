@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1737,
+    "completed": 1738,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1728-paper-route-task-quality-scenario-taxonomy-preflight.md",
+    "command_log": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1728-paper-route-task-quality-scenario-taxonomy-preflight"
+    "task_id": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json",
-    "hypothesis": "M1728 can be audited as a clean no-rollout scenario taxonomy preflight before measured execution design.",
-    "id": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit",
+    "command": "see experiments/manifests/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.json",
+    "hypothesis": "A measured execution protocol can be designed for the M1728 scenario taxonomy while preserving metadata joins and unsupported-feature boundaries.",
+    "id": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit taxonomy counts contract guardrails and unsupported feature reporting before execution design",
-    "priority": 17240,
+    "notes": "Pending: design 864-cell execution protocol requiring scenario metadata joins aggregates and unsupported-fault boundaries",
+    "priority": 17250,
     "status": "pending",
-    "success_artifact": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md"
+    "success_artifact": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md"
   },
-  "updated_at_utc": "20260530T030353Z"
+  "updated_at_utc": "20260530T030740Z"
 }

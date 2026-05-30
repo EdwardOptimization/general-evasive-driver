@@ -154,6 +154,36 @@
     "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
     "runs/m1728_task_quality_scenario_taxonomy_preflight/unsupported_scenario_features.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+    "decision": "scenario_taxonomy_preflight_audit_admit_execution_design",
+    "audited_result_class": "task_quality_scenario_taxonomy_preflight_pass",
+    "scenario_family_count": 6,
+    "scenario_spec_count": 72,
+    "scenario_specs_per_family": 12,
+    "profile_count": 12,
+    "scenario_matrix_cell_count": 864,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "contract_violation_count": 0,
+    "guardrail_violation_count": 0,
+    "unsupported_scenario_feature_count": 5,
+    "silent_unsupported_approximation_count": 0,
+    "execution_design_requires_spec_metadata_join": true,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.json"
+  },
   "decision_rule": "M1729 passes if it audits M1728 and routes to execution design, taxonomy repair, or synthesis without overclaiming.",
-  "next_blocker": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
+  "next_blocker": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design"
 }

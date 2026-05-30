@@ -1,0 +1,157 @@
+{
+  "id": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_specs.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured scenario taxonomy execution"
+    ],
+    "derived_from": [
+      "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "need execution design before measured scenario taxonomy rollout"
+    ],
+    "supersedes": [
+      "direct scenario taxonomy execution after M1729"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md",
+  "public_gates": [
+    "M1730 must design execution over the fixed M1728 864-cell scenario taxonomy matrix without running it",
+    "M1730 must require joining scenario_specs.json metadata into every episode row",
+    "M1730 must require scenario-family, hidden-dynamics, road-boundary, obstacle-timing, outcome, termination, and profile-outcome aggregates",
+    "M1730 must preserve unsupported-fault reporting boundaries",
+    "M1730 must not train replay PPO promote use private holdout change actor inputs tune profiles or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_scenario_taxonomy_execution_design",
+    "evidence_increment": "designs measured execution after clean no-rollout taxonomy preflight audit",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design omits scenario metadata join",
+      "stop if design omits family or hidden-dynamics aggregates",
+      "stop if design treats unsupported faults as covered",
+      "stop if design ranks profiles directly"
+    ],
+    "fallback_plan": [
+      "route to runner repair design if existing runner cannot consume scenario labels",
+      "route to measured execution if design is accepted",
+      "route to taxonomy repair if required metadata is missing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1729 admits measured scenario taxonomy execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design measured scenario taxonomy execution",
+    "admission_evidence": [
+      "M1729 audits M1728 as clean no-rollout taxonomy preflight"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout in M1730",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1730 execution design document",
+      "M1730 status queue scoreboard research log and review",
+      "one follow-up measured execution manifest"
+    ],
+    "next_stage_criteria": [
+      "execution protocol is specified",
+      "scenario metadata join and aggregates are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1730 is design-only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for later execution"
+    ],
+    "temporal_evidence_window": "M1728-M1729 preflight artifacts.",
+    "negative_result_policy": "If execution design cannot preserve metadata or controls, stop before rollout.",
+    "allowed_claims": [
+      "scenario taxonomy execution design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A measured execution protocol can be designed for the M1728 scenario taxonomy while preserving metadata joins and unsupported-feature boundaries.",
+  "success_criteria": [
+    "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "scenario metadata join is required",
+    "scenario-family hidden-dynamics road-boundary obstacle-timing outcome termination and profile-outcome aggregates are required",
+    "unsupported fault boundaries are preserved",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design executes rollout",
+    "design omits scenario metadata join",
+    "design omits family or hidden-dynamics aggregates",
+    "design treats unsupported faults as covered",
+    "design changes actor inputs or profile configs",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write scenario taxonomy execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+    "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_matrix.csv"
+  ],
+  "decision_rule": "M1730 passes if it designs scenario taxonomy execution while preserving metadata and claim boundaries.",
+  "next_blocker": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design"
+}

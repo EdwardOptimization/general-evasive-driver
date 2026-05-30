@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1728-paper-route-task-quality-scenario-taxonomy-preflight
+m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit
+m1730-paper-route-task-quality-scenario-taxonomy-execution-design
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -132,7 +132,11 @@ unsupported-feature reporting. M1728 passes that preflight: `6` families, `72`
 scenario specs, `864` profile cells, missing config/checkpoint `0/0`, contract
 `0`, guardrail `0`, and `5` unsupported fault-like features explicitly reported
 with `0` silent approximations. The next task is M1729: audit this preflight
-before any scenario taxonomy execution design.
+before any scenario taxonomy execution design. M1729 audits it as clean and
+admits M1730 execution design, with one important implementation requirement:
+the measured runner must join `scenario_matrix.csv` with `scenario_specs.json`
+so every episode row preserves scenario family, role, obstacle timing, road
+boundary, hidden dynamics bucket, and unsupported-feature boundaries.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

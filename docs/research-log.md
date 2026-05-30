@@ -27771,3 +27771,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json`
 - next: `m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit`
+
+## M1729 Paper-Route Task-Quality Scenario Taxonomy Preflight Result Audit
+
+- status: completed
+- decision: `scenario_taxonomy_preflight_audit_admit_execution_design`
+- artifact: `docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md`
+- audited summary: `runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json`
+- audited unsupported report: `runs/m1728_task_quality_scenario_taxonomy_preflight/unsupported_scenario_features.csv`
+- preflight counts: families `6`, specs `72`, profiles `12`, matrix cells `864`
+- missing config/checkpoint: `0/0`
+- contract violations: `0`
+- guardrail violation count: `0`
+- unsupported features: `5`
+- silent unsupported approximations: `0`
+- execution design requirement: join `scenario_specs.json` metadata into every episode row before measured rollout
+- supported: clean preflight and admission to execution design
+- unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.json`
+- next: `m1730-paper-route-task-quality-scenario-taxonomy-execution-design`
