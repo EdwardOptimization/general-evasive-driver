@@ -14,6 +14,7 @@ from autodrift.controller_family_full_rollout_execution import read_csv_rows, se
 DEFAULT_EPISODE_ROWS = Path("runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv")
 DEFAULT_SUMMARY = Path("runs/m1738_repaired_scenario_taxonomy_execution/summary.json")
 DEFAULT_OUTPUT_DIR = Path("runs/m1740_repaired_taxonomy_outcome_dominance_localization")
+DEFAULT_NEXT_BLOCKER = "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
 TARGET_EPISODE_COUNT = 864
 MIN_DOMINANT_EPISODES = 12
 NON_SUCCESS_DOMINANCE_THRESHOLD = 0.75
@@ -31,6 +32,26 @@ FORBIDDEN_GUARDRAILS = (
     "paper_level_claim_made",
     "level3_self_id_claim_made",
     "unsupported_faults_treated_as_covered",
+)
+TARGET_LOCALIZATION_SLICE_TYPES = (
+    "evaluation_role",
+    "primary_metric_family",
+    "evaluation_role_primary_metric",
+    "scenario_family",
+    "scenario_family_profile",
+    "scenario_family_evaluation_role",
+    "scenario_family_primary_metric",
+    "scenario_family_road_bucket",
+    "scenario_family_hidden_bucket",
+    "scenario_family_timing_bucket",
+    "scenario_family_lateral_bucket",
+    "profile",
+    "profile_evaluation_role",
+    "profile_primary_metric",
+    "hidden_dynamics_bucket",
+    "road_boundary_bucket",
+    "obstacle_timing_bucket",
+    "obstacle_lateral_bucket",
 )
 
 
@@ -121,12 +142,21 @@ def _write_aggregate(output: Path, name: str, rows: list[dict[str, Any]]) -> int
     return len(rows)
 
 
+def _dominant_slice_counts_by_type(rows: list[Mapping[str, Any]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for row in rows:
+        slice_type = str(row.get("slice_type", ""))
+        counts[slice_type] = counts.get(slice_type, 0) + 1
+    return dict(sorted(counts.items()))
+
+
 def localize_task_quality_outcome_dominance(
     *,
     episode_rows_path: Path | str = DEFAULT_EPISODE_ROWS,
     summary_path: Path | str = DEFAULT_SUMMARY,
     output_dir: Path | str = DEFAULT_OUTPUT_DIR,
     target_episode_count: int = TARGET_EPISODE_COUNT,
+    next_blocker: str = DEFAULT_NEXT_BLOCKER,
 ) -> dict[str, Any]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -134,14 +164,26 @@ def localize_task_quality_outcome_dominance(
     source_summary = read_json(summary_path) if Path(summary_path).exists() else {}
 
     aggregate_specs: dict[str, tuple[str, ...]] = {
+        "evaluation_role_aggregate": ("evaluation_role",),
+        "primary_metric_family_aggregate": ("primary_metric_family",),
+        "evaluation_role_primary_metric_aggregate": ("evaluation_role", "primary_metric_family"),
         "scenario_family_aggregate": ("scenario_family",),
         "scenario_family_label_aggregate": ("scenario_family", "sampled_obstacle_label"),
         "scenario_family_profile_aggregate": ("scenario_family", "profile_name"),
+        "scenario_family_evaluation_role_aggregate": ("scenario_family", "evaluation_role"),
+        "scenario_family_primary_metric_aggregate": ("scenario_family", "primary_metric_family"),
         "scenario_family_road_bucket_aggregate": ("scenario_family", "road_boundary_bucket"),
         "scenario_family_hidden_bucket_aggregate": ("scenario_family", "hidden_dynamics_bucket"),
         "scenario_family_timing_bucket_aggregate": ("scenario_family", "obstacle_timing_bucket"),
+        "scenario_family_lateral_bucket_aggregate": ("scenario_family", "obstacle_lateral_bucket"),
+        "hidden_dynamics_bucket_aggregate": ("hidden_dynamics_bucket",),
+        "road_boundary_bucket_aggregate": ("road_boundary_bucket",),
+        "obstacle_timing_bucket_aggregate": ("obstacle_timing_bucket",),
+        "obstacle_lateral_bucket_aggregate": ("obstacle_lateral_bucket",),
         "sampling_repair_variant_aggregate": ("sampling_repair_variant_id",),
         "profile_aggregate": ("profile_name",),
+        "profile_evaluation_role_aggregate": ("profile_name", "evaluation_role"),
+        "profile_primary_metric_aggregate": ("profile_name", "primary_metric_family"),
     }
 
     aggregate_rows: dict[str, list[dict[str, Any]]] = {
@@ -176,12 +218,24 @@ def localize_task_quality_outcome_dominance(
         ),
     )
     write_csv_rows(output / "dominant_slices.csv", dominant_slices)
+    target_dominant_slices = [
+        row for row in dominant_slices if str(row.get("slice_type", "")) in TARGET_LOCALIZATION_SLICE_TYPES
+    ]
+    write_csv_rows(output / "target_dominant_slices.csv", target_dominant_slices)
 
     dominant_family_count = len(
         {
             str(row.get("scenario_family"))
             for row in dominant_slices
             if row.get("scenario_family") not in (None, "")
+        }
+    )
+    dominant_slice_counts_by_type = _dominant_slice_counts_by_type(dominant_slices)
+    target_slice_types_present = sorted(
+        {
+            str(row.get("slice_type", ""))
+            for row in target_dominant_slices
+            if str(row.get("slice_type", "")) in TARGET_LOCALIZATION_SLICE_TYPES
         }
     )
     dominant_profile_count = len(
@@ -220,6 +274,10 @@ def localize_task_quality_outcome_dominance(
         "all_selected_metrics_finite": bool(all_selected_metrics_finite),
         **aggregate_row_counts,
         "dominant_slice_count": len(dominant_slices),
+        "target_dominant_slice_count": len(target_dominant_slices),
+        "target_localization_slice_types": list(TARGET_LOCALIZATION_SLICE_TYPES),
+        "target_slice_types_present": target_slice_types_present,
+        "dominant_slice_counts_by_type": dominant_slice_counts_by_type,
         "dominant_family_count": dominant_family_count,
         "dominant_profile_count": dominant_profile_count,
         "outcome_dominance_class": outcome_dominance_class,
@@ -246,9 +304,10 @@ def localize_task_quality_outcome_dominance(
         "artifacts": {
             "summary": str(output / "summary.json"),
             "dominant_slices": str(output / "dominant_slices.csv"),
+            "target_dominant_slices": str(output / "target_dominant_slices.csv"),
             **{name: str(output / f"{name}.csv") for name in aggregate_rows},
         },
-        "next_blocker": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit",
+        "next_blocker": next_blocker,
     }
     write_json(output / "summary.json", summary)
     return summary
@@ -259,17 +318,22 @@ def main() -> None:
     parser.add_argument("--episode-rows", type=Path, default=DEFAULT_EPISODE_ROWS)
     parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("--target-episode-count", type=int, default=TARGET_EPISODE_COUNT)
+    parser.add_argument("--next-blocker", default=DEFAULT_NEXT_BLOCKER)
     args = parser.parse_args()
 
     summary = localize_task_quality_outcome_dominance(
         episode_rows_path=args.episode_rows,
         summary_path=args.summary,
         output_dir=args.output_dir,
+        target_episode_count=args.target_episode_count,
+        next_blocker=args.next_blocker,
     )
     print(f"summary={args.output_dir / 'summary.json'}")
     print(f"result_class={summary['result_class']}")
     print(f"episode_count={summary['episode_count']}")
     print(f"dominant_slice_count={summary['dominant_slice_count']}")
+    print(f"target_dominant_slice_count={summary['target_dominant_slice_count']}")
     print(f"outcome_dominance_class={summary['outcome_dominance_class']}")
     print(f"guardrail_violation_count={summary['guardrail_violation_count']}")
 

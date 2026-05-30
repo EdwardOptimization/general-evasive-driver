@@ -28751,3 +28751,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1767-completed-taxonomy-outcome-dominance-localization.json`
 - next: `m1767-completed-taxonomy-outcome-dominance-localization`
+
+## M1767 Completed Taxonomy Outcome-Dominance Localization
+
+- status: completed
+- decision: `diffuse_outcome_dominance_blocks_ranking_route_to_result_audit`
+- artifact: `docs/m1767-completed-taxonomy-outcome-dominance-localization.md`
+- summary: `runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json`
+- episode count: `864`
+- result class: `task_quality_outcome_dominance_localization_pass`
+- dominant slice count: `305`
+- target dominant slice count: `291`
+- dominant family count: `6`
+- dominant profile count: `12`
+- outcome dominance class: `diffuse_outcome_dominance`
+- top dominant slice: `profile_evaluation_role:L2_window_100::mitigation_diagnostic`
+- top dominant outcome: `collision_failure` at `1.0`
+- benchmark success/collision/off-track: `0.0949` / `0.1157` / `0.7894`
+- diagnostic stress success/collision/off-track: `0.0972` / `0.3194` / `0.5833`
+- mitigation diagnostic success/collision/off-track: `0.0278` / `0.9583` / `0.0139`
+- target slice types present: evaluation role, primary metric family, scenario family, profile, hidden dynamics, road boundary, obstacle timing, obstacle lateral
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: completed taxonomy outcome dominance localization and diffuse-dominance classification
+- unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1768-completed-taxonomy-outcome-dominance-result-audit.json`
+- next: `m1768-completed-taxonomy-outcome-dominance-result-audit`

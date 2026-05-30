@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1775,
+    "completed": 1776,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1766-completed-taxonomy-outcome-audit.md",
+    "command_log": "docs/m1767-completed-taxonomy-outcome-dominance-localization.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1766-completed-taxonomy-outcome-audit"
+    "task_id": "m1767-completed-taxonomy-outcome-dominance-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1767-completed-taxonomy-outcome-dominance-localization.json",
-    "hypothesis": "Existing completed M1764 rows can localize the outcome dominance that blocks ranking.",
-    "id": "m1767-completed-taxonomy-outcome-dominance-localization",
+    "command": "see experiments/manifests/m1768-completed-taxonomy-outcome-dominance-result-audit.json",
+    "hypothesis": "M1767 diffuse outcome dominance can be audited into a concrete next route without ranking controller families.",
+    "id": "m1768-completed-taxonomy-outcome-dominance-result-audit",
     "kind": "gate",
-    "notes": "Pending: localize outcome dominance from existing M1764 artifacts",
-    "priority": 17620,
+    "notes": "Pending: audit M1767 diffuse dominance and choose next route without ranking",
+    "priority": 17630,
     "status": "pending",
-    "success_artifact": "docs/m1767-completed-taxonomy-outcome-dominance-localization.md"
+    "success_artifact": "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md"
   },
-  "updated_at_utc": "20260530T060232Z"
+  "updated_at_utc": "20260530T064758Z"
 }

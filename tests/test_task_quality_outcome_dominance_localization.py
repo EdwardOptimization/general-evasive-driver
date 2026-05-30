@@ -21,9 +21,12 @@ def _episode_row(
         "scenario_family": scenario_family,
         "sampled_obstacle_label": "drift_required",
         "profile_name": profile_name,
+        "evaluation_role": "benchmark",
+        "primary_metric_family": "avoidance_success",
         "road_boundary_bucket": "narrow",
         "hidden_dynamics_bucket": "low_mu",
         "obstacle_timing_bucket": "close",
+        "obstacle_lateral_bucket": "center",
         "sampling_repair_variant_id": "repair_v1",
         "outcome_bucket": outcome_bucket,
         "success": success,
@@ -111,6 +114,10 @@ def test_task_quality_outcome_dominance_localization_smoke(tmp_path: Path) -> No
     assert summary["result_class"] == "task_quality_outcome_dominance_localization_pass"
     assert summary["episode_count"] == 16
     assert summary["dominant_slice_count"] > 0
+    assert summary["target_dominant_slice_count"] > 0
+    assert "evaluation_role" in summary["target_slice_types_present"]
     assert summary["guardrail_violation_count"] == 0
     assert (tmp_path / "out" / "dominant_slices.csv").exists()
+    assert (tmp_path / "out" / "target_dominant_slices.csv").exists()
+    assert (tmp_path / "out" / "evaluation_role_primary_metric_aggregate.csv").exists()
     assert (tmp_path / "out" / "scenario_family_label_aggregate.csv").exists()
