@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1829,
+    "completed": 1830,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
+    "command_log": "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight"
+    "task_id": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.json",
-    "hypothesis": "The M1820 reset failure can be localized from artifacts and routed to the correct repair without running additional reset.",
-    "id": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit",
+    "command": "see experiments/manifests/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.json",
+    "hypothesis": "A source-level sampler repair can be designed for the M1820 failures without profile-specific tuning or actor-input changes.",
+    "id": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1820 targeted reset sampling failures before repair",
-    "priority": 18160,
+    "notes": "Pending: design source-level sampler repair for targeted reset failures",
+    "priority": 18170,
     "status": "pending",
-    "success_artifact": "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md"
+    "success_artifact": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md"
   },
-  "updated_at_utc": "20260530T122500Z"
+  "updated_at_utc": "20260530T123000Z"
 }

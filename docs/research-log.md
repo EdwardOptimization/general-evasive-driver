@@ -30362,3 +30362,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.json`
 - next: `m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit`
+
+## M1821 Executable V2 Stable Source Targeted Reset Feasibility Result Audit
+
+- status: completed
+- decision: `stable_source_targeted_reset_failure_audit_route_to_sampler_repair_design`
+- artifact: `docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md`
+- source summary: `runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json`
+- attempted spec count: `36`
+- reset success count: `10`
+- sampling failure count: `26`
+- guardrail violation count: `0`
+- requested label failures: `aes_feasible=24 aeb_feasible=2`
+- requested label successes: `aeb_feasible=10 aes_feasible=0`
+- hidden failure counts: `nominal=12 friction_step=12 brake_variation=2`
+- failure classification: `systematic_aes_sampler_infeasibility=24 sparse_aeb_seed_sampling_failure=2`
+- adapter/profile merge artifact likely: `false`
+- source-level sampler repair required: `true`
+- additional environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: targeted reset failure audit and source-level sampler repair route
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.json`
+- next: `m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design`

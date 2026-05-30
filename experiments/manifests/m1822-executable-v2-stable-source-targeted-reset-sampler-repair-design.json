@@ -1,0 +1,163 @@
+{
+  "id": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_sampler_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/sampling_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.json"
+    ],
+    "parent_objective": [
+      "design source-level sampler repair for M1820 targeted reset failures"
+    ],
+    "derived_from": [
+      "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit"
+    ],
+    "blocked_by": [
+      "M1821 classifies M1820 failure as systematic AES sampler infeasibility plus sparse AEB seed sampling failure"
+    ],
+    "supersedes": [
+      "profile-specific reset repair",
+      "direct measured execution before reset support",
+      "controller-family ranking before reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+  "public_gates": [
+    "M1822 must design a source-level sampler repair without running reset",
+    "M1822 must address systematic AES failures and sparse AEB seed failures separately",
+    "M1822 must preserve profile controls labels-out-of-actor and ranking blocks",
+    "M1822 must keep rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "evidence_axis": "Q_stable_source_targeted_reset_sampler_repair_design",
+    "evidence_increment": "designs source-level sampler repair after M1821 failure audit",
+    "claim_scope": "sampler repair design only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair requires profile-specific tuning",
+      "stop if repair would put labels into actor input",
+      "stop if repair cannot preserve targeted reset payload claim boundary"
+    ],
+    "fallback_plan": [
+      "route to adapter/profile merge audit if source-level repair is insufficient",
+      "route to sampler repair implementation if design is explicit",
+      "route to source rematerialization if existing source ranges are unrecoverable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1821 routes to sampler repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source targeted reset sampler repair design",
+    "admission_evidence": [
+      "M1821 localizes M1820 failures to sampler feasibility rather than rollout or policy behavior"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1822 design document",
+      "M1822 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "repair target rows are explicit",
+      "implementation route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler repair design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Repair design must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1820/M1821 reset-only artifacts only; no rollout.",
+    "negative_result_policy": "Preserve the negative reset result and design source-level repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "stable source targeted reset sampler repair design",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A source-level sampler repair can be designed for the M1820 failures without profile-specific tuning or actor-input changes.",
+  "success_criteria": [
+    "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md exists",
+    "design separates systematic AES repair from sparse AEB seed repair",
+    "design preserves all 12 profile controls",
+    "design keeps labels out of actor input and ranking blocked",
+    "next implementation or rematerialization route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design proposes profile-specific tuning",
+    "design admits measured execution or ranking before reset support",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_targeted_reset_sampler_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/sampling_failure_rows.csv"
+  ],
+  "decision_rule": "M1822 passes if it designs a source-level sampler repair route without reset, rollout, ranking, profile tuning, or paper-level claims.",
+  "next_blocker": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design"
+}
