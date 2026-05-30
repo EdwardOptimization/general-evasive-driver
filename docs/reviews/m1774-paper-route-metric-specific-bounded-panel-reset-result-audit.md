@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T072441Z
+- Generated at UTC: 20260530T072949Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1774 passes if it audits M1773 and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: bounded_panel_reset_result_audit_admit_measured_execution_design
+- Decision reason: M1774 audits M1773 as complete reset-only bounded-panel feasibility and admits measured execution design
 
 ## Hypothesis
 
@@ -72,8 +72,19 @@ M1773 reset-only result can be audited as coherent enough to admit bounded-panel
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1774-paper-route-metric-specific-bounded-panel-reset-result-audit
+- type: gate
+- checkpoint: docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_reset_result_audit_admit_measured_execution_design
+- reason: M1774 audits M1773 as complete reset-only bounded-panel feasibility and admits measured execution design
 
 ## Next Blocker
 
-m1774-paper-route-metric-specific-bounded-panel-reset-result-audit
+m1775-paper-route-metric-specific-bounded-panel-measured-execution-design

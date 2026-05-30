@@ -28954,3 +28954,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: policy rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.json`
 - next: `m1774-paper-route-metric-specific-bounded-panel-reset-result-audit`
+
+## M1774 Paper-Route Metric-Specific Bounded Panel Reset Result Audit
+
+- status: completed
+- decision: `bounded_panel_reset_result_audit_admit_measured_execution_design`
+- artifact: `docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md`
+- audited summary: `runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json`
+- audited result class: `metric_specific_bounded_panel_reset_feasibility_preflight_pass`
+- attempted cell count: `288`
+- reset success count: `288`
+- sampling failure count: `0`
+- profile count: `12`
+- role panel count: `4`
+- metadata join incomplete count: `0`
+- guardrail violation count: `0`
+- environment reset started in audit: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1773 reset-only result is complete and guardrail-clean enough to admit measured execution design
+- unsupported: measured rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.json`
+- next: `m1775-paper-route-metric-specific-bounded-panel-measured-execution-design`

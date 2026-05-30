@@ -151,6 +151,32 @@
     "docs/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.md",
     "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
+    "decision": "bounded_panel_reset_result_audit_admit_measured_execution_design",
+    "audited_result_class": "metric_specific_bounded_panel_reset_feasibility_preflight_pass",
+    "attempted_cell_count": 288,
+    "reset_success_count": 288,
+    "sampling_failure_count": 0,
+    "profile_count": 12,
+    "role_panel_count": 4,
+    "metadata_join_incomplete_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_reset_started_in_audit": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.json"
+  },
   "decision_rule": "M1774 passes if it audits M1773 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit"
+  "next_blocker": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design"
 }

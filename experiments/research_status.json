@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1782,
+    "completed": 1783,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json",
+    "command_log": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight"
+    "task_id": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.json",
-    "hypothesis": "M1773 reset-only result can be audited as coherent enough to admit bounded-panel measured execution design.",
-    "id": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
+    "command": "see experiments/manifests/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.json",
+    "hypothesis": "A measured execution protocol can be designed over the fixed M1771 bounded panel before any rollout.",
+    "id": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1773 reset-only bounded-panel feasibility before measured execution design",
-    "priority": 17690,
+    "notes": "Pending: design bounded-panel measured execution protocol without rollout",
+    "priority": 17700,
     "status": "pending",
-    "success_artifact": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md"
+    "success_artifact": "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md"
   },
-  "updated_at_utc": "20260530T072252Z"
+  "updated_at_utc": "20260530T072816Z"
 }

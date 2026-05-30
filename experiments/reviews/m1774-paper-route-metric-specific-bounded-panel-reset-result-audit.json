@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1774 passes if it audits M1773 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1774 audits M1773 as complete reset-only bounded-panel feasibility and admits measured execution design",
   "failure_criteria": [
     "audit document is missing",
     "audit runs reset or rollout",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T072441Z",
+  "generated_at_utc": "20260530T072949Z",
   "hypothesis": "M1773 reset-only result can be audited as coherent enough to admit bounded-panel measured execution design.",
   "lineage": {
     "blocked_by": [
@@ -57,16 +57,29 @@
     ]
   },
   "milestone": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
-  "next_blocker": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
+  "next_blocker": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "bounded_panel_reset_result_audit_admit_measured_execution_design",
   "public_gates": [
     "M1774 must use only M1773 reset artifacts and M1771 panel artifacts",
     "M1774 must decide whether to admit measured execution design, sampling repair, label/role audit, or stop",
     "M1774 must not run reset, rollout, train, replay, PPO, promote, use private holdout, tune profiles, or rank controller families",
     "M1774 must preserve that M1773 is reset-only feasibility evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bounded_panel_reset_result_audit_admit_measured_execution_design",
+    "milestone": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
+    "reason": "M1774 audits M1773 as complete reset-only bounded-panel feasibility and admits measured execution design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md exists",
     "M1774 uses only M1773 reset artifacts",
