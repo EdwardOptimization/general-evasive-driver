@@ -161,6 +161,43 @@
     "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json",
     "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
+    "decision": "reset_time_aes_sampler_diagnostic_design_admit_implementation",
+    "branch": "paper_route_executable_v2_reset_time_aes_sampler_diagnostic",
+    "target_source_count": 2,
+    "target_failed_reset_row_count": 24,
+    "target_labels": {
+      "aes_feasible": 24
+    },
+    "required_output_tables": [
+      "summary.json",
+      "aes_source_diagnostic_targets.csv",
+      "offline_density_rows.csv",
+      "reset_time_attempt_summary.csv",
+      "reset_time_reject_reason_counts.csv",
+      "reset_time_label_counts.csv",
+      "reset_time_candidate_examples.csv",
+      "claim_boundary.csv"
+    ],
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.json"
+  },
   "decision_rule": "M1830 passes if it designs an AES reset-time sampler diagnostic route without running reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design"
+  "next_blocker": "m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation"
 }

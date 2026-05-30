@@ -30661,3 +30661,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json`
 - next: `m1830-executable-v2-reset-time-aes-sampler-diagnostic-design`
+
+## M1830 Executable V2 Reset-Time AES Sampler Diagnostic Design
+
+- status: completed
+- decision: `reset_time_aes_sampler_diagnostic_design_admit_implementation`
+- branch: `paper_route_executable_v2_reset_time_aes_sampler_diagnostic`
+- artifact: `docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md`
+- target source count: `2`
+- target failed reset row count: `24`
+- target labels: `aes_feasible=24`
+- required output tables: `summary.json aes_source_diagnostic_targets.csv offline_density_rows.csv reset_time_attempt_summary.csv reset_time_reject_reason_counts.csv reset_time_label_counts.csv reset_time_candidate_examples.csv claim_boundary.csv`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-time AES sampler diagnostic design and implementation route
+- unsupported: diagnostic result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.json`
+- next: `m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation`

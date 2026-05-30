@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1838,
+    "completed": 1839,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+    "command_log": "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
+    "task_id": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json",
-    "hypothesis": "A targeted diagnostic can specify the reset-time observables needed to explain why M1825 AES candidates have offline density but fail M1828 reset sampling.",
-    "id": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-time AES sampler diagnostic before more source repair",
-    "priority": 18250,
+    "command": "see experiments/manifests/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.json",
+    "hypothesis": "A focused helper can reproduce reset-time AES sampler filters and report label/reject-reason counts without running project artifact diagnostics.",
+    "id": "m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement reset-time AES sampler diagnostic helper with focused tests",
+    "priority": 18260,
     "status": "pending",
-    "success_artifact": "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md"
+    "success_artifact": "docs/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.md"
   },
-  "updated_at_utc": "20260530T131000Z"
+  "updated_at_utc": "20260530T131500Z"
 }
