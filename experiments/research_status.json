@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1816,
+    "completed": 1817,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+    "command_log": "docs/m1808-executable-v2-stable-source-materialization-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
+    "task_id": "m1808-executable-v2-stable-source-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json",
-    "hypothesis": "A no-reset stable source materialization design can specify how to create or select trusted source-label support for the three stable gaps without profile tuning or label leakage.",
-    "id": "m1808-executable-v2-stable-source-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design stable source materialization before implementation or reset probes",
-    "priority": 18030,
+    "command": "see experiments/manifests/m1809-executable-v2-stable-source-materialization-implementation.json",
+    "hypothesis": "A no-reset stable source materializer can create materialization planning artifacts with duplicate detection, provenance, profile controls, and clean claim boundaries in focused tests.",
+    "id": "m1809-executable-v2-stable-source-materialization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-reset stable source materializer with focused tests only",
+    "priority": 18040,
     "status": "pending",
-    "success_artifact": "docs/m1808-executable-v2-stable-source-materialization-design.md"
+    "success_artifact": "docs/m1809-executable-v2-stable-source-materialization-implementation.md"
   },
-  "updated_at_utc": "20260530T112000Z"
+  "updated_at_utc": "20260530T112500Z"
 }

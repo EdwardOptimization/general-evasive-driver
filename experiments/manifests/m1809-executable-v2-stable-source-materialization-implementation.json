@@ -1,0 +1,175 @@
+{
+  "id": "m1809-executable-v2-stable-source-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_materialization_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1808-executable-v2-stable-source-materialization-design.md",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset stable source materializer with focused synthetic tests"
+    ],
+    "derived_from": [
+      "m1808-executable-v2-stable-source-materialization-design"
+    ],
+    "blocked_by": [
+      "M1808 admits implementation after defining materialization targets artifact contract duplicate rules and claim boundary"
+    ],
+    "supersedes": [
+      "manual source materialization",
+      "project artifact materialization without focused tests",
+      "reset validation before materialization contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1809-executable-v2-stable-source-materialization-implementation.md",
+  "public_gates": [
+    "M1809 must implement a no-reset stable source materializer and focused tests",
+    "M1809 must cover three target materialization duplicate detection profile-control preservation no-label-leakage and claim-boundary outputs",
+    "M1809 must not run project artifact materialization unless a later execution milestone admits it",
+    "M1809 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute project artifact materialization",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_materialization_implementation",
+    "evidence_increment": "implements materialization contract after M1808 design",
+    "claim_scope": "infrastructure implementation only; no reset, rollout, measured rollout, project artifact execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if implementation mutates unsupported sources in place",
+      "stop if duplicate keys are silently dropped",
+      "stop if profile controls are not preserved",
+      "stop if implementation executes project artifacts"
+    ],
+    "fallback_plan": [
+      "route to design repair if materialization fields are inconsistent",
+      "route to execution design after focused tests pass",
+      "route to source-pool audit if existing fields are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1808 admits source materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable source materialization implementation",
+    "admission_evidence": [
+      "M1808 defines target keys artifact contract duplicate rules provenance and reset-validation route"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not execute project artifacts",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source module and focused tests",
+      "M1809 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "artifact shapes are tested",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materializer is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Materializer tests must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "focused synthetic fixtures only; no real reset or project execution.",
+    "negative_result_policy": "If implementation cannot represent materialization specs, route to design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source materialization implementation and focused tests",
+      "no reset, rollout, measured rollout, project artifact materialization, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset stable source materializer can create materialization planning artifacts with duplicate detection, provenance, profile controls, and clean claim boundaries in focused tests.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover three materialization targets",
+    "tests cover duplicate-key detection",
+    "tests verify profile-control preservation no-label-leakage and claim-boundary outputs",
+    "no real environment reset rollout or project artifact execution is run"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "implementation mutates unsupported sources in place",
+    "implementation drops profile controls",
+    "implementation executes reset rollout or project artifacts"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_materialization.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_stable_source_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_stable_source_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1809-executable-v2-stable-source-materialization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_materialization_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1808-executable-v2-stable-source-materialization-design.md",
+    "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+  ],
+  "decision_rule": "M1809 passes if it implements and tests no-reset stable source materialization without project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1809-executable-v2-stable-source-materialization-implementation"
+}
