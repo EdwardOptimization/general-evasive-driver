@@ -153,6 +153,34 @@
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
     "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
+    "decision": "revised_execution_design_admit_adapter_implementation",
+    "target_episode_count": 864,
+    "target_scenario_spec_count": 72,
+    "target_profile_count": 12,
+    "semantics_matrix": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+    "adapter_implementation_required": true,
+    "direct_execution_admitted": false,
+    "metric_completeness_gates_defined": true,
+    "required_artifact_count": 13,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json"
+  },
   "decision_rule": "M1749 passes if it designs revised public diagnostic execution with complete metric and guardrail requirements before rollout.",
-  "next_blocker": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design"
+  "next_blocker": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
 }

@@ -28166,3 +28166,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, profile ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.json`
 - next: `m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design`
+
+## M1749 Paper-Route Task-Quality Revised Scenario Taxonomy Execution Design
+
+- status: completed
+- decision: `revised_execution_design_admit_adapter_implementation`
+- artifact: `docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md`
+- parent synthesis: `docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- target episodes: `864`
+- target scenario specs: `72`
+- target profiles: `12`
+- semantics matrix: `runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv`
+- adapter implementation required: `true`
+- direct execution admitted: `false`
+- metric completeness gates defined: `true`
+- required artifacts: `13`
+- guardrail violation count: `0`
+- supported: revised public diagnostic execution design and adapter route
+- unsupported: rollout result, profile ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json`
+- next: `m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation`

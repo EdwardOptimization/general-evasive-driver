@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1757,
+    "completed": 1758,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "command_log": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    "task_id": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.json",
-    "hypothesis": "A revised public diagnostic execution can be designed over the fixed semantics matrix and logging-only metric instrumentation before any rerun.",
-    "id": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design revised public diagnostic execution using M1743 semantics matrix and M1746 metrics before rerun",
-    "priority": 17440,
+    "command": "see experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json",
+    "hypothesis": "The revised scenario execution adapter can be implemented with semantics pass-through and metric completeness checks without changing policy behavior or running the full rollout.",
+    "id": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement semantics pass-through and metric completeness helpers before revised rollout",
+    "priority": 17450,
     "status": "pending",
-    "success_artifact": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md"
+    "success_artifact": "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md"
   },
-  "updated_at_utc": "20260530T050101Z"
+  "updated_at_utc": "20260530T050521Z"
 }

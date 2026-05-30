@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1742-paper-route-task-quality-outcome-semantics-redesign
+m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design
 ```
 
 Current next task:
 
 ```text
-m1743-paper-route-task-quality-outcome-semantics-materialization-preflight
+m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation
 ```
+
+M1749 designs the revised public diagnostic execution over the M1743
+semantics-aware taxonomy and M1746 logging-only outcome metrics. It does not
+admit direct rollout: the runner must first preserve semantics fields in episode
+rows and implement applicability-aware metric completeness checks. M1750 is the
+adapter implementation step before any revised 864-cell execution, controller
+family ranking, paper-level claim, promotion, or level3 self-identification
+claim.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -10972,5 +10980,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   diagnostic execution design. It preserves the no-ranking/no-paper-claim
   boundary: the next step can design a rerun, but cannot yet interpret profiles
   or claim self-identification evidence.
+- M1749 designs that revised public diagnostic execution but does not admit
+  direct rollout. The adapter must first preserve M1743 semantics fields in
+  episode rows and implement applicability-aware metric completeness checks for
+  M1746 metrics.
 - Current next blocker:
-  `m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design`.
+  `m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation`.
