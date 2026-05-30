@@ -31135,3 +31135,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: stable AES source repair success full executable-v2 reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1846-executable-v2-task-source-metadata-redesign-design.json`
 - next: `m1846-executable-v2-task-source-metadata-redesign-design`
+
+## M1846 Executable V2 Task-Source Metadata Redesign Design
+
+- status: completed
+- decision: `task_source_metadata_redesign_design_admit_implementation`
+- artifact: `docs/m1846-executable-v2-task-source-metadata-redesign-design.md`
+- contract id: `executable_v2_support_first_task_source_v1`
+- support-first pipeline defined: `true`
+- stable AES and drift-required separated: `true`
+- context-aware claim boundary required: `true`
+- source support status values: `supported`, `unsupported`, `unknown`, `invalid`
+- project artifact scan run: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: support-first task/source metadata contract design and M1847 implementation admission
+- unsupported: metadata redesign implementation project artifact execution source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json`
+- next: `m1847-executable-v2-task-source-metadata-redesign-implementation`

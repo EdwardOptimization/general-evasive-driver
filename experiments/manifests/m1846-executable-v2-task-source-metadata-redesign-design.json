@@ -166,6 +166,39 @@
     "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
     "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1846-executable-v2-task-source-metadata-redesign-design.md",
+    "decision": "task_source_metadata_redesign_design_admit_implementation",
+    "contract_id": "executable_v2_support_first_task_source_v1",
+    "support_first_pipeline_defined": true,
+    "stable_aes_and_drift_required_separated": true,
+    "context_aware_claim_boundary_required": true,
+    "source_support_status_values": [
+      "supported",
+      "unsupported",
+      "unknown",
+      "invalid"
+    ],
+    "project_artifact_scan_run": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json"
+  },
   "decision_rule": "M1846 passes if it designs support-first task/source metadata and context-aware claim boundaries without scan, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1846-executable-v2-task-source-metadata-redesign-design"
+  "next_blocker": "m1847-executable-v2-task-source-metadata-redesign-implementation"
 }
