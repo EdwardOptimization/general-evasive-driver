@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1764,
+    "completed": 1765,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
-    "returncode": 0,
+    "command_log": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
+    "returncode": 1,
     "status": "completed",
-    "task_id": "m1755-controller-profile-wrapper-config-proxy-repair"
+    "task_id": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json",
-    "hypothesis": "After the wrapper config proxy repair, the fixed revised public diagnostic matrix can rerun without the M1753 AttributeError failures.",
-    "id": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair",
+    "command": "see experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json",
+    "hypothesis": "The single remaining M1756 failure can be localized and routed without interpreting partial completed rows.",
+    "id": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit",
     "kind": "gate",
-    "notes": "Pending: rerun fixed revised public diagnostic matrix after wrapper repair",
-    "priority": 17510,
+    "notes": "Pending: audit the single remaining reset-time sampling failure after wrapper repair",
+    "priority": 17520,
     "status": "pending",
-    "success_artifact": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json"
+    "success_artifact": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md"
   },
-  "updated_at_utc": "20260530T054530Z"
+  "updated_at_utc": "20260530T054936Z"
 }

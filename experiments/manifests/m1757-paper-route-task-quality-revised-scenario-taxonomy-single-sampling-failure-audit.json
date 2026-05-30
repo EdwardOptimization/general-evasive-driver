@@ -1,0 +1,156 @@
+{
+  "id": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_sampling_failure_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json"
+    ],
+    "parent_objective": [
+      "audit single remaining reset-time sampling failure after wrapper repair"
+    ],
+    "derived_from": [
+      "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
+    ],
+    "blocked_by": [
+      "M1756 leaves one reset-time sampling failure"
+    ],
+    "supersedes": [
+      "interpreting M1756 partial rows as complete execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+  "public_gates": [
+    "M1757 must audit the single M1756 sampling failure before repair or rerun",
+    "M1757 must confirm AttributeError count is zero after wrapper repair",
+    "M1757 must block interpretation of M1756 partial rows",
+    "M1757 must decide whether to route to reset-only sampling repair, seed redesign, spec repair, bounded rerun, or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_execution_single_sampling_failure_audit",
+    "evidence_increment": "audits the remaining single sampling failure after wrapper repair rerun",
+    "claim_scope": "failure audit only; no full rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the sampling failure cannot be localized",
+      "stop if partial rows are interpreted as complete execution",
+      "stop if repair would silently change scenario semantics"
+    ],
+    "fallback_plan": [
+      "route to reset-only sampling feasibility probe for the failed row",
+      "route to scenario spec repair if the row is infeasible under configured filters",
+      "route to same-protocol rerun if the row is seed-fragile but feasible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1756 leaves one reset-time sampling failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit single remaining revised execution sampling failure",
+    "admission_evidence": [
+      "M1756 removes AttributeError failures but leaves one RuntimeError sampling failure"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1757 sampling failure audit document",
+      "M1757 status queue scoreboard research log and review",
+      "one follow-up probe repair or rerun manifest"
+    ],
+    "next_stage_criteria": [
+      "failure row is localized",
+      "partial-row interpretation is blocked",
+      "repair probe or rerun route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; sampling failure audit cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must preserve future L1 L2-current-tiled L2 history-window L3-online and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1756 failure artifacts only.",
+    "negative_result_policy": "Classify reset-time sampling failures as scenario sampling evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "single sampling-failure audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The single remaining M1756 failure can be localized and routed without interpreting partial completed rows.",
+  "success_criteria": [
+    "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md exists",
+    "audit confirms AttributeError count is zero",
+    "audit localizes the single sampling failure row",
+    "audit blocks partial-row ranking interpretation",
+    "next route is reset-only probe scenario repair rerun design or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits AttributeError-zero confirmation or failure-row localization",
+    "audit interprets M1756 partial rows as ranking evidence",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1756 single sampling failure artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_sampling_failure_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv"
+  ],
+  "decision_rule": "M1757 passes if it localizes the single sampling failure and routes to probe, repair, rerun, or stop without interpreting partial rows.",
+  "next_blocker": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit"
+}

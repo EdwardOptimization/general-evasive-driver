@@ -28385,3 +28385,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json`
 - next: `m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair`
+
+## M1756 Paper-Route Task-Quality Revised Scenario Taxonomy Rerun After Wrapper Repair
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_execution_incomplete_or_fail`
+- decision: `wrapper_repair_verified_route_to_single_sampling_failure_audit`
+- artifact: `docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md`
+- summary: `runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json`
+- execution passed: `false`
+- wrapper repair verified: `true`
+- episode count: `863`
+- target episode count: `864`
+- failure count: `1`
+- attribute error count: `0`
+- sampling failure count: `1`
+- profile count: `12`
+- scenario spec count: `72`
+- scenario family count: `6`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- sampling failure workload: `m1728-s4-02::L2_window_13_current_tiled`
+- completed-row outcome snapshot: `73` success obstacle pass, `279` collision failure, `511` off-track noncollision noncompletion
+- guardrail violation count: `0`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile configs changed: `false`
+- scenario specs changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: wrapper repair verification and localization of remaining sampling failure
+- unsupported: execution pass, controller-family ranking, profile comparison, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json`
+- next: `m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit`

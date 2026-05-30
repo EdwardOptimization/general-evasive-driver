@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -161,6 +161,51 @@
     "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
     "runs/m1753_revised_scenario_taxonomy_execution/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md",
+    "summary": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
+    "result_class": "task_quality_scenario_taxonomy_execution_incomplete_or_fail",
+    "decision": "wrapper_repair_verified_route_to_single_sampling_failure_audit",
+    "execution_passed": false,
+    "wrapper_repair_verified": true,
+    "episode_count": 863,
+    "target_episode_count": 864,
+    "failure_count": 1,
+    "attribute_error_count": 0,
+    "sampling_failure_count": 1,
+    "profile_count": 12,
+    "target_profile_count": 12,
+    "scenario_spec_count": 72,
+    "target_scenario_spec_count": 72,
+    "scenario_family_count": 6,
+    "target_scenario_family_count": 6,
+    "all_selected_metrics_finite": true,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "sampling_failure_workload_id": "m1728-s4-02::L2_window_13_current_tiled",
+    "completed_success_obstacle_pass_count": 73,
+    "completed_collision_failure_count": 279,
+    "completed_off_track_noncollision_noncompletion_count": 511,
+    "guardrail_violation_count": 0,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_configs_changed": false,
+    "scenario_specs_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit.json"
+  },
   "decision_rule": "M1756 passes if the fixed revised execution reruns cleanly after wrapper repair, with no AttributeError failures and clean guardrails.",
-  "next_blocker": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
+  "next_blocker": "m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit"
 }

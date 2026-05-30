@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1755-controller-profile-wrapper-config-proxy-repair
+m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair
 ```
 
 Current next task:
 
 ```text
-m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair
+m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit
 ```
 
-M1755 repairs the dominant M1753 wrapper/evaluator plumbing failure by adding a
-`config` proxy to `ControllerProfileObservationWrapper`. Red tests reproduced
-the failure before the fix (`2 failed`) and passed after it (`2 passed`);
-affected tests passed (`37 passed`) and the full suite passed (`1709 passed`,
-`4 warnings`). M1756 should rerun the same fixed revised public diagnostic
-execution to verify the AttributeError count is zero and expose any remaining
-sampling failures.
+M1756 reruns the same fixed revised execution after the wrapper repair. The
+M1753 `AttributeError` failure mode is gone (`0` remaining), but the execution
+still fails the pass gate with `863/864` completed rows and one reset-time
+sampling failure at `m1728-s4-02::L2_window_13_current_tiled`. M1757 must audit
+that single sampling failure before any seed/spec repair, rerun, or
+interpretation of partial completed rows.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -11014,5 +11013,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   actor inputs, rewards, dynamics, termination behavior, profile configs, seeds,
   or scenario specs. The next milestone reruns the same M1753 protocol in a
   fresh output directory.
+- M1756 verifies the wrapper repair: AttributeError failures are `0`, profile
+  coverage is back to all `12`, and metric completeness remains clean. The run
+  is still incomplete because one mitigation-diagnostic low-mu row fails reset
+  sampling. Partial rows remain non-ranking diagnostic evidence only.
 - Current next blocker:
-  `m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair`.
+  `m1757-paper-route-task-quality-revised-scenario-taxonomy-single-sampling-failure-audit`.
