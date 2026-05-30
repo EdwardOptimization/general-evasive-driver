@@ -31002,3 +31002,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project artifact scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.json`
 - next: `m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design`
+
+## M1842 Executable V2 Reset-Time AES Feasibility Scan Execution Design
+
+- status: completed
+- decision: `reset_time_aes_feasibility_scan_execution_design_admit_run`
+- artifact: `docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md`
+- repaired spec count: `36`
+- target source count: `2`
+- target profile count total: `24`
+- target sources: `m1771-bp1-00`, `m1771-bp1-02`
+- distance range: `[1.0, 60.0]`
+- distance count: `120`
+- half-width range: `[0.2, 1.4]`
+- half-width count: `61`
+- expected grid cell count total: `175680`
+- project artifact scan run: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact M1843 no-reset feasibility scan command and expected counts
+- unsupported: scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.json`
+- next: `m1843-executable-v2-reset-time-aes-feasibility-scan-execution`

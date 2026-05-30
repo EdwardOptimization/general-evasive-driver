@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1850,
+    "completed": 1851,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
+    "command_log": "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation"
+    "task_id": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.json",
-    "hypothesis": "The M1841 helper can be given an exact project-artifact scan command over M1825/M1828 artifacts with M1840 grid settings and clean claim boundaries before execution.",
-    "id": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design",
-    "kind": "gate",
-    "notes": "Pending: fix exact scan command without running project artifact scan",
-    "priority": 18370,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_reset_time_aes_feasibility_scan --repaired-specs runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json --reset-rows runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1843_executable_v2_reset_time_aes_feasibility_scan --distance-min 1.0 --distance-max 60.0 --distance-count 120 --half-width-min 0.2 --half-width-max 1.4 --half-width-count 61 --max-boundary-examples-per-profile 8 --expected-target-source-count 2 --expected-target-profile-count-total 24 --next-blocker m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit",
+    "hypothesis": "The M1841 helper can scan all 24 M1828 failed AES rows across two sources over a 120x61 obstacle grid without running environment reset or rollout.",
+    "id": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact no-reset feasibility scan command from M1842",
+    "priority": 18380,
     "status": "pending",
-    "success_artifact": "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md"
+    "success_artifact": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
   },
-  "updated_at_utc": "20260530T122325Z"
+  "updated_at_utc": "20260530T122714Z"
 }

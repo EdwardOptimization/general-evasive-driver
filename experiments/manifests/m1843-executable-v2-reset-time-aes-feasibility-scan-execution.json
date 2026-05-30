@@ -1,0 +1,183 @@
+{
+  "id": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_scan_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
+      "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.json"
+    ],
+    "parent_objective": [
+      "run reset-time AES feasibility grid scan over M1825/M1828 artifacts"
+    ],
+    "derived_from": [
+      "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design"
+    ],
+    "blocked_by": [
+      "M1842 admits exact scan execution but it has not been run"
+    ],
+    "supersedes": [
+      "manual feasibility scan execution",
+      "source repair v3 before conditional support evidence",
+      "reset preflight before feasibility scan evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1843-executable-v2-reset-time-aes-feasibility-scan-execution.md",
+  "public_gates": [
+    "M1843 must run only the scan command pre-registered by M1842",
+    "M1843 must not run environment reset rollout policy action measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level or level3 claims",
+    "M1843 must write all feasibility scan output tables and summary"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_reset_time_aes_feasibility_scan_execution",
+    "evidence_increment": "executes conditional reset-time speed/mu obstacle-grid scan to test whether AES-only support exists",
+    "claim_scope": "feasibility scan execution only; no source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts do not match two sources and 24 failed AES profiles",
+      "stop if scan output artifacts are missing",
+      "stop if environment reset or rollout is run",
+      "stop if source repair payload or ranking claim is made"
+    ],
+    "fallback_plan": [
+      "route to helper repair if execution fails due to code or artifact errors",
+      "route to result audit if execution succeeds",
+      "route to branch synthesis if target artifacts are unavailable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1842 pre-registers exact scan command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "reset-time AES feasibility scan execution",
+    "admission_evidence": [
+      "M1842 exact command and expected counts are registered"
+    ],
+    "blocked_shortcuts": [
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1843 run artifacts",
+      "M1843 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "scan summary exists",
+      "target and grid counts are evaluated",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; feasibility scan execution is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1825/M1828 artifacts only; no reset or rollout.",
+    "negative_result_policy": "If scan finds no support, route to result audit and branch synthesis rather than weakening AES labels.",
+    "allowed_claims": [
+      "reset-time AES feasibility scan execution result",
+      "no source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1841 helper can scan all 24 M1828 failed AES rows across two sources over a 120x61 obstacle grid without running environment reset or rollout.",
+  "success_criteria": [
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json exists",
+    "result_class is one of reset_time_aes_feasibility_scan_full_support reset_time_aes_feasibility_scan_partial_support reset_time_aes_feasibility_scan_no_support",
+    "target_source_count equals 2",
+    "target_profile_count_total equals 24",
+    "grid_cell_count_total equals 175680",
+    "expected_source_match is true",
+    "expected_profile_match is true",
+    "guardrail_violation_count equals 0",
+    "environment_reset_started is false",
+    "policy_action_executed is false",
+    "all expected output tables exist"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "result_class is not a feasibility scan support class",
+    "target or grid counts do not match",
+    "scan runs reset rollout measured rollout training replay PPO or ranking",
+    "scan changes actor inputs reward dynamics or termination behavior",
+    "scan generates source repair payload"
+  ],
+  "commands": [
+    {
+      "name": "scan",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_reset_time_aes_feasibility_scan --repaired-specs runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json --reset-rows runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1843_executable_v2_reset_time_aes_feasibility_scan --distance-min 1.0 --distance-max 60.0 --distance-count 120 --half-width-min 0.2 --half-width-max 1.4 --half-width-count 61 --max-boundary-examples-per-profile 8 --expected-target-source-count 2 --expected-target-profile-count-total 24 --next-blocker m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_profile_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/reset_time_aes_feasibility_source_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_scan_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
+    "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py",
+    "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
+    "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1843 passes if it writes complete feasibility scan artifacts for all 24 failed AES rows without reset, rollout, ranking, paper-level claims, or repair payload generation.",
+  "next_blocker": "m1843-executable-v2-reset-time-aes-feasibility-scan-execution"
+}
