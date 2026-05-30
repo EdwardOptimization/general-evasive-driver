@@ -1,0 +1,185 @@
+{
+  "id": "m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/label_distribution_by_family.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution over repaired scenario taxonomy artifacts"
+    ],
+    "derived_from": [
+      "m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "need execution design before repaired scenario taxonomy policy rollout"
+    ],
+    "supersedes": [
+      "direct repaired taxonomy execution without design",
+      "controller-family ranking from reset-only preflight rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md",
+  "public_gates": [
+    "M1736 must design measured execution over the M1734 repaired 864-cell matrix without running it",
+    "M1736 must require scenario metadata and sampling repair provenance in every episode row",
+    "M1736 must require scenario-family, repair-variant, hidden-dynamics, road-boundary, obstacle-timing, outcome, termination, profile-outcome, and sampled-label aggregates",
+    "M1736 must preserve unsupported-fault boundaries",
+    "M1736 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_repaired_scenario_taxonomy_execution_design",
+    "evidence_increment": "designs repaired 864-cell scenario taxonomy execution after reset-stress pass",
+    "claim_scope": "design-only execution route; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design omits repair provenance",
+      "stop if design omits sampled-label or scenario-family aggregates",
+      "stop if unsupported faults are treated as covered",
+      "stop if actor inputs, profiles, checkpoints, or reward are changed"
+    ],
+    "fallback_plan": [
+      "route to repaired execution if design is clean",
+      "route to preflight repair if repaired artifacts are insufficient",
+      "route to branch synthesis if execution design would overfit public rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1735 admits repaired execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design repaired scenario taxonomy execution",
+    "admission_evidence": [
+      "M1734 passed reset-only sampling feasibility",
+      "M1735 audited the reset-stress result"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1736 design document",
+      "M1736 status queue scoreboard research log and review",
+      "one follow-up repaired execution manifest"
+    ],
+    "next_stage_criteria": [
+      "repaired execution inputs and output artifacts are specified",
+      "metadata and repair provenance joins are specified",
+      "next execution manifest is created"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; execution design cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design preserves L1 L2 L2-current-tiled L3-online and L3-reset controls for later audit"
+    ],
+    "temporal_evidence_window": "M1734 repaired taxonomy artifacts.",
+    "negative_result_policy": "If repaired execution later performs poorly, record task-quality evidence rather than self-ID failure unless history interventions are present.",
+    "allowed_claims": [
+      "repaired scenario taxonomy execution design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A measured execution protocol can be designed for the M1734 repaired scenario taxonomy while preserving repair provenance and claim boundaries.",
+  "success_criteria": [
+    "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "scenario metadata and sampling repair provenance joins are required",
+    "scenario-family repair-variant sampled-label hidden-dynamics road-boundary obstacle-timing outcome termination and profile-outcome aggregates are required",
+    "unsupported fault boundaries are preserved",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked",
+    "follow-up repaired execution manifest is created"
+  ],
+  "failure_criteria": [
+    "design executes rollout",
+    "design omits repair provenance",
+    "design omits sampled-label or scenario-family aggregates",
+    "design treats unsupported faults as covered",
+    "design changes actor inputs profiles checkpoints or reward",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "controller-family ranking or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write repaired scenario taxonomy execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md",
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md",
+    "decision": "repaired_scenario_taxonomy_execution_design_route_to_branch_synthesis",
+    "planned_episode_count": 864,
+    "planned_profile_count": 12,
+    "planned_scenario_spec_count": 72,
+    "requires_repaired_specs_loader": true,
+    "requires_repair_provenance_join": true,
+    "requires_sampled_label_aggregates": true,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+  },
+  "decision_rule": "M1736 passes if it designs repaired taxonomy execution and routes to measured execution without running rollout or overclaiming.",
+  "next_blocker": "m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+}

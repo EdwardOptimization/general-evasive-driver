@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1735 audits M1734 as clean reset-only sampling repair and admits repaired scenario taxonomy execution design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits reset-stress or sampling failure counts",
+    "audit ignores unsupported feature reporting",
+    "audit ranks controller-family profiles from reset-only rows",
+    "policy rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T034432Z",
+  "hypothesis": "M1734 can be audited as a clean reset-only sampling repair preflight before repaired scenario taxonomy execution design.",
+  "lineage": {
+    "blocked_by": [
+      "need audit before using repaired taxonomy for policy execution"
+    ],
+    "derived_from": [
+      "m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/reset_stress_rows.csv",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/label_distribution_by_family.csv"
+    ],
+    "parent_objective": [
+      "audit reset-only sampling repair preflight before repaired policy execution design"
+    ],
+    "supersedes": [
+      "direct repaired taxonomy policy execution without reset-stress audit"
+    ]
+  },
+  "milestone": "m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit",
+  "next_blocker": "m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sampling_repair_preflight_audit_admit_repaired_execution_design",
+  "public_gates": [
+    "M1735 must audit M1734 reset-stress pass/fail before execution design",
+    "M1735 must verify 72 repaired specs 864 repaired cells 864 reset successes zero sampling failures and zero contract violations",
+    "M1735 must verify unsupported fault-like features remain explicit and not covered",
+    "M1735 must decide repaired execution design sampling repair repeat branch synthesis or stop",
+    "M1735 must not run policy rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "sampling_repair_preflight_audit_admit_repaired_execution_design",
+    "milestone": "m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit",
+    "reason": "M1735 audits M1734 as clean reset-only sampling repair and admits repaired scenario taxonomy execution design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md exists",
+    "M1734 result_class and guardrails are audited",
+    "72 repaired specs 864 cells 864 reset successes zero sampling failures and zero contract violations are audited",
+    "label distribution and unsupported feature reporting are audited",
+    "next route is execution design repair repeat synthesis or stop",
+    "policy rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,195 @@
+{
+  "id": "m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+      "docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+      "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.json"
+    ],
+    "parent_objective": [
+      "synthesize scenario taxonomy branch before repaired execution"
+    ],
+    "derived_from": [
+      "m1727-paper-route-task-quality-scenario-taxonomy-design",
+      "m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached before repaired execution"
+    ],
+    "supersedes": [
+      "direct repaired scenario taxonomy execution after M1736"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "public_gates": [
+    "M1737 must synthesize M1727-M1736 before repaired scenario taxonomy execution",
+    "M1737 must answer required synthesis questions",
+    "M1737 must assess the M1731 sampling failure and M1734 repair pass",
+    "M1737 must decide continue pivot stop or promote_to_next_branch",
+    "M1737 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "S_scenario_taxonomy_branch_synthesis",
+    "evidence_increment": "synthesizes M1727-M1736 after taxonomy design, failed unrepaired execution, reset-stress repair, and repaired execution design",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores M1731 sampling failure",
+      "stop if synthesis treats M1734 reset-only rows as performance evidence",
+      "stop if synthesis skips public-gate overfit risk",
+      "stop if synthesis routes directly to ranking or paper-level claims"
+    ],
+    "fallback_plan": [
+      "continue to repaired scenario taxonomy execution if the branch evidence is coherent",
+      "pivot to taxonomy redesign if the repair changed family semantics too much",
+      "stop the branch if public-gate overfit or sampling brittleness remains dominant"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow synthesis cadence reached after M1736",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "scenario taxonomy branch synthesis",
+    "admission_evidence": [
+      "M1731 exposed sampling infeasibility",
+      "M1734 repaired reset feasibility",
+      "M1736 designed repaired execution"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1737 synthesis document",
+      "M1737 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task-quality scenario taxonomy, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls in any continued route"
+    ],
+    "temporal_evidence_window": "M1727-M1736 public artifacts only.",
+    "negative_result_policy": "If synthesis finds taxonomy evidence insufficient, route to redesign or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1727-M1736 scenario taxonomy branch should synthesize before repaired execution to avoid milestone over-fragmentation and public-gate overfit.",
+  "success_criteria": [
+    "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "M1731 sampling failure and M1734 repair pass are explicit",
+    "public-gate and scenario-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats reset-only rows as policy evidence",
+    "synthesis routes directly to ranking or paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md",
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+    "runs/m1731_task_quality_scenario_taxonomy_execution/summary.json"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "decision": "continue_to_repaired_scenario_taxonomy_execution",
+    "workflow_synthesis_decision": "continue",
+    "synthesized_range": "M1727-M1736",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "evidence_summary": "M1727-M1736 designed the six-family taxonomy, exposed M1728 sampling infeasibility in M1731, repaired it with M1734 reset-stress, and designed repaired execution in M1736.",
+    "supported_claim": "the repaired scenario taxonomy is reset-feasible and ready for one public diagnostic execution attempt.",
+    "falsified_claim": "the unrepaired M1728 taxonomy was execution-ready after no-rollout metadata preflight alone.",
+    "public_gate_overfit_risk": "moderate",
+    "next_branch": "paper_route_task_quality_scenario_taxonomy",
+    "next_manifest": "experiments/manifests/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.json"
+  },
+  "decision_rule": "M1737 passes if it synthesizes M1727-M1736 and chooses a route before repaired execution, taxonomy redesign, or paper-route claims.",
+  "next_blocker": "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution"
+}

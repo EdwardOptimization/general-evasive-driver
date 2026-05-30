@@ -1,0 +1,163 @@
+{
+  "id": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
+      "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+      "runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/outcome_aggregate.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/scenario_family_aggregate.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/sampling_repair_variant_aggregate.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/sampled_obstacle_label_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.json"
+    ],
+    "parent_objective": [
+      "audit repaired scenario taxonomy execution result before scenario-quality interpretation"
+    ],
+    "derived_from": [
+      "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution"
+    ],
+    "blocked_by": [
+      "need outcome audit before controller-family ranking, task-quality conclusion, or paper-route claim"
+    ],
+    "supersedes": [
+      "direct controller-family comparison from M1738 raw aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
+  "public_gates": [
+    "M1739 must audit M1738 pass/fail and guardrails before interpreting raw outcomes",
+    "M1739 must verify 864 episodes zero failures finite metrics and complete repair provenance aggregates",
+    "M1739 must classify whether outcomes are scenario-quality evidence, execution-only evidence, or redesign evidence",
+    "M1739 must decide next route: scenario-quality audit, task-quality redesign, branch synthesis, or stop",
+    "M1739 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_repaired_scenario_taxonomy_result_audit",
+    "evidence_increment": "audits M1738 repaired execution outcomes and decides whether to interpret, redesign, synthesize, or stop",
+    "claim_scope": "result audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1738 did not complete 864 episodes",
+      "stop if execution failures or non-finite selected metrics exist",
+      "stop if repair provenance or sampled-label aggregates are missing",
+      "stop if the audit would rank controller-family profiles directly from public diagnostic rows"
+    ],
+    "fallback_plan": [
+      "route to scenario-quality interpretation only if execution artifacts and claim boundaries are clean",
+      "route to taxonomy/task-quality redesign if outcomes are dominated by non-informative off-track or collision modes",
+      "route to branch synthesis if the public branch has reached another evidence decision point"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1738 completed repaired scenario taxonomy execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit repaired scenario taxonomy execution result",
+    "admission_evidence": [
+      "M1738 executed the repaired 864-cell taxonomy with zero failures and complete aggregates"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1739 audit document",
+      "M1739 status queue scoreboard research log and review",
+      "one follow-up route manifest if the audit admits it"
+    ],
+    "next_stage_criteria": [
+      "M1738 pass/fail and raw outcome distribution are audited",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1739 audits task-quality scenario outcomes and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit may inspect profile controls but must not turn public diagnostic rows into a self-ID claim"
+    ],
+    "temporal_evidence_window": "M1738 repaired scenario taxonomy execution artifacts.",
+    "negative_result_policy": "If outcomes are dominated by off-track or collision, record task-quality or scenario-quality evidence rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "repaired scenario taxonomy result audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1738 can be audited as a clean repaired scenario taxonomy execution before any scenario-quality conclusion or controller-family comparison.",
+  "success_criteria": [
+    "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md exists",
+    "M1738 result_class guardrails and aggregate availability are audited",
+    "864 episodes zero failures finite metrics and complete repair provenance are audited",
+    "outcome and scenario-family distributions are summarized without ranking controller families",
+    "next route is scenario-quality audit task-quality redesign branch synthesis or stop",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits M1738 pass/fail or guardrails",
+    "audit ignores raw outcome dominance",
+    "audit ranks controller-family profiles from public diagnostic rows",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write repaired scenario taxonomy result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+    "runs/m1738_repaired_scenario_taxonomy_execution/outcome_aggregate.csv",
+    "runs/m1738_repaired_scenario_taxonomy_execution/scenario_family_aggregate.csv",
+    "runs/m1738_repaired_scenario_taxonomy_execution/sampled_obstacle_label_aggregate.csv"
+  ],
+  "decision_rule": "M1739 passes if it audits M1738 execution results and chooses a route without overclaiming public diagnostic outcomes.",
+  "next_blocker": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit"
+}

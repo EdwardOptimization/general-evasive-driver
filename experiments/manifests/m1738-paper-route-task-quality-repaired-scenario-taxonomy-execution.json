@@ -1,0 +1,225 @@
+{
+  "id": "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "execute measured repaired scenario taxonomy over fixed 864-cell matrix"
+    ],
+    "derived_from": [
+      "m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    ],
+    "blocked_by": [
+      "need measured execution before repaired scenario taxonomy result audit"
+    ],
+    "supersedes": [
+      "direct repaired scenario taxonomy result audit without execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
+  "public_gates": [
+    "M1738 must execute exactly the M1734 repaired 864-cell scenario taxonomy matrix",
+    "M1738 must join scenario metadata and sampling repair provenance into every episode row",
+    "M1738 must write episode failure state scenario-family repair-variant sampled-label hidden-dynamics outcome termination profile-outcome and scenario-family-outcome artifacts",
+    "M1738 must preserve unsupported-fault boundaries and not treat unsupported faults as covered",
+    "M1738 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_repaired_scenario_taxonomy_execution",
+    "evidence_increment": "executes repaired 864-cell scenario taxonomy after reset-stress pass, execution design, and branch synthesis",
+    "claim_scope": "public diagnostic repaired scenario taxonomy execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if episode_count != 864",
+      "stop if failure_count != 0",
+      "stop if selected metrics are non-finite",
+      "stop if repair provenance or sampled-label aggregates are missing",
+      "stop if unsupported faults are treated as covered"
+    ],
+    "fallback_plan": [
+      "route to runner repair if execution plumbing fails",
+      "route to result audit if execution passes",
+      "route to sampling repair audit if reset-time failures return"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1737 branch synthesis continues to repaired measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "execute repaired scenario taxonomy diagnostic rollout",
+    "admission_evidence": [
+      "M1734 reset-stress preflight passed",
+      "M1736 pre-registers repaired execution artifacts and claim boundaries",
+      "M1737 synthesis continues to repaired execution"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "repaired scenario taxonomy execution runner or adapter if needed",
+      "M1738 execution artifacts",
+      "M1738 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "864 repaired scenario taxonomy episodes complete",
+      "repair provenance and sampled-label aggregate artifacts are present",
+      "execution pass/fail is recorded without interpreting profile rank"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1738 is task-quality diagnostic execution and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "execution matrix preserves L1 L2-current-tiled L2 history-window L3-online and L3-reset controls for later audit"
+    ],
+    "temporal_evidence_window": "M1734 repaired scenario taxonomy matrix.",
+    "negative_result_policy": "If repaired scenario taxonomy outcomes are weak or dominated, record as task-quality evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "repaired scenario-taxonomy public diagnostic execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1734 repaired scenario taxonomy matrix can be executed as a fixed public diagnostic run with complete repair provenance and sampled-label aggregates.",
+  "success_criteria": [
+    "runs/m1738_repaired_scenario_taxonomy_execution/summary.json exists",
+    "episode_count == 864",
+    "failure_count == 0",
+    "all_selected_metrics_finite == true",
+    "guardrail_violation_count == 0",
+    "profile_count == 12",
+    "scenario_spec_count == 72",
+    "scenario_family_count == 6",
+    "sampling_repair_variant_aggregate.csv exists",
+    "sampled_obstacle_label_aggregate.csv exists",
+    "scenario_family_sampled_label_aggregate.csv exists",
+    "scenario metadata and repair provenance fields are preserved in episode rows",
+    "unsupported_faults_treated_as_covered == false",
+    "training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "episode_count != 864",
+    "failure_count != 0",
+    "selected metrics are non-finite",
+    "required aggregates are missing",
+    "scenario metadata or repair provenance join is missing",
+    "unsupported faults are treated as covered",
+    "training replay PPO private holdout promotion actor-input changes or profile ranking occurs"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.task_quality_scenario_taxonomy_execution --scenario-specs runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json --workload runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv --unsupported-features runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/unsupported_scenario_features.csv --output-dir runs/m1738_repaired_scenario_taxonomy_execution --next-blocker m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit --no-resume --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/sampling_repair_variant_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/sampled_obstacle_label_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1738_repaired_scenario_taxonomy_execution/scenario_family_sampled_label_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
+    "summary": "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+    "decision": "repaired_scenario_taxonomy_execution_pass_route_to_result_audit",
+    "result_class": "task_quality_scenario_taxonomy_execution_pass",
+    "episode_count": 864,
+    "target_episode_count": 864,
+    "profile_count": 12,
+    "scenario_spec_count": 72,
+    "scenario_family_count": 6,
+    "failure_count": 0,
+    "all_selected_metrics_finite": true,
+    "guardrail_violation_count": 0,
+    "unsupported_scenario_feature_count": 5,
+    "silent_unsupported_approximation_count": 0,
+    "unsupported_faults_treated_as_covered": false,
+    "sampling_repair_variant_aggregate_rows": 5,
+    "sampled_obstacle_label_aggregate_rows": 4,
+    "scenario_family_sampled_label_aggregate_rows": 9,
+    "outcome_aggregate_rows": 3,
+    "termination_reason_aggregate_rows": 3,
+    "profile_outcome_aggregate_rows": 30,
+    "scenario_family_outcome_aggregate_rows": 18,
+    "environment_rollout_started": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json"
+  },
+  "decision_rule": "M1738 passes as execution plumbing if the repaired 864 scenario taxonomy episodes complete with finite metrics, zero failures, complete repair provenance aggregates, and no unsupported-feature boundary violation. Result interpretation is deferred to the next audit.",
+  "next_blocker": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit"
+}

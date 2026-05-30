@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1730-paper-route-task-quality-scenario-taxonomy-execution-design
+m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution
 ```
 
 Current next task:
 
 ```text
-m1731-paper-route-task-quality-scenario-taxonomy-execution
+m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -141,7 +141,52 @@ completes that execution design and admits M1731 measured execution over the
 fixed `864`-cell taxonomy matrix. M1731 must produce scenario-family,
 hidden-dynamics, road-boundary, obstacle-timing, outcome, termination,
 profile-outcome, and scenario-family-outcome aggregates, and it must keep
-`unsupported_faults_treated_as_covered=false`.
+`unsupported_faults_treated_as_covered=false`. M1731 implemented that runner
+and attempted the fixed M1728 matrix. The runner preserved metadata joins and
+unsupported-feature boundaries, but the execution failed the pass gate with
+`422/864` completed episodes and `442` sampling failures, all before policy
+evaluation for those failed cells. The dominant error is `RuntimeError: failed
+to sample an obstacle scenario matching the configured filters`, concentrated
+in `aeb_infeasible_stable_aes`, `off_track_boundary_stress`, and
+`hidden_dynamics_stress` plus a small subset of `drift_required_avoidance`.
+Guardrails stayed clean: no training, replay, PPO, promotion, private holdout,
+actor-input change, profile tuning, ranking claim, paper-level claim, or level3
+self-ID claim occurred, and unsupported fault-like features remain explicitly
+not covered. The next task is M1732: audit this as a scenario-sampling failure
+before any taxonomy sampling repair, runner repair, branch synthesis, or
+partial-row interpretation. M1732 completed that audit and classifies M1731 as
+a clean `scenario_sampling_failure`: failed cells stop at `env.reset()` before
+policy evaluation, so partial completed rows cannot support controller-family
+ranking or scenario-family quality claims. The next task is M1733: design a
+non-mutating sampling repair route with reset-only feasibility preflight before
+any new `864`-cell policy rollout. M1733 completed that design and admits
+M1734: create new repaired taxonomy artifacts, preserve M1728 as failed
+evidence, run reset-only sampling feasibility over all planned `72 x 12 = 864`
+cells, require `reset_success_count == 864` and `sampling_failure_count == 0`,
+and only then allow a new scenario taxonomy policy execution design. M1734
+implemented that reset-only repair preflight and passed: `72` repaired specs,
+`864` repaired matrix cells, `864` reset successes, `0` sampling failures, `0`
+contract violations, and guardrail `0`. The next task is M1735: audit this
+preflight before any repaired policy execution design. M1735 audits M1734 as
+clean reset-only sampling-feasibility evidence and admits M1736 repaired
+scenario taxonomy execution design. Reset-only rows remain non-performance
+evidence and cannot be used for controller-family ranking. M1736 completes the
+repaired execution design and admits M1737 measured execution over the fixed
+M1734 repaired `864`-cell matrix, requiring repair provenance and sampled-label
+aggregates with interpretation deferred to a later audit. The workflow cadence
+fired at this point, so the next task is M1737 branch synthesis before repaired
+execution. M1737 completes that synthesis, continues the same branch, and
+admits M1738 repaired public diagnostic execution with claim boundaries intact.
+M1738 then executes the fixed M1734 repaired `864`-cell scenario taxonomy
+matrix: `864` episodes completed, `0` execution failures, selected metrics
+finite, guardrail `0`, `12` profiles, `72` scenario specs, `6` scenario
+families, and complete repair provenance plus sampled-label aggregates. Raw
+outcomes were `81` success obstacle passes, `279` collision failures, and
+`504` off-track noncollision noncompletions; these counts are diagnostic only
+and cannot be used for controller-family ranking or paper-level claims before
+audit. The next task is M1739: audit M1738 result quality and decide whether to
+proceed to scenario-quality interpretation, task-quality redesign, branch
+synthesis, or stop.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

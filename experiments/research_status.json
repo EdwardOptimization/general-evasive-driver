@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1739,
+    "completed": 1747,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md",
+    "command_log": "docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1730-paper-route-task-quality-scenario-taxonomy-execution-design"
+    "task_id": "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1731-paper-route-task-quality-scenario-taxonomy-execution.json",
-    "hypothesis": "The M1728 scenario taxonomy matrix can be executed as a fixed public diagnostic run with complete scenario aggregates and preserved unsupported-feature boundaries.",
-    "id": "m1731-paper-route-task-quality-scenario-taxonomy-execution",
+    "command": "see experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json",
+    "hypothesis": "M1738 can be audited as a clean repaired scenario taxonomy execution before any scenario-quality conclusion or controller-family comparison.",
+    "id": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit",
     "kind": "gate",
-    "notes": "Pending: run 864 public diagnostic episodes with scenario metadata aggregates and unsupported-fault boundary checks",
-    "priority": 17260,
+    "notes": "Pending: audit M1738 repaired scenario taxonomy outcome distribution and decide the next route without ranking profiles",
+    "priority": 17340,
     "status": "pending",
-    "success_artifact": "runs/m1731_task_quality_scenario_taxonomy_execution/summary.json"
+    "success_artifact": "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md"
   },
-  "updated_at_utc": "20260530T031135Z"
+  "updated_at_utc": "20260530T040600Z"
 }

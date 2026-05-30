@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1737 synthesizes M1727-M1736 and continues to repaired public diagnostic execution with claim boundaries intact",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats reset-only rows as policy evidence",
+    "synthesis routes directly to ranking or paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T035328Z",
+  "hypothesis": "The M1727-M1736 scenario taxonomy branch should synthesize before repaired execution to avoid milestone over-fragmentation and public-gate overfit.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached before repaired execution"
+    ],
+    "derived_from": [
+      "m1727-paper-route-task-quality-scenario-taxonomy-design",
+      "m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+      "docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+      "docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md"
+    ],
+    "parent_objective": [
+      "synthesize scenario taxonomy branch before repaired execution"
+    ],
+    "supersedes": [
+      "direct repaired scenario taxonomy execution after M1736"
+    ]
+  },
+  "milestone": "m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+  "next_blocker": "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_repaired_scenario_taxonomy_execution",
+  "public_gates": [
+    "M1737 must synthesize M1727-M1736 before repaired scenario taxonomy execution",
+    "M1737 must answer required synthesis questions",
+    "M1737 must assess the M1731 sampling failure and M1734 repair pass",
+    "M1737 must decide continue pivot stop or promote_to_next_branch",
+    "M1737 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_repaired_scenario_taxonomy_execution",
+    "milestone": "m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "reason": "M1737 synthesizes M1727-M1736 and continues to repaired public diagnostic execution with claim boundaries intact",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "M1731 sampling failure and M1734 repair pass are explicit",
+    "public-gate and scenario-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

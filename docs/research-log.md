@@ -27808,3 +27808,165 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1731-paper-route-task-quality-scenario-taxonomy-execution.json`
 - next: `m1731-paper-route-task-quality-scenario-taxonomy-execution`
+
+## M1731 Paper-Route Task-Quality Scenario Taxonomy Execution
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_execution_incomplete_or_fail`
+- failure taxonomy: `scenario_sampling_failure`
+- artifact: `runs/m1731_task_quality_scenario_taxonomy_execution/summary.json`
+- doc: `docs/m1731-paper-route-task-quality-scenario-taxonomy-execution.md`
+- parent design: `docs/m1730-paper-route-task-quality-scenario-taxonomy-execution-design.md`
+- completed episodes: `422 / 864`
+- failure count: `442`
+- dominant error: `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- completed profile count: `12 / 12`
+- completed scenario specs: `36 / 72`
+- completed scenario families: `3 / 6`
+- failed families: `aeb_infeasible_stable_aes=144`, `off_track_boundary_stress=144`, `hidden_dynamics_stress=144`, `drift_required_avoidance=10`
+- all selected metrics finite for completed rows: `true`
+- guardrail violation count: `0`
+- unsupported scenario features: `5`
+- silent unsupported approximations: `0`
+- unsupported faults treated as covered: `false`
+- supported: runner preserves metadata joins and unsupported-feature boundary for sampleable specs
+- unsupported: complete scenario taxonomy result, controller-family ranking, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.json`
+- next: `m1732-paper-route-task-quality-scenario-taxonomy-result-audit`
+
+## M1732 Paper-Route Task-Quality Scenario Taxonomy Result Audit
+
+- status: completed
+- decision: `scenario_taxonomy_sampling_failure_audit_admit_repair_design`
+- artifact: `docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md`
+- audited execution: `runs/m1731_task_quality_scenario_taxonomy_execution/summary.json`
+- audited failures: `runs/m1731_task_quality_scenario_taxonomy_execution/failure_rows.csv`
+- audited result class: `task_quality_scenario_taxonomy_execution_incomplete_or_fail`
+- failure taxonomy: `scenario_sampling_failure`
+- completed episodes: `422 / 864`
+- failure count: `442`
+- dominant error: `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- interpretation: failed cells stop at `env.reset()` before policy evaluation, so partial rows cannot support controller-family ranking or scenario-family quality claims
+- guardrail violation count: `0`
+- unsupported feature boundary: preserved, with `5` unsupported features, `0` silent approximations, and `unsupported_faults_treated_as_covered=false`
+- route: design non-mutating sampling repair plus reset-only feasibility preflight before any new policy rollout
+- supported: M1731 failure classification and repair-route admission
+- unsupported: direct M1731 rerun, partial-row ranking, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.json`
+- next: `m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design`
+
+## M1733 Paper-Route Task-Quality Scenario Taxonomy Sampling Repair Design
+
+- status: completed
+- decision: `scenario_taxonomy_sampling_repair_design_admit_reset_stress_preflight`
+- artifact: `docs/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.md`
+- parent audit: `docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md`
+- failed execution: `runs/m1731_task_quality_scenario_taxonomy_execution/summary.json`
+- repair targets: `aeb_infeasible_stable_aes`, `off_track_boundary_stress`, `hidden_dynamics_stress`, partial `drift_required_avoidance`
+- required route: create new repaired artifacts, do not mutate M1728 artifacts in place
+- required preflight: reset-only sampling feasibility over `72 x 12 = 864` planned cells before any policy rollout
+- required pass rule for next preflight: `reset_success_count == 864`, `sampling_failure_count == 0`, clean contract and guardrails, unsupported faults still not covered
+- supported: sampling repair design and reset-stress preflight admission
+- unsupported: direct M1731 rerun, policy rollout before reset-stress, profile tuning, controller-family ranking, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.json`
+- next: `m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight`
+
+## M1734 Paper-Route Task-Quality Scenario Taxonomy Sampling Repair Preflight
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_sampling_repair_preflight_pass`
+- artifact: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json`
+- doc: `docs/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.md`
+- parent design: `docs/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.md`
+- repaired scenario specs: `72`
+- repaired matrix cells: `864`
+- profiles: `12`
+- reset-stress rows: `864`
+- reset successes: `864`
+- sampling failures: `0`
+- contract violations: `0`
+- repair delta rows: `264`
+- label distribution by family: S1 `aeb_feasible=144`, S2 `aes_feasible=144`, S3 `drift_required=144`, S4 `unavoidable=144`, S5 `aes_feasible=43/drift_required=101`, S6 `aes_feasible=29/drift_required=71/unavoidable=44`
+- guardrail violation count: `0`
+- unsupported scenario features: `5`
+- silent unsupported approximations: `0`
+- supported: reset-only sampling feasibility repair passed for all planned cells
+- unsupported: policy rollout result, controller-family ranking, scenario-family task-quality conclusion, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.json`
+- next: `m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit`
+
+## M1735 Paper-Route Task-Quality Scenario Taxonomy Sampling Repair Preflight Result Audit
+
+- status: completed
+- decision: `sampling_repair_preflight_audit_admit_repaired_execution_design`
+- artifact: `docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md`
+- audited preflight: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json`
+- audited result class: `task_quality_scenario_taxonomy_sampling_repair_preflight_pass`
+- repaired scenario specs: `72`
+- repaired matrix cells: `864`
+- reset successes: `864`
+- sampling failures: `0`
+- contract violations: `0`
+- guardrail violation count: `0`
+- unsupported feature boundary: preserved, with `5` unsupported features, `0` silent approximations, and unsupported faults not covered
+- decision boundary: reset-only rows prove sampling feasibility only, not controller-family ranking or task-quality performance
+- supported: repaired execution design admission
+- unsupported: policy rollout result, scenario-family quality conclusion, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.json`
+- next: `m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design`
+
+## M1736 Paper-Route Task-Quality Repaired Scenario Taxonomy Execution Design
+
+- status: completed
+- decision: `repaired_scenario_taxonomy_execution_design_route_to_branch_synthesis`
+- artifact: `docs/m1736-paper-route-task-quality-repaired-scenario-taxonomy-execution-design.md`
+- parent audit: `docs/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.md`
+- repaired input specs: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json`
+- repaired input matrix: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv`
+- planned episodes: `864`
+- required metadata: scenario fields plus `m1728_scenario_spec_id`, `sampling_repair_source`, `sampling_repair_variant_id`, and `sampling_repair_applied`
+- required aggregates: scenario family, repair variant, sampled obstacle label, hidden dynamics, road boundary, obstacle timing, outcome, termination, profile-outcome, scenario-family-outcome, scenario-family-sampled-label
+- supported: repaired measured execution design
+- unsupported: rollout result, controller-family ranking, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
+- next: `m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis`
+
+## M1737 Paper-Route Task-Quality Scenario Taxonomy Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `continue`
+- decision: `continue_to_repaired_scenario_taxonomy_execution`
+- artifact: `docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- synthesized range: M1727-M1736
+- evidence summary: taxonomy design and no-rollout preflight were clean; unrepaired execution failed with `scenario_sampling_failure`; M1734 reset-stress repair passed; M1736 designed repaired execution
+- supported: repaired scenario taxonomy is reset-feasible and ready for one public diagnostic execution attempt
+- falsified: unrepaired M1728 taxonomy was execution-ready after no-rollout metadata preflight alone
+- public-gate overfit risk: `moderate`
+- claim boundary: reset-only evidence is not controller-family ranking or task-quality performance
+- follow-up manifest: `experiments/manifests/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.json`
+- next: `m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution`
+
+## M1738 Paper-Route Task-Quality Repaired Scenario Taxonomy Execution
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_execution_pass`
+- artifact: `runs/m1738_repaired_scenario_taxonomy_execution/summary.json`
+- doc: `docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md`
+- parent synthesis: `docs/m1737-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- repaired scenario specs: `72`
+- repaired matrix cells: `864`
+- profiles: `12`
+- scenario families: `6`
+- completed episodes: `864`
+- execution failures: `0`
+- selected metrics finite: `true`
+- guardrail violation count: `0`
+- unsupported scenario features: `5`
+- silent unsupported approximations: `0`
+- unsupported faults treated as covered: `false`
+- required aggregate rows: repair variant `5`, sampled label `4`, scenario-family sampled-label `9`, outcome `3`, termination `3`
+- raw outcome snapshot: success `81`, collision failure `279`, off-track noncollision noncompletion `504`
+- supported: repaired taxonomy execution plumbing passed with metadata repair provenance and sampled-label aggregates
+- unsupported: controller-family ranking, scenario-family task-quality conclusion, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json`
+- next: `m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit`

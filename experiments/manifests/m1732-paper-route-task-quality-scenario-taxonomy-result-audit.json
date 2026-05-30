@@ -1,0 +1,193 @@
+{
+  "id": "m1732-paper-route-task-quality-scenario-taxonomy-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1731-paper-route-task-quality-scenario-taxonomy-execution.md",
+      "runs/m1731_task_quality_scenario_taxonomy_execution/summary.json",
+      "runs/m1731_task_quality_scenario_taxonomy_execution/episode_rows.csv",
+      "runs/m1731_task_quality_scenario_taxonomy_execution/failure_rows.csv",
+      "runs/m1731_task_quality_scenario_taxonomy_execution/scenario_family_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1731-paper-route-task-quality-scenario-taxonomy-execution.json"
+    ],
+    "parent_objective": [
+      "audit measured scenario taxonomy execution failure before repair"
+    ],
+    "derived_from": [
+      "m1731-paper-route-task-quality-scenario-taxonomy-execution"
+    ],
+    "blocked_by": [
+      "M1731 failed the execution pass gate because 442 cells could not sample matching obstacle scenarios"
+    ],
+    "supersedes": [
+      "direct taxonomy repair without failure audit",
+      "controller-family ranking from partial M1731 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md",
+  "public_gates": [
+    "M1732 must audit M1731 pass/fail against the pre-registered execution criteria",
+    "M1732 must classify the dominant M1731 failure type",
+    "M1732 must verify guardrails stayed clean despite failed sampling",
+    "M1732 must preserve unsupported-fault boundaries",
+    "M1732 must decide runner repair, taxonomy sampling repair, branch synthesis, or stop",
+    "M1732 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families from partial rows",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_scenario_taxonomy_execution_failure_audit",
+    "evidence_increment": "audits failed M1731 measured execution and routes the branch to a sampling-feasibility repair if appropriate",
+    "claim_scope": "public failure audit only; no new rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1731 failure is not classified",
+      "stop if partial completed rows are used for ranking",
+      "stop if unsupported faults are treated as covered",
+      "stop if repair route would mutate M1728 artifacts in place"
+    ],
+    "fallback_plan": [
+      "route to scenario sampling repair design if M1731 failure is sampling-feasibility dominated",
+      "route to runner repair if metadata joins or aggregate writing failed",
+      "route to branch synthesis if taxonomy design itself is not salvageable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1731 completed with scenario_sampling_failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit scenario taxonomy execution failure",
+    "admission_evidence": [
+      "M1731 produced summary, episode rows, failure rows, aggregates, and unsupported-feature boundary artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1732 audit document",
+      "M1732 status queue scoreboard research log and review",
+      "one follow-up repair design or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "M1731 failure is classified",
+      "partial-row interpretation boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1732 is a failure audit and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must keep controller-family profiles as controls only and must not convert partial rows into history necessity evidence"
+    ],
+    "temporal_evidence_window": "M1731 public execution artifacts.",
+    "negative_result_policy": "Record the execution failure as scenario sampling evidence rather than self-ID or controller-family evidence.",
+    "allowed_claims": [
+      "scenario taxonomy execution failure audit",
+      "no new rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1731 can be audited as a clean scenario-sampling failure with guardrails preserved, enabling a targeted taxonomy sampling repair route.",
+  "success_criteria": [
+    "docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md exists",
+    "M1731 summary and failure rows are audited",
+    "scenario_sampling_failure is confirmed or rejected",
+    "partial completed rows are explicitly blocked from controller-family ranking",
+    "unsupported feature boundary is audited",
+    "next route is sampling repair runner repair branch synthesis or stop",
+    "new rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores M1731 failure rows",
+    "audit ranks controller-family profiles from partial M1731 rows",
+    "audit treats unsupported faults as covered",
+    "new rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write scenario taxonomy execution failure audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1731_task_quality_scenario_taxonomy_execution/summary.json",
+    "runs/m1731_task_quality_scenario_taxonomy_execution/failure_rows.csv"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1732-paper-route-task-quality-scenario-taxonomy-result-audit.md",
+    "decision": "scenario_taxonomy_sampling_failure_audit_admit_repair_design",
+    "audited_result_class": "task_quality_scenario_taxonomy_execution_incomplete_or_fail",
+    "failure_taxonomy": [
+      "scenario_sampling_failure"
+    ],
+    "episode_count": 422,
+    "target_episode_count": 864,
+    "failure_count": 442,
+    "dominant_error_type": "RuntimeError",
+    "dominant_error_message": "failed to sample an obstacle scenario matching the configured filters",
+    "guardrail_violation_count": 0,
+    "unsupported_scenario_feature_count": 5,
+    "silent_unsupported_approximation_count": 0,
+    "unsupported_faults_treated_as_covered": false,
+    "partial_rows_allowed_for_ranking": false,
+    "recommended_route": "sampling_repair_design_then_reset_stress_preflight",
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.json"
+  },
+  "decision_rule": "M1732 passes if it audits M1731, classifies the failure, blocks partial-row overclaims, and routes to repair or synthesis without running new rollout or changing actor inputs.",
+  "next_blocker": "m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design"
+}

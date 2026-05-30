@@ -1,0 +1,220 @@
+{
+  "id": "m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_only"
+    ],
+    "parent_dataset": [
+      "docs/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_specs.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_matrix.csv",
+      "runs/m1731_task_quality_scenario_taxonomy_execution/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize repaired taxonomy artifacts and run reset-only sampling feasibility checks"
+    ],
+    "derived_from": [
+      "m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design"
+    ],
+    "blocked_by": [
+      "need reset-stress sampling repair before any new scenario taxonomy policy rollout"
+    ],
+    "supersedes": [
+      "direct M1731 rerun",
+      "direct policy execution on unrepaired M1728 taxonomy"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.md",
+  "public_gates": [
+    "M1734 must create new repaired taxonomy artifacts without mutating M1728 artifacts in place",
+    "M1734 must run reset-only sampling feasibility checks over the full 72 x 12 planned matrix",
+    "M1734 must write repair deltas, reset stress rows, sampling failures, label distributions, contract violations, and unsupported-feature artifacts",
+    "M1734 must require 864 reset successes and zero sampling failures for a preflight pass",
+    "M1734 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not mutate M1728 artifacts in place",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_scenario_taxonomy_sampling_repair_preflight",
+    "evidence_increment": "materializes repaired taxonomy artifacts and validates reset feasibility before policy rollout",
+    "claim_scope": "reset-only sampling feasibility preflight; no policy rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if reset_success_count != 864",
+      "stop if sampling_failure_count != 0",
+      "stop if contract violations exist",
+      "stop if unsupported faults are treated as covered",
+      "stop if M1728 artifacts are mutated in place"
+    ],
+    "fallback_plan": [
+      "route to sampling repair audit if preflight fails",
+      "route to scenario execution design if reset-stress passes",
+      "route to branch synthesis if repair destroys scenario-family meaning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1733 admits reset-stress repair preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "repair taxonomy sampling feasibility before policy rollout",
+    "admission_evidence": [
+      "M1733 requires a reset-only preflight before any new 864-cell policy execution"
+    ],
+    "blocked_shortcuts": [
+      "do not run policy rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "sampling repair preflight code",
+      "focused tests",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight artifacts",
+      "M1734 status queue scoreboard research log and review",
+      "one follow-up audit or execution design manifest"
+    ],
+    "next_stage_criteria": [
+      "864 reset-stress checks complete",
+      "sampling failure count is recorded",
+      "repair deltas and label distributions are recorded",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; reset-only sampling feasibility cannot prove history necessity.",
+    "history_necessity_tests": [
+      "preflight preserves controller-family profiles for later execution but performs no policy evaluation"
+    ],
+    "temporal_evidence_window": "M1728 taxonomy artifacts and M1731 failure rows.",
+    "negative_result_policy": "If reset-stress fails, record as taxonomy sampling evidence and do not run policy rollout.",
+    "allowed_claims": [
+      "scenario taxonomy sampling repair preflight result",
+      "no policy rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A repaired scenario taxonomy can pass reset-only sampling feasibility over all 864 planned cells while preserving unsupported-feature boundaries and actor contract.",
+  "success_criteria": [
+    "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json exists",
+    "repaired_scenario_spec_count == 72",
+    "repaired_matrix_cell_count == 864",
+    "reset_stress_row_count == 864",
+    "reset_success_count == 864",
+    "sampling_failure_count == 0",
+    "contract_violation_count == 0",
+    "unsupported_scenario_feature_count == 5",
+    "silent_unsupported_approximation_count == 0",
+    "unsupported_faults_treated_as_covered == false",
+    "policy rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "reset_success_count != 864",
+    "sampling_failure_count != 0",
+    "contract violations exist",
+    "required artifacts are missing",
+    "M1728 artifacts are mutated in place",
+    "unsupported faults are treated as covered",
+    "policy rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "controller-family ranking or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "PYTHONPATH=src python -m autodrift.task_quality_scenario_taxonomy_sampling_repair_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/reset_stress_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/sampling_repair_delta.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/sampling_failure_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1733-paper-route-task-quality-scenario-taxonomy-sampling-repair-design.md",
+    "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_specs.json",
+    "runs/m1731_task_quality_scenario_taxonomy_execution/failure_rows.csv"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1734-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight.md",
+    "summary": "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/summary.json",
+    "decision": "sampling_repair_preflight_pass_route_to_result_audit",
+    "result_class": "task_quality_scenario_taxonomy_sampling_repair_preflight_pass",
+    "repaired_scenario_spec_count": 72,
+    "repaired_matrix_cell_count": 864,
+    "profile_count": 12,
+    "reset_stress_row_count": 864,
+    "reset_success_count": 864,
+    "sampling_failure_count": 0,
+    "contract_violation_count": 0,
+    "sampling_repair_delta_row_count": 264,
+    "label_distribution_by_family_rows": 9,
+    "unsupported_scenario_feature_count": 5,
+    "silent_unsupported_approximation_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": true,
+    "policy_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit.json"
+  },
+  "decision_rule": "M1734 passes only if all 864 planned reset checks succeed with zero sampling failures and clean guardrails before any policy rollout is allowed.",
+  "next_blocker": "m1735-paper-route-task-quality-scenario-taxonomy-sampling-repair-preflight-result-audit"
+}
