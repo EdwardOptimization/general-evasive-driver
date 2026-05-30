@@ -175,3 +175,28 @@ def test_multi_profile_stable_roles_require_all_profiles_supported(tmp_path: Pat
     assert summary["unsupported_source_count"] == 1
     materialization = (tmp_path / "out" / "support_first_materialization_admissibility_input.csv").read_text()
     assert UNSUPPORTED in materialization
+
+
+def test_insufficient_accepted_cells_gets_explicit_failure_reason(tmp_path: Path) -> None:
+    row = {
+        **_candidate("thin", ROLE_STABLE_AES, distance=18.0),
+        "min_accepted_cells": 2,
+    }
+    summary = _run(tmp_path, [row])
+
+    assert summary["supported_source_count"] == 0
+    profile_support = (tmp_path / "out" / "support_first_profile_support.csv").read_text()
+    materialization = (tmp_path / "out" / "support_first_materialization_admissibility_input.csv").read_text()
+    assert mining.FAIL_INSUFFICIENT_ACCEPTED in profile_support
+    assert mining.FAIL_INSUFFICIENT_ACCEPTED in materialization
+
+
+def test_diversity_summary_counts_exact_speed_and_mu_values() -> None:
+    rows = [
+        _candidate("a", ROLE_STABLE_AES, distance=18.0, speed=10.0, mu=1.0),
+        _candidate("b", ROLE_STABLE_AES, distance=18.0, speed=14.0, mu=1.15),
+    ]
+    diversity = mining.diversity_summary(rows)
+
+    assert diversity["speed_bucket_count"] == 2
+    assert diversity["mu_bucket_count"] == 2

@@ -34,6 +34,7 @@ REJECT_RECOVERY_CONTRACT = "recovery_horizon_required_missing"
 REJECT_MITIGATION_CONTRACT = "mitigation_metric_contract_missing"
 FAIL_NONE = "none"
 FAIL_NO_ACCEPTED = "no_accepted_cells"
+FAIL_INSUFFICIENT_ACCEPTED = "insufficient_accepted_cells"
 FAIL_LABEL_ROLE_MISMATCH = "label_role_mismatch"
 FAIL_THRESHOLD_FILTER_ONLY = "threshold_filter_only"
 FAIL_FRICTION_TIMING_FILTER_ONLY = "friction_timing_filter_only"
@@ -346,12 +347,15 @@ def evaluate_candidate_cell(
 def _failure_reason(
     *,
     accepted_count: int,
+    min_accepted_cells: int,
     label_counts: Mapping[str, int],
     reject_counts: Mapping[str, int],
     required_label: str,
 ) -> str:
-    if int(accepted_count) > 0:
+    if int(accepted_count) >= int(min_accepted_cells):
         return FAIL_NONE
+    if int(accepted_count) > 0:
+        return FAIL_INSUFFICIENT_ACCEPTED
     if int(label_counts.get(required_label, 0)) <= 0:
         return FAIL_LABEL_ROLE_MISMATCH
     if int(reject_counts.get(REJECT_THRESHOLD, 0)) > 0 and len(reject_counts) == 1:
@@ -416,6 +420,7 @@ def scan_candidate_profile(
     support_status = SUPPORTED if len(accepted_cells) >= min_accepted_cells else UNSUPPORTED
     failure = _failure_reason(
         accepted_count=len(accepted_cells),
+        min_accepted_cells=min_accepted_cells,
         label_counts=label_counts,
         reject_counts=reject_counts,
         required_label=required_label,
@@ -563,8 +568,8 @@ def diversity_summary(candidate_rows: Iterable[Mapping[str, Any]]) -> dict[str, 
     source_families = Counter(str(row.get("source_family_id", "")) for row in rows)
     profile_groups = Counter(str(row.get("profile_group", "")) for row in rows)
     roles = Counter(str(row.get("source_role_semantics", "")) for row in rows)
-    speeds = Counter(int(_float(row.get("speed_ref"), default=0.0) // 5.0) for row in rows)
-    mus = Counter(int(_float(row.get("mu"), default=0.0) // 0.2) for row in rows)
+    speeds = Counter(str(_float(row.get("speed_ref"), default=0.0)) for row in rows)
+    mus = Counter(str(_float(row.get("mu"), default=0.0)) for row in rows)
     return {
         "source_family_count": len(source_families),
         "profile_group_count": len(profile_groups),

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1864,
+    "completed": 1865,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1855-executable-v2-support-first-source-mining-execution-design.md",
+    "command_log": "docs/m1856-executable-v2-support-first-source-mining-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1855-executable-v2-support-first-source-mining-execution-design"
+    "task_id": "m1856-executable-v2-support-first-source-mining-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1856-executable-v2-support-first-source-mining-execution.json",
-    "hypothesis": "The fixed V0 candidate template can be mined with the M1852 no-reset helper to produce role-separated source support evidence.",
-    "id": "m1856-executable-v2-support-first-source-mining-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run no-reset source mining over V0 candidate template",
-    "priority": 18510,
+    "command": "see experiments/manifests/m1857-executable-v2-support-first-source-mining-result-audit.json",
+    "hypothesis": "M1856 produced clean role-separated source support evidence that can be audited before materialization design.",
+    "id": "m1857-executable-v2-support-first-source-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit source mining support evidence before materialization",
+    "priority": 18520,
     "status": "pending",
-    "success_artifact": "runs/m1856_executable_v2_support_first_source_mining/summary.json"
+    "success_artifact": "docs/m1857-executable-v2-support-first-source-mining-result-audit.md"
   },
-  "updated_at_utc": "20260530T132049Z"
+  "updated_at_utc": "20260530T132451Z"
 }

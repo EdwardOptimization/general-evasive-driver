@@ -1,0 +1,169 @@
+{
+  "id": "m1857-executable-v2-support-first-source-mining-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_source_mining_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1856-executable-v2-support-first-source-mining-execution.md",
+      "runs/m1856_executable_v2_support_first_source_mining/summary.json",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_role_summary.csv",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1856-executable-v2-support-first-source-mining-execution.json"
+    ],
+    "parent_objective": [
+      "audit source mining role support before materialization design"
+    ],
+    "derived_from": [
+      "m1856-executable-v2-support-first-source-mining-execution"
+    ],
+    "blocked_by": [
+      "M1856 source mining support evidence requires audit before materialization"
+    ],
+    "supersedes": [
+      "direct materialization from source mining output without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1857-executable-v2-support-first-source-mining-result-audit.md",
+  "public_gates": [
+    "M1857 must audit M1856 support counts by role before materialization design",
+    "M1857 must verify no materialized rows reset rollout measured rollout training replay PPO ranking or paper-level claims",
+    "M1857 must decide whether materialization design or branch synthesis is next"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun source mining",
+    "do not generate materialized executable-v2 rows",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_source_mining",
+    "evidence_axis": "Q_support_first_source_mining_result_audit",
+    "evidence_increment": "audits source mining support by role and decides whether materialization design is admissible",
+    "claim_scope": "result audit only; no rerun, materialization, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if role support counts are inconsistent",
+      "stop if guardrail violation count is nonzero",
+      "stop if audit would materialize rows or rerun mining",
+      "stop if materialization design criteria are missing"
+    ],
+    "fallback_plan": [
+      "route to materialization design if support counts are clean",
+      "route to helper repair if artifacts are inconsistent",
+      "route to branch synthesis if support evidence changes the route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1856 source mining run completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source mining result audit",
+    "admission_evidence": [
+      "M1856 produced role-separated source support artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun source mining",
+      "do not generate materialized executable-v2 rows",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1857 audit document",
+      "M1857 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization design or branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "source support counts are audited",
+      "claim boundaries are audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source mining result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1856 classifier-scan artifacts only; no reset or rollout.",
+    "negative_result_policy": "Any unsupported role/source must be recorded as support evidence and not repaired by weakening labels.",
+    "allowed_claims": [
+      "source mining result audit",
+      "no materialization, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1856 produced clean role-separated source support evidence that can be audited before materialization design.",
+  "success_criteria": [
+    "docs/m1857-executable-v2-support-first-source-mining-result-audit.md exists",
+    "audit records role support counts and guardrails",
+    "audit verifies materialized_row_count is zero",
+    "audit chooses next route without rerunning source mining reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit reruns source mining",
+    "audit generates materialized rows",
+    "audit changes actor inputs reward dynamics or termination behavior",
+    "audit makes controller ranking paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1857-executable-v2-support-first-source-mining-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1857-executable-v2-support-first-source-mining-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_source_mining_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1856-executable-v2-support-first-source-mining-execution.md",
+    "runs/m1856_executable_v2_support_first_source_mining/summary.json",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_role_summary.csv",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv"
+  ],
+  "decision_rule": "M1857 passes if it audits M1856 support evidence and chooses a next route without rerun, materialization, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1857-executable-v2-support-first-source-mining-result-audit"
+}

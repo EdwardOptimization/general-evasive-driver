@@ -31443,3 +31443,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1856-executable-v2-support-first-source-mining-execution.json`
 - next: `m1856-executable-v2-support-first-source-mining-execution`
+
+## M1856 Executable V2 Support-First Source Mining Execution
+
+- status: completed
+- decision: `support_first_source_mining_execution_pass_route_to_result_audit`
+- artifact: `docs/m1856-executable-v2-support-first-source-mining-execution.md`
+- result artifact: `runs/m1856_executable_v2_support_first_source_mining/summary.json`
+- metric hygiene repair before final result: `true`
+- focused tests after repair: `9 passed in 0.12s`
+- full tests after repair: `1770 passed, 4 warnings in 10.45s`
+- candidate source count: `288`
+- candidate profile count: `288`
+- role count: `4`
+- supported source count: `202`
+- unsupported source count: `86`
+- accepted cell count total: `149759`
+- stable AEB supported source count: `62`
+- stable AES supported source count: `49`
+- drift required supported source count: `49`
+- unavoidable mitigation supported source count: `42`
+- speed bucket count: `6`
+- mu bucket count: `6`
+- blank unsupported failure reason count: `0`
+- insufficient accepted cells failure count: `9`
+- project artifact source mining run: `true`
+- project artifact scan: `true`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset source mining over fixed V0 template role-separated support counts materialization input result audit route
+- unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1857-executable-v2-support-first-source-mining-result-audit.json`
+- next: `m1857-executable-v2-support-first-source-mining-result-audit`
