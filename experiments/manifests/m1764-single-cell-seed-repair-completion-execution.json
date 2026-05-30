@@ -1,0 +1,172 @@
+{
+  "id": "m1764-single-cell-seed-repair-completion-execution",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_diagnostic_completion"
+    ],
+    "parent_dataset": [
+      "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+      "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/episode_rows.csv",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+      "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1763-seed-repair-completion-execution-cli-implementation.json"
+    ],
+    "parent_objective": [
+      "execute exactly one replacement-seed policy episode and write a completed provenance-aware public diagnostic artifact"
+    ],
+    "derived_from": [
+      "m1763-seed-repair-completion-execution-cli-implementation"
+    ],
+    "blocked_by": [
+      "M1756 remains 863/864 until the single repaired row is executed"
+    ],
+    "supersedes": [
+      "interpreting M1756 partial rows",
+      "manual row merge without provenance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1764-single-cell-seed-repair-completion-execution.md",
+  "public_gates": [
+    "M1764 must run only the M1762 fixed one-cell completion command",
+    "M1764 must use replacement seed 175760 for workload m1728-s4-02::L2_window_13_current_tiled",
+    "M1764 must write a fresh output directory with 864 completed rows and zero failure rows",
+    "M1764 must preserve seed-repair provenance with exactly one repaired row",
+    "M1764 must not train run replay run PPO promote use private holdout change actor inputs tune profiles rank controller families claim paper-level evidence or claim level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run more than the single replacement-seed workload cell",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_seed_repair_completion_execution",
+    "evidence_increment": "executes the single replacement-seed row and creates a candidate completed public diagnostic artifact",
+    "claim_scope": "public diagnostic completion execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if replacement-seed row fails",
+      "stop if final output is not 864 rows with zero failures",
+      "stop if seed-repair provenance is missing",
+      "stop if any actor/reward/dynamics/profile/spec change is required"
+    ],
+    "fallback_plan": [
+      "route to completion failure audit if the row fails",
+      "route to runner repair if provenance or aggregation fails",
+      "route to full same-protocol rerun design if one-cell completion is not auditable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1763 admits completion execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "complete revised scenario taxonomy artifact with one replacement-seed row",
+    "admission_evidence": [
+      "M1762 fixed the execution command and pass gates",
+      "M1763 implemented and tested the CLI without real policy rollout"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1764 run artifacts under runs/m1764_revised_scenario_taxonomy_single_seed_completion",
+      "M1764 documentation status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "episode count is 864",
+      "failure count is 0",
+      "exactly one seed repair row exists"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; completion execution does not prove history necessity.",
+    "history_necessity_tests": [
+      "execution must preserve profile controls for later audit"
+    ],
+    "temporal_evidence_window": "M1764 public diagnostic completion only.",
+    "negative_result_policy": "Classify completion failures as execution/sampling evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "one-cell completion execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The replacement seed 175760 can complete the M1756 revised scenario taxonomy matrix with explicit provenance and no scenario/profile changes.",
+  "success_criteria": [
+    "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json exists",
+    "episode_count is 864",
+    "failure_count is 0",
+    "seed_repair_applied row count is 1",
+    "replacement_eval_seed is 175760",
+    "metric_completeness_passed is true",
+    "guardrail_violation_count is 0",
+    "training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "completion summary is missing",
+    "replacement-seed row fails",
+    "final output has fewer than 864 rows or nonzero failure rows",
+    "seed-repair provenance is missing or not exactly one row",
+    "scenario specs or profile configs change",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.seed_repair_completion_execution --output-dir runs/m1764_revised_scenario_taxonomy_single_seed_completion --source-run-dir runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair --probe-rows runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv --scenario-specs runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_specs.json --executable-scenario-specs runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json --workload runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv --unsupported-features runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/unsupported_scenario_features.csv --workload-id m1728-s4-02::L2_window_13_current_tiled --original-eval-seed 175761 --replacement-eval-seed 175760 --expected-sampled-obstacle-label unavoidable --device cpu --next-blocker m1765-single-cell-seed-repair-completion-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_diagnostic_completion"
+  ],
+  "baseline_artifacts": [
+    "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+    "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/episode_rows.csv",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+    "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+  ],
+  "decision_rule": "M1764 passes if exactly one replacement-seed cell completes the 864-row public diagnostic artifact with provenance and no forbidden changes.",
+  "next_blocker": "m1764-single-cell-seed-repair-completion-execution"
+}

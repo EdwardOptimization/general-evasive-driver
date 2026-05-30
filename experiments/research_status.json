@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1771,
+    "completed": 1772,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+    "command_log": "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1762-single-cell-seed-repair-completion-execution-design"
+    "task_id": "m1763-seed-repair-completion-execution-cli-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1763-seed-repair-completion-execution-cli-implementation.json",
-    "hypothesis": "A minimal CLI can execute the later one-cell completion route while preserving seed-repair provenance and fixed inputs.",
-    "id": "m1763-seed-repair-completion-execution-cli-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement CLI and focused tests without running real policy rollout",
-    "priority": 17580,
+    "command": "see experiments/manifests/m1764-single-cell-seed-repair-completion-execution.json",
+    "hypothesis": "The replacement seed 175760 can complete the M1756 revised scenario taxonomy matrix with explicit provenance and no scenario/profile changes.",
+    "id": "m1764-single-cell-seed-repair-completion-execution",
+    "kind": "gate",
+    "notes": "Pending: execute exactly one replacement-seed row and write completed provenance-aware artifact",
+    "priority": 17590,
     "status": "pending",
-    "success_artifact": "docs/m1763-seed-repair-completion-execution-cli-implementation.md"
+    "success_artifact": "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json"
   },
   "updated_at_utc": "20260530T060232Z"
 }
