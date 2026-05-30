@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T075411Z
+- Generated at UTC: 20260530T075657Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1780 passes if it synthesizes the bounded-panel branch and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: pivot_to_role_specific_metric_scorecard_design
+- Decision reason: M1780 synthesizes M1770-M1779 and pivots to role-specific metric scorecard design with ranking still blocked
 
 ## Hypothesis
 
@@ -77,8 +77,19 @@ The M1770-M1779 metric-specific bounded-panel branch should synthesize before re
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1780-paper-route-metric-specific-bounded-panel-branch-synthesis
+- type: gate
+- checkpoint: docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_role_specific_metric_scorecard_design
+- reason: M1780 synthesizes M1770-M1779 and pivots to role-specific metric scorecard design with ranking still blocked
 
 ## Next Blocker
 
-m1780-paper-route-metric-specific-bounded-panel-branch-synthesis
+m1781-paper-route-role-specific-metric-scorecard-design

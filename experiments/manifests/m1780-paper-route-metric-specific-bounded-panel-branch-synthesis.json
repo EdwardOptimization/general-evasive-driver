@@ -182,6 +182,40 @@
     "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
     "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
+    "decision": "pivot_to_role_specific_metric_scorecard_design",
+    "workflow_synthesis_decision": "pivot",
+    "synthesized_range": "M1770-M1779",
+    "failure_taxonomy": [
+      "metric_artifact",
+      "behavior_regression",
+      "public_gate_overfit"
+    ],
+    "evidence_summary": "M1770-M1779 produced a complete bounded-panel infrastructure and M1777 execution artifact, then M1779 localized diffuse role/profile/metric outcome dominance.",
+    "supported_claim": "the bounded-panel branch is valid as public diagnostic execution and localization evidence.",
+    "falsified_claim": "the bounded panel is ready for global controller-family ranking or paper-level benchmark interpretation.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_role_specific_metric_scorecard",
+    "next_manifest": "experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1780 passes if it synthesizes the bounded-panel branch and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis"
+  "next_blocker": "m1781-paper-route-role-specific-metric-scorecard-design"
 }

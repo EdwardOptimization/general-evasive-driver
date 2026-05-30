@@ -29126,3 +29126,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.json`
 - next: `m1780-paper-route-metric-specific-bounded-panel-branch-synthesis`
+
+## M1780 Paper-Route Metric-Specific Bounded Panel Branch Synthesis
+
+- status: completed
+- decision: `pivot_to_role_specific_metric_scorecard_design`
+- workflow synthesis decision: `pivot`
+- artifact: `docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md`
+- synthesized range: `M1770-M1779`
+- next branch: `paper_route_role_specific_metric_scorecard`
+- failure taxonomy: `metric_artifact`, `behavior_regression`, `public_gate_overfit`
+- evidence summary: complete bounded-panel infrastructure and M1777 execution artifact followed by M1779 diffuse role/profile/metric outcome localization
+- supported claim: bounded-panel branch is valid as public diagnostic execution and localization evidence
+- falsified claim: bounded panel is ready for global controller-family ranking or paper-level benchmark interpretation
+- public gate overfit risk: `high`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- follow-up manifest: `experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json`
+- next: `m1781-paper-route-role-specific-metric-scorecard-design`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1788,
+    "completed": 1789,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
+    "command_log": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1779-metric-specific-bounded-panel-outcome-localization"
+    "task_id": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.json",
-    "hypothesis": "The M1770-M1779 metric-specific bounded-panel branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
-    "id": "m1780-paper-route-metric-specific-bounded-panel-branch-synthesis",
+    "command": "see experiments/manifests/m1781-paper-route-role-specific-metric-scorecard-design.json",
+    "hypothesis": "A role-specific scorecard can be designed from M1777/M1779 evidence before extraction or ranking.",
+    "id": "m1781-paper-route-role-specific-metric-scorecard-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1770-M1779 bounded-panel branch before repair or ranking",
-    "priority": 17750,
+    "notes": "Pending: design role-specific metric scorecard without rollout or ranking",
+    "priority": 17760,
     "status": "pending",
-    "success_artifact": "docs/m1780-paper-route-metric-specific-bounded-panel-branch-synthesis.md"
+    "success_artifact": "docs/m1781-paper-route-role-specific-metric-scorecard-design.md"
   },
-  "updated_at_utc": "20260530T075214Z"
+  "updated_at_utc": "20260530T075515Z"
 }
