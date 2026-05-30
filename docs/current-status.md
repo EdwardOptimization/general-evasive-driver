@@ -10718,5 +10718,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   advantage evidence.
 - M1694 routes to logging-only outcome-semantics instrumentation design before
   any ranking or paper-route comparison claim.
+- M1695 designs that instrumentation. It requires logging `termination_reason`,
+  `obstacle_passed_raw`, `completion_reason`, and `outcome_bucket` while keeping
+  reward, dynamics, termination behavior, policy behavior, and actor observation
+  shape unchanged.
+- M1695 decides that M1693 rows cannot be reliably relabeled because the
+  terminal state trigger was not logged. A later instrumented rerun is required.
 - Current next blocker:
-  `m1695-paper-route-controller-family-outcome-semantics-instrumentation-design`.
+  `m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation`.

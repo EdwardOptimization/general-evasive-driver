@@ -27132,3 +27132,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.json`
 - next: `m1695-paper-route-controller-family-outcome-semantics-instrumentation-design`
+
+## M1695 Paper-Route Controller-Family Outcome-Semantics Instrumentation Design
+
+- status: completed
+- decision: `outcome_semantics_instrumentation_design_admit_logging_implementation`
+- artifact: `docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md`
+- parent audit: `docs/m1694-paper-route-controller-family-full-rollout-result-audit.md`
+- missing M1693 fields: `termination_reason`, `obstacle_passed_raw`, `completion_reason`, `outcome_bucket`
+- designed termination reasons: `non_finite_state`, `off_track`, `obstacle_collision`, `speed_too_low`, `speed_too_high`, `yaw_rate_limit`
+- designed outcome buckets: `success_obstacle_pass`, `collision_failure`, reason-specific noncollision noncompletion buckets, `max_steps_noncompletion`, `other_terminated_noncompletion`
+- key constraint: instrumentation must be info/logging only and must not change actor observation, reward, dynamics, termination behavior, policy behavior, or profile configs
+- rerun policy: M1693 rows cannot be relabeled reliably; implement instrumentation first, then use a later instrumented rerun
+- supported: a concrete logging-only instrumentation implementation is justified
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.json`
+- next: `m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation`

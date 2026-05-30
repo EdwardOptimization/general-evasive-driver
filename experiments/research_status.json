@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1703,
+    "completed": 1704,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+    "command_log": "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1694-paper-route-controller-family-full-rollout-result-audit"
+    "task_id": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.json",
-    "hypothesis": "A logging-only termination/completion instrumentation design can make the M1693-style rollout interpretable without changing actor inputs or policy behavior.",
-    "id": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design",
-    "kind": "gate",
-    "notes": "Pending: design termination reason and completion outcome logging without actor input changes or ranking claims",
-    "priority": 16900,
+    "command": "see experiments/manifests/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.json",
+    "hypothesis": "Termination reason and outcome bucket logging can be implemented without changing actor inputs, reward, dynamics, termination behavior, or policy behavior.",
+    "id": "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement termination reason outcome bucket and outcome aggregates with tests and no full rollout",
+    "priority": 16910,
     "status": "pending",
-    "success_artifact": "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md"
+    "success_artifact": "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md"
   },
-  "updated_at_utc": "20260530T002149Z"
+  "updated_at_utc": "20260530T002549Z"
 }
