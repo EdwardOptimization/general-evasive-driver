@@ -27502,3 +27502,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated scale-up result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1715-paper-route-controller-family-calibrated-scale-up-execution.json`
 - next: `m1715-paper-route-controller-family-calibrated-scale-up-execution`
+
+## M1715 Paper-Route Controller-Family Calibrated Scale-Up Execution
+
+- status: completed
+- result class: `controller_family_calibrated_scale_up_execution_pass`
+- artifact: `runs/m1715_controller_family_calibrated_scale_up_execution/summary.json`
+- documentation: `docs/m1715-paper-route-controller-family-calibrated-scale-up-execution.md`
+- parent design: `docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md`
+- episode count: `864` / `864`
+- selected base specs: `18`
+- scale-up calibration specs: `72`
+- profiles: `12`
+- scale-up variants: `4`
+- failure count: `0`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- outcome buckets: success `98`, collision `45`, off-track noncollision noncompletion `721`
+- variant raw rates: original off-track `0.9306` collision `0.0370`; best-off-track off-track `0.8009` collision `0.0370`; collision-control off-track `0.7593` collision `0.0833`; mid off-track `0.8472` collision `0.0509`
+- supported: source-expanded calibrated scale-up execution path is clean and artifacts are ready for audit
+- unsupported: controller-family ranking, calibrated task-quality conclusion before M1716 audit, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.json`
+- next: `m1716-paper-route-controller-family-calibrated-scale-up-result-audit`

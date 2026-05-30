@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1714-paper-route-controller-family-calibrated-scale-up-execution-design
+m1715-paper-route-controller-family-calibrated-scale-up-execution
 ```
 
 Current next task:
 
 ```text
-m1715-paper-route-controller-family-calibrated-scale-up-execution
+m1716-paper-route-controller-family-calibrated-scale-up-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -52,10 +52,15 @@ profiles/variants present. M1713 audited the subset as clean and admitted
 execution design. M1714 designed measured scale-up execution over exactly those
 `864` public diagnostic episodes, requiring `scale_up_variant_label`
 preservation, variant/outcome/termination aggregates, and pre-registered
-collision/off-track tradeoff thresholds. The next task is M1715: execute the
-fixed M1712 scale-up matrix and write execution artifacts without training,
-replay, PPO, promotion, private holdout, actor-input changes, profile ranking,
-paper-level claims, or level3 self-identification claims.
+collision/off-track tradeoff thresholds. M1715 implemented the scale-up runner
+and executed the fixed M1712 matrix: `864/864` episodes, `0` failures, finite
+selected metrics, guardrail `0`, and complete scale-up variant/outcome/
+termination aggregates. Raw variant rates show original baseline off-track
+`0.9306`, best-off-track variant `0.8009`, collision-control variant `0.7593`,
+and mid variant `0.8472`; collision rates were `0.0370`, `0.0370`, `0.0833`,
+and `0.0509` respectively. The next task is M1716: audit these results under
+the M1714 pre-registered collision/off-track tradeoff thresholds before any
+task-quality conclusion, branch decision, or controller-family comparison.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

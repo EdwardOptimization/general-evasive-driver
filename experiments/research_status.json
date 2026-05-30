@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1723,
+    "completed": 1724,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
+    "command_log": "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design"
+    "task_id": "m1715-paper-route-controller-family-calibrated-scale-up-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1715-paper-route-controller-family-calibrated-scale-up-execution.json",
-    "hypothesis": "The M1712 source-expanded calibrated scale-up matrix can be executed as a fixed public diagnostic run with complete variant/outcome aggregates and no guardrail violations.",
-    "id": "m1715-paper-route-controller-family-calibrated-scale-up-execution",
+    "command": "see experiments/manifests/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.json",
+    "hypothesis": "M1715 can be audited under the pre-registered M1714 collision/off-track rules to decide whether the source-expanded calibration signal is positive, tradeoff-only, or needs repair.",
+    "id": "m1716-paper-route-controller-family-calibrated-scale-up-result-audit",
     "kind": "gate",
-    "notes": "Pending: run 864 public diagnostic episodes and write scale-up variant outcome termination aggregates",
-    "priority": 17100,
+    "notes": "Pending: audit baseline-vs-calibrated off-track improvement and collision-delta tradeoffs before branch decision",
+    "priority": 17110,
     "status": "pending",
-    "success_artifact": "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json"
+    "success_artifact": "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md"
   },
-  "updated_at_utc": "20260530T014812Z"
+  "updated_at_utc": "20260530T015436Z"
 }
