@@ -16,6 +16,8 @@ from autodrift.controller_profile_runtime import (
 )
 from autodrift.controller_profiles import HUMAN_VIEW_OBS_DIM, PREVIOUS_COMMAND_INDICES, get_profile
 from autodrift.env import AutoDriftEnv
+from autodrift.evaluate import run_episode_with_policy
+from autodrift.policies import AEBPolicy
 
 
 L0_CONFIG = "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json"
@@ -66,6 +68,28 @@ def test_profile_runtime_wrapper_masks_env_reset_and_step() -> None:
     assert np.all(obs[list(PREVIOUS_COMMAND_INDICES)] == 0.0)
     obs, *_ = wrapped.step(np.array([0.5, 0.2, -0.3], dtype=np.float32))
     assert np.all(obs[list(PREVIOUS_COMMAND_INDICES)] == 0.0)
+
+
+def test_profile_runtime_wrapper_exposes_base_env_config() -> None:
+    config = read_json(L0_CONFIG)
+    env = AutoDriftEnv(build_env_config(config["env"]))
+    wrapped = wrap_env_with_profile_mask(env, config)
+
+    assert isinstance(wrapped, ControllerProfileObservationWrapper)
+    assert wrapped.config is env.config
+
+
+def test_wrapped_env_episode_outcome_metrics_use_base_config() -> None:
+    config = read_json(L0_CONFIG)
+    config["env"]["max_steps"] = 1
+    config["env"]["obstacle"]["enabled"] = False
+    env = AutoDriftEnv(build_env_config(config["env"]))
+    wrapped = wrap_env_with_profile_mask(env, config)
+
+    row = run_episode_with_policy(wrapped, AEBPolicy(), "aeb", seed=1192)
+
+    assert row["dt"] == config["env"]["dt"]
+    assert row["track_width"] == config["env"]["track_width"]
 
 
 def test_unmasked_profile_returns_original_env_instance() -> None:

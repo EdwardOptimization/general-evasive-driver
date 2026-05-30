@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit
+m1755-controller-profile-wrapper-config-proxy-repair
 ```
 
 Current next task:
 
 ```text
-m1755-controller-profile-wrapper-config-proxy-repair
+m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair
 ```
 
-M1754 audits the M1753 failure and routes to a narrow infrastructure repair.
-The dominant failure is deterministic wrapper/evaluator plumbing:
-`ControllerProfileObservationWrapper` does not expose `env.config`, which the
-outcome metric evaluator needs. M1755 should add a wrapper `config` proxy and
-focused tests without changing actor inputs, rewards, termination behavior,
-profile configs, seeds, or scenario specs. The single reset-time sampling
-failure is deferred until after the wrapper repair and rerun.
+M1755 repairs the dominant M1753 wrapper/evaluator plumbing failure by adding a
+`config` proxy to `ControllerProfileObservationWrapper`. Red tests reproduced
+the failure before the fix (`2 failed`) and passed after it (`2 passed`);
+affected tests passed (`37 passed`) and the full suite passed (`1709 passed`,
+`4 warnings`). M1756 should rerun the same fixed revised public diagnostic
+execution to verify the AttributeError count is zero and expose any remaining
+sampling failures.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -11009,5 +11009,10 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   proxy before touching seeds/specs or interpreting the single sampling failure.
   The next milestone is a no-rollout focused repair with wrapper/evaluator
   tests.
+- M1755 adds the wrapper `config` proxy and focused evaluator tests. It does not
+  run the full revised execution, train, replay, use PPO, promote, or change
+  actor inputs, rewards, dynamics, termination behavior, profile configs, seeds,
+  or scenario specs. The next milestone reruns the same M1753 protocol in a
+  fresh output directory.
 - Current next blocker:
-  `m1755-controller-profile-wrapper-config-proxy-repair`.
+  `m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair`.

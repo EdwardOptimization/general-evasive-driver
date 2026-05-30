@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1763,
+    "completed": 1764,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+    "command_log": "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit"
+    "task_id": "m1755-controller-profile-wrapper-config-proxy-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json",
-    "hypothesis": "Adding a config proxy to ControllerProfileObservationWrapper fixes the dominant M1753 evaluator plumbing failure without changing policy behavior.",
-    "id": "m1755-controller-profile-wrapper-config-proxy-repair",
-    "kind": "infrastructure",
-    "notes": "Pending: add wrapper config proxy and focused evaluator tests before rerun",
-    "priority": 17500,
+    "command": "see experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json",
+    "hypothesis": "After the wrapper config proxy repair, the fixed revised public diagnostic matrix can rerun without the M1753 AttributeError failures.",
+    "id": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair",
+    "kind": "gate",
+    "notes": "Pending: rerun fixed revised public diagnostic matrix after wrapper repair",
+    "priority": 17510,
     "status": "pending",
-    "success_artifact": "docs/m1755-controller-profile-wrapper-config-proxy-repair.md"
+    "success_artifact": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json"
   },
-  "updated_at_utc": "20260530T054043Z"
+  "updated_at_utc": "20260530T054530Z"
 }

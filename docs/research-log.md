@@ -28352,3 +28352,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: partial-row interpretation, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json`
 - next: `m1755-controller-profile-wrapper-config-proxy-repair`
+
+## M1755 Controller Profile Wrapper Config Proxy Repair
+
+- status: completed
+- decision: `wrapper_config_proxy_repair_admit_revised_execution_rerun`
+- artifact: `docs/m1755-controller-profile-wrapper-config-proxy-repair.md`
+- parent audit: `docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md`
+- red test before: `2 failed`
+- focused red-green tests after: `2 passed`
+- affected tests: `37 passed`
+- full test suite: `1709 passed`, `4 warnings`
+- compileall passed: `true`
+- research validation passed: `true`
+- config proxy added: `true`
+- wrapped env config identity tested: `true`
+- wrapped env outcome metric tested: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile configs changed: `false`
+- scenario specs changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: wrapper/evaluator infrastructure repair
+- unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.json`
+- next: `m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair`

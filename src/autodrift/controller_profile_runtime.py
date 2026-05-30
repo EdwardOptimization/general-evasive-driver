@@ -97,6 +97,10 @@ class ControllerProfileObservationWrapper(gym.ObservationWrapper):
         self.mask_spec = mask_spec
         self.observation_space = env.observation_space
 
+    @property
+    def config(self):
+        return self.env.config
+
     def observation(self, observation: np.ndarray) -> np.ndarray:
         return self.mask_spec.apply(observation)
 

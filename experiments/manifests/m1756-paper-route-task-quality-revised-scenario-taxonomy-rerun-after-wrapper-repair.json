@@ -1,0 +1,166 @@
+{
+  "id": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_specs.json",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json"
+    ],
+    "parent_objective": [
+      "rerun revised scenario taxonomy execution after wrapper config proxy repair"
+    ],
+    "derived_from": [
+      "m1755-controller-profile-wrapper-config-proxy-repair"
+    ],
+    "blocked_by": [
+      "need rerun to verify wrapper repair removes M1753 AttributeError failures"
+    ],
+    "supersedes": [
+      "interpreting M1753 partial rows after wrapper repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair.md",
+  "public_gates": [
+    "M1756 must rerun the same fixed M1753 protocol after wrapper repair",
+    "M1756 must write to a fresh output dir and preserve M1753 failed artifacts",
+    "M1756 must verify AttributeError count is zero",
+    "M1756 must defer interpretation to a later audit",
+    "M1756 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_execution_wrapper_repair_rerun",
+    "evidence_increment": "reruns revised execution to verify wrapper repair and expose any remaining sampling failures",
+    "claim_scope": "public diagnostic execution rerun only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if AttributeError failures remain",
+      "stop if episode_count != 864 or failure_count != 0",
+      "stop if metric_completeness_failure_count != 0",
+      "stop if unsupported faults are treated as covered"
+    ],
+    "fallback_plan": [
+      "route to wrapper repair audit if AttributeError remains",
+      "route to sampling failure audit if only reset-time sampling failures remain",
+      "route to result audit if execution passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1755 admits rerun after wrapper repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "rerun revised scenario taxonomy diagnostic execution after wrapper repair",
+    "admission_evidence": [
+      "M1755 red/green tests pass and full test suite passes"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1756 execution artifacts under runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair",
+      "M1756 status queue scoreboard research log and review",
+      "one follow-up result-audit or failure-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "AttributeError count is zero",
+      "execution pass/fail is recorded without interpreting profile rank",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1756 is task-quality diagnostic execution and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "execution matrix preserves L1 L2-current-tiled L2 history-window L3-online and L3-reset controls for later audit"
+    ],
+    "temporal_evidence_window": "M1743 revised semantics matrix after wrapper repair.",
+    "negative_result_policy": "If revised taxonomy outcomes are weak or dominated, record as task-quality evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "revised scenario-taxonomy public diagnostic execution rerun result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "After the wrapper config proxy repair, the fixed revised public diagnostic matrix can rerun without the M1753 AttributeError failures.",
+  "success_criteria": [
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json exists",
+    "attribute_error_count == 0",
+    "episode_count == 864",
+    "failure_count == 0",
+    "metric_completeness_passed == true",
+    "metric_completeness_failure_count == 0",
+    "guardrail_violation_count == 0",
+    "training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "AttributeError failures remain",
+    "episode_count != 864",
+    "failure_count != 0",
+    "metric_completeness_failure_count != 0",
+    "required artifacts are missing",
+    "training replay PPO private holdout promotion actor-input changes ranking paper-level or level3 claims occur"
+  ],
+  "commands": [
+    {
+      "name": "rerun",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.task_quality_scenario_taxonomy_execution --output-dir runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair --scenario-specs runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_specs.json --executable-scenario-specs runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json --workload runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv --unsupported-features runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/unsupported_scenario_features.csv --eval-seed-base 175300 --device cpu --no-resume --next-blocker m1757-paper-route-task-quality-revised-scenario-taxonomy-rerun-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
+    "runs/m1753_revised_scenario_taxonomy_execution/summary.json"
+  ],
+  "decision_rule": "M1756 passes if the fixed revised execution reruns cleanly after wrapper repair, with no AttributeError failures and clean guardrails.",
+  "next_blocker": "m1756-paper-route-task-quality-revised-scenario-taxonomy-rerun-after-wrapper-repair"
+}
