@@ -1,0 +1,162 @@
+{
+  "id": "m1694-paper-route-controller-family-full-rollout-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1693_controller_family_full_rollout_execution/summary.json",
+      "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+      "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv",
+      "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json"
+    ],
+    "parent_objective": [
+      "audit the completed 864-cell public controller-family rollout before interpretation or next route"
+    ],
+    "derived_from": [
+      "m1693-paper-route-controller-family-full-rollout-execution"
+    ],
+    "blocked_by": [
+      "need result audit before interpreting controller-family comparison aggregates or selecting the next paper-route branch"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M1693 raw aggregates",
+      "direct recurrent-advantage claim from M1693 raw aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+  "public_gates": [
+    "M1694 must audit M1693 required artifacts, counts, finite metrics, failure rows, and guardrails",
+    "M1694 may inspect diagnostic profile/spec/stratum/comparison aggregates but must not treat them as private-holdout or paper-level evidence",
+    "M1694 must classify whether the rollout is a clean execution pass, an execution artifact failure, or a task-quality/comparison-semantics issue",
+    "M1694 must route to the next explicit design, synthesis, repair, or scenario-quality audit before any ranking claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles from M1693 diagnostics",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_full_public_rollout_result_audit",
+    "evidence_increment": "audits the first full public controller-family measured rollout before interpretation",
+    "claim_scope": "result audit and next-route decision only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1693 required artifacts are incomplete",
+      "stop if M1693 finite-metric or guardrail pass cannot be verified",
+      "stop if comparison aggregates are being interpreted without task-quality caveats",
+      "stop if next route is not explicit"
+    ],
+    "fallback_plan": [
+      "route to execution-artifact repair if artifacts are incomplete",
+      "route to task-quality audit if rollout is complete but diagnostics are not interpretable",
+      "route to branch synthesis or next measured protocol design if rollout is clean and interpretable enough for the next stage"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1693 completes the first full 864-cell public rollout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit full public rollout result",
+    "admission_evidence": [
+      "M1693 completed the materialized 864-cell public rollout with summary and aggregate artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1694 result audit document",
+      "M1694 status queue scoreboard research log and review",
+      "one follow-up design synthesis repair or task-quality manifest"
+    ],
+    "next_stage_criteria": [
+      "M1693 artifact integrity and guardrails are audited",
+      "diagnostic comparison caveats are stated",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1694 audits public rollout diagnostics but does not by itself prove history necessity.",
+    "history_necessity_tests": [
+      "audit L1, L2-current-tiled, L3-online, and L3-reset comparison rows as diagnostic only"
+    ],
+    "temporal_evidence_window": "M1693 public rollout artifacts.",
+    "negative_result_policy": "If reset/current-tiled controls match or beat history profiles, record this as task-quality or history-necessity evidence gap instead of weakening the claim standard.",
+    "allowed_claims": [
+      "public rollout result audit",
+      "next-route decision",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1693 can be audited as a clean public execution pass and routed to the next paper-route step without overclaiming raw controller-family diagnostics.",
+  "success_criteria": [
+    "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md exists",
+    "M1693 required artifacts are verified",
+    "M1693 counts finite metrics failure rows and guardrails are audited",
+    "diagnostic aggregate interpretation caveats are recorded",
+    "next route is explicit",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit omits required M1693 artifacts",
+    "audit interprets M1693 raw diagnostics as controller-family ranking or paper-level evidence",
+    "audit ignores reset/current-tiled controls",
+    "audit routes to training or profile tuning without a design milestone",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1693 full rollout artifacts and write next-route decision"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1693_controller_family_full_rollout_execution/summary.json",
+    "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+    "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+    "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv",
+    "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv",
+    "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv",
+    "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv"
+  ],
+  "decision_rule": "M1694 passes if it audits M1693 as a clean execution result or records explicit artifact/task-quality caveats and routes to the next milestone without overclaiming.",
+  "next_blocker": "m1694-paper-route-controller-family-full-rollout-result-audit"
+}

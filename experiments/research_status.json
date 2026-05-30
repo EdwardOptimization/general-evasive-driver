@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1701,
+    "completed": 1702,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+    "command_log": "docs/m1693-paper-route-controller-family-full-rollout-execution.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1693_controller_family_full_rollout_execution",
     "status": "completed",
-    "task_id": "m1692-paper-route-controller-family-full-rollout-execution-design"
+    "task_id": "m1693-paper-route-controller-family-full-rollout-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json",
-    "hypothesis": "The 864-cell materialized public controller-family workload can execute resumably with finite metrics and clean guardrails.",
-    "id": "m1693-paper-route-controller-family-full-rollout-execution",
+    "command": "see experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json",
+    "hypothesis": "M1693 can be audited as a clean public execution pass and routed to the next paper-route step without overclaiming raw controller-family diagnostics.",
+    "id": "m1694-paper-route-controller-family-full-rollout-result-audit",
     "kind": "gate",
-    "notes": "Pending: implement and run resumable full public rollout",
-    "priority": 16880,
+    "notes": "Pending: audit full rollout artifacts diagnostic comparison caveats and next route before ranking claims",
+    "priority": 16890,
     "status": "pending",
-    "success_artifact": "runs/m1693_controller_family_full_rollout_execution/summary.json"
+    "success_artifact": "docs/m1694-paper-route-controller-family-full-rollout-result-audit.md"
   },
-  "updated_at_utc": "20260530T000524Z"
+  "updated_at_utc": "20260530T001516Z"
 }

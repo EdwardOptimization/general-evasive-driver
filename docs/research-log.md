@@ -27098,3 +27098,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking before audit, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json`
 - next: `m1693-paper-route-controller-family-full-rollout-execution`
+
+## M1693 Paper-Route Controller-Family Full Rollout Execution
+
+- status: completed
+- result class: `controller_family_full_rollout_execution_pass`
+- artifact: `runs/m1693_controller_family_full_rollout_execution/summary.json`
+- documentation: `docs/m1693-paper-route-controller-family-full-rollout-execution.md`
+- executable workload: `runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv`
+- episodes / profiles / specs: `864` / `12` / `72`
+- failure count: `0`
+- selected metrics finite: `true`
+- guardrail violation count: `0`
+- aggregate rows: profile `12`, spec `72`, stratum `5`, comparison `11`
+- required artifacts: `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `stratum_aggregate.csv`, `comparison_aggregate.csv`, `failure_rows.csv`, `run_state.json`, `summary.json`
+- supported: the materialized public workload executes end-to-end with resumable artifacts and clean no-training/no-replay/no-PPO/no-promotion/no-private-holdout/no-actor-input-change guardrails
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json`
+- next: `m1694-paper-route-controller-family-full-rollout-result-audit`

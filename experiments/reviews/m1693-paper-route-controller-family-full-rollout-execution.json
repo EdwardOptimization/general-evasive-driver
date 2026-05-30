@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M1693 completes the 864 episode public controller-family rollout with 12 profiles 72 specs zero failures finite selected metrics and clean no-ranking guardrails",
+  "failure_criteria": [
+    "required artifacts are missing",
+    "episode count profile count or spec count is below target without recorded failure",
+    "runner exceptions are missing from failure_rows",
+    "selected metrics are non-finite",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "execution claims controller-family ranking or level3 self-ID"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not drop failed cells silently",
+    "do not reduce the 864-cell workload silently",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260530T001740Z",
+  "hypothesis": "The 864-cell materialized public controller-family workload can execute resumably with finite metrics and clean guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "need public 864-cell rollout execution before audit and interpretation"
+    ],
+    "derived_from": [
+      "m1692-paper-route-controller-family-full-rollout-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_objective": [
+      "execute resumable 864-cell public controller-family rollout"
+    ],
+    "supersedes": [
+      "manual untracked rollout execution",
+      "non-resumable full rollout execution",
+      "direct controller-family ranking without audit"
+    ]
+  },
+  "milestone": "m1693-paper-route-controller-family-full-rollout-execution",
+  "next_blocker": "m1694-paper-route-controller-family-full-rollout-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_family_full_rollout_execution_pass",
+  "public_gates": [
+    "M1693 may run public environment rollout for exactly the materialized 864-cell workload",
+    "M1693 must be resumable and must not drop failed cells silently",
+    "M1693 must write episode profile spec stratum comparison failure and run-state artifacts",
+    "M1693 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1693 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1693_controller_family_full_rollout_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controller_family_full_rollout_execution_pass",
+    "milestone": "m1693-paper-route-controller-family-full-rollout-execution",
+    "reason": "M1693 completes the 864 episode public controller-family rollout with 12 profiles 72 specs zero failures finite selected metrics and clean no-ranking guardrails",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1693_controller_family_full_rollout_execution/summary.json exists",
+    "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/run_state.json exists",
+    "episode_count == 864",
+    "profile_count == 12",
+    "spec_count == 72",
+    "failure_count == 0",
+    "selected metrics are finite",
+    "guardrail_violation_count == 0",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

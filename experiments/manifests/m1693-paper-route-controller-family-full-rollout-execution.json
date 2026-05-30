@@ -193,6 +193,37 @@
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1693_controller_family_full_rollout_execution/summary.json",
+    "doc": "docs/m1693-paper-route-controller-family-full-rollout-execution.md",
+    "result_class": "controller_family_full_rollout_execution_pass",
+    "episode_count": 864,
+    "target_episode_count": 864,
+    "profile_count": 12,
+    "target_profile_count": 12,
+    "spec_count": 72,
+    "target_spec_count": 72,
+    "failure_count": 0,
+    "all_selected_metrics_finite": true,
+    "profile_aggregate_rows": 12,
+    "spec_aggregate_rows": 72,
+    "stratum_aggregate_rows": 5,
+    "comparison_aggregate_rows": 11,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1694-paper-route-controller-family-full-rollout-result-audit.json"
+  },
   "decision_rule": "M1693 passes if it completes the 864-cell public rollout with finite metrics and clean guardrails, then routes to result audit.",
-  "next_blocker": "m1693-paper-route-controller-family-full-rollout-execution"
+  "next_blocker": "m1694-paper-route-controller-family-full-rollout-result-audit"
 }

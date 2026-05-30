@@ -1,0 +1,12 @@
+comparison,left_group,right_group,left_episode_count,right_episode_count,success_rate_delta,collision_rate_delta,clearance_margin_mean_delta,return_mean_delta,diagnostic_only_no_ranking_claim
+L2_window_13_normal_minus_current_tiled,L2_window_13,L2_window_13_current_tiled,72,72,0.0,0.013888888888888888,-1.5975420007176115,1.4404455223431825,True
+L2_window_25_normal_minus_current_tiled,L2_window_25,L2_window_25_current_tiled,72,72,0.0,0.0,-0.5270923711730529,0.17814042378113015,True
+L2_window_50_normal_minus_current_tiled,L2_window_50,L2_window_50_current_tiled,72,72,0.0,0.0,0.7349256270164481,-0.131496663670438,True
+L2_window_100_normal_minus_current_tiled,L2_window_100,L2_window_100_current_tiled,72,72,0.0,0.027777777777777776,-0.4275100762489341,-0.9019393590663505,True
+L3_online_minus_L3_reset_control,L3_online_gru,L3_reset_control_corrected,72,72,-0.06944444444444445,0.027777777777777776,-0.1288388238632141,-3.4996858494262,True
+L3_online_minus_best_L2_normal,L3_online_gru,L2_window_50,72,72,0.16666666666666666,0.09722222222222222,-4.789412767972982,30.54079473524987,True
+L3_online_minus_all_L2,L3_online_gru,all_L2,72,576,0.16666666666666666,0.0920138888888889,-4.368551570810272,30.319996455385322,True
+L1_one_step_minus_history_capable,L1_one_step,L2_L3,72,648,-0.004629629629629629,0.16512345679012347,-2.4910475544872135,8.099006282794132,True
+task_family_T4_minus_T5,T4,T5,432,432,-0.02314814814814815,-0.05092592592592593,6.287429619525997,0.9804387393385241,True
+explicit_window_subset_minus_all_72_specs,explicit_window_subset,all_72_specs,396,864,0.00841750841750842,0.016624579124579125,-2.2126205281379683,-0.07167834470681456,True
+mapping_window_unspecified_minus_all_72_specs,mapping_window_unspecified,all_72_specs,468,864,-0.007122507122507119,-0.014066951566951567,1.8722173699628968,0.060650907059610404,True

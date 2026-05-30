@@ -10696,5 +10696,17 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1692 designs resumable 864-cell public rollout execution with incremental
   episode rows, failure rows, run state, profile/spec/stratum/comparison
   aggregates, finite metric checks, and no-ranking claim boundary.
+- M1693 executes the full `72 x 12 = 864` public controller-family rollout.
+  Result class: `controller_family_full_rollout_execution_pass`.
+- M1693 counts: episodes `864`, profiles `12`, specs `72`, failures `0`,
+  selected metrics finite `true`, guardrail violations `0`.
+- M1693 required artifacts exist under
+  `runs/m1693_controller_family_full_rollout_execution/`: `summary.json`,
+  `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`,
+  `stratum_aggregate.csv`, `comparison_aggregate.csv`, `failure_rows.csv`, and
+  `run_state.json`.
+- M1693 is execution evidence only. Raw profile/comparison diagnostics are not
+  controller-family ranking, paper-level evidence, private-holdout evidence, or
+  level3 self-identification evidence until audited.
 - Current next blocker:
-  `m1693-paper-route-controller-family-full-rollout-execution`.
+  `m1694-paper-route-controller-family-full-rollout-result-audit`.
