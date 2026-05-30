@@ -28981,3 +28981,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.json`
 - next: `m1775-paper-route-metric-specific-bounded-panel-measured-execution-design`
+
+## M1775 Paper-Route Metric-Specific Bounded Panel Measured Execution Design
+
+- status: completed
+- decision: `bounded_panel_measured_execution_design_admit_adapter_implementation`
+- artifact: `docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md`
+- bounded panel specs: `runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json`
+- bounded panel matrix: `runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv`
+- planned output dir: `runs/m1777_metric_specific_bounded_panel_measured_execution`
+- planned eval seed base: `177700`
+- target episode count: `288`
+- target profile count: `12`
+- target bounded panel spec count: `24`
+- target role panel count: `4`
+- existing executor directly compatible: `false`
+- adapter required: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: bounded-panel measured execution protocol and explicit adapter requirement before rollout
+- unsupported: measured rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1776-metric-specific-bounded-panel-execution-adapter-implementation.json`
+- next: `m1776-metric-specific-bounded-panel-execution-adapter-implementation`

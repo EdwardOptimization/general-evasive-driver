@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1783,
+    "completed": 1784,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
+    "command_log": "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit"
+    "task_id": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed over the fixed M1771 bounded panel before any rollout.",
-    "id": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded-panel measured execution protocol without rollout",
-    "priority": 17700,
+    "command": "see experiments/manifests/m1776-metric-specific-bounded-panel-execution-adapter-implementation.json",
+    "hypothesis": "A bounded-panel measured execution adapter can be implemented and tested without running real rollout.",
+    "id": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement bounded-panel execution adapter with focused tests and no real rollout",
+    "priority": 17710,
     "status": "pending",
-    "success_artifact": "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md"
+    "success_artifact": "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md"
   },
-  "updated_at_utc": "20260530T072816Z"
+  "updated_at_utc": "20260530T073041Z"
 }

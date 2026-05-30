@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T072949Z
+- Generated at UTC: 20260530T073531Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1775 passes if it pre-registers a complete bounded-panel measured execution protocol before any reset or rollout.
+- Promotion decision: bounded_panel_measured_execution_design_admit_adapter_implementation
+- Decision reason: M1775 designs 288-cell bounded-panel measured execution and routes to adapter implementation before rollout
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ A measured execution protocol can be designed over the fixed M1771 bounded panel
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1775-paper-route-metric-specific-bounded-panel-measured-execution-design
+- type: gate
+- checkpoint: docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_measured_execution_design_admit_adapter_implementation
+- reason: M1775 designs 288-cell bounded-panel measured execution and routes to adapter implementation before rollout
 
 ## Next Blocker
 
-m1775-paper-route-metric-specific-bounded-panel-measured-execution-design
+m1776-metric-specific-bounded-panel-execution-adapter-implementation

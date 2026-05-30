@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1775 passes if it pre-registers a complete bounded-panel measured execution protocol before any reset or rollout.",
+  "decision_reason": "M1775 designs 288-cell bounded-panel measured execution and routes to adapter implementation before rollout",
   "failure_criteria": [
     "design document is missing",
     "design omits exact input paths output dir seed base metric completeness or required artifacts",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T072949Z",
+  "generated_at_utc": "20260530T073531Z",
   "hypothesis": "A measured execution protocol can be designed over the fixed M1771 bounded panel before any rollout.",
   "lineage": {
     "blocked_by": [
@@ -58,9 +58,9 @@
     ]
   },
   "milestone": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
-  "next_blocker": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
+  "next_blocker": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "bounded_panel_measured_execution_design_admit_adapter_implementation",
   "public_gates": [
     "M1775 must pre-register exact bounded-panel specs matrix output directory and seed base",
     "M1775 must identify whether existing execution infrastructure can run 24-spec 288-cell bounded panels or requires adapter implementation",
@@ -68,7 +68,20 @@
     "M1775 must keep execution interpretation deferred to a later audit",
     "M1775 must not run rollout train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "bounded_panel_measured_execution_design_admit_adapter_implementation",
+    "milestone": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design",
+    "reason": "M1775 designs 288-cell bounded-panel measured execution and routes to adapter implementation before rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md exists",
     "design fixes bounded panel specs matrix output dir and seed base",
