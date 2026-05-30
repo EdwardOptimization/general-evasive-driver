@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1717-paper-route-controller-family-task-quality-scale-up-synthesis
+m1718-paper-route-controller-family-off-track-dominance-localization
 ```
 
 Current next task:
 
 ```text
-m1718-paper-route-controller-family-off-track-dominance-localization
+m1719-paper-route-controller-family-off-track-dominance-localization-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -70,7 +70,12 @@ claims because off-track remains dominant. M1717 synthesized the scale-up branch
 and pivots to `paper_route_controller_family_task_quality_repair`: the next
 task is M1718, a no-rollout localization pass over existing M1715 episode rows
 to identify which variant/source/task/profile slices drive off-track dominance
-before any repair design or controller-family comparison.
+before any repair design or controller-family comparison. M1718 materialized
+those localization artifacts: `60` variant-source rows, `8` variant-task rows,
+`48` variant-profile control rows, `15` source-task rows, and `48` repair target
+slices under the `off_track>=0.80` and `collision<=0.10` rule, with guardrail
+`0`. The next task is M1719: audit whether these targets are localized enough
+for a repair panel or diffuse enough to require source-distribution redesign.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

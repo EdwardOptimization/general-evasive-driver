@@ -27560,3 +27560,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
 - follow-up manifest: `experiments/manifests/m1718-paper-route-controller-family-off-track-dominance-localization.json`
 - next: `m1718-paper-route-controller-family-off-track-dominance-localization`
+
+## M1718 Paper-Route Controller-Family Off-Track Dominance Localization
+
+- status: completed
+- result class: `off_track_dominance_localization_pass`
+- artifact: `runs/m1718_off_track_dominance_localization/summary.json`
+- documentation: `docs/m1718-paper-route-controller-family-off-track-dominance-localization.md`
+- parent synthesis: `docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md`
+- episode rows audited: `864`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- aggregate rows: variant-source `60`, variant-task `8`, variant-profile `48`, source-task `15`, profile-outcome `23`
+- repair target slices: `48`
+- target slice counts: variant-source `34`, source-task `10`, variant-task `4`
+- top repair target: `mid_calibration_variant::capability_step_down|t5_near_boundary_warmup`, off-track `1.0000`, collision `0.0000`
+- supported: M1715 off-track dominance can be localized for repair audit without new rollout
+- unsupported: controller-family ranking, final repair design, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.json`
+- next: `m1719-paper-route-controller-family-off-track-dominance-localization-result-audit`

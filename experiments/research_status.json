@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1726,
+    "completed": 1727,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+    "command_log": "runs/m1718_off_track_dominance_localization/summary.json",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis"
+    "task_id": "m1718-paper-route-controller-family-off-track-dominance-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1718-paper-route-controller-family-off-track-dominance-localization.json",
-    "hypothesis": "Existing M1715 episode rows can localize which variant/source/profile slices drive remaining off-track dominance before repair design.",
-    "id": "m1718-paper-route-controller-family-off-track-dominance-localization",
+    "command": "see experiments/manifests/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.json",
+    "hypothesis": "M1718 localization can be audited to decide whether off-track dominance is localized enough to design a repaired task-quality panel.",
+    "id": "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit",
     "kind": "gate",
-    "notes": "Pending: materialize no-rollout variant-source-task-profile aggregates and repair target slices",
-    "priority": 17130,
+    "notes": "Pending: audit repair target concentration and route to task-quality repair or source-distribution redesign",
+    "priority": 17140,
     "status": "pending",
-    "success_artifact": "runs/m1718_off_track_dominance_localization/summary.json"
+    "success_artifact": "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md"
   },
-  "updated_at_utc": "20260530T020133Z"
+  "updated_at_utc": "20260530T020619Z"
 }
