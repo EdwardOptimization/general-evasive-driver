@@ -148,6 +148,43 @@
     "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
     "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
+    "decision": "calibrated_scale_up_execution_design_admit_measured_execution",
+    "execution_input_matrix": "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv",
+    "execution_input_specs": "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_calibration_specs.json",
+    "planned_episode_count": 864,
+    "planned_scale_up_calibration_spec_count": 72,
+    "planned_profile_count": 12,
+    "required_variant_aggregate": "scale_up_variant_aggregate.csv",
+    "required_outcome_aggregates": [
+      "outcome_aggregate.csv",
+      "termination_reason_aggregate.csv",
+      "profile_outcome_aggregate.csv"
+    ],
+    "pre_registered_audit_thresholds": {
+      "execution_episode_count": 864,
+      "failure_count": 0,
+      "guardrail_violation_count": 0,
+      "interpretable_off_track_rate": 0.7,
+      "weak_offtrack_improvement": 0.1,
+      "max_collision_delta": 0.05,
+      "repair_off_track_rate": 0.8
+    },
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1715-paper-route-controller-family-calibrated-scale-up-execution.json"
+  },
   "decision_rule": "M1714 passes if it designs calibrated scale-up execution while preserving task-quality claim boundaries.",
-  "next_blocker": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design"
+  "next_blocker": "m1715-paper-route-controller-family-calibrated-scale-up-execution"
 }

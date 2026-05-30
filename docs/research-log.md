@@ -27484,3 +27484,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated scale-up result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.json`
 - next: `m1714-paper-route-controller-family-calibrated-scale-up-execution-design`
+
+## M1714 Paper-Route Controller-Family Calibrated Scale-Up Execution Design
+
+- status: completed
+- decision: `calibrated_scale_up_execution_design_admit_measured_execution`
+- artifact: `docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md`
+- parent audit: `docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md`
+- execution input matrix: `runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv`
+- planned episodes: `864`
+- planned scale-up calibration specs: `72`
+- profiles: `12`
+- required episode identifiers: `scale_up_workload_id`, `calibration_workload_id`, `calibration_spec_id`, `scale_up_variant_label`
+- required aggregates: `scale_up_variant_aggregate.csv`, `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`
+- M1716 audit thresholds: execution count `864`, failure count `0`, finite metrics, guardrails `0`, interpretable calibrated variant off-track rate `<=0.70`, weak off-track improvement `>=0.10`, collision delta `<=0.05`
+- supported: measured source-expanded calibrated scale-up execution is admitted
+- unsupported: controller-family ranking, calibrated scale-up result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1715-paper-route-controller-family-calibrated-scale-up-execution.json`
+- next: `m1715-paper-route-controller-family-calibrated-scale-up-execution`

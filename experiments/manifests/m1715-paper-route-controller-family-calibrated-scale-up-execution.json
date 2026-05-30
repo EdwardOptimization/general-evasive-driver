@@ -1,0 +1,184 @@
+{
+  "id": "m1715-paper-route-controller-family-calibrated-scale-up-execution",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_calibration_specs.json",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute measured source-expanded calibrated scale-up over fixed 864-cell matrix"
+    ],
+    "derived_from": [
+      "m1714-paper-route-controller-family-calibrated-scale-up-execution-design"
+    ],
+    "blocked_by": [
+      "need measured execution before scale-up result audit"
+    ],
+    "supersedes": [
+      "direct calibrated scale-up result audit without execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1715-paper-route-controller-family-calibrated-scale-up-execution.md",
+  "public_gates": [
+    "M1715 must execute exactly the M1712 864-cell scale-up matrix",
+    "M1715 must write episode, failure, state, variant, outcome, termination, task-family, source-edge, profile, and profile-outcome artifacts",
+    "M1715 must preserve scale_up_variant_label and scale_up_workload_id in episode rows",
+    "M1715 must keep all selected metrics finite and failure_count zero for an execution pass",
+    "M1715 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1715 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_source_expanded_calibrated_scale_up_execution",
+    "evidence_increment": "executes fixed-budget source-expanded calibrated scale-up after design-only admission",
+    "claim_scope": "public diagnostic task-quality execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if episode_count != 864",
+      "stop if failure_count != 0",
+      "stop if selected metrics are non-finite",
+      "stop if guardrail_violation_count != 0",
+      "stop if required variant or outcome aggregates are missing"
+    ],
+    "fallback_plan": [
+      "route to runner repair if execution plumbing fails",
+      "route to M1716 result audit if execution passes",
+      "route to task-quality repair design if scale-up is off-track dominated or collision-tradeoff dominated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1714 admits calibrated scale-up measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "execute calibrated scale-up diagnostic rollout",
+    "admission_evidence": [
+      "M1714 pre-registers scale-up execution artifacts and audit thresholds"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "scale-up execution runner or adapter if needed",
+      "M1715 execution artifacts",
+      "M1715 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "864 scale-up episodes complete",
+      "variant and outcome aggregates are present",
+      "execution pass/fail is recorded without interpreting profile rank"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1715 is a task-quality diagnostic execution and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "execution matrix preserves L1, L2-current-tiled, L3-online, and L3-reset controls for later audit"
+    ],
+    "temporal_evidence_window": "M1712 fixed scale-up subset.",
+    "negative_result_policy": "If calibrated variants do not improve task quality under collision guards, record as task-quality calibration evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "source-expanded public diagnostic execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1712 source-expanded calibrated scale-up matrix can be executed as a fixed public diagnostic run with complete variant/outcome aggregates and no guardrail violations.",
+  "success_criteria": [
+    "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json exists",
+    "episode_count == 864",
+    "failure_count == 0",
+    "all_selected_metrics_finite == true",
+    "guardrail_violation_count == 0",
+    "scale_up_variant_aggregate.csv exists and includes all four labels",
+    "outcome and termination aggregates exist",
+    "scale_up_workload_id and scale_up_variant_label are preserved in episode rows",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "episode_count != 864",
+    "failure_count != 0",
+    "selected metrics are non-finite",
+    "required aggregates are missing",
+    "scale_up_variant_label is dropped",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "controller-family ranking or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.controller_family_calibrated_scale_up_execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/scale_up_variant_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/outcome_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1715_controller_family_calibrated_scale_up_execution/termination_reason_aggregate.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
+    "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
+  ],
+  "decision_rule": "M1715 passes as execution plumbing if the 864 scale-up episodes complete with finite metrics, zero failures, complete aggregates, and no guardrail violations. Result interpretation is deferred to M1716.",
+  "next_blocker": "m1715-paper-route-controller-family-calibrated-scale-up-execution"
+}

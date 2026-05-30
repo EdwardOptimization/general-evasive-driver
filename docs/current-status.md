@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit
+m1714-paper-route-controller-family-calibrated-scale-up-execution-design
 ```
 
 Current next task:
 
 ```text
-m1714-paper-route-controller-family-calibrated-scale-up-execution-design
+m1715-paper-route-controller-family-calibrated-scale-up-execution
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -48,10 +48,14 @@ scale-up design. M1711 designed an `864`-episode fixed-budget scale-up with
 off-track variant, collision-control variant, and mid variant. M1712
 materialized that source-expanded subset without rollout: `18` base specs, `72`
 scale-up calibration specs, `864` cells, zero contract violations, and all
-profiles/variants present. M1713 audited the subset as clean and admits
-execution design. The next task is M1714: design measured scale-up execution,
-including variant aggregates and collision/off-track tradeoff thresholds, before
-any rollout.
+profiles/variants present. M1713 audited the subset as clean and admitted
+execution design. M1714 designed measured scale-up execution over exactly those
+`864` public diagnostic episodes, requiring `scale_up_variant_label`
+preservation, variant/outcome/termination aggregates, and pre-registered
+collision/off-track tradeoff thresholds. The next task is M1715: execute the
+fixed M1712 scale-up matrix and write execution artifacts without training,
+replay, PPO, promotion, private holdout, actor-input changes, profile ranking,
+paper-level claims, or level3 self-identification claims.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

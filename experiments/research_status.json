@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1722,
+    "completed": 1723,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
+    "command_log": "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit"
+    "task_id": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed for the M1712 scale-up subset without overclaiming or changing the actor contract.",
-    "id": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design",
+    "command": "see experiments/manifests/m1715-paper-route-controller-family-calibrated-scale-up-execution.json",
+    "hypothesis": "The M1712 source-expanded calibrated scale-up matrix can be executed as a fixed public diagnostic run with complete variant/outcome aggregates and no guardrail violations.",
+    "id": "m1715-paper-route-controller-family-calibrated-scale-up-execution",
     "kind": "gate",
-    "notes": "Pending: design scale-up execution artifacts variant aggregates tradeoff thresholds and claim boundaries",
-    "priority": 17090,
+    "notes": "Pending: run 864 public diagnostic episodes and write scale-up variant outcome termination aggregates",
+    "priority": 17100,
     "status": "pending",
-    "success_artifact": "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md"
+    "success_artifact": "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json"
   },
-  "updated_at_utc": "20260530T014255Z"
+  "updated_at_utc": "20260530T014812Z"
 }
