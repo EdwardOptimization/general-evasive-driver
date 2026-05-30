@@ -166,6 +166,31 @@
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1702_controller_family_task_quality_calibration_preflight/summary.json",
+    "doc": "docs/m1702-paper-route-controller-family-task-quality-calibration-preflight.md",
+    "result_class": "controller_family_task_quality_calibration_preflight_pass",
+    "base_spec_count": 72,
+    "calibration_spec_count": 864,
+    "profile_count": 12,
+    "calibration_matrix_cell_count": 10368,
+    "contract_violation_count": 0,
+    "missing_profile_artifact_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.json"
+  },
   "decision_rule": "M1702 passes if it materializes a complete no-rollout calibration matrix with zero P0 contract violations.",
-  "next_blocker": "m1702-paper-route-controller-family-task-quality-calibration-preflight"
+  "next_blocker": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit"
 }

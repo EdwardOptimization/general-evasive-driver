@@ -10753,5 +10753,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1701 designs the task-quality calibration route: outcome-conditional metrics,
   track-width variants `1.0/1.5/2.0`, finish/pass semantics checks, max-step
   variants, source/spec stratification, and no profile-specific tuning.
+- M1702 materializes the no-rollout calibration matrix: `864` calibration specs,
+  `10368` profile/spec cells, zero P0 contract violations, zero missing profile
+  artifacts, and no environment rollout.
 - Current next blocker:
-  `m1702-paper-route-controller-family-task-quality-calibration-preflight`.
+  `m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit`.

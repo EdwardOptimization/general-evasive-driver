@@ -1,0 +1,59 @@
+{
+  "actor_input_contract_changed": false,
+  "artifacts": {
+    "calibration_matrix": "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv",
+    "calibration_specs": "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_specs.json",
+    "calibration_specs_csv": "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_specs.csv",
+    "contract_violations": "runs/m1702_controller_family_task_quality_calibration_preflight/contract_violations.csv",
+    "profile_artifacts": "runs/m1702_controller_family_task_quality_calibration_preflight/profile_artifacts.csv",
+    "summary": "runs/m1702_controller_family_task_quality_calibration_preflight/summary.json"
+  },
+  "base_spec_count": 72,
+  "calibration_matrix_cell_count": 10368,
+  "calibration_spec_count": 864,
+  "contract_violation_count": 0,
+  "controller_family_ranking_claim_made": false,
+  "environment_rollout_started": false,
+  "finish_variants": [
+    "original",
+    "relaxed"
+  ],
+  "generated_at_utc": "20260530T005239Z",
+  "guardrail_flags": {
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "environment_rollout_started": false,
+    "level3_self_id_claim_made": false,
+    "paper_level_claim_made": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "guardrail_violation_count": 0,
+  "level3_self_id_claim_made": false,
+  "max_steps_scales": [
+    1.0,
+    1.5
+  ],
+  "missing_profile_artifact_count": 0,
+  "next_blocker": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit",
+  "output_dir": "runs/m1702_controller_family_task_quality_calibration_preflight",
+  "paper_level_claim_made": false,
+  "passes_public_preflight_gates": true,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "profile_count": 12,
+  "profile_specific_tuning": false,
+  "promoted": false,
+  "replay_started": false,
+  "result_class": "controller_family_task_quality_calibration_preflight_pass",
+  "track_width_scales": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "training_started": false
+}

@@ -27247,3 +27247,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1702-paper-route-controller-family-task-quality-calibration-preflight.json`
 - next: `m1702-paper-route-controller-family-task-quality-calibration-preflight`
+
+## M1702 Paper-Route Controller-Family Task-Quality Calibration Preflight
+
+- status: completed
+- result class: `controller_family_task_quality_calibration_preflight_pass`
+- artifact: `runs/m1702_controller_family_task_quality_calibration_preflight/summary.json`
+- documentation: `docs/m1702-paper-route-controller-family-task-quality-calibration-preflight.md`
+- base executable specs: `72`
+- calibration specs: `864`
+- profiles: `12`
+- calibration matrix cells: `10368`
+- contract violation count: `0`
+- missing profile artifact count: `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- supported: no-rollout calibration matrix materialization is clean and ready for audit
+- unsupported: controller-family ranking, calibrated task-quality result, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.json`
+- next: `m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit`

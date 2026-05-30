@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1710,
+    "completed": 1711,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+    "command_log": "docs/m1702-paper-route-controller-family-task-quality-calibration-preflight.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1702_controller_family_task_quality_calibration_preflight",
     "status": "completed",
-    "task_id": "m1701-paper-route-controller-family-task-quality-calibration-design"
+    "task_id": "m1702-paper-route-controller-family-task-quality-calibration-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1702-paper-route-controller-family-task-quality-calibration-preflight.json",
-    "hypothesis": "The task-quality calibration matrix can be materialized without rollout and without violating the P0 actor input contract.",
-    "id": "m1702-paper-route-controller-family-task-quality-calibration-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize calibration specs and matrix with zero P0 contract violations and no rollout",
-    "priority": 16970,
+    "command": "see experiments/manifests/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.json",
+    "hypothesis": "M1702 can be audited as a clean no-rollout calibration preflight and routed to bounded calibration smoke design.",
+    "id": "m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit calibration matrix counts contract checks scale and next bounded smoke route",
+    "priority": 16980,
     "status": "pending",
-    "success_artifact": "runs/m1702_controller_family_task_quality_calibration_preflight/summary.json"
+    "success_artifact": "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260530T004939Z"
+  "updated_at_utc": "20260530T005414Z"
 }
