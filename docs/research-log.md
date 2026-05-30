@@ -28899,3 +28899,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility, policy rollout, controller-family ranking, profile promotion, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.json`
 - next: `m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit`
+
+## M1772 Paper-Route Metric-Specific Bounded Panel Materialization Result Audit
+
+- status: completed
+- decision: `bounded_panel_materialization_audit_admit_reset_only_feasibility_preflight`
+- artifact: `docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md`
+- audited summary: `runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json`
+- audited result class: `metric_specific_bounded_panel_materialization_preflight_pass`
+- panel spec count: `24`
+- role panel count: `4`
+- profile count: `12`
+- panel cell count: `288`
+- guardrail violation count: `0`
+- environment reset started in audit: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1771 materialization is coherent and can proceed to reset-only feasibility
+- unsupported: reset feasibility, policy rollout, controller-family ranking, profile promotion, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.json`
+- next: `m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight`

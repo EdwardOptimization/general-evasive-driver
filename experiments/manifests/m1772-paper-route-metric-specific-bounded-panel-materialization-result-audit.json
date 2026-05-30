@@ -153,6 +153,30 @@
     "docs/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.md",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md",
+    "decision": "bounded_panel_materialization_audit_admit_reset_only_feasibility_preflight",
+    "audited_result_class": "metric_specific_bounded_panel_materialization_preflight_pass",
+    "panel_spec_count": 24,
+    "role_panel_count": 4,
+    "profile_count": 12,
+    "panel_cell_count": 288,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.json"
+  },
   "decision_rule": "M1772 passes if it audits M1771 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit"
+  "next_blocker": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight"
 }

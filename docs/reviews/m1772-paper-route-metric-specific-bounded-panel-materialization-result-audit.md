@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T071240Z
+- Generated at UTC: 20260530T071610Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1772 passes if it audits M1771 and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: bounded_panel_materialization_audit_admit_reset_only_feasibility_preflight
+- Decision reason: M1772 audits M1771 as coherent and admits reset-only feasibility preflight before measured execution
 
 ## Hypothesis
 
@@ -72,8 +72,19 @@ M1771 materialization can be audited as coherent enough to admit a reset-only fe
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit
+- type: gate
+- checkpoint: docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_materialization_audit_admit_reset_only_feasibility_preflight
+- reason: M1772 audits M1771 as coherent and admits reset-only feasibility preflight before measured execution
 
 ## Next Blocker
 
-m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit
+m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight

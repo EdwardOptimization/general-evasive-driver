@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1780,
+    "completed": 1781,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.md",
+    "command_log": "docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight"
+    "task_id": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.json",
-    "hypothesis": "M1771 materialization can be audited as coherent enough to admit a reset-only feasibility preflight.",
-    "id": "m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit bounded panel materialization before reset or rollout",
-    "priority": 17670,
+    "command": "see experiments/manifests/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.json",
+    "hypothesis": "The bounded panel's 288 cells are reset/sampling feasible without policy rollout.",
+    "id": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: reset-only feasibility preflight over bounded panel cells",
+    "priority": 17680,
     "status": "pending",
-    "success_artifact": "docs/m1772-paper-route-metric-specific-bounded-panel-materialization-result-audit.md"
+    "success_artifact": "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T071145Z"
+  "updated_at_utc": "20260530T071513Z"
 }
