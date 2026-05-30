@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1772,
+    "completed": 1773,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
+    "command_log": "docs/m1764-single-cell-seed-repair-completion-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1763-seed-repair-completion-execution-cli-implementation"
+    "task_id": "m1764-single-cell-seed-repair-completion-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1764-single-cell-seed-repair-completion-execution.json",
-    "hypothesis": "The replacement seed 175760 can complete the M1756 revised scenario taxonomy matrix with explicit provenance and no scenario/profile changes.",
-    "id": "m1764-single-cell-seed-repair-completion-execution",
+    "command": "see experiments/manifests/m1765-single-cell-seed-repair-completion-result-audit.json",
+    "hypothesis": "The M1764 completed artifact can be audited as valid completion evidence before any controller-family or paper-level interpretation.",
+    "id": "m1765-single-cell-seed-repair-completion-result-audit",
     "kind": "gate",
-    "notes": "Pending: execute exactly one replacement-seed row and write completed provenance-aware artifact",
-    "priority": 17590,
+    "notes": "Pending: audit M1764 completion summary and seed-repair provenance before interpretation",
+    "priority": 17600,
     "status": "pending",
-    "success_artifact": "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json"
+    "success_artifact": "docs/m1765-single-cell-seed-repair-completion-result-audit.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

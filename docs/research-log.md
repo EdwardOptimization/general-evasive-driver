@@ -28635,3 +28635,44 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: M1764 completion execution result, completed matrix, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1764-single-cell-seed-repair-completion-execution.json`
 - next: `m1764-single-cell-seed-repair-completion-execution`
+
+## M1764 Single-Cell Seed-Repair Completion Execution
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_execution_pass`
+- artifact: `docs/m1764-single-cell-seed-repair-completion-execution.md`
+- summary: `runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json`
+- episode count: `864`
+- target episode count: `864`
+- failure count: `0`
+- profile count: `12`
+- scenario spec count: `72`
+- scenario family count: `6`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- seed repair applied row count: `1`
+- workload: `m1728-s4-02::L2_window_13_current_tiled`
+- original eval seed: `175761`
+- replacement eval seed: `175760`
+- replacement seed offset: `-1`
+- seed repair rule: `nearest_successful_neighbor_tie_lower`
+- seed repair source: `m1758_single_sampling_failure_reset_only_probe`
+- environment rollout started: `true`
+- replacement workload cell count: `1`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: candidate completed public diagnostic artifact with provenance
+- unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence until audit
+- follow-up manifest: `experiments/manifests/m1765-single-cell-seed-repair-completion-result-audit.json`
+- next: `m1765-single-cell-seed-repair-completion-result-audit`
