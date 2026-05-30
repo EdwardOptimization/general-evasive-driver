@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1736,
+    "completed": 1737,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md",
+    "command_log": "docs/m1728-paper-route-task-quality-scenario-taxonomy-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1727-paper-route-task-quality-scenario-taxonomy-design"
+    "task_id": "m1728-paper-route-task-quality-scenario-taxonomy-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json",
-    "hypothesis": "The M1727 scenario taxonomy can be materialized as no-rollout metadata with balanced families, explicit unsupported fault reporting, and no actor-contract violations.",
-    "id": "m1728-paper-route-task-quality-scenario-taxonomy-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize 6 families 72 scenario specs 864 profile cells with explicit unsupported fault reporting and no rollout",
-    "priority": 17230,
+    "command": "see experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json",
+    "hypothesis": "M1728 can be audited as a clean no-rollout scenario taxonomy preflight before measured execution design.",
+    "id": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit taxonomy counts contract guardrails and unsupported feature reporting before execution design",
+    "priority": 17240,
     "status": "pending",
-    "success_artifact": "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json"
+    "success_artifact": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260530T025629Z"
+  "updated_at_utc": "20260530T030353Z"
 }

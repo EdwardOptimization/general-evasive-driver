@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1727-paper-route-task-quality-scenario-taxonomy-design
+m1728-paper-route-task-quality-scenario-taxonomy-preflight
 ```
 
 Current next task:
 
 ```text
-m1728-paper-route-task-quality-scenario-taxonomy-preflight
+m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -128,7 +128,11 @@ features such as single-wheel blowout, wheel-specific grip loss, half-shaft
 loss, brake imbalance, and partial steering faults to be reported explicitly
 instead of silently approximated. The next task is M1728: materialize this
 taxonomy as no-rollout metadata with contract checks, matrix artifacts, and
-unsupported-feature reporting.
+unsupported-feature reporting. M1728 passes that preflight: `6` families, `72`
+scenario specs, `864` profile cells, missing config/checkpoint `0/0`, contract
+`0`, guardrail `0`, and `5` unsupported fault-like features explicitly reported
+with `0` silent approximations. The next task is M1729: audit this preflight
+before any scenario taxonomy execution design.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

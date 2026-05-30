@@ -1,0 +1,159 @@
+{
+  "id": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1728-paper-route-task-quality-scenario-taxonomy-preflight.md",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_taxonomy.json",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_specs.csv",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/scenario_matrix.csv",
+      "runs/m1728_task_quality_scenario_taxonomy_preflight/unsupported_scenario_features.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout scenario taxonomy preflight before execution design"
+    ],
+    "derived_from": [
+      "m1728-paper-route-task-quality-scenario-taxonomy-preflight"
+    ],
+    "blocked_by": [
+      "need preflight audit before measured scenario taxonomy execution design"
+    ],
+    "supersedes": [
+      "direct scenario taxonomy execution design after M1728"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+  "public_gates": [
+    "M1729 must audit M1728 preflight pass/fail before execution design",
+    "M1729 must verify 6 families, 72 specs, 864 matrix cells, 12 profiles, zero contract violations, and zero missing artifacts",
+    "M1729 must verify unsupported fault-like features are explicit and not silently approximated",
+    "M1729 must decide execution design, taxonomy repair, or branch synthesis",
+    "M1729 must not run rollout train replay PPO promote use private holdout or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not silently approximate unsupported fault features",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_scenario_taxonomy_preflight_result_audit",
+    "evidence_increment": "audits no-rollout scenario taxonomy materialization before execution design",
+    "claim_scope": "preflight audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1728 preflight failed",
+      "stop if any family or profile coverage is missing",
+      "stop if contract violations exist",
+      "stop if unsupported fault-like features were silently approximated"
+    ],
+    "fallback_plan": [
+      "route to taxonomy repair if preflight failed",
+      "route to execution design if preflight is clean",
+      "route to branch synthesis if taxonomy materialization exposes a design flaw"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1728 completes no-rollout scenario taxonomy preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit scenario taxonomy preflight result",
+    "admission_evidence": [
+      "M1728 completed no-rollout taxonomy materialization"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1729 audit document",
+      "M1729 status queue scoreboard research log and review",
+      "one follow-up execution design or taxonomy repair manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight pass/fail is audited",
+      "unsupported feature reporting is audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; preflight audit cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must preserve controller-family controls and must not convert them into ranking evidence"
+    ],
+    "temporal_evidence_window": "M1728 no-rollout artifacts.",
+    "negative_result_policy": "If taxonomy preflight fails, record it as scenario-design evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "scenario taxonomy no-rollout preflight audit",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1728 can be audited as a clean no-rollout scenario taxonomy preflight before measured execution design.",
+  "success_criteria": [
+    "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md exists",
+    "M1728 result_class and guardrails are audited",
+    "family/spec/profile/matrix counts are audited",
+    "contract and missing artifact counts are audited",
+    "unsupported feature explicit-reporting is audited",
+    "next route is execution design taxonomy repair or synthesis",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits unsupported feature reporting",
+    "audit ignores contract violations or missing artifacts",
+    "audit ranks controller-family profiles",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write scenario taxonomy preflight result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json",
+    "runs/m1728_task_quality_scenario_taxonomy_preflight/unsupported_scenario_features.csv"
+  ],
+  "decision_rule": "M1729 passes if it audits M1728 and routes to execution design, taxonomy repair, or synthesis without overclaiming.",
+  "next_blocker": "m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit"
+}

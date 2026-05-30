@@ -27749,3 +27749,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json`
 - next: `m1728-paper-route-task-quality-scenario-taxonomy-preflight`
+
+## M1728 Paper-Route Task-Quality Scenario Taxonomy Preflight
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_preflight_pass`
+- artifact: `runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json`
+- doc: `docs/m1728-paper-route-task-quality-scenario-taxonomy-preflight.md`
+- parent design: `docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md`
+- scenario families: `6`
+- scenario specs: `72`
+- scenario specs per family: `12`
+- profiles: `12`
+- scenario matrix cells: `864`
+- missing config/checkpoint: `0/0`
+- contract violations: `0`
+- unsupported scenario features: `5`
+- silent unsupported approximations: `0`
+- guardrail violation count: `0`
+- supported: clean no-rollout scenario taxonomy materialization with explicit unsupported fault reporting
+- unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit.json`
+- next: `m1729-paper-route-task-quality-scenario-taxonomy-preflight-result-audit`
