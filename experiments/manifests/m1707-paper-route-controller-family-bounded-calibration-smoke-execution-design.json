@@ -1,0 +1,152 @@
+{
+  "id": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution for the bounded calibration smoke"
+    ],
+    "derived_from": [
+      "m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "need execution protocol before measured rollout over bounded subset"
+    ],
+    "supersedes": [
+      "direct bounded calibration smoke execution after M1706"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
+  "public_gates": [
+    "M1707 must design execution over the M1705 864-cell bounded smoke matrix without running it",
+    "M1707 must require outcome and termination aggregates",
+    "M1707 must keep task-quality calibration separate from controller-family ranking",
+    "M1707 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1707 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_bounded_calibration_smoke_execution_design",
+    "evidence_increment": "designs measured execution after clean bounded subset audit",
+    "claim_scope": "execution design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design would rank profiles directly",
+      "stop if design omits outcome/termination aggregates",
+      "stop if design drops resume/failure handling",
+      "stop if design changes actor inputs or profile configs"
+    ],
+    "fallback_plan": [
+      "route to measured bounded execution if design is accepted",
+      "route to runner repair design if existing runner cannot consume the subset",
+      "route to branch synthesis if task-quality calibration remains underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1706 admits bounded smoke execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design bounded calibration smoke execution",
+    "admission_evidence": [
+      "M1706 audits the M1705 bounded smoke subset as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout in M1707",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1707 execution design document",
+      "M1707 status queue scoreboard research log and review",
+      "one follow-up measured execution manifest"
+    ],
+    "next_stage_criteria": [
+      "bounded execution protocol is specified",
+      "required artifacts and metrics are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1707 is design-only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must keep L1, L2-current-tiled, L3-online, and L3-reset rows in the execution matrix"
+    ],
+    "temporal_evidence_window": "M1705 subset and M1706 audit only.",
+    "negative_result_policy": "If execution design cannot preserve controls and task-quality metrics, stop before execution.",
+    "allowed_claims": [
+      "bounded smoke execution design",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A measured execution protocol can be designed for the M1705 bounded calibration smoke without overclaiming or changing the actor contract.",
+  "success_criteria": [
+    "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md exists",
+    "execution input and output artifacts are specified",
+    "outcome and termination aggregates are required",
+    "task-quality interpretation rules are specified",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design executes rollout",
+    "design ranks profiles directly",
+    "design omits outcome/termination aggregates",
+    "design changes actor inputs or profile configs",
+    "training replay PPO private holdout promotion or level3 claims occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write bounded calibration smoke execution design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+    "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv"
+  ],
+  "decision_rule": "M1707 passes if it designs bounded calibration smoke execution while preserving task-quality claim boundaries.",
+  "next_blocker": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design"
+}

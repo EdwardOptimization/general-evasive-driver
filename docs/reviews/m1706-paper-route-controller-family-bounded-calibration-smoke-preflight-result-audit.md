@@ -1,0 +1,91 @@
+# m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260530T011224Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: bounded_calibration_smoke_preflight_audit_admit_execution_design
+- Decision reason: M1706 audits M1705 as a clean bounded subset preflight and admits bounded calibration smoke execution design
+
+## Hypothesis
+
+M1705 can be audited as a clean no-rollout bounded calibration smoke preflight and routed to execution design.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_audit_only
+- parent_dataset: runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json, runs/m1705_controller_family_bounded_calibration_smoke_preflight/selected_base_specs.csv, runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv
+- parent_config: experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json
+- parent_objective: audit no-rollout bounded calibration smoke subset before execution design
+- derived_from: m1705-paper-route-controller-family-bounded-calibration-smoke-preflight
+- blocked_by: need audit before bounded calibration smoke execution design
+- supersedes: direct bounded calibration smoke execution after M1705
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md exists
+- M1705 artifact counts are verified
+- selected_base_spec_count == 6
+- bounded_smoke_matrix_cell_count == 864
+- contract_violation_count == 0
+- environment_rollout_started == false
+- next bounded execution design route is explicit
+- rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked
+
+## Failure Criteria
+
+- audit omits required M1705 artifacts
+- audit ignores task/source/profile coverage
+- audit ignores contract violations
+- audit routes directly to profile ranking
+- environment rollout training replay PPO private holdout promotion or actor-input changes occur
+
+## Evidence Gates
+
+- M1706 must audit M1705 subset counts source/task/profile coverage contract checks and guardrails
+- M1706 must decide whether bounded calibration smoke execution design is admitted
+- M1706 must not execute rollout train replay PPO promote use private holdout or change actor inputs
+- M1706 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment rollout
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not tune profiles
+- do not claim controller-family ranking
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit
+- type: gate
+- checkpoint: docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_calibration_smoke_preflight_audit_admit_execution_design
+- reason: M1706 audits M1705 as a clean bounded subset preflight and admits bounded calibration smoke execution design
+
+## Next Blocker
+
+m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design

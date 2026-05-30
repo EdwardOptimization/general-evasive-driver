@@ -27329,3 +27329,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.json`
 - next: `m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit`
+
+## M1706 Paper-Route Controller-Family Bounded Calibration Smoke Preflight Result Audit
+
+- status: completed
+- decision: `bounded_calibration_smoke_preflight_audit_admit_execution_design`
+- artifact: `docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md`
+- audited M1705 result class: `controller_family_bounded_calibration_smoke_preflight_pass`
+- selected base specs: `6`
+- selected task family counts: `T4=3`, `T5=3`
+- bounded calibration specs / matrix cells: `72` / `864`
+- profiles: `12`
+- contract violation count: `0`
+- missing config / checkpoint count: `0` / `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- interpretation: the subset is valid for measured bounded execution design but still cannot support controller ranking or recurrent-advantage claims
+- supported: execution design is admitted over the M1705 bounded matrix
+- unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.json`
+- next: `m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design`

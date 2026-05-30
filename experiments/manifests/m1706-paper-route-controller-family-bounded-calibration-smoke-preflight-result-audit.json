@@ -150,6 +150,37 @@
     "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json",
     "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+    "decision": "bounded_calibration_smoke_preflight_audit_admit_execution_design",
+    "audited_result_class": "controller_family_bounded_calibration_smoke_preflight_pass",
+    "source_matrix_cell_count": 10368,
+    "selected_base_spec_count": 6,
+    "selected_task_family_counts": {
+      "T4": 3,
+      "T5": 3
+    },
+    "bounded_calibration_spec_count": 72,
+    "bounded_smoke_matrix_cell_count": 864,
+    "profile_count": 12,
+    "contract_violation_count": 0,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.json"
+  },
   "decision_rule": "M1706 passes if it audits M1705 and routes to bounded calibration smoke execution design or repair without overclaiming.",
-  "next_blocker": "m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit"
+  "next_blocker": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design"
 }
