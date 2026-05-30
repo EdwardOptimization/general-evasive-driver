@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1777 passes if the fixed bounded panel completes with exact target counts, zero failures, complete metrics, and clean guardrails.",
+  "decision_reason": "M1777 executes fixed 288-cell bounded panel with zero failures complete metrics and clean guardrails; interpretation deferred",
   "failure_criteria": [
     "required artifacts are missing",
     "episode_count is not 288",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "generalization",
-  "generated_at_utc": "20260530T074303Z",
+  "generated_at_utc": "20260530T074607Z",
   "hypothesis": "The M1776 adapter can execute the fixed M1771 288-cell bounded panel and write complete diagnostic artifacts.",
   "lineage": {
     "blocked_by": [
@@ -56,9 +56,9 @@
     ]
   },
   "milestone": "m1777-metric-specific-bounded-panel-measured-execution",
-  "next_blocker": "m1777-metric-specific-bounded-panel-measured-execution",
+  "next_blocker": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "bounded_panel_measured_execution_pass_route_to_result_audit",
   "public_gates": [
     "M1777 must execute exactly the M1771 bounded-panel specs and matrix",
     "M1777 must target 288 episodes 24 bounded specs 12 profiles and 4 role panels",
@@ -66,7 +66,20 @@
     "M1777 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence",
     "M1777 interpretation must be deferred to M1778 result audit"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "bounded_panel_measured_execution_pass_route_to_result_audit",
+    "milestone": "m1777-metric-specific-bounded-panel-measured-execution",
+    "reason": "M1777 executes fixed 288-cell bounded panel with zero failures complete metrics and clean guardrails; interpretation deferred",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json exists",
     "episode_count == 288",

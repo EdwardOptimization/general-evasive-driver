@@ -158,6 +158,40 @@
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv",
     "src/autodrift/metric_specific_bounded_panel_measured_execution.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+    "doc": "docs/m1777-metric-specific-bounded-panel-measured-execution.md",
+    "decision": "bounded_panel_measured_execution_pass_route_to_result_audit",
+    "result_class": "metric_specific_bounded_panel_measured_execution_pass",
+    "episode_count": 288,
+    "target_episode_count": 288,
+    "failure_count": 0,
+    "profile_count": 12,
+    "bounded_panel_spec_count": 24,
+    "role_panel_count": 4,
+    "all_selected_metrics_finite": true,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "outcome_counts": {
+      "collision_failure": 122,
+      "off_track_noncollision_noncompletion": 142,
+      "success_obstacle_pass": 24
+    },
+    "environment_rollout_started": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.json"
+  },
   "decision_rule": "M1777 passes if the fixed bounded panel completes with exact target counts, zero failures, complete metrics, and clean guardrails.",
-  "next_blocker": "m1777-metric-specific-bounded-panel-measured-execution"
+  "next_blocker": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
 }

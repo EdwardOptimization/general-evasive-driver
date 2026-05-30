@@ -29041,3 +29041,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real measured rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1777-metric-specific-bounded-panel-measured-execution.json`
 - next: `m1777-metric-specific-bounded-panel-measured-execution`
+
+## M1777 Metric-Specific Bounded Panel Measured Execution
+
+- status: completed
+- decision: `bounded_panel_measured_execution_pass_route_to_result_audit`
+- artifact: `runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json`
+- doc: `docs/m1777-metric-specific-bounded-panel-measured-execution.md`
+- result class: `metric_specific_bounded_panel_measured_execution_pass`
+- episode count: `288`
+- failure count: `0`
+- profile count: `12`
+- bounded panel spec count: `24`
+- role panel count: `4`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- outcome counts: `success_obstacle_pass=24`, `collision_failure=122`, `off_track_noncollision_noncompletion=142`
+- environment rollout started: `true`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: fixed 288-cell bounded-panel measured public diagnostic execution completed with required artifacts
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.json`
+- next: `m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit`

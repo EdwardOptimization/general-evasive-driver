@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T074303Z
+- Generated at UTC: 20260530T074607Z
 - Type: gate
 - Gate tier: generalization
-- Promotion decision: not_applicable
-- Decision reason: M1777 passes if the fixed bounded panel completes with exact target counts, zero failures, complete metrics, and clean guardrails.
+- Promotion decision: bounded_panel_measured_execution_pass_route_to_result_audit
+- Decision reason: M1777 executes fixed 288-cell bounded panel with zero failures complete metrics and clean guardrails; interpretation deferred
 
 ## Hypothesis
 
@@ -79,8 +79,19 @@ The M1776 adapter can execute the fixed M1771 288-cell bounded panel and write c
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1777-metric-specific-bounded-panel-measured-execution
+- type: gate
+- checkpoint: runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_measured_execution_pass_route_to_result_audit
+- reason: M1777 executes fixed 288-cell bounded panel with zero failures complete metrics and clean guardrails; interpretation deferred
 
 ## Next Blocker
 
-m1777-metric-specific-bounded-panel-measured-execution
+m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit
