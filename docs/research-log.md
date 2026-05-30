@@ -31066,3 +31066,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.json`
 - next: `m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit`
+
+## M1844 Executable V2 Reset-Time AES Feasibility Scan Result Audit
+
+- status: completed
+- decision: `reset_time_aes_no_support_audit_route_to_branch_synthesis`
+- artifact: `docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md`
+- result class audited: `reset_time_aes_feasibility_scan_no_support`
+- primary classification: `source_task_support_absence_for_stable_aes_only`
+- secondary classification: `claim_boundary_context_wording_artifact`
+- target source count: `2`
+- target profile count total: `24`
+- grid cell count total: `175680`
+- accepted cell count total: `0`
+- label counts: `aeb_feasible=159820`, `drift_required=284`, `unavoidable=15576`
+- reject reason counts: `aeb_feasible_rejected=159820`, `label_not_allowed=15860`
+- source repair v3 admitted: `false`
+- branch synthesis required: `true`
+- additional project artifact scan: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean no-support result for current stable AES-only source repair route
+- unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.json`
+- next: `m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis`

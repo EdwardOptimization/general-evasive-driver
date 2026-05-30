@@ -1,0 +1,202 @@
+{
+  "id": "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
+      "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+      "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+      "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json",
+      "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json",
+      "experiments/manifests/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize reset-time AES diagnostic/source-repair/feasibility evidence before task-source metadata redesign"
+    ],
+    "derived_from": [
+      "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design",
+      "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit"
+    ],
+    "blocked_by": [
+      "M1843 found zero accepted AES-only cells across all current target profiles",
+      "M1844 closes source repair v3 from accepted cells"
+    ],
+    "supersedes": [
+      "further blind source-range widening",
+      "source repair v3 from nonexistent accepted cells",
+      "reset preflight before task/source metadata redesign"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+  "public_gates": [
+    "M1845 must synthesize M1830-M1844 reset-time AES feasibility evidence",
+    "M1845 must answer the required synthesis questions",
+    "M1845 must choose continue pivot stop or promote_to_next_branch",
+    "M1845 must keep scan reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_branch_synthesis",
+    "evidence_increment": "synthesizes M1830-M1844 evidence and decides whether to pivot to task/source metadata redesign after no-support scan",
+    "claim_scope": "branch synthesis only; no scan, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1843 no-support evidence is ignored",
+      "stop if source repair v3 is admitted without accepted cells",
+      "stop if claim-boundary wording artifact is mistaken for scan-count failure",
+      "stop if another reset or scan is proposed before synthesis"
+    ],
+    "fallback_plan": [
+      "pivot to task/source metadata redesign if current sources lack stable AES-only support",
+      "continue feasibility scan branch only if synthesis finds an unambiguous scan artifact",
+      "stop the branch if no useful executable-v2 reset path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1844 closes current source repair route after M1843 zero accepted AES cells",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES feasibility branch synthesis",
+    "admission_evidence": [
+      "M1833 found 240000 reset-time attempts all rejected as AEB-feasible",
+      "M1838 static source repair v2 tried 1200000 attempts and found zero accepted profiles",
+      "M1843 conditional scan found zero accepted AES-only cells across 175680 grid cells"
+    ],
+    "blocked_shortcuts": [
+      "do not run additional project artifact scan",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1845 synthesis document",
+      "M1845 status queue scoreboard research log and review",
+      "one follow-up manifest for the next branch if synthesis chooses pivot or continue"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "failure route is explicit",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Synthesis must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1830-M1844 reset-time AES task-quality evidence only; no rollout.",
+    "negative_result_policy": "Record no-support evidence as task/source design evidence and pivot explicitly rather than weakening labels.",
+    "allowed_claims": [
+      "reset-time AES feasibility branch synthesis and next-branch decision",
+      "no scan, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1830-M1844 evidence is sufficient to synthesize the reset-time AES feasibility branch and pivot away from source repair toward task/source metadata redesign.",
+  "success_criteria": [
+    "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md exists",
+    "synthesis summarizes M1830-M1844 evidence",
+    "synthesis answers all required synthesis questions",
+    "synthesis classifies no-support and claim-boundary wording artifact",
+    "synthesis chooses pivot continue stop or promote_to_next_branch",
+    "next branch and next manifest are explicit if work continues",
+    "no scan reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs additional scan reset or rollout",
+    "synthesis routes directly to source repair v3 without accepted cells",
+    "synthesis changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
+    "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+    "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json",
+    "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+  ],
+  "decision_rule": "M1845 passes if it synthesizes M1830-M1844 and chooses a next branch without scan, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis"
+}
