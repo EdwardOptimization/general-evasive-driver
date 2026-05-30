@@ -30150,3 +30150,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project artifact conversion result targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1815-executable-v2-stable-source-reset-validation-execution-design.json`
 - next: `m1815-executable-v2-stable-source-reset-validation-execution-design`
+
+## M1815 Executable V2 Stable Source Reset Validation Execution Design
+
+- status: completed
+- decision: `stable_source_reset_validation_adapter_execution_design_admit_preflight_run`
+- artifact: `docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md`
+- project artifact conversion run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- output dir: `runs/m1816_executable_v2_stable_source_reset_validation_adapter`
+- expected input materialization specs: `3`
+- expected input materialization matrix rows: `36`
+- expected targeted reset executable specs: `36`
+- expected profile control count: `12`
+- expected role surface count: `1`
+- expected reset ready spec count: `36`
+- expected reset validation required count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected env config missing count: `0`
+- expected missing join count: `0`
+- expected duplicate workload count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact no-reset adapter command and target counts
+- unsupported: adapter execution result targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1816-executable-v2-stable-source-reset-validation-adapter-execution.json`
+- next: `m1816-executable-v2-stable-source-reset-validation-adapter-execution`

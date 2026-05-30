@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1823,
+    "completed": 1824,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+    "command_log": "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation"
+    "task_id": "m1815-executable-v2-stable-source-reset-validation-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1815-executable-v2-stable-source-reset-validation-execution-design.json",
-    "hypothesis": "The no-reset adapter execution over M1811 artifacts can be pre-registered with unambiguous target counts and guardrails before running conversion.",
-    "id": "m1815-executable-v2-stable-source-reset-validation-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design exact no-reset adapter execution command for M1811 artifacts",
-    "priority": 18100,
+    "command": "see experiments/manifests/m1816-executable-v2-stable-source-reset-validation-adapter-execution.json",
+    "hypothesis": "The M1814 adapter can convert M1811 stable source materialization artifacts into a 36-row executable_v2_panel_specs targeted reset payload with clean guardrails.",
+    "id": "m1816-executable-v2-stable-source-reset-validation-adapter-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact no-reset adapter command from M1815",
+    "priority": 18110,
     "status": "pending",
-    "success_artifact": "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md"
+    "success_artifact": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json"
   },
-  "updated_at_utc": "20260530T115500Z"
+  "updated_at_utc": "20260530T120000Z"
 }
