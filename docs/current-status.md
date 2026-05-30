@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1760-single-cell-seed-repair-completion-design
+m1761-seed-repair-completion-runner-implementation
 ```
 
 Current next task:
 
 ```text
-m1761-seed-repair-completion-runner-implementation
+m1762-single-cell-seed-repair-completion-execution-design
 ```
 
 M1760 designs the explicit one-cell seed-repair completion protocol. M1758
@@ -33,9 +33,10 @@ reproducibly fails reset sampling, but `95/100` neighboring seeds within radius
 `50` succeed, all with sampled label `unavoidable`. The blocker is therefore
 `seed_fragile_but_feasible`, not a spec-filter infeasibility. M1760 chooses
 replacement seed `175760` by the deterministic nearest-successful-neighbor
-lower-tie rule and admits M1761 provenance-aware completion runner
-implementation. M1761 must not execute the missing episode yet; it should only
-add the helper/tests needed before a later completion execution.
+lower-tie rule. M1761 adds the provenance helper and focused tests without
+executing the missing episode. M1762 must now pre-register the exact one-cell
+completion execution command, output directory, and pass gates before the
+replacement-seed policy episode is run.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`

@@ -28551,3 +28551,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: completion execution, row merge, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1761-seed-repair-completion-runner-implementation.json`
 - next: `m1761-seed-repair-completion-runner-implementation`
+
+## M1761 Seed-Repair Completion Runner Implementation
+
+- status: completed
+- decision: `admit_single_cell_completion_execution_design`
+- artifact: `docs/m1761-seed-repair-completion-runner-implementation.md`
+- implemented module: `src/autodrift/seed_repair_completion.py`
+- focused tests: `tests/test_seed_repair_completion.py`
+- focused test result: `5 passed`
+- compileall: `passed`
+- policy rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: provenance-aware seed repair helper and focused tests
+- unsupported: missing-cell policy rollout, completed matrix, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json`
+- next: `m1762-single-cell-seed-repair-completion-execution-design`

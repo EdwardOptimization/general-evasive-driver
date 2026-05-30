@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1769,
+    "completed": 1770,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1760-single-cell-seed-repair-completion-design.md",
+    "command_log": "docs/m1761-seed-repair-completion-runner-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1760-single-cell-seed-repair-completion-design"
+    "task_id": "m1761-seed-repair-completion-runner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1761-seed-repair-completion-runner-implementation.json",
-    "hypothesis": "A small provenance-aware helper can prepare the M1760 one-cell completion execution without mutating prior artifacts or changing scenario/profile semantics.",
-    "id": "m1761-seed-repair-completion-runner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement provenance-aware single-cell completion helper without executing policy rollout",
-    "priority": 17560,
+    "command": "see experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json",
+    "hypothesis": "A fixed one-cell completion execution can be pre-registered before running the replacement-seed episode.",
+    "id": "m1762-single-cell-seed-repair-completion-execution-design",
+    "kind": "gate",
+    "notes": "Pending: pre-register exact completion execution command and pass gates",
+    "priority": 17570,
     "status": "pending",
-    "success_artifact": "docs/m1761-seed-repair-completion-runner-implementation.md"
+    "success_artifact": "docs/m1762-single-cell-seed-repair-completion-execution-design.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

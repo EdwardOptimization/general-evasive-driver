@@ -159,6 +159,33 @@
     "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
     "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1761-seed-repair-completion-runner-implementation.md",
+    "decision": "admit_single_cell_completion_execution_design",
+    "implemented_module": "src/autodrift/seed_repair_completion.py",
+    "focused_tests": "tests/test_seed_repair_completion.py",
+    "focused_test_result": "5 passed",
+    "compileall_passed": true,
+    "policy_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_config_changed": false,
+    "scenario_spec_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json"
+  },
   "decision_rule": "M1761 passes if the helper and tests make M1762 one-cell completion execution traceable without running it.",
-  "next_blocker": "m1761-seed-repair-completion-runner-implementation"
+  "next_blocker": "m1762-single-cell-seed-repair-completion-execution-design"
 }
