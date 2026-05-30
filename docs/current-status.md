@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1715-paper-route-controller-family-calibrated-scale-up-execution
+m1716-paper-route-controller-family-calibrated-scale-up-result-audit
 ```
 
 Current next task:
 
 ```text
-m1716-paper-route-controller-family-calibrated-scale-up-result-audit
+m1717-paper-route-controller-family-task-quality-scale-up-synthesis
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -61,6 +61,14 @@ and mid variant `0.8472`; collision rates were `0.0370`, `0.0370`, `0.0833`,
 and `0.0509` respectively. The next task is M1716: audit these results under
 the M1714 pre-registered collision/off-track tradeoff thresholds before any
 task-quality conclusion, branch decision, or controller-family comparison.
+M1716 classifies the result as conditional positive: no variant reached the
+full `0.70` off-track threshold, but `best_off_track_variant` improved off-track
+by `0.1296` with zero collision delta, and `collision_control_wide_relaxed`
+improved by `0.1713` with collision delta `0.0463`, inside the `0.05` guard.
+The result is not sufficient for controller-family comparison or paper-level
+claims because off-track remains dominant. The next task is M1717 branch
+synthesis before another task-quality repair, broader scale-up, or controller
+comparison milestone.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

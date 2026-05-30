@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1724,
+    "completed": 1725,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
+    "command_log": "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1715-paper-route-controller-family-calibrated-scale-up-execution"
+    "task_id": "m1716-paper-route-controller-family-calibrated-scale-up-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.json",
-    "hypothesis": "M1715 can be audited under the pre-registered M1714 collision/off-track rules to decide whether the source-expanded calibration signal is positive, tradeoff-only, or needs repair.",
-    "id": "m1716-paper-route-controller-family-calibrated-scale-up-result-audit",
+    "command": "see experiments/manifests/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.json",
+    "hypothesis": "The M1711-M1716 scale-up branch should synthesize before task-quality repair, broader scale-up, or controller-family comparison.",
+    "id": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit baseline-vs-calibrated off-track improvement and collision-delta tradeoffs before branch decision",
-    "priority": 17110,
+    "notes": "Pending: synthesize conditional-positive scale-up evidence and choose task-quality repair pivot or next branch",
+    "priority": 17120,
     "status": "pending",
-    "success_artifact": "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md"
+    "success_artifact": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md"
   },
-  "updated_at_utc": "20260530T015436Z"
+  "updated_at_utc": "20260530T015834Z"
 }

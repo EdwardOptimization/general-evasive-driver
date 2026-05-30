@@ -27524,3 +27524,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality conclusion before M1716 audit, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.json`
 - next: `m1716-paper-route-controller-family-calibrated-scale-up-result-audit`
+
+## M1716 Paper-Route Controller-Family Calibrated Scale-Up Result Audit
+
+- status: completed
+- decision: `conditional_positive_scale_up_audit_route_to_branch_synthesis`
+- artifact: `docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md`
+- audited M1715 result class: `controller_family_calibrated_scale_up_execution_pass`
+- execution count / failures / guardrails: `864` / `0` / `0`
+- baseline original-axis off-track / collision: `0.9306` / `0.0370`
+- `best_off_track_variant`: off-track `0.8009`, improvement `0.1296`, collision delta `0.0000`
+- `collision_control_wide_relaxed`: off-track `0.7593`, improvement `0.1713`, collision delta `0.0463`
+- `mid_calibration_variant`: off-track `0.8472`, improvement `0.0833`, collision delta `0.0139`
+- classification: conditional positive, not full positive, not tradeoff-only, not repair by M1714 rules
+- reason: no calibrated variant crossed the `0.70` off-track full-positive threshold, but two variants improved off-track by at least `0.10` while keeping collision delta within `0.05`
+- supported: source-expanded task-quality signal survives broader coverage but remains off-track dominated
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.json`
+- next: `m1717-paper-route-controller-family-task-quality-scale-up-synthesis`

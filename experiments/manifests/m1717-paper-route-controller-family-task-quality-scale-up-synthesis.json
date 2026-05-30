@@ -1,0 +1,180 @@
+{
+  "id": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+      "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
+      "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
+      "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize calibrated scale-up evidence before task repair or controller-family comparison"
+    ],
+    "derived_from": [
+      "m1711-paper-route-controller-family-calibrated-scale-up-design",
+      "m1716-paper-route-controller-family-calibrated-scale-up-result-audit"
+    ],
+    "blocked_by": [
+      "M1716 produced conditional-positive but still off-track-dominated scale-up evidence"
+    ],
+    "supersedes": [
+      "direct task-quality repair after M1716",
+      "direct controller-family comparison after M1715"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+  "public_gates": [
+    "M1717 must synthesize M1711-M1716 before another narrow task-quality milestone",
+    "M1717 must answer required synthesis questions",
+    "M1717 must assess the conditional-positive scale-up and remaining off-track dominance",
+    "M1717 must decide continue pivot stop or promote_to_next_branch",
+    "M1717 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "S_task_quality_scale_up_branch_synthesis",
+    "evidence_increment": "synthesizes M1711-M1716 after source-expanded scale-up finds conditional-positive but off-track-dominated task-quality evidence",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores remaining off-track dominance",
+      "stop if synthesis treats M1715 as controller-family ranking evidence",
+      "stop if synthesis skips public-gate overfit risk",
+      "stop if synthesis routes directly to training or profile tuning"
+    ],
+    "fallback_plan": [
+      "continue to task-quality repair if conditional-positive signal is worth improving",
+      "pivot to controller-family comparison only if task-quality evidence is judged sufficient and claim scope remains diagnostic",
+      "pivot to source-distribution redesign if off-track dominance remains too high",
+      "stop branch if public overfit risk dominates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1716 audits scale-up as conditional positive and off-track dominated",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality scale-up branch synthesis",
+    "admission_evidence": [
+      "M1716 finds conditional-positive source-expanded task-quality evidence",
+      "remaining off-track dominance requires route decision before another narrow milestone"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1717 synthesis document",
+      "M1717 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task quality and public profile controls, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, and L3-reset controls in any continued or pivoted route"
+    ],
+    "temporal_evidence_window": "M1711-M1716 public artifacts only.",
+    "negative_result_policy": "If synthesis finds task-quality calibration insufficient, route to task repair or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1711-M1716 scale-up branch should synthesize before task-quality repair, broader scale-up, or controller-family comparison.",
+  "success_criteria": [
+    "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md exists",
+    "synthesis questions are answered",
+    "conditional-positive scale-up and off-track dominance are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1715 as controller-family ranking evidence",
+    "synthesis routes directly to training or profile tuning",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md",
+    "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
+    "runs/m1715_controller_family_calibrated_scale_up_execution/scale_up_variant_aggregate.csv"
+  ],
+  "decision_rule": "M1717 passes if it synthesizes M1711-M1716 and chooses a route before task-quality repair, controller comparison, or paper-route claims.",
+  "next_blocker": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis"
+}
