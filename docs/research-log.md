@@ -29300,3 +29300,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1786-role-specific-panel-metric-repair-design.json`
 - next: `m1786-role-specific-panel-metric-repair-design`
+
+## M1786 Role-Specific Panel/Metric Repair Design
+
+- status: completed
+- decision: `role_specific_panel_metric_repair_design_admit_materialization_preflight`
+- artifact: `docs/m1786-role-specific-panel-metric-repair-design.md`
+- source: `docs/m1785-role-specific-scorecard-blocker-localization.md`
+- role surfaces: `stable_avoidance_aes`, `drift_required_recovery`, `hidden_dynamics_robustness_by_task_label_and_hidden_bucket`, `unavoidable_mitigation`
+- metric-only repairs defined: `true`
+- new materialization repairs defined: `true`
+- ranking admitted by default: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: role-specific v2 panel/metric repair design and no-rollout materialization preflight route
+- unsupported: repaired panel execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1787-role-specific-panel-metric-repair-materialization-preflight.json`
+- next: `m1787-role-specific-panel-metric-repair-materialization-preflight`

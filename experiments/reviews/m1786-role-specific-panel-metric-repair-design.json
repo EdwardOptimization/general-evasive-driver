@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1786 passes if it designs a concrete role-specific panel/metric repair route without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1786 designs v2 separate role surfaces for stable AES drift recovery hidden robustness and mitigation and admits no-rollout materialization preflight",
   "failure_criteria": [
     "repair design document is missing",
     "repair design collapses role-specific metrics into global success ranking",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T081933Z",
+  "generated_at_utc": "20260530T082305Z",
   "hypothesis": "M1785 blocker localization can be converted into a concrete role-specific panel/metric repair design without rerunning rollout.",
   "lineage": {
     "blocked_by": [
@@ -59,16 +59,29 @@
     ]
   },
   "milestone": "m1786-role-specific-panel-metric-repair-design",
-  "next_blocker": "m1786-role-specific-panel-metric-repair-design",
+  "next_blocker": "m1787-role-specific-panel-metric-repair-materialization-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "role_specific_panel_metric_repair_design_admit_materialization_preflight",
   "public_gates": [
     "M1786 must use M1785 blocker localization to design role-specific panel/metric repair",
     "M1786 must keep stable AES drift recovery hidden robustness and mitigation as separate role surfaces",
     "M1786 must define what can be repaired from metrics versus what requires new scenario/panel materialization",
     "M1786 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1786-role-specific-panel-metric-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "role_specific_panel_metric_repair_design_admit_materialization_preflight",
+    "milestone": "m1786-role-specific-panel-metric-repair-design",
+    "reason": "M1786 designs v2 separate role surfaces for stable AES drift recovery hidden robustness and mitigation and admits no-rollout materialization preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1786-role-specific-panel-metric-repair-design.md exists",
     "M1786 separates stable AES drift recovery hidden robustness and mitigation repair surfaces",

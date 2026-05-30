@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1794,
+    "completed": 1795,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1785-role-specific-scorecard-blocker-localization.md",
+    "command_log": "docs/m1786-role-specific-panel-metric-repair-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1785-role-specific-scorecard-blocker-localization"
+    "task_id": "m1786-role-specific-panel-metric-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1786-role-specific-panel-metric-repair-design.json",
-    "hypothesis": "M1785 blocker localization can be converted into a concrete role-specific panel/metric repair design without rerunning rollout.",
-    "id": "m1786-role-specific-panel-metric-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design role-specific panel/metric repair from M1785 blocker localization without rollout",
-    "priority": 17810,
+    "command": "see experiments/manifests/m1787-role-specific-panel-metric-repair-materialization-preflight.json",
+    "hypothesis": "The M1786 repair design can be materialized into complete v2 role-specific panel and metric contract artifacts without running reset or rollout.",
+    "id": "m1787-role-specific-panel-metric-repair-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize v2 role-specific panel/metric repair contract without reset or rollout",
+    "priority": 17820,
     "status": "pending",
-    "success_artifact": "docs/m1786-role-specific-panel-metric-repair-design.md"
+    "success_artifact": "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T081838Z"
+  "updated_at_utc": "20260530T082204Z"
 }

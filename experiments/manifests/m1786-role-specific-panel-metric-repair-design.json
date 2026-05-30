@@ -158,6 +158,34 @@
     "runs/m1783_role_specific_metric_scorecard_extraction/profile_role_hidden_bucket_scorecard.csv",
     "runs/m1783_role_specific_metric_scorecard_extraction/profile_role_sampled_label_scorecard.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1786-role-specific-panel-metric-repair-design.md",
+    "decision": "role_specific_panel_metric_repair_design_admit_materialization_preflight",
+    "role_surfaces": [
+      "stable_avoidance_aes",
+      "drift_required_recovery",
+      "hidden_dynamics_robustness_by_task_label_and_hidden_bucket",
+      "unavoidable_mitigation"
+    ],
+    "metric_only_repairs_defined": true,
+    "new_materialization_repairs_defined": true,
+    "ranking_admitted_by_default": false,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1787-role-specific-panel-metric-repair-materialization-preflight.json"
+  },
   "decision_rule": "M1786 passes if it designs a concrete role-specific panel/metric repair route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1786-role-specific-panel-metric-repair-design"
+  "next_blocker": "m1787-role-specific-panel-metric-repair-materialization-preflight"
 }

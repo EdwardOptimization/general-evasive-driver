@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T081933Z
+- Generated at UTC: 20260530T082305Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1786 passes if it designs a concrete role-specific panel/metric repair route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: role_specific_panel_metric_repair_design_admit_materialization_preflight
+- Decision reason: M1786 designs v2 separate role surfaces for stable AES drift recovery hidden robustness and mitigation and admits no-rollout materialization preflight
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ M1785 blocker localization can be converted into a concrete role-specific panel/
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1786-role-specific-panel-metric-repair-design
+- type: gate
+- checkpoint: docs/m1786-role-specific-panel-metric-repair-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: role_specific_panel_metric_repair_design_admit_materialization_preflight
+- reason: M1786 designs v2 separate role surfaces for stable AES drift recovery hidden robustness and mitigation and admits no-rollout materialization preflight
 
 ## Next Blocker
 
-m1786-role-specific-panel-metric-repair-design
+m1787-role-specific-panel-metric-repair-materialization-preflight
