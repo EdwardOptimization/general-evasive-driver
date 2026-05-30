@@ -164,6 +164,34 @@
     "runs/m1758_single_sampling_failure_reset_only_probe/summary.json",
     "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1760-single-cell-seed-repair-completion-design.md",
+    "decision": "admit_seed_repair_completion_runner_implementation",
+    "seed_repair_rule": "nearest_successful_neighbor_tie_lower",
+    "original_eval_seed": 175761,
+    "replacement_eval_seed": 175760,
+    "replacement_seed_offset": -1,
+    "seed_repair_source": "m1758_single_sampling_failure_reset_only_probe",
+    "policy_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_config_changed": false,
+    "scenario_spec_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1761-seed-repair-completion-runner-implementation.json"
+  },
   "decision_rule": "M1760 passes if it pre-registers a traceable one-cell seed-repair completion protocol without rollout or contract changes.",
-  "next_blocker": "m1760-single-cell-seed-repair-completion-design"
+  "next_blocker": "m1761-seed-repair-completion-runner-implementation"
 }

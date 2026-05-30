@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1768,
+    "completed": 1769,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "command_log": "docs/m1760-single-cell-seed-repair-completion-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    "task_id": "m1760-single-cell-seed-repair-completion-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1760-single-cell-seed-repair-completion-design.json",
-    "hypothesis": "A deterministic one-cell seed-repair completion protocol can resolve the M1756 863/864 blocker without changing scenario specs or controller profiles.",
-    "id": "m1760-single-cell-seed-repair-completion-design",
-    "kind": "gate",
-    "notes": "Pending: choose deterministic replacement-seed rule and completion artifacts without rollout",
-    "priority": 17550,
+    "command": "see experiments/manifests/m1761-seed-repair-completion-runner-implementation.json",
+    "hypothesis": "A small provenance-aware helper can prepare the M1760 one-cell completion execution without mutating prior artifacts or changing scenario/profile semantics.",
+    "id": "m1761-seed-repair-completion-runner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement provenance-aware single-cell completion helper without executing policy rollout",
+    "priority": 17560,
     "status": "pending",
-    "success_artifact": "docs/m1760-single-cell-seed-repair-completion-design.md"
+    "success_artifact": "docs/m1761-seed-repair-completion-runner-implementation.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

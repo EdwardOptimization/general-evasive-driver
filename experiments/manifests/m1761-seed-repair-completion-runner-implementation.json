@@ -1,0 +1,164 @@
+{
+  "id": "m1761-seed-repair-completion-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_seed_repair_completion_runner"
+    ],
+    "parent_dataset": [
+      "docs/m1760-single-cell-seed-repair-completion-design.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/episode_rows.csv",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+      "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1760-single-cell-seed-repair-completion-design.json"
+    ],
+    "parent_objective": [
+      "implement a provenance-aware single-cell seed-repair completion runner without executing policy rollout"
+    ],
+    "derived_from": [
+      "m1760-single-cell-seed-repair-completion-design"
+    ],
+    "blocked_by": [
+      "M1760 requires provenance-aware completion artifacts before any execution"
+    ],
+    "supersedes": [
+      "one-off manual row merge",
+      "mutating M1756 artifacts in place"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1761-seed-repair-completion-runner-implementation.md",
+  "public_gates": [
+    "M1761 must implement only the completion helper and focused tests",
+    "M1761 must not execute the missing policy episode",
+    "M1761 must preserve M1760 seed-repair provenance fields",
+    "M1761 must not change scenario specs profile configs actor inputs rewards dynamics termination behavior or controller profiles",
+    "M1761 must block controller-family ranking paper-level and level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_seed_repair_completion_runner",
+    "evidence_increment": "implements the provenance-aware helper needed before single-cell completion execution",
+    "claim_scope": "infrastructure implementation only; no policy rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if implementation would mutate M1756 artifacts in place",
+      "stop if implementation drops seed-repair provenance",
+      "stop if implementation requires scenario/profile changes"
+    ],
+    "fallback_plan": [
+      "route back to M1760 design if provenance cannot be represented cleanly",
+      "route to full same-protocol rerun design if merge artifacts cannot be validated",
+      "route to runner repair audit if tests expose artifact inconsistency"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1760 admits completion runner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement seed-repair completion runner",
+    "admission_evidence": [
+      "M1760 pre-registered replacement seed 175760 and provenance requirements"
+    ],
+    "blocked_shortcuts": [
+      "do not run policy rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "seed-repair completion helper",
+      "focused tests for provenance and completion validation",
+      "M1761 documentation status queue scoreboard research log and review",
+      "one follow-up completion execution manifest"
+    ],
+    "next_stage_criteria": [
+      "helper preserves provenance fields",
+      "focused tests pass",
+      "execution command for M1762 is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; completion runner infrastructure cannot prove history necessity.",
+    "history_necessity_tests": [
+      "helper must preserve all controller-family profiles for later audit"
+    ],
+    "temporal_evidence_window": "M1760 design only.",
+    "negative_result_policy": "Classify implementation failures as infrastructure evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "seed-repair completion helper implementation",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A small provenance-aware helper can prepare the M1760 one-cell completion execution without mutating prior artifacts or changing scenario/profile semantics.",
+  "success_criteria": [
+    "docs/m1761-seed-repair-completion-runner-implementation.md exists",
+    "completion helper preserves M1760 provenance fields",
+    "focused tests cover seed rule/provenance and merge validation",
+    "no policy episode is executed",
+    "full rollout training replay PPO promotion private holdout actor-input changes profile tuning and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation document is missing",
+    "helper drops provenance or mutates M1756 artifacts in place",
+    "helper changes scenario specs or profile configs",
+    "policy rollout, training, replay, PPO, private holdout, promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "implement seed-repair completion helper and focused tests without executing policy rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1761-seed-repair-completion-runner-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_seed_repair_completion_runner"
+  ],
+  "baseline_artifacts": [
+    "docs/m1760-single-cell-seed-repair-completion-design.md",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/episode_rows.csv",
+    "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+    "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+  ],
+  "decision_rule": "M1761 passes if the helper and tests make M1762 one-cell completion execution traceable without running it.",
+  "next_blocker": "m1761-seed-repair-completion-runner-implementation"
+}

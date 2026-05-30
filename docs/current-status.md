@@ -16,25 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis
+m1760-single-cell-seed-repair-completion-design
 ```
 
 Current next task:
 
 ```text
-m1760-single-cell-seed-repair-completion-design
+m1761-seed-repair-completion-runner-implementation
 ```
 
-M1759 synthesizes M1749-M1758 and continues the branch to explicit one-cell
-seed-repair completion design. M1758 probed the only remaining M1756 failure:
+M1760 designs the explicit one-cell seed-repair completion protocol. M1758
+probed the only remaining M1756 failure:
 `m1728-s4-02::L2_window_13_current_tiled`, exact eval seed `175761`,
 `unavoidable_mitigation`, `collision_mitigation`, `low_mu`. The exact seed
 reproducibly fails reset sampling, but `95/100` neighboring seeds within radius
 `50` succeed, all with sampled label `unavoidable`. The blocker is therefore
-`seed_fragile_but_feasible`, not a spec-filter infeasibility. The provisional
-next route is M1760: design an explicit single-cell seed-repair completion
-protocol with provenance before any rerun, row merge, scenario-spec repair,
-controller-family ranking, or paper-level interpretation.
+`seed_fragile_but_feasible`, not a spec-filter infeasibility. M1760 chooses
+replacement seed `175760` by the deterministic nearest-successful-neighbor
+lower-tie rule and admits M1761 provenance-aware completion runner
+implementation. M1761 must not execute the missing episode yet; it should only
+add the helper/tests needed before a later completion execution.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`

@@ -28523,3 +28523,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail violation count: `0`
 - follow-up manifest: `experiments/manifests/m1760-single-cell-seed-repair-completion-design.json`
 - next: `m1760-single-cell-seed-repair-completion-design`
+
+## M1760 Single-Cell Seed-Repair Completion Design
+
+- status: completed
+- decision: `admit_seed_repair_completion_runner_implementation`
+- artifact: `docs/m1760-single-cell-seed-repair-completion-design.md`
+- replacement seed rule: `nearest_successful_neighbor_tie_lower`
+- original eval seed: `175761`
+- replacement eval seed: `175760`
+- replacement seed offset: `-1`
+- seed repair source: `m1758_single_sampling_failure_reset_only_probe`
+- policy rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: deterministic seed-repair completion design and provenance requirements
+- unsupported: completion execution, row merge, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1761-seed-repair-completion-runner-implementation.json`
+- next: `m1761-seed-repair-completion-runner-implementation`
