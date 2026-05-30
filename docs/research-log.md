@@ -27387,3 +27387,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality conclusion before M1709 audit, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json`
 - next: `m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit`
+
+## M1709 Paper-Route Controller-Family Bounded Calibration Smoke Result Audit
+
+- status: completed
+- decision: `bounded_calibration_smoke_audit_positive_route_to_branch_synthesis`
+- artifact: `docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md`
+- audited M1708 result class: `controller_family_bounded_calibration_smoke_execution_pass`
+- execution gate: `864` episodes, zero failures, finite metrics, zero guardrail violations
+- original-axis baseline: off-track rate `0.9028`, success rate `0.0417`, collision rate `0.0556`
+- best raw calibration variant: `track_width_scale=2.0`, `finish_variant=original`, `max_steps_scale=1.5`
+- best variant rates: off-track `0.6944`, success `0.2083`, collision `0.0972`
+- pre-registered threshold result: interpretable variant passes because `0.6944 <= 0.70`; weak signal passes because best variant is below `0.80`; improvement over baseline is `0.2083`, above `0.10`
+- risk: best variant improves off-track dominance but increases collision rate, so next route must preserve the collision/off-track tradeoff
+- supported: task-quality calibration signal is positive enough to synthesize and consider scale-up
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
+- follow-up manifest: `experiments/manifests/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.json`
+- next: `m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis`

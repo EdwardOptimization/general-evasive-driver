@@ -1,0 +1,183 @@
+{
+  "id": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1701-paper-route-controller-family-task-quality-calibration-design.md",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/summary.json",
+      "docs/m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit.md",
+      "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json",
+      "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+      "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
+      "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json",
+      "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize task-quality calibration branch before scale-up or repair"
+    ],
+    "derived_from": [
+      "m1701-paper-route-controller-family-task-quality-calibration-design",
+      "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence and need to decide scale-up versus repair after positive bounded smoke"
+    ],
+    "supersedes": [
+      "direct calibrated scale-up after M1709",
+      "direct controller-family ranking after M1708"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+  "public_gates": [
+    "M1710 must synthesize M1701-M1709 before another narrow calibration milestone",
+    "M1710 must answer required synthesis questions",
+    "M1710 must assess the positive calibration signal and collision/off-track tradeoff",
+    "M1710 must decide continue pivot stop or promote_to_next_branch",
+    "M1710 must keep training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "S_task_quality_calibration_branch_synthesis",
+    "evidence_increment": "synthesizes M1701-M1709 after bounded calibration smoke finds an interpretable public variant",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores collision/off-track tradeoff",
+      "stop if synthesis treats M1708 as controller-family ranking evidence",
+      "stop if synthesis skips public-gate overfit risk",
+      "stop if synthesis routes directly to training or profile tuning"
+    ],
+    "fallback_plan": [
+      "continue to calibrated scale-up if synthesis judges task-quality signal sufficient",
+      "pivot to collision/off-track tradeoff repair if best variant is too collision-prone",
+      "stop branch if public overfit risk dominates",
+      "promote_to_next_branch only if a different evidence axis is selected"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1709 audits bounded calibration smoke and branch reaches synthesis boundary",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality calibration branch synthesis",
+    "admission_evidence": [
+      "M1709 finds a positive bounded calibration smoke signal",
+      "workflow cadence requires synthesis before scale-up or repair"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1710 synthesis document",
+      "M1710 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task quality and public profile controls, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, and L3-reset controls in any continued or pivoted route"
+    ],
+    "temporal_evidence_window": "M1701-M1709 public artifacts only.",
+    "negative_result_policy": "If synthesis finds public calibration insufficient, route to task repair or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1701-M1709 task-quality calibration branch should synthesize before any calibrated scale-up or repair.",
+  "success_criteria": [
+    "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "positive calibration signal and collision/off-track tradeoff are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1708 as controller-family ranking evidence",
+    "synthesis routes directly to training or profile tuning",
+    "synthesis claims paper-level or level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md",
+    "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json",
+    "runs/m1708_controller_family_bounded_calibration_smoke_execution/calibration_variant_aggregate.csv"
+  ],
+  "decision_rule": "M1710 passes if it synthesizes M1701-M1709 and chooses a route before scale-up, repair, or controller interpretation.",
+  "next_blocker": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis"
+}

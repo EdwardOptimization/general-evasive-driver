@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1717,
+    "completed": 1718,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.md",
+    "command_log": "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1708_controller_family_bounded_calibration_smoke_execution",
     "status": "completed",
-    "task_id": "m1708-paper-route-controller-family-bounded-calibration-smoke-execution"
+    "task_id": "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.json",
-    "hypothesis": "M1708 can be audited as clean execution and the calibration variants can be classified under the pre-registered M1707 task-quality rules.",
-    "id": "m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit",
+    "command": "see experiments/manifests/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.json",
+    "hypothesis": "The M1701-M1709 task-quality calibration branch should synthesize before any calibrated scale-up or repair.",
+    "id": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit execution pass best calibration variant baseline improvement and next route",
-    "priority": 17040,
+    "notes": "Pending: synthesize positive calibration signal collision tradeoff public overfit risk and next route",
+    "priority": 17050,
     "status": "pending",
-    "success_artifact": "docs/m1709-paper-route-controller-family-bounded-calibration-smoke-result-audit.md"
+    "success_artifact": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T012010Z"
+  "updated_at_utc": "20260530T012449Z"
 }
