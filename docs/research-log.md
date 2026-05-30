@@ -28783,3 +28783,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1768-completed-taxonomy-outcome-dominance-result-audit.json`
 - next: `m1768-completed-taxonomy-outcome-dominance-result-audit`
+
+## M1768 Completed Taxonomy Outcome-Dominance Result Audit
+
+- status: completed
+- decision: `diffuse_dominance_route_to_branch_synthesis_before_repair_or_ranking`
+- artifact: `docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md`
+- audited summary: `runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json`
+- M1767 result class: `task_quality_outcome_dominance_localization_pass`
+- M1767 dominant slice count: `305`
+- M1767 target dominant slice count: `291`
+- M1767 dominant family count: `6`
+- M1767 dominant profile count: `12`
+- M1767 outcome dominance class: `diffuse_outcome_dominance`
+- route decision: branch synthesis before repair, bounded-panel design, ranking, or paper claims
+- reason: diffuse dominance spans all families/profiles and mixes off-track, hidden-dynamics collision/off-track, and mitigation collision modes
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1767 localization is coherent and ranking remains blocked
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
+- next: `m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis`

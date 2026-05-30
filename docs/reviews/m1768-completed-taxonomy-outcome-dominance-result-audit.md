@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T065125Z
+- Generated at UTC: 20260530T065646Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1768 passes if it audits M1767 and routes the next branch without ranking or paper-level claims.
+- Promotion decision: diffuse_dominance_route_to_branch_synthesis_before_repair_or_ranking
+- Decision reason: M1768 audits M1767 as coherent diffuse dominance and routes to branch synthesis before repair ranking or paper claims
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ M1767 diffuse outcome dominance can be audited into a concrete next route withou
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1768-completed-taxonomy-outcome-dominance-result-audit
+- type: gate
+- checkpoint: docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: diffuse_dominance_route_to_branch_synthesis_before_repair_or_ranking
+- reason: M1768 audits M1767 as coherent diffuse dominance and routes to branch synthesis before repair ranking or paper claims
 
 ## Next Blocker
 
-m1768-completed-taxonomy-outcome-dominance-result-audit
+m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis

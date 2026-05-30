@@ -1,0 +1,190 @@
+{
+  "id": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1760-single-cell-seed-repair-completion-design.md",
+      "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
+      "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json",
+      "docs/m1766-completed-taxonomy-outcome-audit.md",
+      "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json",
+      "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1768-completed-taxonomy-outcome-dominance-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1760-M1768 completed taxonomy branch before repair, panel redesign, or ranking"
+    ],
+    "derived_from": [
+      "m1760-single-cell-seed-repair-completion-design",
+      "m1768-completed-taxonomy-outcome-dominance-result-audit"
+    ],
+    "blocked_by": [
+      "M1768 routes to branch synthesis because M1767 diffuse dominance blocks direct repair or ranking"
+    ],
+    "supersedes": [
+      "direct task-quality repair design after M1768",
+      "direct controller-family ranking after M1768"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "public_gates": [
+    "M1769 must synthesize M1760-M1768 before another repair, execution, ranking, or paper-route claim",
+    "M1769 must answer required synthesis questions",
+    "M1769 must assess seed-repair completion, completed taxonomy outcome audit, and diffuse dominance localization",
+    "M1769 must decide continue pivot stop or promote_to_next_branch",
+    "M1769 must keep rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "S_completed_taxonomy_branch_synthesis",
+    "evidence_increment": "synthesizes M1760-M1768 after deterministic seed repair, completed artifact audit, and diffuse outcome dominance localization",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis treats M1764/M1767 as controller-family ranking evidence",
+      "stop if synthesis ignores the seed-repair provenance and original failed seed",
+      "stop if synthesis skips diffuse dominance across all families and profiles",
+      "stop if synthesis routes directly to paper-level claims"
+    ],
+    "fallback_plan": [
+      "pivot to bounded diagnostic-panel design if full taxonomy is too broad for controller comparison",
+      "pivot to task-quality repair design if synthesis identifies coherent repair targets",
+      "pivot to metric-semantics audit if mitigation rows need different success criteria",
+      "stop branch if public overfit or metric artifact risk dominates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1768 routes to synthesis after M1767 diffuse dominance and near-cadence branch length",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "completed taxonomy branch synthesis after diffuse dominance audit",
+    "admission_evidence": [
+      "M1764 produced an 864-row zero-failure completed artifact with explicit one-cell seed-repair provenance",
+      "M1766 blocked ranking due broad off-track/collision dominance",
+      "M1767 localized 305 dominant slices across all 6 families and all 12 profiles",
+      "M1768 routes to synthesis before repair or ranking"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1769 synthesis document",
+      "M1769 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; synthesis covers task-quality outcome evidence, not history necessity.",
+    "history_necessity_tests": [
+      "Any continued route must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for later self-ID evidence."
+    ],
+    "temporal_evidence_window": "M1760-M1768 public artifacts only.",
+    "negative_result_policy": "If synthesis finds task-quality evidence insufficient, route to bounded panel, repair, or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1760-M1768 completed taxonomy branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
+  "success_criteria": [
+    "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "seed-repair provenance, completed artifact validity, outcome audit, and diffuse dominance localization are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1764/M1767 as ranking evidence",
+    "synthesis routes directly to paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json",
+    "docs/m1766-completed-taxonomy-outcome-audit.md",
+    "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json",
+    "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md"
+  ],
+  "decision_rule": "M1769 passes if it synthesizes M1760-M1768 and chooses a route before repair, bounded-panel design, ranking, or paper-route claims.",
+  "next_blocker": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+}

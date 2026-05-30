@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1776,
+    "completed": 1777,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1767-completed-taxonomy-outcome-dominance-localization.md",
+    "command_log": "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1767-completed-taxonomy-outcome-dominance-localization"
+    "task_id": "m1768-completed-taxonomy-outcome-dominance-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1768-completed-taxonomy-outcome-dominance-result-audit.json",
-    "hypothesis": "M1767 diffuse outcome dominance can be audited into a concrete next route without ranking controller families.",
-    "id": "m1768-completed-taxonomy-outcome-dominance-result-audit",
+    "command": "see experiments/manifests/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
+    "hypothesis": "The M1760-M1768 completed taxonomy branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
+    "id": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1767 diffuse dominance and choose next route without ranking",
-    "priority": 17630,
+    "notes": "Pending: synthesize completed taxonomy branch before repair, panel design, ranking, or paper-route claims",
+    "priority": 17640,
     "status": "pending",
-    "success_artifact": "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md"
+    "success_artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T064758Z"
+  "updated_at_utc": "20260530T065522Z"
 }
