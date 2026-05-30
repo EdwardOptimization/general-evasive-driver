@@ -184,6 +184,37 @@
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+    "doc": "docs/m1698-paper-route-controller-family-instrumented-rerun-execution.md",
+    "result_class": "controller_family_full_rollout_execution_pass",
+    "episode_count": 864,
+    "profile_count": 12,
+    "spec_count": 72,
+    "failure_count": 0,
+    "all_selected_metrics_finite": true,
+    "guardrail_violation_count": 0,
+    "outcome_aggregate_rows": 3,
+    "termination_reason_aggregate_rows": 3,
+    "profile_outcome_aggregate_rows": 22,
+    "success_obstacle_pass_count": 32,
+    "collision_failure_count": 38,
+    "off_track_noncollision_noncompletion_count": 794,
+    "off_track_termination_reason_count": 796,
+    "obstacle_collision_termination_reason_count": 36,
+    "full_rollout_executed": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json"
+  },
   "decision_rule": "M1698 passes if it completes the instrumented 864-cell public rerun with outcome artifacts finite metrics and clean guardrails.",
-  "next_blocker": "m1698-paper-route-controller-family-instrumented-rerun-execution"
+  "next_blocker": "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
 }

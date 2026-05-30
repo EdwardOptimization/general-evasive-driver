@@ -10734,5 +10734,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   profile checkpoints, deterministic seed base `169300`, and actor input
   contract, and targets
   `runs/m1698_controller_family_instrumented_full_rollout/`.
+- M1698 executes that instrumented rerun: `864` episodes, `12` profiles, `72`
+  specs, `0` failures, finite metrics, clean guardrails, and outcome aggregates
+  present.
+- M1698 outcome snapshot: `32` success obstacle passes, `38` collision failures,
+  and `794` off-track non-collision non-completions. This identifies the
+  dominant blocker as off-track outcome semantics, not obstacle collision alone.
 - Current next blocker:
-  `m1698-paper-route-controller-family-instrumented-rerun-execution`.
+  `m1699-paper-route-controller-family-instrumented-rerun-result-audit`.

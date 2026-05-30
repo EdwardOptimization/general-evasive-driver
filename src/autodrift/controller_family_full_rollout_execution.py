@@ -435,6 +435,7 @@ def finalize_outputs(
     *,
     output_dir: Path,
     target_workload_count: int,
+    next_blocker: str = "m1694-paper-route-controller-family-full-rollout-result-audit",
 ) -> dict[str, Any]:
     episode_rows = [dict(row) for row in read_csv_rows(output_dir / "episode_rows.csv")]
     failure_rows = [dict(row) for row in read_csv_rows(output_dir / "failure_rows.csv")]
@@ -519,7 +520,7 @@ def finalize_outputs(
             "failure_rows": str(output_dir / "failure_rows.csv"),
             "run_state": str(output_dir / "run_state.json"),
         },
-        "next_blocker": "m1694-paper-route-controller-family-full-rollout-result-audit",
+        "next_blocker": str(next_blocker),
     }
     write_json(output_dir / "summary.json", summary)
     write_run_state(
@@ -543,6 +544,7 @@ def run_full_rollout_execution(
     eval_seed_base: int = DEFAULT_EVAL_SEED_BASE,
     device: str = "cpu",
     resume: bool = True,
+    next_blocker: str = "m1694-paper-route-controller-family-full-rollout-result-audit",
 ) -> dict[str, Any]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -621,7 +623,7 @@ def run_full_rollout_execution(
             },
         )
 
-    return finalize_outputs(output_dir=output, target_workload_count=len(workload_rows))
+    return finalize_outputs(output_dir=output, target_workload_count=len(workload_rows), next_blocker=next_blocker)
 
 
 def main() -> None:
@@ -633,6 +635,7 @@ def main() -> None:
     parser.add_argument("--eval-seed-base", type=int, default=DEFAULT_EVAL_SEED_BASE)
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--no-resume", action="store_true")
+    parser.add_argument("--next-blocker", default="m1694-paper-route-controller-family-full-rollout-result-audit")
     args = parser.parse_args()
 
     summary = run_full_rollout_execution(
@@ -643,6 +646,7 @@ def main() -> None:
         eval_seed_base=int(args.eval_seed_base),
         device=str(args.device),
         resume=not bool(args.no_resume),
+        next_blocker=str(args.next_blocker),
     )
     print(f"summary={args.output_dir / 'summary.json'}")
     print(f"result_class={summary['result_class']}")

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1706,
+    "completed": 1707,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+    "command_log": "docs/m1698-paper-route-controller-family-instrumented-rerun-execution.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1698_controller_family_instrumented_full_rollout",
     "status": "completed",
-    "task_id": "m1697-paper-route-controller-family-instrumented-rerun-design"
+    "task_id": "m1698-paper-route-controller-family-instrumented-rerun-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json",
-    "hypothesis": "The same 864-cell public workload can rerun with outcome semantics artifacts while preserving M1693 comparability and clean guardrails.",
-    "id": "m1698-paper-route-controller-family-instrumented-rerun-execution",
+    "command": "see experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json",
+    "hypothesis": "M1698 can be audited into an explicit next route by separating off-track dominance from obstacle-collision avoidance outcomes.",
+    "id": "m1699-paper-route-controller-family-instrumented-rerun-result-audit",
     "kind": "gate",
-    "notes": "Pending: run instrumented full public rerun with outcome termination and profile-outcome aggregates",
-    "priority": 16930,
+    "notes": "Pending: audit off-track dominated outcome buckets and route next step without ranking claims",
+    "priority": 16940,
     "status": "pending",
-    "success_artifact": "runs/m1698_controller_family_instrumented_full_rollout/summary.json"
+    "success_artifact": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md"
   },
-  "updated_at_utc": "20260530T003357Z"
+  "updated_at_utc": "20260530T003930Z"
 }

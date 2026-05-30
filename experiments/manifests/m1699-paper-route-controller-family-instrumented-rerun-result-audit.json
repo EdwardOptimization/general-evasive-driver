@@ -1,0 +1,158 @@
+{
+  "id": "m1699-paper-route-controller-family-instrumented-rerun-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+      "runs/m1698_controller_family_instrumented_full_rollout/episode_rows.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv",
+      "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json"
+    ],
+    "parent_objective": [
+      "audit the instrumented public rerun before controller-family interpretation"
+    ],
+    "derived_from": [
+      "m1698-paper-route-controller-family-instrumented-rerun-execution"
+    ],
+    "blocked_by": [
+      "need outcome-semantics audit before interpreting off-track dominated instrumented rerun results"
+    ],
+    "supersedes": [
+      "raw success interpretation without outcome semantics",
+      "direct ranking from M1698 execution artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+  "public_gates": [
+    "M1699 must audit M1698 required artifacts, outcome fields, finite metrics, and guardrails",
+    "M1699 must interpret off-track/collision/pass buckets before any controller-family comparison",
+    "M1699 must decide whether the next route is task-quality repair, corridor/boundary tuning, or branch synthesis",
+    "M1699 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles from M1698 diagnostics",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_instrumented_rerun_result_audit",
+    "evidence_increment": "audits outcome-semantics results from the instrumented public rerun",
+    "claim_scope": "result audit and next-route decision only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if outcome fields are missing",
+      "stop if audit ignores off-track dominance",
+      "stop if audit directly ranks controllers before task-quality decision",
+      "stop if next route is not explicit"
+    ],
+    "fallback_plan": [
+      "route to task-quality/corridor design if off-track dominance invalidates ranking",
+      "route to branch synthesis if the current workload has reached synthesis cadence",
+      "route to controlled comparison audit if outcome buckets are interpretable enough"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1698 completes the instrumented rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit instrumented rerun result",
+    "admission_evidence": [
+      "M1698 completes the instrumented 864-cell public rerun with outcome aggregates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1699 result audit document",
+      "M1699 status queue scoreboard research log and review",
+      "one follow-up design synthesis or task-quality manifest"
+    ],
+    "next_stage_criteria": [
+      "M1698 artifact integrity and guardrails are audited",
+      "outcome bucket interpretation caveats are stated",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1699 audits public rollout diagnostics but does not by itself prove history necessity.",
+    "history_necessity_tests": [
+      "audit L1, L2-current-tiled, L3-online, and L3-reset comparison rows as diagnostic only"
+    ],
+    "temporal_evidence_window": "M1698 instrumented public rerun artifacts.",
+    "negative_result_policy": "If reset/current-tiled controls match or beat history profiles, record this as task-quality or history-necessity evidence gap instead of weakening the claim standard.",
+    "allowed_claims": [
+      "instrumented rerun result audit",
+      "next-route decision",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1698 can be audited into an explicit next route by separating off-track dominance from obstacle-collision avoidance outcomes.",
+  "success_criteria": [
+    "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md exists",
+    "M1698 required artifacts are verified",
+    "outcome and termination-reason aggregates are audited",
+    "off-track dominance is addressed",
+    "next route is explicit",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit omits required M1698 artifacts",
+    "audit ignores off-track dominance",
+    "audit interprets raw diagnostics as controller-family ranking or paper-level evidence",
+    "audit routes directly to training or profile tuning without design",
+    "training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1698 instrumented rerun artifacts and write next-route decision"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1699-paper-route-controller-family-instrumented-rerun-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m1698_controller_family_instrumented_full_rollout/summary.json",
+    "runs/m1698_controller_family_instrumented_full_rollout/episode_rows.csv",
+    "runs/m1698_controller_family_instrumented_full_rollout/outcome_aggregate.csv",
+    "runs/m1698_controller_family_instrumented_full_rollout/termination_reason_aggregate.csv",
+    "runs/m1698_controller_family_instrumented_full_rollout/profile_outcome_aggregate.csv"
+  ],
+  "decision_rule": "M1699 passes if it audits M1698 outcome semantics and routes to an explicit next milestone without overclaiming.",
+  "next_blocker": "m1699-paper-route-controller-family-instrumented-rerun-result-audit"
+}

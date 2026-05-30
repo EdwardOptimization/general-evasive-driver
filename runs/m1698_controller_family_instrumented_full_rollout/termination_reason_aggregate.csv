@@ -1,0 +1,4 @@
+termination_reason,episode_count,success_rate,collision_rate,clearance_margin_mean,clearance_margin_p10,return_mean,steps_mean,control_smoothness,spin_or_unstable_rate,failure_rate,all_selected_metrics_finite,task_family,source_family
+,32,1.0,0.0,2.63130354607315,0.6616801828460535,68.94330294966592,93.5625,0.00110276667328435,0.0625,0.0,True,T4,capability_step_up
+obstacle_collision,36,0.0,1.0,-0.07242093598893738,-0.12999976753491993,21.41466220374145,68.77777777777777,0.001726761872608525,0.0,0.0,True,T4,capability_step_up
+off_track,796,0.0,0.002512562814070352,11.380029153562175,2.3641729895374257,18.682822345502213,71.57663316582915,0.0025983996347532417,0.002512562814070352,0.0,True,T4,capability_step_up

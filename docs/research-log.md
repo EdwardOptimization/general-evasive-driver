@@ -27180,3 +27180,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1698-paper-route-controller-family-instrumented-rerun-execution.json`
 - next: `m1698-paper-route-controller-family-instrumented-rerun-execution`
+
+## M1698 Paper-Route Controller-Family Instrumented Rerun Execution
+
+- status: completed
+- result class: `controller_family_full_rollout_execution_pass`
+- artifact: `runs/m1698_controller_family_instrumented_full_rollout/summary.json`
+- documentation: `docs/m1698-paper-route-controller-family-instrumented-rerun-execution.md`
+- episodes / profiles / specs / failures: `864` / `12` / `72` / `0`
+- selected metrics finite: `true`
+- guardrail violation count: `0`
+- outcome aggregate rows: `3`
+- termination reason aggregate rows: `3`
+- profile outcome aggregate rows: `22`
+- outcome buckets: `success_obstacle_pass=32`, `collision_failure=38`, `off_track_noncollision_noncompletion=794`
+- termination reasons: `none=32`, `obstacle_collision=36`, `off_track=796`
+- supported: same-workload public rerun now has outcome semantics artifacts for audit
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1699-paper-route-controller-family-instrumented-rerun-result-audit.json`
+- next: `m1699-paper-route-controller-family-instrumented-rerun-result-audit`

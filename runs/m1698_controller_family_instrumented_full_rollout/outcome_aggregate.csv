@@ -1,0 +1,4 @@
+outcome_bucket,episode_count,success_rate,collision_rate,clearance_margin_mean,clearance_margin_p10,return_mean,steps_mean,control_smoothness,spin_or_unstable_rate,failure_rate,all_selected_metrics_finite,task_family,source_family
+collision_failure,38,0.0,1.0,-0.06994665655489633,-0.12700932243993773,20.48133581790585,68.6842105263158,0.001773602716735025,0.0,0.0,True,T4,capability_step_up
+off_track_noncollision_noncompletion,794,0.0,0.0,11.40875821849997,2.41127436307136,18.720609150219182,71.588161209068,0.002598353442621607,0.0025188916876574307,0.0,True,T4,capability_step_up
+success_obstacle_pass,32,1.0,0.0,2.63130354607315,0.6616801828460535,68.94330294966592,93.5625,0.00110276667328435,0.0625,0.0,True,T4,capability_step_up
