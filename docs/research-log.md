@@ -30625,3 +30625,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json`
 - next: `m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis`
+
+## M1829 Paper Route Executable V2 Targeted Reset Validation Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- completed branch: `paper_route_executable_v2_targeted_reset_validation`
+- next branch: `paper_route_executable_v2_reset_time_aes_sampler_diagnostic`
+- artifact: `docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md`
+- evidence window: `M1819-M1828`
+- original targeted reset attempted spec count: `36`
+- original targeted reset success count: `10`
+- original targeted reset sampling failure count: `26`
+- repaired targeted reset attempted spec count: `36`
+- repaired targeted reset success count: `12`
+- repaired targeted reset sampling failure count: `24`
+- AEB repaired reset success count: `12`
+- AES repaired reset success count: `0`
+- AES repaired sampling failure count: `24`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- additional environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: AEB sparse source repair succeeded, AES repaired sources remain reset-infeasible, offline density proxy is insufficient
+- unsupported: full repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json`
+- next: `m1830-executable-v2-reset-time-aes-sampler-diagnostic-design`

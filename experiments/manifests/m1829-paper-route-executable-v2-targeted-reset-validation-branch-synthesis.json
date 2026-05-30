@@ -186,6 +186,54 @@
     "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
     "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+    "decision": "pivot",
+    "completed_branch": "paper_route_executable_v2_targeted_reset_validation",
+    "next_branch": "paper_route_executable_v2_reset_time_aes_sampler_diagnostic",
+    "evidence_window": "M1819-M1828",
+    "original_targeted_reset_attempted_spec_count": 36,
+    "original_targeted_reset_success_count": 10,
+    "original_targeted_reset_sampling_failure_count": 26,
+    "repaired_targeted_reset_attempted_spec_count": 36,
+    "repaired_targeted_reset_success_count": 12,
+    "repaired_targeted_reset_sampling_failure_count": 24,
+    "aeb_repaired_reset_success_count": 12,
+    "aes_repaired_reset_success_count": 0,
+    "aes_repaired_sampling_failure_count": 24,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "metadata_join_incomplete_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "supported_claims": [
+      "AEB sparse source reset support was repaired",
+      "AES repaired sources remain systematically reset-infeasible",
+      "offline density proxy is insufficient for reset-time AES support"
+    ],
+    "unsupported_claims": [
+      "full repaired targeted reset feasibility",
+      "measured execution readiness",
+      "controller-family ranking",
+      "paper-level benchmark evidence",
+      "level3 self-identification"
+    ],
+    "next_manifest": "experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json"
+  },
   "decision_rule": "M1829 passes if it synthesizes M1819-M1828 and chooses a next branch without running additional reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
+  "next_blocker": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design"
 }

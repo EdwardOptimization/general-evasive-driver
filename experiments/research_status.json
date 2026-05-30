@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1837,
+    "completed": 1838,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight.md",
+    "command_log": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1828-executable-v2-stable-source-repaired-targeted-reset-feasibility-preflight"
+    "task_id": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json",
-    "hypothesis": "M1819-M1828 targeted reset-validation evidence is sufficient to decide whether the branch should pivot from broad repaired reset attempts to reset-time AES sampler diagnostics.",
-    "id": "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis",
+    "command": "see experiments/manifests/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.json",
+    "hypothesis": "A targeted diagnostic can specify the reset-time observables needed to explain why M1825 AES candidates have offline density but fail M1828 reset sampling.",
+    "id": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1819-M1828 and audit persistent AES reset failures before further repair",
-    "priority": 18240,
+    "notes": "Pending: design reset-time AES sampler diagnostic before more source repair",
+    "priority": 18250,
     "status": "pending",
-    "success_artifact": "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md"
+    "success_artifact": "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md"
   },
-  "updated_at_utc": "20260530T130500Z"
+  "updated_at_utc": "20260530T131000Z"
 }

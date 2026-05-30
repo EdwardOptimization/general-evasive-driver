@@ -1,0 +1,166 @@
+{
+  "id": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_sampler_diagnostic_design"
+    ],
+    "parent_dataset": [
+      "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv",
+      "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design reset-time AES sampler diagnostics before further source repair"
+    ],
+    "derived_from": [
+      "m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1829 pivots from targeted reset validation to reset-time AES sampler diagnostics"
+    ],
+    "supersedes": [
+      "blind source-range widening after M1828",
+      "additional reset rerun without sampler diagnostic",
+      "measured execution before reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
+  "public_gates": [
+    "M1830 must design a diagnostic for the two persistent AES reset-time sampler failures",
+    "M1830 must compare reset-time sampler assumptions against M1825 offline density assumptions",
+    "M1830 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_sampler_diagnostic",
+    "evidence_axis": "Q_reset_time_aes_sampler_diagnostic_design",
+    "evidence_increment": "designs reset-time diagnostics for AES source sampler failures observed in M1828",
+    "claim_scope": "diagnostic design only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if diagnostic cannot target the two AES failure sources",
+      "stop if required sampler observables are unavailable without implementation",
+      "stop if design would require profile-specific tuning or actor input changes",
+      "stop if reset is run during design"
+    ],
+    "fallback_plan": [
+      "route to instrumentation implementation if reset-time observables are missing",
+      "route to source-level repair v2 only after diagnostic evidence identifies compatible ranges",
+      "route to adapter repair if metadata/count mismatches are implicated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1829 pivot opened reset-time AES sampler diagnostic branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES sampler diagnostic design",
+    "admission_evidence": [
+      "M1828 failed all AES reset rows while AEB rows passed",
+      "M1829 synthesis pivoted to reset-time AES sampler diagnostics"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1830 design doc",
+      "M1830 status queue scoreboard research log and review",
+      "one follow-up manifest for diagnostic implementation or execution design"
+    ],
+    "next_stage_criteria": [
+      "diagnostic targets and observables are specified",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler diagnostic design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1828 reset diagnostics and M1825 repaired payload only; no rollout.",
+    "negative_result_policy": "If diagnostics cannot be specified, route to instrumentation design rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "reset-time AES sampler diagnostic design",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A targeted diagnostic can specify the reset-time observables needed to explain why M1825 AES candidates have offline density but fail M1828 reset sampling.",
+  "success_criteria": [
+    "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md exists",
+    "design targets the two AES failure sources",
+    "design lists reset-time sampler observables and offline-density comparators",
+    "design states whether implementation or execution design is next",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits the two AES failure sources",
+    "design runs reset or rollout",
+    "design routes directly to measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1830-executable-v2-reset-time-aes-sampler-diagnostic-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_sampler_diagnostic_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1829-paper-route-executable-v2-targeted-reset-validation-branch-synthesis.md",
+    "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/summary.json",
+    "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json"
+  ],
+  "decision_rule": "M1830 passes if it designs an AES reset-time sampler diagnostic route without running reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1830-executable-v2-reset-time-aes-sampler-diagnostic-design"
+}
