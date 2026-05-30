@@ -1,0 +1,157 @@
+{
+  "id": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1721-paper-route-controller-family-off-track-repair-panel-preflight.md",
+      "runs/m1721_off_track_repair_panel_preflight/summary.json",
+      "runs/m1721_off_track_repair_panel_preflight/selected_base_specs.csv",
+      "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1721-paper-route-controller-family-off-track-repair-panel-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout off-track repair panel preflight before execution design"
+    ],
+    "derived_from": [
+      "m1721-paper-route-controller-family-off-track-repair-panel-preflight"
+    ],
+    "blocked_by": [
+      "need repair panel preflight audit before measured execution design"
+    ],
+    "supersedes": [
+      "direct repair panel execution design after M1721"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+  "public_gates": [
+    "M1722 must audit M1721 subset counts source/task/profile/variant coverage contract checks and guardrails",
+    "M1722 must decide whether repair panel execution design is admitted",
+    "M1722 must not execute rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1722 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_preflight_audit",
+    "evidence_increment": "audits no-rollout repair panel metadata before execution design",
+    "claim_scope": "process audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair panel result class failed",
+      "stop if selected base spec count or T4/T5 split is wrong",
+      "stop if wide_relaxed_extended is missing",
+      "stop if contract or guardrail checks fail"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if preflight failed",
+      "route to measured execution design if preflight passes",
+      "route to branch synthesis if repair panel path becomes underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1721 materializes repair panel preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "off-track repair panel preflight audit",
+    "admission_evidence": [
+      "M1721 materialized no-rollout repair panel metadata"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1722 audit document",
+      "M1722 status queue scoreboard research log and review",
+      "one follow-up measured execution design manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight result class is audited",
+      "execution design admission decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1722 audits task repair metadata and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must keep L1, L2-current-tiled, L3-online, and L3-reset controls as controls only"
+    ],
+    "temporal_evidence_window": "M1721 no-rollout preflight artifacts only.",
+    "negative_result_policy": "If preflight fails, route to repair or source-distribution redesign rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "off-track repair panel preflight audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1721 can be audited as a clean no-rollout off-track repair panel preflight and routed to execution design.",
+  "success_criteria": [
+    "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md exists",
+    "M1721 artifact counts are verified",
+    "selected_base_spec_count == 18",
+    "selected_task_family_counts == T4=12 T5=6",
+    "repair_panel_matrix_cell_count == 864",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "next repair panel execution design route is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit omits required M1721 artifacts",
+    "audit ignores task/source/profile/variant coverage",
+    "audit ignores contract violations",
+    "audit routes directly to profile ranking",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write off-track repair panel preflight audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1721_off_track_repair_panel_preflight/summary.json",
+    "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv"
+  ],
+  "decision_rule": "M1722 passes if it audits M1721 and routes to repair panel execution design or repair without overclaiming.",
+  "next_blocker": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
+}

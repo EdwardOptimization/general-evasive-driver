@@ -166,6 +166,47 @@
     "runs/m1718_off_track_dominance_localization/repair_target_slices.csv",
     "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1721_off_track_repair_panel_preflight/summary.json",
+    "doc": "docs/m1721-paper-route-controller-family-off-track-repair-panel-preflight.md",
+    "result_class": "off_track_repair_panel_preflight_pass",
+    "selected_base_spec_count": 18,
+    "selected_task_family_counts": {
+      "T4": 12,
+      "T5": 6
+    },
+    "repair_panel_spec_count": 72,
+    "repair_panel_matrix_cell_count": 864,
+    "profile_count": 12,
+    "variant_label_counts": {
+      "original_axis_baseline": 18,
+      "best_off_track_variant": 18,
+      "collision_control_wide_relaxed": 18,
+      "wide_relaxed_extended": 18
+    },
+    "selected_source_edge_count": 5,
+    "selected_executable_source_family_count": 5,
+    "selected_env_template_family_count": 4,
+    "selected_window_tag_count": 3,
+    "wide_relaxed_extended_available": true,
+    "contract_violation_count": 0,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit.json"
+  },
   "decision_rule": "M1721 passes if it materializes the no-rollout repair panel exactly and keeps guardrails clean.",
-  "next_blocker": "m1721-paper-route-controller-family-off-track-repair-panel-preflight"
+  "next_blocker": "m1722-paper-route-controller-family-off-track-repair-panel-preflight-result-audit"
 }
