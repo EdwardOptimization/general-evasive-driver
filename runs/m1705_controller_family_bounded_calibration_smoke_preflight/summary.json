@@ -1,0 +1,89 @@
+{
+  "actor_input_contract_changed": false,
+  "artifacts": {
+    "bounded_calibration_specs": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_calibration_specs.json",
+    "bounded_calibration_specs_csv": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_calibration_specs.csv",
+    "bounded_smoke_matrix": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv",
+    "contract_violations": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/contract_violations.csv",
+    "rejected_base_specs": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/rejected_base_specs.csv",
+    "selected_base_specs": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/selected_base_specs.csv",
+    "summary": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json"
+  },
+  "base_spec_count": 72,
+  "bounded_calibration_spec_count": 72,
+  "bounded_smoke_matrix_cell_count": 864,
+  "contract_violation_count": 0,
+  "controller_family_ranking_claim_made": false,
+  "environment_rollout_started": false,
+  "finish_variant_counts": {
+    "original": 36,
+    "relaxed": 36
+  },
+  "generated_at_utc": "20260530T010642Z",
+  "guardrail_flags": {
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "environment_rollout_started": false,
+    "level3_self_id_claim_made": false,
+    "paper_level_claim_made": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "guardrail_violation_count": 0,
+  "level3_self_id_claim_made": false,
+  "max_steps_scale_counts": {
+    "1.0": 36,
+    "1.5": 36
+  },
+  "missing_checkpoint_count": 0,
+  "missing_config_count": 0,
+  "missing_profile_count": 0,
+  "missing_variant_count": 0,
+  "next_blocker": "m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit",
+  "output_dir": "runs/m1705_controller_family_bounded_calibration_smoke_preflight",
+  "paper_level_claim_made": false,
+  "passes_public_preflight_gates": true,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "profile_count": 12,
+  "profile_counts": {
+    "L0_current_masked": 72,
+    "L1_one_step": 72,
+    "L2_window_100": 72,
+    "L2_window_100_current_tiled": 72,
+    "L2_window_13": 72,
+    "L2_window_13_current_tiled": 72,
+    "L2_window_25": 72,
+    "L2_window_25_current_tiled": 72,
+    "L2_window_50": 72,
+    "L2_window_50_current_tiled": 72,
+    "L3_online_gru": 72,
+    "L3_reset_control_corrected": 72
+  },
+  "profile_specific_tuning": false,
+  "profiles_per_calibration_spec_max": 12,
+  "profiles_per_calibration_spec_min": 12,
+  "promoted": false,
+  "rejected_base_spec_count": 66,
+  "replay_started": false,
+  "result_class": "controller_family_bounded_calibration_smoke_preflight_pass",
+  "selected_base_spec_count": 6,
+  "selected_task_family_counts": {
+    "T4": 3,
+    "T5": 3
+  },
+  "source_calibration_spec_count": 864,
+  "source_matrix_cell_count": 10368,
+  "track_width_scale_counts": {
+    "1.0": 24,
+    "1.5": 24,
+    "2.0": 24
+  },
+  "training_started": false,
+  "variants_per_base_spec_max": 12,
+  "variants_per_base_spec_min": 12
+}

@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1713,
+    "completed": 1714,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1704-paper-route-controller-family-bounded-calibration-smoke-design.md",
+    "command_log": "docs/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.md",
     "returncode": 0,
+    "run_dir": "runs/m1705_controller_family_bounded_calibration_smoke_preflight",
     "status": "completed",
-    "task_id": "m1704-paper-route-controller-family-bounded-calibration-smoke-design"
+    "task_id": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json",
-    "hypothesis": "The M1704 bounded calibration smoke subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
-    "id": "m1705-paper-route-controller-family-bounded-calibration-smoke-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize 6-base-spec 72-calibration-spec 864-cell bounded smoke subset with contract checks",
-    "priority": 17000,
+    "command": "see experiments/manifests/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.json",
+    "hypothesis": "M1705 can be audited as a clean no-rollout bounded calibration smoke preflight and routed to execution design.",
+    "id": "m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit subset counts source/task/profile coverage and next execution-design route",
+    "priority": 17010,
     "status": "pending",
-    "success_artifact": "runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json"
+    "success_artifact": "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260530T010317Z"
+  "updated_at_utc": "20260530T010656Z"
 }

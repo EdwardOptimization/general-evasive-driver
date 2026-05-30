@@ -27306,3 +27306,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.json`
 - next: `m1705-paper-route-controller-family-bounded-calibration-smoke-preflight`
+
+## M1705 Paper-Route Controller-Family Bounded Calibration Smoke Preflight
+
+- status: completed
+- result class: `controller_family_bounded_calibration_smoke_preflight_pass`
+- artifact: `runs/m1705_controller_family_bounded_calibration_smoke_preflight/summary.json`
+- documentation: `docs/m1705-paper-route-controller-family-bounded-calibration-smoke-preflight.md`
+- source calibration specs / matrix cells: `864` / `10368`
+- selected base specs: `6`
+- selected task family counts: `T4=3`, `T5=3`
+- bounded calibration specs: `72`
+- bounded smoke matrix cells: `864`
+- profiles: `12`
+- selected base specs: `m1680-spec-0000`, `m1680-spec-0001`, `m1680-spec-0006`, `m1680-spec-0036`, `m1680-spec-0039`, `m1680-spec-0040`
+- coverage: all selected base specs retain `12` calibration variants; all calibration specs retain `12` profiles; each profile appears in `72` rows
+- contract violation count: `0`
+- missing config / checkpoint count: `0` / `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- supported: the bounded calibration smoke subset is materialized as clean metadata and ready for audit
+- unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.json`
+- next: `m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit`
