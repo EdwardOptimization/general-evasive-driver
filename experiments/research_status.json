@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1824,
+    "completed": 1825,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md",
+    "command_log": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1815-executable-v2-stable-source-reset-validation-execution-design"
+    "task_id": "m1816-executable-v2-stable-source-reset-validation-adapter-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1816-executable-v2-stable-source-reset-validation-adapter-execution.json",
-    "hypothesis": "The M1814 adapter can convert M1811 stable source materialization artifacts into a 36-row executable_v2_panel_specs targeted reset payload with clean guardrails.",
-    "id": "m1816-executable-v2-stable-source-reset-validation-adapter-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-reset adapter command from M1815",
-    "priority": 18110,
+    "command": "see experiments/manifests/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.json",
+    "hypothesis": "The M1816 no-reset conversion result can be audited as a clean targeted reset payload, admitting a later targeted M1792 reset-feasibility execution design.",
+    "id": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1816 targeted reset payload before reset execution design",
+    "priority": 18120,
     "status": "pending",
-    "success_artifact": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json"
+    "success_artifact": "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md"
   },
-  "updated_at_utc": "20260530T120000Z"
+  "updated_at_utc": "20260530T120500Z"
 }

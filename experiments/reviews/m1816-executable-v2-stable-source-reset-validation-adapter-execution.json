@@ -1,0 +1,103 @@
+{
+  "decision_reason": "M1816 produces clean 36-row targeted reset payload without reset rollout ranking or paper-level claims",
+  "failure_criteria": [
+    "summary is missing",
+    "result_class is fail",
+    "target counts do not match",
+    "join missing duplicate env_config label leakage or ranking guardrails fail",
+    "execution runs reset rollout measured rollout training replay PPO or ranking"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260530T103501Z",
+  "hypothesis": "The M1814 adapter can convert M1811 stable source materialization artifacts into a 36-row executable_v2_panel_specs targeted reset payload with clean guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1815 admits no-reset adapter execution but converted targeted reset payload does not yet exist"
+    ],
+    "derived_from": [
+      "m1815-executable-v2-stable-source-reset-validation-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_reset_validation_adapter_execution"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1815-executable-v2-stable-source-reset-validation-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1815-executable-v2-stable-source-reset-validation-execution-design.md",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+    ],
+    "parent_objective": [
+      "run no-reset stable source reset-validation adapter over M1811 artifacts"
+    ],
+    "supersedes": [
+      "manual conversion to targeted reset payload",
+      "direct reset execution before converted executable_v2_panel_specs payload",
+      "measured execution before reset validation"
+    ]
+  },
+  "milestone": "m1816-executable-v2-stable-source-reset-validation-adapter-execution",
+  "next_blocker": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stable_source_reset_validation_adapter_pass_route_to_result_audit",
+  "public_gates": [
+    "M1816 must run only the no-reset adapter command pre-registered by M1815",
+    "M1816 must write targeted executable_v2_panel_specs artifacts with expected counts",
+    "M1816 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "stable_source_reset_validation_adapter_pass_route_to_result_audit",
+    "milestone": "m1816-executable-v2-stable-source-reset-validation-adapter-execution",
+    "reason": "M1816 produces clean 36-row targeted reset payload without reset rollout ranking or paper-level claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json exists",
+    "result_class is executable_v2_stable_source_reset_validation_adapter_pass",
+    "targeted_reset_executable_spec_count equals 36",
+    "profile_control_count equals 12",
+    "role_surface_count equals 1",
+    "reset_ready_spec_count equals 36",
+    "reset_validation_required_count equals 36",
+    "labels_enter_actor_input_count equals 0",
+    "ranking_admissible_by_default_count equals 0",
+    "env_config_missing_count equals 0",
+    "missing_join_count equals 0",
+    "duplicate_workload_count equals 0",
+    "guardrail_violation_count equals 0",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "infrastructure"
+}
