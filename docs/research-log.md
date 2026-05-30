@@ -29179,3 +29179,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1782-role-specific-metric-scorecard-extraction-implementation.json`
 - next: `m1782-role-specific-metric-scorecard-extraction-implementation`
+
+## M1782 Role-Specific Metric Scorecard Extraction Implementation
+
+- status: completed
+- decision: `role_specific_scorecard_extraction_implementation_pass_route_to_execution`
+- artifact: `docs/m1782-role-specific-metric-scorecard-extraction-implementation.md`
+- module: `src/autodrift/role_specific_metric_scorecard.py`
+- test: `tests/test_role_specific_metric_scorecard.py`
+- focused test: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_role_specific_metric_scorecard.py -q`
+- focused test result: `2 passed`
+- mitigation contract uses success as primary: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: tested no-rollout scorecard extraction infrastructure with ranking blocked
+- unsupported: real scorecard extraction over M1777, profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1783-role-specific-metric-scorecard-extraction.json`
+- next: `m1783-role-specific-metric-scorecard-extraction`

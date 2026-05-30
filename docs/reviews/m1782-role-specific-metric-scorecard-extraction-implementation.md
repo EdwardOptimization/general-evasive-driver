@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T075955Z
+- Generated at UTC: 20260530T080430Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1782 passes if it implements tested no-rollout scorecard extraction while preserving no-ranking claim boundaries.
+- Promotion decision: role_specific_scorecard_extraction_implementation_pass_route_to_execution
+- Decision reason: M1782 implements no-rollout role-specific scorecard extractor with focused tests and ranking blocked
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A role-specific scorecard extractor can be implemented and tested without rerunn
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1782-role-specific-metric-scorecard-extraction-implementation
+- type: infrastructure
+- checkpoint: docs/m1782-role-specific-metric-scorecard-extraction-implementation.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: role_specific_scorecard_extraction_implementation_pass_route_to_execution
+- reason: M1782 implements no-rollout role-specific scorecard extractor with focused tests and ranking blocked
 
 ## Next Blocker
 
-m1782-role-specific-metric-scorecard-extraction-implementation
+m1783-role-specific-metric-scorecard-extraction

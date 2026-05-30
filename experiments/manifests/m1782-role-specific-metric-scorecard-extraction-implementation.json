@@ -155,6 +155,33 @@
     "docs/m1781-paper-route-role-specific-metric-scorecard-design.md",
     "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1782-role-specific-metric-scorecard-extraction-implementation.md",
+    "decision": "role_specific_scorecard_extraction_implementation_pass_route_to_execution",
+    "module": "src/autodrift/role_specific_metric_scorecard.py",
+    "test": "tests/test_role_specific_metric_scorecard.py",
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_role_specific_metric_scorecard.py -q",
+    "focused_test_result": "2 passed",
+    "mitigation_contract_uses_success_as_primary": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1783-role-specific-metric-scorecard-extraction.json"
+  },
   "decision_rule": "M1782 passes if it implements tested no-rollout scorecard extraction while preserving no-ranking claim boundaries.",
-  "next_blocker": "m1782-role-specific-metric-scorecard-extraction-implementation"
+  "next_blocker": "m1783-role-specific-metric-scorecard-extraction"
 }
