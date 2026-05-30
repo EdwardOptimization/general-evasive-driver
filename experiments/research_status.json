@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1728,
+    "completed": 1729,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
+    "command_log": "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit"
+    "task_id": "m1720-paper-route-controller-family-off-track-repair-panel-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json",
-    "hypothesis": "A fixed-budget repair panel can be designed from M1718 localized off-track targets while preserving baseline and conditional-positive controls.",
-    "id": "m1720-paper-route-controller-family-off-track-repair-panel-design",
-    "kind": "gate",
-    "notes": "Pending: design baseline-preserving repair panel with conditional-positive controls and missing composite variant check",
-    "priority": 17150,
+    "command": "see experiments/manifests/m1721-paper-route-controller-family-off-track-repair-panel-preflight.json",
+    "hypothesis": "The M1720 repair panel can be materialized as clean no-rollout metadata with 18 base specs, four variants, and all twelve profiles.",
+    "id": "m1721-paper-route-controller-family-off-track-repair-panel-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize 18-base-spec 4-variant 864-cell repair panel with clean controls and no rollout",
+    "priority": 17160,
     "status": "pending",
-    "success_artifact": "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md"
+    "success_artifact": "runs/m1721_off_track_repair_panel_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T020924Z"
+  "updated_at_utc": "20260530T021327Z"
 }

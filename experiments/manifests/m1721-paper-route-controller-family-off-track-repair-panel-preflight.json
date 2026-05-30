@@ -1,0 +1,171 @@
+{
+  "id": "m1721-paper-route-controller-family-off-track-repair-panel-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
+      "runs/m1718_off_track_dominance_localization/repair_target_slices.csv",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-rollout off-track repair panel from localized target slices"
+    ],
+    "derived_from": [
+      "m1720-paper-route-controller-family-off-track-repair-panel-design"
+    ],
+    "blocked_by": [
+      "need no-rollout repair panel preflight before any execution design"
+    ],
+    "supersedes": [
+      "direct repair panel execution after M1720"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1721-paper-route-controller-family-off-track-repair-panel-preflight.md",
+  "public_gates": [
+    "M1721 must materialize a no-rollout repair panel from M1720 design",
+    "M1721 must select 18 base specs with T4=12 and T5=6 if eligible target sources exist",
+    "M1721 must keep four variants per base spec including wide_relaxed_extended",
+    "M1721 must keep all twelve controller-family profiles as controls",
+    "M1721 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1721 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_preflight",
+    "evidence_increment": "materializes no-rollout repair panel metadata before execution design",
+    "claim_scope": "metadata preflight only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if eligible target sources cannot supply T4=12 and T5=6",
+      "stop if wide_relaxed_extended is missing for any selected base spec",
+      "stop if any selected row violates P0 actor contract",
+      "stop if profile controls are incomplete"
+    ],
+    "fallback_plan": [
+      "route to source-distribution redesign if target sources are insufficient",
+      "route to artifact repair if calibration matrix lookup fails",
+      "route to preflight audit if materialization passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1720 admits no-rollout repair panel preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "off-track repair panel no-rollout preflight",
+    "admission_evidence": [
+      "M1720 designs a fixed-budget repair panel and blocks direct rollout"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "repair panel preflight implementation",
+      "M1721 no-rollout artifacts",
+      "M1721 status queue scoreboard research log and review",
+      "one follow-up preflight audit manifest"
+    ],
+    "next_stage_criteria": [
+      "repair panel metadata is complete",
+      "contract checks are clean",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1721 materializes task repair metadata and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "preflight must keep L1, L2-current-tiled, L3-online, and L3-reset controls in the repair panel"
+    ],
+    "temporal_evidence_window": "M1720 repair panel design only.",
+    "negative_result_policy": "If repair panel preflight cannot be materialized, route to source-distribution redesign rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "off-track repair panel metadata preflight",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1720 repair panel can be materialized as clean no-rollout metadata with 18 base specs, four variants, and all twelve profiles.",
+  "success_criteria": [
+    "runs/m1721_off_track_repair_panel_preflight/summary.json exists",
+    "selected_base_spec_count == 18",
+    "selected_task_family_counts == T4=12 T5=6",
+    "repair_panel_spec_count == 72",
+    "repair_panel_matrix_cell_count == 864",
+    "profile_count == 12",
+    "variant labels include original_axis_baseline best_off_track_variant collision_control_wide_relaxed wide_relaxed_extended",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "selected base specs are fewer than 18",
+    "task-family split cannot satisfy T4=12 T5=6",
+    "wide_relaxed_extended is missing",
+    "profile controls are incomplete",
+    "contract violations are nonzero",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "PYTHONPATH=src python -m autodrift.controller_family_off_track_repair_panel_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1721_off_track_repair_panel_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1721_off_track_repair_panel_preflight/repair_panel_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1721_off_track_repair_panel_preflight/repair_panel_specs.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
+    "runs/m1718_off_track_dominance_localization/repair_target_slices.csv",
+    "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
+  ],
+  "decision_rule": "M1721 passes if it materializes the no-rollout repair panel exactly and keeps guardrails clean.",
+  "next_blocker": "m1721-paper-route-controller-family-off-track-repair-panel-preflight"
+}

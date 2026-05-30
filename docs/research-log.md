@@ -27594,3 +27594,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, task repair success, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json`
 - next: `m1720-paper-route-controller-family-off-track-repair-panel-design`
+
+## M1720 Paper-Route Controller-Family Off-Track Repair Panel Design
+
+- status: completed
+- decision: `off_track_repair_panel_design_admit_no_rollout_preflight`
+- artifact: `docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md`
+- parent audit: `docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md`
+- planned selected base specs: `18`
+- planned task split: `T4=12`, `T5=6`
+- planned variants per base spec: `4`
+- planned profiles: `12`
+- planned cells: `864`
+- required variants: `original_axis_baseline`, `best_off_track_variant`, `collision_control_wide_relaxed`, `wide_relaxed_extended`
+- wide-relaxed-extended availability: present in M1702 calibration matrix (`864` profile rows)
+- profile ranking used: `false`
+- supported: no-rollout repair panel preflight is admitted
+- unsupported: rollout result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1721-paper-route-controller-family-off-track-repair-panel-preflight.json`
+- next: `m1721-paper-route-controller-family-off-track-repair-panel-preflight`

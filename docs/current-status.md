@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1719-paper-route-controller-family-off-track-dominance-localization-result-audit
+m1720-paper-route-controller-family-off-track-repair-panel-design
 ```
 
 Current next task:
 
 ```text
-m1720-paper-route-controller-family-off-track-repair-panel-design
+m1721-paper-route-controller-family-off-track-repair-panel-preflight
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -81,7 +81,12 @@ not a single-slice fix: `48` target slices remain, but variant-task and
 source-task targets show enough structure to design a baseline-preserving repair
 panel. The next task is M1720: design that fixed-budget repair panel, including
 the existing baseline and conditional-positive controls plus an explicit check
-for the missing wide-relaxed-extended composite variant.
+for the missing wide-relaxed-extended composite variant. M1720 completes that
+design: `18` base specs, target split `T4=12/T5=6`, four variants per base spec,
+all `12` profiles, `864` no-rollout cells. The new repair variant is
+`wide_relaxed_extended` (`track_width=2.0`, `finish=relaxed`,
+`max_steps=1.5`), which is present in the M1702 calibration matrix. The next
+task is M1721 no-rollout preflight materialization.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
