@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T083437Z
+- Generated at UTC: 20260530T083912Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1790 passes if it materializes reset-ready executable v2 specs without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: executable_v2_panel_spec_materialization_pass_route_to_result_audit
+- Decision reason: M1790 materializes 312 reset-ready executable v2 specs across six role surfaces and twelve profile controls with zero label leakage
 
 ## Hypothesis
 
@@ -80,8 +80,19 @@ The M1789 executable schema can be materialized into complete reset-ready v2 pan
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1790-executable-v2-panel-spec-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m1790_executable_v2_panel_spec_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_panel_spec_materialization_pass_route_to_result_audit
+- reason: M1790 materializes 312 reset-ready executable v2 specs across six role surfaces and twelve profile controls with zero label leakage
 
 ## Next Blocker
 
-m1790-executable-v2-panel-spec-materialization-preflight
+m1791-executable-v2-panel-spec-materialization-result-audit

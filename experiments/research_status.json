@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1798,
+    "completed": 1799,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1789-executable-v2-panel-spec-design.md",
+    "command_log": "docs/m1790-executable-v2-panel-spec-materialization-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1789-executable-v2-panel-spec-design"
+    "task_id": "m1790-executable-v2-panel-spec-materialization-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1790-executable-v2-panel-spec-materialization-preflight.json",
-    "hypothesis": "The M1789 executable schema can be materialized into complete reset-ready v2 panel specs without running reset or rollout.",
-    "id": "m1790-executable-v2-panel-spec-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize executable v2 panel specs without reset or rollout",
-    "priority": 17850,
+    "command": "see experiments/manifests/m1791-executable-v2-panel-spec-materialization-result-audit.json",
+    "hypothesis": "M1790 executable v2 specs can be audited as ready for reset-only feasibility preflight.",
+    "id": "m1791-executable-v2-panel-spec-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1790 executable spec artifacts before reset feasibility",
+    "priority": 17860,
     "status": "pending",
-    "success_artifact": "runs/m1790_executable_v2_panel_spec_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1791-executable-v2-panel-spec-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260530T083348Z"
+  "updated_at_utc": "20260530T083820Z"
 }

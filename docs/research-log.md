@@ -29414,3 +29414,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: executable v2 spec materialization, reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1790-executable-v2-panel-spec-materialization-preflight.json`
 - next: `m1790-executable-v2-panel-spec-materialization-preflight`
+
+## M1790 Executable V2 Panel Spec Materialization Preflight
+
+- status: completed
+- decision: `executable_v2_panel_spec_materialization_pass_route_to_result_audit`
+- artifact: `runs/m1790_executable_v2_panel_spec_materialization_preflight/summary.json`
+- review document: `docs/m1790-executable-v2-panel-spec-materialization-preflight.md`
+- result class: `executable_v2_panel_spec_materialization_preflight_pass`
+- v2 panel spec count: `312`
+- role surface count: `6`
+- profile control count: `12`
+- reset-ready spec count: `312`
+- labels enter actor input count: `0`
+- environment reset scheduled count: `0`
+- environment rollout scheduled count: `0`
+- training scheduled count: `0`
+- profile-specific tuning count: `0`
+- missing config count: `0`
+- missing checkpoint count: `0`
+- ranking admissible by default: `false`
+- diagnostic-only no-ranking rows: `312`
+- mitigation uses obstacle-pass success as primary: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-ready executable v2 panel spec materialization and result audit route
+- unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1791-executable-v2-panel-spec-materialization-result-audit.json`
+- next: `m1791-executable-v2-panel-spec-materialization-result-audit`
