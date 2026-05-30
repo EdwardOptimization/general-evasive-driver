@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1791,
+    "completed": 1793,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1782-role-specific-metric-scorecard-extraction-implementation.md",
+    "command_log": "docs/m1784-paper-route-role-specific-metric-scorecard-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1782-role-specific-metric-scorecard-extraction-implementation"
+    "task_id": "m1784-paper-route-role-specific-metric-scorecard-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1783-role-specific-metric-scorecard-extraction.json",
-    "hypothesis": "Role-specific scorecards can be extracted from M1777 artifacts without rerunning rollout or ranking profiles.",
-    "id": "m1783-role-specific-metric-scorecard-extraction",
+    "command": "see experiments/manifests/m1785-role-specific-scorecard-blocker-localization.json",
+    "hypothesis": "M1783 scorecard blockers can be localized from existing artifacts well enough to choose a repair, synthesis, or narrow comparison route without rerunning rollout.",
+    "id": "m1785-role-specific-scorecard-blocker-localization",
     "kind": "gate",
-    "notes": "Pending: extract role-specific scorecard artifacts from M1777 without rollout",
-    "priority": 17780,
+    "notes": "Pending: localize role-specific scorecard blockers from M1783 artifacts without rollout",
+    "priority": 17800,
     "status": "pending",
-    "success_artifact": "runs/m1783_role_specific_metric_scorecard_extraction/summary.json"
+    "success_artifact": "docs/m1785-role-specific-scorecard-blocker-localization.md"
   },
-  "updated_at_utc": "20260530T080302Z"
+  "updated_at_utc": "20260530T081419Z"
 }

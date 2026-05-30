@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T080430Z
+- Generated at UTC: 20260530T081150Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1783 passes if it extracts role-specific scorecards from M1777 artifacts without rollout, ranking, or claim expansion.
+- Promotion decision: role_specific_scorecard_extraction_pass_route_to_result_audit
+- Decision reason: M1783 extracts complete role-specific scorecards from M1777 with seven ranking blockers zero guardrail violations and ranking still blocked
 
 ## Hypothesis
 
@@ -77,8 +77,19 @@ Role-specific scorecards can be extracted from M1777 artifacts without rerunning
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1783-role-specific-metric-scorecard-extraction
+- type: gate
+- checkpoint: runs/m1783_role_specific_metric_scorecard_extraction/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: role_specific_scorecard_extraction_pass_route_to_result_audit
+- reason: M1783 extracts complete role-specific scorecards from M1777 with seven ranking blockers zero guardrail violations and ranking still blocked
 
 ## Next Blocker
 
-m1783-role-specific-metric-scorecard-extraction
+m1784-paper-route-role-specific-metric-scorecard-result-audit

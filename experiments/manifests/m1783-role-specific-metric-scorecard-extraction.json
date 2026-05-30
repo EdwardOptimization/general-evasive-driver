@@ -155,6 +155,56 @@
     "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv",
     "src/autodrift/role_specific_metric_scorecard.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1783_role_specific_metric_scorecard_extraction/summary.json",
+    "review_document": "docs/m1783-role-specific-metric-scorecard-extraction.md",
+    "decision": "role_specific_scorecard_extraction_pass_route_to_result_audit",
+    "result_class": "role_specific_metric_scorecard_extraction_pass",
+    "episode_count": 288,
+    "profile_count": 12,
+    "role_panel_count": 4,
+    "profile_role_scorecard_rows": 48,
+    "role_panel_scorecard_rows": 4,
+    "profile_role_hidden_bucket_scorecard_rows": 144,
+    "profile_role_sampled_label_scorecard_rows": 78,
+    "role_admissibility_rows": 4,
+    "ranking_blocker_rows": 7,
+    "metric_contract_rows": 20,
+    "mitigation_contract_uses_success_as_primary": false,
+    "ranking_admissible_after_audit": false,
+    "guardrail_violation_count": 0,
+    "role_blockers": {
+      "drift_required_recovery": [
+        "drift_controlled_recovery_low",
+        "drift_non_success_dominance"
+      ],
+      "hidden_dynamics_robustness": [
+        "hidden_success_low",
+        "hidden_non_success_dominance"
+      ],
+      "stable_avoidance_aes": [
+        "stable_off_track_dominance",
+        "stable_success_low"
+      ],
+      "unavoidable_mitigation": [
+        "ranking_blocked_pending_audit"
+      ]
+    },
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1784-paper-route-role-specific-metric-scorecard-result-audit.json"
+  },
   "decision_rule": "M1783 passes if it extracts role-specific scorecards from M1777 artifacts without rollout, ranking, or claim expansion.",
-  "next_blocker": "m1783-role-specific-metric-scorecard-extraction"
+  "next_blocker": "m1784-paper-route-role-specific-metric-scorecard-result-audit"
 }

@@ -29206,3 +29206,71 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real scorecard extraction over M1777, profile ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1783-role-specific-metric-scorecard-extraction.json`
 - next: `m1783-role-specific-metric-scorecard-extraction`
+
+## M1783 Role-Specific Metric Scorecard Extraction
+
+- status: completed
+- decision: `role_specific_scorecard_extraction_pass_route_to_result_audit`
+- artifact: `runs/m1783_role_specific_metric_scorecard_extraction/summary.json`
+- review document: `docs/m1783-role-specific-metric-scorecard-extraction.md`
+- episode count: `288`
+- profile count: `12`
+- role panel count: `4`
+- profile-role scorecard rows: `48`
+- role panel scorecard rows: `4`
+- hidden-bucket scorecard rows: `144`
+- sampled-label scorecard rows: `78`
+- role admissibility rows: `4`
+- ranking blocker rows: `7`
+- metric contract rows: `20`
+- mitigation contract uses success as primary: `false`
+- ranking admissible after audit: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- role blockers: `stable_avoidance_aes=stable_off_track_dominance;stable_success_low`, `drift_required_recovery=drift_controlled_recovery_low;drift_non_success_dominance`, `hidden_dynamics_robustness=hidden_success_low;hidden_non_success_dominance`, `unavoidable_mitigation=ranking_blocked_pending_audit`
+- supported: no-rollout role-specific scorecard extraction over fixed M1777 episode rows
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1784-paper-route-role-specific-metric-scorecard-result-audit.json`
+- next: `m1784-paper-route-role-specific-metric-scorecard-result-audit`
+
+## M1784 Paper-Route Role-Specific Metric Scorecard Result Audit
+
+- status: completed
+- decision: `scorecard_result_audit_blocks_ranking_route_to_blocker_localization`
+- artifact: `docs/m1784-paper-route-role-specific-metric-scorecard-result-audit.md`
+- audited summary: `runs/m1783_role_specific_metric_scorecard_extraction/summary.json`
+- audited result class: `role_specific_metric_scorecard_extraction_pass`
+- episode count: `288`
+- profile count: `12`
+- role panel count: `4`
+- profile-role scorecard rows: `48`
+- role panel scorecard rows: `4`
+- hidden-bucket scorecard rows: `144`
+- sampled-label scorecard rows: `78`
+- role admissibility rows: `4`
+- ranking blocker rows: `7`
+- metric contract rows: `20`
+- mitigation contract uses success as primary: `false`
+- ranking admissible after audit: `false`
+- ranking blocked: `true`
+- blocker localization required: `true`
+- environment reset started in audit: `false`
+- environment rollout started in audit: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: complete no-rollout role-specific scorecard extraction and coherent metric contract
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1785-role-specific-scorecard-blocker-localization.json`
+- next: `m1785-role-specific-scorecard-blocker-localization`
