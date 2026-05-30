@@ -156,6 +156,35 @@
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md",
+    "decision": "bounded_panel_execution_adapter_implementation_pass_route_to_measured_execution",
+    "module": "src/autodrift/metric_specific_bounded_panel_measured_execution.py",
+    "test": "tests/test_metric_specific_bounded_panel_measured_execution.py",
+    "target_episode_count": 288,
+    "target_bounded_panel_spec_count": 24,
+    "target_profile_count": 12,
+    "target_role_panel_count": 4,
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_metric_specific_bounded_panel_measured_execution.py -q",
+    "focused_test_result": "1 passed",
+    "real_measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1777-metric-specific-bounded-panel-measured-execution.json"
+  },
   "decision_rule": "M1776 passes if it implements and tests bounded-panel execution infrastructure without real rollout or claim expansion.",
-  "next_blocker": "m1776-metric-specific-bounded-panel-execution-adapter-implementation"
+  "next_blocker": "m1777-metric-specific-bounded-panel-measured-execution"
 }

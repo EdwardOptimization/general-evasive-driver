@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1776 passes if it implements and tests bounded-panel execution infrastructure without real rollout or claim expansion.",
+  "decision_reason": "M1776 implements bounded-panel measured execution adapter with focused test and no real rollout",
   "failure_criteria": [
     "adapter module or tests are missing",
     "adapter uses full-taxonomy 864/72/6 target counts",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T073531Z",
+  "generated_at_utc": "20260530T074229Z",
   "hypothesis": "A bounded-panel measured execution adapter can be implemented and tested without running real rollout.",
   "lineage": {
     "blocked_by": [
@@ -56,16 +56,29 @@
     ]
   },
   "milestone": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
-  "next_blocker": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
+  "next_blocker": "m1777-metric-specific-bounded-panel-measured-execution",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "bounded_panel_execution_adapter_implementation_pass_route_to_measured_execution",
   "public_gates": [
     "M1776 must implement a bounded-panel measured execution adapter with bounded-panel target counts",
     "M1776 must add focused tests that monkeypatch rollout execution and verify 288-cell artifact/summary logic without real rollout",
     "M1776 must preserve bounded-panel metadata, role-panel aggregates, and metric completeness hooks",
     "M1776 must not run real measured rollout train replay PPO promote use private holdout tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "bounded_panel_execution_adapter_implementation_pass_route_to_measured_execution",
+    "milestone": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
+    "reason": "M1776 implements bounded-panel measured execution adapter with focused test and no real rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "src/autodrift/metric_specific_bounded_panel_measured_execution.py exists",
     "tests/test_metric_specific_bounded_panel_measured_execution.py exists",

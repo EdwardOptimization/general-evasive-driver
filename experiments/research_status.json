@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1784,
+    "completed": 1785,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1775-paper-route-metric-specific-bounded-panel-measured-execution-design.md",
+    "command_log": "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1775-paper-route-metric-specific-bounded-panel-measured-execution-design"
+    "task_id": "m1776-metric-specific-bounded-panel-execution-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1776-metric-specific-bounded-panel-execution-adapter-implementation.json",
-    "hypothesis": "A bounded-panel measured execution adapter can be implemented and tested without running real rollout.",
-    "id": "m1776-metric-specific-bounded-panel-execution-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded-panel execution adapter with focused tests and no real rollout",
-    "priority": 17710,
+    "command": "see experiments/manifests/m1777-metric-specific-bounded-panel-measured-execution.json",
+    "hypothesis": "The M1776 adapter can execute the fixed M1771 288-cell bounded panel and write complete diagnostic artifacts.",
+    "id": "m1777-metric-specific-bounded-panel-measured-execution",
+    "kind": "gate",
+    "notes": "Pending: run fixed 288-cell bounded-panel measured public diagnostic execution",
+    "priority": 17720,
     "status": "pending",
-    "success_artifact": "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md"
+    "success_artifact": "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260530T073041Z"
+  "updated_at_utc": "20260530T074055Z"
 }

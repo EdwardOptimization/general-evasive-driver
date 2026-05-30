@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T073531Z
+- Generated at UTC: 20260530T074229Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1776 passes if it implements and tests bounded-panel execution infrastructure without real rollout or claim expansion.
+- Promotion decision: bounded_panel_execution_adapter_implementation_pass_route_to_measured_execution
+- Decision reason: M1776 implements bounded-panel measured execution adapter with focused test and no real rollout
 
 ## Hypothesis
 
@@ -75,8 +75,19 @@ A bounded-panel measured execution adapter can be implemented and tested without
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1776-metric-specific-bounded-panel-execution-adapter-implementation
+- type: infrastructure
+- checkpoint: docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_execution_adapter_implementation_pass_route_to_measured_execution
+- reason: M1776 implements bounded-panel measured execution adapter with focused test and no real rollout
 
 ## Next Blocker
 
-m1776-metric-specific-bounded-panel-execution-adapter-implementation
+m1777-metric-specific-bounded-panel-measured-execution

@@ -1,0 +1,163 @@
+{
+  "id": "m1777-metric-specific-bounded-panel-measured-execution",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_multi_profile_public_diagnostic_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1776-metric-specific-bounded-panel-execution-adapter-implementation.md",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1776-metric-specific-bounded-panel-execution-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "execute the fixed 288-cell metric-specific bounded panel with the M1776 adapter"
+    ],
+    "derived_from": [
+      "m1776-metric-specific-bounded-panel-execution-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1776 adapter implementation must pass before measured execution"
+    ],
+    "supersedes": [
+      "direct bounded-panel execution through the old scenario-taxonomy executor"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1777-metric-specific-bounded-panel-measured-execution.md",
+  "public_gates": [
+    "M1777 must execute exactly the M1771 bounded-panel specs and matrix",
+    "M1777 must target 288 episodes 24 bounded specs 12 profiles and 4 role panels",
+    "M1777 must write episode rows failure rows aggregates metric completeness and summary artifacts",
+    "M1777 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence",
+    "M1777 interpretation must be deferred to M1778 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "Q_metric_specific_panel_measured_execution",
+    "evidence_increment": "executes the fixed 288-cell bounded panel as public diagnostic evidence",
+    "claim_scope": "measured public diagnostic execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if failure rows are nonzero",
+      "stop if target counts or role-panel aggregates are wrong",
+      "stop if metric completeness fails",
+      "stop if guardrails are violated"
+    ],
+    "fallback_plan": [
+      "route to measured-execution result audit if complete",
+      "route to failure audit if execution is incomplete or fails",
+      "route to adapter repair if artifact or metadata defects dominate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1776 adapter implementation passes",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "execute metric-specific bounded panel",
+    "admission_evidence": [
+      "M1776 implements bounded-panel execution adapter with focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1777 run artifacts",
+      "M1777 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit or failure audit"
+    ],
+    "next_stage_criteria": [
+      "summary reports target counts",
+      "failure_count is zero or failures are preserved",
+      "metric completeness and no-ranking guardrails are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; bounded-panel execution is public diagnostic evidence and cannot alone prove history necessity.",
+    "history_necessity_tests": [
+      "execution must preserve all controller profile controls for later history-necessity comparison"
+    ],
+    "temporal_evidence_window": "M1771 bounded panel artifacts and M1776 adapter only.",
+    "negative_result_policy": "If execution fails or profile outcomes are weak, route to result/failure audit without weakening self-ID claim standards.",
+    "allowed_claims": [
+      "bounded-panel measured public diagnostic execution",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1776 adapter can execute the fixed M1771 288-cell bounded panel and write complete diagnostic artifacts.",
+  "success_criteria": [
+    "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json exists",
+    "episode_count == 288",
+    "failure_count == 0",
+    "profile_count == 12",
+    "bounded_panel_spec_count == 24",
+    "role_panel_count == 4",
+    "all_selected_metrics_finite == true",
+    "metric_completeness_passed == true",
+    "metric_completeness_failure_count == 0",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "episode_count is not 288",
+    "failure_count is nonzero",
+    "metric completeness fails",
+    "target profile spec or role counts are wrong",
+    "training replay PPO promotion private holdout actor-input changes ranking or paper-level claims occur"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.metric_specific_bounded_panel_measured_execution --bounded-panel-specs runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json --bounded-panel-matrix runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv --output-dir runs/m1777_metric_specific_bounded_panel_measured_execution --eval-seed-base 177700 --device cpu --no-resume --next-blocker m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_multi_profile_public_diagnostic_execution"
+  ],
+  "baseline_artifacts": [
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv",
+    "src/autodrift/metric_specific_bounded_panel_measured_execution.py"
+  ],
+  "decision_rule": "M1777 passes if the fixed bounded panel completes with exact target counts, zero failures, complete metrics, and clean guardrails.",
+  "next_blocker": "m1777-metric-specific-bounded-panel-measured-execution"
+}
