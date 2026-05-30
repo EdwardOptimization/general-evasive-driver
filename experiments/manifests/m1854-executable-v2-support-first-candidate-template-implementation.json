@@ -1,0 +1,193 @@
+{
+  "id": "m1854-executable-v2-support-first-candidate-template-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_candidate_template_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1853-executable-v2-support-first-candidate-template-design.md",
+      "src/autodrift/executable_v2_support_first_source_mining.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1853-executable-v2-support-first-candidate-template-design.json"
+    ],
+    "parent_objective": [
+      "implement deterministic support-first candidate template generator and artifact"
+    ],
+    "derived_from": [
+      "m1853-executable-v2-support-first-candidate-template-design"
+    ],
+    "blocked_by": [
+      "M1853 fixes V0 candidate template design"
+    ],
+    "supersedes": [
+      "hand-written candidate source rows",
+      "implicit source template inside execution command"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1854-executable-v2-support-first-candidate-template-implementation.md",
+  "public_gates": [
+    "M1854 must implement deterministic candidate template generation without running project artifact source mining",
+    "M1854 must produce exactly the M1853 V0 row counts and role settings",
+    "M1854 must preserve metadata-only labels and actor input contract",
+    "M1854 must keep source mining execution reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact source mining",
+    "do not run project artifact feasibility scan",
+    "do not generate materialized executable-v2 rows",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_source_mining",
+    "evidence_axis": "Q_support_first_candidate_template_implementation",
+    "evidence_increment": "implements deterministic candidate template generator and checked-in V0 candidate artifact before mining execution",
+    "claim_scope": "implementation only; no project artifact source mining execution, materialization, source repair payload, scan, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if generator row counts differ from M1853",
+      "stop if template mixes role support criteria",
+      "stop if template labels enter actor inputs",
+      "stop if implementation runs source mining or materialization"
+    ],
+    "fallback_plan": [
+      "repair template generator if tests fail",
+      "route to source mining execution design if generator and tests pass",
+      "route to branch synthesis if deterministic template cannot be represented cleanly"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1853 admits template implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "candidate source template implementation",
+    "admission_evidence": [
+      "M1853 specifies V0 candidate template counts roles and grids"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact source mining",
+      "do not generate materialized executable-v2 rows",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_support_first_candidate_templates.py",
+      "tests/test_executable_v2_support_first_candidate_templates.py",
+      "configs/executable_v2_support_first_candidate_templates_v0.json",
+      "M1854 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for source mining execution design"
+    ],
+    "next_stage_criteria": [
+      "candidate template artifact contains exactly 288 rows",
+      "focused tests and full pytest pass",
+      "source mining execution remains blocked until execution design"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; candidate template implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Template implementation must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1853 design only; no project artifact mining execution or rollout.",
+    "negative_result_policy": "Template implementation must preserve no-support blockers rather than weakening labels or merging roles.",
+    "allowed_claims": [
+      "support-first candidate template implementation",
+      "no project artifact source mining execution, materialization, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic generator can produce the M1853 V0 candidate template artifact exactly, without running source mining or changing the actor contract.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_candidate_templates.py exists",
+    "tests/test_executable_v2_support_first_candidate_templates.py exists",
+    "configs/executable_v2_support_first_candidate_templates_v0.json exists",
+    "template artifact contains exactly 288 candidate rows with expected role speed mu and surface counts",
+    "focused tests and full pytest pass",
+    "implementation routes to source mining execution design without running mining scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "generator is missing",
+    "template artifact is missing",
+    "row counts or role settings differ from M1853",
+    "implementation runs project artifact source mining",
+    "implementation generates materialized rows",
+    "implementation changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "edit src/autodrift/executable_v2_support_first_candidate_templates.py tests/test_executable_v2_support_first_candidate_templates.py and configs/executable_v2_support_first_candidate_templates_v0.json"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_support_first_candidate_templates.py -q"
+    },
+    {
+      "name": "full_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_candidate_templates.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_candidate_templates.py",
+      "type": "py"
+    },
+    {
+      "path": "configs/executable_v2_support_first_candidate_templates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1854-executable-v2-support-first-candidate-template-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_candidate_template_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1853-executable-v2-support-first-candidate-template-design.md",
+    "src/autodrift/executable_v2_support_first_source_mining.py"
+  ],
+  "decision_rule": "M1854 passes if it implements the V0 template generator and artifact without project artifact mining execution, materialization, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1854-executable-v2-support-first-candidate-template-implementation"
+}

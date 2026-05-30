@@ -31346,3 +31346,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project artifact source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1853-executable-v2-support-first-candidate-template-design.json`
 - next: `m1853-executable-v2-support-first-candidate-template-design`
+
+## M1853 Executable V2 Support-First Candidate Template Design
+
+- status: completed
+- decision: `support_first_candidate_template_design_admit_implementation`
+- artifact: `docs/m1853-executable-v2-support-first-candidate-template-design.md`
+- template id: `support_first_candidate_templates_v0`
+- designed candidate row count: `288`
+- roles: `stable_aeb stable_aes_only drift_required_recovery unavoidable_mitigation`
+- speed count: `6`
+- mu count: `6`
+- surface variants: `steady_surface post_friction_step`
+- designed total grid cell count: `465264`
+- project artifact source mining run: `false`
+- project artifact scan: `false`
+- generated candidate template file: `false`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: explicit V0 candidate template design role speed friction surface grid criteria M1854 implementation route
+- unsupported: generated candidate artifact source mining results materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1854-executable-v2-support-first-candidate-template-implementation.json`
+- next: `m1854-executable-v2-support-first-candidate-template-implementation`
