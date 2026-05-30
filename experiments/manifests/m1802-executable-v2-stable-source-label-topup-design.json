@@ -158,6 +158,37 @@
     "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1802-executable-v2-stable-source-label-topup-design.md",
+    "decision": "stable_source_label_topup_design_admit_preflight_implementation",
+    "stable_topup_target_count": 3,
+    "target_missing_profile_count_total": 36,
+    "candidate_classes": [
+      "exact_existing_candidate",
+      "near_existing_candidate",
+      "metadata_only_untrusted",
+      "new_materialization_required"
+    ],
+    "next_manifest": "experiments/manifests/m1803-executable-v2-stable-source-label-topup-preflight-implementation.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1802 passes if it designs stable source-label top-up and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1802-executable-v2-stable-source-label-topup-design"
+  "next_blocker": "m1803-executable-v2-stable-source-label-topup-preflight-implementation"
 }

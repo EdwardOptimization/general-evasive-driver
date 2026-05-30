@@ -29767,3 +29767,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1802-executable-v2-stable-source-label-topup-design.json`
 - next: `m1802-executable-v2-stable-source-label-topup-design`
+
+## M1802 Executable V2 Stable Source-Label Top-Up Design
+
+- status: completed
+- decision: `stable_source_label_topup_design_admit_preflight_implementation`
+- artifact: `docs/m1802-executable-v2-stable-source-label-topup-design.md`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- stable top-up target count: `3`
+- target missing profile count total: `36`
+- candidate classes: `exact_existing_candidate`, `near_existing_candidate`, `metadata_only_untrusted`, `new_materialization_required`
+- direct measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: stable source-label top-up design and no-reset implementation route
+- unsupported: top-up execution result, repaired reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1803-executable-v2-stable-source-label-topup-preflight-implementation.json`
+- next: `m1803-executable-v2-stable-source-label-topup-preflight-implementation`

@@ -1,0 +1,172 @@
+{
+  "id": "m1803-executable-v2-stable-source-label-topup-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_topup_preflight_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1802-executable-v2-stable-source-label-topup-design.md",
+      "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv",
+      "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1802-executable-v2-stable-source-label-topup-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset stable source-label top-up planner with focused tests"
+    ],
+    "derived_from": [
+      "m1802-executable-v2-stable-source-label-topup-design"
+    ],
+    "blocked_by": [
+      "M1802 admits top-up preflight implementation"
+    ],
+    "supersedes": [
+      "manual stable replacement source selection",
+      "direct reset probe without candidate classification"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
+  "public_gates": [
+    "M1803 must implement a no-reset stable top-up planner and focused tests",
+    "M1803 must cover exact existing metadata-only untrusted near existing and new-materialization-required candidate classes",
+    "M1803 must preserve profile controls and no-label-leakage guardrails",
+    "M1803 must not run project artifact execution unless a later execution milestone admits it",
+    "M1803 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute top-up preflight on project artifacts",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_label_topup_preflight_implementation",
+    "evidence_increment": "implements top-up candidate planner after M1802 design",
+    "claim_scope": "infrastructure implementation only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if candidate classes cannot be represented",
+      "stop if implementation drops profile controls",
+      "stop if metadata-only unsupported rows are admitted as direct replacements",
+      "stop if implementation runs project artifact execution"
+    ],
+    "fallback_plan": [
+      "route to design repair if classes are inconsistent",
+      "route to execution design after focused tests pass",
+      "route to source pool audit if project source fields are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1802 admits top-up implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable top-up preflight implementation",
+    "admission_evidence": [
+      "M1802 defines top-up target and candidate artifact contract"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute project artifacts",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source module and focused tests",
+      "M1803 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "artifact shapes are tested",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; top-up planner is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Planner tests must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "focused synthetic fixtures only; no real reset or project execution.",
+    "negative_result_policy": "If implementation cannot represent candidates, route to design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable top-up preflight implementation and focused tests",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset stable top-up planner can classify candidate sources and materialization needs while preserving profile controls and blocking metadata-only shortcuts.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover exact_existing_candidate metadata_only_untrusted near_existing_candidate and new_materialization_required",
+    "tests verify target candidate new-materialization and claim-boundary outputs",
+    "no real environment reset rollout or project artifact execution is run"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "metadata-only unsupported candidate is admitted as direct replacement",
+    "implementation drops profile controls",
+    "implementation runs reset rollout or project artifacts"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_label_topup_preflight.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_stable_source_label_topup_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_stable_source_label_topup_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_topup_preflight_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1802-executable-v2-stable-source-label-topup-design.md",
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv",
+    "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
+  ],
+  "decision_rule": "M1803 passes if it implements and tests the no-reset stable top-up planner without project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1803-executable-v2-stable-source-label-topup-preflight-implementation"
+}
