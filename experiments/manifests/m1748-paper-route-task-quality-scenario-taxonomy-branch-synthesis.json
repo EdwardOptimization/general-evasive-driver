@@ -1,0 +1,183 @@
+{
+  "id": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
+      "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json",
+      "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json",
+      "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1738-M1747 scenario taxonomy and outcome-metric instrumentation branch before another execution design"
+    ],
+    "derived_from": [
+      "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution",
+      "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1747"
+    ],
+    "supersedes": [
+      "direct revised scenario execution design after M1747"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "public_gates": [
+    "M1748 must synthesize M1738-M1747 before another execution-design milestone",
+    "M1748 must answer required synthesis questions",
+    "M1748 must assess outcome dominance, semantics redesign, metric gaps, and instrumentation status",
+    "M1748 must decide continue pivot stop or promote_to_next_branch",
+    "M1748 must keep rollout training replay PPO promotion private holdout actor-input changes ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "S_task_quality_scenario_taxonomy_branch_synthesis",
+    "evidence_increment": "synthesizes M1738-M1747 after repaired execution, diffuse outcome dominance, revised semantics, and logging-only metric instrumentation",
+    "claim_scope": "branch synthesis only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis ignores M1738 outcome dominance",
+      "stop if synthesis treats M1746 instrumentation as rollout evidence",
+      "stop if synthesis skips public-gate overfit risk",
+      "stop if synthesis routes directly to ranking or paper-level claims"
+    ],
+    "fallback_plan": [
+      "continue to revised scenario execution design if instrumentation and claim boundaries are coherent",
+      "pivot to bounded-panel design if full taxonomy remains too broad",
+      "pivot to task taxonomy redesign if semantics remain mismatched",
+      "stop branch if public overfit or metric artifact risk dominates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow synthesis cadence reached after M1747",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "scenario taxonomy branch synthesis after outcome metric instrumentation",
+    "admission_evidence": [
+      "M1738 repaired execution passed but outcome dominance blocked interpretation",
+      "M1742-M1744 redesigned and materialized family-specific semantics",
+      "M1745-M1747 defined and implemented logging-only outcome metrics"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1748 synthesis document",
+      "M1748 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; synthesis covers task-quality metrics and profile controls, not history necessity.",
+    "history_necessity_tests": [
+      "synthesis must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls in any continued route"
+    ],
+    "temporal_evidence_window": "M1738-M1747 public artifacts only.",
+    "negative_result_policy": "If synthesis finds task-quality evidence insufficient, route to redesign or bounded panel rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1738-M1747 scenario taxonomy branch should synthesize before revised execution design to avoid milestone over-fragmentation and public-gate overfit.",
+  "success_criteria": [
+    "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "M1738 outcome dominance and M1746 instrumentation status are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats instrumentation as rollout evidence",
+    "synthesis routes directly to ranking or paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+    "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+    "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md"
+  ],
+  "decision_rule": "M1748 passes if it synthesizes M1738-M1747 and chooses a route before revised execution, redesign, or paper-route claims.",
+  "next_blocker": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+}

@@ -150,6 +150,36 @@
     "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
     "tests/test_outcome_metric_instrumentation.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md",
+    "decision": "metric_instrumentation_audit_route_to_branch_synthesis",
+    "audited_result_class": "outcome_metric_instrumentation_implementation_pass",
+    "logging_only_contract_passed": true,
+    "focused_test_count": 22,
+    "affected_aggregate_test_count": 11,
+    "full_test_suite_count": 1702,
+    "full_test_suite_warning_count": 4,
+    "research_validation_passed": true,
+    "workflow_cadence_reached": true,
+    "direct_execution_design_admitted": false,
+    "branch_synthesis_admitted": true,
+    "guardrail_violation_count": 0,
+    "full_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+  },
   "decision_rule": "M1747 passes if it audits M1746 as logging-only and chooses a route without admitting execution prematurely.",
-  "next_blocker": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
+  "next_blocker": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
 }

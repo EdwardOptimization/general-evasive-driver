@@ -28129,3 +28129,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json`
 - next: `m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit`
+
+## M1747 Paper-Route Task-Quality Outcome Metric Instrumentation Result Audit
+
+- status: completed
+- decision: `metric_instrumentation_audit_route_to_branch_synthesis`
+- artifact: `docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md`
+- audited implementation: `docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md`
+- logging-only contract passed: `true`
+- focused tests: `22`
+- affected aggregate tests: `11`
+- full test suite: `1702 passed`, `4 warnings`
+- research validation passed: `true`
+- workflow cadence reached: `true`
+- direct execution design admitted: `false`
+- branch synthesis admitted: `true`
+- guardrail violation count: `0`
+- supported: M1746 is logging-only and test-covered
+- unsupported: revised rollout result, profile ranking, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
+- next: `m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis`

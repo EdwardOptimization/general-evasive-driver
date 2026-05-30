@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1755,
+    "completed": 1756,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation.md",
+    "command_log": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1746-paper-route-task-quality-outcome-metric-instrumentation-implementation"
+    "task_id": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.json",
-    "hypothesis": "M1746 can be audited as logging-only, test-covered outcome metric instrumentation and routed safely before revised execution.",
-    "id": "m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit",
+    "command": "see experiments/manifests/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
+    "hypothesis": "The M1738-M1747 scenario taxonomy branch should synthesize before revised execution design to avoid milestone over-fragmentation and public-gate overfit.",
+    "id": "m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit logging-only metric instrumentation before revised scenario execution design",
-    "priority": 17420,
+    "notes": "Pending: synthesize M1738-M1747 repaired execution outcome semantics and metric instrumentation branch before execution design",
+    "priority": 17430,
     "status": "pending",
-    "success_artifact": "docs/m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit.md"
+    "success_artifact": "docs/m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T045333Z"
+  "updated_at_utc": "20260530T045710Z"
 }

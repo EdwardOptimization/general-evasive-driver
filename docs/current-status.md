@@ -10963,5 +10963,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   to env `info` only; actor inputs, rewards, dynamics, and termination behavior
   are unchanged. Focused tests passed, but revised rollout remains blocked until
   audit.
+- M1747 audits M1746 as logging-only and test-covered. Because M1738-M1747 now
+  reaches the 10-milestone workflow-synthesis cadence, direct revised execution
+  design is still blocked until branch synthesis summarizes repaired execution,
+  outcome dominance, semantics redesign, materialization, and instrumentation.
 - Current next blocker:
-  `m1747-paper-route-task-quality-outcome-metric-instrumentation-result-audit`.
+  `m1748-paper-route-task-quality-scenario-taxonomy-branch-synthesis`.
