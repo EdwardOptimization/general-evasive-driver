@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1712 materializes 18 base specs 72 scale-up calibration specs and 864 matrix cells with zero contract violations and no rollout",
+  "failure_criteria": [
+    "selected subset does not match the M1711 scale",
+    "required task family variant or profile coverage is missing",
+    "any env variant violates P0 contract",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260530T014005Z",
+  "hypothesis": "The M1711 source-expanded calibrated scale-up subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
+  "lineage": {
+    "blocked_by": [
+      "need no-rollout scale-up subset before audit or execution design"
+    ],
+    "derived_from": [
+      "m1711-paper-route-controller-family-calibrated-scale-up-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_specs.json",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight/selected_base_specs.csv"
+    ],
+    "parent_objective": [
+      "materialize source-expanded no-rollout calibrated scale-up subset"
+    ],
+    "supersedes": [
+      "direct execution of M1708 best variant only",
+      "direct calibrated scale-up execution after M1711"
+    ]
+  },
+  "milestone": "m1712-paper-route-controller-family-calibrated-scale-up-preflight",
+  "next_blocker": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controller_family_calibrated_scale_up_preflight_pass",
+  "public_gates": [
+    "M1712 must materialize a no-rollout 864-cell calibrated scale-up subset",
+    "M1712 must select 18 base specs with T4=9 and T5=9",
+    "M1712 must preserve the four M1711 calibration variants for each base spec",
+    "M1712 must preserve all 12 controller-family profiles per calibration spec",
+    "M1712 must preserve P0 no-wheel no-oracle actor contract for every env variant",
+    "M1712 must not execute rollout train replay PPO promote use private holdout or change actor inputs"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controller_family_calibrated_scale_up_preflight_pass",
+    "milestone": "m1712-paper-route-controller-family-calibrated-scale-up-preflight",
+    "reason": "M1712 materializes 18 base specs 72 scale-up calibration specs and 864 matrix cells with zero contract violations and no rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json exists",
+    "scale_up_matrix.csv exists and contains 864 rows",
+    "selected_base_specs.csv contains 18 rows with T4=9 and T5=9",
+    "scale_up_calibration_specs.csv contains 72 rows",
+    "all 12 profiles appear for each selected calibration spec",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "type": "infrastructure"
+}

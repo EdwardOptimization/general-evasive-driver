@@ -168,6 +168,49 @@
     "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
     "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+    "doc": "docs/m1712-paper-route-controller-family-calibrated-scale-up-preflight.md",
+    "result_class": "controller_family_calibrated_scale_up_preflight_pass",
+    "source_matrix_cell_count": 10368,
+    "source_calibration_spec_count": 864,
+    "base_spec_count": 72,
+    "anchor_base_spec_count": 6,
+    "selected_base_spec_count": 18,
+    "rejected_base_spec_count": 54,
+    "selected_task_family_counts": {
+      "T4": 9,
+      "T5": 9
+    },
+    "scale_up_calibration_spec_count": 72,
+    "scale_up_matrix_cell_count": 864,
+    "profile_count": 12,
+    "variant_label_counts": {
+      "original_axis_baseline": 18,
+      "best_off_track_variant": 18,
+      "collision_control_wide_relaxed": 18,
+      "mid_calibration_variant": 18
+    },
+    "contract_violation_count": 0,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "missing_variant_count": 0,
+    "missing_profile_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.json"
+  },
   "decision_rule": "M1712 passes if it materializes the 864-cell source-expanded calibrated scale-up subset with zero P0 contract violations and no rollout.",
-  "next_blocker": "m1712-paper-route-controller-family-calibrated-scale-up-preflight"
+  "next_blocker": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit"
 }

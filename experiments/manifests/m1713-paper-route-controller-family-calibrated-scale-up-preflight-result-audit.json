@@ -1,0 +1,155 @@
+{
+  "id": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/selected_base_specs.csv",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1712-paper-route-controller-family-calibrated-scale-up-preflight.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout calibrated scale-up subset before execution design"
+    ],
+    "derived_from": [
+      "m1712-paper-route-controller-family-calibrated-scale-up-preflight"
+    ],
+    "blocked_by": [
+      "need audit before calibrated scale-up execution design"
+    ],
+    "supersedes": [
+      "direct calibrated scale-up execution after M1712"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
+  "public_gates": [
+    "M1713 must audit M1712 subset counts source/task/profile/variant coverage contract checks and guardrails",
+    "M1713 must decide whether calibrated scale-up execution design is admitted",
+    "M1713 must not execute rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1713 must not claim controller-family ranking, paper-level evidence, private-holdout evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_source_expanded_calibrated_scale_up_preflight_audit",
+    "evidence_increment": "audits the source-expanded scale-up subset before execution design",
+    "claim_scope": "preflight audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if subset count is not 864 cells",
+      "stop if task/source/profile/variant coverage is incomplete",
+      "stop if contract violations exist",
+      "stop if audit routes directly to profile ranking"
+    ],
+    "fallback_plan": [
+      "route to calibrated scale-up execution design if subset is clean",
+      "route to subset repair if coverage or contract checks fail",
+      "route to branch stop if scale-up cannot preserve task-quality controls"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1712 materializes source-expanded scale-up subset",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit calibrated scale-up preflight",
+    "admission_evidence": [
+      "M1712 writes scale-up subset artifacts and summary"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1713 audit document",
+      "M1713 status queue scoreboard research log and review",
+      "one follow-up calibrated scale-up execution design manifest"
+    ],
+    "next_stage_criteria": [
+      "preflight artifacts and coverage are audited",
+      "execution design route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1713 audits infrastructure only and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must preserve L1, L2-current-tiled, L3-online, and L3-reset rows for later scale-up"
+    ],
+    "temporal_evidence_window": "M1712 preflight artifacts.",
+    "negative_result_policy": "If the subset is invalid, route to repair before execution.",
+    "allowed_claims": [
+      "calibrated scale-up preflight audit",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1712 can be audited as a clean no-rollout calibrated scale-up preflight and routed to execution design.",
+  "success_criteria": [
+    "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md exists",
+    "M1712 artifact counts are verified",
+    "selected_base_spec_count == 18",
+    "scale_up_matrix_cell_count == 864",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "next calibrated execution design route is explicit",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit omits required M1712 artifacts",
+    "audit ignores task/source/profile/variant coverage",
+    "audit ignores contract violations",
+    "audit routes directly to profile ranking",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1712 calibrated scale-up preflight artifacts and write next-route decision"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+    "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
+  ],
+  "decision_rule": "M1713 passes if it audits M1712 and routes to calibrated scale-up execution design or repair without overclaiming.",
+  "next_blocker": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit"
+}

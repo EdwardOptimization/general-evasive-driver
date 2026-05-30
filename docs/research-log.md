@@ -27441,3 +27441,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
 - follow-up manifest: `experiments/manifests/m1712-paper-route-controller-family-calibrated-scale-up-preflight.json`
 - next: `m1712-paper-route-controller-family-calibrated-scale-up-preflight`
+
+## M1712 Paper-Route Controller-Family Calibrated Scale-Up Preflight
+
+- status: completed
+- result class: `controller_family_calibrated_scale_up_preflight_pass`
+- artifact: `runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json`
+- documentation: `docs/m1712-paper-route-controller-family-calibrated-scale-up-preflight.md`
+- source calibration specs / matrix cells: `864` / `10368`
+- anchor base specs: `6`
+- selected base specs: `18`
+- selected task family counts: `T4=9`, `T5=9`
+- scale-up calibration specs: `72`
+- scale-up matrix cells: `864`
+- profiles: `12`
+- variant labels: `original_axis_baseline=18`, `best_off_track_variant=18`, `collision_control_wide_relaxed=18`, `mid_calibration_variant=18`
+- contract violation count: `0`
+- missing config / checkpoint count: `0` / `0`
+- guardrail violation count: `0`
+- environment rollout started: `false`
+- supported: source-expanded scale-up subset is materialized as clean metadata and ready for audit
+- unsupported: controller-family ranking, scale-up task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.json`
+- next: `m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit`

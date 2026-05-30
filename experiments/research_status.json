@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1720,
+    "completed": 1721,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
+    "command_log": "docs/m1712-paper-route-controller-family-calibrated-scale-up-preflight.md",
     "returncode": 0,
+    "run_dir": "runs/m1712_controller_family_calibrated_scale_up_preflight",
     "status": "completed",
-    "task_id": "m1711-paper-route-controller-family-calibrated-scale-up-design"
+    "task_id": "m1712-paper-route-controller-family-calibrated-scale-up-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1712-paper-route-controller-family-calibrated-scale-up-preflight.json",
-    "hypothesis": "The M1711 source-expanded calibrated scale-up subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
-    "id": "m1712-paper-route-controller-family-calibrated-scale-up-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize 18-base-spec 72-calibration-spec 864-cell scale-up subset with contract checks",
-    "priority": 17070,
+    "command": "see experiments/manifests/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.json",
+    "hypothesis": "M1712 can be audited as a clean no-rollout calibrated scale-up preflight and routed to execution design.",
+    "id": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit scale-up subset counts source/task/profile/variant coverage and next execution-design route",
+    "priority": 17080,
     "status": "pending",
-    "success_artifact": "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json"
+    "success_artifact": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260530T013328Z"
+  "updated_at_utc": "20260530T013915Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1711-paper-route-controller-family-calibrated-scale-up-design
+m1712-paper-route-controller-family-calibrated-scale-up-preflight
 ```
 
 Current next task:
 
 ```text
-m1712-paper-route-controller-family-calibrated-scale-up-preflight
+m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -45,9 +45,11 @@ with `0.2083` improvement, while noting collision/off-track tradeoff. M1710
 synthesized M1701-M1709 and continues the branch to source-expanded calibrated
 scale-up design. M1711 designed an `864`-episode fixed-budget scale-up with
 `18` base specs and four variants that preserve the original baseline, best
-off-track variant, collision-control variant, and mid variant. The next task is
-M1712: materialize that source-expanded subset without rollout and verify
-contract/profile/variant coverage.
+off-track variant, collision-control variant, and mid variant. M1712
+materialized that source-expanded subset without rollout: `18` base specs, `72`
+scale-up calibration specs, `864` cells, zero contract violations, and all
+profiles/variants present. The next task is M1713 audit before any scale-up
+execution design.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
