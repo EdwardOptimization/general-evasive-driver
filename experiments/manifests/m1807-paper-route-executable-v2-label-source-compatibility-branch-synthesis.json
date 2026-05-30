@@ -1,0 +1,196 @@
+{
+  "id": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1797-executable-v2-label-source-compatibility-repair-design.md",
+      "docs/m1798-executable-v2-label-source-compatibility-preflight-implementation.md",
+      "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+      "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
+      "docs/m1801-executable-v2-label-source-compatibility-result-audit.md",
+      "docs/m1802-executable-v2-stable-source-label-topup-design.md",
+      "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
+      "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md",
+      "runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json",
+      "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1806-executable-v2-stable-source-label-topup-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1797-M1806 executable v2 label-source compatibility repair branch before stable source materialization or reset rerun"
+    ],
+    "derived_from": [
+      "m1797-executable-v2-label-source-compatibility-repair-design",
+      "m1806-executable-v2-stable-source-label-topup-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1806",
+      "M1805/M1806 show direct replacement count is zero and all three stable top-up targets require materialization or probe evidence"
+    ],
+    "supersedes": [
+      "direct stable source materialization design after M1806 without branch synthesis",
+      "direct reset rerun after M1806",
+      "direct measured execution after M1806"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+  "public_gates": [
+    "M1807 must synthesize M1797-M1806 before stable source materialization reset rerun measured execution ranking or paper-route claims",
+    "M1807 must answer required synthesis questions",
+    "M1807 must assess compatibility design/helper execution, M1800 compatibility result, stable top-up design/helper execution, and M1806 audit evidence",
+    "M1807 must decide continue pivot stop or promote_to_next_branch",
+    "M1807 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "S_executable_v2_label_source_compatibility_branch_synthesis",
+    "evidence_increment": "synthesizes M1797-M1806 after source-label compatibility quarantine, stable top-up planning, and no-direct-replacement audit",
+    "claim_scope": "branch synthesis only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if synthesis treats M1800 compatible subset or M1805 top-up plan as ranking evidence",
+      "stop if synthesis ignores zero direct replacements",
+      "stop if synthesis routes directly to measured execution or paper-level claims",
+      "stop if synthesis skips public-gate overfit and task-quality risks"
+    ],
+    "fallback_plan": [
+      "continue toward stable source materialization design if compatibility evidence is coherent",
+      "pivot to a narrower source-materialization branch if the next repair scope is distinct",
+      "route to targeted reset-probe design only if near candidates can cover all stable gaps",
+      "stop branch if source-label compatibility cannot be repaired without changing actor or task contracts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow synthesis cadence reached after M1806 and stable top-up still requires new materialization",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "executable v2 label-source compatibility branch synthesis",
+    "admission_evidence": [
+      "M1800 compatibility preflight produced clean quarantine artifacts",
+      "M1805 stable top-up preflight matched expected counts and left direct replacement count at zero",
+      "M1806 routes to synthesis before another narrow repair"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1807 synthesis document",
+      "M1807 status queue scoreboard research log and review",
+      "one follow-up manifest if synthesis admits continue pivot stop or a new branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "route decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; synthesis covers task-quality compatibility and source materialization evidence.",
+    "history_necessity_tests": [
+      "Any continued route must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for later self-ID evidence."
+    ],
+    "temporal_evidence_window": "M1797-M1806 public artifacts only.",
+    "negative_result_policy": "If synthesis finds source-label evidence insufficient, route to repair, split-source design, or stop rather than weakening history-necessity claims.",
+    "allowed_claims": [
+      "branch synthesis and route decision",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1797-M1806 executable v2 label-source compatibility branch should synthesize before stable source materialization because the 10-milestone cadence has been reached and M1805/M1806 leave zero direct replacements.",
+  "success_criteria": [
+    "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "M1797-M1806 design implementation execution audit and top-up evidence are explicit",
+    "public-gate and task-quality risks are assessed",
+    "next branch decision is explicit",
+    "reset rollout measured rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis skips required questions",
+    "synthesis treats M1800 or M1805 as ranking evidence",
+    "synthesis routes directly to measured execution or paper-level claims",
+    "synthesis claims level3 self-identification evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md",
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
+    "runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json"
+  ],
+  "decision_rule": "M1807 passes if it synthesizes M1797-M1806 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
+}

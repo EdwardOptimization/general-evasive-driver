@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1814,
+    "completed": 1815,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1805-executable-v2-stable-source-label-topup-preflight.md",
+    "command_log": "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1805-executable-v2-stable-source-label-topup-preflight"
+    "task_id": "m1806-executable-v2-stable-source-label-topup-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1806-executable-v2-stable-source-label-topup-result-audit.json",
-    "hypothesis": "M1805 artifacts can be audited well enough to choose between stable source materialization, targeted reset-probe design, helper repair, compatible subset reset rerun, or branch synthesis.",
-    "id": "m1806-executable-v2-stable-source-label-topup-result-audit",
+    "command": "see experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json",
+    "hypothesis": "The M1797-M1806 executable v2 label-source compatibility branch should synthesize before stable source materialization because the 10-milestone cadence has been reached and M1805/M1806 leave zero direct replacements.",
+    "id": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1805 top-up planning result before materialization reset probes or measured execution",
-    "priority": 18010,
+    "notes": "Pending: synthesize compatibility repair branch before stable source materialization or reset rerun",
+    "priority": 18020,
     "status": "pending",
-    "success_artifact": "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md"
+    "success_artifact": "docs/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T111000Z"
+  "updated_at_utc": "20260530T111500Z"
 }

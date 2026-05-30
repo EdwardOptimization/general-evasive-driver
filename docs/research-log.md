@@ -29877,3 +29877,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility pass, stable source materialization result, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1806-executable-v2-stable-source-label-topup-result-audit.json`
 - next: `m1806-executable-v2-stable-source-label-topup-result-audit`
+
+## M1806 Executable V2 Stable Source-Label Top-Up Result Audit
+
+- status: completed
+- decision: `stable_topup_result_audit_route_to_branch_synthesis_before_materialization`
+- artifact: `docs/m1806-executable-v2-stable-source-label-topup-result-audit.md`
+- source artifact: `runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- stable top-up targets: `3`
+- target missing profile count total: `36`
+- candidate rows: `5`
+- candidate class counts: `metadata_only_untrusted=2`, `near_existing_candidate=3`, `exact_existing_candidate=0`
+- direct replacements: `0`
+- new materialization needs: `3`
+- measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- technical next repair direction: `stable_source_materialization`
+- workflow cadence reached: `true`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1805 result audit no-direct-replacement evidence and stable source materialization as next technical repair direction
+- unsupported: repaired reset feasibility pass, stable source materialization result, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json`
+- next: `m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis`

@@ -166,6 +166,43 @@
     "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
     "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_topup_claim_boundary.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md",
+    "decision": "stable_topup_result_audit_route_to_branch_synthesis_before_materialization",
+    "stable_topup_target_count": 3,
+    "target_missing_profile_count_total": 36,
+    "candidate_row_count": 5,
+    "candidate_class_counts": {
+      "metadata_only_untrusted": 2,
+      "near_existing_candidate": 3
+    },
+    "direct_replacement_count": 0,
+    "new_materialization_need_count": 3,
+    "measured_execution_admissible": false,
+    "controller_family_ranking_admissible": false,
+    "technical_next_repair_direction": "stable_source_materialization",
+    "workflow_cadence_reached": true,
+    "next_manifest": "experiments/manifests/m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1806 passes if it audits M1805 and chooses a next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1806-executable-v2-stable-source-label-topup-result-audit"
+  "next_blocker": "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
 }
