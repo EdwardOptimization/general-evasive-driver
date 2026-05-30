@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T070020Z
+- Generated at UTC: 20260530T070351Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1770 passes if it designs a bounded metric-specific panel and a no-rollout materialization route while keeping ranking blocked.
+- Promotion decision: admit_metric_specific_bounded_panel_materialization_preflight
+- Decision reason: M1770 designs a 24-spec 288-cell role-separated panel and admits no-rollout materialization preflight
 
 ## Hypothesis
 
@@ -74,8 +74,19 @@ A bounded, metric-specific panel can preserve the useful taxonomy coverage while
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1770-paper-route-metric-specific-bounded-panel-design
+- type: gate
+- checkpoint: docs/m1770-paper-route-metric-specific-bounded-panel-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_metric_specific_bounded_panel_materialization_preflight
+- reason: M1770 designs a 24-spec 288-cell role-separated panel and admits no-rollout materialization preflight
 
 ## Next Blocker
 
-m1770-paper-route-metric-specific-bounded-panel-design
+m1771-paper-route-metric-specific-bounded-panel-materialization-preflight

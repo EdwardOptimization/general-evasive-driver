@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1778,
+    "completed": 1779,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "command_log": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    "task_id": "m1770-paper-route-metric-specific-bounded-panel-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json",
-    "hypothesis": "A bounded, metric-specific panel can preserve the useful taxonomy coverage while avoiding the diffuse outcome dominance that blocked ranking.",
-    "id": "m1770-paper-route-metric-specific-bounded-panel-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded metric-specific diagnostic panel after M1769 pivot",
-    "priority": 17650,
+    "command": "see experiments/manifests/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.json",
+    "hypothesis": "The M1770 bounded panel can be materialized as 24 role-balanced specs crossed with 12 profiles without violating the actor/input or no-ranking contracts.",
+    "id": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: no-rollout materialization of bounded role-separated panel",
+    "priority": 17660,
     "status": "pending",
-    "success_artifact": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md"
+    "success_artifact": "runs/m1771_metric_specific_bounded_panel_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T065925Z"
+  "updated_at_utc": "20260530T070302Z"
 }

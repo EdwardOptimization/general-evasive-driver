@@ -153,6 +153,37 @@
     "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
     "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md",
+    "decision": "admit_metric_specific_bounded_panel_materialization_preflight",
+    "panel_spec_count": 24,
+    "profile_count": 12,
+    "planned_cell_count": 288,
+    "role_panel_count": 4,
+    "role_panels": [
+      "stable_avoidance_aes",
+      "drift_required_recovery",
+      "hidden_dynamics_robustness",
+      "unavoidable_mitigation"
+    ],
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.json"
+  },
   "decision_rule": "M1770 passes if it designs a bounded metric-specific panel and a no-rollout materialization route while keeping ranking blocked.",
-  "next_blocker": "m1770-paper-route-metric-specific-bounded-panel-design"
+  "next_blocker": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight"
 }

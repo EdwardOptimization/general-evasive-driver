@@ -28841,3 +28841,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json`
 - next: `m1770-paper-route-metric-specific-bounded-panel-design`
+
+## M1770 Paper-Route Metric-Specific Bounded Panel Design
+
+- status: completed
+- decision: `admit_metric_specific_bounded_panel_materialization_preflight`
+- artifact: `docs/m1770-paper-route-metric-specific-bounded-panel-design.md`
+- parent synthesis: `docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- planned spec count: `24`
+- planned profile count: `12`
+- planned cell count: `288`
+- role panel count: `4`
+- role panels: stable avoidance/AES, drift-required recovery, hidden-dynamics robustness, unavoidable mitigation
+- primary route: no-rollout materialization preflight before reset or measured execution
+- ranking admissible: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: role-separated metric-specific bounded panel design and materialization route
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1771-paper-route-metric-specific-bounded-panel-materialization-preflight.json`
+- next: `m1771-paper-route-metric-specific-bounded-panel-materialization-preflight`

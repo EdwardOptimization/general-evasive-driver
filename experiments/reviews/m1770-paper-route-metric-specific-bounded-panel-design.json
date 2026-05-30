@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1770 passes if it designs a bounded metric-specific panel and a no-rollout materialization route while keeping ranking blocked.",
+  "decision_reason": "M1770 designs a 24-spec 288-cell role-separated panel and admits no-rollout materialization preflight",
   "failure_criteria": [
     "design document is missing",
     "design runs rollout or changes configs",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T070020Z",
+  "generated_at_utc": "20260530T070351Z",
   "hypothesis": "A bounded, metric-specific panel can preserve the useful taxonomy coverage while avoiding the diffuse outcome dominance that blocked ranking.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1770-paper-route-metric-specific-bounded-panel-design",
-  "next_blocker": "m1770-paper-route-metric-specific-bounded-panel-design",
+  "next_blocker": "m1771-paper-route-metric-specific-bounded-panel-materialization-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_metric_specific_bounded_panel_materialization_preflight",
   "public_gates": [
     "M1770 must be design-only and must not run rollout, train, replay, PPO, promote, use private holdout, change actor inputs, tune profiles, or rank controller families",
     "M1770 must define metric-specific panels for avoidance, drift-required recovery, hidden-dynamics robustness, and unavoidable mitigation",
     "M1770 must define materialization and execution admission gates before any measured run",
     "M1770 must define outcome-quality pass gates that keep profile ranking blocked until the panel itself is valid"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_metric_specific_bounded_panel_materialization_preflight",
+    "milestone": "m1770-paper-route-metric-specific-bounded-panel-design",
+    "reason": "M1770 designs a 24-spec 288-cell role-separated panel and admits no-rollout materialization preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1770-paper-route-metric-specific-bounded-panel-design.md exists",
     "panel roles and metrics are explicit",
