@@ -165,6 +165,33 @@
     "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/reset_time_aes_source_repair_candidate_scores.csv",
     "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/reset_time_aes_source_repair_targets.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+    "decision": "reset_time_aes_source_repair_v2_audit_route_to_feasibility_scan_design",
+    "result_class": "reset_time_aes_source_repair_v2_fail",
+    "candidate_score_row_count": 10,
+    "candidate_attempt_count_total": 1200000,
+    "accepted_profile_count_total": 0,
+    "guardrail_violation_count": 0,
+    "failure_classification": "static_candidate_space_failure_not_task_impossibility",
+    "next_route": "reset_time_conditional_feasibility_scan_design",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1840-executable-v2-reset-time-aes-feasibility-scan-design.json"
+  },
   "decision_rule": "M1839 passes if it audits M1838 clean fail and chooses a next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit"
+  "next_blocker": "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
 }

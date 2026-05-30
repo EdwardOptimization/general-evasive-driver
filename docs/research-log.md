@@ -30920,3 +30920,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.json`
 - next: `m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit`
+
+## M1839 Executable V2 Reset-Time AES Source Repair V2 Result Audit
+
+- status: completed
+- decision: `reset_time_aes_source_repair_v2_audit_route_to_feasibility_scan_design`
+- artifact: `docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md`
+- result class audited: `reset_time_aes_source_repair_v2_fail`
+- candidate score row count: `10`
+- candidate attempt count total: `1200000`
+- accepted profile count total: `0`
+- failure classification: `static_candidate_space_failure_not_task_impossibility`
+- next route: `reset_time_conditional_feasibility_scan_design`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: conditional feasibility scan is required before source repair v3 or task-impossibility claim
+- unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1840-executable-v2-reset-time-aes-feasibility-scan-design.json`
+- next: `m1840-executable-v2-reset-time-aes-feasibility-scan-design`

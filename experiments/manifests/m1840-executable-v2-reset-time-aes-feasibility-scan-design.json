@@ -1,0 +1,169 @@
+{
+  "id": "m1840-executable-v2-reset-time-aes-feasibility-scan-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_scan_design"
+    ],
+    "parent_dataset": [
+      "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+      "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
+      "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/reset_time_aes_source_repair_candidate_scores.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset-time conditional AES feasibility scan before source repair v3"
+    ],
+    "derived_from": [
+      "m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit"
+    ],
+    "blocked_by": [
+      "M1839 routes M1838 static candidate failure to conditional feasibility scan"
+    ],
+    "supersedes": [
+      "blind source repair v3 candidate widening",
+      "reset preflight after failed source repair",
+      "claiming task impossibility without conditional feasibility scan"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+  "public_gates": [
+    "M1840 must design a conditional feasibility scan over reset-time speed/mu and obstacle grid",
+    "M1840 must separate scan evidence from source repair payload generation",
+    "M1840 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run feasibility scan",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_reset_time_aes_feasibility_scan_design",
+    "evidence_increment": "designs conditional scan to distinguish missing candidate ranges from impossible AES-only reset support",
+    "claim_scope": "feasibility scan design only; no scan execution, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if scan cannot reuse reset-time speed/mu without env reset",
+      "stop if scan would generate repair payload before proving feasibility",
+      "stop if design would tune profile controls",
+      "stop if design would run reset or measured execution"
+    ],
+    "fallback_plan": [
+      "route to helper implementation if scan design is complete",
+      "route to branch synthesis if conditional feasibility cannot be evaluated without reset",
+      "route to source metadata redesign if scan requirements expose incompatible task assumptions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1839 opens feasibility scan route after M1838 clean fail",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES conditional feasibility scan design",
+    "admission_evidence": [
+      "M1839 audits static candidate repair v2 as insufficient but not task-impossible"
+    ],
+    "blocked_shortcuts": [
+      "do not run feasibility scan",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1840 design doc",
+      "M1840 status queue scoreboard research log and review",
+      "one follow-up manifest for scan implementation"
+    ],
+    "next_stage_criteria": [
+      "scan target rows and grid ranges are specified",
+      "expected scan artifacts are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; feasibility scan design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1838/M1839 artifacts only; no scan execution.",
+    "negative_result_policy": "If scan design cannot prove feasibility without reset, route to branch synthesis rather than weakening AES labels.",
+    "allowed_claims": [
+      "reset-time AES conditional feasibility scan design",
+      "no scan result, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A conditional scan can be specified that uses reset-time speed_ref and mu for each failed AES row to determine whether any obstacle grid cells are accepted AES-only candidates before source repair v3.",
+  "success_criteria": [
+    "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md exists",
+    "design targets the 24 failed AES rows and two sources from M1838",
+    "design specifies distance and half-width grid ranges including closer distances than M1836",
+    "design defines accepted-cell criteria with label AEB threshold and friction timing filters",
+    "design lists expected scan artifacts and route to implementation without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs the scan",
+    "design omits reset-time speed/mu conditioning",
+    "design generates a repair payload before scan evidence",
+    "design runs reset or rollout",
+    "design routes directly to measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_scan_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+    "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
+    "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/reset_time_aes_source_repair_candidate_scores.csv"
+  ],
+  "decision_rule": "M1840 passes if it designs conditional feasibility scan artifacts and criteria without running scan, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
+}
