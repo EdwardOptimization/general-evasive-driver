@@ -150,6 +150,42 @@
     "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
     "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
+    "decision": "calibrated_scale_up_preflight_audit_admit_execution_design",
+    "audited_result_class": "controller_family_calibrated_scale_up_preflight_pass",
+    "selected_base_spec_count": 18,
+    "selected_task_family_counts": {
+      "T4": 9,
+      "T5": 9
+    },
+    "scale_up_calibration_spec_count": 72,
+    "scale_up_matrix_cell_count": 864,
+    "profile_count": 12,
+    "variant_label_counts": {
+      "original_axis_baseline": 18,
+      "best_off_track_variant": 18,
+      "collision_control_wide_relaxed": 18,
+      "mid_calibration_variant": 18
+    },
+    "contract_violation_count": 0,
+    "missing_config_count": 0,
+    "missing_checkpoint_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.json"
+  },
   "decision_rule": "M1713 passes if it audits M1712 and routes to calibrated scale-up execution design or repair without overclaiming.",
-  "next_blocker": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit"
+  "next_blocker": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design"
 }

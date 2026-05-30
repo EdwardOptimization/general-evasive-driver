@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1721,
+    "completed": 1722,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1712-paper-route-controller-family-calibrated-scale-up-preflight.md",
+    "command_log": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1712_controller_family_calibrated_scale_up_preflight",
     "status": "completed",
-    "task_id": "m1712-paper-route-controller-family-calibrated-scale-up-preflight"
+    "task_id": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.json",
-    "hypothesis": "M1712 can be audited as a clean no-rollout calibrated scale-up preflight and routed to execution design.",
-    "id": "m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit",
+    "command": "see experiments/manifests/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.json",
+    "hypothesis": "A measured execution protocol can be designed for the M1712 scale-up subset without overclaiming or changing the actor contract.",
+    "id": "m1714-paper-route-controller-family-calibrated-scale-up-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit scale-up subset counts source/task/profile/variant coverage and next execution-design route",
-    "priority": 17080,
+    "notes": "Pending: design scale-up execution artifacts variant aggregates tradeoff thresholds and claim boundaries",
+    "priority": 17090,
     "status": "pending",
-    "success_artifact": "docs/m1713-paper-route-controller-family-calibrated-scale-up-preflight-result-audit.md"
+    "success_artifact": "docs/m1714-paper-route-controller-family-calibrated-scale-up-execution-design.md"
   },
-  "updated_at_utc": "20260530T013915Z"
+  "updated_at_utc": "20260530T014255Z"
 }
