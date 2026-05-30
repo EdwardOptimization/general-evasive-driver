@@ -28186,3 +28186,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout result, profile ranking, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json`
 - next: `m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation`
+
+## M1750 Paper-Route Task-Quality Revised Scenario Taxonomy Execution Adapter Implementation
+
+- status: completed
+- result class: `revised_scenario_taxonomy_execution_adapter_implementation_pass`
+- artifact: `docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md`
+- parent design: `docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md`
+- semantics payload keys supported: `scenario_specs`, `repaired_scenario_specs`, `semantics_scenario_specs`
+- semantics fields preserved: `16`
+- metric completeness helpers implemented: `true`
+- always-finite metric fields: `7`
+- always-boolean metric fields: `6`
+- obstacle-pass finite fields: `2`
+- recovery-success finite fields: `3`
+- collision finite fields: `4`
+- separate executable scenario specs path supported: `true`
+- focused scenario-taxonomy tests: `10 passed`
+- affected execution/metric tests: `21 passed`
+- full test suite: `1707 passed`, `4 warnings`
+- compileall passed: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: revised execution adapter implementation, semantics pass-through, metric completeness helpers, aggregate hooks
+- unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level benchmark evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json`
+- next: `m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit`

@@ -1,0 +1,153 @@
+{
+  "id": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_logging_only_adapter"
+    ],
+    "parent_dataset": [
+      "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
+      "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "audit revised scenario execution adapter before any revised rollout"
+    ],
+    "derived_from": [
+      "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
+    ],
+    "blocked_by": [
+      "adapter implementation must be audited before revised execution design or rollout"
+    ],
+    "supersedes": [
+      "direct revised execution after adapter implementation without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+  "public_gates": [
+    "M1751 must audit semantics pass-through and metric completeness helpers",
+    "M1751 must verify M1750 remained logging-only and did not change actor inputs reward termination profiles training replay PPO or promotion state",
+    "M1751 must decide whether to admit revised execution design, adapter repair, bounded-panel design, or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_scenario_taxonomy_execution_adapter_audit",
+    "evidence_increment": "audits adapter implementation before revised public diagnostic execution",
+    "claim_scope": "process audit only; no full rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if semantics pass-through is incomplete",
+      "stop if metric completeness helpers are not test-covered",
+      "stop if implementation changed actor inputs reward or termination behavior",
+      "stop if full rollout is attempted before audit decision"
+    ],
+    "fallback_plan": [
+      "route to adapter repair if pass-through or completeness is incomplete",
+      "route to bounded-panel design if full 864-cell execution remains too broad",
+      "route to revised execution design if audit is clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1750 routes to adapter result audit before execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit revised scenario execution adapter implementation",
+    "admission_evidence": [
+      "M1750 implements semantics pass-through and metric completeness helpers"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1751 audit document",
+      "M1751 status queue scoreboard research log and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "audit verifies logging-only contract",
+      "audit verifies focused tests and research validation",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; adapter audit cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must preserve L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for future execution"
+    ],
+    "temporal_evidence_window": "M1750 implementation only.",
+    "negative_result_policy": "If adapter audit fails, record an infrastructure limitation rather than self-ID evidence.",
+    "allowed_claims": [
+      "adapter result audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The revised scenario execution adapter can be audited as semantics-preserving and logging-only before revised execution design.",
+  "success_criteria": [
+    "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md exists",
+    "audit covers semantics pass-through and metric completeness helpers",
+    "audit covers focused tests and research validation",
+    "next route is revised execution design bounded-panel design adapter repair or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits semantics pass-through or metric completeness",
+    "audit admits execution without validation",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1750 revised scenario taxonomy execution adapter implementation"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_logging_only_adapter"
+  ],
+  "baseline_artifacts": [
+    "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
+    "experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json"
+  ],
+  "decision_rule": "M1751 passes if it audits M1750 as logging-only, semantics-preserving, and test-covered before any revised rollout.",
+  "next_blocker": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
+}

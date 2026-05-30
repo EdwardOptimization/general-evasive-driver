@@ -39,6 +39,70 @@ TARGET_SCENARIO_SPEC_COUNT = 72
 TARGET_SCENARIO_FAMILY_COUNT = 6
 TARGET_UNSUPPORTED_SCENARIO_FEATURE_COUNT = 5
 TARGET_UNSUPPORTED_FEATURE_COUNT = TARGET_UNSUPPORTED_SCENARIO_FEATURE_COUNT
+SEMANTICS_PAYLOAD_KEYS = (
+    "scenario_specs",
+    "repaired_scenario_specs",
+    "semantics_scenario_specs",
+)
+SCENARIO_SEMANTICS_FIELDS = (
+    "evaluation_role",
+    "primary_metric_family",
+    "ranking_eligible_after_audit",
+    "diagnostic_only_no_ranking_claim",
+    "benchmark_row",
+    "metric_required_benchmark_success",
+    "metric_required_avoidance_success",
+    "metric_required_controlled_drift_recovery_success",
+    "metric_required_collision_mitigation_score",
+    "metric_required_impact_severity_proxy",
+    "metric_required_off_track_violation",
+    "metric_required_off_track_severity_proxy",
+    "metric_required_recovery_success",
+    "metric_required_recovery_time_proxy",
+    "metric_required_hidden_dynamics_robustness",
+    "metric_required_diagnostic_only_no_ranking_claim",
+)
+SCENARIO_BOOLEAN_SEMANTICS_FIELDS = frozenset(
+    field
+    for field in SCENARIO_SEMANTICS_FIELDS
+    if field
+    not in {
+        "evaluation_role",
+        "primary_metric_family",
+    }
+)
+ALWAYS_FINITE_METRIC_FIELDS = (
+    "dt",
+    "track_width",
+    "max_abs_beta",
+    "max_abs_yaw_rate",
+    "max_off_track_overshoot",
+    "off_track_severity_proxy",
+    "collision_mitigation_score",
+)
+ALWAYS_BOOLEAN_METRIC_FIELDS = (
+    "recovery_success",
+    "drift_used",
+    "controlled_drift_recovery_success",
+    "collision",
+    "obstacle_passed_raw",
+    "diagnostic_only_no_ranking_claim",
+)
+OBSTACLE_PASS_FINITE_FIELDS = (
+    "first_obstacle_pass_step",
+    "first_obstacle_pass_time_s",
+)
+RECOVERY_SUCCESS_FINITE_FIELDS = (
+    "first_recovery_step",
+    "first_recovery_time_s",
+    "recovery_time_proxy",
+)
+COLLISION_FINITE_FIELDS = (
+    "impact_speed_proxy",
+    "impact_beta_abs",
+    "impact_yaw_rate_abs",
+    "impact_severity_proxy",
+)
 SCENARIO_FAILURE_FIELDNAMES = [
     "workload_id",
     "scenario_workload_id",
@@ -49,6 +113,7 @@ SCENARIO_FAILURE_FIELDNAMES = [
     "sampling_repair_source",
     "sampling_repair_variant_id",
     "sampling_repair_applied",
+    *SCENARIO_SEMANTICS_FIELDS,
     "profile_name",
     "obstacle_timing_bucket",
     "obstacle_lateral_bucket",
@@ -70,11 +135,56 @@ SCENARIO_FAILURE_FIELDNAMES = [
 ]
 
 
+def _as_bool(value: Any, *, default: bool = False) -> bool:
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return default
+    if isinstance(value, (int, float)):
+        return bool(value)
+    if isinstance(value, str):
+        stripped = value.strip().lower()
+        if stripped in {"true", "1", "yes", "y"}:
+            return True
+        if stripped in {"false", "0", "no", "n", ""}:
+            return False
+    return default
+
+
+def _first_present(*values: Any, default: Any = "") -> Any:
+    for value in values:
+        if value is None:
+            continue
+        if isinstance(value, str) and not value.strip():
+            continue
+        return value
+    return default
+
+
+def _is_finite_value(value: Any) -> bool:
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError):
+        return False
+    return numeric == numeric and numeric not in {float("inf"), float("-inf")}
+
+
+def _is_bool_like(value: Any) -> bool:
+    if isinstance(value, bool):
+        return True
+    if isinstance(value, (int, float)):
+        return value in {0, 1, 0.0, 1.0}
+    if isinstance(value, str):
+        return value.strip().lower() in {"true", "false", "1", "0", "yes", "no", "y", "n"}
+    return False
+
+
 def load_scenario_specs(path: Path | str = DEFAULT_SCENARIO_SPECS) -> list[dict[str, Any]]:
     payload = read_json(path)
-    if "scenario_specs" in payload:
-        return list(payload["scenario_specs"])
-    return list(payload["repaired_scenario_specs"])
+    for key in SEMANTICS_PAYLOAD_KEYS:
+        if key in payload:
+            return list(payload[key])
+    raise KeyError(f"{path} must contain one of {SEMANTICS_PAYLOAD_KEYS}")
 
 
 def scenario_taxonomy_workload_rows(
@@ -88,6 +198,13 @@ def scenario_taxonomy_workload_rows(
     converted: list[dict[str, Any]] = []
     for row in rows:
         spec = spec_by_id[str(row["scenario_spec_id"])]
+        template_source_family = str(
+            _first_present(
+                spec.get("template_source_family"),
+                row.get("template_source_family"),
+                default="not_available",
+            )
+        )
         item = dict(row)
         item.update(
             {
@@ -96,8 +213,8 @@ def scenario_taxonomy_workload_rows(
                 "task_family": str(spec["scenario_family_id"]),
                 "source_edge": str(spec["scenario_family"]),
                 "window_tag": str(spec["hidden_dynamics_bucket"]),
-                "executable_source_family": str(spec["template_source_family"]),
-                "env_template_family": str(spec["template_source_family"]),
+                "executable_source_family": template_source_family,
+                "env_template_family": template_source_family,
                 "scenario_family_id": str(spec["scenario_family_id"]),
                 "scenario_family": str(spec["scenario_family"]),
                 "scenario_role": str(spec["scenario_role"]),
@@ -105,15 +222,42 @@ def scenario_taxonomy_workload_rows(
                 "obstacle_lateral_bucket": str(spec["obstacle_lateral_bucket"]),
                 "road_boundary_bucket": str(spec["road_boundary_bucket"]),
                 "hidden_dynamics_bucket": str(spec["hidden_dynamics_bucket"]),
-                "template_source_family": str(spec["template_source_family"]),
+                "template_source_family": template_source_family,
                 "allowed_labels_metadata_only": str(spec["allowed_labels_metadata_only"]),
-                "labels_enter_actor_input": bool(spec["labels_enter_actor_input"]),
+                "labels_enter_actor_input": _as_bool(
+                    _first_present(
+                        spec.get("labels_enter_actor_input"),
+                        row.get("labels_enter_actor_input"),
+                        default=False,
+                    )
+                ),
                 "m1728_scenario_spec_id": str(spec.get("m1728_scenario_spec_id", spec["scenario_spec_id"])),
-                "sampling_repair_source": str(spec.get("sampling_repair_source", "not_applicable")),
-                "sampling_repair_variant_id": str(spec.get("sampling_repair_variant_id", "not_applicable")),
-                "sampling_repair_applied": bool(spec.get("sampling_repair_applied", False)),
+                "sampling_repair_source": str(
+                    _first_present(
+                        spec.get("sampling_repair_source"),
+                        row.get("sampling_repair_source"),
+                        default="not_applicable",
+                    )
+                ),
+                "sampling_repair_variant_id": str(
+                    _first_present(
+                        spec.get("sampling_repair_variant_id"),
+                        row.get("sampling_repair_variant_id"),
+                        default="not_applicable",
+                    )
+                ),
+                "sampling_repair_applied": _as_bool(
+                    _first_present(
+                        spec.get("sampling_repair_applied"),
+                        row.get("sampling_repair_applied"),
+                        default=False,
+                    )
+                ),
             }
         )
+        for field in SCENARIO_SEMANTICS_FIELDS:
+            value = _first_present(spec.get(field), row.get(field), default="")
+            item[field] = _as_bool(value) if field in SCENARIO_BOOLEAN_SEMANTICS_FIELDS else str(value)
         item["strata"] = ";".join(
             [
                 "scenario_taxonomy",
@@ -125,6 +269,14 @@ def scenario_taxonomy_workload_rows(
         )
         converted.append(item)
     return sorted(converted, key=lambda row: str(row["workload_id"]))
+
+
+def _semantics_passthrough_values(workload_row: Mapping[str, Any]) -> dict[str, Any]:
+    values: dict[str, Any] = {}
+    for field in SCENARIO_SEMANTICS_FIELDS:
+        value = workload_row.get(field, "")
+        values[field] = _as_bool(value) if field in SCENARIO_BOOLEAN_SEMANTICS_FIELDS else str(value)
+    return values
 
 
 def _run_scenario_workload_cell(
@@ -162,6 +314,7 @@ def _run_scenario_workload_cell(
             "sampling_repair_source": str(workload_row["sampling_repair_source"]),
             "sampling_repair_variant_id": str(workload_row["sampling_repair_variant_id"]),
             "sampling_repair_applied": bool(workload_row["sampling_repair_applied"]),
+            **_semantics_passthrough_values(workload_row),
             "sampled_obstacle_label": str(row.get("obstacle_label", "")),
             "scenario_taxonomy_execution": True,
             "full_rollout_execution": False,
@@ -172,11 +325,125 @@ def _run_scenario_workload_cell(
     return row
 
 
+def metric_completeness_rows(
+    episode_rows: list[Mapping[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    counters: dict[tuple[str, str], dict[str, int]] = {}
+    failures: list[dict[str, Any]] = []
+
+    def record(row: Mapping[str, Any], *, field: str, rule: str, applicable: bool, valid: bool, reason: str) -> None:
+        key = (field, rule)
+        counters.setdefault(key, {"row_count": 0, "applicable_count": 0, "valid_count": 0, "invalid_count": 0})
+        counters[key]["row_count"] += 1
+        if not applicable:
+            return
+        counters[key]["applicable_count"] += 1
+        if valid:
+            counters[key]["valid_count"] += 1
+            return
+        counters[key]["invalid_count"] += 1
+        failures.append(
+            {
+                "workload_id": str(row.get("workload_id", "")),
+                "scenario_workload_id": str(row.get("scenario_workload_id", "")),
+                "scenario_spec_id": str(row.get("scenario_spec_id", "")),
+                "profile_name": str(row.get("profile_name", "")),
+                "field": field,
+                "rule": rule,
+                "value": row.get(field, ""),
+                "reason": reason,
+            }
+        )
+
+    for row in episode_rows:
+        for field in SCENARIO_SEMANTICS_FIELDS:
+            value = row.get(field, "")
+            if field in SCENARIO_BOOLEAN_SEMANTICS_FIELDS:
+                valid = _is_bool_like(value)
+                reason = "expected_bool_like_semantics_field"
+            else:
+                valid = bool(str(value).strip())
+                reason = "expected_nonempty_semantics_field"
+            record(row, field=field, rule="semantics_required", applicable=True, valid=valid, reason=reason)
+
+        for field in ALWAYS_FINITE_METRIC_FIELDS:
+            record(
+                row,
+                field=field,
+                rule="always_finite",
+                applicable=True,
+                valid=_is_finite_value(row.get(field)),
+                reason="expected_finite_value",
+            )
+
+        for field in ALWAYS_BOOLEAN_METRIC_FIELDS:
+            record(
+                row,
+                field=field,
+                rule="always_boolean",
+                applicable=True,
+                valid=_is_bool_like(row.get(field)),
+                reason="expected_bool_like_value",
+            )
+
+        obstacle_passed = _as_bool(row.get("obstacle_passed_raw"), default=False)
+        for field in OBSTACLE_PASS_FINITE_FIELDS:
+            record(
+                row,
+                field=field,
+                rule="finite_when_obstacle_passed",
+                applicable=obstacle_passed,
+                valid=_is_finite_value(row.get(field)),
+                reason="expected_finite_value_when_obstacle_passed",
+            )
+
+        recovery_success = _as_bool(row.get("recovery_success"), default=False)
+        for field in RECOVERY_SUCCESS_FINITE_FIELDS:
+            record(
+                row,
+                field=field,
+                rule="finite_when_recovered",
+                applicable=recovery_success,
+                valid=_is_finite_value(row.get(field)),
+                reason="expected_finite_value_when_recovered",
+            )
+
+        collision = _as_bool(row.get("collision"), default=False)
+        for field in COLLISION_FINITE_FIELDS:
+            record(
+                row,
+                field=field,
+                rule="finite_when_collision",
+                applicable=collision,
+                valid=_is_finite_value(row.get(field)),
+                reason="expected_finite_value_when_collision",
+            )
+
+    summary_rows: list[dict[str, Any]] = []
+    for field, rule in sorted(counters):
+        counts = counters[(field, rule)]
+        summary_rows.append(
+            {
+                "field": field,
+                "rule": rule,
+                **counts,
+                "completeness_rate": (
+                    counts["valid_count"] / counts["applicable_count"]
+                    if counts["applicable_count"]
+                    else 1.0
+                ),
+            }
+        )
+    return summary_rows, failures
+
+
 def _write_scenario_aggregates(output_dir: Path, episode_rows: list[dict[str, Any]]) -> dict[str, int]:
     aggregates = {
         "profile_aggregate": aggregate_outcome_rows(episode_rows, ("profile_name",)),
         "scenario_family_aggregate": aggregate_outcome_rows(episode_rows, ("scenario_family",)),
         "scenario_role_aggregate": aggregate_outcome_rows(episode_rows, ("scenario_role",)),
+        "evaluation_role_aggregate": aggregate_outcome_rows(episode_rows, ("evaluation_role",)),
+        "primary_metric_family_aggregate": aggregate_outcome_rows(episode_rows, ("primary_metric_family",)),
         "sampling_repair_variant_aggregate": aggregate_outcome_rows(episode_rows, ("sampling_repair_variant_id",)),
         "hidden_dynamics_bucket_aggregate": aggregate_outcome_rows(episode_rows, ("hidden_dynamics_bucket",)),
         "road_boundary_bucket_aggregate": aggregate_outcome_rows(episode_rows, ("road_boundary_bucket",)),
@@ -186,7 +453,18 @@ def _write_scenario_aggregates(output_dir: Path, episode_rows: list[dict[str, An
         "outcome_aggregate": aggregate_outcome_rows(episode_rows, ("outcome_bucket",)),
         "termination_reason_aggregate": aggregate_outcome_rows(episode_rows, ("termination_reason",)),
         "profile_outcome_aggregate": aggregate_outcome_rows(episode_rows, ("profile_name", "outcome_bucket")),
-        "scenario_family_outcome_aggregate": aggregate_outcome_rows(episode_rows, ("scenario_family", "outcome_bucket")),
+        "scenario_family_outcome_aggregate": aggregate_outcome_rows(
+            episode_rows,
+            ("scenario_family", "outcome_bucket"),
+        ),
+        "evaluation_role_outcome_aggregate": aggregate_outcome_rows(
+            episode_rows,
+            ("evaluation_role", "outcome_bucket"),
+        ),
+        "primary_metric_family_outcome_aggregate": aggregate_outcome_rows(
+            episode_rows,
+            ("primary_metric_family", "outcome_bucket"),
+        ),
         "scenario_family_sampled_label_aggregate": aggregate_outcome_rows(
             episode_rows,
             ("scenario_family", "sampled_obstacle_label"),
@@ -222,6 +500,9 @@ def finalize_scenario_taxonomy_outputs(
     unsupported_rows = load_unsupported_feature_rows(unsupported_features_path)
     write_csv_rows(output_dir / "unsupported_scenario_features.csv", unsupported_rows)
     aggregate_counts = _write_scenario_aggregates(output_dir, episode_rows)
+    metric_completeness_summary, metric_completeness_failures = metric_completeness_rows(episode_rows)
+    write_csv_rows(output_dir / "metric_completeness_summary.csv", metric_completeness_summary)
+    write_csv_rows(output_dir / "metric_completeness_failures.csv", metric_completeness_failures)
     guardrail_flags = _guardrail_flags()
     guardrail_violation_count = int(sum(bool(value) for value in guardrail_flags.values()))
     all_selected_metrics_finite = selected_metrics_are_finite(episode_rows) if episode_rows else False
@@ -241,6 +522,8 @@ def finalize_scenario_taxonomy_outputs(
         and scenario_spec_count == TARGET_SCENARIO_SPEC_COUNT
         and scenario_family_count == TARGET_SCENARIO_FAMILY_COUNT
         and aggregate_counts["scenario_family_aggregate_rows"] == TARGET_SCENARIO_FAMILY_COUNT
+        and aggregate_counts["evaluation_role_aggregate_rows"] > 0
+        and aggregate_counts["primary_metric_family_aggregate_rows"] > 0
         and aggregate_counts["sampling_repair_variant_aggregate_rows"] > 0
         and aggregate_counts["hidden_dynamics_bucket_aggregate_rows"] > 0
         and aggregate_counts["road_boundary_bucket_aggregate_rows"] > 0
@@ -249,7 +532,11 @@ def finalize_scenario_taxonomy_outputs(
         and aggregate_counts["outcome_aggregate_rows"] > 0
         and aggregate_counts["termination_reason_aggregate_rows"] > 0
         and aggregate_counts["scenario_family_outcome_aggregate_rows"] > 0
+        and aggregate_counts["evaluation_role_outcome_aggregate_rows"] > 0
+        and aggregate_counts["primary_metric_family_outcome_aggregate_rows"] > 0
         and aggregate_counts["scenario_family_sampled_label_aggregate_rows"] > 0
+        and metric_completeness_summary
+        and not metric_completeness_failures
         and len(unsupported_rows) == TARGET_UNSUPPORTED_SCENARIO_FEATURE_COUNT
         and silent_unsupported_approximation_count == 0
         and not guardrail_flags["unsupported_faults_treated_as_covered"]
@@ -273,6 +560,9 @@ def finalize_scenario_taxonomy_outputs(
         "failure_count": len(failure_rows),
         "all_selected_metrics_finite": bool(all_selected_metrics_finite),
         **aggregate_counts,
+        "metric_completeness_summary_rows": len(metric_completeness_summary),
+        "metric_completeness_failure_count": len(metric_completeness_failures),
+        "metric_completeness_passed": bool(metric_completeness_summary and not metric_completeness_failures),
         "unsupported_scenario_feature_count": len(unsupported_rows),
         "target_unsupported_scenario_feature_count": TARGET_UNSUPPORTED_SCENARIO_FEATURE_COUNT,
         "silent_unsupported_approximation_count": silent_unsupported_approximation_count,
@@ -298,6 +588,8 @@ def finalize_scenario_taxonomy_outputs(
             "profile_aggregate": str(output_dir / "profile_aggregate.csv"),
             "scenario_family_aggregate": str(output_dir / "scenario_family_aggregate.csv"),
             "scenario_role_aggregate": str(output_dir / "scenario_role_aggregate.csv"),
+            "evaluation_role_aggregate": str(output_dir / "evaluation_role_aggregate.csv"),
+            "primary_metric_family_aggregate": str(output_dir / "primary_metric_family_aggregate.csv"),
             "sampling_repair_variant_aggregate": str(output_dir / "sampling_repair_variant_aggregate.csv"),
             "hidden_dynamics_bucket_aggregate": str(output_dir / "hidden_dynamics_bucket_aggregate.csv"),
             "road_boundary_bucket_aggregate": str(output_dir / "road_boundary_bucket_aggregate.csv"),
@@ -308,6 +600,8 @@ def finalize_scenario_taxonomy_outputs(
             "termination_reason_aggregate": str(output_dir / "termination_reason_aggregate.csv"),
             "profile_outcome_aggregate": str(output_dir / "profile_outcome_aggregate.csv"),
             "scenario_family_outcome_aggregate": str(output_dir / "scenario_family_outcome_aggregate.csv"),
+            "evaluation_role_outcome_aggregate": str(output_dir / "evaluation_role_outcome_aggregate.csv"),
+            "primary_metric_family_outcome_aggregate": str(output_dir / "primary_metric_family_outcome_aggregate.csv"),
             "scenario_family_sampled_label_aggregate": str(
                 output_dir / "scenario_family_sampled_label_aggregate.csv"
             ),
@@ -315,6 +609,8 @@ def finalize_scenario_taxonomy_outputs(
                 output_dir / "profile_hidden_dynamics_worst_bucket.csv"
             ),
             "unsupported_scenario_features": str(output_dir / "unsupported_scenario_features.csv"),
+            "metric_completeness_summary": str(output_dir / "metric_completeness_summary.csv"),
+            "metric_completeness_failures": str(output_dir / "metric_completeness_failures.csv"),
         },
         "next_blocker": str(next_blocker),
     }
@@ -335,6 +631,7 @@ def run_scenario_taxonomy_execution(
     *,
     output_dir: Path | str = DEFAULT_RUN_DIR,
     scenario_specs_path: Path | str = DEFAULT_SCENARIO_SPECS,
+    executable_scenario_specs_path: Path | str | None = None,
     workload_path: Path | str = DEFAULT_SCENARIO_MATRIX,
     unsupported_features_path: Path | str = DEFAULT_UNSUPPORTED_FEATURES,
     m1674_run_dir: Path | str = DEFAULT_M1674_RUN_DIR,
@@ -345,9 +642,12 @@ def run_scenario_taxonomy_execution(
 ) -> dict[str, Any]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
-    executable_specs = load_scenario_specs(scenario_specs_path)
+    executable_specs = load_scenario_specs(executable_scenario_specs_path or scenario_specs_path)
     spec_by_id = {str(spec["scenario_spec_id"]): spec for spec in executable_specs}
-    workload_rows = scenario_taxonomy_workload_rows(scenario_specs_path=scenario_specs_path, workload_path=workload_path)
+    workload_rows = scenario_taxonomy_workload_rows(
+        scenario_specs_path=scenario_specs_path,
+        workload_path=workload_path,
+    )
     profile_rows = profile_artifact_rows(m1674_run_dir=m1674_run_dir)
     profile_by_name = {str(row["profile_name"]): row for row in profile_rows}
     profile_cache = _load_profile_cache(profile_rows, device=device)
@@ -361,6 +661,8 @@ def run_scenario_taxonomy_execution(
             output / "profile_aggregate.csv",
             output / "scenario_family_aggregate.csv",
             output / "scenario_role_aggregate.csv",
+            output / "evaluation_role_aggregate.csv",
+            output / "primary_metric_family_aggregate.csv",
             output / "sampling_repair_variant_aggregate.csv",
             output / "hidden_dynamics_bucket_aggregate.csv",
             output / "road_boundary_bucket_aggregate.csv",
@@ -371,9 +673,13 @@ def run_scenario_taxonomy_execution(
             output / "termination_reason_aggregate.csv",
             output / "profile_outcome_aggregate.csv",
             output / "scenario_family_outcome_aggregate.csv",
+            output / "evaluation_role_outcome_aggregate.csv",
+            output / "primary_metric_family_outcome_aggregate.csv",
             output / "scenario_family_sampled_label_aggregate.csv",
             output / "profile_hidden_dynamics_worst_bucket.csv",
             output / "unsupported_scenario_features.csv",
+            output / "metric_completeness_summary.csv",
+            output / "metric_completeness_failures.csv",
         ):
             if path.exists():
                 path.unlink()
@@ -411,6 +717,7 @@ def run_scenario_taxonomy_execution(
                 "sampling_repair_source": str(workload_row.get("sampling_repair_source", "")),
                 "sampling_repair_variant_id": str(workload_row.get("sampling_repair_variant_id", "")),
                 "sampling_repair_applied": bool(workload_row.get("sampling_repair_applied", False)),
+                **_semantics_passthrough_values(workload_row),
                 "profile_name": profile_name,
                 "obstacle_timing_bucket": str(workload_row.get("obstacle_timing_bucket", "")),
                 "obstacle_lateral_bucket": str(workload_row.get("obstacle_lateral_bucket", "")),
@@ -454,6 +761,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run measured task-quality scenario taxonomy execution.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_RUN_DIR)
     parser.add_argument("--scenario-specs", type=Path, default=DEFAULT_SCENARIO_SPECS)
+    parser.add_argument("--executable-scenario-specs", type=Path, default=None)
     parser.add_argument("--workload", type=Path, default=DEFAULT_SCENARIO_MATRIX)
     parser.add_argument("--unsupported-features", type=Path, default=DEFAULT_UNSUPPORTED_FEATURES)
     parser.add_argument("--m1674-run-dir", type=Path, default=DEFAULT_M1674_RUN_DIR)
@@ -466,6 +774,7 @@ def main() -> None:
     summary = run_scenario_taxonomy_execution(
         output_dir=args.output_dir,
         scenario_specs_path=args.scenario_specs,
+        executable_scenario_specs_path=args.executable_scenario_specs,
         workload_path=args.workload,
         unsupported_features_path=args.unsupported_features,
         m1674_run_dir=args.m1674_run_dir,

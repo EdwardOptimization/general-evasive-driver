@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1758,
+    "completed": 1759,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
+    "command_log": "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design"
+    "task_id": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.json",
-    "hypothesis": "The revised scenario execution adapter can be implemented with semantics pass-through and metric completeness checks without changing policy behavior or running the full rollout.",
-    "id": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement semantics pass-through and metric completeness helpers before revised rollout",
-    "priority": 17450,
+    "command": "see experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json",
+    "hypothesis": "The revised scenario execution adapter can be audited as semantics-preserving and logging-only before revised execution design.",
+    "id": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1750 adapter before revised execution design or rollout",
+    "priority": 17460,
     "status": "pending",
-    "success_artifact": "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md"
+    "success_artifact": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md"
   },
-  "updated_at_utc": "20260530T050521Z"
+  "updated_at_utc": "20260530T051802Z"
 }

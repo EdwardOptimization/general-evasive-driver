@@ -153,6 +153,44 @@
     "docs/m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design.md",
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation.md",
+    "decision": "revised_scenario_taxonomy_execution_adapter_route_to_result_audit",
+    "semantics_payload_keys_supported": [
+      "scenario_specs",
+      "repaired_scenario_specs",
+      "semantics_scenario_specs"
+    ],
+    "semantics_field_count": 16,
+    "always_finite_metric_field_count": 7,
+    "always_boolean_metric_field_count": 6,
+    "obstacle_pass_metric_field_count": 2,
+    "recovery_success_metric_field_count": 3,
+    "collision_metric_field_count": 4,
+    "metric_completeness_helpers_implemented": true,
+    "semantics_pass_through_implemented": true,
+    "separate_executable_specs_path_supported": true,
+    "focused_scenario_taxonomy_tests": "10 passed",
+    "affected_execution_metric_tests": "21 passed",
+    "full_pytest": "1707 passed, 4 warnings",
+    "compileall_passed": true,
+    "full_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.json"
+  },
   "decision_rule": "M1750 passes if it implements semantics pass-through and metric completeness checks without running full rollout or changing policy behavior.",
-  "next_blocker": "m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation"
+  "next_blocker": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
 }

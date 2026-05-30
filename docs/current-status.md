@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1749-paper-route-task-quality-revised-scenario-taxonomy-execution-design
+m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation
 ```
 
 Current next task:
 
 ```text
-m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation
+m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit
 ```
 
-M1749 designs the revised public diagnostic execution over the M1743
-semantics-aware taxonomy and M1746 logging-only outcome metrics. It does not
-admit direct rollout: the runner must first preserve semantics fields in episode
-rows and implement applicability-aware metric completeness checks. M1750 is the
-adapter implementation step before any revised 864-cell execution, controller
+M1750 implements the revised execution adapter needed after M1749: the runner
+can load `semantics_scenario_specs`, preserve M1743 semantics fields in episode
+and failure rows, generate evaluation-role and primary-metric-family
+aggregates, and write applicability-aware metric completeness reports. It is
+still infrastructure-only evidence; no revised 864-cell rollout, controller
 family ranking, paper-level claim, promotion, or level3 self-identification
-claim.
+claim is admitted before M1751 audits the adapter.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -10984,5 +10984,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   direct rollout. The adapter must first preserve M1743 semantics fields in
   episode rows and implement applicability-aware metric completeness checks for
   M1746 metrics.
+- M1750 implements that adapter: it accepts `semantics_scenario_specs`,
+  supports a separate executable-spec path, preserves 16 semantics fields,
+  writes evaluation-role and primary-metric-family aggregates, and emits metric
+  completeness summary/failure artifacts. The implementation remains
+  logging-only and does not run rollout, train, replay, use PPO, promote, or
+  change actor inputs, rewards, or termination behavior.
 - Current next blocker:
-  `m1750-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-implementation`.
+  `m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit`.
