@@ -170,6 +170,45 @@
     "runs/m1805_executable_v2_stable_source_label_topup_preflight/stable_new_materialization_need_rows.csv",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1809-executable-v2-stable-source-materialization-implementation.md",
+    "decision": "stable_source_materialization_implementation_pass_route_to_execution_design",
+    "module": "src/autodrift/executable_v2_stable_source_materialization.py",
+    "test": "tests/test_executable_v2_stable_source_materialization.py",
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_materialization.py -q",
+    "focused_test_result": "2 passed in 0.12s",
+    "full_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q",
+    "full_test_result": "1734 passed, 4 warnings in 10.13s",
+    "project_artifact_execution": false,
+    "tested_features": [
+      "three_materialization_targets",
+      "duplicate_key_detection",
+      "profile_control_matrix_expansion",
+      "label_specific_env_config_patch",
+      "provenance_fields",
+      "claim_boundary_outputs"
+    ],
+    "next_manifest": "experiments/manifests/m1810-executable-v2-stable-source-materialization-execution-design.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1809 passes if it implements and tests no-reset stable source materialization without project execution, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1809-executable-v2-stable-source-materialization-implementation"
+  "next_blocker": "m1810-executable-v2-stable-source-materialization-execution-design"
 }

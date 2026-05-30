@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1817,
+    "completed": 1818,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1808-executable-v2-stable-source-materialization-design.md",
+    "command_log": "docs/m1809-executable-v2-stable-source-materialization-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1808-executable-v2-stable-source-materialization-design"
+    "task_id": "m1809-executable-v2-stable-source-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1809-executable-v2-stable-source-materialization-implementation.json",
-    "hypothesis": "A no-reset stable source materializer can create materialization planning artifacts with duplicate detection, provenance, profile controls, and clean claim boundaries in focused tests.",
-    "id": "m1809-executable-v2-stable-source-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset stable source materializer with focused tests only",
-    "priority": 18040,
+    "command": "see experiments/manifests/m1810-executable-v2-stable-source-materialization-execution-design.json",
+    "hypothesis": "The M1809 helper can be run on M1805/M1771 artifacts with a fixed no-reset command and pre-registered expected materialization counts.",
+    "id": "m1810-executable-v2-stable-source-materialization-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact no-reset stable source materialization execution before running project artifacts",
+    "priority": 18050,
     "status": "pending",
-    "success_artifact": "docs/m1809-executable-v2-stable-source-materialization-implementation.md"
+    "success_artifact": "docs/m1810-executable-v2-stable-source-materialization-execution-design.md"
   },
-  "updated_at_utc": "20260530T112500Z"
+  "updated_at_utc": "20260530T113000Z"
 }

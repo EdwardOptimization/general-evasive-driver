@@ -29965,3 +29965,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source materialization execution result repaired reset feasibility pass measured execution controller-family ranking private-holdout evidence paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1809-executable-v2-stable-source-materialization-implementation.json`
 - next: `m1809-executable-v2-stable-source-materialization-implementation`
+
+## M1809 Executable V2 Stable Source Materialization Implementation
+
+- status: completed
+- decision: `stable_source_materialization_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1809-executable-v2-stable-source-materialization-implementation.md`
+- module: `src/autodrift/executable_v2_stable_source_materialization.py`
+- test: `tests/test_executable_v2_stable_source_materialization.py`
+- focused test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_materialization.py -q`
+- focused test result: `2 passed in 0.12s`
+- full test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q`
+- full test result: `1734 passed, 4 warnings in 10.13s`
+- project artifact execution: `false`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- tested features: `three_materialization_targets`, `duplicate_key_detection`, `profile_control_matrix_expansion`, `label_specific_env_config_patch`, `provenance_fields`, `claim_boundary_outputs`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset stable source materialization helper implementation and focused tests
+- unsupported: project-artifact source materialization result repaired reset feasibility pass measured execution controller-family ranking private-holdout evidence paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1810-executable-v2-stable-source-materialization-execution-design.json`
+- next: `m1810-executable-v2-stable-source-materialization-execution-design`
