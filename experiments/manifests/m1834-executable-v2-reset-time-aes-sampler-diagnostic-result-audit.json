@@ -170,6 +170,54 @@
     "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_label_counts.csv",
     "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_candidate_examples.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md",
+    "decision": "reset_time_aes_sampler_audit_route_to_source_repair_v2_design",
+    "diagnostic_target_row_count": 24,
+    "source_count": 2,
+    "attempt_count_per_row": 10000,
+    "total_attempt_count": 240000,
+    "accepted_count": 0,
+    "attempt_count_by_label": {
+      "aeb_feasible": 240000
+    },
+    "attempt_count_by_reject_reason": {
+      "aeb_feasible_rejected": 240000
+    },
+    "summary_row_count_by_label": {
+      "aeb_feasible": 24
+    },
+    "summary_row_count_by_reject_reason": {
+      "aeb_feasible_rejected": 24
+    },
+    "diagnosed_sources": [
+      "m1771-bp1-00",
+      "m1771-bp1-02"
+    ],
+    "source_repair_v2_required": true,
+    "diagnostic_summary_aggregation_repair_required": true,
+    "failure_types": [
+      "scenario_sampling_failure",
+      "metric_artifact"
+    ],
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json"
+  },
   "decision_rule": "M1834 passes if it audits M1833 counts, classifies the reset-time AES sampler failure mechanism, and routes to the next repair without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit"
+  "next_blocker": "m1835-executable-v2-reset-time-aes-source-repair-v2-design"
 }

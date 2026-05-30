@@ -30769,3 +30769,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.json`
 - next: `m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit`
+
+## M1834 Executable V2 Reset-Time AES Sampler Diagnostic Result Audit
+
+- status: completed
+- decision: `reset_time_aes_sampler_audit_route_to_source_repair_v2_design`
+- artifact: `docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md`
+- diagnostic target row count: `24`
+- source count: `2`
+- attempt count per row: `10000`
+- total attempt count: `240000`
+- accepted count: `0`
+- attempt count by label: `aeb_feasible=240000`
+- attempt count by reject reason: `aeb_feasible_rejected=240000`
+- audited sources: `m1771-bp1-00 m1771-bp1-02`
+- summary metric artifact: top-level `summary.json` counts are row-level aggregates, not attempt-count aggregates
+- source repair v2 required: `true`
+- diagnostic summary aggregation repair required: `true`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-time AES sampler failure classification and source repair v2 route
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json`
+- next: `m1835-executable-v2-reset-time-aes-source-repair-v2-design`

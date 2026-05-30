@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1842,
+    "completed": 1843,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md",
+    "command_log": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution"
+    "task_id": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.json",
-    "hypothesis": "The M1833 diagnostic evidence can be audited into a clean route decision: repaired AES sources are being sampled in the AEB-feasible band at reset time.",
-    "id": "m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit",
+    "command": "see experiments/manifests/m1835-executable-v2-reset-time-aes-source-repair-v2-design.json",
+    "hypothesis": "A reset-time source repair v2 can be specified that searches for accepted AES-only candidates under require_aeb_infeasible for the two persistent AES sources.",
+    "id": "m1835-executable-v2-reset-time-aes-source-repair-v2-design",
     "kind": "gate",
-    "notes": "Pending: audit detailed M1833 attempt-count CSVs and choose the next repair route without reset",
-    "priority": 18290,
+    "notes": "Pending: design reset-time AES source repair v2 without reset",
+    "priority": 18300,
     "status": "pending",
-    "success_artifact": "docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md"
+    "success_artifact": "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md"
   },
-  "updated_at_utc": "20260530T132600Z"
+  "updated_at_utc": "20260530T132700Z"
 }

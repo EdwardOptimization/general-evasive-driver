@@ -1,0 +1,96 @@
+# m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260530T114908Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: reset_time_aes_sampler_audit_route_to_source_repair_v2_design
+- Decision reason: M1834 audits M1833 detailed tables as 240000 AEB-feasible rejections zero accepted candidates and routes to reset-time source repair v2
+
+## Hypothesis
+
+The M1833 diagnostic evidence can be audited into a clean route decision: the repaired AES sources are being sampled in the AEB-feasible band at reset time, so source repair v2 must optimize reset-time AES-only acceptance rather than offline density.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_reset_time_aes_sampler_diagnostic_result_audit
+- parent_dataset: docs/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md, runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json, runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_attempt_summary.csv, runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_reject_reason_counts.csv, runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_label_counts.csv, runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_candidate_examples.csv
+- parent_config: experiments/manifests/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.json
+- parent_objective: audit M1833 reset-time AES sampler diagnostic result before source repair v2
+- derived_from: m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution
+- blocked_by: M1833 shows 24 persistent AES rows have zero reset-time sampler acceptance
+- supersedes: source repair v2 without detailed reject-reason audit, additional reset rerun before interpreting M1833, measured execution before executable reset support
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md exists
+- audit confirms 24 target rows across 2 sources
+- audit confirms 240000 total attempts and 0 accepted candidates from detailed CSVs
+- audit confirms all detailed candidates were labeled aeb_feasible and rejected by require_aeb_infeasible
+- audit classifies the top-level summary aggregation weakness if needed
+- audit states a next repair route without running reset rollout measured rollout training replay PPO ranking or paper-level claims
+
+## Failure Criteria
+
+- audit document is missing
+- audit omits detailed attempt-count evidence
+- audit treats top-level row-count summary as total attempts
+- audit runs reset or rollout
+- audit routes directly to measured execution or ranking
+- audit changes actor inputs reward dynamics or termination behavior
+
+## Evidence Gates
+
+- M1834 must audit all M1833 diagnostic tables before proposing repair
+- M1834 must distinguish top-level row-count summary from detailed attempt-count CSVs
+- M1834 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset
+- do not run environment rollout
+- do not run measured rollout
+- do not execute policy actions
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change reward
+- do not change dynamics
+- do not change termination behavior
+- do not tune profiles
+- do not rank controller families
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+
+## Scoreboard
+
+- milestone: m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit
+- type: gate
+- checkpoint: docs/m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: reset_time_aes_sampler_audit_route_to_source_repair_v2_design
+- reason: M1834 audits M1833 detailed tables as 240000 AEB-feasible rejections zero accepted candidates and routes to reset-time source repair v2
+
+## Next Blocker
+
+m1835-executable-v2-reset-time-aes-source-repair-v2-design
