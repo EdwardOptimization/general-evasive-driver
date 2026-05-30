@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1811,
+    "completed": 1812,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1802-executable-v2-stable-source-label-topup-design.md",
+    "command_log": "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1802-executable-v2-stable-source-label-topup-design"
+    "task_id": "m1803-executable-v2-stable-source-label-topup-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1803-executable-v2-stable-source-label-topup-preflight-implementation.json",
-    "hypothesis": "A no-reset stable top-up planner can classify candidate sources and materialization needs while preserving profile controls and blocking metadata-only shortcuts.",
-    "id": "m1803-executable-v2-stable-source-label-topup-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset stable top-up planner with focused tests only",
-    "priority": 17980,
+    "command": "see experiments/manifests/m1804-executable-v2-stable-source-label-topup-execution-design.json",
+    "hypothesis": "The M1803 helper can be run on M1800/M1771 artifacts with a fixed no-reset command and pre-registered expected candidate counts.",
+    "id": "m1804-executable-v2-stable-source-label-topup-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact no-reset stable top-up execution before running project artifacts",
+    "priority": 17990,
     "status": "pending",
-    "success_artifact": "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md"
+    "success_artifact": "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md"
   },
-  "updated_at_utc": "20260530T104200Z"
+  "updated_at_utc": "20260530T105500Z"
 }

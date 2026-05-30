@@ -167,6 +167,40 @@
     "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
+    "decision": "stable_source_label_topup_preflight_implementation_pass_route_to_execution_design",
+    "module": "src/autodrift/executable_v2_stable_source_label_topup_preflight.py",
+    "test": "tests/test_executable_v2_stable_source_label_topup_preflight.py",
+    "focused_test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_label_topup_preflight.py -q",
+    "focused_test_result": "2 passed in 0.06s",
+    "project_artifact_execution": false,
+    "candidate_classes_tested": [
+      "exact_existing_candidate",
+      "metadata_only_untrusted",
+      "near_existing_candidate",
+      "new_materialization_required"
+    ],
+    "next_manifest": "experiments/manifests/m1804-executable-v2-stable-source-label-topup-execution-design.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1803 passes if it implements and tests the no-reset stable top-up planner without project execution, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1803-executable-v2-stable-source-label-topup-preflight-implementation"
+  "next_blocker": "m1804-executable-v2-stable-source-label-topup-execution-design"
 }
