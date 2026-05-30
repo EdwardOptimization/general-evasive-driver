@@ -182,6 +182,37 @@
     "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
     "configs/executable_v2_support_first_candidate_templates_v0.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1859-executable-v2-support-first-materialization-implementation.md",
+    "decision": "support_first_materialization_implementation_pass_route_to_execution_design",
+    "implemented_helper": "src/autodrift/executable_v2_support_first_materialization.py",
+    "implemented_tests": "tests/test_executable_v2_support_first_materialization.py",
+    "focused_tests": "5 passed in 0.06s",
+    "full_tests": "1775 passed, 4 warnings in 10.23s",
+    "project_materialization_execution_run": false,
+    "source_mining_rerun": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1860-executable-v2-support-first-materialization-execution-design.json"
+  },
   "decision_rule": "M1859 passes if it implements bounded materialization helper and tests without project execution, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1859-executable-v2-support-first-materialization-implementation"
+  "next_blocker": "m1860-executable-v2-support-first-materialization-execution-design"
 }

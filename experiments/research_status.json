@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1867,
+    "completed": 1868,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1858-executable-v2-support-first-materialization-design.md",
+    "command_log": "docs/m1859-executable-v2-support-first-materialization-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1858-executable-v2-support-first-materialization-design"
+    "task_id": "m1859-executable-v2-support-first-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1859-executable-v2-support-first-materialization-implementation.json",
-    "hypothesis": "A no-reset helper can implement bounded support-first materialization without using unsupported sources or changing actor inputs.",
-    "id": "m1859-executable-v2-support-first-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded materialization helper and tests",
-    "priority": 18540,
+    "command": "see experiments/manifests/m1860-executable-v2-support-first-materialization-execution-design.json",
+    "hypothesis": "A fixed command can run bounded materialization over M1856 support artifacts with no reset or measured execution.",
+    "id": "m1860-executable-v2-support-first-materialization-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact bounded materialization execution command",
+    "priority": 18550,
     "status": "pending",
-    "success_artifact": "docs/m1859-executable-v2-support-first-materialization-implementation.md"
+    "success_artifact": "docs/m1860-executable-v2-support-first-materialization-execution-design.md"
   },
-  "updated_at_utc": "20260530T133000Z"
+  "updated_at_utc": "20260530T133556Z"
 }

@@ -1,0 +1,163 @@
+{
+  "id": "m1860-executable-v2-support-first-materialization-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_materialization_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1859-executable-v2-support-first-materialization-implementation.md",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_accepted_cells.csv",
+      "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
+      "configs/executable_v2_support_first_candidate_templates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1859-executable-v2-support-first-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "fix exact bounded materialization execution command"
+    ],
+    "derived_from": [
+      "m1859-executable-v2-support-first-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1859 implements bounded materialization helper and tests"
+    ],
+    "supersedes": [
+      "manual materialization command"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1860-executable-v2-support-first-materialization-execution-design.md",
+  "public_gates": [
+    "M1860 must fix exact materialization execution command without running it",
+    "M1860 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project materialization execution",
+    "do not rerun source mining",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_materialization",
+    "evidence_axis": "Q_support_first_materialization_execution_design",
+    "evidence_increment": "fixes exact bounded materialization command and expected output boundaries",
+    "claim_scope": "execution design only; no project materialization execution, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if command does not use M1856 support artifacts",
+      "stop if command would run reset or measured execution",
+      "stop if expected output boundaries are missing"
+    ],
+    "fallback_plan": [
+      "route to materialization execution if command is fixed",
+      "route to helper repair if command cannot be bounded",
+      "route to branch synthesis if materialization should not run"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1859 helper implementation passed tests",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first materialization execution design",
+    "admission_evidence": [
+      "M1859 helper and tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not run project materialization execution",
+      "do not rerun source mining",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1860 design document",
+      "M1860 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is specified",
+      "expected output dir and caps are specified",
+      "execution remains unrun"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1859 helper implementation only; no reset or rollout.",
+    "negative_result_policy": "Unsupported sources remain blocked rather than being repaired by weakening labels.",
+    "allowed_claims": [
+      "support-first materialization execution design",
+      "no materialization execution, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A fixed command can run bounded materialization over M1856 support artifacts with no reset or measured execution.",
+  "success_criteria": [
+    "docs/m1860-executable-v2-support-first-materialization-execution-design.md exists",
+    "design specifies exact materialization command and output directory",
+    "design routes to execution without running materialization reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project materialization execution",
+    "design reruns source mining",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1860-executable-v2-support-first-materialization-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1860-executable-v2-support-first-materialization-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_materialization_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1859-executable-v2-support-first-materialization-implementation.md",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_accepted_cells.csv",
+    "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
+    "configs/executable_v2_support_first_candidate_templates_v0.json"
+  ],
+  "decision_rule": "M1860 passes if it fixes exact materialization command without running project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1860-executable-v2-support-first-materialization-execution-design"
+}

@@ -31550,3 +31550,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1859-executable-v2-support-first-materialization-implementation.json`
 - next: `m1859-executable-v2-support-first-materialization-implementation`
+
+## M1859 Executable V2 Support-First Materialization Implementation
+
+- status: completed
+- decision: `support_first_materialization_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1859-executable-v2-support-first-materialization-implementation.md`
+- helper: `src/autodrift/executable_v2_support_first_materialization.py`
+- tests: `tests/test_executable_v2_support_first_materialization.py`
+- focused tests: `5 passed in 0.06s`
+- full tests: `1775 passed, 4 warnings in 10.23s`
+- project materialization execution run: `false`
+- source mining rerun: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: bounded materialization helper implementation focused and full tests execution-design route
+- unsupported: project materialization result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1860-executable-v2-support-first-materialization-execution-design.json`
+- next: `m1860-executable-v2-support-first-materialization-execution-design`
