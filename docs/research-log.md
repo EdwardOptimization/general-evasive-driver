@@ -29846,3 +29846,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: top-up execution result, stable source materialization, repaired reset feasibility pass, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1805-executable-v2-stable-source-label-topup-preflight.json`
 - next: `m1805-executable-v2-stable-source-label-topup-preflight`
+
+## M1805 Executable V2 Stable Source-Label Top-Up Preflight
+
+- status: completed
+- decision: `stable_source_label_topup_preflight_pass_route_to_result_audit`
+- artifact: `runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json`
+- result class: `executable_v2_stable_source_label_topup_preflight_pass`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- stable top-up targets: `3`
+- target missing profile count total: `36`
+- stable candidate source count: `6`
+- candidate rows: `5`
+- candidate class counts: `metadata_only_untrusted=2`, `near_existing_candidate=3`, `exact_existing_candidate=0`
+- direct replacements: `0`
+- new materialization needs: `3`
+- labels enter actor input count: `0`
+- measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset stable top-up result and evidence that current stable pool has no trusted direct replacement
+- unsupported: repaired reset feasibility pass, stable source materialization result, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1806-executable-v2-stable-source-label-topup-result-audit.json`
+- next: `m1806-executable-v2-stable-source-label-topup-result-audit`

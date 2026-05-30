@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1813,
+    "completed": 1814,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md",
+    "command_log": "docs/m1805-executable-v2-stable-source-label-topup-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1804-executable-v2-stable-source-label-topup-execution-design"
+    "task_id": "m1805-executable-v2-stable-source-label-topup-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1805-executable-v2-stable-source-label-topup-preflight.json",
-    "hypothesis": "The M1803 helper will convert M1800/M1771 artifacts into expected stable top-up target candidate and materialization-need artifacts without reset or rollout.",
-    "id": "m1805-executable-v2-stable-source-label-topup-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-reset stable top-up preflight and verify pre-registered counts",
-    "priority": 18000,
+    "command": "see experiments/manifests/m1806-executable-v2-stable-source-label-topup-result-audit.json",
+    "hypothesis": "M1805 artifacts can be audited well enough to choose between stable source materialization, targeted reset-probe design, helper repair, compatible subset reset rerun, or branch synthesis.",
+    "id": "m1806-executable-v2-stable-source-label-topup-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1805 top-up planning result before materialization reset probes or measured execution",
+    "priority": 18010,
     "status": "pending",
-    "success_artifact": "runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json"
+    "success_artifact": "docs/m1806-executable-v2-stable-source-label-topup-result-audit.md"
   },
-  "updated_at_utc": "20260530T110500Z"
+  "updated_at_utc": "20260530T111000Z"
 }
