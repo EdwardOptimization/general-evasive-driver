@@ -30687,3 +30687,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: diagnostic result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.json`
 - next: `m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation`
+
+## M1831 Executable V2 Reset-Time AES Sampler Diagnostic Implementation
+
+- status: completed
+- decision: `reset_time_aes_sampler_diagnostic_implementation_pass_route_to_execution_design`
+- source: `src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py`
+- test: `tests/test_executable_v2_reset_time_aes_sampler_diagnostic.py`
+- focused test result: `4 passed`
+- full pytest result: `1742 passed, 4 warnings in 8.46s`
+- project artifact diagnostic run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-time AES sampler diagnostic helper implementation and tests
+- unsupported: project diagnostic result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.json`
+- next: `m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design`
