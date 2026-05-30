@@ -29703,3 +29703,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: compatibility execution result, reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1800-executable-v2-label-source-compatibility-preflight.json`
 - next: `m1800-executable-v2-label-source-compatibility-preflight`
+
+## M1800 Executable V2 Label-Source Compatibility Preflight
+
+- status: completed
+- decision: `label_source_compatibility_preflight_pass_route_to_result_audit`
+- artifact: `runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json`
+- review document: `docs/m1800-executable-v2-label-source-compatibility-preflight.md`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- input specs: `312`
+- input reset rows: `312`
+- compatible specs: `272`
+- compatibility violations: `36`
+- sparse failures: `4`
+- unobserved rows: `0`
+- replacement need groups: `6`
+- profile controls: `12`
+- role surfaces: `6`
+- support status groups: `supported_observed=20`, `unsupported_systematic=3`, `sparse_fragile=3`
+- compatible reset-rerun admissible: `true`
+- measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: source-label compatibility and quarantine artifact materialization
+- unsupported: complete reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1801-executable-v2-label-source-compatibility-result-audit.json`
+- next: `m1801-executable-v2-label-source-compatibility-result-audit`

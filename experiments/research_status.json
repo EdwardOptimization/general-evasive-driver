@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1808,
+    "completed": 1809,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+    "command_log": "docs/m1800-executable-v2-label-source-compatibility-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1799-executable-v2-label-source-compatibility-preflight-execution-design"
+    "task_id": "m1800-executable-v2-label-source-compatibility-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1800-executable-v2-label-source-compatibility-preflight.json",
-    "hypothesis": "The M1798 helper will convert M1790/M1794 artifacts into expected compatibility support and quarantine artifacts without reset or rollout.",
-    "id": "m1800-executable-v2-label-source-compatibility-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute exact no-reset compatibility preflight command",
-    "priority": 17950,
+    "command": "see experiments/manifests/m1801-executable-v2-label-source-compatibility-result-audit.json",
+    "hypothesis": "M1800 artifacts can be audited well enough to choose between compatible-subset reset rerun, source top-up, sparse seed-fragility probe, or helper repair.",
+    "id": "m1801-executable-v2-label-source-compatibility-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit compatibility result before reset subset or source top-up decisions",
+    "priority": 17960,
     "status": "pending",
-    "success_artifact": "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json"
+    "success_artifact": "docs/m1801-executable-v2-label-source-compatibility-result-audit.md"
   },
-  "updated_at_utc": "20260530T101400Z"
+  "updated_at_utc": "20260530T102200Z"
 }

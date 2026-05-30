@@ -1,0 +1,166 @@
+{
+  "id": "m1801-executable-v2-label-source-compatibility-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1800-executable-v2-label-source-compatibility-preflight.md",
+      "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
+      "runs/m1800_executable_v2_label_source_compatibility_preflight/source_label_support.csv",
+      "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1800-executable-v2-label-source-compatibility-preflight.json"
+    ],
+    "parent_objective": [
+      "audit M1800 compatibility result before reset-rerun, source top-up, sparse probe, or measured execution"
+    ],
+    "derived_from": [
+      "m1800-executable-v2-label-source-compatibility-preflight"
+    ],
+    "blocked_by": [
+      "M1800 produces compatibility artifacts but leaves measured execution and ranking blocked"
+    ],
+    "supersedes": [
+      "direct compatible subset reset rerun without result audit",
+      "direct source top-up without compatibility audit",
+      "direct measured execution after M1800"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1801-executable-v2-label-source-compatibility-result-audit.md",
+  "public_gates": [
+    "M1801 must audit M1800 artifacts without running reset or rollout",
+    "M1801 must assess compatible subset, systematic violations, sparse failures, replacement needs, and claim boundary",
+    "M1801 must choose the next route explicitly",
+    "M1801 must keep reset rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_label_source_compatibility_result_audit",
+    "evidence_increment": "audits M1800 compatibility artifacts before choosing reset subset, source top-up, sparse probe, or repair",
+    "claim_scope": "result audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if compatible subset evidence is misread as ranking evidence",
+      "stop if systematic and sparse failures are conflated",
+      "stop if next route is ambiguous",
+      "stop if measured execution is admitted before balance repair"
+    ],
+    "fallback_plan": [
+      "route to source top-up design if systematic stable replacement needs dominate",
+      "route to compatible-subset reset rerun design only if subset evidence is sufficient and explicitly non-ranking",
+      "route to sparse seed-fragility probe if sparse failures dominate after systematic repair",
+      "route to helper repair if artifacts are malformed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1800 compatibility preflight completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-label compatibility result audit",
+    "admission_evidence": [
+      "M1800 matched expected counts and wrote compatibility artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1801 audit document",
+      "M1801 status queue scoreboard research log and review",
+      "one follow-up manifest for source top-up, subset reset design, sparse probe, or repair"
+    ],
+    "next_stage_criteria": [
+      "audit questions are answered",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit covers task-quality compatibility artifacts.",
+    "history_necessity_tests": [
+      "Audit must preserve profile-control evidence for later history-necessity comparisons."
+    ],
+    "temporal_evidence_window": "M1800 compatibility artifacts only.",
+    "negative_result_policy": "If M1800 evidence is insufficient, route to task-quality repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "compatibility result audit and route decision",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1800 artifacts can be audited well enough to choose between compatible-subset reset rerun, source top-up, sparse seed-fragility probe, or helper repair.",
+  "success_criteria": [
+    "docs/m1801-executable-v2-label-source-compatibility-result-audit.md exists",
+    "audit assesses compatible subset, systematic violations, sparse failures, and replacement needs",
+    "audit keeps measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit conflates compatible subset with ranking evidence",
+    "audit ignores replacement needs",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1801-executable-v2-label-source-compatibility-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1801-executable-v2-label-source-compatibility-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1800-executable-v2-label-source-compatibility-preflight.md",
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json",
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/source_label_support.csv",
+    "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv"
+  ],
+  "decision_rule": "M1801 passes if it audits M1800 and chooses a next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1801-executable-v2-label-source-compatibility-result-audit"
+}
