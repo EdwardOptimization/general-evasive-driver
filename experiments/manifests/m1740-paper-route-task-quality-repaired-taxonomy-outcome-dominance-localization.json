@@ -1,0 +1,165 @@
+{
+  "id": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_analysis"
+    ],
+    "parent_dataset": [
+      "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
+      "runs/m1738_repaired_scenario_taxonomy_execution/summary.json",
+      "runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/profile_outcome_aggregate.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/scenario_family_outcome_aggregate.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/scenario_family_sampled_label_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json"
+    ],
+    "parent_objective": [
+      "localize M1738 outcome dominance without new rollout before task-quality redesign or ranking"
+    ],
+    "derived_from": [
+      "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit"
+    ],
+    "blocked_by": [
+      "M1738 outcome distribution is dominated by off-track and collision modes"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M1738 public diagnostic rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md",
+  "public_gates": [
+    "M1740 must use existing M1738 episode rows only",
+    "M1740 must not run environment rollout train replay PPO promote use private holdout change actor inputs tune profiles or rank controller families",
+    "M1740 must localize outcome dominance by scenario family label profile and key buckets",
+    "M1740 must distinguish execution pass from task-quality readiness",
+    "M1740 must decide redesign localization branch synthesis or bounded evaluation-panel design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_dominance_localization",
+    "evidence_increment": "materializes no-rollout localization of M1738 off-track/collision dominance before redesign or comparison",
+    "claim_scope": "no-rollout diagnostic localization only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if any new environment rollout is needed",
+      "stop if localization ranks profiles instead of diagnosing workload/outcome structure",
+      "stop if unsupported faults are treated as covered",
+      "stop if localization cannot identify dominant scenario/profile/bucket slices"
+    ],
+    "fallback_plan": [
+      "route to task-quality redesign if dominance is diffuse",
+      "route to bounded evaluation-panel design if dominance localizes to repairable slices",
+      "route to branch synthesis if the branch needs a broader decision before more milestones"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1739 audits M1738 as execution-positive but outcome-dominated",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "no-rollout outcome dominance localization",
+    "admission_evidence": [
+      "M1739 found M1738 execution pass but raw outcomes are dominated by off-track and collision"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1740 no-rollout localization artifacts",
+      "M1740 status queue scoreboard research log and review",
+      "one follow-up route manifest if localization admits it"
+    ],
+    "next_stage_criteria": [
+      "dominant non-success slices are identified",
+      "claim boundary remains execution/task-quality diagnostic only",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; outcome localization cannot prove history necessity.",
+    "history_necessity_tests": [
+      "localization may preserve profile controls but must not interpret them as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1738 repaired scenario taxonomy execution rows.",
+    "negative_result_policy": "If dominance is diffuse, record that as task-quality redesign evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "no-rollout outcome dominance localization",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1738 non-success dominance can be localized from existing episode rows before any redesign or controller-family comparison.",
+  "success_criteria": [
+    "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json exists",
+    "localization uses existing M1738 episode rows only",
+    "family outcome label profile bucket and repair-variant localization artifacts exist",
+    "dominant non-success slices are identified without ranking controller families",
+    "next route is task-quality redesign bounded evaluation-panel design branch synthesis or stop",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "localization artifact is missing",
+    "new environment rollout occurs",
+    "localization omits family/profile/label outcome structure",
+    "localization ranks controller-family profiles from public rows",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "localize",
+      "command": "PYTHONPATH=src python -m autodrift.task_quality_outcome_dominance_localization --episode-rows runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv --summary runs/m1738_repaired_scenario_taxonomy_execution/summary.json --output-dir runs/m1740_repaired_taxonomy_outcome_dominance_localization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1740_repaired_taxonomy_outcome_dominance_localization/dominant_slices.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_analysis"
+  ],
+  "baseline_artifacts": [
+    "runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv",
+    "runs/m1738_repaired_scenario_taxonomy_execution/outcome_aggregate.csv",
+    "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md"
+  ],
+  "decision_rule": "M1740 passes if it localizes M1738 outcome dominance from existing rows and chooses a route without new rollout or profile ranking.",
+  "next_blocker": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization"
+}

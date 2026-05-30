@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1747,
+    "completed": 1748,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution.md",
+    "command_log": "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution"
+    "task_id": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json",
-    "hypothesis": "M1738 can be audited as a clean repaired scenario taxonomy execution before any scenario-quality conclusion or controller-family comparison.",
-    "id": "m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit",
+    "command": "see experiments/manifests/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.json",
+    "hypothesis": "M1738 non-success dominance can be localized from existing episode rows before any redesign or controller-family comparison.",
+    "id": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization",
     "kind": "gate",
-    "notes": "Pending: audit M1738 repaired scenario taxonomy outcome distribution and decide the next route without ranking profiles",
-    "priority": 17340,
+    "notes": "Pending: no-rollout localization of M1738 off-track and collision dominance before redesign or ranking",
+    "priority": 17350,
     "status": "pending",
-    "success_artifact": "docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md"
+    "success_artifact": "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json"
   },
-  "updated_at_utc": "20260530T040600Z"
+  "updated_at_utc": "20260530T041600Z"
 }

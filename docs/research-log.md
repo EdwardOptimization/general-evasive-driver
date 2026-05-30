@@ -27970,3 +27970,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, scenario-family task-quality conclusion, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.json`
 - next: `m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit`
+
+## M1739 Paper-Route Task-Quality Repaired Scenario Taxonomy Result Audit
+
+- status: completed
+- decision: `repaired_scenario_taxonomy_result_audit_route_to_outcome_dominance_localization`
+- artifact: `docs/m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit.md`
+- audited execution: `runs/m1738_repaired_scenario_taxonomy_execution/summary.json`
+- audited result class: `task_quality_scenario_taxonomy_execution_pass`
+- completed episodes: `864`
+- execution failures: `0`
+- selected metrics finite: `true`
+- guardrail violation count: `0`
+- raw outcomes: success `81` (`0.0938`), collision failure `279` (`0.3229`), off-track noncollision noncompletion `504` (`0.5833`)
+- classification: `execution_pass_outcome_dominated`
+- supported: repaired taxonomy execution is clean and outcome dominance is now measurable
+- unsupported: controller-family ranking, best-profile selection, scenario-quality conclusion, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- route: localize off-track/collision dominance from existing M1738 rows before redesign or comparison
+- follow-up manifest: `experiments/manifests/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.json`
+- next: `m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization`

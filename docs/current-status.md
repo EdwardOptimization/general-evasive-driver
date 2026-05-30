@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1738-paper-route-task-quality-repaired-scenario-taxonomy-execution
+m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit
 ```
 
 Current next task:
 
 ```text
-m1739-paper-route-task-quality-repaired-scenario-taxonomy-result-audit
+m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -186,7 +186,13 @@ outcomes were `81` success obstacle passes, `279` collision failures, and
 and cannot be used for controller-family ranking or paper-level claims before
 audit. The next task is M1739: audit M1738 result quality and decide whether to
 proceed to scenario-quality interpretation, task-quality redesign, branch
-synthesis, or stop.
+synthesis, or stop. M1739 audits M1738 as execution-positive but
+outcome-dominated: raw outcomes are `81` success obstacle passes, `279`
+collision failures, and `504` off-track noncollision noncompletions. It blocks
+controller-family ranking, best-profile selection, scenario-quality conclusion,
+paper-level evidence, recurrent advantage, and level3 self-ID claims from those
+public rows. The next task is M1740: no-rollout outcome dominance localization
+from existing M1738 episode rows before redesign or comparison.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and
