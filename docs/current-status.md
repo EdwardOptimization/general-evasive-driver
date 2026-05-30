@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution
+m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit
 ```
 
 Current next task:
 
 ```text
-m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit
+m1755-controller-profile-wrapper-config-proxy-repair
 ```
 
-M1753 ran the fixed revised public diagnostic execution but failed the execution
-gate: `504/864` episode rows completed, `360` failure rows were written, and
-guardrails stayed clean. The dominant failure is a wrapper/evaluator plumbing
-error (`359` rows: `ControllerProfileObservationWrapper` lacks `config`); one
-additional row has a reset-time sampling failure. M1754 must audit this failure
-before any repair, rerun, or interpretation of partial completed rows.
+M1754 audits the M1753 failure and routes to a narrow infrastructure repair.
+The dominant failure is deterministic wrapper/evaluator plumbing:
+`ControllerProfileObservationWrapper` does not expose `env.config`, which the
+outcome metric evaluator needs. M1755 should add a wrapper `config` proxy and
+focused tests without changing actor inputs, rewards, termination behavior,
+profile configs, seeds, or scenario specs. The single reset-time sampling
+failure is deferred until after the wrapper repair and rerun.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -11004,5 +11005,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   `AttributeError` entries for masked/current-tiled profile wrappers missing
   `env.config`, plus `1` reset-time sampling failure. Partial completed rows
   are not ranking or paper evidence.
+- M1754 audits that failure as infrastructure-first: repair the wrapper config
+  proxy before touching seeds/specs or interpreting the single sampling failure.
+  The next milestone is a no-rollout focused repair with wrapper/evaluator
+  tests.
 - Current next blocker:
-  `m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit`.
+  `m1755-controller-profile-wrapper-config-proxy-repair`.

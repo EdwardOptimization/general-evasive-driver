@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1754 classifies M1753 failure as wrapper config proxy dominated and defers sampling repair until after rerun",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit omits failure-type classification",
+    "audit interprets partial completed rows as ranking evidence",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260530T054121Z",
+  "hypothesis": "M1753 failure causes can be classified from summary and failure rows before any repair or rerun.",
+  "lineage": {
+    "blocked_by": [
+      "M1753 failed execution gate with 360 failure rows"
+    ],
+    "derived_from": [
+      "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_failure_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.json"
+    ],
+    "parent_dataset": [
+      "docs/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.md",
+      "runs/m1753_revised_scenario_taxonomy_execution/summary.json",
+      "runs/m1753_revised_scenario_taxonomy_execution/failure_rows.csv"
+    ],
+    "parent_objective": [
+      "audit M1753 revised execution failure before repair or rerun"
+    ],
+    "supersedes": [
+      "interpreting partial M1753 completed rows"
+    ]
+  },
+  "milestone": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit",
+  "next_blocker": "m1755-controller-profile-wrapper-config-proxy-repair",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "failure_audit_route_to_wrapper_config_proxy_repair",
+  "public_gates": [
+    "M1754 must classify M1753 failure causes before repair or rerun",
+    "M1754 must block interpretation of M1753 partial completed rows",
+    "M1754 must decide whether to route to wrapper repair, sampling repair, execution redesign, or stop",
+    "M1754 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "failure_audit_route_to_wrapper_config_proxy_repair",
+    "milestone": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit",
+    "reason": "M1754 classifies M1753 failure as wrapper config proxy dominated and defers sampling repair until after rerun",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md exists",
+    "audit classifies AttributeError and sampling failure counts",
+    "audit blocks interpretation of partial completed rows",
+    "next route is wrapper repair sampling repair execution redesign or stop",
+    "full rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "gate"
+}

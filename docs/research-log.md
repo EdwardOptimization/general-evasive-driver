@@ -28320,3 +28320,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: execution pass, controller-family ranking, profile comparison, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json`
 - next: `m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit`
+
+## M1754 Paper-Route Task-Quality Revised Scenario Taxonomy Execution Failure Audit
+
+- status: completed
+- decision: `failure_audit_route_to_wrapper_config_proxy_repair`
+- artifact: `docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md`
+- audited execution: `docs/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.md`
+- episode count: `504`
+- target episode count: `864`
+- failure count: `360`
+- metric completeness failure count: `0`
+- guardrail violation count: `0`
+- attribute error count: `359`
+- sampling failure count: `1`
+- dominant root cause: `ControllerProfileObservationWrapper` does not expose `env.config` required by outcome metric evaluation
+- partial rows interpretable as ranking: `false`
+- wrapper repair admitted: `true`
+- sampling repair deferred: `true`
+- rerun deferred until after repair: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: failure classification and focused wrapper repair route
+- unsupported: partial-row interpretation, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json`
+- next: `m1755-controller-profile-wrapper-config-proxy-repair`

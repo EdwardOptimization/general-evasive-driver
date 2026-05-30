@@ -151,6 +151,37 @@
     "runs/m1753_revised_scenario_taxonomy_execution/summary.json",
     "runs/m1753_revised_scenario_taxonomy_execution/failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+    "decision": "failure_audit_route_to_wrapper_config_proxy_repair",
+    "episode_count": 504,
+    "target_episode_count": 864,
+    "failure_count": 360,
+    "metric_completeness_failure_count": 0,
+    "guardrail_violation_count": 0,
+    "attribute_error_count": 359,
+    "sampling_failure_count": 1,
+    "dominant_root_cause": "ControllerProfileObservationWrapper does not expose env.config required by outcome metric evaluation",
+    "partial_rows_interpretable_as_ranking": false,
+    "wrapper_repair_admitted": true,
+    "sampling_repair_deferred": true,
+    "rerun_deferred_until_after_repair": true,
+    "full_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json"
+  },
   "decision_rule": "M1754 passes if it classifies M1753 failure causes and routes to repair or redesign without interpreting partial rows.",
-  "next_blocker": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit"
+  "next_blocker": "m1755-controller-profile-wrapper-config-proxy-repair"
 }

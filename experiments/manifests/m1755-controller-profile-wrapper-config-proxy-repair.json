@@ -1,0 +1,158 @@
+{
+  "id": "m1755-controller-profile-wrapper-config-proxy-repair",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_wrapper_repair"
+    ],
+    "parent_dataset": [
+      "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+      "runs/m1753_revised_scenario_taxonomy_execution/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json"
+    ],
+    "parent_objective": [
+      "repair ControllerProfileObservationWrapper config proxy needed by outcome metric evaluator"
+    ],
+    "derived_from": [
+      "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit"
+    ],
+    "blocked_by": [
+      "M1753 masked/current-tiled profile rows fail because wrapper lacks env.config"
+    ],
+    "supersedes": [
+      "rerun revised execution before wrapper repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1755-controller-profile-wrapper-config-proxy-repair.md",
+  "public_gates": [
+    "M1755 must add config proxy support for ControllerProfileObservationWrapper",
+    "M1755 must add focused tests for wrapped-env config access and evaluator outcome metric computation through wrapped env",
+    "M1755 must not change actor inputs reward dynamics termination profile configs seeds scenario specs training replay PPO promotion or private holdout",
+    "M1755 must not rerun the 864-cell revised execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run full environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_revised_execution_wrapper_repair",
+    "evidence_increment": "repairs deterministic wrapper/evaluator plumbing failure before rerun",
+    "claim_scope": "infrastructure repair only; no full rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair requires actor input reward dynamics termination profile or scenario changes",
+      "stop if wrapped env cannot expose config without behavior changes",
+      "stop if focused tests cannot reproduce the wrapper path"
+    ],
+    "fallback_plan": [
+      "route to evaluator fallback design if wrapper proxy is not viable",
+      "route to execution rerun design if repair passes",
+      "route to sampling failure audit after rerun if sampling remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1754 routes dominant M1753 failure to wrapper repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "repair controller profile observation wrapper config proxy",
+    "admission_evidence": [
+      "M1754 classifies 359 M1753 failures as wrapper config AttributeError"
+    ],
+    "blocked_shortcuts": [
+      "do not run full rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "ControllerProfileObservationWrapper config proxy",
+      "focused wrapper/evaluator tests",
+      "M1755 documentation status queue scoreboard research log and review",
+      "one follow-up audit or rerun manifest"
+    ],
+    "next_stage_criteria": [
+      "wrapped env exposes config",
+      "run_episode_with_policy works through wrapped env",
+      "focused tests and full validation pass",
+      "next rerun route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; wrapper repair cannot prove history necessity.",
+    "history_necessity_tests": [
+      "repair must preserve future L1 L2-current-tiled L2 history-window L3-online and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1753 failure artifacts only.",
+    "negative_result_policy": "If wrapper repair fails, record an infrastructure blocker rather than self-ID evidence.",
+    "allowed_claims": [
+      "wrapper/evaluator infrastructure repair",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Adding a config proxy to ControllerProfileObservationWrapper fixes the dominant M1753 evaluator plumbing failure without changing policy behavior.",
+  "success_criteria": [
+    "docs/m1755-controller-profile-wrapper-config-proxy-repair.md exists",
+    "wrapped ControllerProfileObservationWrapper exposes env.config",
+    "run_episode_with_policy can compute outcome metrics through a wrapped env",
+    "focused tests and research validation pass",
+    "full rollout training replay PPO promotion private holdout actor-input reward termination profile scenario changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "repair document is missing",
+    "wrapped env still lacks config",
+    "focused evaluator test fails",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "repair",
+      "command": "implement ControllerProfileObservationWrapper config proxy and focused tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1755-controller-profile-wrapper-config-proxy-repair.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_wrapper_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+    "runs/m1753_revised_scenario_taxonomy_execution/failure_rows.csv"
+  ],
+  "decision_rule": "M1755 passes if it repairs the wrapper config proxy with focused tests and no behavior-contract changes.",
+  "next_blocker": "m1755-controller-profile-wrapper-config-proxy-repair"
+}

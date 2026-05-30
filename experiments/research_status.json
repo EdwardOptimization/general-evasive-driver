@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1762,
+    "completed": 1763,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1753_revised_scenario_taxonomy_execution/summary.json",
-    "returncode": 1,
+    "command_log": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md",
+    "returncode": 0,
     "status": "completed",
-    "task_id": "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution"
+    "task_id": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json",
-    "hypothesis": "M1753 failure causes can be classified from summary and failure rows before any repair or rerun.",
-    "id": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1753 failure causes before repair rerun or partial-row interpretation",
-    "priority": 17490,
+    "command": "see experiments/manifests/m1755-controller-profile-wrapper-config-proxy-repair.json",
+    "hypothesis": "Adding a config proxy to ControllerProfileObservationWrapper fixes the dominant M1753 evaluator plumbing failure without changing policy behavior.",
+    "id": "m1755-controller-profile-wrapper-config-proxy-repair",
+    "kind": "infrastructure",
+    "notes": "Pending: add wrapper config proxy and focused evaluator tests before rerun",
+    "priority": 17500,
     "status": "pending",
-    "success_artifact": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md"
+    "success_artifact": "docs/m1755-controller-profile-wrapper-config-proxy-repair.md"
   },
-  "updated_at_utc": "20260530T053715Z"
+  "updated_at_utc": "20260530T054043Z"
 }
