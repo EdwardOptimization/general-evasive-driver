@@ -1,0 +1,160 @@
+{
+  "id": "m1779-metric-specific-bounded-panel-outcome-localization",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_localization"
+    ],
+    "parent_dataset": [
+      "docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/role_panel_aggregate.csv",
+      "runs/m1777_metric_specific_bounded_panel_measured_execution/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "localize bounded-panel outcome dominance from existing M1777 artifacts"
+    ],
+    "derived_from": [
+      "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M1778 blocks ranking until outcome dominance is localized"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from global M1777 success rate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1779-metric-specific-bounded-panel-outcome-localization.md",
+  "public_gates": [
+    "M1779 must use only M1777 artifacts and must not rerun reset or rollout",
+    "M1779 must localize outcome dominance by role panel profile metric family hidden dynamics road timing lateral and sampled label",
+    "M1779 must write summary and slice tables that identify ranking blockers",
+    "M1779 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "Q_metric_specific_panel_outcome_localization",
+    "evidence_increment": "localizes M1777 outcome dominance without new rollout",
+    "claim_scope": "no-rollout localization only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if localization cannot identify dominant outcome slices",
+      "stop if ranking blockers are diffuse across roles and profiles",
+      "stop if workflow cadence requires branch synthesis"
+    ],
+    "fallback_plan": [
+      "route to result audit if localization is coherent",
+      "route to metric-specific repair design if one role or metric dominates failures",
+      "route to branch synthesis if outcomes remain diffuse"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1778 admits no-rollout outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded-panel outcome localization",
+    "admission_evidence": [
+      "M1778 finds M1777 execution pass but ranking blocked by outcome distribution"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "no-rollout localization helper if needed",
+      "M1779 localization artifacts",
+      "M1779 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit, repair, ranking design, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "localization summary exists",
+      "dominant slices are identified or explicitly absent",
+      "ranking blockers are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; localization audits outcomes and does not prove history necessity.",
+    "history_necessity_tests": [
+      "Localization must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1777 measured execution artifacts only.",
+    "negative_result_policy": "If outcomes are dominated or diffuse, record that as scenario-quality/ranking evidence, not self-ID evidence.",
+    "allowed_claims": [
+      "bounded-panel outcome localization",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1777 outcome dominance can be localized from existing artifacts before ranking or repair.",
+  "success_criteria": [
+    "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json exists",
+    "localization uses only M1777 artifacts",
+    "dominant slice tables exist",
+    "guardrail_violation_count == 0",
+    "next route is explicit"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "localization reruns reset or rollout",
+    "localization ranks profiles or claims paper-level evidence",
+    "dominant slices or next route are ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "localize",
+      "command": "localize bounded-panel outcome dominance from M1777 episode rows without rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_localization"
+  ],
+  "baseline_artifacts": [
+    "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+    "runs/m1777_metric_specific_bounded_panel_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1779 passes if it localizes M1777 outcome dominance from existing artifacts and keeps ranking blocked or explicitly admitted by audit criteria.",
+  "next_blocker": "m1779-metric-specific-bounded-panel-outcome-localization"
+}

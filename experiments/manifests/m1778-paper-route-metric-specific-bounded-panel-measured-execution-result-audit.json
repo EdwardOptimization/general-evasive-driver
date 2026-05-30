@@ -154,6 +154,37 @@
     "docs/m1777-metric-specific-bounded-panel-measured-execution.md",
     "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md",
+    "decision": "bounded_panel_result_audit_route_to_outcome_localization",
+    "audited_result_class": "metric_specific_bounded_panel_measured_execution_pass",
+    "episode_count": 288,
+    "failure_count": 0,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "guardrail_violation_count": 0,
+    "outcome_counts": {
+      "collision_failure": 122,
+      "off_track_noncollision_noncompletion": 142,
+      "success_obstacle_pass": 24
+    },
+    "ranking_blocked": true,
+    "outcome_localization_required": true,
+    "environment_reset_started_in_audit": false,
+    "environment_rollout_started_in_audit": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1779-metric-specific-bounded-panel-outcome-localization.json"
+  },
   "decision_rule": "M1778 passes if it audits M1777 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
+  "next_blocker": "m1779-metric-specific-bounded-panel-outcome-localization"
 }

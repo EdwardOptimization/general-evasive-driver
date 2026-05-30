@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1786,
+    "completed": 1787,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1777_metric_specific_bounded_panel_measured_execution/summary.json",
+    "command_log": "docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1777-metric-specific-bounded-panel-measured-execution"
+    "task_id": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.json",
-    "hypothesis": "M1777 can be audited as a complete bounded-panel measured execution before interpretation.",
-    "id": "m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit",
+    "command": "see experiments/manifests/m1779-metric-specific-bounded-panel-outcome-localization.json",
+    "hypothesis": "M1777 outcome dominance can be localized from existing artifacts before ranking or repair.",
+    "id": "m1779-metric-specific-bounded-panel-outcome-localization",
     "kind": "gate",
-    "notes": "Pending: audit M1777 bounded-panel measured execution before interpretation",
-    "priority": 17730,
+    "notes": "Pending: no-rollout localization of M1777 bounded-panel outcome dominance",
+    "priority": 17740,
     "status": "pending",
-    "success_artifact": "docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md"
+    "success_artifact": "runs/m1779_metric_specific_bounded_panel_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260530T074420Z"
+  "updated_at_utc": "20260530T074704Z"
 }

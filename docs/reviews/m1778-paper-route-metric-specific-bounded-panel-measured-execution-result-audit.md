@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T074607Z
+- Generated at UTC: 20260530T074841Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1778 passes if it audits M1777 and chooses the next route without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: bounded_panel_result_audit_route_to_outcome_localization
+- Decision reason: M1778 audits M1777 execution pass but blocks ranking due outcome distribution and routes to localization
 
 ## Hypothesis
 
@@ -73,8 +73,19 @@ M1777 can be audited as a complete bounded-panel measured execution before inter
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit
+- type: gate
+- checkpoint: docs/m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_panel_result_audit_route_to_outcome_localization
+- reason: M1778 audits M1777 execution pass but blocks ranking due outcome distribution and routes to localization
 
 ## Next Blocker
 
-m1778-paper-route-metric-specific-bounded-panel-measured-execution-result-audit
+m1779-metric-specific-bounded-panel-outcome-localization
