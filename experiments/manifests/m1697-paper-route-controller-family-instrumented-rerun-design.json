@@ -1,0 +1,152 @@
+{
+  "id": "m1697-paper-route-controller-family-instrumented-rerun-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.json"
+    ],
+    "parent_objective": [
+      "design an instrumented rerun of the M1693 public workload"
+    ],
+    "derived_from": [
+      "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation"
+    ],
+    "blocked_by": [
+      "need design before rerunning the 864-cell workload with outcome semantics instrumentation"
+    ],
+    "supersedes": [
+      "direct instrumented rerun without design",
+      "controller-family ranking from uninstrumented M1693 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+  "public_gates": [
+    "M1697 must design but not execute the instrumented 864-cell public rerun",
+    "M1697 must preserve the exact M1693 workload, profiles, checkpoints, seeds, and actor input contract",
+    "M1697 must require outcome, termination-reason, and profile-outcome aggregates",
+    "M1697 must keep no-training no-replay no-PPO no-promotion no-private-holdout guardrails",
+    "M1697 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute the full rerun in M1697",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_instrumented_rerun_design",
+    "evidence_increment": "designs the rerun needed to audit outcome semantics after M1696 instrumentation",
+    "claim_scope": "rerun design only; no full rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if rerun would change workload, profiles, checkpoints, or seeds",
+      "stop if rerun would change actor inputs",
+      "stop if required outcome aggregates are missing",
+      "stop if design permits direct ranking before audit"
+    ],
+    "fallback_plan": [
+      "route to instrumented rerun execution if design is complete",
+      "route to instrumentation repair if schema gaps remain",
+      "route to branch synthesis if the current workload is unsuitable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1696 implementation passes and admits an instrumented rerun design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design instrumented rerun",
+    "admission_evidence": [
+      "M1696 implements logging-only outcome semantics and passes focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not execute full rerun in M1697",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1697 rerun design document",
+      "M1697 status queue scoreboard research log and review",
+      "one follow-up instrumented rerun execution manifest"
+    ],
+    "next_stage_criteria": [
+      "rerun command and artifacts are specified",
+      "outcome-semantics aggregate checks are specified",
+      "next execution route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1697 is rerun design and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve L1, L2-current-tiled, L3-online, and L3-reset comparison rows for later audit"
+    ],
+    "temporal_evidence_window": "M1696 instrumentation implementation only.",
+    "negative_result_policy": "If instrumented rerun still shows reset/current-tiled controls matching history profiles, record that as a history-necessity gap.",
+    "allowed_claims": [
+      "instrumented rerun design",
+      "no full rollout in M1697, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A guarded instrumented rerun plan can preserve M1693 comparability while adding outcome semantics needed for later audit.",
+  "success_criteria": [
+    "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md exists",
+    "design specifies same 864 workload and deterministic seeds",
+    "design specifies outcome aggregate artifacts",
+    "design specifies no-ranking claim boundary",
+    "full rerun training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design changes workload profiles checkpoints seeds or actor inputs",
+    "design omits outcome-semantics artifacts",
+    "design allows ranking before audit",
+    "full rerun training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write instrumented rerun design without executing full rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1697 passes if it writes a complete instrumented rerun design and routes to a separate execution manifest without overclaiming.",
+  "next_blocker": "m1697-paper-route-controller-family-instrumented-rerun-design"
+}

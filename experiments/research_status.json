@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1704,
+    "completed": 1705,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md",
+    "command_log": "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1695-paper-route-controller-family-outcome-semantics-instrumentation-design"
+    "task_id": "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.json",
-    "hypothesis": "Termination reason and outcome bucket logging can be implemented without changing actor inputs, reward, dynamics, termination behavior, or policy behavior.",
-    "id": "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement termination reason outcome bucket and outcome aggregates with tests and no full rollout",
-    "priority": 16910,
+    "command": "see experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json",
+    "hypothesis": "A guarded instrumented rerun plan can preserve M1693 comparability while adding outcome semantics needed for later audit.",
+    "id": "m1697-paper-route-controller-family-instrumented-rerun-design",
+    "kind": "gate",
+    "notes": "Pending: design same-workload instrumented rerun with outcome aggregates and no-ranking audit boundary",
+    "priority": 16920,
     "status": "pending",
-    "success_artifact": "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md"
+    "success_artifact": "docs/m1697-paper-route-controller-family-instrumented-rerun-design.md"
   },
-  "updated_at_utc": "20260530T002549Z"
+  "updated_at_utc": "20260530T003033Z"
 }

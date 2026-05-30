@@ -10724,5 +10724,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   shape unchanged.
 - M1695 decides that M1693 rows cannot be reliably relabeled because the
   terminal state trigger was not logged. A later instrumented rerun is required.
+- M1696 implements the logging-only instrumentation. Env `info` now records
+  `termination_reason`, `obstacle_passed_raw`, and `completion_reason`;
+  evaluation rows record `outcome_bucket`; the full-rollout runner can write
+  outcome, termination-reason, and profile-outcome aggregates.
+- M1696 verification: focused env/evaluate/full-rollout tests pass (`55
+  passed`). No full 864-cell rollout was executed in the implementation step.
 - Current next blocker:
-  `m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation`.
+  `m1697-paper-route-controller-family-instrumented-rerun-design`.

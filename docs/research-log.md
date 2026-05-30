@@ -27148,3 +27148,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.json`
 - next: `m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation`
+
+## M1696 Paper-Route Controller-Family Outcome-Semantics Instrumentation Implementation
+
+- status: completed
+- decision: `outcome_semantics_instrumentation_implementation_pass_route_to_instrumented_rerun_design`
+- artifact: `docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md`
+- env info fields added: `termination_reason`, `obstacle_passed_raw`, `completion_reason`
+- evaluation row fields added: `termination_reason`, `obstacle_passed_raw`, `completion_reason`, `outcome_bucket`
+- runner aggregates added: `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`
+- verification: `55` focused tests passed
+- full 864-cell rollout executed: `false`
+- guardrails: no actor input change, no reward change, no dynamics change, no termination behavior change, no training, no replay, no PPO, no promotion, no private holdout
+- supported: logging-only outcome semantics are now available for an instrumented rerun
+- unsupported: controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json`
+- next: `m1697-paper-route-controller-family-instrumented-rerun-design`

@@ -26,6 +26,9 @@ def test_env_reset_and_step_shapes():
     assert next_info["step"] == 1
     assert np.isfinite(next_info["curvature"])
     assert np.isfinite(next_info["progress"])
+    assert "termination_reason" in next_info
+    assert "obstacle_passed_raw" in next_info
+    assert "completion_reason" in next_info
 
 
 def test_privileged_observation_adds_hidden_params():
@@ -549,6 +552,8 @@ def test_obstacle_collision_terminates_episode_and_penalizes_reward():
 
     assert terminated is True
     assert next_info["collision"] is True
+    assert next_info["termination_reason"] == "obstacle_collision"
+    assert next_info["completion_reason"] == "obstacle_collision"
     assert next_info["reward_terms"]["collision_penalty"] == 7.0
     assert reward < 0.0
 
@@ -578,6 +583,9 @@ def test_obstacle_pass_can_complete_episode_successfully():
     assert terminated is False
     assert truncated is True
     assert info["obstacle_completed"] is True
+    assert info["obstacle_passed_raw"] is True
+    assert info["termination_reason"] == ""
+    assert info["completion_reason"] == "obstacle_pass"
     assert info["reward_terms"]["pass_reward"] == 5.0
     assert reward > 0.0
 
@@ -795,6 +803,44 @@ def test_termination_penalty_is_subtracted_on_failure():
     assert penalty_terminated is True
     assert np.isclose(base_reward - penalty_reward, 5.0)
     assert penalty_info["reward_terms"]["termination_penalty"] == 5.0
+    assert penalty_info["termination_reason"] == "off_track"
+
+
+def test_termination_reason_reports_each_failure_mode_without_changing_observation_shape():
+    env = AutoDriftEnv(DriftEnvConfig(track_width=1.0))
+    obs, _ = env.reset(seed=94)
+    assert obs.shape == env.observation_space.shape
+
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env.state.vx = float("nan")
+    assert env._termination_reason(frame) == "non_finite_state"
+
+    env.reset(seed=94)
+    env.state.x = env.config.track_radius + 3.0
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    assert env._termination_reason(frame) == "off_track"
+
+    env.reset(seed=94)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env.collision = True
+    assert env._termination_reason(frame) == "obstacle_collision"
+
+    env.reset(seed=94)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env.state.vx = 0.1
+    env.state.vy = 0.0
+    assert env._termination_reason(frame) == "speed_too_low"
+
+    env.reset(seed=94)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env.state.vx = 33.0
+    env.state.vy = 0.0
+    assert env._termination_reason(frame) == "speed_too_high"
+
+    env.reset(seed=94)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    env.state.yaw_rate = 6.1
+    assert env._termination_reason(frame) == "yaw_rate_limit"
 
 
 def test_heuristic_policy_runs_for_multiple_steps():

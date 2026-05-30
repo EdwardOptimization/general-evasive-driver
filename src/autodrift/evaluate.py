@@ -181,6 +181,23 @@ def add_segment_metrics(row: dict, segment_stats: dict[str, dict[str, list[float
     return row
 
 
+def outcome_bucket_from_info(info: dict, *, terminated: bool, truncated: bool) -> str:
+    """Classify terminal outcome without changing environment behavior."""
+
+    collision = bool(info.get("collision", False))
+    obstacle_completed = bool(info.get("obstacle_completed", False))
+    if obstacle_completed and not collision:
+        return "success_obstacle_pass"
+    if collision:
+        return "collision_failure"
+    termination_reason = str(info.get("termination_reason", "") or "")
+    if terminated and termination_reason:
+        return f"{termination_reason}_noncollision_noncompletion"
+    if truncated:
+        return "max_steps_noncompletion"
+    return "other_terminated_noncompletion"
+
+
 def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str, seed: int) -> dict:
     obs, info = env.reset(seed=seed)
     policy.reset()
@@ -245,6 +262,10 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "min_obstacle_clearance": float(info.get("min_obstacle_clearance", float("nan"))),
         "obstacle_collision_radius": float(info.get("obstacle_collision_radius", float("nan"))),
         "min_clearance_margin": float(info.get("min_clearance_margin", float("nan"))),
+        "termination_reason": str(info.get("termination_reason", "") or ""),
+        "obstacle_passed_raw": bool(info.get("obstacle_passed_raw", False)),
+        "completion_reason": str(info.get("completion_reason", "") or ""),
+        "outcome_bucket": outcome_bucket_from_info(info, terminated=terminated, truncated=truncated),
         "return": float(np.sum(rewards)),
         "mean_reward": float(np.mean(rewards)) if rewards else 0.0,
         "lateral_rmse": float(np.sqrt(np.mean(np.square(lateral_errors)))) if lateral_errors else float("nan"),

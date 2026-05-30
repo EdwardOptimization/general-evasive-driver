@@ -244,6 +244,9 @@ class AutoDriftEnv(gym.Env):
         self.min_obstacle_clearance = float("inf")
         self.collision = False
         self.obstacle_completed = False
+        self.obstacle_passed_raw = False
+        self.termination_reason = ""
+        self.completion_reason = ""
         self.warmup_gate_position: np.ndarray | None = None
         self.warmup_gate_half_width = float("nan")
         self.warmup_gate_active = False
@@ -269,6 +272,9 @@ class AutoDriftEnv(gym.Env):
         self.friction_step_at = None if self._uses_obstacle_aligned_friction_step() else self._sample_friction_step_at()
         self.friction_step_applied = False
         self.step_count = 0
+        self.termination_reason = ""
+        self.completion_reason = ""
+        self.obstacle_passed_raw = False
 
         self.speed_ref = self._sample_speed_ref()
         self.beta_target = float(self.rng.uniform(*self.config.beta_target_range))
@@ -322,8 +328,10 @@ class AutoDriftEnv(gym.Env):
         self._update_warmup_gate_status(frame)
         self._update_obstacle_status(frame)
 
-        terminated = self._terminated(frame)
-        self.obstacle_completed = self._obstacle_completed(frame) and not terminated
+        self.termination_reason = self._termination_reason(frame) or ""
+        terminated = bool(self.termination_reason)
+        self.obstacle_passed_raw = self._obstacle_completed(frame)
+        self.obstacle_completed = self.obstacle_passed_raw and not terminated
         dense_margin_reward, dense_margin_terms = self._dense_clearance_margin_reward(frame)
         if dense_margin_terms:
             reward += dense_margin_reward
@@ -342,6 +350,14 @@ class AutoDriftEnv(gym.Env):
             reward -= self.config.termination_penalty
             reward_terms["termination_penalty"] = self.config.termination_penalty
         truncated = self.obstacle_completed or self.step_count >= self.config.max_steps
+        if self.obstacle_completed:
+            self.completion_reason = "obstacle_pass"
+        elif terminated:
+            self.completion_reason = self.termination_reason
+        elif truncated:
+            self.completion_reason = "max_steps"
+        else:
+            self.completion_reason = ""
         self.last_action = np.clip(action64, -1.0, 1.0)
         self.last_control = control
 
@@ -413,6 +429,7 @@ class AutoDriftEnv(gym.Env):
         self.min_obstacle_clearance = float("inf")
         self.collision = False
         self.obstacle_completed = False
+        self.obstacle_passed_raw = False
         if not self.config.obstacle.enabled:
             return
         scenario_config = self.config.obstacle.scenario_config(speed=self.speed_ref, mu=self.params.mu)
@@ -952,20 +969,25 @@ class AutoDriftEnv(gym.Env):
             terms["stable_aes_sideslip_cost"] = stable_aes_sideslip_cost
         return reward, terms
 
-    def _terminated(self, frame: PathFrame) -> bool:
+    def _termination_reason(self, frame: PathFrame) -> str | None:
         speed = math.hypot(self.state.vx, self.state.vy)
         values = self.state.as_array()
         if not np.all(np.isfinite(values)):
-            return True
+            return "non_finite_state"
         if abs(frame.lateral_error) > self.config.track_width:
-            return True
+            return "off_track"
         if self.collision:
-            return True
-        if speed < 1.0 or speed > 32.0:
-            return True
+            return "obstacle_collision"
+        if speed < 1.0:
+            return "speed_too_low"
+        if speed > 32.0:
+            return "speed_too_high"
         if abs(self.state.yaw_rate) > 6.0:
-            return True
-        return False
+            return "yaw_rate_limit"
+        return None
+
+    def _terminated(self, frame: PathFrame) -> bool:
+        return self._termination_reason(frame) is not None
 
     def _info(self, frame: PathFrame) -> dict[str, Any]:
         speed = math.hypot(self.state.vx, self.state.vy)
@@ -1037,6 +1059,9 @@ class AutoDriftEnv(gym.Env):
             "min_clearance_margin": min_clearance_margin,
             "collision": self.collision,
             "obstacle_completed": self.obstacle_completed,
+            "obstacle_passed_raw": self.obstacle_passed_raw,
+            "termination_reason": self.termination_reason,
+            "completion_reason": self.completion_reason,
             "active_obstacle_kind": active_obstacle_kind,
             "active_obstacle_body_x": float(active_body[0]),
             "active_obstacle_body_y": float(active_body[1]),

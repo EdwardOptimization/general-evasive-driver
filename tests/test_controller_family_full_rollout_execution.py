@@ -5,6 +5,7 @@ import numpy as np
 from autodrift.artifacts import read_json
 from autodrift.controller_family_full_rollout_execution import (
     append_csv_row,
+    aggregate_profile_outcome_rows,
     aggregate_rows,
     comparison_rows,
     env_config_for_executable_profile,
@@ -129,3 +130,44 @@ def test_comparison_rows_include_required_diagnostic_boundaries() -> None:
     assert "explicit_window_subset_minus_all_72_specs" in comparisons
     assert "mapping_window_unspecified_minus_all_72_specs" in comparisons
     assert all(row["diagnostic_only_no_ranking_claim"] for row in comparisons.values())
+
+
+def test_profile_outcome_aggregate_uses_profile_and_outcome_bucket() -> None:
+    rows = [
+        {
+            "profile_name": "L3_online_gru",
+            "task_source_id": "spec0",
+            "task_family": "T5",
+            "executable_source_family": "t5_near_boundary_warmup",
+            "outcome_bucket": "success_obstacle_pass",
+            "success": True,
+            "collision": False,
+            "min_clearance_margin": 0.2,
+            "return": 1.0,
+            "steps": 10,
+            "action_rate_mean": 0.1,
+            "high_sideslip_fraction": 0.0,
+        },
+        {
+            "profile_name": "L3_online_gru",
+            "task_source_id": "spec1",
+            "task_family": "T5",
+            "executable_source_family": "t5_near_boundary_warmup",
+            "outcome_bucket": "off_track_noncollision_noncompletion",
+            "success": False,
+            "collision": False,
+            "min_clearance_margin": 0.4,
+            "return": -1.0,
+            "steps": 8,
+            "action_rate_mean": 0.2,
+            "high_sideslip_fraction": 0.0,
+        },
+    ]
+
+    aggregates = aggregate_profile_outcome_rows(rows)
+    keys = {row["profile_outcome"] for row in aggregates}
+
+    assert keys == {
+        "L3_online_gru::success_obstacle_pass",
+        "L3_online_gru::off_track_noncollision_noncompletion",
+    }

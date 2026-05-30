@@ -304,6 +304,15 @@ def aggregate_stratum_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return aggregate_rows(expanded, "stratum")
 
 
+def aggregate_profile_outcome_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    expanded: list[dict[str, Any]] = []
+    for row in rows:
+        item = dict(row)
+        item["profile_outcome"] = f"{row.get('profile_name', '')}::{row.get('outcome_bucket', '')}"
+        expanded.append(item)
+    return aggregate_rows(expanded, "profile_outcome")
+
+
 def metric_summary(rows: list[Mapping[str, Any]], label: str) -> dict[str, Any]:
     margins = _float_values(rows, "min_clearance_margin")
     return {
@@ -435,10 +444,24 @@ def finalize_outputs(
     profile_aggregate = aggregate_rows(episode_rows, "profile_name") if episode_rows else []
     spec_aggregate = aggregate_rows(episode_rows, "task_source_id") if episode_rows else []
     stratum_aggregate = aggregate_stratum_rows(episode_rows) if episode_rows else []
+    outcome_aggregate = aggregate_rows(episode_rows, "outcome_bucket") if episode_rows and "outcome_bucket" in episode_rows[0] else []
+    termination_reason_aggregate = (
+        aggregate_rows(episode_rows, "termination_reason")
+        if episode_rows and "termination_reason" in episode_rows[0]
+        else []
+    )
+    profile_outcome_aggregate = (
+        aggregate_profile_outcome_rows(episode_rows)
+        if episode_rows and "outcome_bucket" in episode_rows[0]
+        else []
+    )
     comparisons = comparison_rows(episode_rows) if episode_rows else []
     write_csv_rows(output_dir / "profile_aggregate.csv", profile_aggregate)
     write_csv_rows(output_dir / "spec_aggregate.csv", spec_aggregate)
     write_csv_rows(output_dir / "stratum_aggregate.csv", stratum_aggregate)
+    write_csv_rows(output_dir / "outcome_aggregate.csv", outcome_aggregate)
+    write_csv_rows(output_dir / "termination_reason_aggregate.csv", termination_reason_aggregate)
+    write_csv_rows(output_dir / "profile_outcome_aggregate.csv", profile_outcome_aggregate)
     write_csv_rows(output_dir / "comparison_aggregate.csv", comparisons)
 
     guardrail_flags = {key: False for key in FORBIDDEN_GUARDRAILS}
@@ -467,6 +490,9 @@ def finalize_outputs(
         "spec_aggregate_rows": len(spec_aggregate),
         "stratum_aggregate_rows": len(stratum_aggregate),
         "comparison_aggregate_rows": len(comparisons),
+        "outcome_aggregate_rows": len(outcome_aggregate),
+        "termination_reason_aggregate_rows": len(termination_reason_aggregate),
+        "profile_outcome_aggregate_rows": len(profile_outcome_aggregate),
         "guardrail_flags": guardrail_flags,
         "guardrail_violation_count": guardrail_violation_count,
         "environment_rollout_started": bool(episode_rows or failure_rows),
@@ -487,6 +513,9 @@ def finalize_outputs(
             "spec_aggregate": str(output_dir / "spec_aggregate.csv"),
             "stratum_aggregate": str(output_dir / "stratum_aggregate.csv"),
             "comparison_aggregate": str(output_dir / "comparison_aggregate.csv"),
+            "outcome_aggregate": str(output_dir / "outcome_aggregate.csv"),
+            "termination_reason_aggregate": str(output_dir / "termination_reason_aggregate.csv"),
+            "profile_outcome_aggregate": str(output_dir / "profile_outcome_aggregate.csv"),
             "failure_rows": str(output_dir / "failure_rows.csv"),
             "run_state": str(output_dir / "run_state.json"),
         },
@@ -534,6 +563,9 @@ def run_full_rollout_execution(
             output / "spec_aggregate.csv",
             output / "stratum_aggregate.csv",
             output / "comparison_aggregate.csv",
+            output / "outcome_aggregate.csv",
+            output / "termination_reason_aggregate.csv",
+            output / "profile_outcome_aggregate.csv",
         ):
             if path.exists():
                 path.unlink()

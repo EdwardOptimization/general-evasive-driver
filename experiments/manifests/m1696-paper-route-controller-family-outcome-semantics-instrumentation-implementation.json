@@ -153,6 +153,42 @@
   "baseline_artifacts": [
     "docs/m1695-paper-route-controller-family-outcome-semantics-instrumentation-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation.md",
+    "decision": "outcome_semantics_instrumentation_implementation_pass_route_to_instrumented_rerun_design",
+    "env_info_fields_added": [
+      "termination_reason",
+      "obstacle_passed_raw",
+      "completion_reason"
+    ],
+    "evaluation_row_fields_added": [
+      "termination_reason",
+      "obstacle_passed_raw",
+      "completion_reason",
+      "outcome_bucket"
+    ],
+    "runner_aggregates_added": [
+      "outcome_aggregate.csv",
+      "termination_reason_aggregate.csv",
+      "profile_outcome_aggregate.csv"
+    ],
+    "focused_tests": "55 passed",
+    "full_864_cell_rollout_executed": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1697-paper-route-controller-family-instrumented-rerun-design.json"
+  },
   "decision_rule": "M1696 passes if logging-only outcome semantics are implemented and tested without changing actor inputs or executing the full rollout.",
-  "next_blocker": "m1696-paper-route-controller-family-outcome-semantics-instrumentation-implementation"
+  "next_blocker": "m1697-paper-route-controller-family-instrumented-rerun-design"
 }

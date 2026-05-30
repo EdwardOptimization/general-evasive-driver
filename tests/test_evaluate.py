@@ -2,7 +2,7 @@ import numpy as np
 
 from autodrift.dynamics import RandomizationConfig
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, ObstacleTaskConfig
-from autodrift.evaluate import SEGMENT_NAMES, ActorPolicy, curvature_segment, run_episode
+from autodrift.evaluate import SEGMENT_NAMES, ActorPolicy, curvature_segment, outcome_bucket_from_info, run_episode
 from autodrift.train_ppo import ActorCritic
 
 
@@ -47,6 +47,33 @@ def test_episode_row_includes_obstacle_clearance_margin():
 
     assert np.isclose(row["obstacle_collision_radius"], 1.70)
     assert np.isfinite(row["min_clearance_margin"])
+    assert "termination_reason" in row
+    assert "obstacle_passed_raw" in row
+    assert "completion_reason" in row
+    assert "outcome_bucket" in row
+
+
+def test_outcome_bucket_classifies_terminal_semantics() -> None:
+    assert (
+        outcome_bucket_from_info({"obstacle_completed": True, "collision": False}, terminated=False, truncated=True)
+        == "success_obstacle_pass"
+    )
+    assert (
+        outcome_bucket_from_info({"obstacle_completed": False, "collision": True}, terminated=True, truncated=False)
+        == "collision_failure"
+    )
+    assert (
+        outcome_bucket_from_info(
+            {"obstacle_completed": False, "collision": False, "termination_reason": "off_track"},
+            terminated=True,
+            truncated=False,
+        )
+        == "off_track_noncollision_noncompletion"
+    )
+    assert (
+        outcome_bucket_from_info({"obstacle_completed": False, "collision": False}, terminated=False, truncated=True)
+        == "max_steps_noncompletion"
+    )
 
 
 def test_actor_policy_can_ablate_action_history():
