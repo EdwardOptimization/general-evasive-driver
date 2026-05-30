@@ -1,0 +1,174 @@
+{
+  "id": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_validation_adapter"
+    ],
+    "parent_dataset": [
+      "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+      "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset conversion adapter from stable materialization artifacts to executable v2 reset specs"
+    ],
+    "derived_from": [
+      "m1813-executable-v2-stable-source-materialization-reset-validation-design"
+    ],
+    "blocked_by": [
+      "M1813 finds conversion is required before M1792 reset adapter can consume M1811 artifacts"
+    ],
+    "supersedes": [
+      "direct reset execution over materialization artifacts",
+      "manual conversion to executable v2 specs",
+      "measured execution before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+  "public_gates": [
+    "M1814 must implement a no-reset conversion adapter and focused tests",
+    "M1814 must produce executable_v2_panel_specs-shaped artifacts from synthetic fixtures",
+    "M1814 must preserve env_config profile controls v2 metadata no-label-leakage and ranking-block flags",
+    "M1814 must not run reset rollout measured execution training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level or level3 claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute project artifact conversion",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_stable_source_reset_adapter_implementation",
+    "evidence_increment": "implements reset-validation conversion adapter after M1813 design",
+    "claim_scope": "adapter implementation only; no reset, rollout, measured rollout, project conversion execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if executable_v2_panel_specs shape cannot be produced",
+      "stop if env_config is dropped",
+      "stop if ranking is admitted by default",
+      "stop if implementation runs reset or project artifacts"
+    ],
+    "fallback_plan": [
+      "route to design repair if conversion fields are inconsistent",
+      "route to execution design after focused tests pass",
+      "route to materialization repair if source artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1813 admits reset-validation adapter implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable source reset-validation adapter implementation",
+    "admission_evidence": [
+      "M1813 defines conversion contract and expected counts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not execute project artifacts",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source module and focused tests",
+      "M1814 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "artifact shapes are tested",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Adapter tests must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "focused synthetic fixtures only; no real reset or project conversion.",
+    "negative_result_policy": "If implementation cannot represent reset specs, route to design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "stable source reset-validation adapter implementation and focused tests",
+      "no reset, rollout, measured rollout, project conversion, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset conversion adapter can transform materialized stable source artifacts into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config and claim boundaries.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover executable_v2_panel_specs payload shape",
+    "tests verify expected counts env_config preservation no-label-leakage reset-ready flags and ranking-block flags",
+    "no real environment reset rollout or project artifact execution is run"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "adapter drops env_config or profile controls",
+    "adapter admits ranking by default",
+    "implementation runs reset rollout or project artifacts"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_reset_validation_adapter.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_stable_source_reset_validation_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_stable_source_reset_validation_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_validation_adapter"
+  ],
+  "baseline_artifacts": [
+    "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_specs.json",
+    "runs/m1811_executable_v2_stable_source_materialization/stable_source_materialization_matrix.csv"
+  ],
+  "decision_rule": "M1814 passes if it implements and tests no-reset reset-validation conversion without project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation"
+}

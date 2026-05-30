@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1821,
+    "completed": 1822,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1812-executable-v2-stable-source-materialization-result-audit.md",
+    "command_log": "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1812-executable-v2-stable-source-materialization-result-audit"
+    "task_id": "m1813-executable-v2-stable-source-materialization-reset-validation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json",
-    "hypothesis": "A targeted reset-only validation protocol can be designed for the three M1811 materialized stable sources without running reset or admitting measured execution.",
-    "id": "m1813-executable-v2-stable-source-materialization-reset-validation-design",
-    "kind": "gate",
-    "notes": "Pending: design targeted reset-only validation protocol for M1811 materialized sources",
-    "priority": 18080,
+    "command": "see experiments/manifests/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.json",
+    "hypothesis": "A no-reset conversion adapter can transform materialized stable source artifacts into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config and claim boundaries.",
+    "id": "m1814-executable-v2-stable-source-reset-validation-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement reset-validation conversion adapter with focused tests only",
+    "priority": 18090,
     "status": "pending",
-    "success_artifact": "docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md"
+    "success_artifact": "docs/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.md"
   },
-  "updated_at_utc": "20260530T114500Z"
+  "updated_at_utc": "20260530T115000Z"
 }

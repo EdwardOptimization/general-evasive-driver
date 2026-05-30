@@ -30084,3 +30084,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: targeted reset validation result repaired reset feasibility pass measured execution controller-family ranking private-holdout evidence paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1813-executable-v2-stable-source-materialization-reset-validation-design.json`
 - next: `m1813-executable-v2-stable-source-materialization-reset-validation-design`
+
+## M1813 Executable V2 Stable Source Materialization Reset Validation Design
+
+- status: completed
+- decision: `stable_source_reset_validation_design_admit_adapter_implementation`
+- artifact: `docs/m1813-executable-v2-stable-source-materialization-reset-validation-design.md`
+- reset run: `false`
+- rollout started: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- adapter or conversion required: `true`
+- expected input materialization specs: `3`
+- expected input materialization matrix rows: `36`
+- expected targeted reset executable specs: `36`
+- expected profile control count: `12`
+- expected role surface count: `1`
+- expected reset ready spec count: `36`
+- expected reset validation required count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: targeted reset-validation design and conversion-adapter route
+- unsupported: conversion adapter implementation result targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1814-executable-v2-stable-source-reset-validation-adapter-implementation.json`
+- next: `m1814-executable-v2-stable-source-reset-validation-adapter-implementation`
