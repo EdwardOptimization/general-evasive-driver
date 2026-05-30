@@ -29738,3 +29738,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: complete reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1801-executable-v2-label-source-compatibility-result-audit.json`
 - next: `m1801-executable-v2-label-source-compatibility-result-audit`
+
+## M1801 Executable V2 Label-Source Compatibility Result Audit
+
+- status: completed
+- decision: `compatibility_result_audit_route_to_stable_source_label_topup_design`
+- artifact: `docs/m1801-executable-v2-label-source-compatibility-result-audit.md`
+- source artifact: `runs/m1800_executable_v2_label_source_compatibility_preflight/summary.json`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- compatible specs: `272`
+- compatibility violations: `36`
+- sparse failures: `4`
+- replacement need groups: `6`
+- systematic stable replacement need groups: `3`
+- sparse hidden-robust replacement need groups: `3`
+- compatible reset-rerun admissible: `true`
+- measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: compatibility result audit and stable source-label top-up route
+- unsupported: repaired reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1802-executable-v2-stable-source-label-topup-design.json`
+- next: `m1802-executable-v2-stable-source-label-topup-design`

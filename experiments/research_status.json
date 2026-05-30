@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1809,
+    "completed": 1810,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1800-executable-v2-label-source-compatibility-preflight.md",
+    "command_log": "docs/m1801-executable-v2-label-source-compatibility-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1800-executable-v2-label-source-compatibility-preflight"
+    "task_id": "m1801-executable-v2-label-source-compatibility-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1801-executable-v2-label-source-compatibility-result-audit.json",
-    "hypothesis": "M1800 artifacts can be audited well enough to choose between compatible-subset reset rerun, source top-up, sparse seed-fragility probe, or helper repair.",
-    "id": "m1801-executable-v2-label-source-compatibility-result-audit",
+    "command": "see experiments/manifests/m1802-executable-v2-stable-source-label-topup-design.json",
+    "hypothesis": "A stable source-label top-up plan can be designed from M1800 replacement needs and existing source metadata without reset, rollout, profile tuning, or actor-input changes.",
+    "id": "m1802-executable-v2-stable-source-label-topup-design",
     "kind": "gate",
-    "notes": "Pending: audit compatibility result before reset subset or source top-up decisions",
-    "priority": 17960,
+    "notes": "Pending: design stable source-label top-up before implementation or reset",
+    "priority": 17970,
     "status": "pending",
-    "success_artifact": "docs/m1801-executable-v2-label-source-compatibility-result-audit.md"
+    "success_artifact": "docs/m1802-executable-v2-stable-source-label-topup-design.md"
   },
-  "updated_at_utc": "20260530T102200Z"
+  "updated_at_utc": "20260530T103000Z"
 }
