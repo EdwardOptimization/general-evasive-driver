@@ -30326,3 +30326,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.json`
 - next: `m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight`
+
+## M1820 Executable V2 Stable Source Targeted Reset Feasibility Preflight
+
+- status: completed
+- decision: `stable_source_targeted_reset_feasibility_fail_route_to_result_audit`
+- artifact: `runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json`
+- docs artifact: `docs/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.md`
+- result class: `executable_v2_reset_feasibility_preflight_fail`
+- attempted spec count: `36`
+- reset success count: `10`
+- sampling failure count: `26`
+- profile count: `12`
+- role surface count: `1`
+- reset ready spec count: `36`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- sampled label counts: `aeb_feasible=10 blank=26`
+- requested label success counts: `aes_feasible_false=24 aeb_feasible_true=10 aeb_feasible_false=2`
+- hidden failure counts: `nominal=12 friction_step=12 brake_variation=2`
+- error class: `RuntimeError failed to sample an obstacle scenario matching the configured filters`
+- environment reset started: `true`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: targeted reset preflight executed and failed cleanly with diagnostic rows
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.json`
+- next: `m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit`

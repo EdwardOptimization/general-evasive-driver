@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1828,
+    "completed": 1829,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.md",
+    "command_log": "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design"
+    "task_id": "m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.json",
-    "hypothesis": "The 36-row M1816 targeted reset payload can pass M1792 reset-only feasibility with zero sampling failures and clean guardrails.",
-    "id": "m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact targeted reset-only preflight command",
-    "priority": 18150,
+    "command": "see experiments/manifests/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.json",
+    "hypothesis": "The M1820 reset failure can be localized from artifacts and routed to the correct repair without running additional reset.",
+    "id": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1820 targeted reset sampling failures before repair",
+    "priority": 18160,
     "status": "pending",
-    "success_artifact": "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json"
+    "success_artifact": "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md"
   },
-  "updated_at_utc": "20260530T122000Z"
+  "updated_at_utc": "20260530T122500Z"
 }

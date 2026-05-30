@@ -1,0 +1,163 @@
+{
+  "id": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_feasibility_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.md",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/sampling_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.json"
+    ],
+    "parent_objective": [
+      "audit targeted reset-only sampling failures before repair"
+    ],
+    "derived_from": [
+      "m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight"
+    ],
+    "blocked_by": [
+      "M1820 reset preflight failed with 26 sampling failures"
+    ],
+    "supersedes": [
+      "direct repair without failure audit",
+      "measured execution before reset validation",
+      "controller-family ranking before reset support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
+  "public_gates": [
+    "M1821 must audit M1820 sampling failures without running additional reset",
+    "M1821 must classify whether failure is sampler repair insufficiency adapter/profile merge artifact or another scenario sampling failure",
+    "M1821 must choose repair design or rerun route explicitly",
+    "M1821 must keep rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "evidence_axis": "Q_stable_source_targeted_reset_failure_audit",
+    "evidence_increment": "audits M1820 targeted reset sampling failures before repair",
+    "claim_scope": "targeted reset failure audit only; no additional reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if failure distribution cannot be localized from M1820 artifacts",
+      "stop if repair route would require profile-specific tuning",
+      "stop if measured execution or ranking is admitted before reset support"
+    ],
+    "fallback_plan": [
+      "route to adapter/profile merge audit if env_config may be overridden",
+      "route to sampler repair design if label filters remain too tight",
+      "route to targeted reset rerun design only after a clear repair is available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1820 failed targeted reset preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable source targeted reset-feasibility result audit",
+    "admission_evidence": [
+      "M1820 reset preflight failed with 26 sampling failures and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run additional environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1821 audit document",
+      "M1821 status queue scoreboard research log and review",
+      "one follow-up manifest for repair design or rerun design"
+    ],
+    "next_stage_criteria": [
+      "failure distribution is summarized",
+      "repair or rerun route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset failure audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1820 reset-only artifacts only; no rollout.",
+    "negative_result_policy": "Record the negative reset result directly and route to repair rather than weakening paper-route standards.",
+    "allowed_claims": [
+      "stable source targeted reset-feasibility failure audit",
+      "no additional reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1820 reset failure can be localized from artifacts and routed to the correct repair without running additional reset.",
+  "success_criteria": [
+    "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md exists",
+    "audit summarizes reset_success_count sampling_failure_count label hidden profile and error distributions",
+    "audit keeps measured execution and ranking blocked",
+    "next repair or rerun route is explicit",
+    "no additional reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs additional reset or rollout",
+    "audit omits failure distribution",
+    "audit routes directly to measured execution or ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_targeted_reset_feasibility_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.md",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/sampling_failure_rows.csv"
+  ],
+  "decision_rule": "M1821 passes if it audits M1820 failures and chooses a repair or rerun route without additional reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit"
+}
