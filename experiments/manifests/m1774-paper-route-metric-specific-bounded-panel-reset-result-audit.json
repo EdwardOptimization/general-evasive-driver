@@ -1,0 +1,156 @@
+{
+  "id": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.md",
+      "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json",
+      "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/reset_stress_rows.csv",
+      "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/label_distribution_by_role.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.json"
+    ],
+    "parent_objective": [
+      "audit reset-only bounded panel feasibility before measured execution design"
+    ],
+    "derived_from": [
+      "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight"
+    ],
+    "blocked_by": [
+      "M1773 must be audited before measured execution design or repair"
+    ],
+    "supersedes": [
+      "direct bounded-panel measured execution without reset-result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
+  "public_gates": [
+    "M1774 must use only M1773 reset artifacts and M1771 panel artifacts",
+    "M1774 must decide whether to admit measured execution design, sampling repair, label/role audit, or stop",
+    "M1774 must not run reset, rollout, train, replay, PPO, promote, use private holdout, tune profiles, or rank controller families",
+    "M1774 must preserve that M1773 is reset-only feasibility evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "Q_metric_specific_panel_reset_result_audit",
+    "evidence_increment": "audits reset-only bounded panel feasibility before any measured rollout",
+    "claim_scope": "result audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1773 did not cover all 288 cells",
+      "stop if reset failures or metadata gaps require repair",
+      "stop if any policy action or measured rollout was executed"
+    ],
+    "fallback_plan": [
+      "route to measured execution design if M1773 is coherent",
+      "route to sampling repair design if reset failures occurred",
+      "route to panel metadata repair if joins or labels are incoherent"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1773 reset-only feasibility preflight completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded panel reset-result audit",
+    "admission_evidence": [
+      "M1773 reports 288 reset successes, zero sampling failures, preserved role metadata, and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1774 audit document",
+      "M1774 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution design or repair"
+    ],
+    "next_stage_criteria": [
+      "M1774 route decision is explicit",
+      "claim boundary remains enforced",
+      "ranking remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; M1774 audits task-quality reset feasibility and does not test history necessity.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1773 reset-only artifacts only.",
+    "negative_result_policy": "If audit finds reset evidence insufficient, classify as scenario_sampling_failure, panel-design, or metric-contract issue, not self-ID evidence.",
+    "allowed_claims": [
+      "bounded panel reset-result audit",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1773 reset-only result can be audited as coherent enough to admit bounded-panel measured execution design.",
+  "success_criteria": [
+    "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md exists",
+    "M1774 uses only M1773 reset artifacts",
+    "M1774 makes the next route explicit",
+    "M1774 preserves no-reset no-rollout no-training no-ranking and no-paper-claim guardrails"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit ranks profiles or claims paper-level evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1773 reset-only bounded panel artifacts without reset or rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.md",
+    "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json"
+  ],
+  "decision_rule": "M1774 passes if it audits M1773 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit"
+}

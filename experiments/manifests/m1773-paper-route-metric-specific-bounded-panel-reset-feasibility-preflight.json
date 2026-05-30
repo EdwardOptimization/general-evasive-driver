@@ -4,7 +4,7 @@
   "gate_tier": "infrastructure",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "scenario_sampling_failure"
+    "none"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -156,6 +156,48 @@
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json",
+    "doc": "docs/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.md",
+    "decision": "metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit",
+    "result_class": "metric_specific_bounded_panel_reset_feasibility_preflight_pass",
+    "attempted_cell_count": 288,
+    "target_attempted_cell_count": 288,
+    "matrix_cell_count": 288,
+    "reset_success_count": 288,
+    "sampling_failure_count": 0,
+    "profile_count": 12,
+    "role_panel_count": 4,
+    "role_panel_counts": {
+      "drift_required_recovery": 72,
+      "hidden_dynamics_robustness": 72,
+      "stable_avoidance_aes": 72,
+      "unavoidable_mitigation": 72
+    },
+    "sampled_label_counts": {
+      "aeb_feasible": 36,
+      "aes_feasible": 47,
+      "drift_required": 105,
+      "unavoidable": 100
+    },
+    "metadata_join_incomplete_count": 0,
+    "environment_reset_started": true,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.json"
+  },
   "decision_rule": "M1773 passes if all 288 bounded-panel cells reset successfully without policy rollout and with zero guardrail violations.",
-  "next_blocker": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight"
+  "next_blocker": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit"
 }

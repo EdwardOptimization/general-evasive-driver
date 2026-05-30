@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T071610Z
+- Generated at UTC: 20260530T072441Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1773 passes if all 288 bounded-panel cells reset successfully without policy rollout and with zero guardrail violations.
+- Promotion decision: metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit
+- Decision reason: M1773 passes reset-only feasibility over 288 bounded-panel cells with zero sampling failures and no policy rollout
 
 ## Hypothesis
 
@@ -72,12 +72,23 @@ The bounded panel's 288 cells are reset/sampling feasible without policy rollout
 
 ## Failure Taxonomy
 
-- scenario_sampling_failure
+- none
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight
+- type: infrastructure
+- checkpoint: runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit
+- reason: M1773 passes reset-only feasibility over 288 bounded-panel cells with zero sampling failures and no policy rollout
 
 ## Next Blocker
 
-m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight
+m1774-paper-route-metric-specific-bounded-panel-reset-result-audit

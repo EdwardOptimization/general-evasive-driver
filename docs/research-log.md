@@ -28924,3 +28924,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility, policy rollout, controller-family ranking, profile promotion, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.json`
 - next: `m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight`
+
+## M1773 Paper-Route Metric-Specific Bounded Panel Reset Feasibility Preflight
+
+- status: completed
+- decision: `metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit`
+- artifact: `runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json`
+- doc: `docs/m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight.md`
+- result class: `metric_specific_bounded_panel_reset_feasibility_preflight_pass`
+- attempted cell count: `288`
+- reset success count: `288`
+- sampling failure count: `0`
+- profile count: `12`
+- role panel count: `4`
+- role counts: `stable_avoidance_aes=72`, `drift_required_recovery=72`, `hidden_dynamics_robustness=72`, `unavoidable_mitigation=72`
+- sampled label counts: `aeb_feasible=36`, `aes_feasible=47`, `drift_required=105`, `unavoidable=100`
+- metadata join incomplete count: `0`
+- environment reset started: `true`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-only feasibility for all 288 bounded-panel cells with preserved role/profile/source/metric metadata
+- unsupported: policy rollout success, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1774-paper-route-metric-specific-bounded-panel-reset-result-audit.json`
+- next: `m1774-paper-route-metric-specific-bounded-panel-reset-result-audit`

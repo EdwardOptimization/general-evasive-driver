@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1773 passes if all 288 bounded-panel cells reset successfully without policy rollout and with zero guardrail violations.",
+  "decision_reason": "M1773 passes reset-only feasibility over 288 bounded-panel cells with zero sampling failures and no policy rollout",
   "failure_criteria": [
     "required artifacts are missing",
     "policy actions are executed",
@@ -8,7 +8,7 @@
     "guardrails are violated"
   ],
   "failure_types": [
-    "scenario_sampling_failure"
+    "none"
   ],
   "forbidden_shortcuts": [
     "do not execute policy actions",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T071610Z",
+  "generated_at_utc": "20260530T072441Z",
   "hypothesis": "The bounded panel's 288 cells are reset/sampling feasible without policy rollout.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight",
-  "next_blocker": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight",
+  "next_blocker": "m1774-paper-route-metric-specific-bounded-panel-reset-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit",
   "public_gates": [
     "M1773 must run reset-only checks and must not execute policy steps",
     "M1773 must cover all 288 bounded panel cells",
     "M1773 must preserve role/metric/profile metadata and write sampling failure rows if any",
     "M1773 must not train, replay, PPO, promote, use private holdout, tune profiles, rank controller families, or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "metric_specific_bounded_panel_reset_feasibility_preflight_pass_route_to_result_audit",
+    "milestone": "m1773-paper-route-metric-specific-bounded-panel-reset-feasibility-preflight",
+    "reason": "M1773 passes reset-only feasibility over 288 bounded-panel cells with zero sampling failures and no policy rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runs/m1773_metric_specific_bounded_panel_reset_feasibility_preflight/summary.json exists",
     "reset_stress_rows.csv exists",
