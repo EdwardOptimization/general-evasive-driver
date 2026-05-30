@@ -167,6 +167,34 @@
     "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json",
     "docs/m1846-executable-v2-task-source-metadata-redesign-design.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1851-executable-v2-support-first-source-mining-design.md",
+    "decision": "support_first_source_mining_design_admit_implementation",
+    "source_mining_run": false,
+    "project_artifact_scan": false,
+    "materialized_executable_v2_rows_generated": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1852-executable-v2-support-first-source-mining-implementation.json"
+  },
   "decision_rule": "M1851 passes if it designs support-first source mining without mining execution, materialization, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1851-executable-v2-support-first-source-mining-design"
+  "next_blocker": "m1852-executable-v2-support-first-source-mining-implementation"
 }

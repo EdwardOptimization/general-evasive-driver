@@ -1,0 +1,192 @@
+{
+  "id": "m1852-executable-v2-support-first-source-mining-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_source_mining_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1851-executable-v2-support-first-source-mining-design.md",
+      "docs/m1846-executable-v2-task-source-metadata-redesign-design.md",
+      "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+      "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1851-executable-v2-support-first-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset support-first source mining helper and focused tests"
+    ],
+    "derived_from": [
+      "m1851-executable-v2-support-first-source-mining-design"
+    ],
+    "blocked_by": [
+      "M1851 design is complete and admits implementation"
+    ],
+    "supersedes": [
+      "manual source support table construction",
+      "materialize sources before support evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1852-executable-v2-support-first-source-mining-implementation.md",
+  "public_gates": [
+    "M1852 must implement the source mining helper without executing project artifact source mining",
+    "M1852 must keep role-specific support criteria separate",
+    "M1852 must write metadata-gate-compatible support evidence outputs",
+    "M1852 must preserve metadata-only labels and actor input contract",
+    "M1852 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact source mining",
+    "do not run project artifact feasibility scan",
+    "do not generate materialized executable-v2 rows",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_source_mining",
+    "evidence_axis": "Q_support_first_source_mining_implementation",
+    "evidence_increment": "implements no-reset support-first source mining helper and tests but does not execute mining on project artifacts",
+    "claim_scope": "implementation only; no project artifact mining execution, materialization, source repair payload, scan, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if helper mixes stable AES and drift-required roles",
+      "stop if helper writes materialized executable-v2 rows",
+      "stop if helper labels enter actor inputs",
+      "stop if tests require reset rollout or project artifact execution"
+    ],
+    "fallback_plan": [
+      "repair helper if focused tests expose role-contract errors",
+      "route to execution design if implementation and tests pass",
+      "route to branch synthesis if implementation shows source mining cannot be made metadata-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1851 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first source mining helper implementation",
+    "admission_evidence": [
+      "M1851 design specifies role-specific support criteria and metadata outputs"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact source mining",
+      "do not generate materialized executable-v2 rows",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_support_first_source_mining.py",
+      "tests/test_executable_v2_support_first_source_mining.py",
+      "M1852 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for source mining execution design"
+    ],
+    "next_stage_criteria": [
+      "helper outputs candidate profile support blocked candidate role summary materialization input and claim boundary artifacts",
+      "focused tests pass",
+      "full pytest passes before commit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source mining helper is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1851 design only; no project artifact mining execution or rollout.",
+    "negative_result_policy": "No-support evidence must block unsupported materialization rather than weakening labels or merging roles.",
+    "allowed_claims": [
+      "support-first source mining helper implementation",
+      "no project artifact mining execution, materialization, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset helper can implement role-specific support-first source mining outputs without executing project artifact mining or changing the actor contract.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_source_mining.py exists",
+    "tests/test_executable_v2_support_first_source_mining.py exists",
+    "focused tests cover stable AES stable AEB drift-required unavoidable blocked candidates and claim boundaries",
+    "helper writes metadata-gate-compatible materialization input rows",
+    "full pytest passes",
+    "implementation routes to execution design without running project artifact mining scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "helper is missing",
+    "tests are missing",
+    "helper runs project artifact mining in M1852",
+    "helper generates materialized executable-v2 rows",
+    "helper admits sources without role-specific support evidence",
+    "helper changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "edit src/autodrift/executable_v2_support_first_source_mining.py and tests/test_executable_v2_support_first_source_mining.py"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_support_first_source_mining.py -q"
+    },
+    {
+      "name": "full_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_source_mining.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_source_mining.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1852-executable-v2-support-first-source-mining-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_source_mining_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1851-executable-v2-support-first-source-mining-design.md",
+    "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+    "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py"
+  ],
+  "decision_rule": "M1852 passes if it implements the no-reset helper and tests without project artifact mining execution, materialization, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1852-executable-v2-support-first-source-mining-implementation"
+}

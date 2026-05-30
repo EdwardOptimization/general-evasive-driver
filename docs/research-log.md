@@ -31292,3 +31292,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1851-executable-v2-support-first-source-mining-design.json`
 - next: `m1851-executable-v2-support-first-source-mining-design`
+
+## M1851 Executable V2 Support-First Source Mining Design
+
+- status: completed
+- decision: `support_first_source_mining_design_admit_implementation`
+- artifact: `docs/m1851-executable-v2-support-first-source-mining-design.md`
+- branch: `paper_route_executable_v2_support_first_source_mining`
+- role criteria specified: `stable_aes_only stable_aeb drift_required_recovery unavoidable_mitigation`
+- source mining run: `false`
+- project artifact scan: `false`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: support-first source mining design role-specific support criteria M1852 helper implementation route
+- unsupported: source mining results materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1852-executable-v2-support-first-source-mining-implementation.json`
+- next: `m1852-executable-v2-support-first-source-mining-implementation`

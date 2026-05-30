@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1859,
+    "completed": 1860,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md",
+    "command_log": "docs/m1851-executable-v2-support-first-source-mining-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1850-executable-v2-task-source-metadata-redesign-result-audit"
+    "task_id": "m1851-executable-v2-support-first-source-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1851-executable-v2-support-first-source-mining-design.json",
-    "hypothesis": "A support-first source mining design can select executable-v2 source candidates with role-specific reset-time support before materialization.",
-    "id": "m1851-executable-v2-support-first-source-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design support-first source mining before materialization",
-    "priority": 18460,
+    "command": "see experiments/manifests/m1852-executable-v2-support-first-source-mining-implementation.json",
+    "hypothesis": "A no-reset helper can implement role-specific support-first source mining outputs without executing project artifact mining or changing the actor contract.",
+    "id": "m1852-executable-v2-support-first-source-mining-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement support-first source mining helper and tests",
+    "priority": 18470,
     "status": "pending",
-    "success_artifact": "docs/m1851-executable-v2-support-first-source-mining-design.md"
+    "success_artifact": "docs/m1852-executable-v2-support-first-source-mining-implementation.md"
   },
-  "updated_at_utc": "20260530T125835Z"
+  "updated_at_utc": "20260530T130240Z"
 }
