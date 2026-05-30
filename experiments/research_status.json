@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1719,
+    "completed": 1720,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md",
+    "command_log": "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis"
+    "task_id": "m1711-paper-route-controller-family-calibrated-scale-up-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json",
-    "hypothesis": "A source-expanded fixed-budget calibrated scale-up can be designed from M1709/M1710 without overfitting to the best off-track variant.",
-    "id": "m1711-paper-route-controller-family-calibrated-scale-up-design",
-    "kind": "gate",
-    "notes": "Pending: design 18-base-spec 4-variant 864-cell scale-up preserving baseline and collision controls",
-    "priority": 17060,
+    "command": "see experiments/manifests/m1712-paper-route-controller-family-calibrated-scale-up-preflight.json",
+    "hypothesis": "The M1711 source-expanded calibrated scale-up subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
+    "id": "m1712-paper-route-controller-family-calibrated-scale-up-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize 18-base-spec 72-calibration-spec 864-cell scale-up subset with contract checks",
+    "priority": 17070,
     "status": "pending",
-    "success_artifact": "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md"
+    "success_artifact": "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T012952Z"
+  "updated_at_utc": "20260530T013328Z"
 }

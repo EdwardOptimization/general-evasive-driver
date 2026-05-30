@@ -27423,3 +27423,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
 - follow-up manifest: `experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json`
 - next: `m1711-paper-route-controller-family-calibrated-scale-up-design`
+
+## M1711 Paper-Route Controller-Family Calibrated Scale-Up Design
+
+- status: completed
+- decision: `calibrated_scale_up_design_admit_no_rollout_preflight`
+- artifact: `docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md`
+- parent synthesis: `docs/m1710-paper-route-controller-family-task-quality-calibration-branch-synthesis.md`
+- planned selected base specs: `18`
+- planned task split: `T4=9`, `T5=9`
+- planned variants per base spec: `4`
+- planned profiles: `12`
+- planned cells: `864`
+- variant panel: `original_axis_baseline`, `best_off_track_variant`, `collision_control_wide_relaxed`, `mid_calibration_variant`
+- selection rule: keep M1705 six-base-spec anchors and add six T4 plus six T5 base specs by deterministic source-diverse greedy selection
+- supported: source-expanded scale-up can preserve fixed budget while carrying baseline and collision/off-track tradeoff controls
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
+- follow-up manifest: `experiments/manifests/m1712-paper-route-controller-family-calibrated-scale-up-preflight.json`
+- next: `m1712-paper-route-controller-family-calibrated-scale-up-preflight`

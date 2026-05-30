@@ -1,0 +1,173 @@
+{
+  "id": "m1712-paper-route-controller-family-calibrated-scale-up-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_specs.json",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv",
+      "runs/m1705_controller_family_bounded_calibration_smoke_preflight/selected_base_specs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1711-paper-route-controller-family-calibrated-scale-up-design.json"
+    ],
+    "parent_objective": [
+      "materialize source-expanded no-rollout calibrated scale-up subset"
+    ],
+    "derived_from": [
+      "m1711-paper-route-controller-family-calibrated-scale-up-design"
+    ],
+    "blocked_by": [
+      "need no-rollout scale-up subset before audit or execution design"
+    ],
+    "supersedes": [
+      "direct execution of M1708 best variant only",
+      "direct calibrated scale-up execution after M1711"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1712-paper-route-controller-family-calibrated-scale-up-preflight.md",
+  "public_gates": [
+    "M1712 must materialize a no-rollout 864-cell calibrated scale-up subset",
+    "M1712 must select 18 base specs with T4=9 and T5=9",
+    "M1712 must preserve the four M1711 calibration variants for each base spec",
+    "M1712 must preserve all 12 controller-family profiles per calibration spec",
+    "M1712 must preserve P0 no-wheel no-oracle actor contract for every env variant",
+    "M1712 must not execute rollout train replay PPO promote use private holdout or change actor inputs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_calibration",
+    "evidence_axis": "Q_source_expanded_calibrated_scale_up_preflight",
+    "evidence_increment": "materializes the source-expanded fixed-budget scale-up subset after M1711 design",
+    "claim_scope": "no-rollout preflight only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if selected subset is not 864 cells",
+      "stop if task split is not T4=9 and T5=9",
+      "stop if any required variant or profile is dropped",
+      "stop if any env variant violates P0 contract"
+    ],
+    "fallback_plan": [
+      "route to scale-up preflight audit if subset is clean",
+      "route to selection repair if coverage fails",
+      "route to branch stop if fixed-budget scale-up cannot preserve controls"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1711 admits no-rollout scale-up preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-rollout source-expanded calibrated scale-up subset",
+    "admission_evidence": [
+      "M1711 designs the fixed-budget scale-up subset"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "scale-up preflight code if needed",
+      "runs/m1712_controller_family_calibrated_scale_up_preflight artifacts",
+      "M1712 status queue scoreboard research log and review",
+      "one follow-up scale-up preflight audit manifest"
+    ],
+    "next_stage_criteria": [
+      "subset matrix exists",
+      "source/task/profile/variant coverage passes",
+      "contract checks pass",
+      "no rollout occurred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1712 is infrastructure and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "preflight must preserve L1, L2-current-tiled, L3-online, and L3-reset controls for later scale-up"
+    ],
+    "temporal_evidence_window": "M1711 design only.",
+    "negative_result_policy": "If the subset cannot preserve tradeoff controls, stop before execution.",
+    "allowed_claims": [
+      "calibrated scale-up subset preflight",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1711 source-expanded calibrated scale-up subset can be materialized as a no-rollout 864-cell matrix with clean contract checks.",
+  "success_criteria": [
+    "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json exists",
+    "scale_up_matrix.csv exists and contains 864 rows",
+    "selected_base_specs.csv contains 18 rows with T4=9 and T5=9",
+    "scale_up_calibration_specs.csv contains 72 rows",
+    "all 12 profiles appear for each selected calibration spec",
+    "contract_violation_count == 0",
+    "environment_rollout_started == false",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "selected subset does not match the M1711 scale",
+    "required task family variant or profile coverage is missing",
+    "any env variant violates P0 contract",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "preflight claims controller-family ranking"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "materialize no-rollout calibrated scale-up subset"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1712_controller_family_calibrated_scale_up_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1712_controller_family_calibrated_scale_up_preflight/selected_base_specs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_calibration_specs.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1712_controller_family_calibrated_scale_up_preflight/scale_up_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1711-paper-route-controller-family-calibrated-scale-up-design.md",
+    "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
+  ],
+  "decision_rule": "M1712 passes if it materializes the 864-cell source-expanded calibrated scale-up subset with zero P0 contract violations and no rollout.",
+  "next_blocker": "m1712-paper-route-controller-family-calibrated-scale-up-preflight"
+}
