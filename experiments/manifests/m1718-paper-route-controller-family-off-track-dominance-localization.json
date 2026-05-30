@@ -1,0 +1,172 @@
+{
+  "id": "m1718-paper-route-controller-family-off-track-dominance-localization",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_data_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/episode_rows.csv",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/scale_up_variant_aggregate.csv",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/source_edge_aggregate.csv",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/task_family_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.json"
+    ],
+    "parent_objective": [
+      "localize off-track dominance before task-quality repair"
+    ],
+    "derived_from": [
+      "m1717-paper-route-controller-family-task-quality-scale-up-synthesis"
+    ],
+    "blocked_by": [
+      "need no-rollout localization before designing repair variants"
+    ],
+    "supersedes": [
+      "direct task-quality repair design after M1717",
+      "direct controller-family comparison after M1717"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1718-paper-route-controller-family-off-track-dominance-localization.md",
+  "public_gates": [
+    "M1718 must use existing M1715 episode rows only",
+    "M1718 must write variant-source, variant-task-family, variant-profile, source-task-family, and profile-outcome aggregates",
+    "M1718 must identify repair target slices without changing profiles or task configs",
+    "M1718 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1718 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_dominance_localization",
+    "evidence_increment": "localizes remaining off-track dominance using existing scale-up episode rows before repair design",
+    "claim_scope": "no-rollout public diagnostic localization only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1715 episode rows are missing",
+      "stop if cross-aggregates cannot preserve variant/source/profile controls",
+      "stop if localization collapses into profile ranking",
+      "stop if repair target slices are not explicit"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if episode rows are unavailable",
+      "route to task-quality repair design if localizable off-track slices are found",
+      "route to source-distribution redesign if off-track dominance is diffuse across all slices"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1717 pivots to off-track dominance localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "no-rollout off-track dominance localization",
+    "admission_evidence": [
+      "M1717 synthesis pivots from scale-up calibration to task-quality repair localization"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1718 localization script or document",
+      "M1718 no-rollout aggregate artifacts",
+      "M1718 status queue scoreboard research log and review",
+      "one follow-up repair design manifest"
+    ],
+    "next_stage_criteria": [
+      "off-track slices are localized or declared diffuse",
+      "repair target selection is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1718 localizes task-quality outcomes and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "profile rows remain controls and must not be converted into recurrent advantage claims"
+    ],
+    "temporal_evidence_window": "M1715 public diagnostic episode rows only.",
+    "negative_result_policy": "If off-track dominance is diffuse, route to source-distribution redesign rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "no-rollout public task-quality localization",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Existing M1715 episode rows can localize which variant/source/profile slices drive remaining off-track dominance before repair design.",
+  "success_criteria": [
+    "runs/m1718_off_track_dominance_localization/summary.json exists",
+    "variant_source_edge_aggregate.csv exists",
+    "variant_task_family_aggregate.csv exists",
+    "variant_profile_aggregate.csv exists",
+    "source_task_family_aggregate.csv exists",
+    "repair_target_slices.csv exists",
+    "docs/m1718-paper-route-controller-family-off-track-dominance-localization.md exists",
+    "environment rollout training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "M1715 episode rows are missing",
+    "cross aggregates are missing",
+    "repair target slices are not explicit",
+    "localization ranks controller-family profiles",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "localize",
+      "command": "PYTHONPATH=src python -m autodrift.controller_family_off_track_dominance_localization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1718_off_track_dominance_localization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1718_off_track_dominance_localization/variant_source_edge_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1718_off_track_dominance_localization/repair_target_slices.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m1718-paper-route-controller-family-off-track-dominance-localization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_data_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+    "runs/m1715_controller_family_calibrated_scale_up_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1718 passes if it materializes no-rollout localization aggregates and identifies whether repair targets are concentrated or diffuse without overclaiming.",
+  "next_blocker": "m1718-paper-route-controller-family-off-track-dominance-localization"
+}

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1725,
+    "completed": 1726,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1716-paper-route-controller-family-calibrated-scale-up-result-audit.md",
+    "command_log": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1716-paper-route-controller-family-calibrated-scale-up-result-audit"
+    "task_id": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.json",
-    "hypothesis": "The M1711-M1716 scale-up branch should synthesize before task-quality repair, broader scale-up, or controller-family comparison.",
-    "id": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis",
+    "command": "see experiments/manifests/m1718-paper-route-controller-family-off-track-dominance-localization.json",
+    "hypothesis": "Existing M1715 episode rows can localize which variant/source/profile slices drive remaining off-track dominance before repair design.",
+    "id": "m1718-paper-route-controller-family-off-track-dominance-localization",
     "kind": "gate",
-    "notes": "Pending: synthesize conditional-positive scale-up evidence and choose task-quality repair pivot or next branch",
-    "priority": 17120,
+    "notes": "Pending: materialize no-rollout variant-source-task-profile aggregates and repair target slices",
+    "priority": 17130,
     "status": "pending",
-    "success_artifact": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md"
+    "success_artifact": "runs/m1718_off_track_dominance_localization/summary.json"
   },
-  "updated_at_utc": "20260530T015834Z"
+  "updated_at_utc": "20260530T020133Z"
 }

@@ -175,6 +175,26 @@
     "runs/m1715_controller_family_calibrated_scale_up_execution/summary.json",
     "runs/m1715_controller_family_calibrated_scale_up_execution/scale_up_variant_aggregate.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md",
+    "decision": "pivot_to_off_track_dominance_localization",
+    "workflow_synthesis_decision": "pivot",
+    "synthesized_range": "M1711-M1716",
+    "failure_taxonomy": [
+      "none",
+      "scenario_sampling_failure_risk",
+      "metric_artifact_risk",
+      "public_gate_overfit_risk",
+      "task_quality_off_track_dominance"
+    ],
+    "evidence_summary": "M1711-M1716 completed source-expanded scale-up and found conditional-positive task-quality evidence, but no calibrated variant crossed the 0.70 off-track threshold.",
+    "supported_claim": "the calibration route survives source expansion and warrants off-track dominance localization before repair.",
+    "falsified_claim": "the current task distribution is ready for controller-family comparison or paper-level claims.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_controller_family_task_quality_repair",
+    "next_manifest": "experiments/manifests/m1718-paper-route-controller-family-off-track-dominance-localization.json"
+  },
   "decision_rule": "M1717 passes if it synthesizes M1711-M1716 and chooses a route before task-quality repair, controller comparison, or paper-route claims.",
-  "next_blocker": "m1717-paper-route-controller-family-task-quality-scale-up-synthesis"
+  "next_blocker": "m1718-paper-route-controller-family-off-track-dominance-localization"
 }

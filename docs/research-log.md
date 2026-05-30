@@ -27542,3 +27542,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.json`
 - next: `m1717-paper-route-controller-family-task-quality-scale-up-synthesis`
+
+## M1717 Paper-Route Controller-Family Task-Quality Scale-Up Synthesis
+
+- status: completed
+- workflow synthesis decision: `pivot`
+- decision: `pivot_to_off_track_dominance_localization`
+- artifact: `docs/m1717-paper-route-controller-family-task-quality-scale-up-synthesis.md`
+- synthesized range: M1711-M1716
+- evidence summary: source-expanded scale-up executed cleanly and found conditional-positive task-quality evidence, but no calibrated variant crossed the `0.70` off-track full-positive threshold
+- supported: calibration route survives source expansion and warrants off-track dominance localization before repair
+- falsified: current task distribution is ready for controller-family comparison or paper-level claims
+- failure taxonomy summary: structural `none`; scenario-sampling, metric-artifact, public-overfit, and off-track-dominance risks remain
+- public-gate overfit risk: `high`
+- next branch decision: pivot to `paper_route_controller_family_task_quality_repair`
+- planned M1718 route: no-rollout localization from M1715 episode rows, including variant-source, variant-task, variant-profile, source-task, and repair target slice artifacts
+- unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence, checkpoint or profile promotion
+- follow-up manifest: `experiments/manifests/m1718-paper-route-controller-family-off-track-dominance-localization.json`
+- next: `m1718-paper-route-controller-family-off-track-dominance-localization`
