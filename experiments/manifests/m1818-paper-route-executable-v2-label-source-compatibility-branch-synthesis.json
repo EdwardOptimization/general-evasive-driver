@@ -1,0 +1,181 @@
+{
+  "id": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1808-executable-v2-stable-source-materialization-design.md",
+      "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md",
+      "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1808-executable-v2-stable-source-materialization-design.json",
+      "experiments/manifests/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1808-M1817 stable source materialization and reset-payload conversion branch before opening targeted reset validation"
+    ],
+    "derived_from": [
+      "m1807-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+      "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1817; new reset-design branch requires synthesis first"
+    ],
+    "supersedes": [
+      "direct targeted reset execution design without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+  "public_gates": [
+    "M1818 must synthesize M1808-M1817 evidence before any new reset-design milestone",
+    "M1818 must decide whether source-label compatibility repair is complete enough to promote to targeted reset validation",
+    "M1818 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_branch_synthesis",
+    "evidence_increment": "synthesizes stable source materialization and targeted reset-payload conversion evidence from M1808 through M1817",
+    "claim_scope": "branch synthesis only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1811 materialization or M1816 conversion evidence is incomplete",
+      "stop if targeted reset payload is malformed",
+      "stop if branch cannot cleanly promote to targeted reset validation"
+    ],
+    "fallback_plan": [
+      "repair stable source materialization if source artifacts are insufficient",
+      "repair adapter conversion if targeted payload is malformed",
+      "promote to targeted reset validation branch if synthesis passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow cadence reached after M1808-M1817 branch work",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-label compatibility branch synthesis",
+    "admission_evidence": [
+      "M1817 audits M1816 targeted reset payload as clean but workflow cadence requires synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1818 synthesis document",
+      "M1818 status queue scoreboard research log and review",
+      "one follow-up manifest for the next branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Synthesis must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1808-M1817 public artifacts only; no reset or rollout.",
+    "negative_result_policy": "If synthesis finds incomplete source-label compatibility evidence, route to repair rather than opening reset validation.",
+    "allowed_claims": [
+      "source-label compatibility branch synthesis and next-branch decision",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1808-M1817 have completed the source-label compatibility repair branch by materializing stable sources and converting them into a clean targeted reset payload, so the research can promote to a targeted reset-validation branch.",
+  "success_criteria": [
+    "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md exists",
+    "synthesis summarizes M1808-M1817 evidence",
+    "synthesis answers all required synthesis questions",
+    "synthesis chooses promote_to_next_branch or an explicit repair route",
+    "next branch and next manifest are explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs reset or rollout",
+    "synthesis opens reset execution without a design milestone",
+    "synthesis changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1808-executable-v2-stable-source-materialization-design.md",
+    "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md",
+    "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json"
+  ],
+  "decision_rule": "M1818 passes if it synthesizes M1808-M1817 and chooses a next branch without running reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
+}

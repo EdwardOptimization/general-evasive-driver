@@ -159,6 +159,51 @@
     "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json",
     "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md",
+    "decision": "stable_source_reset_validation_adapter_audit_route_to_branch_synthesis_before_reset_design",
+    "source_summary": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json",
+    "targeted_reset_payload": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+    "result_class": "executable_v2_stable_source_reset_validation_adapter_pass",
+    "input_materialization_spec_count": 3,
+    "input_materialization_matrix_row_count": 36,
+    "targeted_reset_executable_spec_count": 36,
+    "payload_executable_v2_panel_specs_count": 36,
+    "profile_control_count": 12,
+    "role_surface_count": 1,
+    "reset_ready_spec_count": 36,
+    "reset_validation_required_count": 36,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "env_config_missing_count": 0,
+    "missing_join_count": 0,
+    "duplicate_workload_count": 0,
+    "task_label_counts": {
+      "aeb_feasible": 12,
+      "aes_feasible": 24
+    },
+    "role_surface_counts": {
+      "stable_avoidance_aes": 36
+    },
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "targeted_reset_execution_design_admissible_after_synthesis": true,
+    "next_manifest": "experiments/manifests/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json"
+  },
   "decision_rule": "M1817 passes if it audits the M1816 targeted reset payload and chooses the reset execution design or repair route without running reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit"
+  "next_blocker": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
 }

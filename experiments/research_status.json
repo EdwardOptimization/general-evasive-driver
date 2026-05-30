@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1825,
+    "completed": 1826,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1816_executable_v2_stable_source_reset_validation_adapter/summary.json",
+    "command_log": "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1816-executable-v2-stable-source-reset-validation-adapter-execution"
+    "task_id": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.json",
-    "hypothesis": "The M1816 no-reset conversion result can be audited as a clean targeted reset payload, admitting a later targeted M1792 reset-feasibility execution design.",
-    "id": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit",
+    "command": "see experiments/manifests/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json",
+    "hypothesis": "M1808-M1817 have completed the source-label compatibility repair branch by materializing stable sources and converting them into a clean targeted reset payload, so the research can promote to a targeted reset-validation branch.",
+    "id": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1816 targeted reset payload before reset execution design",
-    "priority": 18120,
+    "notes": "Pending: synthesize M1808-M1817 before opening targeted reset validation branch",
+    "priority": 18130,
     "status": "pending",
-    "success_artifact": "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md"
+    "success_artifact": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
   },
-  "updated_at_utc": "20260530T120500Z"
+  "updated_at_utc": "20260530T121000Z"
 }
