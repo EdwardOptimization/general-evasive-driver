@@ -154,6 +154,31 @@
     "runs/m1740_repaired_taxonomy_outcome_dominance_localization/dominant_slices.csv",
     "docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+    "decision": "diffuse_outcome_dominance_audit_admit_task_quality_outcome_semantics_redesign",
+    "audited_result_class": "task_quality_outcome_dominance_localization_pass",
+    "dominant_slice_count": 143,
+    "dominant_family_count": 6,
+    "dominant_profile_count": 12,
+    "outcome_dominance_class": "diffuse_outcome_dominance",
+    "guardrail_violation_count": 0,
+    "controller_family_ranking_allowed": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json"
+  },
   "decision_rule": "M1741 passes if it audits localization and chooses a route without overclaiming public diagnostic rows.",
-  "next_blocker": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
+  "next_blocker": "m1742-paper-route-task-quality-outcome-semantics-redesign"
 }

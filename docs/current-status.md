@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization
+m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit
 ```
 
 Current next task:
 
 ```text
-m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit
+m1742-paper-route-task-quality-outcome-semantics-redesign
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -200,7 +200,12 @@ is `aeb_infeasible_stable_aes::L2_window_100_current_tiled` with off-track
 noncollision noncompletion rate `1.0` over `12` episodes, but this is not a
 profile ranking claim. The next task is M1741: audit whether diffuse dominance
 requires task-quality redesign, a bounded evaluation-panel route, branch
-synthesis, or stop.
+synthesis, or stop. M1741 audits M1740 as clean and diffuse-dominance-positive:
+the issue is not a local profile/slice repair target, so direct rerun or
+controller-family comparison remains blocked. The next task is M1742: design
+family-specific task-quality outcome semantics, including benchmark versus
+diagnostic row separation, mitigation metrics, off-track/recovery semantics,
+and a no-rollout next route.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

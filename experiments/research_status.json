@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1749,
+    "completed": 1750,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization.md",
+    "command_log": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1740-paper-route-task-quality-repaired-taxonomy-outcome-dominance-localization"
+    "task_id": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.json",
-    "hypothesis": "M1740 can be audited to decide whether diffuse outcome dominance requires task-quality redesign or a bounded evaluation-panel route.",
-    "id": "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit",
+    "command": "see experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json",
+    "hypothesis": "Diffuse outcome dominance can be addressed first by redesigning family-specific task-quality outcome semantics before another rollout or comparison.",
+    "id": "m1742-paper-route-task-quality-outcome-semantics-redesign",
     "kind": "gate",
-    "notes": "Pending: audit M1740 diffuse outcome dominance before redesign, bounded panel, synthesis, or stop",
-    "priority": 17360,
+    "notes": "Pending: design family-specific outcome semantics and next no-rollout route after diffuse dominance audit",
+    "priority": 17370,
     "status": "pending",
-    "success_artifact": "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md"
+    "success_artifact": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md"
   },
-  "updated_at_utc": "20260530T042600Z"
+  "updated_at_utc": "20260530T043600Z"
 }

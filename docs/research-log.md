@@ -28009,3 +28009,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, best-profile selection, paper-level evidence, recurrent advantage, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.json`
 - next: `m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit`
+
+## M1741 Paper-Route Task-Quality Repaired Taxonomy Outcome Dominance Result Audit
+
+- status: completed
+- decision: `diffuse_outcome_dominance_audit_admit_task_quality_outcome_semantics_redesign`
+- artifact: `docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md`
+- audited localization: `runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json`
+- audited result class: `task_quality_outcome_dominance_localization_pass`
+- dominant slice count: `143`
+- dominant family count: `6`
+- dominant profile count: `12`
+- outcome dominance class: `diffuse_outcome_dominance`
+- guardrail violation count: `0`
+- interpretation: not a local repair target; the workload needs family-specific outcome semantics before another rollout or ranking
+- supported: task-quality outcome semantics redesign admission
+- unsupported: controller-family ranking, profile promotion, paper-level evidence, recurrent advantage, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json`
+- next: `m1742-paper-route-task-quality-outcome-semantics-redesign`

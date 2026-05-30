@@ -1,0 +1,159 @@
+{
+  "id": "m1742-paper-route-task-quality-outcome-semantics-redesign",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json",
+      "runs/m1740_repaired_taxonomy_outcome_dominance_localization/dominant_slices.csv",
+      "runs/m1738_repaired_scenario_taxonomy_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.json"
+    ],
+    "parent_objective": [
+      "redesign task-quality outcome semantics after diffuse dominance audit"
+    ],
+    "derived_from": [
+      "m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit"
+    ],
+    "blocked_by": [
+      "current repaired taxonomy is executable but outcome-dominated across families and profiles"
+    ],
+    "supersedes": [
+      "direct rerun or controller-family comparison without outcome semantics redesign"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+  "public_gates": [
+    "M1742 must be design-only with no environment rollout",
+    "M1742 must define family-specific success mitigation off-track recovery and diagnostic stress semantics",
+    "M1742 must separate benchmark rows from diagnostic stress rows",
+    "M1742 must preserve unsupported-fault boundaries",
+    "M1742 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_outcome_semantics_redesign",
+    "evidence_increment": "designs revised outcome semantics after diffuse dominance made direct comparison invalid",
+    "claim_scope": "design-only task-quality semantics; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if redesign lacks family-specific outcome semantics",
+      "stop if redesign treats unsupported faults as covered",
+      "stop if redesign ranks profiles from M1738/M1740 public rows",
+      "stop if redesign admits rollout without no-rollout materialization/preflight"
+    ],
+    "fallback_plan": [
+      "route to no-rollout semantics materialization if design is complete",
+      "route to branch synthesis if redesign expands beyond scenario taxonomy scope",
+      "stop if no clean outcome semantics can be defined from current simulator support"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1741 admits outcome semantics redesign after diffuse dominance audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality outcome semantics redesign",
+    "admission_evidence": [
+      "M1741 audited diffuse outcome dominance and blocked direct comparison"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not rank controller-family profiles",
+      "do not claim paper-level or level3 self-identification evidence"
+    ],
+    "allowed_updates": [
+      "M1742 design document",
+      "M1742 status queue scoreboard research log and review",
+      "one follow-up no-rollout materialization/preflight manifest"
+    ],
+    "next_stage_criteria": [
+      "family-specific outcome semantics are defined",
+      "benchmark versus diagnostic rows are separated",
+      "next no-rollout route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; outcome semantics redesign cannot prove history necessity.",
+    "history_necessity_tests": [
+      "redesign should preserve profile controls for later tests but must not interpret them as self-ID evidence"
+    ],
+    "temporal_evidence_window": "M1738-M1741 public task-quality artifacts.",
+    "negative_result_policy": "If no clean semantics are possible, record task-design limitation rather than self-ID failure.",
+    "allowed_claims": [
+      "task-quality outcome semantics redesign",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "Diffuse outcome dominance can be addressed first by redesigning family-specific task-quality outcome semantics before another rollout or comparison.",
+  "success_criteria": [
+    "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md exists",
+    "family-specific outcome semantics are defined",
+    "benchmark rows and diagnostic stress rows are separated",
+    "unavoidable mitigation and off-track stress receive family-specific metrics",
+    "next route is no-rollout materialization/preflight branch synthesis or stop",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design omits family-specific outcome semantics",
+    "design treats diagnostic stress rows as ranking rows",
+    "design treats unsupported faults as covered",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write task-quality outcome semantics redesign"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1741-paper-route-task-quality-repaired-taxonomy-outcome-dominance-result-audit.md",
+    "runs/m1740_repaired_taxonomy_outcome_dominance_localization/summary.json"
+  ],
+  "decision_rule": "M1742 passes if it defines revised outcome semantics and chooses a no-rollout next route without overclaiming.",
+  "next_blocker": "m1742-paper-route-task-quality-outcome-semantics-redesign"
+}
