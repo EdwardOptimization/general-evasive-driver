@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1735,
+    "completed": 1736,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md",
+    "command_log": "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1726-paper-route-controller-family-task-quality-repair-branch-synthesis"
+    "task_id": "m1727-paper-route-task-quality-scenario-taxonomy-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1727-paper-route-task-quality-scenario-taxonomy-design.json",
-    "hypothesis": "A paper-route scenario taxonomy can be designed to replace narrow public off-track repair with structured task-quality distributions before controller-family comparison.",
-    "id": "m1727-paper-route-task-quality-scenario-taxonomy-design",
-    "kind": "gate",
-    "notes": "Pending: design ordinary/AEB-infeasible/drift-required/mitigation/off-track/hidden-dynamics scenario taxonomy without rollout",
-    "priority": 17220,
+    "command": "see experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json",
+    "hypothesis": "The M1727 scenario taxonomy can be materialized as no-rollout metadata with balanced families, explicit unsupported fault reporting, and no actor-contract violations.",
+    "id": "m1728-paper-route-task-quality-scenario-taxonomy-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize 6 families 72 scenario specs 864 profile cells with explicit unsupported fault reporting and no rollout",
+    "priority": 17230,
     "status": "pending",
-    "success_artifact": "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md"
+    "success_artifact": "runs/m1728_task_quality_scenario_taxonomy_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T025154Z"
+  "updated_at_utc": "20260530T025629Z"
 }

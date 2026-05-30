@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1726-paper-route-controller-family-task-quality-repair-branch-synthesis
+m1727-paper-route-task-quality-scenario-taxonomy-design
 ```
 
 Current next task:
 
 ```text
-m1727-paper-route-task-quality-scenario-taxonomy-design
+m1728-paper-route-task-quality-scenario-taxonomy-preflight
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -121,7 +121,14 @@ and off-track dominance remain high. The next task is M1727: design a
 paper-route scenario taxonomy covering ordinary avoidance, AEB-infeasible stable
 AES, drift-required avoidance, unavoidable mitigation, off-track boundary
 stress, and hidden-dynamics stress before any no-rollout materialization or
-controller-family comparison.
+controller-family comparison. M1727 completes that design: `6` scenario
+families, `72` planned scenario specs, all `12` controller-family profiles, and
+`864` planned public diagnostic cells. It requires unsupported fault-like
+features such as single-wheel blowout, wheel-specific grip loss, half-shaft
+loss, brake imbalance, and partial steering faults to be reported explicitly
+instead of silently approximated. The next task is M1728: materialize this
+taxonomy as no-rollout metadata with contract checks, matrix artifacts, and
+unsupported-feature reporting.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -150,6 +150,36 @@
   "baseline_artifacts": [
     "docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md",
+    "decision": "scenario_taxonomy_design_admit_no_rollout_preflight",
+    "planned_scenario_family_count": 6,
+    "planned_scenario_specs_per_family": 12,
+    "planned_scenario_spec_count": 72,
+    "planned_profile_count": 12,
+    "planned_matrix_cell_count": 864,
+    "scenario_families": [
+      "ordinary_stable_avoidance",
+      "aeb_infeasible_stable_aes",
+      "drift_required_avoidance",
+      "unavoidable_mitigation",
+      "off_track_boundary_stress",
+      "hidden_dynamics_stress"
+    ],
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json"
+  },
   "decision_rule": "M1727 passes if it designs the scenario taxonomy and routes to no-rollout materialization without overclaiming.",
-  "next_blocker": "m1727-paper-route-task-quality-scenario-taxonomy-design"
+  "next_blocker": "m1728-paper-route-task-quality-scenario-taxonomy-preflight"
 }

@@ -27731,3 +27731,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1727-paper-route-task-quality-scenario-taxonomy-design.json`
 - next: `m1727-paper-route-task-quality-scenario-taxonomy-design`
+
+## M1727 Paper-Route Task-Quality Scenario Taxonomy Design
+
+- status: completed
+- decision: `scenario_taxonomy_design_admit_no_rollout_preflight`
+- artifact: `docs/m1727-paper-route-task-quality-scenario-taxonomy-design.md`
+- parent synthesis: `docs/m1726-paper-route-controller-family-task-quality-repair-branch-synthesis.md`
+- planned scenario families: `6`
+- planned scenario specs: `72`
+- planned profiles: `12`
+- planned matrix cells: `864`
+- families: ordinary stable avoidance, AEB-infeasible stable AES, drift-required avoidance, unavoidable mitigation, off-track boundary stress, hidden-dynamics stress
+- supported stressors: friction step, brake/drive scale, tire stiffness, actuator delay, mass/inertia/CG shift, sensor noise/delay if supported
+- unsupported/future stressors must be reported explicitly: single-wheel blowout/puncture, wheel-specific grip loss, half-shaft or torque loss, brake-side imbalance, steering deadzone/partial actuator fault
+- supported: scenario taxonomy design and no-rollout materialization preflight admission
+- unsupported: scenario execution result, controller-family ranking, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1728-paper-route-task-quality-scenario-taxonomy-preflight.json`
+- next: `m1728-paper-route-task-quality-scenario-taxonomy-preflight`
