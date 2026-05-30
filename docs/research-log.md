@@ -31577,3 +31577,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project materialization result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1860-executable-v2-support-first-materialization-execution-design.json`
 - next: `m1860-executable-v2-support-first-materialization-execution-design`
+
+## M1860 Executable V2 Support-First Materialization Execution Design
+
+- status: completed
+- decision: `support_first_materialization_execution_design_admit_run`
+- artifact: `docs/m1860-executable-v2-support-first-materialization-execution-design.md`
+- output dir: `runs/m1861_executable_v2_support_first_materialization`
+- expected input supported source count: `202`
+- max sources per role: `24`
+- max sources per role surface: `12`
+- max cells per source: `2`
+- expected selected source count max: `96`
+- expected materialized spec count max: `192`
+- project materialization execution run: `false`
+- source mining rerun: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact bounded materialization command expected caps M1861 execution route
+- unsupported: materialization result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1861-executable-v2-support-first-materialization-execution.json`
+- next: `m1861-executable-v2-support-first-materialization-execution`

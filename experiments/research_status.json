@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1868,
+    "completed": 1869,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1859-executable-v2-support-first-materialization-implementation.md",
+    "command_log": "docs/m1860-executable-v2-support-first-materialization-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1859-executable-v2-support-first-materialization-implementation"
+    "task_id": "m1860-executable-v2-support-first-materialization-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1860-executable-v2-support-first-materialization-execution-design.json",
-    "hypothesis": "A fixed command can run bounded materialization over M1856 support artifacts with no reset or measured execution.",
-    "id": "m1860-executable-v2-support-first-materialization-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design exact bounded materialization execution command",
-    "priority": 18550,
+    "command": "see experiments/manifests/m1861-executable-v2-support-first-materialization-execution.json",
+    "hypothesis": "Bounded materialization can produce capped executable-v2 candidate artifacts from supported sources without reset or measured execution.",
+    "id": "m1861-executable-v2-support-first-materialization-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run bounded support-first materialization",
+    "priority": 18560,
     "status": "pending",
-    "success_artifact": "docs/m1860-executable-v2-support-first-materialization-execution-design.md"
+    "success_artifact": "runs/m1861_executable_v2_support_first_materialization/summary.json"
   },
-  "updated_at_utc": "20260530T133556Z"
+  "updated_at_utc": "20260530T133752Z"
 }
