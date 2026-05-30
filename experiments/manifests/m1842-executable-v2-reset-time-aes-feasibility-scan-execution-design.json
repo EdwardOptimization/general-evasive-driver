@@ -1,0 +1,170 @@
+{
+  "id": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_scan_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
+      "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py",
+      "tests/test_executable_v2_reset_time_aes_feasibility_scan.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json"
+    ],
+    "parent_objective": [
+      "fix exact project-artifact feasibility scan command before execution"
+    ],
+    "derived_from": [
+      "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation"
+    ],
+    "blocked_by": [
+      "M1841 helper implementation is complete but project artifact scan remains unrun"
+    ],
+    "supersedes": [
+      "running scan without exact pre-registration",
+      "generating source repair payload before scan evidence",
+      "reset preflight before conditional support is observed"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
+  "public_gates": [
+    "M1842 must fix the exact M1843 scan command over M1825 and M1828 artifacts",
+    "M1842 must preserve target counts of two sources and 24 failed AES profiles",
+    "M1842 must keep scan execution reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_reset_time_aes_feasibility_scan_execution_design",
+    "evidence_increment": "fixes exact scan command and output contract before the first project-artifact scan",
+    "claim_scope": "execution design only; no scan execution, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if exact command would not target M1825 repaired specs and M1828 reset rows",
+      "stop if expected target counts are not two sources and 24 failed AES profiles",
+      "stop if design would run the scan",
+      "stop if design would produce repair payload or reset preflight"
+    ],
+    "fallback_plan": [
+      "route to helper repair if the exact command exposes missing CLI controls",
+      "route to branch synthesis if target artifacts are unavailable",
+      "route to M1843 execution only after command and claim boundary are fixed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1841 helper is implemented and focused-tested",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-time AES feasibility scan execution design",
+    "admission_evidence": [
+      "M1841 implements scan helper and focused tests without project artifact scan"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact feasibility scan",
+      "do not generate repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1842 execution design doc",
+      "M1842 status queue scoreboard research log and review",
+      "one follow-up manifest for scan execution"
+    ],
+    "next_stage_criteria": [
+      "exact command and expected output dir are specified",
+      "grid settings match M1840 minimums",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; scan execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1841 helper only; no project artifact scan.",
+    "negative_result_policy": "If exact execution cannot be specified, repair helper or route to branch synthesis rather than weakening AES labels.",
+    "allowed_claims": [
+      "reset-time AES feasibility scan execution design",
+      "no project artifact scan result, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1841 helper can be given an exact project-artifact scan command over M1825/M1828 artifacts with M1840 grid settings and clean claim boundaries before execution.",
+  "success_criteria": [
+    "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md exists",
+    "design specifies exact command using src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py",
+    "design targets the 24 failed AES profiles across two sources from M1828",
+    "design uses distance range 1.0 to 60.0 with at least 120 points and half-width range 0.2 to 1.4 with at least 61 points",
+    "design routes to M1843 execution without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs the scan",
+    "design omits exact repaired-spec or reset-row paths",
+    "design omits expected target counts",
+    "design routes directly to source repair payload generation",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_scan_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
+    "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py",
+    "tests/test_executable_v2_reset_time_aes_feasibility_scan.py"
+  ],
+  "decision_rule": "M1842 passes if it fixes exact M1843 scan command and claim boundaries without running scan, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design"
+}

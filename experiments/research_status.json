@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1849,
+    "completed": 1850,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+    "command_log": "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
+    "task_id": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json",
-    "hypothesis": "A no-reset helper can implement M1840's conditional grid scan, distinguish feasible AES-only rows from AEB-feasible-only rows, and write scan summary artifacts without generating a repair payload.",
-    "id": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement feasibility scan helper and focused tests without project artifact scan",
-    "priority": 18360,
+    "command": "see experiments/manifests/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.json",
+    "hypothesis": "The M1841 helper can be given an exact project-artifact scan command over M1825/M1828 artifacts with M1840 grid settings and clean claim boundaries before execution.",
+    "id": "m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design",
+    "kind": "gate",
+    "notes": "Pending: fix exact scan command without running project artifact scan",
+    "priority": 18370,
     "status": "pending",
-    "success_artifact": "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md"
+    "success_artifact": "docs/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.md"
   },
-  "updated_at_utc": "20260530T133300Z"
+  "updated_at_utc": "20260530T122325Z"
 }

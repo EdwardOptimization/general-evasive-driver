@@ -30975,3 +30975,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json`
 - next: `m1841-executable-v2-reset-time-aes-feasibility-scan-implementation`
+
+## M1841 Executable V2 Reset-Time AES Feasibility Scan Implementation
+
+- status: completed
+- decision: `reset_time_aes_feasibility_scan_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md`
+- source: `src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py`
+- tests: `tests/test_executable_v2_reset_time_aes_feasibility_scan.py`
+- focused tests: `5 passed in 0.08s`
+- full pytest: `1750 passed, 4 warnings in 9.73s`
+- project artifact scan run: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: helper implementation and focused tests for conditional reset-time AES feasibility scan
+- unsupported: project artifact scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design.json`
+- next: `m1842-executable-v2-reset-time-aes-feasibility-scan-execution-design`
