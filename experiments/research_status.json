@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1844,
+    "completed": 1845,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1835-executable-v2-reset-time-aes-source-repair-v2-design.md",
+    "command_log": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1835-executable-v2-reset-time-aes-source-repair-v2-design"
+    "task_id": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.json",
-    "hypothesis": "A no-reset helper can implement M1835's reset-time AES-only acceptance objective, source-level candidate selection, and row/attempt summary aggregation with focused tests.",
-    "id": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement helper and focused tests without project artifact execution",
-    "priority": 18310,
+    "command": "see experiments/manifests/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.json",
+    "hypothesis": "The M1836 helper can be targeted by an exact project artifact command with fixed inputs, output directory, expected counts, and claim boundary.",
+    "id": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design",
+    "kind": "gate",
+    "notes": "Pending: pre-register exact source repair v2 project artifact command without running it",
+    "priority": 18320,
     "status": "pending",
-    "success_artifact": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md"
+    "success_artifact": "docs/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.md"
   },
-  "updated_at_utc": "20260530T132800Z"
+  "updated_at_utc": "20260530T132900Z"
 }

@@ -30829,3 +30829,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.json`
 - next: `m1836-executable-v2-reset-time-aes-source-repair-v2-implementation`
+
+## M1836 Executable V2 Reset-Time AES Source Repair V2 Implementation
+
+- status: completed
+- decision: `reset_time_aes_source_repair_v2_implementation_pass_route_to_execution_design`
+- source: `src/autodrift/executable_v2_reset_time_aes_source_repair_v2.py`
+- test: `tests/test_executable_v2_reset_time_aes_source_repair_v2.py`
+- focused test result: `3 passed in 0.12s`
+- full pytest result: `1745 passed, 4 warnings in 10.23s`
+- project artifact repair execution: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: helper implementation focused tests and full pytest non-regression
+- unsupported: project artifact repair result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.json`
+- next: `m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design`

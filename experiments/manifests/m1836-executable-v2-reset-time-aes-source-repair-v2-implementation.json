@@ -178,6 +178,32 @@
     "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py",
     "src/autodrift/executable_v2_stable_source_targeted_reset_sampler_repair.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md",
+    "decision": "reset_time_aes_source_repair_v2_implementation_pass_route_to_execution_design",
+    "source": "src/autodrift/executable_v2_reset_time_aes_source_repair_v2.py",
+    "test": "tests/test_executable_v2_reset_time_aes_source_repair_v2.py",
+    "focused_test_result": "3 passed in 0.12s",
+    "full_pytest_result": "1745 passed, 4 warnings in 10.23s",
+    "project_artifact_repair_execution": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.json"
+  },
   "decision_rule": "M1836 passes if the helper and focused tests implement M1835 without project artifact execution, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation"
+  "next_blocker": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design"
 }
