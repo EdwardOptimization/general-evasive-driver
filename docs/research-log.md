@@ -30424,3 +30424,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json`
 - next: `m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation`
+
+## M1823 Executable V2 Stable Source Targeted Reset Sampler Repair Implementation
+
+- status: completed
+- decision: `stable_source_targeted_reset_sampler_repair_implementation_pass_route_to_execution_design`
+- module: `src/autodrift/executable_v2_stable_source_targeted_reset_sampler_repair.py`
+- test: `tests/test_executable_v2_stable_source_targeted_reset_sampler_repair.py`
+- focused test result: `2 passed in 0.17s`
+- project artifact repair run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- expected repair target source count: `3`
+- expected systematic source count: `2`
+- expected sparse source count: `1`
+- expected profile control count: `12`
+- expected repaired executable spec count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: no-reset source-level sampler repair planner implementation and focused tests
+- unsupported: project repair result repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.json`
+- next: `m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design`

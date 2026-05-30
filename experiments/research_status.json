@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1831,
+    "completed": 1832,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+    "command_log": "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design"
+    "task_id": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json",
-    "hypothesis": "A no-reset repair planner can produce source-level repaired sampler artifacts for the M1820 failure classes while preserving profile controls and claim boundaries.",
-    "id": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset source-level sampler repair planner with focused tests",
-    "priority": 18180,
+    "command": "see experiments/manifests/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.json",
+    "hypothesis": "The no-reset repair planner execution over M1816/M1820 artifacts can be pre-registered with exact target counts and guardrails before running project repair.",
+    "id": "m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact no-reset repair planner execution command",
+    "priority": 18190,
     "status": "pending",
-    "success_artifact": "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md"
+    "success_artifact": "docs/m1824-executable-v2-stable-source-targeted-reset-sampler-repair-execution-design.md"
   },
-  "updated_at_utc": "20260530T123500Z"
+  "updated_at_utc": "20260530T124000Z"
 }
