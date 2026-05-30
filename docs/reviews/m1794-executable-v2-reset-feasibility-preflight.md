@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T085418Z
+- Generated at UTC: 20260530T085843Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: not_applicable
-- Decision reason: M1794 passes if all 312 executable v2 specs reset without rollout, ranking, label leakage, or guardrail violations.
+- Promotion decision: executable_v2_reset_preflight_sampling_failures_route_to_result_audit
+- Decision reason: M1794 ran 312 reset-only specs with 272 successes 40 sampling failures zero label leakage and zero guardrail violations
 
 ## Hypothesis
 
@@ -81,8 +81,19 @@ All 312 executable v2 panel specs can reset successfully without rollout or labe
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1794-executable-v2-reset-feasibility-preflight
+- type: infrastructure
+- checkpoint: runs/m1794_executable_v2_reset_feasibility_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_reset_preflight_sampling_failures_route_to_result_audit
+- reason: M1794 ran 312 reset-only specs with 272 successes 40 sampling failures zero label leakage and zero guardrail violations
 
 ## Next Blocker
 
-m1794-executable-v2-reset-feasibility-preflight
+m1795-executable-v2-reset-feasibility-result-audit

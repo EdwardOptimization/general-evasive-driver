@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1794 passes if all 312 executable v2 specs reset without rollout, ranking, label leakage, or guardrail violations.",
+  "decision_reason": "M1794 ran 312 reset-only specs with 272 successes 40 sampling failures zero label leakage and zero guardrail violations",
   "failure_criteria": [
     "summary is missing",
     "any reset fails",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260530T085418Z",
+  "generated_at_utc": "20260530T085843Z",
   "hypothesis": "All 312 executable v2 panel specs can reset successfully without rollout or label leakage.",
   "lineage": {
     "blocked_by": [
@@ -58,16 +58,29 @@
     ]
   },
   "milestone": "m1794-executable-v2-reset-feasibility-preflight",
-  "next_blocker": "m1794-executable-v2-reset-feasibility-preflight",
+  "next_blocker": "m1795-executable-v2-reset-feasibility-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "executable_v2_reset_preflight_sampling_failures_route_to_result_audit",
   "public_gates": [
     "M1794 must run the exact M1793 reset-only command",
     "M1794 must attempt 312 executable v2 specs across six role surfaces and twelve profiles",
     "M1794 must preserve zero label leakage zero ranking admission and zero guardrail violations",
     "M1794 must not start rollout execute policy actions train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "executable_v2_reset_preflight_sampling_failures_route_to_result_audit",
+    "milestone": "m1794-executable-v2-reset-feasibility-preflight",
+    "reason": "M1794 ran 312 reset-only specs with 272 successes 40 sampling failures zero label leakage and zero guardrail violations",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json exists",
     "result_class == executable_v2_reset_feasibility_preflight_pass",

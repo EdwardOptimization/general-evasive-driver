@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1802,
+    "completed": 1803,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1793-executable-v2-reset-feasibility-execution-design.md",
+    "command_log": "docs/m1794-executable-v2-reset-feasibility-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1793-executable-v2-reset-feasibility-execution-design"
+    "task_id": "m1794-executable-v2-reset-feasibility-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1794-executable-v2-reset-feasibility-preflight.json",
-    "hypothesis": "All 312 executable v2 panel specs can reset successfully without rollout or label leakage.",
-    "id": "m1794-executable-v2-reset-feasibility-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact full 312-row executable v2 reset-only feasibility preflight",
-    "priority": 17890,
+    "command": "see experiments/manifests/m1795-executable-v2-reset-feasibility-result-audit.json",
+    "hypothesis": "M1794 sampling failures can be localized well enough to choose a seed probe, spec repair, adapter repair, or synthesis route without rerunning reset.",
+    "id": "m1795-executable-v2-reset-feasibility-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1794 40 sampling failures without rerunning reset or rollout",
+    "priority": 17900,
     "status": "pending",
-    "success_artifact": "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json"
+    "success_artifact": "docs/m1795-executable-v2-reset-feasibility-result-audit.md"
   },
-  "updated_at_utc": "20260530T085142Z"
+  "updated_at_utc": "20260530T085726Z"
 }

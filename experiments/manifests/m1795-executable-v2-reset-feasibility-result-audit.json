@@ -1,0 +1,161 @@
+{
+  "id": "m1795-executable-v2-reset-feasibility-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1794-executable-v2-reset-feasibility-preflight.md",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/sampling_failure_rows.csv",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1794-executable-v2-reset-feasibility-preflight.json"
+    ],
+    "parent_objective": [
+      "audit executable v2 reset-only feasibility failures before repair or rerun"
+    ],
+    "derived_from": [
+      "m1794-executable-v2-reset-feasibility-preflight"
+    ],
+    "blocked_by": [
+      "M1794 reports 40 sampling failures out of 312 reset attempts"
+    ],
+    "supersedes": [
+      "rerunning or repairing v2 reset feasibility without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1795-executable-v2-reset-feasibility-result-audit.md",
+  "public_gates": [
+    "M1795 must use only M1794 artifacts and must not rerun reset or rollout",
+    "M1795 must localize sampling failures by role surface task label hidden bucket source spec and error message",
+    "M1795 must decide whether failures are seed-fragile inherited M1771 artifacts v2 surface repair issues or adapter bugs",
+    "M1795 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_role_specific_panel_metric_repair",
+    "evidence_axis": "Q_executable_v2_reset_feasibility_result_audit",
+    "evidence_increment": "audits M1794 sampling failures before repair or rerun",
+    "claim_scope": "result audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if failure provenance cannot be localized",
+      "stop if failures indicate adapter metadata loss",
+      "stop if next repair/rerun route is ambiguous",
+      "stop if branch synthesis cadence requires synthesis before more repair"
+    ],
+    "fallback_plan": [
+      "route to seed-fragility probe if failures may be seed-specific",
+      "route to executable spec repair if failures are systematic v2 surface artifacts",
+      "route to adapter repair if failure provenance is wrong"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1794 reset preflight completed with sampling failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "executable v2 reset feasibility result audit",
+    "admission_evidence": [
+      "M1794 completed reset-only preflight with 272 successes, 40 sampling failures, and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1795 audit document",
+      "M1795 status queue scoreboard research log and review",
+      "one follow-up manifest for seed probe spec repair adapter repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "failure provenance is localized",
+      "claim boundary remains enforced",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset failure audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1794 reset artifacts only.",
+    "negative_result_policy": "Record sampling failures as panel feasibility evidence and route to repair/probe without weakening self-ID standards.",
+    "allowed_claims": [
+      "executable v2 reset-feasibility result audit",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1794 sampling failures can be localized well enough to choose a seed probe, spec repair, adapter repair, or synthesis route without rerunning reset.",
+  "success_criteria": [
+    "docs/m1795-executable-v2-reset-feasibility-result-audit.md exists",
+    "M1795 uses only M1794 artifacts",
+    "M1795 localizes failures by role surface label hidden bucket source spec and error message",
+    "M1795 makes the next route explicit",
+    "M1795 preserves no-reset no-rollout no-training no-ranking and no-paper-claim guardrails"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit reruns reset or rollout",
+    "audit ignores sampling failures",
+    "audit ranks profiles or claims paper-level evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1794 reset artifacts without rerunning reset or rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1795-executable-v2-reset-feasibility-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1794-executable-v2-reset-feasibility-preflight.md",
+    "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
+    "runs/m1794_executable_v2_reset_feasibility_preflight/sampling_failure_rows.csv"
+  ],
+  "decision_rule": "M1795 passes if it audits M1794 failures and chooses the next route without rerunning reset or rollout.",
+  "next_blocker": "m1795-executable-v2-reset-feasibility-result-audit"
+}

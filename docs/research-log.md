@@ -29533,3 +29533,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility result, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1794-executable-v2-reset-feasibility-preflight.json`
 - next: `m1794-executable-v2-reset-feasibility-preflight`
+
+## M1794 Executable V2 Reset-Feasibility Preflight
+
+- status: completed
+- decision: `executable_v2_reset_preflight_sampling_failures_route_to_result_audit`
+- artifact: `runs/m1794_executable_v2_reset_feasibility_preflight/summary.json`
+- review document: `docs/m1794-executable-v2-reset-feasibility-preflight.md`
+- result class: `executable_v2_reset_feasibility_preflight_fail`
+- attempted spec count: `312`
+- reset success count: `272`
+- sampling failure count: `40`
+- profile count: `12`
+- role surface count: `6`
+- reset-ready spec count: `312`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- failure error type: `RuntimeError`
+- failure error message: `failed to sample an obstacle scenario matching the configured filters`
+- failure surfaces: `stable_avoidance_aes=36`, `hidden_robust_aes_feasible=4`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: full executable v2 reset-only preflight ran and localized 40 sampling failures
+- unsupported: reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1795-executable-v2-reset-feasibility-result-audit.json`
+- next: `m1795-executable-v2-reset-feasibility-result-audit`
