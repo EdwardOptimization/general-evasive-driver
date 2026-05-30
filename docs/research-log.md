@@ -31163,3 +31163,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: metadata redesign implementation project artifact execution source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json`
 - next: `m1847-executable-v2-task-source-metadata-redesign-implementation`
+
+## M1847 Executable V2 Task-Source Metadata Redesign Implementation
+
+- status: completed
+- decision: `task_source_metadata_redesign_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md`
+- source: `src/autodrift/executable_v2_task_source_metadata_redesign.py`
+- tests: `tests/test_executable_v2_task_source_metadata_redesign.py`
+- focused tests: `6 passed in 0.12s`
+- full pytest: `1756 passed, 4 warnings in 10.68s`
+- project artifact execution run: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: metadata redesign helper implementation and focused tests
+- unsupported: project artifact execution source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1848-executable-v2-task-source-metadata-redesign-execution-design.json`
+- next: `m1848-executable-v2-task-source-metadata-redesign-execution-design`

@@ -1,0 +1,171 @@
+{
+  "id": "m1848-executable-v2-task-source-metadata-redesign-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_metadata_redesign_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md",
+      "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json"
+    ],
+    "parent_objective": [
+      "fix exact project-artifact metadata redesign command before execution"
+    ],
+    "derived_from": [
+      "m1847-executable-v2-task-source-metadata-redesign-implementation"
+    ],
+    "blocked_by": [
+      "M1847 helper implementation is complete but project artifact execution remains unrun"
+    ],
+    "supersedes": [
+      "manual metadata redesign execution",
+      "materialization before support-first admissibility",
+      "context-insensitive claim-boundary output"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+  "public_gates": [
+    "M1848 must fix the exact M1849 metadata redesign command over M1843 support evidence",
+    "M1848 must keep source rows derived from support profile summaries unless explicit audited source rows are provided",
+    "M1848 must keep execution reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact execution",
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_task_source_metadata_redesign",
+    "evidence_axis": "Q_task_source_metadata_redesign_execution_design",
+    "evidence_increment": "fixes exact metadata redesign project-artifact command before execution",
+    "claim_scope": "execution design only; no project artifact execution, source repair payload, scan, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if command would not consume M1843 support evidence",
+      "stop if command would generate repair payload",
+      "stop if command would run reset or rollout",
+      "stop if claim-boundary context is not project_artifact_execution"
+    ],
+    "fallback_plan": [
+      "route to helper repair if command exposes missing CLI controls",
+      "route to M1849 execution only after exact command is fixed",
+      "route to branch synthesis if M1843 evidence is unavailable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1847 helper is implemented and focused-tested",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task/source metadata redesign execution design",
+    "admission_evidence": [
+      "M1847 implements metadata redesign helper and focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact execution",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1848 execution design doc",
+      "M1848 status queue scoreboard research log and review",
+      "one follow-up manifest for metadata redesign execution"
+    ],
+    "next_stage_criteria": [
+      "exact command and output dir are specified",
+      "M1843 evidence inputs are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1847 helper only; no project artifact execution.",
+    "negative_result_policy": "If exact execution cannot be specified, repair helper rather than weakening support-first standards.",
+    "allowed_claims": [
+      "support-first task/source metadata execution design",
+      "no project artifact execution, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1847 helper can be given an exact project-artifact command over M1843 support evidence with stable_aes_only default role and project_artifact_execution claim context.",
+  "success_criteria": [
+    "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md exists",
+    "design specifies exact command using src/autodrift/executable_v2_task_source_metadata_redesign.py",
+    "design consumes M1843 profile label and reject reason support evidence",
+    "design uses claim-boundary-context project_artifact_execution",
+    "design routes to M1849 execution without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project artifact execution",
+    "design omits M1843 support evidence paths",
+    "design omits claim-boundary context",
+    "design routes directly to source repair payload generation",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_metadata_redesign_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md",
+    "src/autodrift/executable_v2_task_source_metadata_redesign.py",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+  ],
+  "decision_rule": "M1848 passes if it fixes exact M1849 metadata redesign command without running execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1848-executable-v2-task-source-metadata-redesign-execution-design"
+}

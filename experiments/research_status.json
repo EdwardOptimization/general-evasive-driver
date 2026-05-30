@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1855,
+    "completed": 1856,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1846-executable-v2-task-source-metadata-redesign-design.md",
+    "command_log": "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1846-executable-v2-task-source-metadata-redesign-design"
+    "task_id": "m1847-executable-v2-task-source-metadata-redesign-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1847-executable-v2-task-source-metadata-redesign-implementation.json",
-    "hypothesis": "A no-reset helper can enforce support-first task/source metadata rules, block unsupported stable AES materialization, keep drift-required evidence separate, and write context-aware claim boundaries.",
-    "id": "m1847-executable-v2-task-source-metadata-redesign-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement metadata redesign helper and focused tests without project artifact execution",
-    "priority": 18420,
+    "command": "see experiments/manifests/m1848-executable-v2-task-source-metadata-redesign-execution-design.json",
+    "hypothesis": "The M1847 helper can be given an exact project-artifact command over M1843 support evidence with stable_aes_only default role and project_artifact_execution claim context.",
+    "id": "m1848-executable-v2-task-source-metadata-redesign-execution-design",
+    "kind": "gate",
+    "notes": "Pending: fix exact metadata redesign execution command without running it",
+    "priority": 18430,
     "status": "pending",
-    "success_artifact": "docs/m1847-executable-v2-task-source-metadata-redesign-implementation.md"
+    "success_artifact": "docs/m1848-executable-v2-task-source-metadata-redesign-execution-design.md"
   },
-  "updated_at_utc": "20260530T124142Z"
+  "updated_at_utc": "20260530T124844Z"
 }
