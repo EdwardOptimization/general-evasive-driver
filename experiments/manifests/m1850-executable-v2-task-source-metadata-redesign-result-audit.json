@@ -1,0 +1,170 @@
+{
+  "id": "m1850-executable-v2-task-source-metadata-redesign-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_metadata_redesign_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1849-executable-v2-task-source-metadata-redesign-execution.md",
+      "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json",
+      "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_materialization_admissibility.csv",
+      "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1849-executable-v2-task-source-metadata-redesign-execution.json"
+    ],
+    "parent_objective": [
+      "audit support-first metadata execution and choose next route"
+    ],
+    "derived_from": [
+      "m1849-executable-v2-task-source-metadata-redesign-execution"
+    ],
+    "blocked_by": [
+      "M1849 blocked both current stable AES-only sources from materialization"
+    ],
+    "supersedes": [
+      "materialization of unsupported stable AES sources",
+      "source repair payload after metadata gate blocks sources",
+      "ranking or measured execution before support mining"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1850-executable-v2-task-source-metadata-redesign-result-audit.md",
+  "public_gates": [
+    "M1850 must audit M1849 metadata gate outputs before next branch work",
+    "M1850 must decide whether support-mining/materialization redesign is admissible",
+    "M1850 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact execution",
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_task_source_metadata_redesign",
+    "evidence_axis": "Q_task_source_metadata_redesign_result_audit",
+    "evidence_increment": "audits whether M1849 correctly blocks unsupported stable AES sources and admits support-mining redesign",
+    "claim_scope": "result audit only; no project artifact execution, source repair payload, scan, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1849 admits unsupported stable AES materialization",
+      "stop if claim-boundary context is wrong",
+      "stop if audit would run reset or measured execution",
+      "stop if next branch lacks support-mining admission criteria"
+    ],
+    "fallback_plan": [
+      "route to helper repair if M1849 output is inconsistent",
+      "route to support-mining design if M1849 blocks unsupported sources cleanly",
+      "route to branch synthesis if metadata redesign cannot choose a next branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1849 metadata gate blocks current unsupported sources",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task/source metadata redesign result audit",
+    "admission_evidence": [
+      "M1849 blocked two stable AES-only sources from materialization with clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact execution",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1850 audit doc",
+      "M1850 status queue scoreboard research log and review",
+      "one follow-up manifest for support-mining design or branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "audit classifies M1849 output",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1849 metadata outputs only; no reset or rollout.",
+    "negative_result_policy": "Record metadata blocks as support evidence and route explicitly rather than weakening labels.",
+    "allowed_claims": [
+      "support-first task/source metadata result audit",
+      "no source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1849 cleanly blocks unsupported stable AES-only materialization and admits a support-mining/materialization redesign branch.",
+  "success_criteria": [
+    "docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md exists",
+    "audit records M1849 source counts support statuses materialization counts and guardrails",
+    "audit verifies project_artifact_execution claim context",
+    "audit chooses explicit next route without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit reruns project artifact execution reset or rollout",
+    "audit admits unsupported stable AES materialization",
+    "audit makes controller ranking or paper-level claims",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_metadata_redesign_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1849-executable-v2-task-source-metadata-redesign-execution.md",
+    "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json",
+    "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_materialization_admissibility.csv",
+    "runs/m1849_executable_v2_task_source_metadata_redesign/task_source_claim_boundary.csv"
+  ],
+  "decision_rule": "M1850 passes if it audits M1849 and chooses a next route without execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1850-executable-v2-task-source-metadata-redesign-result-audit"
+}

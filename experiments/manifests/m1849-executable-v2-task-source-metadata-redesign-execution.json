@@ -181,6 +181,49 @@
     "src/autodrift/executable_v2_task_source_metadata_redesign.py",
     "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1849_executable_v2_task_source_metadata_redesign/summary.json",
+    "docs_artifact": "docs/m1849-executable-v2-task-source-metadata-redesign-execution.md",
+    "decision": "task_source_metadata_redesign_blocks_unsupported_sources_route_to_audit",
+    "contract_id": "executable_v2_support_first_task_source_v1",
+    "input_source_count": 2,
+    "input_profile_count": 24,
+    "supported_source_count": 0,
+    "unsupported_source_count": 2,
+    "unknown_source_count": 0,
+    "materialization_admissible_source_count": 0,
+    "materialization_blocked_source_count": 2,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "claim_boundary_context": "project_artifact_execution",
+    "claim_boundary_context_count": {
+      "project_artifact_execution": 2
+    },
+    "blocked_sources": [
+      "m1771-bp1-00",
+      "m1771-bp1-02"
+    ],
+    "block_reason": "label_role_mismatch",
+    "project_artifact_execution_run": true,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1850-executable-v2-task-source-metadata-redesign-result-audit.json"
+  },
   "decision_rule": "M1849 passes if it writes complete metadata redesign artifacts and blocks unsupported stable AES sources without scan, reset, rollout, ranking, paper-level claims, or repair payload generation.",
-  "next_blocker": "m1849-executable-v2-task-source-metadata-redesign-execution"
+  "next_blocker": "m1850-executable-v2-task-source-metadata-redesign-result-audit"
 }
