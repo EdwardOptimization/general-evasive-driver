@@ -157,6 +157,36 @@
     "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
     "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+    "decision": "admit_seed_repair_completion_execution_cli_implementation",
+    "planned_output_dir": "runs/m1764_revised_scenario_taxonomy_single_seed_completion",
+    "source_run_dir": "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair",
+    "probe_rows": "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv",
+    "workload_id": "m1728-s4-02::L2_window_13_current_tiled",
+    "original_eval_seed": 175761,
+    "replacement_eval_seed": 175760,
+    "expected_sampled_obstacle_label": "unavoidable",
+    "policy_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_config_changed": false,
+    "scenario_spec_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1763-seed-repair-completion-execution-cli-implementation.json"
+  },
   "decision_rule": "M1762 passes if it pre-registers the exact completion execution before running the missing row.",
-  "next_blocker": "m1762-single-cell-seed-repair-completion-execution-design"
+  "next_blocker": "m1763-seed-repair-completion-execution-cli-implementation"
 }

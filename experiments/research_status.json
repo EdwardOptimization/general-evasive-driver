@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1770,
+    "completed": 1771,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1761-seed-repair-completion-runner-implementation.md",
+    "command_log": "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1761-seed-repair-completion-runner-implementation"
+    "task_id": "m1762-single-cell-seed-repair-completion-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json",
-    "hypothesis": "A fixed one-cell completion execution can be pre-registered before running the replacement-seed episode.",
-    "id": "m1762-single-cell-seed-repair-completion-execution-design",
-    "kind": "gate",
-    "notes": "Pending: pre-register exact completion execution command and pass gates",
-    "priority": 17570,
+    "command": "see experiments/manifests/m1763-seed-repair-completion-execution-cli-implementation.json",
+    "hypothesis": "A minimal CLI can execute the later one-cell completion route while preserving seed-repair provenance and fixed inputs.",
+    "id": "m1763-seed-repair-completion-execution-cli-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement CLI and focused tests without running real policy rollout",
+    "priority": 17580,
     "status": "pending",
-    "success_artifact": "docs/m1762-single-cell-seed-repair-completion-execution-design.md"
+    "success_artifact": "docs/m1763-seed-repair-completion-execution-cli-implementation.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

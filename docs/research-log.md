@@ -28578,3 +28578,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: missing-cell policy rollout, completed matrix, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json`
 - next: `m1762-single-cell-seed-repair-completion-execution-design`
+
+## M1762 Single-Cell Seed-Repair Completion Execution Design
+
+- status: completed
+- decision: `admit_seed_repair_completion_execution_cli_implementation`
+- artifact: `docs/m1762-single-cell-seed-repair-completion-execution-design.md`
+- planned output dir: `runs/m1764_revised_scenario_taxonomy_single_seed_completion`
+- source run dir: `runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair`
+- probe rows: `runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv`
+- workload: `m1728-s4-02::L2_window_13_current_tiled`
+- original eval seed: `175761`
+- replacement eval seed: `175760`
+- expected sampled obstacle label: `unavoidable`
+- policy rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact one-cell completion execution design and pass gates
+- unsupported: real missing-cell policy rollout, completed matrix, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1763-seed-repair-completion-execution-cli-implementation.json`
+- next: `m1763-seed-repair-completion-execution-cli-implementation`

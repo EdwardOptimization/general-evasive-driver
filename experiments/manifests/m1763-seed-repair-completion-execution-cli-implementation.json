@@ -1,0 +1,161 @@
+{
+  "id": "m1763-seed-repair-completion-execution-cli-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_completion_execution_cli"
+    ],
+    "parent_dataset": [
+      "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/episode_rows.csv",
+      "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/failure_rows.csv",
+      "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1762-single-cell-seed-repair-completion-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement the exact one-cell completion execution CLI without running the missing episode"
+    ],
+    "derived_from": [
+      "m1762-single-cell-seed-repair-completion-execution-design"
+    ],
+    "blocked_by": [
+      "M1762 requires a CLI before M1764 can execute the replacement-seed row"
+    ],
+    "supersedes": [
+      "manual Python one-off completion execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1763-seed-repair-completion-execution-cli-implementation.md",
+  "public_gates": [
+    "M1763 must implement only the CLI and focused tests",
+    "M1763 must not run the CLI over the real M1756/M1758 artifacts",
+    "M1763 must not execute policy rollout",
+    "M1763 must preserve M1761 provenance fields and M1762 fixed inputs",
+    "M1763 must not change scenario specs profile configs actor inputs rewards dynamics termination behavior or controller profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_seed_repair_completion_execution_cli",
+    "evidence_increment": "implements the CLI needed for M1764 one-cell completion execution",
+    "claim_scope": "infrastructure implementation only; no policy rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if CLI cannot preserve provenance",
+      "stop if CLI requires scenario/profile changes",
+      "stop if implementation would run the real missing episode during M1763"
+    ],
+    "fallback_plan": [
+      "route back to M1762 design if fixed inputs are insufficient",
+      "route to full same-protocol rerun design if one-cell execution cannot be isolated",
+      "route to runner repair audit if focused tests fail"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1762 admits completion execution CLI implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement one-cell completion execution CLI",
+    "admission_evidence": [
+      "M1762 fixed all inputs output directory replacement seed and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run policy rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "completion execution CLI",
+      "focused tests with monkeypatched workload-cell execution",
+      "M1763 documentation status queue scoreboard research log and review",
+      "one follow-up completion execution manifest"
+    ],
+    "next_stage_criteria": [
+      "CLI is implemented",
+      "focused tests pass without real policy rollout",
+      "M1764 execution command remains unchanged from M1762"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; CLI implementation cannot prove history necessity.",
+    "history_necessity_tests": [
+      "CLI must preserve all profile and seed provenance for later audit"
+    ],
+    "temporal_evidence_window": "M1762 design only.",
+    "negative_result_policy": "Classify CLI failures as infrastructure evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "completion execution CLI implementation",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A minimal CLI can execute the later one-cell completion route while preserving seed-repair provenance and fixed inputs.",
+  "success_criteria": [
+    "docs/m1763-seed-repair-completion-execution-cli-implementation.md exists",
+    "CLI implementation exists",
+    "focused tests pass without running real policy rollout",
+    "M1764 command remains fixed to M1762 inputs",
+    "policy rollout training replay PPO promotion private holdout actor-input changes profile tuning and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "implementation document is missing",
+    "CLI drops provenance fields or changes fixed inputs",
+    "CLI requires scenario spec or profile config changes",
+    "policy rollout, training, replay, PPO, private holdout, promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "implement completion execution CLI and focused tests without running real policy rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1763-seed-repair-completion-execution-cli-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_completion_execution_cli"
+  ],
+  "baseline_artifacts": [
+    "docs/m1762-single-cell-seed-repair-completion-execution-design.md",
+    "src/autodrift/seed_repair_completion.py"
+  ],
+  "decision_rule": "M1763 passes if the CLI is implemented and tested without executing the real missing row.",
+  "next_blocker": "m1763-seed-repair-completion-execution-cli-implementation"
+}
