@@ -27579,3 +27579,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, final repair design, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.json`
 - next: `m1719-paper-route-controller-family-off-track-dominance-localization-result-audit`
+
+## M1719 Paper-Route Controller-Family Off-Track Dominance Localization Result Audit
+
+- status: completed
+- decision: `localized_enough_route_to_repair_panel_design`
+- artifact: `docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md`
+- audited M1718 result class: `off_track_dominance_localization_pass`
+- repair target slices: `48`
+- target slice counts: variant-source `34`, source-task `10`, variant-task `4`
+- localized-vs-diffuse decision: localized enough for multi-source repair panel design, not a single-slice fix
+- profile rows used as ranking: `false`
+- supported: repair panel design is justified, with baseline and conditional-positive controls preserved
+- unsupported: controller-family ranking, task repair success, recurrent advantage, finite-window history necessity, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json`
+- next: `m1720-paper-route-controller-family-off-track-repair-panel-design`

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1727,
+    "completed": 1728,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1718_off_track_dominance_localization/summary.json",
+    "command_log": "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1718-paper-route-controller-family-off-track-dominance-localization"
+    "task_id": "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.json",
-    "hypothesis": "M1718 localization can be audited to decide whether off-track dominance is localized enough to design a repaired task-quality panel.",
-    "id": "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit",
+    "command": "see experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json",
+    "hypothesis": "A fixed-budget repair panel can be designed from M1718 localized off-track targets while preserving baseline and conditional-positive controls.",
+    "id": "m1720-paper-route-controller-family-off-track-repair-panel-design",
     "kind": "gate",
-    "notes": "Pending: audit repair target concentration and route to task-quality repair or source-distribution redesign",
-    "priority": 17140,
+    "notes": "Pending: design baseline-preserving repair panel with conditional-positive controls and missing composite variant check",
+    "priority": 17150,
     "status": "pending",
-    "success_artifact": "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md"
+    "success_artifact": "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md"
   },
-  "updated_at_utc": "20260530T020619Z"
+  "updated_at_utc": "20260530T020924Z"
 }

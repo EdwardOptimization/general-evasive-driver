@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1718-paper-route-controller-family-off-track-dominance-localization
+m1719-paper-route-controller-family-off-track-dominance-localization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1719-paper-route-controller-family-off-track-dominance-localization-result-audit
+m1720-paper-route-controller-family-off-track-repair-panel-design
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -76,6 +76,12 @@ those localization artifacts: `60` variant-source rows, `8` variant-task rows,
 slices under the `off_track>=0.80` and `collision<=0.10` rule, with guardrail
 `0`. The next task is M1719: audit whether these targets are localized enough
 for a repair panel or diffuse enough to require source-distribution redesign.
+M1719 audits the targets as localized enough for a multi-source repair panel,
+not a single-slice fix: `48` target slices remain, but variant-task and
+source-task targets show enough structure to design a baseline-preserving repair
+panel. The next task is M1720: design that fixed-budget repair panel, including
+the existing baseline and conditional-positive controls plus an explicit check
+for the missing wide-relaxed-extended composite variant.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

@@ -1,0 +1,159 @@
+{
+  "id": "m1720-paper-route-controller-family-off-track-repair-panel-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
+      "runs/m1718_off_track_dominance_localization/repair_target_slices.csv",
+      "runs/m1715_controller_family_calibrated_scale_up_execution/episode_rows.csv",
+      "runs/m1702_controller_family_task_quality_calibration_preflight/calibration_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design fixed-budget off-track repair panel before no-rollout preflight"
+    ],
+    "derived_from": [
+      "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit"
+    ],
+    "blocked_by": [
+      "need repair panel design before materializing repair subset"
+    ],
+    "supersedes": [
+      "direct repair preflight after M1719",
+      "direct rollout after M1719"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
+  "public_gates": [
+    "M1720 must design a no-rollout fixed-budget repair panel before materialization",
+    "M1720 must preserve baseline and conditional-positive controls",
+    "M1720 must include the wide-relaxed-extended composite variant only if it exists in the calibration matrix",
+    "M1720 must select repair sources from M1718 target slices without using profile ranking",
+    "M1720 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1720 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_design",
+    "evidence_increment": "designs fixed-budget repair panel from localized off-track target slices",
+    "claim_scope": "repair-panel design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair panel uses profile ranking",
+      "stop if baseline controls are omitted",
+      "stop if conditional-positive controls are omitted",
+      "stop if selected sources are not traceable to M1718 targets",
+      "stop if design routes directly to rollout"
+    ],
+    "fallback_plan": [
+      "route to no-rollout repair preflight if design is accepted",
+      "route to source-distribution redesign if target slices cannot produce a balanced panel",
+      "route to artifact repair if M1702 calibration matrix is missing required variants"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1719 routes localized off-track dominance to repair panel design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "off-track repair panel design",
+    "admission_evidence": [
+      "M1719 finds M1718 localization actionable enough for repair design"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1720 design document",
+      "M1720 status queue scoreboard research log and review",
+      "one follow-up no-rollout repair preflight manifest"
+    ],
+    "next_stage_criteria": [
+      "repair panel shape is explicit",
+      "source and variant selection rules are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1720 designs task repair and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must keep L1, L2-current-tiled, L3-online, and L3-reset controls in the repair panel"
+    ],
+    "temporal_evidence_window": "M1718 localization and M1719 audit only.",
+    "negative_result_policy": "If no balanced repair panel can be designed, route to source-distribution redesign rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "off-track repair panel design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A fixed-budget repair panel can be designed from M1718 localized off-track targets while preserving baseline and conditional-positive controls.",
+  "success_criteria": [
+    "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md exists",
+    "repair panel selected base/source rule is explicit",
+    "repair variant panel is explicit",
+    "baseline and conditional-positive controls are preserved",
+    "wide-relaxed-extended variant availability is addressed",
+    "all twelve controller-family profiles remain controls",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design omits baseline controls",
+    "design omits conditional-positive controls",
+    "design uses profile ranking to select sources",
+    "design routes directly to rollout",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write off-track repair panel design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1720-paper-route-controller-family-off-track-repair-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
+    "runs/m1718_off_track_dominance_localization/repair_target_slices.csv"
+  ],
+  "decision_rule": "M1720 passes if it designs a fixed-budget off-track repair panel and routes to no-rollout preflight without overclaiming.",
+  "next_blocker": "m1720-paper-route-controller-family-off-track-repair-panel-design"
+}

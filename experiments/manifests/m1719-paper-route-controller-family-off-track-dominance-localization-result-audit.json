@@ -151,6 +151,33 @@
     "runs/m1718_off_track_dominance_localization/summary.json",
     "runs/m1718_off_track_dominance_localization/repair_target_slices.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1719-paper-route-controller-family-off-track-dominance-localization-result-audit.md",
+    "decision": "localized_enough_route_to_repair_panel_design",
+    "audited_result_class": "off_track_dominance_localization_pass",
+    "episode_count": 864,
+    "repair_target_slice_count": 48,
+    "variant_source_edge_target_count": 34,
+    "source_task_family_target_count": 10,
+    "variant_task_family_target_count": 4,
+    "localized_enough_for_repair_design": true,
+    "diffuse_enough_for_source_redesign": false,
+    "profile_rows_used_as_ranking": false,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1720-paper-route-controller-family-off-track-repair-panel-design.json"
+  },
   "decision_rule": "M1719 passes if it audits localization and routes to task-quality repair design, source-distribution redesign, or artifact repair without overclaiming.",
-  "next_blocker": "m1719-paper-route-controller-family-off-track-dominance-localization-result-audit"
+  "next_blocker": "m1720-paper-route-controller-family-off-track-repair-panel-design"
 }
