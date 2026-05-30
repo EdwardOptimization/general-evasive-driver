@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1840,
+    "completed": 1841,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation.md",
+    "command_log": "docs/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1831-executable-v2-reset-time-aes-sampler-diagnostic-implementation"
+    "task_id": "m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.json",
-    "hypothesis": "The M1831 helper can be targeted by an exact project-artifact diagnostic command with fixed inputs, output directory, and claim boundary.",
-    "id": "m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design",
-    "kind": "gate",
-    "notes": "Pending: pre-register exact diagnostic execution command without running it",
-    "priority": 18270,
+    "command": "see experiments/manifests/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.json",
+    "hypothesis": "The M1831 helper can diagnose all 24 M1828 failed AES rows across two sources without running environment reset or rollout.",
+    "id": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact diagnostic command from M1832",
+    "priority": 18280,
     "status": "pending",
-    "success_artifact": "docs/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.md"
+    "success_artifact": "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json"
   },
-  "updated_at_utc": "20260530T132000Z"
+  "updated_at_utc": "20260530T132500Z"
 }

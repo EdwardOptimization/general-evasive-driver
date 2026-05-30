@@ -1,0 +1,174 @@
+{
+  "id": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_sampler_diagnostic_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.md",
+      "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
+      "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.json"
+    ],
+    "parent_objective": [
+      "run reset-time AES sampler diagnostic over M1825/M1828 artifacts"
+    ],
+    "derived_from": [
+      "m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design"
+    ],
+    "blocked_by": [
+      "M1832 admits diagnostic execution but it has not been run"
+    ],
+    "supersedes": [
+      "manual diagnostic execution",
+      "reset rerun before sampler diagnostics",
+      "source repair v2 without reject-reason evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution.md",
+  "public_gates": [
+    "M1833 must run only the diagnostic command pre-registered by M1832",
+    "M1833 must not run environment reset rollout policy action measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level or level3 claims",
+    "M1833 must write all diagnostic output tables and summary"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_sampler_diagnostic",
+    "evidence_axis": "Q_reset_time_aes_sampler_diagnostic_execution",
+    "evidence_increment": "runs project-artifact diagnostic to classify persistent AES reset-time sampler failures",
+    "claim_scope": "diagnostic execution only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if diagnostic target counts do not match M1828 failures",
+      "stop if diagnostic outputs are missing",
+      "stop if environment reset or rollout is run",
+      "stop if ranking or paper-level claims are made"
+    ],
+    "fallback_plan": [
+      "route to helper repair if diagnostic fails",
+      "route to result audit if diagnostic succeeds",
+      "route to design repair if counts are ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1832 pre-registers exact diagnostic command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "reset-time AES sampler diagnostic execution",
+    "admission_evidence": [
+      "M1832 exact command and expected counts are registered"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1833 run artifacts",
+      "M1833 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "diagnostic summary exists",
+      "target counts are evaluated",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler diagnostic execution is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1825/M1828 artifacts only; no reset or rollout.",
+    "negative_result_policy": "If diagnostic fails, route to result audit or helper repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "reset-time AES sampler diagnostic execution result",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1831 helper can diagnose all 24 M1828 failed AES rows across two sources without running environment reset or rollout.",
+  "success_criteria": [
+    "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json exists",
+    "result_class is reset_time_aes_sampler_diagnostic_pass",
+    "target_failed_aes_row_count equals 24",
+    "diagnostic_target_row_count equals 24",
+    "source_count equals 2",
+    "guardrail_violation_count equals 0",
+    "environment_reset_started is false",
+    "policy_action_executed is false",
+    "all expected output tables exist"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "result_class is fail",
+    "target counts do not match",
+    "diagnostic runs reset rollout measured rollout training replay PPO or ranking",
+    "diagnostic changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "diagnostic",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_reset_time_aes_sampler_diagnostic --repaired-specs runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json --reset-rows runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv --output-dir runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic --max-example-rows-per-spec 8 --next-blocker m1834-executable-v2-reset-time-aes-sampler-diagnostic-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1833_executable_v2_reset_time_aes_sampler_diagnostic/reset_time_attempt_summary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_sampler_diagnostic_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1832-executable-v2-reset-time-aes-sampler-diagnostic-execution-design.md",
+    "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py",
+    "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
+    "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1833 passes if it writes complete diagnostic artifacts for all 24 failed AES rows without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1833-executable-v2-reset-time-aes-sampler-diagnostic-execution"
+}
