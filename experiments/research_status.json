@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1858,
+    "completed": 1859,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1849-executable-v2-task-source-metadata-redesign-execution.md",
+    "command_log": "docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1849-executable-v2-task-source-metadata-redesign-execution"
+    "task_id": "m1850-executable-v2-task-source-metadata-redesign-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1850-executable-v2-task-source-metadata-redesign-result-audit.json",
-    "hypothesis": "M1849 cleanly blocks unsupported stable AES-only materialization and admits a support-mining/materialization redesign branch.",
-    "id": "m1850-executable-v2-task-source-metadata-redesign-result-audit",
+    "command": "see experiments/manifests/m1851-executable-v2-support-first-source-mining-design.json",
+    "hypothesis": "A support-first source mining design can select executable-v2 source candidates with role-specific reset-time support before materialization.",
+    "id": "m1851-executable-v2-support-first-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: audit metadata redesign execution and choose next route",
-    "priority": 18450,
+    "notes": "Pending: design support-first source mining before materialization",
+    "priority": 18460,
     "status": "pending",
-    "success_artifact": "docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md"
+    "success_artifact": "docs/m1851-executable-v2-support-first-source-mining-design.md"
   },
-  "updated_at_utc": "20260530T125409Z"
+  "updated_at_utc": "20260530T125835Z"
 }

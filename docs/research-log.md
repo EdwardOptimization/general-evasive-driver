@@ -31258,3 +31258,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1850-executable-v2-task-source-metadata-redesign-result-audit.json`
 - next: `m1850-executable-v2-task-source-metadata-redesign-result-audit`
+
+## M1850 Executable V2 Task-Source Metadata Redesign Result Audit
+
+- status: completed
+- decision: `metadata_gate_clean_admit_support_source_mining_design`
+- artifact: `docs/m1850-executable-v2-task-source-metadata-redesign-result-audit.md`
+- contract id: `executable_v2_support_first_task_source_v1`
+- input source count: `2`
+- input profile count: `24`
+- supported source count: `0`
+- unsupported source count: `2`
+- materialization admissible source count: `0`
+- materialization blocked source count: `2`
+- claim boundary context: `project_artifact_execution`
+- claim boundary context valid: `true`
+- support source mining design admitted: `true`
+- additional project artifact execution: `false`
+- project artifact scan: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean support-first metadata gate and support-source mining design admission
+- unsupported: source repair success reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1851-executable-v2-support-first-source-mining-design.json`
+- next: `m1851-executable-v2-support-first-source-mining-design`
