@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit
+m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design
+m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution
 ```
 
-M1751 audits the M1750 revised-execution adapter as clean: it preserves M1743
-semantics fields, separates M1743 metadata specs from M1734 executable specs,
-adds metric completeness reports, and remains logging-only. The next step is
-M1752, an adapter-aware measured-execution design. No revised 864-cell rollout,
-controller-family ranking, paper-level claim, promotion, or level3
-self-identification claim is admitted before that design and a later execution
-audit.
+M1752 pre-registers the adapter-aware revised measured execution. M1753 should
+run the fixed M1743 semantics specs/matrix with M1734 executable repaired specs
+into `runs/m1753_revised_scenario_taxonomy_execution` using seed base `175300`.
+The execution is still public diagnostic only: interpretation, controller-family
+ranking, paper-level claims, promotion, and level3 self-identification claims
+remain blocked until a later result audit.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -10995,5 +10994,9 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   interpretation deferred: the next design must fix exact M1743 metadata inputs,
   M1734 executable specs, output directory, seed base, required artifacts, and
   no-ranking/no-paper-claim gates before any rollout.
+- M1752 completes that design. M1753 must execute exactly `864` public
+  diagnostic cells with M1743 semantics metadata, M1734 executable specs, output
+  dir `runs/m1753_revised_scenario_taxonomy_execution`, seed base `175300`, and
+  metric-completeness artifacts. Any interpretation is deferred to M1754 audit.
 - Current next blocker:
-  `m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design`.
+  `m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution`.

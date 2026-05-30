@@ -28250,3 +28250,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level benchmark result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.json`
 - next: `m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design`
+
+## M1752 Paper-Route Task-Quality Revised Scenario Taxonomy Measured Execution Design
+
+- status: completed
+- decision: `revised_measured_execution_design_admit_m1753_execution`
+- artifact: `docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md`
+- parent audit: `docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md`
+- scenario specs: `runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_specs.json`
+- workload: `runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv`
+- executable scenario specs: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json`
+- unsupported features: `runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/unsupported_scenario_features.csv`
+- output dir: `runs/m1753_revised_scenario_taxonomy_execution`
+- eval seed base: `175300`
+- target episodes: `864`
+- target profiles: `12`
+- target scenario specs: `72`
+- target scenario families: `6`
+- required artifacts: `26`
+- metric completeness required: `true`
+- interpretation deferred to audit: `true`
+- full rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: adapter-aware revised measured-execution protocol
+- unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.json`
+- next: `m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution`

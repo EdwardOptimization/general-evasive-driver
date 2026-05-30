@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1760,
+    "completed": 1761,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit.md",
+    "command_log": "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1751-paper-route-task-quality-revised-scenario-taxonomy-execution-adapter-result-audit"
+    "task_id": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.json",
-    "hypothesis": "A revised measured execution can be designed over the fixed M1743 semantics matrix and M1734 executable specs before any rollout.",
-    "id": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design",
+    "command": "see experiments/manifests/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.json",
+    "hypothesis": "The fixed M1743 semantics matrix can be executed with M1734 executable specs as a complete revised public diagnostic run.",
+    "id": "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution",
     "kind": "gate",
-    "notes": "Pending: design adapter-aware revised measured execution before rollout",
-    "priority": 17470,
+    "notes": "Pending: execute fixed 864-cell revised public diagnostic matrix with metric completeness artifacts",
+    "priority": 17480,
     "status": "pending",
-    "success_artifact": "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md"
+    "success_artifact": "runs/m1753_revised_scenario_taxonomy_execution/summary.json"
   },
-  "updated_at_utc": "20260530T052722Z"
+  "updated_at_utc": "20260530T053115Z"
 }
