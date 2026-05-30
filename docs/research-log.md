@@ -27053,3 +27053,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: direct 864-cell rollout, controller-family ranking, private holdout, promotion, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json`
 - next: `m1690-paper-route-controller-family-executable-workload-materialization-preflight`
+
+## M1690 Paper-Route Controller-Family Executable Workload Materialization Preflight
+
+- status: completed
+- result class: `controller_family_executable_workload_materialization_preflight_pass`
+- artifact: `runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json`
+- executable specs: `runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json`
+- executable workload: `runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv`
+- executable specs / workload cells / profiles: `72` / `864` / `12`
+- task family counts: `T4=36`, `T5=36`
+- unmappable specs / contract violations / forbidden key violations / missing profile artifacts: `0` / `0` / `0` / `0`
+- guardrail violations / environment rollout started: `0` / `false`
+- supported: M1680/M1683 metadata workload now has executable P0-compatible specs and a complete 864-cell workload matrix
+- unsupported: controller-family ranking, full rollout result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.json`
+- next: `m1691-paper-route-controller-family-executable-workload-materialization-result-audit`

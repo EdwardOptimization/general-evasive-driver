@@ -172,6 +172,37 @@
     "runs/m1683_controller_family_bounded_rollout_protocol_preflight/workload_matrix.csv",
     "runs/m1674_controller_family_one_seed_public_pilot/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+    "executable_task_specs": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "executable_task_specs_csv": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.csv",
+    "executable_workload_matrix": "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+    "result_class": "controller_family_executable_workload_materialization_preflight_pass",
+    "executable_spec_count": 72,
+    "workload_cell_count": 864,
+    "reference_workload_cell_count": 864,
+    "profile_count": 12,
+    "task_family_counts": {
+      "T4": 36,
+      "T5": 36
+    },
+    "unmappable_spec_count": 0,
+    "contract_violation_count": 0,
+    "forbidden_key_violation_count": 0,
+    "missing_profile_artifact_count": 0,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.json"
+  },
   "decision_rule": "M1690 passes if it materializes all 72 executable specs and 864 workload cells with zero contract or guardrail violations.",
-  "next_blocker": "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
+  "next_blocker": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
 }

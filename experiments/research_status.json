@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1698,
+    "completed": 1699,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1689-paper-route-controller-family-task-source-branch-synthesis.md",
+    "command_log": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1690_controller_family_executable_workload_materialization_preflight",
     "status": "completed",
-    "task_id": "m1689-paper-route-controller-family-task-source-branch-synthesis"
+    "task_id": "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json",
-    "hypothesis": "All 72 M1680 source-budgeted metadata specs can be deterministically materialized into executable P0-compatible env specs and an 864-cell workload matrix without running rollout.",
-    "id": "m1690-paper-route-controller-family-executable-workload-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize executable workload before full rollout execution",
-    "priority": 16850,
+    "command": "see experiments/manifests/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.json",
+    "hypothesis": "M1690 materialization artifacts are complete enough to admit a separately designed 864-cell public rollout execution.",
+    "id": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit materialization before rollout execution design",
+    "priority": 16860,
     "status": "pending",
-    "success_artifact": "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260529T235321Z"
+  "updated_at_utc": "20260529T235856Z"
 }

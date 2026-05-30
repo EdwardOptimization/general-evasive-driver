@@ -1,0 +1,157 @@
+{
+  "id": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_materialization_audit"
+    ],
+    "parent_dataset": [
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1690-paper-route-controller-family-executable-workload-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "audit executable workload materialization before full rollout execution"
+    ],
+    "derived_from": [
+      "m1690-paper-route-controller-family-executable-workload-materialization-preflight"
+    ],
+    "blocked_by": [
+      "need materialization audit before 864-cell rollout execution"
+    ],
+    "supersedes": [
+      "direct full rollout execution after M1690",
+      "direct controller-family ranking after M1690"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+  "public_gates": [
+    "M1691 must audit M1690 artifacts before rollout execution",
+    "M1690 must have 72 executable specs and 864 workload cells",
+    "M1690 must have zero contract and guardrail violations",
+    "M1691 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1691 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_executable_workload_materialization_audit",
+    "evidence_increment": "audits executable workload materialization before full rollout execution",
+    "claim_scope": "process audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if materialization artifacts are incomplete",
+      "stop if any contract or guardrail violation exists",
+      "stop if proxy-template mapping is not documented",
+      "stop if audit would route directly to ranking claims"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if audit fails",
+      "route to full rollout execution design if audit passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1690 produced no-rollout executable materialization artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit executable workload materialization",
+    "admission_evidence": [
+      "M1690 reports 72 executable specs, 864 workload cells, and zero contract/guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1691 audit document",
+      "M1691 status queue scoreboard research log and review",
+      "one follow-up execution-design or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "artifact completeness is audited",
+      "proxy-template and contract checks are audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1691 audits workload materialization only.",
+    "history_necessity_tests": [
+      "audit must ensure L1, L2-current-tiled, and L3-reset controls remain in the workload"
+    ],
+    "temporal_evidence_window": "M1690 materialization artifacts only.",
+    "negative_result_policy": "If audit fails, route to materialization repair without rollout.",
+    "allowed_claims": [
+      "materialization audit result",
+      "no rollout, no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1690 materialization artifacts are complete enough to admit a separately designed 864-cell public rollout execution.",
+  "success_criteria": [
+    "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md exists",
+    "M1690 summary and materialization artifacts are readable",
+    "M1690 executable_spec_count == 72",
+    "M1690 workload_cell_count == 864",
+    "M1690 contract_violation_count == 0",
+    "M1690 guardrail_violation_count == 0",
+    "audit preserves no-ranking no-paper no-level3 claim boundary",
+    "next route is explicit"
+  ],
+  "failure_criteria": [
+    "required M1690 artifacts are missing",
+    "M1690 counts or contract checks fail",
+    "M1690 guardrails are violated",
+    "audit claims controller-family ranking or level3 self-ID",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1690 materialization artifacts and decide execution-design or repair route"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1690-paper-route-controller-family-executable-workload-materialization-preflight.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/summary.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1691 passes if it audits M1690 materialization as complete clean no-rollout evidence and routes explicitly to rollout execution design or repair.",
+  "next_blocker": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
+}
