@@ -1,0 +1,198 @@
+{
+  "id": "m1693-paper-route-controller-family-full-rollout-execution",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute resumable 864-cell public controller-family rollout"
+    ],
+    "derived_from": [
+      "m1692-paper-route-controller-family-full-rollout-execution-design"
+    ],
+    "blocked_by": [
+      "need public 864-cell rollout execution before audit and interpretation"
+    ],
+    "supersedes": [
+      "manual untracked rollout execution",
+      "non-resumable full rollout execution",
+      "direct controller-family ranking without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1693-paper-route-controller-family-full-rollout-execution.md",
+  "public_gates": [
+    "M1693 may run public environment rollout for exactly the materialized 864-cell workload",
+    "M1693 must be resumable and must not drop failed cells silently",
+    "M1693 must write episode profile spec stratum comparison failure and run-state artifacts",
+    "M1693 must not train replay PPO promote use private holdout or change actor inputs",
+    "M1693 must not claim controller-family ranking paper-level evidence or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not add actor inputs",
+    "do not use profile-specific tuning",
+    "do not drop failed cells silently",
+    "do not reduce the 864-cell workload silently",
+    "do not claim controller-family ranking",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_source_generation",
+    "evidence_axis": "F_full_public_rollout_execution",
+    "evidence_increment": "executes the 864-cell public controller-family rollout after materialization and execution design",
+    "claim_scope": "public rollout execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if runner is not resumable",
+      "stop if any profile/spec cell fails without failure_rows entry",
+      "stop if selected metrics are non-finite",
+      "stop if guardrails are violated",
+      "stop if runtime requires workload reduction"
+    ],
+    "fallback_plan": [
+      "route to execution failure audit if rollout is partial or fails",
+      "route to result audit if rollout completes cleanly",
+      "route to performance/resume repair if runtime is the blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1692 admits one resumable full rollout execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "public full rollout execution",
+    "admission_evidence": [
+      "M1692 designs a resumable 864-cell public rollout with complete artifacts and failure handling"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "full rollout execution runner code if needed",
+      "runs/m1693_controller_family_full_rollout_execution artifacts",
+      "M1693 status queue scoreboard research log and review",
+      "one follow-up audit or repair manifest"
+    ],
+    "next_stage_criteria": [
+      "864 workload cells complete or failures are recorded",
+      "aggregates and run_state exist",
+      "guardrails are clean",
+      "next audit or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1693 can measure public rollout behavior but cannot by itself prove history necessity.",
+    "history_necessity_tests": [
+      "execution must preserve L1, L2-current-tiled, and L3-reset rows for later audit"
+    ],
+    "temporal_evidence_window": "M1690 executable workload and M1692 execution design.",
+    "negative_result_policy": "If rollout results are weak or mixed, record them as public measured-rollout evidence and route to audit before interpretation.",
+    "allowed_claims": [
+      "public 864-cell rollout execution status",
+      "no training, no replay, no PPO, no private-holdout, no promotion, no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The 864-cell materialized public controller-family workload can execute resumably with finite metrics and clean guardrails.",
+  "success_criteria": [
+    "runs/m1693_controller_family_full_rollout_execution/summary.json exists",
+    "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv exists",
+    "runs/m1693_controller_family_full_rollout_execution/run_state.json exists",
+    "episode_count == 864",
+    "profile_count == 12",
+    "spec_count == 72",
+    "failure_count == 0",
+    "selected metrics are finite",
+    "guardrail_violation_count == 0",
+    "training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "episode count profile count or spec count is below target without recorded failure",
+    "runner exceptions are missing from failure_rows",
+    "selected metrics are non-finite",
+    "training replay PPO private holdout promotion or actor-input changes occur",
+    "execution claims controller-family ranking or level3 self-ID"
+  ],
+  "commands": [
+    {
+      "name": "full_rollout",
+      "command": "run resumable full public controller-family rollout over materialized workload"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/profile_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/spec_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/stratum_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/comparison_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1693_controller_family_full_rollout_execution/run_state.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1693 passes if it completes the 864-cell public rollout with finite metrics and clean guardrails, then routes to result audit.",
+  "next_blocker": "m1693-paper-route-controller-family-full-rollout-execution"
+}

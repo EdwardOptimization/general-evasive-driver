@@ -27084,3 +27084,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: full rollout execution result, controller-family ranking, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json`
 - next: `m1692-paper-route-controller-family-full-rollout-execution-design`
+
+## M1692 Paper-Route Controller-Family Full Rollout Execution Design
+
+- status: completed
+- decision: `full_rollout_execution_design_admit_resumable_implementation`
+- artifact: `docs/m1692-paper-route-controller-family-full-rollout-execution-design.md`
+- execution target: `72` specs x `12` profiles = `864` public rollout cells
+- required runner behavior: resumable by `workload_id`, append-only episode rows, explicit failure rows, run-state tracking, no silent workload reduction
+- required artifacts: `summary.json`, `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `stratum_aggregate.csv`, `comparison_aggregate.csv`, `failure_rows.csv`, `run_state.json`
+- selected pass checks: `episode_count == 864`, `profile_count == 12`, `spec_count == 72`, `failure_count == 0`, finite selected metrics, clean guardrails
+- supported: one guarded public full-rollout execution is justified
+- unsupported: controller-family ranking before audit, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json`
+- next: `m1693-paper-route-controller-family-full-rollout-execution`

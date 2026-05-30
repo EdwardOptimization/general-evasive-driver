@@ -10693,5 +10693,8 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1691 audits M1690 as a clean materialization pass and routes to full rollout
   execution design. Direct execution and controller-family ranking remain
   blocked until that design and a later execution/audit pair.
+- M1692 designs resumable 864-cell public rollout execution with incremental
+  episode rows, failure rows, run state, profile/spec/stratum/comparison
+  aggregates, finite metric checks, and no-ranking claim boundary.
 - Current next blocker:
-  `m1692-paper-route-controller-family-full-rollout-execution-design`.
+  `m1693-paper-route-controller-family-full-rollout-execution`.

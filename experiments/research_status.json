@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1700,
+    "completed": 1701,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1691-paper-route-controller-family-executable-workload-materialization-result-audit.md",
+    "command_log": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1691-paper-route-controller-family-executable-workload-materialization-result-audit"
+    "task_id": "m1692-paper-route-controller-family-full-rollout-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1692-paper-route-controller-family-full-rollout-execution-design.json",
-    "hypothesis": "A safe full rollout execution plan can be specified from M1690 executable workload artifacts without executing or interpreting the rollout yet.",
-    "id": "m1692-paper-route-controller-family-full-rollout-execution-design",
+    "command": "see experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json",
+    "hypothesis": "The 864-cell materialized public controller-family workload can execute resumably with finite metrics and clean guardrails.",
+    "id": "m1693-paper-route-controller-family-full-rollout-execution",
     "kind": "gate",
-    "notes": "Pending: design full rollout execution before implementation",
-    "priority": 16870,
+    "notes": "Pending: implement and run resumable full public rollout",
+    "priority": 16880,
     "status": "pending",
-    "success_artifact": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md"
+    "success_artifact": "runs/m1693_controller_family_full_rollout_execution/summary.json"
   },
-  "updated_at_utc": "20260530T000214Z"
+  "updated_at_utc": "20260530T000524Z"
 }

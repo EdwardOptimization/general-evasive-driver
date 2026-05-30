@@ -148,6 +148,27 @@
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
     "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1692-paper-route-controller-family-full-rollout-execution-design.md",
+    "decision": "full_rollout_execution_design_admit_resumable_implementation",
+    "target_episode_count": 864,
+    "target_profile_count": 12,
+    "target_spec_count": 72,
+    "resumability_required": true,
+    "direct_ranking_claim_admitted": false,
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1693-paper-route-controller-family-full-rollout-execution.json"
+  },
   "decision_rule": "M1692 passes if it writes a complete full-rollout execution design and routes to a separate implementation or repair manifest.",
-  "next_blocker": "m1692-paper-route-controller-family-full-rollout-execution-design"
+  "next_blocker": "m1693-paper-route-controller-family-full-rollout-execution"
 }
