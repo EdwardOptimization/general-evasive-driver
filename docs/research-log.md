@@ -28497,3 +28497,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: policy rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
 - next: `m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis`
+
+## M1759 Paper-Route Task-Quality Scenario Taxonomy Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_single_cell_seed_repair_completion_design`
+- artifact: `docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- synthesized range: `M1749-M1758`
+- failure taxonomy: `metric_artifact`, `scenario_sampling_failure`, `seed_fragility`
+- evidence summary: M1749-M1758 implemented semantics-aware revised execution, exposed and repaired a wrapper config proxy issue, reran to `863/864` rows, and localized the final reset failure as seed-fragile but feasible
+- supported claim: revised public diagnostic execution is almost complete and the only current blocker is a single deterministic seed-fragility artifact
+- falsified claim: M1753/M1756 partial rows are complete controller-family ranking or paper-level benchmark evidence
+- public gate overfit risk: `moderate`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- follow-up manifest: `experiments/manifests/m1760-single-cell-seed-repair-completion-design.json`
+- next: `m1760-single-cell-seed-repair-completion-design`

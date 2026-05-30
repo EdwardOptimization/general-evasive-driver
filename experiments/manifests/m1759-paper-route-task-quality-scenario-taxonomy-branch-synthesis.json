@@ -183,6 +183,39 @@
     "runs/m1756_revised_scenario_taxonomy_execution_after_wrapper_repair/summary.json",
     "runs/m1758_single_sampling_failure_reset_only_probe/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "decision": "continue_to_single_cell_seed_repair_completion_design",
+    "workflow_synthesis_decision": "continue",
+    "synthesized_range": "M1749-M1758",
+    "failure_taxonomy": [
+      "metric_artifact",
+      "scenario_sampling_failure",
+      "seed_fragility"
+    ],
+    "evidence_summary": "M1749-M1758 implemented semantics-aware revised execution, exposed and repaired a wrapper config proxy issue, reran to 863/864 rows, and localized the final reset failure as seed-fragile but feasible.",
+    "supported_claim": "the revised public diagnostic execution path is almost complete and the only current blocker is a single deterministic seed-fragility artifact.",
+    "falsified_claim": "M1753/M1756 partial rows are complete controller-family ranking or paper-level benchmark evidence.",
+    "public_gate_overfit_risk": "moderate",
+    "next_branch": "paper_route_task_quality_scenario_taxonomy",
+    "next_manifest": "experiments/manifests/m1760-single-cell-seed-repair-completion-design.json",
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1759 passes if it synthesizes M1749-M1758 and chooses a route before seed repair, rerun, or paper-route claims.",
-  "next_blocker": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+  "next_blocker": "m1760-single-cell-seed-repair-completion-design"
 }

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1767,
+    "completed": 1768,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+    "command_log": "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1758-single-sampling-failure-reset-only-feasibility-probe"
+    "task_id": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
-    "hypothesis": "The M1749-M1758 revised scenario taxonomy branch should synthesize before seed repair design to avoid over-fragmentation and preserve evidence boundaries.",
-    "id": "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "command": "see experiments/manifests/m1760-single-cell-seed-repair-completion-design.json",
+    "hypothesis": "A deterministic one-cell seed-repair completion protocol can resolve the M1756 863/864 blocker without changing scenario specs or controller profiles.",
+    "id": "m1760-single-cell-seed-repair-completion-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1749-M1758 before seed-repair completion design",
-    "priority": 17540,
+    "notes": "Pending: choose deterministic replacement-seed rule and completion artifacts without rollout",
+    "priority": 17550,
     "status": "pending",
-    "success_artifact": "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    "success_artifact": "docs/m1760-single-cell-seed-repair-completion-design.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

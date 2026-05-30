@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1758-single-sampling-failure-reset-only-feasibility-probe
+m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis
+m1760-single-cell-seed-repair-completion-design
 ```
 
-M1758 probes the only remaining M1756 failure:
+M1759 synthesizes M1749-M1758 and continues the branch to explicit one-cell
+seed-repair completion design. M1758 probed the only remaining M1756 failure:
 `m1728-s4-02::L2_window_13_current_tiled`, exact eval seed `175761`,
 `unavoidable_mitigation`, `collision_mitigation`, `low_mu`. The exact seed
 reproducibly fails reset sampling, but `95/100` neighboring seeds within radius
 `50` succeed, all with sampled label `unavoidable`. The blocker is therefore
 `seed_fragile_but_feasible`, not a spec-filter infeasibility. The provisional
-next route is an explicit single-cell seed-repair completion protocol with
-provenance. However, the workflow synthesis cadence has fired, so M1759 must
-first synthesize M1749-M1758 before any rerun, row merge, scenario-spec repair,
+next route is M1760: design an explicit single-cell seed-repair completion
+protocol with provenance before any rerun, row merge, scenario-spec repair,
 controller-family ranking, or paper-level interpretation.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base

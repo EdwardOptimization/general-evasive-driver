@@ -1,0 +1,169 @@
+{
+  "id": "m1760-single-cell-seed-repair-completion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_seed_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+      "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "runs/m1758_single_sampling_failure_reset_only_probe/summary.json",
+      "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design an explicit single-cell seed repair/completion route after M1758 classified the row as seed-fragile but feasible and M1759 synthesis admitted continuation"
+    ],
+    "derived_from": [
+      "m1758-single-sampling-failure-reset-only-feasibility-probe",
+      "m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1756 revised execution remains 863/864 complete",
+      "M1758 exact seed 175761 fails while neighboring seeds mostly succeed"
+    ],
+    "supersedes": [
+      "silently dropping the failed row",
+      "repairing scenario specs before seed-fragility evidence is handled"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1760-single-cell-seed-repair-completion-design.md",
+  "public_gates": [
+    "M1760 must not run policy rollout",
+    "M1760 must choose an explicit deterministic replacement-seed rule from M1758 evidence",
+    "M1760 must preserve one-cell seed override provenance",
+    "M1760 must not change scenario specs profile configs actor inputs rewards dynamics termination behavior or controller profiles",
+    "M1760 must block controller-family ranking paper-level and level3 self-ID claims until a completed rerun or completion artifact passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_seed_repair_completion_design",
+    "evidence_increment": "turns the M1758 seed-fragility classification and M1759 synthesis decision into a pre-registered completion protocol before any rerun or row merge",
+    "claim_scope": "seed-repair completion design only; no policy rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the replacement-seed rule would be ad hoc or untraceable",
+      "stop if completion requires spec/profile changes",
+      "stop if partial M1756 rows are interpreted as completed benchmark evidence before completion validation"
+    ],
+    "fallback_plan": [
+      "route to scenario-spec sampling repair if no clean seed-repair completion rule is possible",
+      "route to same-protocol full rerun design if one-cell completion provenance is insufficient",
+      "route to branch synthesis if completion keeps producing sampling artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1759 branch synthesis admits seed repair completion design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a single-cell seed repair/completion protocol",
+    "admission_evidence": [
+      "M1758 exact seed 175761 failed",
+      "M1758 neighbor_success_count was 95/100",
+      "M1758 nearest successful seed candidates were 175760 and 175762",
+      "M1759 synthesis decided to continue to seed-repair completion design"
+    ],
+    "blocked_shortcuts": [
+      "do not run policy rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1760 seed repair design document",
+      "M1760 status queue scoreboard research log and review",
+      "one follow-up completion execution manifest"
+    ],
+    "next_stage_criteria": [
+      "replacement seed selection rule is explicit",
+      "completion artifacts and merge/aggregate rules are specified",
+      "claim boundary and provenance requirements are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; seed repair design cannot prove history necessity.",
+    "history_necessity_tests": [
+      "design must preserve future L1 L2-current-tiled L2 history-window L3-online and L3-reset controls"
+    ],
+    "temporal_evidence_window": "M1758 reset-only evidence and M1759 synthesis only.",
+    "negative_result_policy": "Classify seed fragility as scenario sampling evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "single-cell seed-repair completion design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A deterministic one-cell seed-repair completion protocol can resolve the M1756 863/864 blocker without changing scenario specs or controller profiles.",
+  "success_criteria": [
+    "docs/m1760-single-cell-seed-repair-completion-design.md exists",
+    "design chooses an explicit replacement seed rule from M1758 evidence",
+    "design specifies completion artifacts and provenance fields",
+    "design blocks ranking and paper-level interpretation until completion validation",
+    "full rollout training replay PPO promotion private holdout actor-input changes profile tuning and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design chooses an ad hoc replacement seed without provenance",
+    "design changes scenario specs or profile configs",
+    "design interprets M1756/M1758 as completed benchmark evidence",
+    "full rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "design explicit single-cell seed-repair completion route from M1758 reset-only probe evidence"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1760-single-cell-seed-repair-completion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_seed_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1758-single-sampling-failure-reset-only-feasibility-probe.md",
+    "docs/m1759-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "runs/m1758_single_sampling_failure_reset_only_probe/summary.json",
+    "runs/m1758_single_sampling_failure_reset_only_probe/probe_rows.csv"
+  ],
+  "decision_rule": "M1760 passes if it pre-registers a traceable one-cell seed-repair completion protocol without rollout or contract changes.",
+  "next_blocker": "m1760-single-cell-seed-repair-completion-design"
+}
