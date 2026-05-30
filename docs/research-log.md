@@ -31378,3 +31378,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: generated candidate artifact source mining results materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1854-executable-v2-support-first-candidate-template-implementation.json`
 - next: `m1854-executable-v2-support-first-candidate-template-implementation`
+
+## M1854 Executable V2 Support-First Candidate Template Implementation
+
+- status: completed
+- decision: `support_first_candidate_template_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1854-executable-v2-support-first-candidate-template-implementation.md`
+- generator: `src/autodrift/executable_v2_support_first_candidate_templates.py`
+- tests: `tests/test_executable_v2_support_first_candidate_templates.py`
+- generated template: `configs/executable_v2_support_first_candidate_templates_v0.json`
+- candidate row count: `288`
+- role count: `4`
+- speed count: `6`
+- mu count: `6`
+- surface variant count: `2`
+- grid cell count total: `465264`
+- focused tests: `5 passed in 0.13s`
+- full tests: `1768 passed, 4 warnings in 10.36s`
+- project artifact source mining run: `false`
+- project artifact scan: `false`
+- generated candidate template file: `true`
+- materialized executable-v2 rows generated: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: deterministic candidate template generator checked-in V0 artifact focused and full tests source-mining execution-design route
+- unsupported: source mining result materialized rows reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1855-executable-v2-support-first-source-mining-execution-design.json`
+- next: `m1855-executable-v2-support-first-source-mining-execution-design`

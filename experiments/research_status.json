@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1862,
+    "completed": 1863,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1853-executable-v2-support-first-candidate-template-design.md",
+    "command_log": "docs/m1854-executable-v2-support-first-candidate-template-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1853-executable-v2-support-first-candidate-template-design"
+    "task_id": "m1854-executable-v2-support-first-candidate-template-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1854-executable-v2-support-first-candidate-template-implementation.json",
-    "hypothesis": "A deterministic generator can produce the M1853 V0 candidate template artifact exactly, without running source mining or changing the actor contract.",
-    "id": "m1854-executable-v2-support-first-candidate-template-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement support-first candidate template generator and artifact",
-    "priority": 18490,
+    "command": "see experiments/manifests/m1855-executable-v2-support-first-source-mining-execution-design.json",
+    "hypothesis": "A fixed execution command can run M1852 source mining over the M1854 V0 candidate template with bounded no-reset claims.",
+    "id": "m1855-executable-v2-support-first-source-mining-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design exact source mining execution command over V0 template",
+    "priority": 18500,
     "status": "pending",
-    "success_artifact": "docs/m1854-executable-v2-support-first-candidate-template-implementation.md"
+    "success_artifact": "docs/m1855-executable-v2-support-first-source-mining-execution-design.md"
   },
-  "updated_at_utc": "20260530T131348Z"
+  "updated_at_utc": "20260530T131840Z"
 }

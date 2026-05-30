@@ -1,0 +1,167 @@
+{
+  "id": "m1855-executable-v2-support-first-source-mining-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_source_mining_execution_design"
+    ],
+    "parent_dataset": [
+      "configs/executable_v2_support_first_candidate_templates_v0.json",
+      "docs/m1854-executable-v2-support-first-candidate-template-implementation.md",
+      "src/autodrift/executable_v2_support_first_source_mining.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1854-executable-v2-support-first-candidate-template-implementation.json"
+    ],
+    "parent_objective": [
+      "fix exact source mining execution command over V0 candidate template"
+    ],
+    "derived_from": [
+      "m1854-executable-v2-support-first-candidate-template-implementation"
+    ],
+    "blocked_by": [
+      "M1854 generated V0 candidate template artifact"
+    ],
+    "supersedes": [
+      "implicit source mining command",
+      "source mining execution without fixed input artifact"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1855-executable-v2-support-first-source-mining-execution-design.md",
+  "public_gates": [
+    "M1855 must fix exact source mining execution command without running it",
+    "M1855 must use the checked-in V0 candidate template",
+    "M1855 must keep materialization reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact source mining",
+    "do not run project artifact feasibility scan",
+    "do not generate materialized executable-v2 rows",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_source_mining",
+    "evidence_axis": "Q_support_first_source_mining_execution_design",
+    "evidence_increment": "fixes exact no-reset source mining command and expected audit boundaries over V0 candidate template",
+    "claim_scope": "execution design only; no source mining execution, materialization, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if command does not use V0 template",
+      "stop if command would materialize rows",
+      "stop if command changes actor inputs reward dynamics or termination behavior",
+      "stop if expected audit boundaries are missing"
+    ],
+    "fallback_plan": [
+      "route to source mining execution if command is fixed",
+      "route to template repair if V0 artifact is inconsistent",
+      "route to branch synthesis if execution cannot be bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1854 generated candidate template artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source mining execution design",
+    "admission_evidence": [
+      "M1854 generated candidate template artifact with 288 rows"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact source mining",
+      "do not generate materialized executable-v2 rows",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1855 design document",
+      "M1855 status queue scoreboard research log and review",
+      "one follow-up manifest for source mining execution"
+    ],
+    "next_stage_criteria": [
+      "exact source mining command is specified",
+      "expected input counts output directory and claim boundaries are specified",
+      "source mining remains unexecuted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source mining execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1854 template artifact only; no source mining execution or rollout.",
+    "negative_result_policy": "Execution design must preserve no-support blockers rather than weakening labels or merging roles.",
+    "allowed_claims": [
+      "source mining execution design",
+      "no source mining execution, materialization, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A fixed execution command can run M1852 source mining over the M1854 V0 candidate template with bounded no-reset claims.",
+  "success_criteria": [
+    "docs/m1855-executable-v2-support-first-source-mining-execution-design.md exists",
+    "design specifies exact source mining command using configs/executable_v2_support_first_candidate_templates_v0.json",
+    "design specifies output directory expected input counts and next audit blocker",
+    "design routes to execution without running source mining reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs source mining",
+    "design generates materialized rows",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1855-executable-v2-support-first-source-mining-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1855-executable-v2-support-first-source-mining-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_source_mining_execution_design"
+  ],
+  "baseline_artifacts": [
+    "configs/executable_v2_support_first_candidate_templates_v0.json",
+    "src/autodrift/executable_v2_support_first_source_mining.py"
+  ],
+  "decision_rule": "M1855 passes if it fixes the exact source mining execution command without executing mining, materialization, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1855-executable-v2-support-first-source-mining-execution-design"
+}
