@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1773,
+    "completed": 1774,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1764-single-cell-seed-repair-completion-execution.md",
+    "command_log": "docs/m1765-single-cell-seed-repair-completion-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1764-single-cell-seed-repair-completion-execution"
+    "task_id": "m1765-single-cell-seed-repair-completion-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1765-single-cell-seed-repair-completion-result-audit.json",
-    "hypothesis": "The M1764 completed artifact can be audited as valid completion evidence before any controller-family or paper-level interpretation.",
-    "id": "m1765-single-cell-seed-repair-completion-result-audit",
+    "command": "see experiments/manifests/m1766-completed-taxonomy-outcome-audit.json",
+    "hypothesis": "The completed M1764 taxonomy outcomes can be audited to decide whether ranking is admissible or outcome dominance still blocks interpretation.",
+    "id": "m1766-completed-taxonomy-outcome-audit",
     "kind": "gate",
-    "notes": "Pending: audit M1764 completion summary and seed-repair provenance before interpretation",
-    "priority": 17600,
+    "notes": "Pending: audit completed taxonomy outcome aggregates before ranking or repair route",
+    "priority": 17610,
     "status": "pending",
-    "success_artifact": "docs/m1765-single-cell-seed-repair-completion-result-audit.md"
+    "success_artifact": "docs/m1766-completed-taxonomy-outcome-audit.md"
   },
   "updated_at_utc": "20260530T060232Z"
 }

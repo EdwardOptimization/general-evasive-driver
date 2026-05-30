@@ -1,0 +1,163 @@
+{
+  "id": "m1766-completed-taxonomy-outcome-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1765-single-cell-seed-repair-completion-result-audit.md",
+      "runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json",
+      "runs/m1764_revised_scenario_taxonomy_single_seed_completion/outcome_aggregate.csv",
+      "runs/m1764_revised_scenario_taxonomy_single_seed_completion/evaluation_role_outcome_aggregate.csv",
+      "runs/m1764_revised_scenario_taxonomy_single_seed_completion/primary_metric_family_outcome_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1765-single-cell-seed-repair-completion-result-audit.json"
+    ],
+    "parent_objective": [
+      "audit completed taxonomy outcomes under revised semantics before ranking or paper claims"
+    ],
+    "derived_from": [
+      "m1765-single-cell-seed-repair-completion-result-audit"
+    ],
+    "blocked_by": [
+      "M1765 validates completion but outcome interpretation is not audited"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from completed artifact"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1766-completed-taxonomy-outcome-audit.md",
+  "public_gates": [
+    "M1766 must use only existing M1764 aggregate artifacts",
+    "M1766 must separate benchmark diagnostic_stress and mitigation_diagnostic outcomes",
+    "M1766 must identify whether outcome dominance blocks ranking",
+    "M1766 must not run rollout train replay PPO promote use private holdout change actor inputs or claim paper-level evidence",
+    "M1766 must decide whether to route to controller-family comparison design outcome repair branch synthesis or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_taxonomy",
+    "evidence_axis": "Q_completed_taxonomy_outcome_audit",
+    "evidence_increment": "interprets completed public diagnostic outcomes under revised semantics without ranking",
+    "claim_scope": "outcome audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if outcome dominance makes ranking invalid",
+      "stop if aggregate artifacts are insufficient",
+      "stop if audit would directly claim paper-level benchmark evidence"
+    ],
+    "fallback_plan": [
+      "route to outcome repair/localization if dominance blocks ranking",
+      "route to controller-family comparison design if outcomes are interpretable",
+      "route to branch synthesis if public overfit risk or outcome dominance remains high"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1765 validates the completed public diagnostic artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit completed taxonomy outcomes",
+    "admission_evidence": [
+      "M1765 validates M1764 completion as 864 rows zero failures with explicit seed-repair provenance"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1766 outcome audit document",
+      "M1766 status queue scoreboard research log and review",
+      "one follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "outcome dominance is classified",
+      "ranking boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; outcome audit does not prove history necessity.",
+    "history_necessity_tests": [
+      "audit must preserve profile controls for later self-ID specific gates"
+    ],
+    "temporal_evidence_window": "M1764 completed public diagnostic artifact only.",
+    "negative_result_policy": "Classify poor outcomes as task-quality evidence rather than self-ID evidence.",
+    "allowed_claims": [
+      "completed taxonomy outcome audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The completed M1764 taxonomy outcomes can be audited to decide whether ranking is admissible or outcome dominance still blocks interpretation.",
+  "success_criteria": [
+    "docs/m1766-completed-taxonomy-outcome-audit.md exists",
+    "audit uses M1764 aggregate artifacts only",
+    "audit separates evaluation roles and primary metric families",
+    "audit explicitly permits or blocks controller-family ranking route",
+    "rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs new rollout or changes configs",
+    "audit directly ranks controller families",
+    "audit claims paper-level or level3 evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M1764 aggregate artifacts without rollout"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1766-completed-taxonomy-outcome-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1765-single-cell-seed-repair-completion-result-audit.md",
+    "runs/m1764_revised_scenario_taxonomy_single_seed_completion/outcome_aggregate.csv",
+    "runs/m1764_revised_scenario_taxonomy_single_seed_completion/evaluation_role_outcome_aggregate.csv",
+    "runs/m1764_revised_scenario_taxonomy_single_seed_completion/primary_metric_family_outcome_aggregate.csv"
+  ],
+  "decision_rule": "M1766 passes if it audits completed outcomes and routes ranking/repair without making ranking or paper claims.",
+  "next_blocker": "m1766-completed-taxonomy-outcome-audit"
+}

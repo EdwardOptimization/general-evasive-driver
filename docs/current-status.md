@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1764-single-cell-seed-repair-completion-execution
+m1765-single-cell-seed-repair-completion-result-audit
 ```
 
 Current next task:
 
 ```text
-m1765-single-cell-seed-repair-completion-result-audit
+m1766-completed-taxonomy-outcome-audit
 ```
 
 M1760 designs the explicit one-cell seed-repair completion protocol. M1758
@@ -38,9 +38,10 @@ executing the missing episode. M1762 fixes the later execution inputs, output
 directory, replacement seed, and pass gates. M1763 implements the CLI with
 focused monkeypatched tests and still does not run the real missing episode.
 M1764 runs exactly one replacement-seed row and writes an `864`-row,
-zero-failure, provenance-aware completed public diagnostic artifact. M1765 must
-audit this completion result before any controller-family ranking or paper-level
-interpretation.
+zero-failure, provenance-aware completed public diagnostic artifact. M1765
+audits that completion as valid and admits M1766 completed taxonomy outcome
+audit. M1766 must classify outcome dominance and decide whether ranking is
+admissible or a repair/synthesis route is still needed.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`

@@ -28676,3 +28676,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence until audit
 - follow-up manifest: `experiments/manifests/m1765-single-cell-seed-repair-completion-result-audit.json`
 - next: `m1765-single-cell-seed-repair-completion-result-audit`
+
+## M1765 Single-Cell Seed-Repair Completion Result Audit
+
+- status: completed
+- decision: `completion_result_audit_admit_completed_taxonomy_outcome_audit`
+- artifact: `docs/m1765-single-cell-seed-repair-completion-result-audit.md`
+- audited summary: `runs/m1764_revised_scenario_taxonomy_single_seed_completion/summary.json`
+- episode count: `864`
+- failure count: `0`
+- profile count: `12`
+- scenario spec count: `72`
+- scenario family count: `6`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- seed repair applied row count: `1`
+- completion valid: `true`
+- outcome success obstacle pass: `73`
+- outcome collision failure: `280`
+- outcome off-track noncollision noncompletion: `511`
+- environment rollout started in audit: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- dynamics changed: `false`
+- termination behavior changed: `false`
+- profile config changed: `false`
+- scenario spec changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: completed public diagnostic artifact validity and explicit seed-repair provenance
+- unsupported: controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1766-completed-taxonomy-outcome-audit.json`
+- next: `m1766-completed-taxonomy-outcome-audit`
