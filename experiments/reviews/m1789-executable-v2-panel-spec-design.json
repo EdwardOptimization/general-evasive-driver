@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1789 passes if it defines a reset-ready v2 panel spec schema without reset, rollout, ranking, or paper-level claims.",
+  "decision_reason": "M1789 defines reset-ready v2 executable fields M1771 reuse mapping and role-surface balancing before any reset feasibility",
   "failure_criteria": [
     "design document is missing",
     "design omits executable scenario fields",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T083102Z",
+  "generated_at_utc": "20260530T083437Z",
   "hypothesis": "A reset-ready executable v2 panel spec schema can be designed from M1787 contracts and reusable M1771 bounded-panel fields without running reset or rollout.",
   "lineage": {
     "blocked_by": [
@@ -60,16 +60,29 @@
     ]
   },
   "milestone": "m1789-executable-v2-panel-spec-design",
-  "next_blocker": "m1789-executable-v2-panel-spec-design",
+  "next_blocker": "m1790-executable-v2-panel-spec-materialization-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "executable_v2_panel_spec_design_admit_materialization_preflight",
   "public_gates": [
     "M1789 must define reset-ready executable v2 panel spec fields and balancing rules without reset or rollout",
     "M1789 must map M1787 role surfaces onto reusable M1771 bounded-panel fields where possible",
     "M1789 must preserve six v2 surfaces twelve profile controls ranking blocked by default and mitigation severity semantics",
     "M1789 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1789-executable-v2-panel-spec-design.md",
+    "clearance_margin_mean": "",
+    "decision": "executable_v2_panel_spec_design_admit_materialization_preflight",
+    "milestone": "m1789-executable-v2-panel-spec-design",
+    "reason": "M1789 defines reset-ready v2 executable fields M1771 reuse mapping and role-surface balancing before any reset feasibility",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1789-executable-v2-panel-spec-design.md exists",
     "M1789 defines executable scenario fields and balancing rules",

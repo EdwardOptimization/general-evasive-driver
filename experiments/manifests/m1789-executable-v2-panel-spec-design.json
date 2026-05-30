@@ -159,6 +159,32 @@
     "runs/m1787_role_specific_panel_metric_repair_materialization_preflight/panel_repair_matrix.csv",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1789-executable-v2-panel-spec-design.md",
+    "decision": "executable_v2_panel_spec_design_admit_materialization_preflight",
+    "reset_ready_schema_defined": true,
+    "m1771_reuse_mapping_defined": true,
+    "new_v2_fields_defined": true,
+    "role_surface_count": 6,
+    "profile_control_count": 12,
+    "ranking_admissible_by_default": false,
+    "mitigation_uses_obstacle_pass_success_as_primary": false,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1790-executable-v2-panel-spec-materialization-preflight.json"
+  },
   "decision_rule": "M1789 passes if it defines a reset-ready v2 panel spec schema without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1789-executable-v2-panel-spec-design"
+  "next_blocker": "m1790-executable-v2-panel-spec-materialization-preflight"
 }

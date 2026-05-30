@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T083102Z
+- Generated at UTC: 20260530T083437Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1789 passes if it defines a reset-ready v2 panel spec schema without reset, rollout, ranking, or paper-level claims.
+- Promotion decision: executable_v2_panel_spec_design_admit_materialization_preflight
+- Decision reason: M1789 defines reset-ready v2 executable fields M1771 reuse mapping and role-surface balancing before any reset feasibility
 
 ## Hypothesis
 
@@ -76,8 +76,19 @@ A reset-ready executable v2 panel spec schema can be designed from M1787 contrac
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1789-executable-v2-panel-spec-design
+- type: gate
+- checkpoint: docs/m1789-executable-v2-panel-spec-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: executable_v2_panel_spec_design_admit_materialization_preflight
+- reason: M1789 defines reset-ready v2 executable fields M1771 reuse mapping and role-surface balancing before any reset feasibility
 
 ## Next Blocker
 
-m1789-executable-v2-panel-spec-design
+m1790-executable-v2-panel-spec-materialization-preflight

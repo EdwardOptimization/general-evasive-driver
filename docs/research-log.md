@@ -29388,3 +29388,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1789-executable-v2-panel-spec-design.json`
 - next: `m1789-executable-v2-panel-spec-design`
+
+## M1789 Executable V2 Panel Spec Design
+
+- status: completed
+- decision: `executable_v2_panel_spec_design_admit_materialization_preflight`
+- artifact: `docs/m1789-executable-v2-panel-spec-design.md`
+- reset-ready schema defined: `true`
+- M1771 reuse mapping defined: `true`
+- new v2 fields defined: `true`
+- role surface count: `6`
+- profile control count: `12`
+- ranking admissible by default: `false`
+- mitigation uses obstacle-pass success as primary: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-ready v2 executable spec schema and no-rollout materialization route
+- unsupported: executable v2 spec materialization, reset feasibility, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1790-executable-v2-panel-spec-materialization-preflight.json`
+- next: `m1790-executable-v2-panel-spec-materialization-preflight`
