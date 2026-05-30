@@ -185,6 +185,41 @@
     "runs/m1794_executable_v2_reset_feasibility_preflight/summary.json",
     "docs/m1795-executable-v2-reset-feasibility-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.md",
+    "decision": "pivot_to_executable_v2_label_source_compatibility_repair",
+    "workflow_synthesis_decision": "pivot",
+    "synthesized_range": "M1786-M1795",
+    "failure_taxonomy": [
+      "scenario_sampling_failure",
+      "metric_artifact",
+      "seed_fragility"
+    ],
+    "evidence_summary": "M1786-M1795 produced clean role-specific v2 metric and executable-spec infrastructure, then M1794/M1795 localized reset feasibility failure to source-label compatibility.",
+    "supported_claim": "the branch is valid as task-quality infrastructure, but reset feasibility is incomplete and dominated by systematic source-label compatibility failures.",
+    "falsified_claim": "M1790 reset_ready_spec rows are all executable without source-label support validation.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "next_manifest": "experiments/manifests/m1797-executable-v2-label-source-compatibility-repair-design.json",
+    "environment_reset_rerun": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1796 passes if it synthesizes M1786-M1795 and chooses the next route without reset rerun, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis"
+  "next_blocker": "m1797-executable-v2-label-source-compatibility-repair-design"
 }

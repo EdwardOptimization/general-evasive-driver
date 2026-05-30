@@ -29595,3 +29595,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.json`
 - next: `m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis`
+
+## M1796 Paper-Route Role-Specific Panel Metric Repair Branch Synthesis
+
+- status: completed
+- decision: `pivot_to_executable_v2_label_source_compatibility_repair`
+- workflow synthesis decision: `pivot`
+- synthesized range: `M1786-M1795`
+- artifact: `docs/m1796-paper-route-role-specific-panel-metric-repair-branch-synthesis.md`
+- reset rerun: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- evidence summary: M1786-M1795 produced clean role-specific v2 metric and executable-spec infrastructure, then M1794/M1795 localized reset feasibility failure to source-label compatibility
+- supported: task-quality infrastructure, v2 executable metadata preservation, and reset adapter correctness
+- blocked: reset feasibility pass, measured execution, controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- primary failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- secondary risk: sparse hidden-robust cells may still need seed-fragility or tight-filter audit after systematic repair
+- public gate overfit risk: `high`
+- next branch: `paper_route_executable_v2_label_source_compatibility_repair`
+- next manifest: `experiments/manifests/m1797-executable-v2-label-source-compatibility-repair-design.json`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- next: `m1797-executable-v2-label-source-compatibility-repair-design`
