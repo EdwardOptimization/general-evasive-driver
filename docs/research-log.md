@@ -30519,3 +30519,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit.json`
 - next: `m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit`
+
+## M1826 Executable V2 Stable Source Targeted Reset Sampler Repair Result Audit
+
+- status: completed
+- decision: `stable_source_targeted_reset_sampler_repair_audit_admit_repaired_reset_execution_design`
+- artifact: `docs/m1826-executable-v2-stable-source-targeted-reset-sampler-repair-result-audit.md`
+- source summary: `runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/summary.json`
+- repaired payload: `runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json`
+- result class: `targeted_reset_sampler_repair_result_audit_pass`
+- row count: `36`
+- unique id count: `36`
+- profile count: `12`
+- source count: `3`
+- repair target source count: `3`
+- systematic source count: `2`
+- sparse source count: `1`
+- repaired executable spec count: `36`
+- reset ready spec count: `36`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- profile-specific tuning count: `0`
+- environment reset scheduled count: `0`
+- environment rollout scheduled count: `0`
+- training scheduled count: `0`
+- measured execution admissible count: `0`
+- additional environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: repaired payload completeness audit and exact repaired reset-only execution design route
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design.json`
+- next: `m1827-executable-v2-stable-source-repaired-targeted-reset-execution-design`
