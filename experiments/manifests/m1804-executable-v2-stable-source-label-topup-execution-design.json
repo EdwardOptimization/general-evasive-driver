@@ -161,6 +161,47 @@
     "runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv",
     "runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md",
+    "decision": "stable_source_label_topup_execution_design_admit_preflight_run",
+    "execution_in_this_milestone": false,
+    "exact_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_stable_source_label_topup_preflight --replacement-needs runs/m1800_executable_v2_label_source_compatibility_preflight/replacement_need_rows.csv --source-label-support runs/m1800_executable_v2_label_source_compatibility_preflight/source_label_support.csv --bounded-panel-specs runs/m1771_metric_specific_bounded_panel_materialization_preflight/bounded_panel_specs.json --output-dir runs/m1805_executable_v2_stable_source_label_topup_preflight --target-topup-count 3 --next-blocker m1806-executable-v2-stable-source-label-topup-result-audit",
+    "expected_stable_topup_target_count": 3,
+    "expected_target_missing_profile_count_total": 36,
+    "expected_stable_candidate_source_count": 6,
+    "expected_candidate_row_count": 5,
+    "expected_candidate_class_counts": {
+      "metadata_only_untrusted": 2,
+      "near_existing_candidate": 3,
+      "exact_existing_candidate": 0
+    },
+    "expected_direct_replacement_count": 0,
+    "expected_new_materialization_need_count": 3,
+    "expected_labels_enter_actor_input_count": 0,
+    "expected_measured_execution_admissible": false,
+    "expected_controller_family_ranking_admissible": false,
+    "expected_guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1805-executable-v2-stable-source-label-topup-preflight.json",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1804 passes if it fixes the top-up execution command and expected counts without executing it or making ranking claims.",
-  "next_blocker": "m1804-executable-v2-stable-source-label-topup-execution-design"
+  "next_blocker": "m1805-executable-v2-stable-source-label-topup-preflight"
 }

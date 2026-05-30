@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1812,
+    "completed": 1813,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1803-executable-v2-stable-source-label-topup-preflight-implementation.md",
+    "command_log": "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1803-executable-v2-stable-source-label-topup-preflight-implementation"
+    "task_id": "m1804-executable-v2-stable-source-label-topup-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1804-executable-v2-stable-source-label-topup-execution-design.json",
-    "hypothesis": "The M1803 helper can be run on M1800/M1771 artifacts with a fixed no-reset command and pre-registered expected candidate counts.",
-    "id": "m1804-executable-v2-stable-source-label-topup-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design exact no-reset stable top-up execution before running project artifacts",
-    "priority": 17990,
+    "command": "see experiments/manifests/m1805-executable-v2-stable-source-label-topup-preflight.json",
+    "hypothesis": "The M1803 helper will convert M1800/M1771 artifacts into expected stable top-up target candidate and materialization-need artifacts without reset or rollout.",
+    "id": "m1805-executable-v2-stable-source-label-topup-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact no-reset stable top-up preflight and verify pre-registered counts",
+    "priority": 18000,
     "status": "pending",
-    "success_artifact": "docs/m1804-executable-v2-stable-source-label-topup-execution-design.md"
+    "success_artifact": "runs/m1805_executable_v2_stable_source_label_topup_preflight/summary.json"
   },
-  "updated_at_utc": "20260530T105500Z"
+  "updated_at_utc": "20260530T110500Z"
 }

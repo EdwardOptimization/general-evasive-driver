@@ -29816,3 +29816,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project-artifact top-up execution result, repaired reset feasibility pass, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1804-executable-v2-stable-source-label-topup-execution-design.json`
 - next: `m1804-executable-v2-stable-source-label-topup-execution-design`
+
+## M1804 Executable V2 Stable Source-Label Top-Up Execution Design
+
+- status: completed
+- decision: `stable_source_label_topup_execution_design_admit_preflight_run`
+- artifact: `docs/m1804-executable-v2-stable-source-label-topup-execution-design.md`
+- source helper: `src/autodrift/executable_v2_stable_source_label_topup_preflight.py`
+- project artifact execution: `false`
+- reset run: `false`
+- rollout started: `false`
+- training/replay/PPO: `false`
+- expected stable top-up targets: `3`
+- expected missing profiles total: `36`
+- expected stable candidate source count: `6`
+- expected candidate rows: `5`
+- expected candidate class counts: `metadata_only_untrusted=2`, `near_existing_candidate=3`, `exact_existing_candidate=0`
+- expected direct replacements: `0`
+- expected new materialization needs: `3`
+- measured execution admissible: `false`
+- controller-family ranking admissible: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact no-reset top-up execution design and pre-registered M1805 expected counts
+- unsupported: top-up execution result, stable source materialization, repaired reset feasibility pass, measured execution, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1805-executable-v2-stable-source-label-topup-preflight.json`
+- next: `m1805-executable-v2-stable-source-label-topup-preflight`
