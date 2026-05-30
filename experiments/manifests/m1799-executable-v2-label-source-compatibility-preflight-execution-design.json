@@ -1,0 +1,167 @@
+{
+  "id": "m1799-executable-v2-label-source-compatibility-preflight-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1798-executable-v2-label-source-compatibility-preflight-implementation.md",
+      "src/autodrift/executable_v2_label_source_compatibility_preflight.py",
+      "tests/test_executable_v2_label_source_compatibility_preflight.py",
+      "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+      "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1798-executable-v2-label-source-compatibility-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact project-artifact execution for the no-reset compatibility helper"
+    ],
+    "derived_from": [
+      "m1798-executable-v2-label-source-compatibility-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M1798 implements focused helper but does not execute it on project artifacts"
+    ],
+    "supersedes": [
+      "running compatibility preflight without target counts and guardrails",
+      "direct reset rerun before compatibility execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+  "public_gates": [
+    "M1799 must design the exact no-reset compatibility preflight command without running it",
+    "M1799 must name input artifacts output directory target counts and expected result class",
+    "M1799 must keep reset rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked",
+    "M1799 must route to a separate execution milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute the compatibility preflight",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_label_source_compatibility_repair",
+    "evidence_axis": "Q_label_source_compatibility_preflight_execution_design",
+    "evidence_increment": "fixes the exact project-artifact compatibility command before execution",
+    "claim_scope": "execution design only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if command would run reset or rollout",
+      "stop if target counts are ambiguous",
+      "stop if output directory is not unique",
+      "stop if expected counts are not pre-registered"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if helper CLI is insufficient",
+      "route to design repair if expected counts cannot be stated",
+      "route to execution only after exact command is fixed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1798 admits project-artifact execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-label compatibility preflight execution design",
+    "admission_evidence": [
+      "M1798 focused tests pass and helper writes compatibility artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute the compatibility preflight",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1799 execution design document",
+      "M1799 status queue scoreboard research log and review",
+      "one follow-up manifest for execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is written",
+      "target counts and expected outputs are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution design must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1798 helper and M1790/M1794 public artifacts.",
+    "negative_result_policy": "If exact counts cannot be registered, route to implementation or design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "compatibility preflight execution design",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1798 helper can be run on M1790/M1794 artifacts with a fixed no-reset command and pre-registered expected compatibility counts.",
+  "success_criteria": [
+    "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md exists",
+    "exact command is listed",
+    "input artifacts and output directory are listed",
+    "expected counts are pre-registered",
+    "next execution manifest is explicit",
+    "no reset rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "execution design document is missing",
+    "execution command is ambiguous",
+    "design executes the helper",
+    "expected counts are missing",
+    "design routes directly to reset rerun or measured execution"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1799-executable-v2-label-source-compatibility-preflight-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1798-executable-v2-label-source-compatibility-preflight-implementation.md",
+    "src/autodrift/executable_v2_label_source_compatibility_preflight.py",
+    "runs/m1790_executable_v2_panel_spec_materialization_preflight/executable_v2_panel_specs.json",
+    "runs/m1794_executable_v2_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1799 passes if it fixes the execution command and expected counts without executing it or making ranking claims.",
+  "next_blocker": "m1799-executable-v2-label-source-compatibility-preflight-execution-design"
+}

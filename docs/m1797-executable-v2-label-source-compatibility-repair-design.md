@@ -90,10 +90,12 @@ Support status values:
 | `sparse_fragile` | both success and sampling failure exist in the group |
 | `unobserved` | source-label group exists in metadata but has no M1794 evidence |
 
-Only `supported_observed` groups are allowed into the immediate compatible
-reset-rerun spec set. `unsupported_systematic` groups become compatibility
-violations. `sparse_fragile` groups are quarantined for a later seed-fragility
-or tight-filter probe.
+Rows with observed reset success are allowed into the immediate compatible
+reset-rerun spec set, including reset-success rows from `sparse_fragile` groups.
+`unsupported_systematic` rows become compatibility violations. Failed rows from
+`sparse_fragile` groups are quarantined for a later seed-fragility or
+tight-filter probe, and the whole group remains non-admissible for measured
+execution or ranking until that probe is resolved.
 
 ## Artifacts
 
