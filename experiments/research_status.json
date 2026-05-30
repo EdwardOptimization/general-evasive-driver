@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1732,
+    "completed": 1733,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md",
+    "command_log": "docs/m1724-paper-route-controller-family-off-track-repair-panel-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1723-paper-route-controller-family-off-track-repair-panel-execution-design"
+    "task_id": "m1724-paper-route-controller-family-off-track-repair-panel-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1724-paper-route-controller-family-off-track-repair-panel-execution.json",
-    "hypothesis": "The M1721 off-track repair panel matrix can be executed as a fixed public diagnostic run with complete repair-variant/outcome aggregates and no guardrail violations.",
-    "id": "m1724-paper-route-controller-family-off-track-repair-panel-execution",
+    "command": "see experiments/manifests/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.json",
+    "hypothesis": "M1724 can be audited under the pre-registered M1723 collision/off-track rules to decide whether the repair panel gives a positive, conditional, tradeoff-only, or failed task-quality signal.",
+    "id": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit",
     "kind": "gate",
-    "notes": "Pending: run 864 public diagnostic episodes and write repair-variant outcome termination aggregates",
-    "priority": 17190,
+    "notes": "Pending: audit repair variant off-track improvements collision deltas and composite repair thresholds without ranking profiles",
+    "priority": 17200,
     "status": "pending",
-    "success_artifact": "runs/m1724_off_track_repair_panel_execution/summary.json"
+    "success_artifact": "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md"
   },
-  "updated_at_utc": "20260530T022736Z"
+  "updated_at_utc": "20260530T024226Z"
 }

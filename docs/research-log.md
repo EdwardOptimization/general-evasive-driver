@@ -27672,3 +27672,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, repair result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1724-paper-route-controller-family-off-track-repair-panel-execution.json`
 - next: `m1724-paper-route-controller-family-off-track-repair-panel-execution`
+
+## M1724 Paper-Route Controller-Family Off-Track Repair Panel Execution
+
+- status: completed
+- result class: `controller_family_off_track_repair_panel_execution_pass`
+- artifact: `runs/m1724_off_track_repair_panel_execution/summary.json`
+- doc: `docs/m1724-paper-route-controller-family-off-track-repair-panel-execution.md`
+- parent design: `docs/m1723-paper-route-controller-family-off-track-repair-panel-execution-design.md`
+- episode count: `864` / `864`
+- selected base specs: `18`
+- repair panel specs: `72`
+- profiles: `12`
+- repair variants: `4`
+- failure count: `0`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- required aggregates: `repair_variant_aggregate.csv`, `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`
+- raw repair variant rates: baseline off-track `0.9352`, best-off-track `0.7361`, collision-control `0.7824`, wide-relaxed-extended `0.7315`
+- raw collision rates: baseline `0.0324`, best-off-track `0.1019`, collision-control `0.0648`, wide-relaxed-extended `0.0833`
+- supported: clean measured repair panel execution with artifacts available for M1725 audit
+- unsupported: controller-family ranking, repair conclusion before M1725, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.json`
+- next: `m1725-paper-route-controller-family-off-track-repair-panel-result-audit`

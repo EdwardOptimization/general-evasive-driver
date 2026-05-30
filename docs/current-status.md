@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1723-paper-route-controller-family-off-track-repair-panel-execution-design
+m1724-paper-route-controller-family-off-track-repair-panel-execution
 ```
 
 Current next task:
 
 ```text
-m1724-paper-route-controller-family-off-track-repair-panel-execution
+m1725-paper-route-controller-family-off-track-repair-panel-result-audit
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -96,7 +96,16 @@ The next task is M1723: design the execution protocol, required repair-variant
 aggregates, collision/off-track repair thresholds, and claim boundaries before
 any rollout. M1723 completes that design and admits M1724 measured execution
 over the fixed `864`-episode repair panel, with interpretation deferred to
-M1725 under pre-registered repair thresholds.
+M1725 under pre-registered repair thresholds. M1724 implemented the repair
+panel execution runner and ran exactly `864/864` public diagnostic episodes:
+`0` failures, finite selected metrics, guardrail `0`, `12` profiles, `72`
+repair specs, and complete repair-variant/outcome/termination aggregates. Raw
+repair variant rates show original baseline off-track `0.9352`, best-off-track
+variant `0.7361`, collision-control wide relaxed `0.7824`, and
+wide-relaxed-extended `0.7315`; collision rates were `0.0324`, `0.1019`,
+`0.0648`, and `0.0833` respectively. The next task is M1725: audit those
+results under the M1723 pre-registered repair thresholds before any repair
+conclusion, branch synthesis, redesign, or controller-family comparison.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

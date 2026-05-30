@@ -1,0 +1,160 @@
+{
+  "id": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_only"
+    ],
+    "parent_dataset": [
+      "docs/m1724-paper-route-controller-family-off-track-repair-panel-execution.md",
+      "runs/m1724_off_track_repair_panel_execution/summary.json",
+      "runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv",
+      "runs/m1724_off_track_repair_panel_execution/outcome_aggregate.csv",
+      "runs/m1724_off_track_repair_panel_execution/termination_reason_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1724-paper-route-controller-family-off-track-repair-panel-execution.json"
+    ],
+    "parent_objective": [
+      "audit measured off-track repair panel under pre-registered M1723 rules"
+    ],
+    "derived_from": [
+      "m1724-paper-route-controller-family-off-track-repair-panel-execution"
+    ],
+    "blocked_by": [
+      "need result audit before task-quality repair synthesis or redesign"
+    ],
+    "supersedes": [
+      "direct branch continuation after M1724 execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md",
+  "public_gates": [
+    "M1725 must audit M1724 execution pass/fail plumbing before interpreting task quality",
+    "M1725 must compare original_axis_baseline against best_off_track_variant, collision_control_wide_relaxed, and wide_relaxed_extended separately",
+    "M1725 must apply the pre-registered off-track improvement, collision-delta, and composite repair thresholds",
+    "M1725 must classify the result as full repair positive, composite repair positive, conditional repair retained, tradeoff-only, repair failed, or runner failure",
+    "M1725 must not run rollout train replay PPO promote use private holdout or change actor inputs",
+    "M1725 must not claim controller-family ranking, paper-level evidence, or level3 self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controller_family_task_quality_repair",
+    "evidence_axis": "Q_off_track_repair_panel_result_audit",
+    "evidence_increment": "audits fixed-budget off-track repair panel task-quality signal after measured execution",
+    "claim_scope": "public diagnostic task-quality repair audit only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if execution plumbing failed",
+      "stop if required aggregates are missing",
+      "stop if all calibrated variants remain off-track dominated above 0.80",
+      "stop if no calibrated variant improves off-track rate by at least 0.10",
+      "stop if repair reduces off-track only by exceeding collision guard"
+    ],
+    "fallback_plan": [
+      "route to runner repair if M1724 execution failed",
+      "route to task-quality source redesign if repair failed",
+      "route to branch synthesis if the result is conditional, composite, or tradeoff-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1724 completed off-track repair panel execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit off-track repair panel diagnostic result",
+    "admission_evidence": [
+      "M1724 completed the fixed 864-episode off-track repair panel execution"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1725 audit document",
+      "M1725 status queue scoreboard research log and review",
+      "one follow-up synthesis or redesign manifest"
+    ],
+    "next_stage_criteria": [
+      "execution pass/fail is audited",
+      "variant-level off-track/collision tradeoff class is recorded",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level2_history_encoded_reactive",
+    "current_frame_substitution_risk": "high; M1725 audits task quality and cannot prove history necessity.",
+    "history_necessity_tests": [
+      "audit must keep profile rows as controls and must not convert them into self-ID claims"
+    ],
+    "temporal_evidence_window": "M1724 public diagnostic execution outputs.",
+    "negative_result_policy": "If task-quality repair fails or is tradeoff-only, record that as scenario-design evidence rather than self-ID failure.",
+    "allowed_claims": [
+      "off-track repair-panel public task-quality audit result",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1724 can be audited under the pre-registered M1723 collision/off-track rules to decide whether the repair panel gives a positive, conditional, tradeoff-only, or failed task-quality signal.",
+  "success_criteria": [
+    "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md exists",
+    "M1724 result_class and guardrails are audited",
+    "original_axis_baseline is used as the baseline variant",
+    "all three non-baseline repair variants are compared separately",
+    "offtrack_improvement and collision_delta are reported for each non-baseline variant",
+    "wide_relaxed_extended composite_delta_vs_prior_best is reported",
+    "result class is one of full_repair_positive composite_repair_positive conditional_repair_retained tradeoff_only repair_failed runner_failure",
+    "rollout execution training replay PPO promotion private holdout actor-input changes and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "audit omits M1724 execution pass/fail checks",
+    "audit chooses a best variant without reporting all non-baseline variants",
+    "audit omits collision delta or composite delta",
+    "audit ranks controller-family profiles",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write off-track repair panel result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1725-paper-route-controller-family-off-track-repair-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m1724_off_track_repair_panel_execution/summary.json",
+    "runs/m1724_off_track_repair_panel_execution/repair_variant_aggregate.csv"
+  ],
+  "decision_rule": "M1725 passes if it audits M1724 under the pre-registered repair tradeoff rules and routes to redesign, synthesis, or the next paper-route stage without overclaiming.",
+  "next_blocker": "m1725-paper-route-controller-family-off-track-repair-panel-result-audit"
+}
