@@ -1,0 +1,183 @@
+{
+  "id": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_time_aes_feasibility_scan_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+      "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1840-executable-v2-reset-time-aes-feasibility-scan-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset conditional AES feasibility scan helper and focused tests"
+    ],
+    "derived_from": [
+      "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
+    ],
+    "blocked_by": [
+      "M1840 admits scan helper implementation"
+    ],
+    "supersedes": [
+      "blind source repair v3 before feasibility scan",
+      "project artifact scan before focused tests",
+      "reset preflight before scan evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
+  "public_gates": [
+    "M1841 must implement the scan helper and focused tests only",
+    "M1841 must not run project artifact scan or generate repair payload",
+    "M1841 must preserve actor-input contract and ranking blocks"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "evidence_axis": "Q_reset_time_aes_feasibility_scan_implementation",
+    "evidence_increment": "implements tested no-reset scan helper that can detect conditional AES-only grid support",
+    "claim_scope": "scan helper implementation only; no project artifact scan, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if helper cannot evaluate accepted cells without env reset",
+      "stop if helper generates a repair payload",
+      "stop if focused tests cannot separate feasible and infeasible rows",
+      "stop if guardrail or summary artifacts are missing"
+    ],
+    "fallback_plan": [
+      "route to design repair if implementation cannot meet M1840 contract",
+      "route to focused helper repair if tests reveal scan-count bugs",
+      "route to execution design only after focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1840 admits scan helper implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "reset-time AES feasibility scan helper implementation",
+    "admission_evidence": [
+      "M1840 defines scan target rows grid ranges output artifacts and focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact feasibility scan",
+      "do not generate repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "scan helper implementation",
+      "focused tests",
+      "M1841 implementation doc",
+      "M1841 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "full pytest passes if source code changes are made",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; scan helper implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "helper unit/focused tests only; no project artifact scan.",
+    "negative_result_policy": "If focused tests fail, repair helper or design rather than weakening AES labels.",
+    "allowed_claims": [
+      "reset-time AES feasibility scan helper implementation and tests",
+      "no project artifact scan result, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset helper can implement M1840's conditional grid scan, distinguish feasible AES-only rows from AEB-feasible-only rows, and write scan summary artifacts without generating a repair payload.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py exists",
+    "tests/test_executable_v2_reset_time_aes_feasibility_scan.py exists",
+    "focused tests pass",
+    "full pytest passes if source code changed",
+    "implementation does not run project artifact scan or environment reset",
+    "implementation does not generate source repair payload"
+  ],
+  "failure_criteria": [
+    "implementation file is missing",
+    "focused tests are missing or fail",
+    "helper runs project artifact scan as part of implementation",
+    "helper calls environment reset or rollout",
+    "helper generates repair payload",
+    "helper omits accepted-cell and source-summary artifacts"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_reset_time_aes_feasibility_scan.py -q"
+    },
+    {
+      "name": "full_pytest",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_reset_time_aes_feasibility_scan.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_reset_time_aes_feasibility_scan.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_time_aes_feasibility_scan_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+    "src/autodrift/executable_v2_reset_time_aes_sampler_diagnostic.py"
+  ],
+  "decision_rule": "M1841 passes if the helper and focused tests implement M1840 without project artifact scan, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation"
+}

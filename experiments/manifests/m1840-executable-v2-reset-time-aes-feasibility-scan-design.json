@@ -164,6 +164,40 @@
     "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
     "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/reset_time_aes_source_repair_candidate_scores.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
+    "decision": "reset_time_aes_feasibility_scan_design_admit_implementation",
+    "target_source_count": 2,
+    "target_profile_count_total": 24,
+    "distance_range": [
+      1.0,
+      60.0
+    ],
+    "minimum_distance_count": 120,
+    "half_width_range": [
+      0.2,
+      1.4
+    ],
+    "minimum_half_width_count": 61,
+    "feasibility_scan_run": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json"
+  },
   "decision_rule": "M1840 passes if it designs conditional feasibility scan artifacts and criteria without running scan, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
+  "next_blocker": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation"
 }

@@ -30947,3 +30947,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1840-executable-v2-reset-time-aes-feasibility-scan-design.json`
 - next: `m1840-executable-v2-reset-time-aes-feasibility-scan-design`
+
+## M1840 Executable V2 Reset-Time AES Feasibility Scan Design
+
+- status: completed
+- decision: `reset_time_aes_feasibility_scan_design_admit_implementation`
+- artifact: `docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md`
+- target source count: `2`
+- target profile count total: `24`
+- distance range: `[1.0, 60.0]`
+- minimum distance count: `120`
+- half-width range: `[0.2, 1.4]`
+- minimum half-width count: `61`
+- feasibility scan run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: conditional feasibility scan design and implementation admission
+- unsupported: scan result source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json`
+- next: `m1841-executable-v2-reset-time-aes-feasibility-scan-implementation`

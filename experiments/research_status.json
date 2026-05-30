@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1848,
+    "completed": 1849,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit.md",
+    "command_log": "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1839-executable-v2-reset-time-aes-source-repair-v2-result-audit"
+    "task_id": "m1840-executable-v2-reset-time-aes-feasibility-scan-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1840-executable-v2-reset-time-aes-feasibility-scan-design.json",
-    "hypothesis": "A conditional scan can be specified that uses reset-time speed_ref and mu for each failed AES row to determine whether any obstacle grid cells are accepted AES-only candidates before source repair v3.",
-    "id": "m1840-executable-v2-reset-time-aes-feasibility-scan-design",
-    "kind": "gate",
-    "notes": "Pending: design conditional feasibility scan without running it",
-    "priority": 18350,
+    "command": "see experiments/manifests/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.json",
+    "hypothesis": "A no-reset helper can implement M1840's conditional grid scan, distinguish feasible AES-only rows from AEB-feasible-only rows, and write scan summary artifacts without generating a repair payload.",
+    "id": "m1841-executable-v2-reset-time-aes-feasibility-scan-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement feasibility scan helper and focused tests without project artifact scan",
+    "priority": 18360,
     "status": "pending",
-    "success_artifact": "docs/m1840-executable-v2-reset-time-aes-feasibility-scan-design.md"
+    "success_artifact": "docs/m1841-executable-v2-reset-time-aes-feasibility-scan-implementation.md"
   },
-  "updated_at_utc": "20260530T133200Z"
+  "updated_at_utc": "20260530T133300Z"
 }
