@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1845,
+    "completed": 1846,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1836-executable-v2-reset-time-aes-source-repair-v2-implementation.md",
+    "command_log": "docs/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1836-executable-v2-reset-time-aes-source-repair-v2-implementation"
+    "task_id": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.json",
-    "hypothesis": "The M1836 helper can be targeted by an exact project artifact command with fixed inputs, output directory, expected counts, and claim boundary.",
-    "id": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design",
-    "kind": "gate",
-    "notes": "Pending: pre-register exact source repair v2 project artifact command without running it",
-    "priority": 18320,
+    "command": "see experiments/manifests/m1838-executable-v2-reset-time-aes-source-repair-v2.json",
+    "hypothesis": "The M1836 helper can run over M1825/M1828 artifacts and either produce a full reset-time AES source repair candidate or clean fail evidence without reset or rollout.",
+    "id": "m1838-executable-v2-reset-time-aes-source-repair-v2",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact source repair v2 command from M1837",
+    "priority": 18330,
     "status": "pending",
-    "success_artifact": "docs/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.md"
+    "success_artifact": "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json"
   },
-  "updated_at_utc": "20260530T132900Z"
+  "updated_at_utc": "20260530T133000Z"
 }

@@ -163,6 +163,34 @@
     "runs/m1825_executable_v2_stable_source_targeted_reset_sampler_repair/repaired_targeted_reset_executable_v2_panel_specs.json",
     "runs/m1828_executable_v2_stable_source_repaired_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design.md",
+    "decision": "reset_time_aes_source_repair_v2_execution_design_admit_run",
+    "output_dir": "runs/m1838_executable_v2_reset_time_aes_source_repair_v2",
+    "expected_target_source_count": 2,
+    "expected_target_profile_count": 12,
+    "expected_target_profile_count_total": 24,
+    "expected_repaired_spec_count": 36,
+    "main_attempt_budget": 10000,
+    "project_artifact_repair_execution": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1838-executable-v2-reset-time-aes-source-repair-v2.json"
+  },
   "decision_rule": "M1837 passes if it pre-registers exact source repair v2 execution without running helper, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1837-executable-v2-reset-time-aes-source-repair-v2-execution-design"
+  "next_blocker": "m1838-executable-v2-reset-time-aes-source-repair-v2"
 }
