@@ -31607,3 +31607,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: materialization result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1861-executable-v2-support-first-materialization-execution.json`
 - next: `m1861-executable-v2-support-first-materialization-execution`
+
+## M1861 Executable V2 Support-First Materialization Execution
+
+- status: completed
+- decision: `support_first_materialization_execution_pass_route_to_result_audit`
+- artifact: `docs/m1861-executable-v2-support-first-materialization-execution.md`
+- result artifact: `runs/m1861_executable_v2_support_first_materialization/summary.json`
+- input supported source count: `202`
+- selected source count: `90`
+- selected cell count: `180`
+- materialized spec count: `180`
+- materialization matrix row count: `180`
+- role counts: `drift_required_recovery=48 stable_aeb=48 stable_aes_only=48 unavoidable_mitigation=36`
+- surface counts: `post_friction_step=84 steady_surface=96`
+- speed count: `5`
+- mu count: `6`
+- duplicate key count: `0`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- project materialization execution run: `true`
+- source mining rerun: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: bounded materialization artifacts executable-v2 candidate JSON result audit route
+- unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json`
+- next: `m1862-executable-v2-support-first-materialization-result-audit`

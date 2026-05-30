@@ -162,6 +162,54 @@
     "runs/m1856_executable_v2_support_first_source_mining/support_first_materialization_admissibility_input.csv",
     "configs/executable_v2_support_first_candidate_templates_v0.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1861-executable-v2-support-first-materialization-execution.md",
+    "result_artifact": "runs/m1861_executable_v2_support_first_materialization/summary.json",
+    "decision": "support_first_materialization_execution_pass_route_to_result_audit",
+    "input_supported_source_count": 202,
+    "selected_source_count": 90,
+    "selected_cell_count": 180,
+    "materialized_spec_count": 180,
+    "materialization_matrix_row_count": 180,
+    "role_counts": {
+      "drift_required_recovery": 48,
+      "stable_aeb": 48,
+      "stable_aes_only": 48,
+      "unavoidable_mitigation": 36
+    },
+    "surface_counts": {
+      "post_friction_step": 84,
+      "steady_surface": 96
+    },
+    "speed_count": 5,
+    "mu_count": 6,
+    "duplicate_key_count": 0,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "project_materialization_execution_run": true,
+    "source_mining_rerun": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json"
+  },
   "decision_rule": "M1861 passes if it runs bounded materialization within caps and guardrails without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1861-executable-v2-support-first-materialization-execution"
+  "next_blocker": "m1862-executable-v2-support-first-materialization-result-audit"
 }

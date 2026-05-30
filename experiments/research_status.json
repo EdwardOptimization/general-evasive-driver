@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1869,
+    "completed": 1870,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1860-executable-v2-support-first-materialization-execution-design.md",
+    "command_log": "docs/m1861-executable-v2-support-first-materialization-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1860-executable-v2-support-first-materialization-execution-design"
+    "task_id": "m1861-executable-v2-support-first-materialization-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1861-executable-v2-support-first-materialization-execution.json",
-    "hypothesis": "Bounded materialization can produce capped executable-v2 candidate artifacts from supported sources without reset or measured execution.",
-    "id": "m1861-executable-v2-support-first-materialization-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded support-first materialization",
-    "priority": 18560,
+    "command": "see experiments/manifests/m1862-executable-v2-support-first-materialization-result-audit.json",
+    "hypothesis": "M1861 materialization artifacts are clean enough to design reset validation.",
+    "id": "m1862-executable-v2-support-first-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit bounded materialization before reset-validation design",
+    "priority": 18570,
     "status": "pending",
-    "success_artifact": "runs/m1861_executable_v2_support_first_materialization/summary.json"
+    "success_artifact": "docs/m1862-executable-v2-support-first-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260530T133752Z"
+  "updated_at_utc": "20260530T134030Z"
 }

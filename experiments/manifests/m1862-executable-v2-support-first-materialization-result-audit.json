@@ -1,0 +1,163 @@
+{
+  "id": "m1862-executable-v2-support-first-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_materialization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1861-executable-v2-support-first-materialization-execution.md",
+      "runs/m1861_executable_v2_support_first_materialization/summary.json",
+      "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+      "runs/m1861_executable_v2_support_first_materialization/support_first_materialization_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1861-executable-v2-support-first-materialization-execution.json"
+    ],
+    "parent_objective": [
+      "audit bounded materialization before reset-validation design"
+    ],
+    "derived_from": [
+      "m1861-executable-v2-support-first-materialization-execution"
+    ],
+    "blocked_by": [
+      "M1861 materialized executable-v2 candidate artifacts require audit before reset validation"
+    ],
+    "supersedes": [
+      "direct reset validation from materialization without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1862-executable-v2-support-first-materialization-result-audit.md",
+  "public_gates": [
+    "M1862 must audit materialized spec count caps duplicate keys labels and role coverage",
+    "M1862 must choose reset-validation design or materialization repair",
+    "M1862 must keep reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun materialization",
+    "do not rerun source mining",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_materialization",
+    "evidence_axis": "Q_support_first_materialization_result_audit",
+    "evidence_increment": "audits bounded materialization artifacts and decides whether reset-validation design is admissible",
+    "claim_scope": "result audit only; no rerun, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if materialized count exceeds caps",
+      "stop if duplicate keys are present",
+      "stop if labels enter actor inputs",
+      "stop if role coverage is too imbalanced for reset validation"
+    ],
+    "fallback_plan": [
+      "route to reset-validation design if materialization is clean",
+      "route to materialization repair if caps joins or labels fail",
+      "route to branch synthesis if materialization should stop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1861 materialization completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first materialization result audit",
+    "admission_evidence": [
+      "M1861 produced bounded materialization artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun materialization",
+      "do not rerun source mining",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1862 audit document",
+      "M1862 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "materialization result is audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1861 materialization artifacts only; no reset or rollout.",
+    "negative_result_policy": "Any imbalance or shortage must be recorded rather than hidden by tuning.",
+    "allowed_claims": [
+      "bounded materialization result audit",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1861 materialization artifacts are clean enough to design reset validation.",
+  "success_criteria": [
+    "docs/m1862-executable-v2-support-first-materialization-result-audit.md exists",
+    "audit records materialized spec count role coverage duplicate keys and guardrails",
+    "audit chooses next route without running reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit reruns materialization or source mining",
+    "audit runs reset rollout training replay PPO or ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1862-executable-v2-support-first-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_materialization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1861-executable-v2-support-first-materialization-execution.md",
+    "runs/m1861_executable_v2_support_first_materialization/summary.json",
+    "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+    "runs/m1861_executable_v2_support_first_materialization/support_first_materialization_matrix.csv"
+  ],
+  "decision_rule": "M1862 passes if it audits materialization and chooses the next route without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1862-executable-v2-support-first-materialization-result-audit"
+}
