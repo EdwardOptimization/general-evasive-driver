@@ -30292,3 +30292,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.json`
 - next: `m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design`
+
+## M1819 Executable V2 Stable Source Targeted Reset Feasibility Execution Design
+
+- status: completed
+- decision: `stable_source_targeted_reset_execution_design_admit_preflight_run`
+- branch: `paper_route_executable_v2_targeted_reset_validation`
+- artifact: `docs/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.md`
+- targeted reset payload: `runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json`
+- output dir: `runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight`
+- eval seed base: `182000`
+- expected attempted spec count: `36`
+- expected reset success count: `36`
+- expected sampling failure count: `0`
+- expected profile count: `12`
+- expected role surface count: `1`
+- expected reset ready spec count: `36`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected metadata join incomplete count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact targeted reset-only preflight command and target counts
+- unsupported: targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight.json`
+- next: `m1820-executable-v2-stable-source-targeted-reset-feasibility-preflight`
