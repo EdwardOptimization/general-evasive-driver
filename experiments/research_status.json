@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1826,
+    "completed": 1827,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1817-executable-v2-stable-source-reset-validation-adapter-result-audit.md",
+    "command_log": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1817-executable-v2-stable-source-reset-validation-adapter-result-audit"
+    "task_id": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json",
-    "hypothesis": "M1808-M1817 have completed the source-label compatibility repair branch by materializing stable sources and converting them into a clean targeted reset payload, so the research can promote to a targeted reset-validation branch.",
-    "id": "m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis",
+    "command": "see experiments/manifests/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.json",
+    "hypothesis": "A targeted reset-only preflight over the M1816 converted payload can be pre-registered with exact inputs, target counts, and guardrails before any reset is run.",
+    "id": "m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1808-M1817 before opening targeted reset validation branch",
-    "priority": 18130,
+    "notes": "Pending: design exact targeted M1792 reset preflight command",
+    "priority": 18140,
     "status": "pending",
-    "success_artifact": "docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md"
+    "success_artifact": "docs/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.md"
   },
-  "updated_at_utc": "20260530T121000Z"
+  "updated_at_utc": "20260530T121500Z"
 }

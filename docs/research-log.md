@@ -30259,3 +30259,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.json`
 - next: `m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis`
+
+## M1818 Paper Route Executable V2 Label-Source Compatibility Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- completed branch: `paper_route_executable_v2_label_source_compatibility_repair`
+- next branch: `paper_route_executable_v2_targeted_reset_validation`
+- artifact: `docs/m1818-paper-route-executable-v2-label-source-compatibility-branch-synthesis.md`
+- evidence window: `M1808-M1817`
+- targeted reset payload: `runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json`
+- materialized stable source specs: `3`
+- targeted reset executable specs: `36`
+- profile control count: `12`
+- role surface count: `1`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- missing join count: `0`
+- duplicate workload count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: source-label compatibility branch completed enough to open targeted reset validation
+- unsupported: targeted reset validation result repaired reset feasibility pass measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design.json`
+- next: `m1819-executable-v2-stable-source-targeted-reset-feasibility-execution-design`
