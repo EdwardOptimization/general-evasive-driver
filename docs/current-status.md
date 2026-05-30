@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design
+m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution
 ```
 
 Current next task:
 
 ```text
-m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution
+m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit
 ```
 
-M1752 pre-registers the adapter-aware revised measured execution. M1753 should
-run the fixed M1743 semantics specs/matrix with M1734 executable repaired specs
-into `runs/m1753_revised_scenario_taxonomy_execution` using seed base `175300`.
-The execution is still public diagnostic only: interpretation, controller-family
-ranking, paper-level claims, promotion, and level3 self-identification claims
-remain blocked until a later result audit.
+M1753 ran the fixed revised public diagnostic execution but failed the execution
+gate: `504/864` episode rows completed, `360` failure rows were written, and
+guardrails stayed clean. The dominant failure is a wrapper/evaluator plumbing
+error (`359` rows: `ControllerProfileObservationWrapper` lacks `config`); one
+additional row has a reset-time sampling failure. M1754 must audit this failure
+before any repair, rerun, or interpretation of partial completed rows.
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
 specs, `864` calibration specs, `12` controller-family profiles, and `10368`
@@ -10998,5 +10998,11 @@ proof. Do not tune PPO separately for one profile and compare it directly.
   diagnostic cells with M1743 semantics metadata, M1734 executable specs, output
   dir `runs/m1753_revised_scenario_taxonomy_execution`, seed base `175300`, and
   metric-completeness artifacts. Any interpretation is deferred to M1754 audit.
+- M1753 executes the command but fails the pass gate: `504` episode rows,
+  `360` failure rows, `metric_completeness_failure_count=0`, and
+  `guardrail_violation_count=0`. Failure rows are dominated by `359`
+  `AttributeError` entries for masked/current-tiled profile wrappers missing
+  `env.config`, plus `1` reset-time sampling failure. Partial completed rows
+  are not ranking or paper evidence.
 - Current next blocker:
-  `m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution`.
+  `m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit`.

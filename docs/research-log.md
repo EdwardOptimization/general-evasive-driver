@@ -28284,3 +28284,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: revised rollout result, controller-family ranking, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.json`
 - next: `m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution`
+
+## M1753 Paper-Route Task-Quality Revised Scenario Taxonomy Measured Execution
+
+- status: completed
+- result class: `task_quality_scenario_taxonomy_execution_incomplete_or_fail`
+- artifact: `docs/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.md`
+- summary: `runs/m1753_revised_scenario_taxonomy_execution/summary.json`
+- execution passed: `false`
+- episode count: `504`
+- target episode count: `864`
+- failure count: `360`
+- profile count: `7`
+- target profile count: `12`
+- scenario spec count: `72`
+- scenario family count: `6`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- attribute error count: `359`
+- dominant error: `'ControllerProfileObservationWrapper' object has no attribute 'config'`
+- sampling failure count: `1`
+- sampling failure workload: `m1728-s4-02::L2_window_13_current_tiled`
+- completed-row outcome snapshot: `59` success obstacle pass, `160` collision failure, `285` off-track noncollision noncompletion
+- guardrail violation count: `0`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- reward changed: `false`
+- termination behavior changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: execution failure evidence and metric-complete completed rows
+- unsupported: execution pass, controller-family ranking, profile comparison, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json`
+- next: `m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit`

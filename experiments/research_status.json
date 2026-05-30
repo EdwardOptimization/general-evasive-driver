@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1761,
+    "completed": 1762,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design.md",
-    "returncode": 0,
+    "command_log": "runs/m1753_revised_scenario_taxonomy_execution/summary.json",
+    "returncode": 1,
     "status": "completed",
-    "task_id": "m1752-paper-route-task-quality-revised-scenario-taxonomy-measured-execution-design"
+    "task_id": "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.json",
-    "hypothesis": "The fixed M1743 semantics matrix can be executed with M1734 executable specs as a complete revised public diagnostic run.",
-    "id": "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution",
+    "command": "see experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json",
+    "hypothesis": "M1753 failure causes can be classified from summary and failure rows before any repair or rerun.",
+    "id": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit",
     "kind": "gate",
-    "notes": "Pending: execute fixed 864-cell revised public diagnostic matrix with metric completeness artifacts",
-    "priority": 17480,
+    "notes": "Pending: audit M1753 failure causes before repair rerun or partial-row interpretation",
+    "priority": 17490,
     "status": "pending",
-    "success_artifact": "runs/m1753_revised_scenario_taxonomy_execution/summary.json"
+    "success_artifact": "docs/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.md"
   },
-  "updated_at_utc": "20260530T053115Z"
+  "updated_at_utc": "20260530T053715Z"
 }

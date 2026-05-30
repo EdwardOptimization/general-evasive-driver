@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "metric_artifact",
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -181,6 +182,48 @@
     "runs/m1743_task_quality_outcome_semantics_materialization_preflight/semantics_scenario_matrix.csv",
     "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution.md",
+    "summary": "runs/m1753_revised_scenario_taxonomy_execution/summary.json",
+    "result_class": "task_quality_scenario_taxonomy_execution_incomplete_or_fail",
+    "execution_passed": false,
+    "episode_count": 504,
+    "target_episode_count": 864,
+    "failure_count": 360,
+    "profile_count": 7,
+    "target_profile_count": 12,
+    "scenario_spec_count": 72,
+    "target_scenario_spec_count": 72,
+    "scenario_family_count": 6,
+    "target_scenario_family_count": 6,
+    "all_selected_metrics_finite": true,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "attribute_error_count": 359,
+    "sampling_failure_count": 1,
+    "dominant_error_type": "AttributeError",
+    "dominant_error_message": "'ControllerProfileObservationWrapper' object has no attribute 'config'",
+    "sampling_failure_workload_id": "m1728-s4-02::L2_window_13_current_tiled",
+    "completed_success_obstacle_pass_count": 59,
+    "completed_collision_failure_count": 160,
+    "completed_off_track_noncollision_noncompletion_count": 285,
+    "guardrail_violation_count": 0,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit.json"
+  },
   "decision_rule": "M1753 passes if the fixed revised public diagnostic matrix executes completely with clean metric completeness and guardrails.",
-  "next_blocker": "m1753-paper-route-task-quality-revised-scenario-taxonomy-measured-execution"
+  "next_blocker": "m1754-paper-route-task-quality-revised-scenario-taxonomy-execution-failure-audit"
 }
