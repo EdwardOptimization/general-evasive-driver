@@ -161,6 +161,53 @@
     "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
     "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json",
+    "doc": "docs/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.md",
+    "decision": "outcome_semantics_materialization_preflight_pass_route_to_result_audit",
+    "result_class": "task_quality_outcome_semantics_materialization_preflight_pass",
+    "scenario_spec_count": 72,
+    "scenario_matrix_cell_count": 864,
+    "scenario_family_count": 6,
+    "profile_count": 12,
+    "registry_row_count": 6,
+    "metric_support_row_count": 11,
+    "registry_metric_error_count": 0,
+    "unsupported_metric_gap_count": 7,
+    "silent_unsupported_approximation_count": 0,
+    "evaluation_role_counts": {
+      "benchmark": 36,
+      "diagnostic_stress": 24,
+      "mitigation_diagnostic": 12
+    },
+    "matrix_evaluation_role_counts": {
+      "benchmark": 432,
+      "diagnostic_stress": 288,
+      "mitigation_diagnostic": 144
+    },
+    "primary_metric_family_counts": {
+      "avoidance_success": 24,
+      "boundary_robustness": 12,
+      "collision_mitigation": 12,
+      "controlled_drift_recovery": 12,
+      "hidden_dynamics_robustness": 12
+    },
+    "guardrail_violation_count": 0,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "unsupported_faults_treated_as_covered": false,
+    "next_manifest": "experiments/manifests/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.json"
+  },
   "decision_rule": "M1743 passes if revised semantics are materialized as no-rollout metadata with explicit unsupported gaps and clean guardrails.",
-  "next_blocker": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight"
+  "next_blocker": "m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit"
 }

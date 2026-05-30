@@ -10937,5 +10937,16 @@ proof. Do not tune PPO separately for one profile and compare it directly.
 - M1702 materializes the no-rollout calibration matrix: `864` calibration specs,
   `10368` profile/spec cells, zero P0 contract violations, zero missing profile
   artifacts, and no environment rollout.
-- Current next blocker:
+- At that point the next blocker was:
   `m1703-paper-route-controller-family-task-quality-calibration-preflight-result-audit`.
+- M1743 passes the paper-route task-quality outcome semantics materialization
+  preflight: `72` scenario specs, `864` matrix cells, `6` families, `12`
+  profiles, `6` registry rows, `11` metric support rows, `0` registry metric
+  errors, `7` explicit unsupported metric gaps, `0` silent unsupported
+  approximations, and guardrail violations `0`.
+- M1743 joined the repaired taxonomy into `432` benchmark cells, `288`
+  diagnostic-stress cells, and `144` mitigation-diagnostic cells. This is
+  metadata-only evidence; it is not a rollout result, profile ranking,
+  paper-level result, or level3 self-identification result.
+- Current next blocker:
+  `m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit`.

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1751,
+    "completed": 1752,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+    "command_log": "docs/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1742-paper-route-task-quality-outcome-semantics-redesign"
+    "task_id": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.json",
-    "hypothesis": "The revised outcome semantics can be materialized as no-rollout metadata over the repaired scenario taxonomy before another execution.",
-    "id": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize revised semantics registry and joined repaired taxonomy metadata without rollout",
-    "priority": 17380,
+    "command": "see experiments/manifests/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.json",
+    "hypothesis": "M1743 can be audited to decide whether explicit metric gaps require instrumentation or bounded-panel design before another execution.",
+    "id": "m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit revised semantics materialization and explicit metric gaps before execution route",
+    "priority": 17390,
     "status": "pending",
-    "success_artifact": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260530T044600Z"
+  "updated_at_utc": "20260530T043351Z"
 }

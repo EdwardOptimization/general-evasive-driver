@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1743 materializes revised semantics over 72 specs and 864 matrix cells with explicit 7 metric gaps and clean guardrails",
+  "failure_criteria": [
+    "semantics artifacts are missing",
+    "benchmark or diagnostic roles are absent",
+    "unsupported metric gaps are silent",
+    "environment rollout training replay PPO private holdout promotion or actor-input changes occur",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not treat unsupported faults as covered",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260530T043507Z",
+  "hypothesis": "The revised outcome semantics can be materialized as no-rollout metadata over the repaired scenario taxonomy before another execution.",
+  "lineage": {
+    "blocked_by": [
+      "need durable semantics artifacts before rerun or comparison"
+    ],
+    "derived_from": [
+      "m1742-paper-route-task-quality-outcome-semantics-redesign"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1742-paper-route-task-quality-outcome-semantics-redesign.json"
+    ],
+    "parent_dataset": [
+      "docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_specs.json",
+      "runs/m1734_task_quality_scenario_taxonomy_sampling_repair_preflight/repaired_scenario_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize revised outcome semantics as no-rollout metadata before any execution"
+    ],
+    "supersedes": [
+      "direct repaired taxonomy rerun with old success/off-track semantics"
+    ]
+  },
+  "milestone": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight",
+  "next_blocker": "m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_outcome_semantics_materialization_preflight_pass",
+  "public_gates": [
+    "M1743 must be no-rollout metadata materialization only",
+    "M1743 must write semantics registry artifacts with evaluation_role and primary_metric_family",
+    "M1743 must join semantics to the repaired scenario specs and matrix",
+    "M1743 must report unsupported metric gaps explicitly",
+    "M1743 must not train replay PPO promote use private holdout change actor inputs tune profiles rank controller families or claim paper-level evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_outcome_semantics_materialization_preflight_pass",
+    "milestone": "m1743-paper-route-task-quality-outcome-semantics-materialization-preflight",
+    "reason": "M1743 materializes revised semantics over 72 specs and 864 matrix cells with explicit 7 metric gaps and clean guardrails",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json exists",
+    "semantics registry json/csv artifacts exist",
+    "joined repaired scenario specs and matrix include evaluation_role and primary_metric_family",
+    "benchmark diagnostic_stress and mitigation_diagnostic roles are present",
+    "unsupported metric gaps are explicit and silent unsupported approximations are zero",
+    "environment rollout training replay PPO promotion private holdout actor-input changes ranking and level3 claims remain blocked"
+  ],
+  "type": "infrastructure"
+}

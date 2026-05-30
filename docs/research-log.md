@@ -28041,3 +28041,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rollout result, controller-family ranking, profile promotion, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.json`
 - next: `m1743-paper-route-task-quality-outcome-semantics-materialization-preflight`
+
+## M1743 Paper-Route Task-Quality Outcome Semantics Materialization Preflight
+
+- status: completed
+- result class: `task_quality_outcome_semantics_materialization_preflight_pass`
+- artifact: `runs/m1743_task_quality_outcome_semantics_materialization_preflight/summary.json`
+- doc: `docs/m1743-paper-route-task-quality-outcome-semantics-materialization-preflight.md`
+- parent design: `docs/m1742-paper-route-task-quality-outcome-semantics-redesign.md`
+- scenario specs: `72`
+- scenario matrix cells: `864`
+- scenario families: `6`
+- profiles: `12`
+- registry rows: `6`
+- metric support rows: `11`
+- registry metric errors: `0`
+- unsupported metric gaps: `7`
+- silent unsupported approximations: `0`
+- evaluation-role counts: benchmark `36`, diagnostic stress `24`, mitigation diagnostic `12`
+- matrix-role counts: benchmark `432`, diagnostic stress `288`, mitigation diagnostic `144`
+- guardrail violation count: `0`
+- supported: revised semantics materialized as no-rollout metadata with explicit metric gaps
+- unsupported: rollout result, controller-family ranking, profile promotion, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit.json`
+- next: `m1744-paper-route-task-quality-outcome-semantics-materialization-preflight-result-audit`
