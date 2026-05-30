@@ -1,0 +1,158 @@
+{
+  "id": "m1770-paper-route-metric-specific-bounded-panel-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_panel_design"
+    ],
+    "parent_dataset": [
+      "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+      "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json",
+      "runs/m1767_completed_taxonomy_outcome_dominance_localization/target_dominant_slices.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a metric-specific bounded diagnostic panel after full taxonomy diffuse dominance"
+    ],
+    "derived_from": [
+      "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1769 pivots from full taxonomy ranking/repair to bounded metric-specific panel design"
+    ],
+    "supersedes": [
+      "direct full-taxonomy repair",
+      "direct controller-family ranking"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1770-paper-route-metric-specific-bounded-panel-design.md",
+  "public_gates": [
+    "M1770 must be design-only and must not run rollout, train, replay, PPO, promote, use private holdout, change actor inputs, tune profiles, or rank controller families",
+    "M1770 must define metric-specific panels for avoidance, drift-required recovery, hidden-dynamics robustness, and unavoidable mitigation",
+    "M1770 must define materialization and execution admission gates before any measured run",
+    "M1770 must define outcome-quality pass gates that keep profile ranking blocked until the panel itself is valid"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_metric_specific_bounded_panel",
+    "evidence_axis": "Q_metric_specific_panel_design",
+    "evidence_increment": "designs a bounded, role-separated panel after full taxonomy diffuse dominance",
+    "claim_scope": "design only; no rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design collapses all roles back into one raw success metric",
+      "stop if the design ranks profiles before panel quality is validated",
+      "stop if the design silently drops mitigation or hidden-dynamics stress roles",
+      "stop if synthesis cadence fires before implementation or execution"
+    ],
+    "fallback_plan": [
+      "route to no-rollout materialization preflight if design is coherent",
+      "route to metric-semantics audit if role-specific success remains ambiguous",
+      "route to branch synthesis if design cannot avoid overfitting the public taxonomy"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1769 pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "metric-specific bounded panel design",
+    "admission_evidence": [
+      "M1769 pivots to bounded panel design because full taxonomy diffuse dominance blocks direct ranking and narrow repair"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1770 design document",
+      "M1770 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout materialization preflight or semantics audit"
+    ],
+    "next_stage_criteria": [
+      "panel roles and metrics are explicit",
+      "materialization preflight route is explicit",
+      "ranking remains blocked until panel-quality audits pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; M1770 designs a task-quality panel and does not test history necessity.",
+    "history_necessity_tests": [
+      "Design must retain L1, L2-current-tiled, L2 history-window, L3-online, and L3-reset controls for later self-ID evidence."
+    ],
+    "temporal_evidence_window": "M1769 synthesis and M1767 localization artifacts only.",
+    "negative_result_policy": "If the bounded panel cannot separate role-specific metrics, route to semantics audit rather than ranking profiles.",
+    "allowed_claims": [
+      "metric-specific bounded panel design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A bounded, metric-specific panel can preserve the useful taxonomy coverage while avoiding the diffuse outcome dominance that blocked ranking.",
+  "success_criteria": [
+    "docs/m1770-paper-route-metric-specific-bounded-panel-design.md exists",
+    "panel roles and metrics are explicit",
+    "no-rollout materialization route is explicit",
+    "outcome-quality pass gates are explicit",
+    "ranking, paper-level, private-holdout and level3 claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs rollout or changes configs",
+    "design ranks profiles or claims paper-level evidence",
+    "design does not separate mitigation, avoidance, drift-recovery, and hidden-dynamics roles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1770-paper-route-metric-specific-bounded-panel-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_panel_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json"
+  ],
+  "decision_rule": "M1770 passes if it designs a bounded metric-specific panel and a no-rollout materialization route while keeping ranking blocked.",
+  "next_blocker": "m1770-paper-route-metric-specific-bounded-panel-design"
+}

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M1769 passes if it synthesizes M1760-M1768 and chooses a route before repair, bounded-panel design, ranking, or paper-route claims.",
+  "decision_reason": "M1769 synthesizes M1760-M1768 and pivots to metric-specific bounded panel design before repair ranking or paper claims",
   "failure_criteria": [
     "synthesis document is missing",
     "synthesis skips required questions",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260530T065646Z",
+  "generated_at_utc": "20260530T070020Z",
   "hypothesis": "The M1760-M1768 completed taxonomy branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
   "lineage": {
     "blocked_by": [
@@ -64,9 +64,9 @@
     ]
   },
   "milestone": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
-  "next_blocker": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+  "next_blocker": "m1770-paper-route-metric-specific-bounded-panel-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "pivot_to_metric_specific_bounded_panel_design",
   "public_gates": [
     "M1769 must synthesize M1760-M1768 before another repair, execution, ranking, or paper-route claim",
     "M1769 must answer required synthesis questions",
@@ -74,7 +74,20 @@
     "M1769 must decide continue pivot stop or promote_to_next_branch",
     "M1769 must keep rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
   ],
-  "scoreboard": {},
+  "scoreboard": {
+    "checkpoint": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_metric_specific_bounded_panel_design",
+    "milestone": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "reason": "M1769 synthesizes M1760-M1768 and pivots to metric-specific bounded panel design before repair ranking or paper claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
   "success_criteria": [
     "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md exists",
     "synthesis questions are answered",

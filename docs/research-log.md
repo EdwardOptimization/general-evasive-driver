@@ -28810,3 +28810,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json`
 - next: `m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis`
+
+## M1769 Paper-Route Task-Quality Scenario Taxonomy Branch Synthesis
+
+- status: completed
+- workflow synthesis decision: `pivot`
+- decision: `pivot_to_metric_specific_bounded_panel_design`
+- artifact: `docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md`
+- synthesized range: `M1760-M1768`
+- M1764 completed rows: `864`
+- M1764 failure count: `0`
+- M1764 metric completeness passed: `true`
+- M1767 dominant slice count: `305`
+- M1767 target dominant slice count: `291`
+- M1767 dominant family count: `6`
+- M1767 dominant profile count: `12`
+- M1767 outcome dominance class: `diffuse_outcome_dominance`
+- public gate overfit risk: `high`
+- next branch: `paper_route_metric_specific_bounded_panel`
+- next manifest: `experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json`
+- environment rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: completed taxonomy artifact validity and diffuse outcome-dominance diagnosis
+- unsupported: controller-family ranking, profile promotion, private-holdout evidence, paper-level result, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json`
+- next: `m1770-paper-route-metric-specific-bounded-panel-design`

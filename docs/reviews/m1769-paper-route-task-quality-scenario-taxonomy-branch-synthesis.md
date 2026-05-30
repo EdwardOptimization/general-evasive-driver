@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260530T065646Z
+- Generated at UTC: 20260530T070020Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: not_applicable
-- Decision reason: M1769 passes if it synthesizes M1760-M1768 and chooses a route before repair, bounded-panel design, ranking, or paper-route claims.
+- Promotion decision: pivot_to_metric_specific_bounded_panel_design
+- Decision reason: M1769 synthesizes M1760-M1768 and pivots to metric-specific bounded panel design before repair ranking or paper claims
 
 ## Hypothesis
 
@@ -78,8 +78,19 @@ The M1760-M1768 completed taxonomy branch should synthesize before repair or ran
 
 ## Scoreboard
 
-- No scoreboard row recorded.
+- milestone: m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis
+- type: gate
+- checkpoint: docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_metric_specific_bounded_panel_design
+- reason: M1769 synthesizes M1760-M1768 and pivots to metric-specific bounded panel design before repair ranking or paper claims
 
 ## Next Blocker
 
-m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis
+m1770-paper-route-metric-specific-bounded-panel-design

@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1777,
+    "completed": 1778,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md",
+    "command_log": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1768-completed-taxonomy-outcome-dominance-result-audit"
+    "task_id": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.json",
-    "hypothesis": "The M1760-M1768 completed taxonomy branch should synthesize before repair or ranking because diffuse dominance makes local continuation risky.",
-    "id": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis",
+    "command": "see experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json",
+    "hypothesis": "A bounded, metric-specific panel can preserve the useful taxonomy coverage while avoiding the diffuse outcome dominance that blocked ranking.",
+    "id": "m1770-paper-route-metric-specific-bounded-panel-design",
     "kind": "gate",
-    "notes": "Pending: synthesize completed taxonomy branch before repair, panel design, ranking, or paper-route claims",
-    "priority": 17640,
+    "notes": "Pending: design bounded metric-specific diagnostic panel after M1769 pivot",
+    "priority": 17650,
     "status": "pending",
-    "success_artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md"
+    "success_artifact": "docs/m1770-paper-route-metric-specific-bounded-panel-design.md"
   },
-  "updated_at_utc": "20260530T065522Z"
+  "updated_at_utc": "20260530T065925Z"
 }

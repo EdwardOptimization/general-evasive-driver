@@ -84,7 +84,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M1768 routes to synthesis after M1767 diffuse dominance and near-cadence branch length",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -185,6 +185,40 @@
     "runs/m1767_completed_taxonomy_outcome_dominance_localization/summary.json",
     "docs/m1768-completed-taxonomy-outcome-dominance-result-audit.md"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis.md",
+    "decision": "pivot_to_metric_specific_bounded_panel_design",
+    "workflow_synthesis_decision": "pivot",
+    "synthesized_range": "M1760-M1768",
+    "failure_taxonomy": [
+      "seed_fragility",
+      "scenario_sampling_failure",
+      "metric_artifact",
+      "behavior_regression"
+    ],
+    "evidence_summary": "M1760-M1768 completed the deterministic seed-repair route, produced a valid 864-row completed public diagnostic artifact, and localized diffuse dominance across all families and profiles.",
+    "supported_claim": "the completed taxonomy is a valid diagnostic artifact with explicit provenance and broad outcome-localization evidence.",
+    "falsified_claim": "the completed taxonomy is ready for controller-family ranking, profile promotion, or paper-level benchmark interpretation.",
+    "public_gate_overfit_risk": "high",
+    "next_branch": "paper_route_metric_specific_bounded_panel",
+    "next_manifest": "experiments/manifests/m1770-paper-route-metric-specific-bounded-panel-design.json",
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0
+  },
   "decision_rule": "M1769 passes if it synthesizes M1760-M1768 and chooses a route before repair, bounded-panel design, ranking, or paper-route claims.",
-  "next_blocker": "m1769-paper-route-task-quality-scenario-taxonomy-branch-synthesis"
+  "next_blocker": "m1770-paper-route-metric-specific-bounded-panel-design"
 }
