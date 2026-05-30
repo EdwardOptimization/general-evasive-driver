@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1715,
+    "completed": 1716,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md",
+    "command_log": "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit"
+    "task_id": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed for the M1705 bounded calibration smoke without overclaiming or changing the actor contract.",
-    "id": "m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design",
+    "command": "see experiments/manifests/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.json",
+    "hypothesis": "The M1705 bounded calibration smoke can be executed as a resumable 864-episode public diagnostic run with outcome aggregates and clean guardrails.",
+    "id": "m1708-paper-route-controller-family-bounded-calibration-smoke-execution",
     "kind": "gate",
-    "notes": "Pending: design bounded execution artifacts metrics resume handling and claim boundaries",
-    "priority": 17020,
+    "notes": "Pending: run or implement runner for 864-cell bounded calibration smoke with no training or ranking claims",
+    "priority": 17030,
     "status": "pending",
-    "success_artifact": "docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md"
+    "success_artifact": "runs/m1708_controller_family_bounded_calibration_smoke_execution/summary.json"
   },
-  "updated_at_utc": "20260530T011028Z"
+  "updated_at_utc": "20260530T011327Z"
 }

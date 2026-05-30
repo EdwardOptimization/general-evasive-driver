@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit
+m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design
 ```
 
 Current next task:
 
 ```text
-m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design
+m1708-paper-route-controller-family-bounded-calibration-smoke-execution
 ```
 
 M1702 materialized the no-rollout task-quality calibration matrix: `72` base
@@ -34,9 +34,11 @@ designed a bounded calibration smoke: select `6` source-diverse base specs
 controller-family profiles, for `864` cells. M1705 materialized that subset as
 clean no-rollout metadata with zero contract violations, all variants retained,
 and all profiles present. M1706 audited the subset as clean and admits execution
-design, not direct execution. The next task is M1707: design measured execution
-artifacts, outcome/termination aggregates, resume handling, and task-quality
-claim boundaries for the bounded calibration smoke.
+design, not direct execution. M1707 designed measured execution for the bounded
+smoke and identified that the runner must consume calibration-specific specs and
+workload rows. The next task is M1708: run or implement that bounded calibration
+execution path over exactly `864` public diagnostic episodes, with outcome and
+termination aggregates and no training or ranking claims.
 
 M1472 ran positive-neighborhood bounded replay, M1473 audited the result, M1474
 designed the source-diverse pressure route, M1475 implemented the generator, and

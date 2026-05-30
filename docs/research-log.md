@@ -27349,3 +27349,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.json`
 - next: `m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design`
+
+## M1707 Paper-Route Controller-Family Bounded Calibration Smoke Execution Design
+
+- status: completed
+- decision: `bounded_calibration_smoke_execution_design_admit_measured_execution`
+- artifact: `docs/m1707-paper-route-controller-family-bounded-calibration-smoke-execution-design.md`
+- parent audit: `docs/m1706-paper-route-controller-family-bounded-calibration-smoke-preflight-result-audit.md`
+- planned input matrix: `runs/m1705_controller_family_bounded_calibration_smoke_preflight/bounded_smoke_matrix.csv`
+- planned episodes: `864`
+- planned bounded calibration specs: `72`
+- planned profiles: `12`
+- engineering note: existing default full-rollout inputs target M1690 executable specs, so M1708 must use a bounded-calibration runner or adapter that preserves calibration fields
+- required aggregates: profile, calibration variant, task family, source edge, outcome bucket, termination reason, and profile outcome
+- pre-registered task-quality audit rules: execution pass requires `864` rows, zero failures, finite metrics, and zero guardrail violations; interpretability requires at least one variant with off-track noncompletion rate `<= 0.70`; weak signal threshold is best variant `<= 0.80` or at least `0.10` off-track improvement against the original-axis baseline
+- supported: measured bounded public execution is admitted
+- unsupported: controller-family ranking, calibrated task-quality result, finite-window history necessity, recurrent advantage, private-holdout evidence, paper-level evidence, level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1708-paper-route-controller-family-bounded-calibration-smoke-execution.json`
+- next: `m1708-paper-route-controller-family-bounded-calibration-smoke-execution`
