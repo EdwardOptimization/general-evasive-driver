@@ -1,0 +1,172 @@
+{
+  "id": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_targeted_reset_sampler_repair_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+      "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+      "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset source-level sampler repair planner for targeted reset failures"
+    ],
+    "derived_from": [
+      "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design"
+    ],
+    "blocked_by": [
+      "M1822 admits no-reset source-level sampler repair planner"
+    ],
+    "supersedes": [
+      "manual sampler repair",
+      "profile-specific sampler repair",
+      "reset rerun before repair payload exists"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md",
+  "public_gates": [
+    "M1823 must implement a no-reset repair planner with focused tests",
+    "M1823 must preserve profile controls labels-out-of-actor and ranking blocks",
+    "M1823 must not run project artifact repair or environment reset",
+    "M1823 must keep rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute project artifact repair",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "evidence_axis": "Q_stable_source_targeted_reset_sampler_repair_implementation",
+    "evidence_increment": "implements no-reset source-level sampler repair planner after M1822 design",
+    "claim_scope": "sampler repair implementation only; no project repair execution, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair planner cannot preserve profile controls",
+      "stop if planner would require profile-specific tuning",
+      "stop if planner would place labels into actor input"
+    ],
+    "fallback_plan": [
+      "route to design repair if source-level repair fields are ambiguous",
+      "route to materialization repair if planner cannot express repaired configs",
+      "route to execution design if focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1822 admits no-reset planner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable source targeted reset sampler repair implementation",
+    "admission_evidence": [
+      "M1822 repair design separates systematic AES and sparse AEB source-level repairs"
+    ],
+    "blocked_shortcuts": [
+      "do not execute project artifact repair",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "source module and focused tests",
+      "M1823 status queue scoreboard research log and review",
+      "one follow-up manifest for no-reset repair execution design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "repair artifact schema is tested",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; sampler repair implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "focused synthetic fixtures only; no real reset or project repair execution.",
+    "negative_result_policy": "If implementation cannot express source-level repair, route to design repair rather than weakening reset-support standards.",
+    "allowed_claims": [
+      "stable source targeted reset sampler repair implementation and focused tests",
+      "no project repair execution, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-reset repair planner can produce source-level repaired sampler artifacts for the M1820 failure classes while preserving profile controls and claim boundaries.",
+  "success_criteria": [
+    "source module exists",
+    "focused tests exist and pass",
+    "tests cover systematic AES and sparse AEB repair classes",
+    "tests verify profile control preservation no-label-leakage no ranking admission and no reset",
+    "no real project artifact repair or environment reset is run"
+  ],
+  "failure_criteria": [
+    "implementation is missing",
+    "focused tests are missing or fail",
+    "planner drops profile controls",
+    "planner admits ranking or label leakage",
+    "implementation runs reset rollout or project artifacts"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_stable_source_targeted_reset_sampler_repair.py -q"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_stable_source_targeted_reset_sampler_repair.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_stable_source_targeted_reset_sampler_repair.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_targeted_reset_sampler_repair_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+    "runs/m1816_executable_v2_stable_source_reset_validation_adapter/targeted_reset_executable_v2_panel_specs.json",
+    "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/reset_stress_rows.csv"
+  ],
+  "decision_rule": "M1823 passes if it implements and tests a no-reset source-level sampler repair planner without project execution, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation"
+}

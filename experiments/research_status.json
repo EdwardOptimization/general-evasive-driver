@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1830,
+    "completed": 1831,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit.md",
+    "command_log": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1821-executable-v2-stable-source-targeted-reset-feasibility-result-audit"
+    "task_id": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.json",
-    "hypothesis": "A source-level sampler repair can be designed for the M1820 failures without profile-specific tuning or actor-input changes.",
-    "id": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design source-level sampler repair for targeted reset failures",
-    "priority": 18170,
+    "command": "see experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json",
+    "hypothesis": "A no-reset repair planner can produce source-level repaired sampler artifacts for the M1820 failure classes while preserving profile controls and claim boundaries.",
+    "id": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-reset source-level sampler repair planner with focused tests",
+    "priority": 18180,
     "status": "pending",
-    "success_artifact": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md"
+    "success_artifact": "docs/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.md"
   },
-  "updated_at_utc": "20260530T123000Z"
+  "updated_at_utc": "20260530T123500Z"
 }

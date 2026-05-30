@@ -158,6 +158,37 @@
     "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/summary.json",
     "runs/m1820_executable_v2_stable_source_targeted_reset_feasibility_preflight/sampling_failure_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md",
+    "decision": "stable_source_targeted_reset_sampler_repair_design_admit_no_reset_planner",
+    "branch": "paper_route_executable_v2_targeted_reset_validation",
+    "repair_target_source_count": 3,
+    "systematic_source_count": 2,
+    "sparse_source_count": 1,
+    "systematic_repair_class": "aes_sampler_infeasibility",
+    "sparse_repair_class": "aeb_seed_sampling_failure",
+    "profile_control_count": 12,
+    "expected_repaired_executable_spec_count": 36,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json"
+  },
   "decision_rule": "M1822 passes if it designs a source-level sampler repair route without reset, rollout, ranking, profile tuning, or paper-level claims.",
-  "next_blocker": "m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design"
+  "next_blocker": "m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation"
 }

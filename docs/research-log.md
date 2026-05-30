@@ -30393,3 +30393,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.json`
 - next: `m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design`
+
+## M1822 Executable V2 Stable Source Targeted Reset Sampler Repair Design
+
+- status: completed
+- decision: `stable_source_targeted_reset_sampler_repair_design_admit_no_reset_planner`
+- branch: `paper_route_executable_v2_targeted_reset_validation`
+- artifact: `docs/m1822-executable-v2-stable-source-targeted-reset-sampler-repair-design.md`
+- repair target source count: `3`
+- systematic source count: `2`
+- sparse source count: `1`
+- systematic repair class: `aes_sampler_infeasibility`
+- sparse repair class: `aeb_seed_sampling_failure`
+- profile control count: `12`
+- expected repaired executable spec count: `36`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: source-level sampler repair design and no-reset planner route
+- unsupported: repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation.json`
+- next: `m1823-executable-v2-stable-source-targeted-reset-sampler-repair-implementation`
