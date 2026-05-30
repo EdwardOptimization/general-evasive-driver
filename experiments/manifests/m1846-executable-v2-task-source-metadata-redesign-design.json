@@ -1,0 +1,171 @@
+{
+  "id": "m1846-executable-v2-task-source-metadata-redesign-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_source_metadata_redesign_design"
+    ],
+    "parent_dataset": [
+      "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+      "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+      "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design support-first executable-v2 task/source metadata contract"
+    ],
+    "derived_from": [
+      "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1845 pivots away from unsupported stable AES source repair"
+    ],
+    "supersedes": [
+      "materialize executable-v2 rows before proving reset-time support",
+      "force stable AES labels onto drift-required or unavoidable source regions",
+      "context-insensitive claim-boundary output"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1846-executable-v2-task-source-metadata-redesign-design.md",
+  "public_gates": [
+    "M1846 must design support-first task/source metadata before implementation",
+    "M1846 must separate stable AES and drift-required task roles",
+    "M1846 must include context-aware claim-boundary output requirements",
+    "M1846 must keep scan reset rollout measured rollout training replay PPO promotion ranking and paper-level claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run project artifact feasibility scan",
+    "do not generate source repair payload",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_task_source_metadata_redesign",
+    "evidence_axis": "Q_task_source_metadata_redesign_design",
+    "evidence_increment": "designs support-first source/task metadata contract after current stable AES source-repair route is falsified",
+    "claim_scope": "design only; no scan, source repair payload, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design would materialize rows before support proof",
+      "stop if stable AES and drift-required roles remain conflated",
+      "stop if claim-boundary context is omitted",
+      "stop if design would change actor inputs reward dynamics or termination behavior"
+    ],
+    "fallback_plan": [
+      "route to metadata redesign implementation if design is complete",
+      "route to branch synthesis if support-first metadata cannot be specified without broader task redesign",
+      "route to simulator/task taxonomy design if label roles are underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1845 pivots to task/source metadata redesign",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task/source metadata redesign design",
+    "admission_evidence": [
+      "M1845 synthesis concludes current stable AES source-repair route lacks support and should pivot"
+    ],
+    "blocked_shortcuts": [
+      "do not run project artifact scan",
+      "do not generate source repair payload",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1846 design document",
+      "M1846 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation"
+    ],
+    "next_stage_criteria": [
+      "support-first source contract is specified",
+      "stable AES and drift-required roles are separated",
+      "claim-boundary context requirements are specified",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; task/source metadata design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1845 synthesis only; no scan or rollout.",
+    "negative_result_policy": "Preserve no-support evidence and redesign metadata; do not weaken labels to make rows pass.",
+    "allowed_claims": [
+      "support-first task/source metadata redesign design",
+      "no scan, source repair success, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A support-first executable-v2 task/source metadata contract can prevent unsupported stable AES rows by requiring reset-time conditional support before materialization and separating stable AES from drift-required roles.",
+  "success_criteria": [
+    "docs/m1846-executable-v2-task-source-metadata-redesign-design.md exists",
+    "design specifies support-first source eligibility checks before materialization",
+    "design separates stable AES-only and drift-required role metadata",
+    "design specifies context-aware claim-boundary output requirements",
+    "design routes to implementation without running scan reset rollout measured rollout training replay PPO ranking or paper-level claims"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs scan reset or rollout",
+    "design admits source repair payload before support proof",
+    "design keeps stable AES and drift-required roles conflated",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1846-executable-v2-task-source-metadata-redesign-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1846-executable-v2-task-source-metadata-redesign-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_source_metadata_redesign_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+    "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+    "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
+  ],
+  "decision_rule": "M1846 passes if it designs support-first task/source metadata and context-aware claim boundaries without scan, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1846-executable-v2-task-source-metadata-redesign-design"
+}

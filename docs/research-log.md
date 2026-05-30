@@ -31100,3 +31100,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: source repair success repaired reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.json`
 - next: `m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis`
+
+## M1845 Paper Route Executable V2 Reset-Time AES Feasibility Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- completed branch: `paper_route_executable_v2_reset_time_aes_feasibility_scan`
+- next branch: `paper_route_executable_v2_task_source_metadata_redesign`
+- artifact: `docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md`
+- evidence window: `M1830-M1844`
+- M1833 attempt count total: `240000`
+- M1833 accepted count total: `0`
+- M1838 candidate attempt count total: `1200000`
+- M1838 accepted profile count total: `0`
+- M1843 grid cell count total: `175680`
+- M1843 accepted cell count total: `0`
+- M1843 label counts: `aeb_feasible=159820`, `drift_required=284`, `unavoidable=15576`
+- primary failure classification: `source_task_support_absence_for_stable_aes_only`
+- secondary failure classification: `claim_boundary_context_wording_artifact`
+- additional project artifact scan: `false`
+- source repair payload generated: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- profile-specific tuning: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: current stable AES-only source repair route has no observed reset-time support and support-first metadata redesign is required
+- unsupported: stable AES source repair success full executable-v2 reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1846-executable-v2-task-source-metadata-redesign-design.json`
+- next: `m1846-executable-v2-task-source-metadata-redesign-design`

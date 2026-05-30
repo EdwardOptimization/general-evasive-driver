@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1853,
+    "completed": 1854,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit.md",
+    "command_log": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1844-executable-v2-reset-time-aes-feasibility-scan-result-audit"
+    "task_id": "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.json",
-    "hypothesis": "M1830-M1844 evidence is sufficient to synthesize the reset-time AES feasibility branch and pivot away from source repair toward task/source metadata redesign.",
-    "id": "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis",
+    "command": "see experiments/manifests/m1846-executable-v2-task-source-metadata-redesign-design.json",
+    "hypothesis": "A support-first executable-v2 task/source metadata contract can prevent unsupported stable AES rows by requiring reset-time conditional support before materialization and separating stable AES from drift-required roles.",
+    "id": "m1846-executable-v2-task-source-metadata-redesign-design",
     "kind": "gate",
-    "notes": "Pending: synthesize reset-time AES feasibility evidence and choose next branch",
-    "priority": 18400,
+    "notes": "Pending: design support-first task/source metadata and context-aware claim boundaries",
+    "priority": 18410,
     "status": "pending",
-    "success_artifact": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md"
+    "success_artifact": "docs/m1846-executable-v2-task-source-metadata-redesign-design.md"
   },
-  "updated_at_utc": "20260530T123511Z"
+  "updated_at_utc": "20260530T123810Z"
 }

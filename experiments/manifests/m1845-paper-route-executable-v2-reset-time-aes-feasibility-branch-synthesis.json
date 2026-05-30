@@ -197,6 +197,58 @@
     "runs/m1838_executable_v2_reset_time_aes_source_repair_v2/summary.json",
     "runs/m1843_executable_v2_reset_time_aes_feasibility_scan/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis.md",
+    "decision": "pivot",
+    "completed_branch": "paper_route_executable_v2_reset_time_aes_feasibility_scan",
+    "next_branch": "paper_route_executable_v2_task_source_metadata_redesign",
+    "evidence_window": "M1830-M1844",
+    "m1833_attempt_count_total": 240000,
+    "m1833_accepted_count_total": 0,
+    "m1838_candidate_attempt_count_total": 1200000,
+    "m1838_accepted_profile_count_total": 0,
+    "m1843_grid_cell_count_total": 175680,
+    "m1843_accepted_cell_count_total": 0,
+    "m1843_label_counts": {
+      "aeb_feasible": 159820,
+      "drift_required": 284,
+      "unavoidable": 15576
+    },
+    "primary_failure_classification": "source_task_support_absence_for_stable_aes_only",
+    "secondary_failure_classification": "claim_boundary_context_wording_artifact",
+    "additional_project_artifact_scan": false,
+    "source_repair_payload_generated": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "supported_claims": [
+      "current stable AES-only source repair route has no observed reset-time support",
+      "source repair v3 from accepted cells is impossible for this branch",
+      "support-first task/source metadata redesign is required before further executable-v2 materialization"
+    ],
+    "unsupported_claims": [
+      "stable AES source repair success",
+      "full executable-v2 reset feasibility",
+      "measured execution readiness",
+      "controller-family ranking",
+      "paper-level benchmark evidence",
+      "level3 self-identification"
+    ],
+    "next_manifest": "experiments/manifests/m1846-executable-v2-task-source-metadata-redesign-design.json"
+  },
   "decision_rule": "M1845 passes if it synthesizes M1830-M1844 and chooses a next branch without scan, reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1845-paper-route-executable-v2-reset-time-aes-feasibility-branch-synthesis"
+  "next_blocker": "m1846-executable-v2-task-source-metadata-redesign-design"
 }
