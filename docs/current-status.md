@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit
+m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair
 ```
 
 Current next task:
 
 ```text
-m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair
+m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -205,7 +205,9 @@ failure surface before any repair or rerun. M1913 localized the failures to
 `road_geometry_fixed=true` contained-collision feasibility rows where M1911
 incorrectly mapped obstacle diagnostic deltas into `env_config.obstacle`.
 M1914 must repair that mapping with focused tests and still not rerun measured
-execution.
+execution. M1914 implemented the mapping repair and focused tests passed
+(`9 passed`). M1915 must rerun the exact measured-wrapper execution in a fresh
+output directory with the same eval seed base to isolate the repair.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

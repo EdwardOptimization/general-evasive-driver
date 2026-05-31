@@ -33080,3 +33080,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rerun pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.json`
 - next: `m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair`
+
+## M1914 Executable V2 Support-First Task-Quality Repair-Axis Geometry-Delta Mapping Repair
+
+- status: completed
+- decision: `geometry_delta_mapping_repair_pass_admit_measured_rerun`
+- doc: `docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md`
+- parent audit: `docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md`
+- source: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py`
+- tests: `tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py`
+- focused tests: `9 passed`
+- real M1902 workload run: `false`
+- environment reset/rollout/measured execution in M1914: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implemented: skip `obstacle_clearance_gap_delta_m` and `obstacle_reaction_distance_delta_m` env mutations when `road_geometry_fixed=true`
+- supported: focused mapping repair is in place and admits measured execution rerun
+- unsupported: rerun pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.json`
+- next: `m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun`

@@ -168,5 +168,5 @@
     "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/failure_rows.csv"
   ],
   "decision_rule": "M1914 passes if the mapping repair and focused tests complete without rerun or claim expansion.",
-  "next_blocker": "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair"
+  "next_blocker": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun"
 }

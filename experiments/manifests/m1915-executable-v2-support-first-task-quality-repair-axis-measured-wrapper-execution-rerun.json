@@ -1,0 +1,173 @@
+{
+  "id": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_execution_rerun"
+    ],
+    "parent_dataset": [
+      "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.json"
+    ],
+    "parent_objective": [
+      "rerun measured-wrapper execution after road_geometry_fixed obstacle-delta mapping repair"
+    ],
+    "derived_from": [
+      "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair"
+    ],
+    "blocked_by": [
+      "M1912 failed target counts before M1914 repair"
+    ],
+    "supersedes": [
+      "interpreting partial M1912 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md",
+  "public_gates": [
+    "M1915 must run the repaired measured-wrapper command in a fresh output directory",
+    "M1915 must use eval seed base 191200 to isolate the mapping repair",
+    "M1915 must produce 960 measured rollout rows, 576 import/postprocess rows, and 1536 combined panel rows",
+    "M1915 must preserve all guardrails and claim boundaries",
+    "M1915 must defer interpretation to a later result audit",
+    "M1915 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_execution_rerun",
+    "evidence_increment": "reruns the measured-wrapper panel after a localized geometry-delta mapping repair",
+    "claim_scope": "measured execution only; no training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if execution still has sampling failures",
+      "stop if target counts or guardrails fail",
+      "stop if interpretation or ranking would be claimed before audit"
+    ],
+    "fallback_plan": [
+      "route to failure audit if execution still fails",
+      "route to result audit if execution passes",
+      "route to synthesis if the same sampling failure repeats"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1914 admits repaired measured execution rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "task-quality repair-axis measured-wrapper execution rerun",
+    "admission_evidence": [
+      "M1914 repaired road_geometry_fixed obstacle-delta mapping and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/*",
+      "M1915 execution document",
+      "M1915 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit failure audit or synthesis"
+    ],
+    "next_stage_criteria": [
+      "summary target counts pass",
+      "guardrails pass",
+      "interpretation remains deferred to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution materializes task-quality diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "Execution must preserve controller profile controls for later finite-window/GRU comparison."
+    ],
+    "temporal_evidence_window": "M1902-M1914 artifacts plus M1915 measured outputs.",
+    "negative_result_policy": "If execution fails or remains outcome dominated, route to result/failure audit rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured execution rerun result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "tests whether the localized mapping repair resolves M1912 execution failure with new measured rollout data",
+    "paper_verdict_delta": "can materially update the task-quality/paper-route verdict after result audit",
+    "must_synthesize_if": [
+      "the same sampling failure repeats",
+      "target counts fail in a different subsystem",
+      "result audit would need another local repair loop"
+    ]
+  },
+  "hypothesis": "After M1914, the repaired measured-wrapper command can execute all 960 rollout rows and merge 576 import/postprocess rows into a 1536-row panel with clean guardrails.",
+  "success_criteria": [
+    "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json exists",
+    "summary result_class is task_quality_repair_axis_measured_wrapper_execution_pass",
+    "measured_rollout_row_count is 960",
+    "import_postprocess_row_count is 576",
+    "combined_panel_row_count is 1536",
+    "failure_count is 0",
+    "guardrail_violation_count is 0",
+    "controller-family ranking and paper claims remain blocked"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "execution command diverges from the repaired M1912 command",
+    "target counts fail",
+    "guardrail violations occur",
+    "interpretation or ranking is claimed before audit"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_support_first_task_quality_repair_axis_execution --task-quality-repair-axis-matrix runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv --source-episode-rows runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv --output-dir runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun --eval-seed-base 191200 --measured-execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_execution_rerun"
+  ],
+  "baseline_artifacts": [
+    "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
+  ],
+  "decision_rule": "M1915 passes if the repaired command completes with target counts and clean guardrails while interpretation remains deferred.",
+  "next_blocker": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun"
+}

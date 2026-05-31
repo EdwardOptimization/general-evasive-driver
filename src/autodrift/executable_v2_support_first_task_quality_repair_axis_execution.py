@@ -190,15 +190,19 @@ def apply_axis_geometry_delta_to_env_config(
         data["track_width"] = base_width * max(width_multipliers)
 
     obstacle = copy.deepcopy(dict(data.get("obstacle") or {}))
-    clearance_delta = _float_or_none(geometry_delta.get("obstacle_clearance_gap_delta_m"))
-    if clearance_delta is not None:
-        obstacle["safety_margin"] = max(0.0, float(obstacle.get("safety_margin", 0.0)) + clearance_delta)
-    reaction_delta = _float_or_none(geometry_delta.get("obstacle_reaction_distance_delta_m"))
-    distance_range = obstacle.get("distance_range")
-    if reaction_delta is not None and isinstance(distance_range, list) and len(distance_range) == 2:
-        obstacle["distance_range"] = [float(distance_range[0]) + reaction_delta, float(distance_range[1]) + reaction_delta]
-    if obstacle:
-        data["obstacle"] = obstacle
+    if not _bool(geometry_delta.get("road_geometry_fixed"), default=False):
+        clearance_delta = _float_or_none(geometry_delta.get("obstacle_clearance_gap_delta_m"))
+        if clearance_delta is not None:
+            obstacle["safety_margin"] = max(0.0, float(obstacle.get("safety_margin", 0.0)) + clearance_delta)
+        reaction_delta = _float_or_none(geometry_delta.get("obstacle_reaction_distance_delta_m"))
+        distance_range = obstacle.get("distance_range")
+        if reaction_delta is not None and isinstance(distance_range, list) and len(distance_range) == 2:
+            obstacle["distance_range"] = [
+                float(distance_range[0]) + reaction_delta,
+                float(distance_range[1]) + reaction_delta,
+            ]
+        if obstacle:
+            data["obstacle"] = obstacle
     return data
 
 

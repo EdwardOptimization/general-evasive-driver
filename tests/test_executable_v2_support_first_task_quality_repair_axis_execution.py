@@ -343,3 +343,26 @@ def test_axis_geometry_delta_application_is_explicit_and_non_oracle() -> None:
     assert updated["obstacle"]["safety_margin"] == 0.55
     assert updated["obstacle"]["distance_range"] == [17.0, 17.0]
     assert env_config["max_steps"] == 800
+
+
+def test_axis_geometry_delta_respects_road_geometry_fixed_obstacle_metadata() -> None:
+    env_config = {
+        "max_steps": 800,
+        "track_width": 5.0,
+        "obstacle": {
+            "safety_margin": 0.3,
+            "distance_range": [12.0, 12.0],
+        },
+    }
+    updated = runner.apply_axis_geometry_delta_to_env_config(
+        env_config,
+        {
+            "road_geometry_fixed": True,
+            "obstacle_clearance_gap_delta_m": 0.25,
+            "obstacle_reaction_distance_delta_m": 5.0,
+        },
+    )
+
+    assert updated["obstacle"]["safety_margin"] == 0.3
+    assert updated["obstacle"]["distance_range"] == [12.0, 12.0]
+    assert env_config["obstacle"]["safety_margin"] == 0.3
