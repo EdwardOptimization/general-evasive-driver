@@ -31711,3 +31711,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: adapter implementation result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json`
 - next: `m1864-executable-v2-support-first-reset-validation-adapter-implementation`
+
+## M1864 Executable V2 Support-First Reset Validation Adapter Implementation
+
+- status: completed
+- decision: `support_first_reset_validation_adapter_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md`
+- source module: `src/autodrift/executable_v2_support_first_reset_validation_adapter.py`
+- focused tests: `tests/test_executable_v2_support_first_reset_validation_adapter.py`
+- focused test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest tests/test_executable_v2_support_first_reset_validation_adapter.py -q`
+- focused test result: `3 passed in 0.12s`
+- expected project input materialized spec count: `180`
+- expected project targeted reset executable spec count: `180`
+- expected project role count: `4`
+- expected project surface count: `2`
+- expected project role-surface count: `8`
+- expected project profile count: `8`
+- project artifact conversion run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: adapter implementation focused synthetic conversion tests executable-v2 reset payload schema checks
+- unsupported: project artifact conversion result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.json`
+- next: `m1865-executable-v2-support-first-reset-validation-adapter-execution-design`

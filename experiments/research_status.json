@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1872,
+    "completed": 1873,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1863-executable-v2-support-first-reset-validation-design.md",
+    "command_log": "docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1863-executable-v2-support-first-reset-validation-design"
+    "task_id": "m1864-executable-v2-support-first-reset-validation-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json",
-    "hypothesis": "A no-reset conversion adapter can transform support-first materialized specs into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config role/surface coverage and claim boundaries.",
-    "id": "m1864-executable-v2-support-first-reset-validation-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset support-first reset-validation adapter",
-    "priority": 18590,
+    "command": "see experiments/manifests/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.json",
+    "hypothesis": "The no-reset adapter execution over M1861 artifacts can be pre-registered with unambiguous target counts and guardrails before running conversion.",
+    "id": "m1865-executable-v2-support-first-reset-validation-adapter-execution-design",
+    "kind": "gate",
+    "notes": "Pending: pre-register exact no-reset adapter execution over M1861 artifacts",
+    "priority": 18600,
     "status": "pending",
-    "success_artifact": "docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md"
+    "success_artifact": "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md"
   },
-  "updated_at_utc": "20260531T013531Z"
+  "updated_at_utc": "20260531T014902Z"
 }

@@ -1,0 +1,168 @@
+{
+  "id": "m1865-executable-v2-support-first-reset-validation-adapter-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_adapter_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md",
+      "src/autodrift/executable_v2_support_first_reset_validation_adapter.py",
+      "tests/test_executable_v2_support_first_reset_validation_adapter.py",
+      "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+      "runs/m1861_executable_v2_support_first_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact no-reset support-first reset-validation adapter execution over M1861 artifacts"
+    ],
+    "derived_from": [
+      "m1864-executable-v2-support-first-reset-validation-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1864 adapter exists but has not been executed over M1861 project artifacts"
+    ],
+    "supersedes": [
+      "direct reset execution before converted executable_v2_panel_specs payload",
+      "manual conversion to support-first reset payload",
+      "measured execution before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md",
+  "public_gates": [
+    "M1865 must design the exact no-reset adapter execution command without running it",
+    "M1865 must pre-register M1861 input artifacts output directory target counts next blocker and guardrails",
+    "M1865 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute project artifact conversion",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_reset_validation",
+    "evidence_axis": "Q_support_first_reset_validation_adapter_execution_design",
+    "evidence_increment": "pre-registers exact no-reset adapter execution after M1864 implementation",
+    "claim_scope": "adapter execution design only; no project conversion execution, reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if design would run project conversion",
+      "stop if design would run reset or rollout",
+      "stop if target counts are ambiguous",
+      "stop if measured execution or ranking is admitted before reset support"
+    ],
+    "fallback_plan": [
+      "route to adapter implementation repair if command cannot address M1861 artifacts",
+      "route to no-reset adapter execution if command and counts are explicit",
+      "route to materialization repair if M1861 artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1864 implements focused-tested no-reset adapter",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first reset-validation adapter execution design",
+    "admission_evidence": [
+      "M1864 focused tests pass and adapter payload shape is implemented"
+    ],
+    "blocked_shortcuts": [
+      "do not execute project artifacts",
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1865 design document",
+      "M1865 status queue scoreboard research log and review",
+      "one follow-up manifest for no-reset adapter execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is explicit",
+      "target counts are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1861 artifacts and M1864 adapter implementation only; no reset or rollout.",
+    "negative_result_policy": "If exact adapter execution cannot be specified, route to implementation repair or materialization repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "support-first reset-validation adapter execution design",
+      "no project conversion execution, reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The no-reset adapter execution over M1861 artifacts can be pre-registered with unambiguous target counts and guardrails before running conversion.",
+  "success_criteria": [
+    "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md exists",
+    "design lists exact command input artifacts output directory target counts and next blocker",
+    "design keeps reset measured execution and ranking blocked",
+    "next route is explicit",
+    "no project conversion reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs project conversion reset or rollout",
+    "design omits target counts or output directory",
+    "design routes directly to reset measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_reset_validation_adapter_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md",
+    "src/autodrift/executable_v2_support_first_reset_validation_adapter.py",
+    "tests/test_executable_v2_support_first_reset_validation_adapter.py",
+    "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+    "runs/m1861_executable_v2_support_first_materialization/summary.json"
+  ],
+  "decision_rule": "M1865 passes if it pre-registers exact no-reset adapter execution without running conversion, reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1865-executable-v2-support-first-reset-validation-adapter-execution-design"
+}

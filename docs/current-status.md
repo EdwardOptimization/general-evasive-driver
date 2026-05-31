@@ -16,14 +16,29 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1766-completed-taxonomy-outcome-audit
+m1864-executable-v2-support-first-reset-validation-adapter-implementation
 ```
 
 Current next task:
 
 ```text
-m1767-completed-taxonomy-outcome-dominance-localization
+m1865-executable-v2-support-first-reset-validation-adapter-execution-design
 ```
+
+The current branch is building reliable executable-v2 active-safety scenario
+panels before any measured controller comparison or training. M1861
+materialized `180` support-first candidate specs from `90` supported sources
+across stable AEB, stable AES-only, drift-required recovery, and unavoidable
+mitigation roles. M1863 blocked direct reset validation until schema conversion
+was implemented. M1864 adds the no-reset adapter and focused tests for
+converting those support-first specs into reset-validation
+`executable_v2_panel_specs` payloads. M1865 must now pre-register the exact
+no-reset adapter execution over M1861 artifacts; reset, rollout, measured
+execution, controller ranking, paper-level claims, and level3 self-ID claims
+remain blocked.
+
+Older retained narrative below is historical context from prior branches, not
+the current blocker.
 
 M1760 designs the explicit one-cell seed-repair completion protocol. M1758
 probed the only remaining M1756 failure:
