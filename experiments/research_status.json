@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2101,
+    "completed": 2102,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
+    "command_log": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight",
+    "run_dir": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
     "status": "completed",
-    "task_id": "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit"
+    "task_id": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.json",
-    "hypothesis": "A public-gate-only core panel can be defined from M2091 reset-success rows, preserving all 96 public-gate rows without further obstacle-filter repair.",
-    "id": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design",
-    "kind": "gate",
-    "notes": "Pending: design public-gate-only core panel extraction after M2092 pivots away from reduced-panel public-debug rows",
-    "priority": 20880,
+    "command": "see experiments/manifests/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.json",
+    "hypothesis": "A no-reset selector can materialize a 96-row public-gate core panel from M2091 reset-success rows while preserving env configs and metadata.",
+    "id": "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-reset public-gate-only core panel selector",
+    "priority": 20890,
     "status": "pending",
-    "success_artifact": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md"
+    "success_artifact": "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json"
   },
-  "updated_at_utc": "20260531T232141Z"
+  "updated_at_utc": "20260531T232603Z"
 }

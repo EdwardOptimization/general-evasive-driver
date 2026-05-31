@@ -36706,3 +36706,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: pivot to M2093 public-gate-only core panel extraction design
 - follow-up manifest: `experiments/manifests/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.json`
 - next: `m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design`
+
+## M2093 Paper-Route Outcome-Supported Decisive Public-Gate Core Panel Extraction Design
+
+- status: completed
+- decision: `public_gate_core_panel_extraction_design_admit_no_reset_materialization`
+- parent synthesis: `docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md`
+- source reset artifact: `runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv`
+- reset/rollout/measured execution in M2093: `false`
+- policy actions executed in M2093: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- inclusion rule: include `source_split == public_gate` and `M2091 reset_success == true`; exclude public-debug rows; do not change filters or rerun reset
+- designed panel size: input `238`, included public-gate rows `96`, excluded rows `142`
+- coverage: T3 `24`, T4 `36`, T5 `36`; T1/T2 excluded by design
+- difficulty-axis coverage: 12 axes x `8` rows each
+- dynamics coverage: actuator_delay/low_mu/mixed_mu/nominal_mu each `24`
+- M2094 pass gate: materialize public-gate specs and 480-row planned sentinel workload with env_config changed `0`, metadata/contract/forbidden-key/guardrail `0`, and no reset or rollout
+- follow-up manifest: `experiments/manifests/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.json`
+- next: `m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation`

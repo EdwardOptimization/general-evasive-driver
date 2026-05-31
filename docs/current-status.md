@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit
+m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design
 ```
 
 Current next task:
 
 ```text
-m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design
+m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation
 ```
 
-Immediate route: M2092 synthesizes the reduced-panel branch: the 238-row panel
-is not fresh-seed stable (`236/238`), but all `96` public-gate rows reset
-successfully in both M2085 and M2091. The project pivots to M2093, a
-public-gate-only core panel extraction design. Public-debug generated rows are
-excluded from the near-term measured panel until the scenario distribution is
-redesigned. Ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2093 designs a public-gate-only core panel: include only
+`source_split == public_gate` rows that reset successfully in M2091. The target
+panel has `96` rows, 12 difficulty axes x `8` rows each, and balanced dynamics
+counts of `24` per dynamics band. It intentionally drops T1/T2 and all
+public-debug rows, so it is a bounded smoke/research panel, not full task
+coverage. M2094 must implement and run the no-reset selector. Ranking, paper
+claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
