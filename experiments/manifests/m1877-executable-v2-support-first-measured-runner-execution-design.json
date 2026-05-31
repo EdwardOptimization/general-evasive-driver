@@ -159,6 +159,34 @@
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+    "decision": "support_first_measured_runner_execution_design_admit_runner_implementation",
+    "direct_existing_runner_admitted": false,
+    "support_first_runner_implementation_admitted": true,
+    "target_episode_count": 2160,
+    "target_controller_profile_count": 12,
+    "target_support_first_spec_count": 180,
+    "target_role_count": 4,
+    "target_role_surface_count": 8,
+    "known_imbalance": "unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24",
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json"
+  },
   "decision_rule": "M1877 passes if it designs measured runner execution or implementation route without running rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1877-executable-v2-support-first-measured-runner-execution-design"
+  "next_blocker": "m1878-executable-v2-support-first-measured-runner-implementation"
 }

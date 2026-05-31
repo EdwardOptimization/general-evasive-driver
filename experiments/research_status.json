@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1885,
+    "completed": 1886,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
+    "command_log": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit"
+    "task_id": "m1877-executable-v2-support-first-measured-runner-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1877-executable-v2-support-first-measured-runner-execution-design.json",
-    "hypothesis": "A measured runner execution protocol can be designed over the clean M1875 support-first workload while preserving role-wise diagnostics and claim boundaries.",
-    "id": "m1877-executable-v2-support-first-measured-runner-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design support-first measured runner execution or implementation route over clean M1875 workload",
-    "priority": 18720,
+    "command": "see experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json",
+    "hypothesis": "A support-first measured runner wrapper can be implemented by reusing shared one-cell rollout helpers while preserving support-first metadata and diagnostic-only gates.",
+    "id": "m1878-executable-v2-support-first-measured-runner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement support-first measured runner wrapper and focused tests without real rollout",
+    "priority": 18730,
     "status": "pending",
-    "success_artifact": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md"
+    "success_artifact": "docs/m1878-executable-v2-support-first-measured-runner-implementation.md"
   },
-  "updated_at_utc": "20260531T023536Z"
+  "updated_at_utc": "20260531T024015Z"
 }

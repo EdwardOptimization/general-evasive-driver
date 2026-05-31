@@ -1,0 +1,169 @@
+{
+  "id": "m1878-executable-v2-support-first-measured-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_runner_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1877-executable-v2-support-first-measured-runner-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement support-first measured runner wrapper before real rollout"
+    ],
+    "derived_from": [
+      "m1877-executable-v2-support-first-measured-runner-execution-design"
+    ],
+    "blocked_by": [
+      "M1877 requires a support-first measured runner wrapper before measured rollout"
+    ],
+    "supersedes": [
+      "direct use of generic full rollout runner on support-first workload"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1878-executable-v2-support-first-measured-runner-implementation.md",
+  "public_gates": [
+    "M1878 must implement support-first measured runner wrapper and focused tests",
+    "M1878 must not run real 2160-episode measured rollout",
+    "M1878 must preserve support-first metadata in episode rows",
+    "M1878 must define support-first aggregates and guardrails"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real measured rollout",
+    "do not execute policy actions against project artifacts",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_measured_runner_implementation",
+    "evidence_increment": "implements measured runner wrapper needed for support-first public diagnostic rollout",
+    "claim_scope": "runner implementation only; no real measured rollout, training, replay, PPO, promotion, private holdout, ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if focused tests cannot prove support-first metadata preservation",
+      "stop if resumability or failure-row behavior is not implemented",
+      "stop if implementation would require actor-input or dynamics changes"
+    ],
+    "fallback_plan": [
+      "route to runner schema repair if fields are missing",
+      "route to execution design if focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1877 admits measured runner implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first measured runner implementation",
+    "admission_evidence": [
+      "M1877 defines runner contract and requires wrapper implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not run real measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "support-first measured runner module",
+      "focused runner tests",
+      "M1878 implementation document",
+      "M1878 status queue scoreboard research log and review",
+      "one follow-up manifest for execution design or runner repair"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "runner preserves metadata and aggregates",
+      "no real measured rollout is run"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured runner implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve controller profile identity for later current-response/finite-window/GRU comparisons."
+    ],
+    "temporal_evidence_window": "Focused tests only; no real rollout.",
+    "negative_result_policy": "If runner implementation cannot preserve metadata, route to repair rather than weakening evidence standards.",
+    "allowed_claims": [
+      "support-first measured runner implementation",
+      "no real measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A support-first measured runner wrapper can be implemented by reusing shared one-cell rollout helpers while preserving support-first metadata and diagnostic-only gates.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_measured_runner_execution.py exists",
+    "tests/test_executable_v2_support_first_measured_runner_execution.py exists",
+    "focused tests pass",
+    "implementation preserves support-first metadata and role-surface aggregates",
+    "implementation keeps real measured rollout training replay PPO and ranking unrun"
+  ],
+  "failure_criteria": [
+    "runner module is missing",
+    "focused tests are missing or fail",
+    "implementation runs real measured rollout",
+    "implementation drops support-first metadata",
+    "implementation changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "edit src/autodrift/executable_v2_support_first_measured_runner_execution.py and tests/test_executable_v2_support_first_measured_runner_execution.py"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_measured_runner_execution.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_measured_runner_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_measured_runner_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1878-executable-v2-support-first-measured-runner-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_measured_runner_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+  ],
+  "decision_rule": "M1878 passes if it implements the support-first measured runner wrapper with focused tests while keeping real rollout, ranking, and paper-level claims blocked.",
+  "next_blocker": "m1878-executable-v2-support-first-measured-runner-implementation"
+}

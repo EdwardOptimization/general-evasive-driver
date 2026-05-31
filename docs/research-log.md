@@ -32133,3 +32133,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: environment reset rollout controller ranking paper-level benchmark result profile comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1877-executable-v2-support-first-measured-runner-execution-design.json`
 - next: `m1877-executable-v2-support-first-measured-runner-execution-design`
+
+## M1877 Executable V2 Support-First Measured Runner Execution Design
+
+- status: completed
+- decision: `support_first_measured_runner_execution_design_admit_runner_implementation`
+- artifact: `docs/m1877-executable-v2-support-first-measured-runner-execution-design.md`
+- direct existing runner admitted: `false`
+- support-first runner implementation admitted: `true`
+- target episode count: `2160`
+- target controller profile count: `12`
+- target support-first spec count: `180`
+- target role count: `4`
+- target role-surface count: `8`
+- known imbalance: `unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24`
+- environment reset started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: support-first measured runner wrapper required and designed; output artifacts pass criteria and resumability defined
+- unsupported: measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json`
+- next: `m1878-executable-v2-support-first-measured-runner-implementation`
