@@ -26,6 +26,41 @@ The latest source-diverse pressure replay produced history-positive signal, but
 the positives were still source-singleton. That is enough to continue scenario
 calibration, but not enough for a paper-level self-ID claim.
 
+## 2026-05-31 Review Synthesis
+
+A historical project-review share reinforced several route decisions that
+should remain part of the plan even as milestone numbers advance:
+
+- self-identification and GRU belief are bounded hypotheses, not default
+  project truths;
+- finite-window or current-response controllers may be the correct engineering
+  answer if they match GRU under fair tests;
+- strong self-ID can only be claimed on source-diverse, outcome-relevant,
+  terminal-boundary or delayed/ambiguous tasks;
+- role-specific active-safety metrics must be repaired before controller-family
+  ranking or paper-level comparison;
+- horizon-output should enter as a controlled architecture experiment, not as a
+  shortcut around the single-step evidence chain;
+- high-fidelity simulation should be prepared as a validation layer after the
+  current-simulator verdict and benchmark pack are frozen;
+- old row-specific repair mechanisms, protected-key workarounds, and projection
+  machinery need an ablation-driven complexity audit before they become part of
+  the final paper pipeline.
+
+The project should therefore avoid optimizing only for fixed public proof rows.
+Each new branch should state whether it advances:
+
+```text
+engineering driver performance
+mechanism evidence for history dependence
+scenario/task-quality evidence
+high-fidelity validation readiness
+workflow or complexity reduction
+```
+
+If an experiment improves one axis while weakening another, the result should
+be classified as conditional rather than promoted by default.
+
 ## Non-Negotiable Controller Contract
 
 The deployable actor may use:
@@ -183,6 +218,35 @@ self-ID conditional
 This verdict determines the paper claim level and the high-fidelity validation
 target.
 
+### Step 6: Complexity Pruning Audit
+
+Before freezing the current-sim benchmark pack, classify historical engineering
+mechanisms into:
+
+```text
+core invariant:
+  actor contract, no-oracle input boundary, actuator-level output, artifact
+  provenance, source diversity, public/private gate separation.
+
+engineering gate:
+  needed to keep the deployable driver stable or reproducible.
+
+paper mechanism gate:
+  needed only to support a self-ID or history-dependence claim.
+
+diagnostic appendix:
+  useful to explain negative or conditional results but not active in the
+  final training route.
+
+removal candidate:
+  stale singleton, row-specific workaround, or gate-passing mechanism that does
+  not improve driver performance, scenario quality, or mechanism evidence.
+```
+
+Do not delete mechanisms merely because they are complex. Remove or demote them
+only after an ablation shows they are unnecessary for the final selected
+paper route.
+
 ## Stage II: High-Fidelity Validation
 
 High-fidelity simulation is a validation layer, not an immediate replacement
@@ -256,6 +320,16 @@ no paper claim unless single-step and sequence-head baselines are compared
 
 Move horizon output into the main controller only after the L0/L1/L2/L3
 evidence and current-sim verdict are stable.
+
+The sequence-head comparison must keep the deployed actuator contract:
+
+```text
+u_i = [steer_i, throttle_i, brake_i]
+```
+
+It must compare against the best single-step controller under the same scenario
+families, training budget, and role-specific metrics. A horizon head may improve
+short maneuver intent, but it does not by itself prove self-identification.
 
 ## Paper Outcomes
 

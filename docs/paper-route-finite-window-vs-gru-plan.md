@@ -18,6 +18,35 @@ When does recurrent belief add measurable value?
 Which historical gates and repair mechanisms are still necessary?
 ```
 
+## Review-Derived Experimental Discipline
+
+The 2026-05-31 historical review adds one important constraint: a finite-window
+controller and a GRU can be functionally equivalent if all useful evidence lies
+inside the recent command-response window. The paper route must not treat GRU as
+the default winner.
+
+Use these discipline rules:
+
+- if L1 or L2 matches L3 on ordinary reactive avoidance, report that as a
+  positive engineering result, not a failed experiment;
+- claim recurrent-belief advantage only when same-current and same-recent-window
+  controls are matched and older history still changes action quality or
+  terminal outcome;
+- treat source-singleton positives as diagnostics, not paper-level mechanism
+  evidence;
+- keep role-specific metrics separate for stable AES, drift-required recovery,
+  hidden-dynamics robustness, and unavoidable mitigation;
+- classify historical repair/projection/protected-row mechanisms as core,
+  diagnostic, or removable through ablation rather than carrying them forward by
+  inertia;
+- add horizon-output only as a controlled receding-horizon architecture branch
+  after the single-step L0/L1/L2/L3 comparison is interpretable.
+
+The final paper can close as positive, negative, or conditional self-ID. A
+negative self-ID verdict is still a valid paper result if it demonstrates that a
+simpler deployable finite-window actuator-level RL driver is stronger or more
+reliable.
+
 ## Non-Negotiable Actor Contract
 
 All controller variants must obey the same deployable input boundary.
