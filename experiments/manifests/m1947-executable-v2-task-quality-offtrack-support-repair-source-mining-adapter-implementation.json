@@ -1,0 +1,185 @@
+{
+  "id": "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_source_mining_adapter"
+    ],
+    "parent_dataset": [
+      "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.json"
+    ],
+    "parent_objective": [
+      "implement source-mining adapter for offtrack-support repair templates"
+    ],
+    "derived_from": [
+      "m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design"
+    ],
+    "blocked_by": [
+      "M1946 design requires a focused adapter before source-mining results can be audited"
+    ],
+    "supersedes": [
+      "manual source-mining from repair templates",
+      "direct reset or measured execution from repair templates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+  "public_gates": [
+    "M1947 must implement the source-mining adapter and focused tests",
+    "M1947 must run only no-rollout source mining/preflight",
+    "M1947 must write summary source rows accepted cells blocked rows resolution failures and aggregates",
+    "M1947 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_source_mining_adapter",
+    "evidence_increment": "implements and runs the no-rollout source-mining adapter for repaired task support",
+    "claim_scope": "source-mining/preflight only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if adapter cannot resolve template geometry",
+      "stop if source-mining pass gates fail",
+      "stop if implementation would run environment interaction or rank profiles"
+    ],
+    "fallback_plan": [
+      "route to failure audit if resolution or support gates fail",
+      "route to result audit if source-mining completes",
+      "route to broader scenario redesign if template support is insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fourth milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack support repair source-mining adapter implementation",
+    "admission_evidence": [
+      "M1946 defines repair delta mapping, output schema, and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment interaction",
+      "do not tune controller profiles",
+      "do not rank controllers"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "tests/test_executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/*",
+      "docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+      "M1947 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "source-mining summary exists",
+      "source-mining pass/fail status is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining adapter does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1947."
+    ],
+    "temporal_evidence_window": "M1945 repair template artifact and M1946 design.",
+    "negative_result_policy": "If source-mining fails support gates, route to failure audit rather than measured execution.",
+    "allowed_claims": [
+      "offtrack support repair source-mining/preflight",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "tests whether the repair template panel has source support before any execution",
+    "paper_verdict_delta": "can admit or reject repaired task support as source-quality evidence",
+    "must_synthesize_if": [
+      "source-mining adapter fails geometry resolution",
+      "support gates fail broadly",
+      "next action would be a local threshold tweak instead of audit"
+    ]
+  },
+  "hypothesis": "A focused adapter can source-mine the M1945 repair templates without environment interaction and produce support-quality evidence.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json exists",
+    "input_template_count and source_candidate_count equal 160",
+    "resolution failure count is zero",
+    "support gates are evaluated",
+    "guardrail violation count is zero"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "source-mining summary is missing",
+    "template resolution failures occur",
+    "required output artifacts are missing",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_offtrack_support_repair_source_mining.py"
+    },
+    {
+      "name": "source_mining",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_offtrack_support_repair_source_mining --repair-templates configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --output-dir runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining --next-blocker m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_source_mining_adapter"
+  ],
+  "baseline_artifacts": [
+    "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+    "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M1947 passes if it runs no-rollout source mining/preflight over all 160 repair templates with explicit gates and clean guardrails.",
+  "next_blocker": "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation"
+}

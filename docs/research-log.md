@@ -33783,3 +33783,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrails: labels entering actor input `0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail violation `0`
 - follow-up manifest: `experiments/manifests/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.json`
 - next: `m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design`
+
+## M1946 Executable V2 Task-Quality Offtrack Support Repair Source-Mining Design
+
+- status: completed
+- decision: `task_quality_offtrack_support_repair_source_mining_design_admit_adapter_implementation`
+- doc: `docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md`
+- branch: `paper_route_task_quality_offtrack_support_repair`
+- template artifact: `configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json`
+- reset/rollout/measured execution in M1946: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- helper review: existing support-first source-mining concepts are useful but M1945 repair-delta schema needs a focused metadata-preserving adapter
+- mapping: resolve base geometry from M1928 specs or tier/role/surface defaults, then apply obstacle distance/half-width/recovery-corridor deltas into scan windows
+- required outputs: summary, source rows, accepted cells, blocked rows, resolution failures, source-kind/split aggregates, claim boundary
+- pass gates: 160 input/source candidates, zero resolution failures, at least 64 supported sources, at least 24 public-gate supported sources, source-kind support floors, guardrail zero
+- follow-up manifest: `experiments/manifests/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.json`
+- next: `m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation`
