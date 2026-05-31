@@ -35690,3 +35690,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to artifact audit before source mining, materialization, reset validation, measured execution, ranking, or paper/self-ID claims
 - follow-up manifest: `experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json`
 - next: `m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit`
+
+## M2046 Paper-Route Controlled Routing Smoke Task-Quality Repair Template Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_template_audit_admit_source_mining_design`
+- doc: `docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md`
+- audited artifact: `configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json`
+- reset/rollout/measured execution in M2046: `false`
+- policy actions executed in M2046: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- artifact audit: result class pass, candidate count `192`, quotas `64/48/40/24/16`, split `112/80`, quota pass `true`, generated proxy paper claim count `0`, guardrail `0`, profile-specific tuning count `0`
+- decision: admit source-mining/materialization design; direct reset/execution/ranking remain blocked because templates are not executable specs yet
+- follow-up manifest: `experiments/manifests/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.json`
+- next: `m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design`

@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M2046 audits M2045 artifact as quota-complete guardrail-clean generated proxy paper claims 0 and admits source-mining design before materialization",
+  "failure_criteria": [
+    "audit doc is missing",
+    "artifact gates are not audited",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T192514Z",
+  "hypothesis": "The M2045 repair template artifact is clean enough to seed source-mining or materialization design.",
+  "lineage": {
+    "blocked_by": [
+      "M2045 template artifact needs audit before it can seed source mining"
+    ],
+    "derived_from": [
+      "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_template_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.json"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "docs/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md"
+    ],
+    "parent_objective": [
+      "audit no-rollout task-quality repair template artifact before source mining or materialization"
+    ],
+    "supersedes": [
+      "direct materialization from unaudited repair templates"
+    ]
+  },
+  "milestone": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit",
+  "next_blocker": "m2047-selected-by-m2046-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_task_quality_repair_template_audit_admit_source_mining_design",
+  "public_gates": [
+    "M2046 must audit result class candidate count quotas and guardrails",
+    "M2046 must check generated proxy paper-validity remains false",
+    "M2046 must decide whether source-mining/materialization design is admissible",
+    "M2046 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_task_quality_repair_template_audit_admit_source_mining_design",
+    "milestone": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit",
+    "reason": "M2046 audits M2045 artifact as quota-complete guardrail-clean generated proxy paper claims 0 and admits source-mining design before materialization",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md exists",
+    "candidate count and quota gates are audited",
+    "guardrail and generated-proxy claim gates are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

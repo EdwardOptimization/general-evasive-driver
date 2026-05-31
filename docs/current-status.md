@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation
+m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit
 ```
 
 Current next task:
 
 ```text
-m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit
+m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design
 ```
 
-Immediate route: M2045 implements the deterministic no-rollout task-quality
-repair-template generator and writes
-`configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json`.
-The artifact passes: `192` candidates, axis quotas `64/48/40/24/16`, split
-`112/80`, quota pass `true`, guardrail `0`, generated-proxy paper claims `0`,
-and profile-specific tuning `0`. M2046 must audit this artifact before source
-mining, materialization, reset validation, measured execution, or ranking.
+Immediate route: M2046 audits the M2045 no-rollout repair-template artifact as
+clean: `192` candidates, axis quotas `64/48/40/24/16`, split `112/80`, quota
+pass `true`, guardrail `0`, generated-proxy paper claims `0`, and
+profile-specific tuning `0`. M2047 must design template-to-source conversion
+with explicit parent resolution before implementation, materialization, reset
+validation, measured execution, or ranking.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

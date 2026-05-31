@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2054,
+    "completed": 2055,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md",
+    "command_log": "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md",
     "returncode": 0,
-    "run_dir": "configs",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation"
+    "task_id": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json",
-    "hypothesis": "The M2045 repair template artifact is clean enough to seed source-mining or materialization design.",
-    "id": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit",
+    "command": "see experiments/manifests/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.json",
+    "hypothesis": "The M2045 templates can be converted into a bounded no-rollout source-mining/materialization plan with explicit parent resolution and claim guards.",
+    "id": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: audit no-rollout repair template artifact before source mining or materialization",
-    "priority": 20410,
+    "notes": "Pending: design template-to-source conversion before implementation/materialization",
+    "priority": 20420,
     "status": "pending",
-    "success_artifact": "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md"
+    "success_artifact": "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md"
   },
-  "updated_at_utc": "20260531T192028Z"
+  "updated_at_utc": "20260531T192325Z"
 }

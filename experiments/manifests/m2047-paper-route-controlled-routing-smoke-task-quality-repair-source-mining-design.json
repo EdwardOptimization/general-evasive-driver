@@ -1,0 +1,169 @@
+{
+  "id": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_source_mining_design"
+    ],
+    "parent_dataset": [
+      "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md",
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/success_rows.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rollout conversion from repair templates to concrete repair sources"
+    ],
+    "derived_from": [
+      "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
+    ],
+    "blocked_by": [
+      "M2046 admits source-mining/materialization design but templates are not executable specs"
+    ],
+    "supersedes": [
+      "direct reset validation from repair templates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md",
+  "public_gates": [
+    "M2047 must design template-to-source conversion before implementation",
+    "M2047 must specify parent-resolution and fail-closed rules",
+    "M2047 must preserve repair-axis quotas split and claim boundaries",
+    "M2047 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit source-mining code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_source_mining_design",
+    "evidence_increment": "designs how clean templates become executable repair sources without rollout",
+    "claim_scope": "source-mining design only; no implementation reset execution ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if parent-resolution cannot be specified",
+      "stop if conversion requires controller profile tuning",
+      "stop if generated proxy claim boundaries cannot be preserved",
+      "stop if output artifact shape is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to template repair if parent metadata is insufficient",
+      "route to source semantics audit if generated proxies cannot be converted cleanly",
+      "route to implementation if artifact shape and guards are explicit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2046 admits source-mining/materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair source-mining design",
+    "admission_evidence": [
+      "M2046 audits M2045 template artifact as quota-complete and guardrail-clean"
+    ],
+    "blocked_shortcuts": [
+      "do not implement before design",
+      "do not reset or rollout templates directly",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md",
+      "M2047 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation or redesign"
+    ],
+    "next_stage_criteria": [
+      "parent-resolution rules are explicit",
+      "template delta application is explicit",
+      "output artifact shape is explicit",
+      "guardrails and next route are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2047 designs task-source conversion and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2047."
+    ],
+    "temporal_evidence_window": "M2045/M2046 repair template artifacts.",
+    "negative_result_policy": "If source conversion cannot be specified cleanly, redesign before implementation or execution.",
+    "allowed_claims": [
+      "task-quality repair source-mining design",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "defines conversion path from clean repair templates to repaired sources",
+    "paper_verdict_delta": "can decide whether the repair wave can enter materialization",
+    "must_synthesize_if": [
+      "M2047 cannot specify parent resolution",
+      "M2047 would route to another design without implementation-ready artifact shape"
+    ]
+  },
+  "hypothesis": "The M2045 templates can be converted into a bounded no-rollout source-mining/materialization plan with explicit parent resolution and claim guards.",
+  "success_criteria": [
+    "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md exists",
+    "parent-resolution and fail-closed rules are explicit",
+    "template delta application is explicit",
+    "output artifact shape is explicit",
+    "next route is explicit",
+    "no code reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "parent-resolution rules are ambiguous",
+    "output artifact shape is ambiguous",
+    "design weakens claim boundaries",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_source_mining_design"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M2047 passes if it specifies implementation-ready source conversion without overclaiming.",
+  "next_blocker": "m2048-selected-by-m2047-design"
+}
