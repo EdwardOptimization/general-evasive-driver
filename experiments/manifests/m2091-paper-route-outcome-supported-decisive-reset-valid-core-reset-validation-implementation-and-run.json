@@ -1,0 +1,189 @@
+{
+  "id": "m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_fresh_reset_validation"
+    ],
+    "parent_dataset": [
+      "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json",
+      "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "run fresh reset-only validation for M2088 reduced 238-row panel"
+    ],
+    "derived_from": [
+      "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "M2090 freezes exact fresh reduced-panel reset-validation command"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "reset validation on full 240-row panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md",
+  "public_gates": [
+    "M2091 must run the frozen M2090 reset-only command",
+    "M2091 must run exactly 238 reset attempts with expected observation dimension 72",
+    "M2091 must not execute policy actions rollout measured execution training replay PPO ranking or promotion",
+    "M2091 must route to result audit whether pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not repair and rerun inside the same milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_reset_valid_core_panel",
+    "evidence_axis": "Q_reset_valid_core_fresh_reset_validation",
+    "evidence_increment": "runs fresh reset-only validation for the 238-row reduced panel",
+    "claim_scope": "fresh reduced-panel reset validity only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset failures occur",
+      "stop if observation dimension or finite-observation checks fail",
+      "stop if metadata or contract guards fail",
+      "stop if policy actions or rollout are executed"
+    ],
+    "fallback_plan": [
+      "route to reset result audit if run completes",
+      "route to distribution redesign or public-gate-only panel if reduced panel fails scenario sampling",
+      "route to measured execution command design only after reset result audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2090 freezes exact fresh reduced-panel reset-validation command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-valid core fresh reset validation",
+    "admission_evidence": [
+      "M2090 freezes exact focused reset-validation command",
+      "M2090 uses fresh eval seed base 210100",
+      "M2088 reduced_executable_spec_count 238"
+    ],
+    "blocked_shortcuts": [
+      "do not execute policy actions",
+      "do not run rollout or measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/*",
+      "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md",
+      "M2091 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "reset summary exists",
+      "reset gates pass or fail closed",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2091 resets environments but does not run policy actions or history-necessity tests.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2091."
+    ],
+    "temporal_evidence_window": "M2088-M2090 reduced-panel artifacts.",
+    "negative_result_policy": "If reset validation fails, audit the failure before any repair or measured execution.",
+    "allowed_claims": [
+      "reset-valid core fresh reset validation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "tests whether the reduced panel transfers to a fresh reset seed base",
+    "paper_verdict_delta": "can admit measured execution command design after audit if reset validation passes",
+    "must_synthesize_if": [
+      "M2091 fails scenario sampling after reduced-panel selection",
+      "M2091 suggests measured execution before reset result audit",
+      "M2091 loses metadata or claim-boundary evidence"
+    ]
+  },
+  "hypothesis": "The M2088 reduced 238-row panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 210100.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json exists",
+    "input_executable_spec_count is 238",
+    "reset_attempt_count is 238",
+    "reset_success_count is 238",
+    "reset_failure_count is 0",
+    "observation_dimension_failure_count is 0",
+    "observation_finite_count is 238",
+    "obstacle_initialized_count is 238",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started is true",
+    "environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "reset gates fail",
+    "policy actions rollout measured execution ranking or paper claims are performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_reset_validation_preflight.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight --executable-task-specs runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json --output-dir runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight --eval-seed-base 210100 --target-spec-count 238 --expected-observation-dim 72 --next-blocker m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_valid_core_fresh_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json",
+    "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md"
+  ],
+  "decision_rule": "M2091 passes if it runs focused reset-only validation and writes a clean reset artifact without overclaiming.",
+  "next_blocker": "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit"
+}

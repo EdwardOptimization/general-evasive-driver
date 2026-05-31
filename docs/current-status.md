@@ -16,23 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit
+m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design
+m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run
 ```
 
-Immediate route: M2089 audits the M2088 reduced panel as clean: `238` specs,
-all `96` public-gate rows preserved, two public-debug rows excluded,
-env_config changed `0`, and metadata/contract/guardrail counts clean. The
-remaining limitation is that M2088 is no-reset materialization from M2085
-evidence, not fresh reduced-panel reset validity. M2090 must freeze the fresh
-reset-only command for the reduced panel with target `238`, observation dim
-`72`, and seed base `210100`. Measured execution, ranking, paper claims, and
-self-ID claims remain blocked.
+Immediate route: M2090 freezes the exact fresh reset-only command for the
+M2088 reduced panel: target `238`, observation dim `72`, seed base `210100`,
+and output `runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight`.
+M2091 may run only that reset-validation command and must route pass or fail to
+M2092 audit. Measured execution, ranking, paper claims, and self-ID claims
+remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -36638,3 +36638,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - frozen command target for M2090 design: reduced specs from M2088, target reset count `238`, expected observation dim `72`, fresh eval seed base `210100`
 - follow-up manifest: `experiments/manifests/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.json`
 - next: `m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design`
+
+## M2090 Paper-Route Outcome-Supported Decisive Reset-Valid Core Reset Validation Command Design
+
+- status: completed
+- decision: `reset_valid_core_reset_command_design_route_to_fresh_seed_validator_run`
+- parent audit: `docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md`
+- reduced specs: `runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json`
+- reset execution in M2090: `false`
+- rollout/measured execution in M2090: `false`
+- policy actions executed in M2090: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: M2091 reset-only validation over M2088 reduced specs, target `238`, expected observation dimension `72`, output `runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight`
+- fresh eval seed base: `210100`, outside M2085 reset evidence seed base `209500`
+- pass gate: M2091 needs `238/238` reset successes, finite observations `238`, obstacles initialized `238`, contract/metadata/forbidden-key/guardrail `0`, and no policy action or rollout
+- follow-up manifest: `experiments/manifests/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.json`
+- next: `m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run`

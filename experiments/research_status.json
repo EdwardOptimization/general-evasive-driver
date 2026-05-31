@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2098,
+    "completed": 2099,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md",
+    "command_log": "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction",
+    "run_dir": "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md",
     "status": "completed",
-    "task_id": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit"
+    "task_id": "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.json",
-    "hypothesis": "The M2088 reduced 238-row core panel can be validated with a fresh reset-only command before measured execution is considered.",
-    "id": "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exact fresh reset-only validation command over M2088 reduced 238-row panel",
-    "priority": 20850,
+    "command": "see experiments/manifests/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.json",
+    "hypothesis": "The M2088 reduced 238-row panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 210100.",
+    "id": "m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen M2090 reset-only validation command and route to M2092 audit",
+    "priority": 20860,
     "status": "pending",
-    "success_artifact": "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md"
+    "success_artifact": "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T231157Z"
+  "updated_at_utc": "20260531T231439Z"
 }
