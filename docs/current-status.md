@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design
+m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation
 ```
 
 Current next task:
 
 ```text
-m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation
+m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -197,7 +197,13 @@ offtrack-boundary relief extension `32`, success-support expansion `48`,
 collision-mitigation relief `32`, mitigation-metric isolation `16`, with split
 public-debug `112` / public-gate `80` and no holdout. M1980 must implement the
 template generator and focused tests only; reset, rollout, measured execution,
-ranking, paper-level claim, and level3 self-ID remain blocked.
+ranking, paper-level claim, and level3 self-ID remain blocked. M1980 implements
+that generator and passes focused tests `2 passed`; the deterministic artifact
+`configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json`
+has `192` candidates, exact repair-axis quotas, split public-debug `112` /
+public-gate `80`, holdout `0`, labels-enter-actor `0`, profile tuning `0`, and
+guardrail `0`. M1981 must audit the template artifact before source mining,
+materialization, reset validation, or measured execution.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

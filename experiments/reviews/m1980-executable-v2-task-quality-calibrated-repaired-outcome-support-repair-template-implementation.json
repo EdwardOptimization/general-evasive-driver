@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1980 template tests 2 passed and no-rollout artifact pass 192 candidates exact quotas split 112/80 no holdout no actor labels guardrail 0",
+  "failure_criteria": [
+    "template artifact is missing",
+    "candidate source count differs from 192",
+    "repair-axis quotas fail",
+    "labels enter actor input",
+    "profile-specific tuning ranking paper or self-ID claims are made",
+    "environment reset rollout or measured execution is run"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T121530Z",
+  "hypothesis": "The M1979 repair design can be materialized into a deterministic 192-candidate no-rollout template artifact with clean guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "repair templates have not yet been materialized"
+    ],
+    "derived_from": [
+      "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_repair_template"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/offtrack_dominance_rows.csv",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/collision_dominance_rows.csv",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/success_source_rows.csv"
+    ],
+    "parent_objective": [
+      "implement deterministic no-rollout calibrated outcome-support repair template generator"
+    ],
+    "supersedes": [
+      "manual ad hoc repair candidate selection"
+    ]
+  },
+  "milestone": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation",
+  "next_blocker": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_repair_templates_pass_route_to_audit",
+  "public_gates": [
+    "M1980 must implement only no-rollout template generation",
+    "M1980 must produce exactly 192 candidate source templates with designed quotas",
+    "M1980 must preserve no-label-to-actor and no-ranking guardrails",
+    "M1980 must keep reset rollout measured execution ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_repair_templates_pass_route_to_audit",
+    "milestone": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation",
+    "reason": "M1980 template tests 2 passed and no-rollout artifact pass 192 candidates exact quotas split 112/80 no holdout no actor labels guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused template tests pass",
+    "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json exists",
+    "candidate_source_count equals 192",
+    "repair-axis quota counts match M1979",
+    "public_debug_count equals 112",
+    "public_gate_count equals 80",
+    "paper_holdout_candidate_count equals 0",
+    "labels_enter_actor_input_count equals 0",
+    "profile_specific_tuning_count equals 0",
+    "guardrail_violation_count equals 0"
+  ],
+  "type": "infrastructure"
+}

@@ -34427,3 +34427,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrails: no profile tuning, labels entering actor input, private holdout, ranking, paper-level claim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.json`
 - next: `m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation`
+
+## M1980 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Repair Template Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_repair_templates_pass_route_to_audit`
+- doc: `docs/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_outcome_support_repair_templates.py`
+- focused tests: `2 passed`
+- artifact: `configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json`
+- reset/rollout/measured execution in M1980: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: no-rollout template artifact pass with `192` candidates, repair-axis quotas `64/32/48/32/16`, split public-debug `112` / public-gate `80`, no holdout, no actor labels, profile tuning `0`, guardrail `0`
+- follow-up manifest: `experiments/manifests/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.json`
+- next: `m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit`

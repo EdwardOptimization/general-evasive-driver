@@ -1,0 +1,161 @@
+{
+  "id": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_template_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.md",
+      "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.json"
+    ],
+    "parent_objective": [
+      "audit deterministic no-rollout calibrated outcome-support repair template artifact"
+    ],
+    "derived_from": [
+      "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation"
+    ],
+    "blocked_by": [
+      "template artifact has not yet been audited before source mining"
+    ],
+    "supersedes": [
+      "using the repair template artifact for source mining without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+  "public_gates": [
+    "M1981 must audit template quotas and guardrails",
+    "M1981 must separate template readiness from reset or rollout readiness",
+    "M1981 must decide whether source-mining design is admitted",
+    "M1981 must keep ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_template_audit",
+    "evidence_increment": "audits no-rollout repair template quotas and guardrails before source mining",
+    "claim_scope": "template audit only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if template quotas are not summarized",
+      "stop if next route is ambiguous",
+      "stop if audit overclaims templates as executable scenarios"
+    ],
+    "fallback_plan": [
+      "route to source-mining design if template artifact is clean",
+      "route to template repair if quotas or guardrails fail",
+      "route to scenario redesign if template axes are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1980 completed template implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated outcome-support repair template result audit",
+    "admission_evidence": [
+      "M1980 generated the 192-row template artifact with clean quotas and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run new environment interaction",
+      "do not tune profiles",
+      "do not claim ranking or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+      "M1981 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "template facts are summarized",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; template audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1981."
+    ],
+    "temporal_evidence_window": "M1979 design and M1980 template artifact.",
+    "negative_result_policy": "If template artifact fails, audit before repair or rerun.",
+    "allowed_claims": [
+      "task-quality calibrated repaired outcome-support repair template audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns template artifact into a source-mining or repair route decision",
+    "paper_verdict_delta": "can admit source-mining if template artifact is clean",
+    "must_synthesize_if": [
+      "M1981 cannot choose a next route",
+      "M1981 would use templates as executable evidence",
+      "M1981 would rank controllers directly"
+    ]
+  },
+  "hypothesis": "The M1980 template artifact is clean enough to admit calibrated outcome-support source-mining design.",
+  "success_criteria": [
+    "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md exists",
+    "M1980 template facts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "template facts are not summarized",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_template_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.md",
+    "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json"
+  ],
+  "decision_rule": "M1981 passes if it audits M1980 templates and chooses a next route without overclaiming.",
+  "next_blocker": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit"
+}

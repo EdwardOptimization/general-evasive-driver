@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1988,
+    "completed": 1989,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md",
+    "command_log": "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "configs",
     "status": "completed",
-    "task_id": "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design"
+    "task_id": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.json",
-    "hypothesis": "The M1979 repair design can be materialized into a deterministic 192-candidate no-rollout template artifact with clean guardrails.",
-    "id": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic no-rollout outcome-support repair template generator",
-    "priority": 19750,
+    "command": "see experiments/manifests/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.json",
+    "hypothesis": "The M1980 template artifact is clean enough to admit calibrated outcome-support source-mining design.",
+    "id": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit outcome-support repair template artifact before source mining",
+    "priority": 19760,
     "status": "pending",
-    "success_artifact": "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json"
+    "success_artifact": "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md"
   },
-  "updated_at_utc": "20260531T120511Z"
+  "updated_at_utc": "20260531T121347Z"
 }
