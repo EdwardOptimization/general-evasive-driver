@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2041,
+    "completed": 2042,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+    "command_log": "docs/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight",
     "status": "completed",
-    "task_id": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design"
+    "task_id": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.json",
-    "hypothesis": "A no-reset preflight can materialize a bounded 36-source x 12-profile routing-smoke workload while preserving M2029 provenance and proxy semantics.",
-    "id": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset materialization preflight for bounded routing-smoke workload; no reset or rollout",
-    "priority": 20280,
+    "command": "see experiments/manifests/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.json",
+    "hypothesis": "M2033 materialization artifacts are clean enough to admit reset-only validation command design while keeping all ranking and paper claims blocked.",
+    "id": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2033 materialization pass before reset-only validation command design; no reset or rollout",
+    "priority": 20290,
     "status": "pending",
-    "success_artifact": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260531T174903Z"
+  "updated_at_utc": "20260531T180851Z"
 }

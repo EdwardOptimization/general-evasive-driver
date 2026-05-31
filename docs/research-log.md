@@ -35431,3 +35431,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: design only; no reset, rollout, execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.json`
 - next: `m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation`
+
+## M2033 Paper-Route Controlled Routing Smoke Materialization Preflight Implementation
+
+- status: completed
+- decision: `controlled_routing_smoke_materialization_preflight_pass_route_to_result_audit`
+- result class: `controlled_routing_smoke_materialization_preflight_pass`
+- implementation: `src/autodrift/paper_route_controlled_routing_smoke_materialization_preflight.py`
+- focused tests: `2 passed`
+- compileall: `passed`
+- summary: `runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2033: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: selected sources `36`, executable specs `36`, planned workload rows `432`, profiles `12`, materialization failures `0`, missing profiles `0`, duplicate task/workload IDs `0`, contract violations `0`, forbidden-key violations `0`, guardrail `0`
+- proxy boundary: generated T2/T3 rows remain `smoke_proxy` with `paper_validity_claim=false`; paper-valid generated-task semantics remain blocked
+- boundary: materialization preflight only; no reset, rollout, execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.json`
+- next: `m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit`

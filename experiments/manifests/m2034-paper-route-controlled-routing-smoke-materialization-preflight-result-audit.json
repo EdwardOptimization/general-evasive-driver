@@ -1,0 +1,172 @@
+{
+  "id": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_materialization_preflight_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/selected_smoke_sources.csv",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.csv",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit controlled routing-smoke materialization preflight result before any reset or execution"
+    ],
+    "derived_from": [
+      "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2033 materialization pass requires audit before reset-only validation command design"
+    ],
+    "supersedes": [
+      "direct reset or rollout execution without auditing proxy and claim boundaries"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md",
+  "public_gates": [
+    "M2034 must audit M2033 result_class selected source count workload count and guardrails",
+    "M2034 must verify generated rows remain smoke_proxy and paper_validity_claim=false",
+    "M2034 must verify claim_boundary keeps ranking paper finite-window-vs-GRU and level3 self-ID claims blocked",
+    "M2034 must decide whether reset-only validation command design is admitted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_routing_smoke_materialization_result_audit",
+    "evidence_increment": "audits whether M2033 materialization artifacts are clean enough to admit reset-only validation command design",
+    "claim_scope": "result audit only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2033 guardrail violations are nonzero",
+      "stop if selected source or workload count misses target",
+      "stop if generated rows are not smoke_proxy",
+      "stop if claim boundary admits ranking paper finite-window-vs-GRU or level3 self-ID claims"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if artifacts are incomplete",
+      "route to source-semantics repair if proxy boundaries are violated",
+      "route to reset-only validation command design if audit passes",
+      "route to branch synthesis if routing-smoke local-search cadence is reached"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2033 writes materialization artifacts and names M2034 as next blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke materialization result audit",
+    "admission_evidence": [
+      "M2033 result_class is controlled_routing_smoke_materialization_preflight_pass with guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or rollout during the audit",
+      "do not rank controller families",
+      "do not convert smoke proxy rows into paper-valid claims"
+    ],
+    "allowed_updates": [
+      "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md",
+      "M2034 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-only validation command design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "M2033 artifacts pass audit",
+      "claim boundary is clean",
+      "follow-up route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2034 audits materialization artifacts only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2034."
+    ],
+    "temporal_evidence_window": "M2033 materialization artifacts.",
+    "negative_result_policy": "If M2033 proxy or claim boundaries are violated, route to repair instead of reset execution.",
+    "allowed_claims": [
+      "controlled routing-smoke materialization result audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the first executable smoke workload artifacts from the controlled panel",
+    "paper_verdict_delta": "can admit reset-only validation command design but cannot admit ranking or paper benchmark claims",
+    "must_synthesize_if": [
+      "M2034 rejects materialization for reasons already seen in M2031-M2033",
+      "M2034 cannot decide between reset validation and materialization repair",
+      "M2034 would require another narrow adapter-only milestone without changing evidence"
+    ]
+  },
+  "hypothesis": "M2033 materialization artifacts are clean enough to admit reset-only validation command design while keeping all ranking and paper claims blocked.",
+  "success_criteria": [
+    "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md exists",
+    "M2033 summary result_class is controlled_routing_smoke_materialization_preflight_pass",
+    "selected source count is 36 and planned workload count is 432",
+    "guardrail_violation_count is 0",
+    "generated rows remain smoke_proxy and paper_validity_claim=false",
+    "claim_boundary keeps ranking paper finite-window-vs-GRU and level3 self-ID claims blocked",
+    "the next route is reset-only validation command design or a clearly localized repair"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2033 artifacts are incomplete",
+    "M2033 target counts are not met",
+    "proxy rows are overclaimed",
+    "audit directly admits rollout or ranking"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight artifacts and write M2034 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_materialization_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv"
+  ],
+  "decision_rule": "M2034 passes if it confirms M2033 artifacts are clean and admits only reset-only validation command design, not rollout or ranking.",
+  "next_blocker": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit"
+}

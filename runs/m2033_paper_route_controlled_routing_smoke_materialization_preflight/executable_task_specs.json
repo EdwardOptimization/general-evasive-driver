@@ -1,0 +1,5657 @@
+{
+  "executable_task_specs": [
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.35
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 72,
+          "reveal_step": 40
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "post_friction_step",
+      "panel_source_id": "m2026-t1-m1983_outcome_support-cosr_v0_0000_offtrack_anchor_relief",
+      "panel_task_family": "T1_reactive_active_safety",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "tier_c_boundary_near_miss",
+      "proxy_template_family": "t5_near_boundary_warmup",
+      "sampled_obstacle_label": "aeb_feasible",
+      "source_edge": "stable_aeb|tier_c_boundary_near_miss|post_friction_step|aeb_feasible",
+      "source_kind": "anchor_neighborhood",
+      "source_origin": "m1983_outcome_support",
+      "source_reference": "cosr_v0_0000_offtrack_anchor_relief",
+      "source_role_semantics": "stable_aeb",
+      "task_source_id": "m2033-smoke-0000-m2026-t1-m1983_outcome_support-cosr_v0_0000_offtrack_anchor_relief",
+      "window_tag": "m2026_source_coverage_repair"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.35
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "steady_surface",
+      "panel_source_id": "m2026-t1-m1983_outcome_support-cosr_v0_0144_collision_mitigation_relief",
+      "panel_task_family": "T1_reactive_active_safety",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "tier_d_handling_limit_drift_required",
+      "proxy_template_family": "t5_near_boundary_warmup",
+      "sampled_obstacle_label": "unavoidable",
+      "source_edge": "unavoidable_mitigation|tier_d_handling_limit_drift_required|steady_surface|unavoidable",
+      "source_kind": "mitigation_isolation_check",
+      "source_origin": "m1983_outcome_support",
+      "source_reference": "cosr_v0_0144_collision_mitigation_relief",
+      "source_role_semantics": "unavoidable_mitigation",
+      "task_source_id": "m2033-smoke-0001-m2026-t1-m1983_outcome_support-cosr_v0_0144_collision_mitigation_relief",
+      "window_tag": "m2026_source_coverage_repair"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "relief_surface_unspecified",
+      "panel_source_id": "m2026-t1-m1983_outcome_support-cosr_v0_0064_offtrack_boundary_relief_extension",
+      "panel_task_family": "T1_reactive_active_safety",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "tier_not_applicable_offtrack_boundary_relief",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "aes_feasible",
+      "source_edge": "stable_aes_only|tier_not_applicable_offtrack_boundary_relief|relief_surface_unspecified|aes_feasible",
+      "source_kind": "offtrack_boundary_relief",
+      "source_origin": "m1983_outcome_support",
+      "source_reference": "cosr_v0_0064_offtrack_boundary_relief_extension",
+      "source_role_semantics": "stable_aes_only",
+      "task_source_id": "m2033-smoke-0002-m2026-t1-m1983_outcome_support-cosr_v0_0064_offtrack_boundary_relief_extension",
+      "window_tag": "m2026_source_coverage_repair"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.35
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "post_friction_step",
+      "panel_source_id": "m2020-active-safety-0000",
+      "panel_task_family": "T1_reactive_active_safety",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "tier_c_boundary_near_miss",
+      "proxy_template_family": "t5_near_boundary_warmup",
+      "sampled_obstacle_label": "drift_required",
+      "source_edge": "drift_required_recovery|tier_c_boundary_near_miss|post_friction_step|drift_required",
+      "source_kind": "success_stabilizer",
+      "source_origin": "m2020_multi_slice_bounded_diagnostic",
+      "source_reference": "success_stabilizer|drift_required_recovery|tier_c_boundary_near_miss|post_friction_step|drift_required",
+      "source_role_semantics": "drift_required_recovery",
+      "task_source_id": "m2033-smoke-0003-m2020-active-safety-0000",
+      "window_tag": "m2020_public_diagnostic"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 104,
+          "reveal_step": 72
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_actuator_delay_response",
+      "panel_source_id": "m1680-spec-0003",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "actuator_delay_step",
+      "source_edge": "t4_actuator_delay_response|actuator_delay_step",
+      "source_kind": "actuator_delay_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0005",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0004-m1680-spec-0003",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 72,
+          "reveal_step": 40
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_up",
+      "panel_source_id": "m1680-spec-0000",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "actuator_delay_step",
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_kind": "actuator_delay_proxy+capability_step_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0001|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0005-m1680-spec-0000",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_capability_step_temporal",
+      "panel_source_id": "m1680-spec-0005",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "capability_step_down",
+      "source_edge": "t4_capability_step_temporal|capability_step_down",
+      "source_kind": "capability_step_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0002",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0006-m1680-spec-0005",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 88,
+          "reveal_step": 56
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_staged_warmup_capability",
+      "panel_source_id": "m1680-spec-0006",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "capability_step_up",
+      "source_edge": "t4_staged_warmup_capability|capability_step_up",
+      "source_kind": "capability_step_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0000",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0007-m1680-spec-0006",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_brake_authority_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_brake_authority_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_brake_authority_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_brake_authority_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_brake_authority_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0008-m2029-t2-same_current_brake_authority_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 104,
+          "reveal_step": 72
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_drive_brake_asymmetry_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_drive_brake_asymmetry_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_drive_brake_asymmetry_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_drive_brake_asymmetry_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_drive_brake_asymmetry_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0009-m2029-t2-same_current_drive_brake_asymmetry_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.35
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 72,
+          "reveal_step": 40
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_mixed_authority_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_mixed_authority_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t5_near_boundary_warmup",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_mixed_authority_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_mixed_authority_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_mixed_authority_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0010-m2029-t2-same_current_mixed_authority_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_rear_lateral_authority_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_rear_lateral_authority_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_rear_lateral_authority_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_rear_lateral_authority_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_rear_lateral_authority_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0011-m2029-t2-same_current_rear_lateral_authority_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 88,
+          "reveal_step": 56
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_steer_lag_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_steer_lag_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_steer_lag_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_steer_lag_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_steer_lag_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0012-m2029-t2-same_current_steer_lag_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "same_current_yaw_authority_older_history_proxy",
+      "panel_source_id": "m2029-t2-same_current_yaw_authority_older_history_proxy-00",
+      "panel_task_family": "T2_same_current_different_older_history",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T2_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "same_current_different_older_history",
+      "source_edge": "same_current|same_current_yaw_authority_older_history_proxy|k0p25|older1p5",
+      "source_kind": "same_current_yaw_authority_older_history_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t2-same_current_yaw_authority_older_history_proxy-00",
+      "source_role_semantics": "same_current_different_older_history",
+      "task_source_id": "m2033-smoke-0013-m2029-t2-same_current_yaw_authority_older_history_proxy-00",
+      "window_tag": "m2029_same_current_k0p25_older1p5"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "actuator_delay_step",
+      "panel_source_id": "m1680-spec-0036",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_kind": "actuator_delay_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0000|left_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0014-m1680-spec-0036",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_down",
+      "panel_source_id": "m1680-spec-0038",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_kind": "capability_step_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0003|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0015-m1680-spec-0038",
+      "window_tag": "decision_minus_24"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_staged_warmup_capability",
+      "panel_source_id": "m1680-spec-0006",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "capability_step_up",
+      "source_edge": "t4_staged_warmup_capability|capability_step_up",
+      "source_kind": "capability_step_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0000",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0016-m1680-spec-0006",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t5_near_boundary_warmup",
+      "panel_source_id": "m1680-spec-0043",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_boundary_axis_retarget",
+      "source_edge": "t5_near_boundary_warmup|t5_boundary_axis_retarget",
+      "source_kind": "terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0007",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0017-m1680-spec-0043",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_brake_authority_proxy",
+      "panel_source_id": "m2029-t3-warmup_brake_authority_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_brake_authority_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_brake_authority_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_brake_authority_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0018-m2029-t3-warmup_brake_authority_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 104,
+          "reveal_step": 72
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_mixed_authority_proxy",
+      "panel_source_id": "m2029-t3-warmup_mixed_authority_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_mixed_authority_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_mixed_authority_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_mixed_authority_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0019-m2029-t3-warmup_mixed_authority_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 72,
+          "reveal_step": 40
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_rear_lateral_authority_proxy",
+      "panel_source_id": "m2029-t3-warmup_rear_lateral_authority_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_rear_lateral_authority_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_rear_lateral_authority_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_rear_lateral_authority_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0020-m2029-t3-warmup_rear_lateral_authority_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_steer_lag_proxy",
+      "panel_source_id": "m2029-t3-warmup_steer_lag_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_steer_lag_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_steer_lag_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_steer_lag_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0021-m2029-t3-warmup_steer_lag_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_terminal_boundary_recovery_proxy",
+      "panel_source_id": "m2029-t3-warmup_terminal_boundary_recovery_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_terminal_boundary_recovery_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_terminal_boundary_recovery_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_terminal_boundary_recovery_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0022-m2029-t3-warmup_terminal_boundary_recovery_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "true",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "warmup_yaw_authority_proxy",
+      "panel_source_id": "m2029-t3-warmup_yaw_authority_proxy-00",
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T3_generated",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "active_diagnostic_warmup",
+      "source_edge": "active_diagnostic_warmup|warmup_yaw_authority_proxy|brake_tap|duration0p5|reveal0p2",
+      "source_kind": "warmup_yaw_authority_proxy",
+      "source_origin": "m2029_t2_t3_source_generation_preflight",
+      "source_reference": "m2029-t3-warmup_yaw_authority_proxy-00",
+      "source_role_semantics": "active_diagnostic_warmup",
+      "task_source_id": "m2033-smoke-0023-m2029-t3-warmup_yaw_authority_proxy-00",
+      "window_tag": "m2029_warmup_brake_tap_reveal0p2"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 104,
+          "reveal_step": 72
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_up",
+      "panel_source_id": "m1680-spec-0000",
+      "panel_task_family": "T4_variable_diagnostic_delay",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "actuator_delay_step",
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_kind": "actuator_delay_proxy+capability_step_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0001|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0024-m1680-spec-0000",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "actuator_delay_step",
+      "panel_source_id": "m1680-spec-0036",
+      "panel_task_family": "T4_variable_diagnostic_delay",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_kind": "actuator_delay_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0000|left_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0025-m1680-spec-0036",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_down",
+      "panel_source_id": "m1680-spec-0038",
+      "panel_task_family": "T4_variable_diagnostic_delay",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_kind": "capability_step_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0003|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0026-m1680-spec-0038",
+      "window_tag": "decision_minus_24"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t5_boundary_axis_retarget",
+      "panel_source_id": "m1680-spec-0040",
+      "panel_task_family": "T4_variable_diagnostic_delay",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "curved_boundary_obstacle",
+      "source_edge": "curved_boundary_obstacle|t5_boundary_axis_retarget",
+      "source_kind": "terminal_boundary_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0002|left_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0027-m1680-spec-0040",
+      "window_tag": "decision_minus_32"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_actuator_delay_response",
+      "panel_source_id": "m1680-spec-0003",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "actuator_delay_step",
+      "source_edge": "t4_actuator_delay_response|actuator_delay_step",
+      "source_kind": "actuator_delay_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0005",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0028-m1680-spec-0003",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.75,
+            4.2
+          ],
+          "brake_scale_range": [
+            0.75,
+            1.2
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.2
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.45,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.75,
+            1.2
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 104,
+          "reveal_step": 72
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_up",
+      "panel_source_id": "m1680-spec-0000",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_actuator_delay_response",
+      "sampled_obstacle_label": "actuator_delay_step",
+      "source_edge": "actuator_delay_step|capability_step_up",
+      "source_kind": "actuator_delay_proxy+capability_step_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0001|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0029-m1680-spec-0000",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "actuator_delay_step",
+      "panel_source_id": "m1680-spec-0036",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "actuator_delay_step|t5_near_boundary_warmup",
+      "source_kind": "actuator_delay_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0000|left_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0030-m1680-spec-0036",
+      "window_tag": "reveal_plus_4"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 68,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 80,
+          "reveal_step": 48
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_capability_step_temporal",
+      "panel_source_id": "m1680-spec-0005",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "capability_step_down",
+      "source_edge": "t4_capability_step_temporal|capability_step_down",
+      "source_kind": "capability_step_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0002",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0031-m1680-spec-0005",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 76,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "capability_step_down",
+      "panel_source_id": "m1680-spec-0038",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_near_boundary_warmup",
+      "source_edge": "capability_step_down|t5_near_boundary_warmup",
+      "source_kind": "capability_step_proxy+terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1595_selector_balanced_clean_source_repair_smoke::selected-0003|right_target",
+      "source_role_semantics": "clean_history_control_public_pairs",
+      "task_source_id": "m2033-smoke-0032-m1680-spec-0038",
+      "window_tag": "decision_minus_24"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 480,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            14.0,
+            42.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.55,
+            1.2
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 84,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.9,
+            2.2
+          ],
+          "brake_scale_range": [
+            0.45,
+            1.35
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.75,
+            1.15
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.28,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.7,
+            1.25
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          7.0,
+          14.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            8.0,
+            24.0
+          ],
+          "enabled": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.95
+          ],
+          "lateral_offset_range": [
+            -1.4,
+            1.4
+          ],
+          "max_active_steps": 96,
+          "reveal_step": 64
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t4_staged_warmup_capability",
+      "panel_source_id": "m1680-spec-0006",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T4",
+      "proxy_template_family": "t4_staged_warmup_capability",
+      "sampled_obstacle_label": "capability_step_up",
+      "source_edge": "t4_staged_warmup_capability|capability_step_up",
+      "source_kind": "capability_step_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0000",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0033-m1680-spec-0006",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 92,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "brake_fade_or_loss_proxy",
+      "panel_source_id": "m1680-spec-0037",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "late_reveal_boundary",
+      "source_edge": "brake_fade_or_loss_proxy|late_reveal_boundary",
+      "source_kind": "terminal_boundary_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0014",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0034-m1680-spec-0037",
+      "window_tag": "mapping_window_unspecified"
+    },
+    {
+      "contract_checks": {
+        "action_history_mode_full": true,
+        "history_length_is_positive": true,
+        "include_privileged_params_false": true,
+        "obstacle_relative_velocity_mode_zero": true,
+        "wheel_observation_mode_none": true
+      },
+      "contract_violation_count": 0,
+      "env_config": {
+        "action_history_mode": "full",
+        "beta_target_range": [
+          0.32,
+          0.7
+        ],
+        "dt": 0.02,
+        "friction_limited_speed": true,
+        "friction_speed_margin": 0.92,
+        "friction_step": {
+          "enabled": false,
+          "mu_range": [
+            0.25,
+            1.15
+          ],
+          "resample_speed_ref": true,
+          "step_range": [
+            250,
+            550
+          ]
+        },
+        "history_length": 1,
+        "include_privileged_params": false,
+        "max_steps": 420,
+        "obstacle": {
+          "allowed_labels": [
+            "aeb_feasible",
+            "aes_feasible",
+            "drift_required",
+            "unavoidable"
+          ],
+          "brake_mu_fraction": 0.9,
+          "clearance_margin_reward_clip": 0.25,
+          "clearance_margin_reward_scale": 0.0,
+          "collision_penalty": 20.0,
+          "conventional_lateral_mu_fraction": 0.42,
+          "dense_clearance_margin_reward_clip": 0.25,
+          "dense_clearance_margin_reward_scale": 0.0,
+          "dense_clearance_margin_reward_window": 8.0,
+          "distance_range": [
+            12.0,
+            34.0
+          ],
+          "drift_lateral_mu_fraction": 0.85,
+          "ego_half_width": 0.9,
+          "enabled": true,
+          "finish_on_pass": true,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.65,
+            1.45
+          ],
+          "max_sample_attempts": 200,
+          "max_threshold_score": null,
+          "min_time_after_friction_step": 0.0,
+          "pass_reward": 10.0,
+          "perception_reveal_distance": null,
+          "perception_reveal_step": 60,
+          "require_aeb_infeasible": false,
+          "safety_margin": 0.3,
+          "stable_aes_beta_limit": 0.24,
+          "stable_aes_drift_bonus_scale": 1.0,
+          "stable_aes_sideslip_penalty": 0.0
+        },
+        "obstacle_relative_velocity_mode": "zero",
+        "obstacle_slots": 4,
+        "privileged_observation_mode": "basic",
+        "randomization": {
+          "actuator_tau_scale_range": [
+            0.8,
+            3.2
+          ],
+          "brake_scale_range": [
+            0.55,
+            1.25
+          ],
+          "cg_shift_range": [
+            -0.12,
+            0.12
+          ],
+          "drive_scale_range": [
+            0.7,
+            1.25
+          ],
+          "inertia_scale_range": [
+            0.85,
+            1.25
+          ],
+          "mass_scale_range": [
+            0.85,
+            1.2
+          ],
+          "mu_range": [
+            0.3,
+            1.05
+          ],
+          "tire_stiffness_scale_range": [
+            0.5,
+            1.5
+          ]
+        },
+        "road_lookahead_count": 8,
+        "road_lookahead_spacing": 5.0,
+        "speed_range": [
+          9.0,
+          16.0
+        ],
+        "termination_penalty": 0.0,
+        "track_kind": "circle",
+        "track_radius": 18.0,
+        "track_width": 5.0,
+        "warmup_gate": {
+          "distance_range": [
+            12.0,
+            30.0
+          ],
+          "enabled": false,
+          "finish_pass_distance": 2.0,
+          "half_width_range": [
+            0.35,
+            0.85
+          ],
+          "lateral_offset_range": [
+            -1.2,
+            1.2
+          ],
+          "max_active_steps": 64,
+          "reveal_step": 0
+        },
+        "wheel_observation_mode": "none"
+      },
+      "generated_source_row": "false",
+      "materialization_semantics": "smoke_proxy",
+      "normalized_surface_variant": "t5_near_boundary_warmup",
+      "panel_source_id": "m1680-spec-0043",
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "paper_validity_claim": "false",
+      "parent_feasibility_tier_id": "T5",
+      "proxy_template_family": "t5_boundary_axis_retarget",
+      "sampled_obstacle_label": "t5_boundary_axis_retarget",
+      "source_edge": "t5_near_boundary_warmup|t5_boundary_axis_retarget",
+      "source_kind": "terminal_boundary_proxy+warmup_proxy",
+      "source_origin": "m1680_controller_family_task_source",
+      "source_reference": "m1538::pair-0007",
+      "source_role_semantics": "public_measured_intervention_candidate",
+      "task_source_id": "m2033-smoke-0035-m1680-spec-0043",
+      "window_tag": "mapping_window_unspecified"
+    }
+  ],
+  "protocol": "paper_route_controlled_routing_smoke_materialization_preflight_v0"
+}

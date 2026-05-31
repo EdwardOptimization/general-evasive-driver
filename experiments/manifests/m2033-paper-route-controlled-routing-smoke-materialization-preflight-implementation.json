@@ -178,5 +178,5 @@
     "runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv"
   ],
   "decision_rule": "M2033 passes if it writes clean no-reset materialization artifacts for the bounded smoke workload without guardrail violations.",
-  "next_blocker": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation"
+  "next_blocker": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit"
 }

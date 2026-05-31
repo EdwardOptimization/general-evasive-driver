@@ -1,0 +1,7 @@
+claim,admissible,reason
+controlled_routing_smoke_materialization_preflight_completed,True,M2033 writes no-reset materialization artifacts for a bounded smoke workload
+routing_smoke_execution_ready,True,requires selected sources executable specs workload profile artifacts and guardrails to pass
+controller_family_ranking,False,M2033 does not execute or compare controller outcomes
+paper_valid_generated_task_semantics,False,generated T2/T3 rows are smoke proxies until validated by later task semantics work
+finite_window_vs_gru_conclusion,False,M2033 is materialization preflight only
+level3_self_identification,False,M2033 does not run history intervention outcome tests
