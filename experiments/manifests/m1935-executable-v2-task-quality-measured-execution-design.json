@@ -1,0 +1,164 @@
+{
+  "id": "m1935-executable-v2-task-quality-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1934-executable-v2-task-quality-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured rollout route for the reset-valid M1928 80-spec x 12-profile workload"
+    ],
+    "derived_from": [
+      "m1934-executable-v2-task-quality-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "measured rollout route for M1928 workload has not been designed"
+    ],
+    "supersedes": [
+      "direct measured rollout without wrapper/protocol design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1935-executable-v2-task-quality-measured-execution-design.md",
+  "public_gates": [
+    "M1935 must inspect whether existing measured runners can consume M1928 workload rows directly",
+    "M1935 must define exact measured workload scope and target counts",
+    "M1935 must decide direct command versus adapter implementation",
+    "M1935 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_measured_execution_design",
+    "evidence_increment": "moves from reset-valid scenario panel to measured rollout protocol design",
+    "claim_scope": "design only; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if existing runner compatibility is ambiguous",
+      "stop if measured workload target counts are ambiguous",
+      "stop if direct execution would lose source/tier/role/surface metadata"
+    ],
+    "fallback_plan": [
+      "route to measured-runner adapter implementation if existing runners are not exact matches",
+      "route to command design if existing runner compatibility is exact",
+      "synthesize if the branch becomes process-heavy without measured data"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "sixth milestone of reset execution branch after M1930-M1934",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured execution design",
+    "admission_evidence": [
+      "M1934 audited M1933 reset pass as clean and admitted measured execution design"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution in design",
+      "do not rank controller families",
+      "do not treat reset success as driver performance"
+    ],
+    "allowed_updates": [
+      "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
+      "M1935 status queue scoreboard research log and review",
+      "one follow-up manifest for adapter implementation or measured command design"
+    ],
+    "next_stage_criteria": [
+      "measured workload scope is explicit",
+      "target counts are explicit",
+      "runner compatibility is decided",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured execution design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1935."
+    ],
+    "temporal_evidence_window": "M1928 workload matrix and M1933/M1934 reset validation artifacts.",
+    "negative_result_policy": "If no existing runner can preserve metadata, implement an adapter before measured execution.",
+    "allowed_claims": [
+      "task-quality measured execution design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares the first measured rollout data over the reset-valid redesigned task-quality panel",
+    "paper_verdict_delta": "can admit measured execution infrastructure but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M1935 cannot choose direct command versus adapter",
+      "M1935 would skip metadata-preserving measured protocol",
+      "M1935 would overclaim measured execution design"
+    ]
+  },
+  "hypothesis": "The reset-valid M1928 workload can be routed into a measured rollout protocol without losing metadata or jumping to ranking.",
+  "success_criteria": [
+    "docs/m1935-executable-v2-task-quality-measured-execution-design.md exists",
+    "runner compatibility is assessed",
+    "target workload counts are explicit",
+    "next route is explicit",
+    "no rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "runner compatibility is ambiguous",
+    "target counts are ambiguous",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1935-executable-v2-task-quality-measured-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_execution_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1935 passes if it defines the measured rollout route and next manifest without running rollout or ranking.",
+  "next_blocker": "m1935-executable-v2-task-quality-measured-execution-design"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1942,
+    "completed": 1943,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+    "command_log": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1933_executable_v2_task_quality_reset_validation_preflight",
+    "run_dir": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
     "status": "completed",
-    "task_id": "m1933-executable-v2-task-quality-reset-validation-preflight"
+    "task_id": "m1934-executable-v2-task-quality-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1934-executable-v2-task-quality-reset-validation-result-audit.json",
-    "hypothesis": "The M1933 reset pass is clean enough to admit measured rollout design while keeping ranking and paper claims blocked.",
-    "id": "m1934-executable-v2-task-quality-reset-validation-result-audit",
+    "command": "see experiments/manifests/m1935-executable-v2-task-quality-measured-execution-design.json",
+    "hypothesis": "The reset-valid M1928 workload can be routed into a measured rollout protocol without losing metadata or jumping to ranking.",
+    "id": "m1935-executable-v2-task-quality-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1933 reset pass and decide whether measured rollout design is admissible without ranking paper or self-ID claims",
-    "priority": 19290,
+    "notes": "Pending: inspect measured runner compatibility and design 960-row public diagnostic measured workload route without rollout ranking paper or self-ID claims",
+    "priority": 19300,
     "status": "pending",
-    "success_artifact": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md"
+    "success_artifact": "docs/m1935-executable-v2-task-quality-measured-execution-design.md"
   },
-  "updated_at_utc": "20260531T081735Z"
+  "updated_at_utc": "20260531T082213Z"
 }
