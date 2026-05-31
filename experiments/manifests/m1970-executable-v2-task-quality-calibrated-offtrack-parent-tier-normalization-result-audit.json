@@ -1,0 +1,165 @@
+{
+  "id": "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit repaired offtrack parent-tier no-reset materialization result before reset validation"
+    ],
+    "derived_from": [
+      "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation"
+    ],
+    "blocked_by": [
+      "repaired artifacts have not been audited after sentinel normalization"
+    ],
+    "supersedes": [
+      "running reset validation or measured execution before repaired artifact audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
+  "public_gates": [
+    "M1970 must audit M1969 repaired summary and artifacts",
+    "M1970 must confirm blank parent-tier counts are zero",
+    "M1970 must separate no-reset metadata repair from reset and measured execution evidence",
+    "M1970 must decide whether repaired reset-validation design is admitted",
+    "M1970 must not run reset measured execution ranking or paper-level claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_metadata_normalization_result_audit",
+    "evidence_increment": "audits repaired metadata artifacts and decides reset-validation route",
+    "claim_scope": "result audit only; no reset measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if repaired artifacts still contain blank parent-tier metadata",
+      "stop if sentinel counts differ from expected 8 specs and 96 workload cells",
+      "stop if audit would skip reset validation before measured execution"
+    ],
+    "fallback_plan": [
+      "route to repaired reset-validation command design if audit passes",
+      "route back to implementation repair if blank metadata remains",
+      "route to source-schema audit if sentinel counts are inconsistent"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1969 repaired no-reset materialization completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack parent-tier normalization result audit",
+    "admission_evidence": [
+      "M1969 produced repaired no-reset materialization artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or measured execution in audit",
+      "do not claim driver performance",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
+      "M1970 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired reset-validation command design"
+    ],
+    "next_stage_criteria": [
+      "M1969 result is audited",
+      "supported and unsupported claims are explicit",
+      "reset-validation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; repaired artifact audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1970."
+    ],
+    "temporal_evidence_window": "M1969 repaired no-reset materialization artifacts.",
+    "negative_result_policy": "Keep this as infrastructure repair evidence, not driver-performance evidence.",
+    "allowed_claims": [
+      "calibrated metadata repair result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "decides whether repaired artifacts can re-enter reset validation",
+    "paper_verdict_delta": "can restore reset-validation readiness but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1970 cannot audit repaired artifact counts",
+      "M1970 would need another audit before reset-validation design",
+      "the same metadata failure repeats after reset validation"
+    ]
+  },
+  "hypothesis": "M1969 repaired the offtrack parent-tier metadata blocker cleanly enough to admit repaired reset-validation design, while measured execution remains blocked.",
+  "success_criteria": [
+    "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md exists",
+    "M1969 result_class and parent-tier counters are summarized",
+    "blank parent-tier counts are zero",
+    "sentinel counts are 8 specs and 96 workload cells",
+    "reset-validation route is explicit",
+    "no reset measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "blank parent-tier counts are nonzero",
+    "sentinel counts are ambiguous",
+    "reset or measured execution is run during audit",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json"
+  ],
+  "decision_rule": "M1970 passes if it audits M1969 as a clean no-reset metadata repair and selects the repaired reset-validation route without execution or ranking.",
+  "next_blocker": "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit"
+}

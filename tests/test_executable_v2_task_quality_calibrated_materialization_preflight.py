@@ -33,7 +33,7 @@ def _selected_source(
         "repair_source_kind": kind,
         "selection_quota_name": quota_name,
         "source_role_semantics": role,
-        "parent_feasibility_tier_id": "tier_synthetic",
+        "parent_feasibility_tier_id": "" if kind == "offtrack_boundary_relief" else "tier_synthetic",
         "parent_surface_variant": "" if surface == "relief_surface_unspecified" else surface,
         "normalized_surface_variant": surface,
         "source_split": "public_gate",
@@ -132,6 +132,46 @@ def test_representative_cell_prefers_stable_aeb_high_threshold() -> None:
     assert rule == "stable_aeb_max_threshold_then_farther_distance"
 
 
+def test_offtrack_blank_parent_tier_normalizes_to_explicit_sentinel() -> None:
+    source = _selected_source(
+        "offtrack_blank_parent",
+        kind="offtrack_boundary_relief",
+        role=preflight.ROLE_STABLE_AES_ONLY,
+        surface="relief_surface_unspecified",
+        quota_name="offtrack",
+    )
+    cell = {
+        "obstacle_distance": 52.0,
+        "obstacle_half_width": 0.75,
+        "label": "aes_feasible",
+        "threshold_score": 0.2,
+        "time_to_obstacle": 2.8,
+        "time_after_friction_step": 1.0,
+    }
+
+    spec = preflight.materialize_executable_spec(
+        source=source,
+        cell=cell,
+        representative_cell_rule="boundary_min_threshold_then_closer_wider",
+        index=0,
+    )
+
+    assert spec["parent_feasibility_tier_id"] == preflight.OFFTRACK_PARENT_TIER_SENTINEL
+
+
+def test_non_offtrack_blank_parent_tier_remains_fail_closed() -> None:
+    source = _selected_source(
+        "success_blank_parent",
+        kind="success_stabilizer",
+        role=preflight.ROLE_STABLE_AES_ONLY,
+        surface="steady_surface",
+        quota_name="success_aes_steady",
+    )
+    source["parent_feasibility_tier_id"] = ""
+
+    assert preflight.normalized_parent_feasibility_tier_id(source) == ""
+
+
 def test_run_calibrated_materialization_preflight_writes_expected_artifacts(tmp_path: Path) -> None:
     selected_sources = _quota_rows()
     subset_config = tmp_path / "subset.json"
@@ -160,6 +200,10 @@ def test_run_calibrated_materialization_preflight_writes_expected_artifacts(tmp_
     assert summary["executable_task_spec_count"] == 80
     assert summary["controller_profile_count"] == 12
     assert summary["planned_workload_cell_count"] == 960
+    assert summary["parent_feasibility_tier_blank_spec_count"] == 0
+    assert summary["parent_feasibility_tier_blank_workload_count"] == 0
+    assert summary["parent_feasibility_tier_normalized_spec_count"] == 8
+    assert summary["parent_feasibility_tier_normalized_workload_count"] == 8 * len(EXPECTED_PROFILE_NAMES)
     assert summary["contract_violation_count"] == 0
     assert summary["forbidden_key_violation_count"] == 0
     assert summary["guardrail_violation_count"] == 0
@@ -167,3 +211,9 @@ def test_run_calibrated_materialization_preflight_writes_expected_artifacts(tmp_
     assert (output_dir / "planned_workload.csv").exists()
     persisted = read_json(output_dir / "executable_task_specs.json")
     assert len(persisted["executable_task_specs"]) == 80
+    offtrack_specs = [
+        spec for spec in persisted["executable_task_specs"] if spec["repair_source_kind"] == "offtrack_boundary_relief"
+    ]
+    assert {spec["parent_feasibility_tier_id"] for spec in offtrack_specs} == {
+        preflight.OFFTRACK_PARENT_TIER_SENTINEL
+    }

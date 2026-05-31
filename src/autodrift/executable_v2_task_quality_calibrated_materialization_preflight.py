@@ -32,6 +32,8 @@ ROLE_STABLE_AEB = "stable_aeb"
 ROLE_STABLE_AES_ONLY = "stable_aes_only"
 ROLE_DRIFT_REQUIRED = "drift_required_recovery"
 ROLE_UNAVOIDABLE = "unavoidable_mitigation"
+REPAIR_KIND_OFFTRACK_BOUNDARY_RELIEF = "offtrack_boundary_relief"
+OFFTRACK_PARENT_TIER_SENTINEL = "tier_not_applicable_offtrack_boundary_relief"
 FORBIDDEN_GUARDRAILS = (
     "environment_reset_started",
     "environment_rollout_started",
@@ -167,6 +169,16 @@ def _contract_checks(env_config: Mapping[str, Any]) -> dict[str, bool]:
     }
 
 
+def normalized_parent_feasibility_tier_id(source: Mapping[str, Any]) -> str:
+    parent_tier = str(source.get("parent_feasibility_tier_id", "")).strip()
+    repair_kind = str(source.get("repair_source_kind", "")).strip()
+    if parent_tier:
+        return parent_tier
+    if repair_kind == REPAIR_KIND_OFFTRACK_BOUNDARY_RELIEF:
+        return OFFTRACK_PARENT_TIER_SENTINEL
+    return ""
+
+
 def materialize_executable_spec(
     *,
     source: Mapping[str, Any],
@@ -178,6 +190,7 @@ def materialize_executable_spec(
     checks = _contract_checks(env_config)
     source_id = _source_id(source)
     task_source_id = f"tqcm_exec_v0_{index:04d}_{source_id}"
+    parent_feasibility_tier_id = normalized_parent_feasibility_tier_id(source)
     return {
         "task_source_id": task_source_id,
         "candidate_source_id": source_id,
@@ -185,7 +198,7 @@ def materialize_executable_spec(
         "repair_source_kind": str(source.get("repair_source_kind", "")),
         "selection_quota_name": str(source.get("selection_quota_name", "")),
         "source_role_semantics": str(source.get("source_role_semantics", "")),
-        "parent_feasibility_tier_id": str(source.get("parent_feasibility_tier_id", "")),
+        "parent_feasibility_tier_id": parent_feasibility_tier_id,
         "parent_surface_variant": str(source.get("parent_surface_variant", "")),
         "normalized_surface_variant": str(source.get("normalized_surface_variant", "")),
         "source_split": str(source.get("source_split", "")),
@@ -387,6 +400,22 @@ def run_calibrated_materialization_preflight(
     selected_count = len(selected_sources)
     profile_count = len({row["profile_name"] for row in workload_rows})
     missing_accepted_cell_count = sum(1 for row in failures if row.get("failure_reason") == "missing_accepted_cell")
+    parent_tier_blank_spec_count = sum(
+        1 for spec in executable_specs if not str(spec.get("parent_feasibility_tier_id", "")).strip()
+    )
+    parent_tier_blank_workload_count = sum(
+        1 for row in workload_rows if not str(row.get("parent_feasibility_tier_id", "")).strip()
+    )
+    parent_tier_normalized_spec_count = sum(
+        1
+        for spec in executable_specs
+        if str(spec.get("parent_feasibility_tier_id", "")) == OFFTRACK_PARENT_TIER_SENTINEL
+    )
+    parent_tier_normalized_workload_count = sum(
+        1
+        for row in workload_rows
+        if str(row.get("parent_feasibility_tier_id", "")) == OFFTRACK_PARENT_TIER_SENTINEL
+    )
 
     passes = (
         selected_count == 80
@@ -402,6 +431,8 @@ def run_calibrated_materialization_preflight(
         and missing_profile_artifact_count == 0
         and source_kind_quota_pass
         and role_surface_quota_pass
+        and parent_tier_blank_spec_count == 0
+        and parent_tier_blank_workload_count == 0
         and guardrail_violation_count == 0
     )
     summary = {
@@ -437,6 +468,11 @@ def run_calibrated_materialization_preflight(
         "source_kind_quota_pass": source_kind_quota_pass,
         "role_surface_counts": role_surface_counts,
         "role_surface_quota_pass": role_surface_quota_pass,
+        "parent_feasibility_tier_blank_spec_count": parent_tier_blank_spec_count,
+        "parent_feasibility_tier_blank_workload_count": parent_tier_blank_workload_count,
+        "parent_feasibility_tier_normalized_spec_count": parent_tier_normalized_spec_count,
+        "parent_feasibility_tier_normalized_workload_count": parent_tier_normalized_workload_count,
+        "offtrack_parent_tier_sentinel": OFFTRACK_PARENT_TIER_SENTINEL,
         "calibrated_anchor_selected_count": int(source_kind_counts.get("anchor_neighborhood", 0)),
         "calibrated_anchor_post_friction_step_selected_count": sum(
             1

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1977,
+    "completed": 1978,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+    "command_log": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired",
     "status": "completed",
-    "task_id": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design"
+    "task_id": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.json",
-    "hypothesis": "The calibrated materialization preflight can normalize blank offtrack-boundary-relief parent tiers to an explicit sentinel and rebuild no-reset artifacts with zero blank required metadata.",
-    "id": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement sentinel normalization and rerun no-reset materialization only",
-    "priority": 19640,
+    "command": "see experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json",
+    "hypothesis": "M1969 repaired the offtrack parent-tier metadata blocker cleanly enough to admit repaired reset-validation design, while measured execution remains blocked.",
+    "id": "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit repaired no-reset materialization before reset validation or measured execution",
+    "priority": 19650,
     "status": "pending",
-    "success_artifact": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json"
+    "success_artifact": "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md"
   },
-  "updated_at_utc": "20260531T111148Z"
+  "updated_at_utc": "20260531T111647Z"
 }

@@ -34235,3 +34235,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, reset validation of repaired artifacts, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.json`
 - next: `m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation`
+
+## M1969 Executable V2 Task-Quality Calibrated Offtrack Parent-Tier Normalization Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_offtrack_parent_tier_normalization_implementation_pass_route_to_audit`
+- doc: `docs/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_materialization_preflight.py`
+- focused tests: `4 passed`
+- no-reset materialization run: `runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json`
+- reset/rollout/measured execution in M1969: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: preflight pass with `80` executable specs, `960` workload cells, blank parent-tier spec/workload counts `0`, normalized sentinel counts `8` specs and `96` workload cells, contract `0`, forbidden-key `0`, guardrail `0`
+- unsupported claims: reset validity of repaired artifacts, measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json`
+- next: `m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit`

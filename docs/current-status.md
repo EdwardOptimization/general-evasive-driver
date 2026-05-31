@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design
+m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation
 ```
 
 Current next task:
 
 ```text
-m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation
+m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -133,7 +133,13 @@ repair before any rerun. M1968 chooses the sentinel
 `repair_source_kind == offtrack_boundary_relief` and the parent tier is blank.
 All other blank parent-tier cases remain fail-closed. M1969 may implement this
 normalization and rerun no-reset materialization only; reset and measured
-execution remain blocked until the repaired artifact is audited.
+execution remain blocked until the repaired artifact is audited. M1969
+implements the sentinel and reruns no-reset materialization:
+`result_class=task_quality_calibrated_materialization_preflight_pass`,
+`80` executable specs, `960` workload cells, blank parent-tier counts `0`,
+normalized sentinel counts `8` specs / `96` workload cells, and guardrail `0`.
+M1970 must audit the repaired artifacts before reset validation or measured
+execution is admitted.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
