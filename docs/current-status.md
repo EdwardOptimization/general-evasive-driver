@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization
+m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit
+m1886-executable-v2-support-first-repaired-measured-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -82,8 +82,13 @@ before any measured rerun or ranking. M1884 completed that no-rollout
 materialization: `2160` workload cells, `5` repair variants, `10800` repair
 matrix rows, original baseline retained, all `12` controller profiles
 preserved, and guardrail `0`. M1885 must now audit whether this materialization
-is execution-ready before any repaired measured run or ranking. Controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+is execution-ready before any repaired measured run or ranking. M1885 audited
+M1884 as complete enough to admit repaired measured execution design, but not
+direct execution: geometry deltas still need an explicit runner/adapter
+protocol. M1886 must now design that repaired measured execution route and
+choose bounded-smoke versus full-matrix execution before any rollout.
+Controller ranking, paper-level claims, and level3 self-ID claims remain
+blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

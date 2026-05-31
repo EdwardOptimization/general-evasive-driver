@@ -1,0 +1,158 @@
+{
+  "id": "m1886-executable-v2-support-first-repaired-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_measured_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design repaired measured execution protocol over M1884 repair variants before any rollout"
+    ],
+    "derived_from": [
+      "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "geometry variants in M1884 are materialized as config_delta_json and need runner protocol design before execution"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without protocol design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
+  "public_gates": [
+    "M1886 must design repaired measured execution protocol without running it",
+    "M1886 must decide bounded-smoke versus full-matrix execution route",
+    "M1886 must define how repair config deltas are applied without actor input changes",
+    "M1886 must preserve original baseline and controller profile identity",
+    "M1886 must keep controller-family ranking blocked until post-execution audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_measured_execution_design",
+    "evidence_increment": "designs the next measured execution protocol after repair materialization audit",
+    "claim_scope": "execution design only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair config deltas cannot be applied without actor input changes",
+      "stop if original baseline cannot remain in the repaired workload",
+      "stop if execution outputs would still be insufficient for post-execution audit"
+    ],
+    "fallback_plan": [
+      "route to repaired runner adapter design if generic runner cannot consume the matrix",
+      "route to semantics-only diagnostic audit if geometry execution is not admissible",
+      "route to branch synthesis if the measured execution scope is too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1885 admits repaired measured execution design but blocks direct execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first repaired measured execution design",
+    "admission_evidence": [
+      "M1885 audits M1884 materialization as complete and baseline-preserving"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1886 design document",
+      "M1886 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired runner adapter implementation or execution command design"
+    ],
+    "next_stage_criteria": [
+      "execution scope is explicit",
+      "runner or adapter needs are explicit",
+      "post-execution audit gates are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design does not test history necessity.",
+    "history_necessity_tests": [
+      "Design must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1884 and M1885 artifacts only.",
+    "negative_result_policy": "If repaired execution cannot be designed cleanly, route to adapter or semantics-only audit rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired measured execution design",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A repaired measured execution protocol can be designed from M1884/M1885 that applies repair variants without actor input changes and preserves ranking discipline.",
+  "success_criteria": [
+    "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md exists",
+    "design decides bounded-smoke versus full-matrix route",
+    "design defines repaired runner or adapter requirements",
+    "design defines post-execution audit outputs and gates",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_measured_execution_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json"
+  ],
+  "decision_rule": "M1886 passes if it designs a clean repaired measured execution route without running rollout or making ranking claims.",
+  "next_blocker": "m1886-executable-v2-support-first-repaired-measured-execution-design"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1893,
+    "completed": 1894,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.md",
+    "command_log": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization",
+    "run_dir": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization"
+    "task_id": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json",
-    "hypothesis": "M1884 materialization is complete enough to admit a repaired measured execution design while keeping ranking blocked until post-execution audit.",
-    "id": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit",
+    "command": "see experiments/manifests/m1886-executable-v2-support-first-repaired-measured-execution-design.json",
+    "hypothesis": "A repaired measured execution protocol can be designed from M1884/M1885 that applies repair variants without actor input changes and preserves ranking discipline.",
+    "id": "m1886-executable-v2-support-first-repaired-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1884 materialization completeness original baseline retention role semantics and next execution-readiness route",
-    "priority": 18800,
+    "notes": "Pending: design repaired measured execution protocol and decide bounded-smoke versus full-matrix route before any rollout",
+    "priority": 18810,
     "status": "pending",
-    "success_artifact": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md"
+    "success_artifact": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md"
   },
-  "updated_at_utc": "20260531T033258Z"
+  "updated_at_utc": "20260531T033613Z"
 }

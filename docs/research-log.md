@@ -32332,3 +32332,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured result controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json`
 - next: `m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit`
+
+## M1885 Executable V2 Support-First Success Semantics Task-Quality Repair Materialization Result Audit
+
+- status: completed
+- decision: `support_first_repair_materialization_audit_admit_repaired_execution_design`
+- artifact: `docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md`
+- audited summary: `runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json`
+- audited result class: `support_first_success_semantics_task_quality_repair_materialization_pass`
+- workload rows: `2160`
+- repair variants: `5`
+- repair matrix rows: `10800`
+- original baseline retained: `true`
+- controller profile count: `12`
+- role panel count: `4`
+- role-surface count: `8`
+- role semantics complete: `true`
+- direct execution admitted: `false`
+- repaired execution design admitted: `true`
+- reset/rollout in M1885: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1884 materialization is complete enough to design repaired measured execution
+- unsupported: direct repaired execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1886-executable-v2-support-first-repaired-measured-execution-design.json`
+- next: `m1886-executable-v2-support-first-repaired-measured-execution-design`
