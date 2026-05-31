@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2084,
+    "completed": 2085,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md",
+    "command_log": "docs/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md",
+    "run_dir": "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight",
     "status": "completed",
-    "task_id": "m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design"
+    "task_id": "m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.json",
-    "hypothesis": "A no-reset multi-seed support repair can produce 240 seed-robust obstacle filters while preserving the outcome-supported decisive panel metadata and claim guards.",
-    "id": "m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-reset multi-seed support repair preflight over M2070 repaired specs and M2073 reset rows",
-    "priority": 20710,
+    "command": "see experiments/manifests/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.json",
+    "hypothesis": "M2076's 240/240 no-reset seed-robust repair artifact is clean enough to admit a bounded reset-validation command design.",
+    "id": "m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2076 repair artifact before reset command design or synthesis",
+    "priority": 20720,
     "status": "pending",
-    "success_artifact": "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json"
+    "success_artifact": "docs/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.md"
   },
-  "updated_at_utc": "20260531T215531Z"
+  "updated_at_utc": "20260531T221054Z"
 }

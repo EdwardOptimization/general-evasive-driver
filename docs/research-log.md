@@ -36323,3 +36323,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: reset validity, measured execution readiness, controller ranking, paper evidence, finite-window-vs-GRU conclusion, and level3 self-ID
 - follow-up manifest: `experiments/manifests/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.json`
 - next: `m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation`
+
+## M2076 Paper-Route Outcome-Supported Decisive Seed-Robust Obstacle-Filter Repair Preflight Implementation
+
+- status: completed
+- decision: `seed_robust_obstacle_filter_repair_preflight_pass_route_to_result_audit`
+- run artifact: `runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M2076: `false`
+- policy actions executed in M2076: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implementation: adds focused no-reset multi-seed obstacle-filter repair preflight and tests
+- result class: `outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight_pass`
+- specs/workload/support: `240` repaired specs, `1200` sentinel workload rows, `5/5` support seeds required
+- seed support: `240` pass, `0` fail
+- repair bounds: distance window max `12.0`, half-width window max `0.8`, threshold-score ceiling used `1.0`
+- threshold usage: `0.25` for `203` specs, `0.50` for `21` specs, `1.00` for `16` specs; `22` threshold escalations total
+- quota/contract evidence: family quota true, split quota true, difficulty-axis coverage true, contract `0`, metadata `0`, forbidden-key `0`, profile missing `0`, guardrail `0`
+- interpretation: M2076 produces stronger materialization evidence after M2073's `164/240` reset failure but still does not prove reset validity or controller performance
+- follow-up manifest: `experiments/manifests/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.json`
+- next: `m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit`
