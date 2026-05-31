@@ -1,0 +1,176 @@
+{
+  "id": "m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_panel_reduction_design"
+    ],
+    "parent_dataset": [
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json",
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv",
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a reset-valid core panel after closing the local obstacle-filter repair branch"
+    ],
+    "derived_from": [
+      "m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2085 reset validation failed 2/240 attempts and M2086 pivots away from local repair"
+    ],
+    "supersedes": [
+      "another obstacle-filter repair",
+      "direct measured execution on the full 240-row panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
+  "public_gates": [
+    "M2087 must design a reduced reset-valid panel route using M2085 reset-success rows",
+    "M2087 must preserve all public-gate rows unless it explicitly justifies a stricter subset",
+    "M2087 must not change obstacle filters or rerun reset",
+    "M2087 must block measured execution until reduction materialization is implemented and audited"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_reset_valid_core_panel",
+    "evidence_axis": "Q_reset_valid_core_panel_reduction_design",
+    "evidence_increment": "starts the post-pivot branch by designing a reduced reset-valid core panel instead of repairing filters",
+    "claim_scope": "panel-reduction design only; no reset rerun rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design would mutate obstacle filters",
+      "stop if design would drop public-gate rows without justification",
+      "stop if design would run measured execution before materialization audit",
+      "stop if design treats generated rows as paper-valid"
+    ],
+    "fallback_plan": [
+      "route to reduced-panel materialization implementation if design is clean",
+      "route to scenario-distribution redesign if reduced panel cannot preserve useful coverage",
+      "route to stop if no reset-valid core can be justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2086 pivots away from local obstacle-filter repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-valid core panel reduction design",
+    "admission_evidence": [
+      "M2086 closes the local repair loop",
+      "M2085 reset_success_count 238",
+      "M2085 public_gate reset failures 0",
+      "M2085 public_debug reset failures 2"
+    ],
+    "blocked_shortcuts": [
+      "do not repair filters",
+      "do not run reset in design",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
+      "M2087 status queue scoreboard research log and review",
+      "one follow-up manifest for reduced-panel materialization or distribution redesign"
+    ],
+    "next_stage_criteria": [
+      "reduced-panel inclusion rule is explicit",
+      "claim boundary is explicit",
+      "coverage loss is documented",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2087 designs a task panel and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2087."
+    ],
+    "temporal_evidence_window": "M2085 reset-success and reset-failure artifacts.",
+    "negative_result_policy": "If reduced-panel coverage is not useful, pivot to distribution redesign rather than weakening claim guards.",
+    "allowed_claims": [
+      "reset-valid core panel reduction design",
+      "no reset rerun, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes branch from public-row repair to reset-valid panel definition",
+    "paper_verdict_delta": "can define a measured-execution-admissible core only after materialization and audit",
+    "must_synthesize_if": [
+      "M2087 routes back to local obstacle-filter repair",
+      "M2087 cannot preserve all public-gate rows or document coverage loss",
+      "M2087 proposes measured execution before materialization audit"
+    ]
+  },
+  "hypothesis": "A reset-valid core panel can be defined from M2085 reset-success rows without further obstacle-filter repair, preserving all public-gate rows and enough coverage to justify materialization.",
+  "success_criteria": [
+    "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md exists",
+    "reduced-panel inclusion rule is explicit",
+    "public-gate preservation is audited",
+    "coverage loss is documented",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "inclusion rule is ambiguous",
+    "coverage loss is not documented",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write reset-valid core panel reduction design from M2086 synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_valid_core_panel_reduction_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv",
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_failure_rows.csv",
+    "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md"
+  ],
+  "decision_rule": "M2087 passes if it designs a reset-valid core panel route without filter repair, reset rerun, or overclaiming.",
+  "next_blocker": "m2088-selected-by-m2087-design"
+}

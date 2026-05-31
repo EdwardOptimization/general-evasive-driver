@@ -36552,3 +36552,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: density-aware repair improves reset success from M2079 `234/240` to `238/240`, but M2084 stop rule prevents another local obstacle-filter repair
 - follow-up manifest: `experiments/manifests/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.json`
 - next: `m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit`
+
+## M2086 Paper-Route Outcome-Supported Decisive Density-Aware Repaired Reset Validation Result Audit and Synthesis
+
+- status: completed
+- decision: `pivot_to_reset_valid_core_panel_reduction_design`
+- synthesis decision: `pivot`
+- audited artifact: `runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- reset/rollout/measured execution in M2086: `false`
+- policy actions executed in M2086: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: reset feasibility improved from M2066 `0/240` to M2073 `164/240` to M2079 `234/240` to M2085 `238/240`
+- supported claim: all `96` public-gate rows reset successfully in M2085 and the remaining failures are two public-debug generated rows
+- falsified claim: density-aware support with minimum accepted grid cells `>=80` is sufficient for full `240/240` reset validity
+- failure subtype: generated-row reset-sampling fragility after local obstacle-filter repair
+- overfit risk: high if continuing local obstacle-filter repair; local repair loop is closed
+- next branch decision: pivot to M2087 reset-valid core panel reduction design, preserving all public-gate rows and excluding reset-failed public-debug rows without changing filters
+- follow-up manifest: `experiments/manifests/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.json`
+- next: `m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design`
