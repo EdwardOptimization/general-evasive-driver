@@ -34476,3 +34476,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit M1983 implementation and no-rollout source-mining execution before any materialization reset validation measured execution or ranking
 - follow-up manifest: `experiments/manifests/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.json`
 - next: `m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation`
+
+## M1983 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Source-Mining Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_source_mining_pass_route_to_result_audit`
+- doc: `docs/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_outcome_support_source_mining.py`
+- focused tests: `2 passed`
+- summary: `runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json`
+- source-mining execution: `true`
+- reset/rollout/measured execution: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: no-rollout source-mining pass with `192` templates, `192` source candidates, resolution failures `0`, `8358` accepted cells, `184` supported sources, public-gate support `73`, unsupported sources `8`, guardrail `0`
+- repair-axis support: offtrack-anchor `64/64`, offtrack-boundary `32/32`, success-support `43/48`, collision-mitigation `29/32`, mitigation-metric isolation `16/16`
+- route: audit source-mining result before materialization design or source repair
+- follow-up manifest: `experiments/manifests/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.json`
+- next: `m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit`

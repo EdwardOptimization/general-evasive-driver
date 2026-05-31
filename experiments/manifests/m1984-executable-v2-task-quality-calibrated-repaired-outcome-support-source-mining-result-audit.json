@@ -1,0 +1,167 @@
+{
+  "id": "m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_source_mining_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.md",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_source_rows.csv",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_blocked_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout calibrated outcome-support source-mining result before materialization"
+    ],
+    "derived_from": [
+      "m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation"
+    ],
+    "blocked_by": [
+      "M1983 source-mining result has not yet been audited for materialization readiness"
+    ],
+    "supersedes": [
+      "direct materialization from M1983 accepted cells without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md",
+  "public_gates": [
+    "M1984 must not rerun source mining reset rollout or measured execution",
+    "M1984 must audit repair-axis support and unsupported rows",
+    "M1984 must decide whether materialization design is admissible or source repair is required",
+    "M1984 must keep controller ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun source mining",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_source_mining_audit",
+    "evidence_increment": "audits whether the M1983 no-rollout accepted-cell support evidence admits materialization design",
+    "claim_scope": "source-mining result audit only; no materialization reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if support floors did not actually pass",
+      "stop if unsupported rows reveal unresolved source-quality blocker",
+      "stop if audit would materialize directly"
+    ],
+    "fallback_plan": [
+      "route to materialization design if source support is sufficient",
+      "route to source repair if unsupported rows block a balanced subset",
+      "route to branch synthesis if the repair loop becomes local search"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1983 produced source-mining result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated repaired outcome-support source-mining result audit",
+    "admission_evidence": [
+      "M1983 source mining completed with 192 source candidates 184 supported sources and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun source mining",
+      "do not materialize reset or measure",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md",
+      "M1984 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization design or source repair"
+    ],
+    "next_stage_criteria": [
+      "M1983 summary is audited",
+      "unsupported rows are classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1984."
+    ],
+    "temporal_evidence_window": "M1983 no-rollout source-mining result.",
+    "negative_result_policy": "If unsupported rows block materialization, classify failure before repair or rerun.",
+    "allowed_claims": [
+      "task-quality calibrated repaired outcome-support source-mining audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M1983 source support evidence into a materialization or source-repair route decision",
+    "paper_verdict_delta": "can admit materialization design if source support is audited as sufficient",
+    "must_synthesize_if": [
+      "M1984 cannot choose a next route",
+      "M1984 finds repeated source-support blocker",
+      "M1984 would use source mining as measured controller evidence"
+    ]
+  },
+  "hypothesis": "The M1983 source-mining result is strong enough to admit bounded materialization design after auditing unsupported rows and claim boundaries.",
+  "success_criteria": [
+    "docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md exists",
+    "M1983 support counts are summarized",
+    "unsupported rows are classified",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no source mining rerun reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1983 result is not summarized",
+    "unsupported rows are not classified",
+    "next route is ambiguous",
+    "source mining rerun materialization reset rollout ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_source_mining_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.md",
+    "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json"
+  ],
+  "decision_rule": "M1984 passes if it audits M1983 source-mining results and chooses materialization design or source repair without overclaiming.",
+  "next_blocker": "m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit"
+}

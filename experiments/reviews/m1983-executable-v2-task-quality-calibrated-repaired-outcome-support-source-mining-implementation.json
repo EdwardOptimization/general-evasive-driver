@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1983 source-mining adapter tests 2 passed and no-rollout source mining passes with 192 candidates 184 supported 8358 accepted cells public-gate support 73 guardrail 0",
+  "failure_criteria": [
+    "source-mining implementation is missing",
+    "summary or source rows are missing",
+    "input template count differs from 192",
+    "source candidate count differs from 192",
+    "resolution failures are nonzero",
+    "repair-axis support floors fail",
+    "labels enter actor input",
+    "environment reset rollout measured execution ranking paper or self-ID claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T123404Z",
+  "hypothesis": "The M1980 repair templates can be mapped into a source-supported accepted-cell set with clean guardrails before materialization.",
+  "lineage": {
+    "blocked_by": [
+      "M1982 admits implementation but source-mining adapter has not run yet"
+    ],
+    "derived_from": [
+      "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_source_mining"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md",
+      "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rollout source mining for calibrated outcome-support repair templates"
+    ],
+    "supersedes": [
+      "direct materialization from M1980 templates"
+    ]
+  },
+  "milestone": "m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation",
+  "next_blocker": "m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_source_mining_pass_route_to_result_audit",
+  "public_gates": [
+    "M1983 must implement only no-rollout source mining",
+    "M1983 must produce 192 source candidates from M1980 templates",
+    "M1983 must preserve repair-axis metadata and guardrails",
+    "M1983 must keep materialization reset rollout measured execution ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_source_mining_pass_route_to_result_audit",
+    "milestone": "m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation",
+    "reason": "M1983 source-mining adapter tests 2 passed and no-rollout source mining passes with 192 candidates 184 supported 8358 accepted cells public-gate support 73 guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused source-mining tests pass",
+    "summary.json exists in the M1983 output directory",
+    "input_template_count equals 192",
+    "source_candidate_count equals 192",
+    "resolution_failure_count equals 0",
+    "accepted_cell_count_total is greater than 0",
+    "supported_source_count is at least 96",
+    "public_gate_supported_source_count is at least 32",
+    "repair-axis support floors from M1982 pass",
+    "guardrail_violation_count equals 0"
+  ],
+  "type": "infrastructure"
+}

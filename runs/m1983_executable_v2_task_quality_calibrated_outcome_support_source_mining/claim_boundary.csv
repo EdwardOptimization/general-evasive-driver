@@ -1,0 +1,7 @@
+claim,admissible,reason
+calibrated_outcome_support_source_mining_completed,True,source mining is a no-rollout task-quality artifact
+reset_validity,False,source mining does not reset environments
+measured_execution_readiness,False,source mining must be audited before materialization and reset validation
+controller_family_ranking,False,source mining is not a controller comparison
+paper_level_benchmark_result,False,source mining is not paper-level evidence
+level3_self_identification,False,source mining does not test history necessity
