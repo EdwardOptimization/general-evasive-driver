@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1979 designs 192-row no-rollout outcome-support repair wave with offtrack and collision support axes before any rerun or ranking",
+  "failure_criteria": [
+    "design document is missing",
+    "repair anchors are ambiguous",
+    "repair levers are ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T120723Z",
+  "hypothesis": "A focused outcome-support repair design can turn M1977 diagnostics into a pre-registered task-quality repair route without ranking or profile tuning.",
+  "lineage": {
+    "blocked_by": [
+      "M1978 rejected comparison design because M1977 found zero comparison-ready slices"
+    ],
+    "derived_from": [
+      "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_repair_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/comparison_support_candidates.csv",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/offtrack_dominance_rows.csv",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/collision_dominance_rows.csv"
+    ],
+    "parent_objective": [
+      "design calibrated repaired outcome-support repair branch before any new measured execution"
+    ],
+    "supersedes": [
+      "direct controller ranking from M1975/M1977",
+      "continuing localization without repair"
+    ]
+  },
+  "milestone": "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design",
+  "next_blocker": "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_outcome_support_repair_design_admit_template_implementation",
+  "public_gates": [
+    "M1979 must design outcome-support repair without running environment interaction",
+    "M1979 must separate offtrack-only and collision-dominated blockers",
+    "M1979 must keep profile tuning and controller ranking blocked",
+    "M1979 must define next materialization or template pass gates"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_outcome_support_repair_design_admit_template_implementation",
+    "milestone": "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design",
+    "reason": "M1979 designs 192-row no-rollout outcome-support repair wave with offtrack and collision support axes before any rerun or ranking",
+    "reset_success": "0.0395833333",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md exists",
+    "offtrack-only support anchors are listed",
+    "collision-dominated mitigation anchors are listed",
+    "next materialization or template route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

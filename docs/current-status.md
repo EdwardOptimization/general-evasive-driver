@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit
+m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design
 ```
 
 Current next task:
 
 ```text
-m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design
+m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -191,7 +191,13 @@ the active blocker is `outcome_support_low_offtrack_and_collision_dominated`:
 anchor-neighborhood and offtrack-boundary-relief remain zero-success
 offtrack-only blocks, while mitigation isolation is collision-heavy. M1979 must
 design that repair branch before any new materialization, reset validation,
-measured execution, or ranking.
+measured execution, or ranking. M1979 designs the branch as a deterministic
+no-rollout `192`-candidate repair wave: offtrack-anchor relief `64`,
+offtrack-boundary relief extension `32`, success-support expansion `48`,
+collision-mitigation relief `32`, mitigation-metric isolation `16`, with split
+public-debug `112` / public-gate `80` and no holdout. M1980 must implement the
+template generator and focused tests only; reset, rollout, measured execution,
+ranking, paper-level claim, and level3 self-ID remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

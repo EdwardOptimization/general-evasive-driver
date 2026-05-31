@@ -34410,3 +34410,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design calibrated repaired outcome-support repair before any new materialization reset validation measured execution or ranking
 - follow-up manifest: `experiments/manifests/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.json`
 - next: `m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design`
+
+## M1979 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Repair Design
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_repair_design_admit_template_implementation`
+- doc: `docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md`
+- branch: `paper_route_task_quality_calibrated_repaired_outcome_support_repair`
+- reset/rollout/measured execution in M1979: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: deterministic no-rollout `192`-candidate repair wave
+- quotas: offtrack-anchor relief `64`, offtrack-boundary relief extension `32`, success-support expansion `48`, collision-mitigation relief `32`, mitigation-metric isolation `16`, split public-debug `112` / public-gate `80`
+- guardrails: no profile tuning, labels entering actor input, private holdout, ranking, paper-level claim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation.json`
+- next: `m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation`
