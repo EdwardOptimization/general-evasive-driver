@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1973,
+    "completed": 1974,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md",
+    "command_log": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1964-executable-v2-task-quality-calibrated-measured-execution-command-design"
+    "task_id": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.json",
-    "hypothesis": "M1955-M1964 produced enough calibrated materialization evidence to continue to measured execution without another design-only step.",
-    "id": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M1955-M1964 before executing the frozen calibrated measured command",
-    "priority": 19600,
+    "command": "see experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json",
+    "hypothesis": "The calibrated measured runner can execute the M1958 960-cell public diagnostic workload with complete metadata-preserving episode rows and no guardrail violations.",
+    "id": "m1966-executable-v2-task-quality-calibrated-measured-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run calibrated 960-cell measured execution command without ranking or paper claims",
+    "priority": 19610,
     "status": "pending",
-    "success_artifact": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md"
+    "success_artifact": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260531T105556Z"
+  "updated_at_utc": "20260531T105927Z"
 }

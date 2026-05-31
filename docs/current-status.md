@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1964-executable-v2-task-quality-calibrated-measured-execution-command-design
+m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis
+m1966-executable-v2-task-quality-calibrated-measured-execution
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -110,7 +110,14 @@ role-surface quota preservation, and guardrail `0`. The workflow synthesis
 cadence is now reached after M1955-M1964, so M1965 must first synthesize the
 calibrated materialization branch before measured execution. If the synthesis
 decision is `continue`, the frozen command may be executed in the following
-milestone; interpretation remains deferred to a result audit.
+milestone; interpretation remains deferred to a result audit. M1965 completes
+that synthesis and chooses `continue`: M1956 selected `80` supported sources,
+M1958 materialized `80` executable specs and `960` workload cells with clean
+contract and guardrail checks, M1960 reset-validates the panel with `80/80`
+success, M1963 implements the calibrated metadata-preserving runner, and M1964
+freezes the measured execution route. M1966 may now run only the calibrated
+measured execution command with output
+`runs/m1966_executable_v2_task_quality_calibrated_measured_execution`.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

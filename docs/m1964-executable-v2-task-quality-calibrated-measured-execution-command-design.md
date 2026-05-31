@@ -114,3 +114,18 @@ m1965-executable-v2-task-quality-calibrated-measured-execution
 
 M1965 may run the frozen measured execution command. Interpretation must be
 deferred to M1966 result audit.
+
+## Cadence Note
+
+After this command design was written, `make research-validate` enforced the
+10-milestone workflow synthesis cadence for
+`paper_route_task_quality_calibrated_materialization`. Therefore the next
+milestone is a branch synthesis before measured execution:
+
+```text
+m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis
+```
+
+The measured execution command remains the downstream route, but the execution
+milestone and output directory may be renumbered by the synthesis decision for
+artifact hygiene.

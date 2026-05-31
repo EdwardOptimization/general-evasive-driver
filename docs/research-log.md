@@ -34160,3 +34160,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - workflow cadence: branch synthesis required before executing the frozen command
 - follow-up manifest: `experiments/manifests/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.json`
 - next: `m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis`
+
+## M1965 Executable V2 Task-Quality Calibrated Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `task_quality_calibrated_materialization_branch_synthesis_continue_to_measured_execution`
+- doc: `docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- reset/rollout/measured execution in M1965: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence: M1956 selected `80` supported sources from `130` eligible with source-kind and role-surface quotas passing, calibrated-anchor split `16/16`, success-stabilizer split `12/12`, labels-enter-actor-input `0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail `0`
+- no-reset materialization: M1958 produced `80` executable specs and `960` planned workload cells with selected accepted rows `3382`, missing accepted cells `0`, materialization failures `0`, duplicate workload keys `0`, contract `0`, forbidden-key `0`, missing profile artifacts `0`, guardrail `0`
+- reset validation: M1960 passed with `80/80` reset success, finite observations `80`, observation dimension failures `0`, obstacles initialized `80`, contract `0`, label actor input `0`, forbidden-key `0`, source-kind and role-surface quotas pass, guardrail `0`
+- readiness: M1963 measured runner focused tests `3 passed`; M1964 command and pass gates frozen
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json`
+- next: `m1966-executable-v2-task-quality-calibrated-measured-execution`

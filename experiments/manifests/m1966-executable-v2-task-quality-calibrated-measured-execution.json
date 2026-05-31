@@ -1,0 +1,165 @@
+{
+  "id": "m1966-executable-v2-task-quality-calibrated-measured-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_measured_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "run real calibrated measured execution over the M1958 960-cell workload after branch synthesis"
+    ],
+    "derived_from": [
+      "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis"
+    ],
+    "blocked_by": [
+      "real measured execution has not been run over the calibrated 960-cell workload"
+    ],
+    "supersedes": [
+      "claiming measured evidence from reset or no-rollout preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1966-executable-v2-task-quality-calibrated-measured-execution.md",
+  "public_gates": [
+    "M1966 must run only the calibrated measured execution command admitted by M1965",
+    "M1966 must produce 960 episode rows or preserve failure rows",
+    "M1966 must preserve calibrated repair metadata in episode and aggregate artifacts",
+    "M1966 must keep controller ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_measured_execution_data",
+    "evidence_increment": "produces real measured rollout data over the reset-valid calibrated 960-cell panel",
+    "claim_scope": "public diagnostic measured execution evidence only; no controller ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if measured execution fails any row",
+      "stop if metric completeness or metadata preservation fails",
+      "stop if guardrail violations appear"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any measured execution failure",
+      "route to measured outcome audit if execution completes",
+      "synthesize if outcome evidence remains non-interpretable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1965 branch synthesis continues to measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated measured execution",
+    "admission_evidence": [
+      "M1965 synthesis continues to measured execution after cadence review"
+    ],
+    "blocked_shortcuts": [
+      "do not train replay PPO",
+      "do not rank controller families",
+      "do not interpret raw execution as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/episode_rows.csv",
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/failure_rows.csv",
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/*_aggregate.csv",
+      "M1966 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "960 episode rows",
+      "zero failures",
+      "zero metric completeness failures",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "measured execution alone does not test history necessity or wrong-history interventions.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1966."
+    ],
+    "temporal_evidence_window": "M1958 calibrated workload, M1964 command design, and M1965 synthesis.",
+    "negative_result_policy": "If measured execution fails, classify the failure before repair or rerun.",
+    "allowed_claims": [
+      "calibrated measured execution public diagnostic data",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds real measured rollout evidence over the calibrated panel",
+    "paper_verdict_delta": "can support later outcome audit and comparison-readiness decision but not ranking by itself",
+    "must_synthesize_if": [
+      "M1966 fails due to the same offtrack-dominance class seen earlier",
+      "M1966 output counts are incomplete",
+      "M1966 produces measured evidence but no audit route is registered"
+    ]
+  },
+  "hypothesis": "The calibrated measured runner can execute the M1958 960-cell public diagnostic workload with complete metadata-preserving episode rows and no guardrail violations.",
+  "success_criteria": [
+    "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json exists",
+    "result_class is task_quality_calibrated_measured_execution_pass",
+    "episode_count equals 960",
+    "failure_count equals 0",
+    "metric_completeness_failure_count equals 0",
+    "guardrail_violation_count equals 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "episode_count differs from 960",
+    "any measured row fails",
+    "metric completeness fails",
+    "guardrail violation appears",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "measured_execution",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_measured_runner --executable-task-specs runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json --workload runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv --output-dir runs/m1966_executable_v2_task_quality_calibrated_measured_execution --eval-seed-base 196500 --device cpu --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --next-blocker m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_measured_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+  ],
+  "decision_rule": "M1966 passes if the calibrated measured execution command completes 960 rows with clean metrics and guardrails, then routes to result audit.",
+  "next_blocker": "m1966-executable-v2-task-quality-calibrated-measured-execution"
+}
