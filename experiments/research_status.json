@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1925,
+    "completed": 1926,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+    "command_log": "docs/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.md",
     "returncode": 0,
-    "run_dir": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+    "run_dir": "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json",
     "status": "completed",
-    "task_id": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit"
+    "task_id": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.json",
-    "hypothesis": "A no-rerun full-panel localization can convert M1915's complete but coarse outcome surface into interpretable task-quality conflict classes or a synthesis decision.",
-    "id": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization",
+    "command": "see experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json",
+    "hypothesis": "M1909-M1917 contain enough evidence to stop the measured repair-axis branch and choose a broader next route rather than continuing local task-quality repair.",
+    "id": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: no-rerun conflict localization over full M1915 panel before branch interpretation",
-    "priority": 19120,
+    "notes": "Pending: synthesize M1909-M1917 before more local repair",
+    "priority": 19130,
     "status": "pending",
-    "success_artifact": "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+    "success_artifact": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T065014Z"
+  "updated_at_utc": "20260531T065756Z"
 }

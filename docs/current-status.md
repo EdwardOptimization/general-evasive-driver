@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit
+m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization
 ```
 
 Current next task:
 
 ```text
-m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization
+m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -214,9 +214,14 @@ balanced, and failure-cleared, but not yet interpretable for ranking or
 task-quality claims: all `1536` rows still have raw `success=False`, and the
 `960` newly measured geometry rows are not uniformly classified into the same
 clearance/containment/near-miss taxonomy as the imported/postprocessed rows.
-M1917 must now run a no-rerun outcome localization over the complete M1915
-panel before any task-quality interpretation, controller-family ranking,
-paper-level claim, training, replay, PPO, or level3 self-ID claim.
+M1917 ran that no-rerun outcome localization and classified all `1536` rows:
+`joint_clearance_containment=0`, `clearance_only_offtrack=1257`,
+`containment_collision=261`, `collision_and_offtrack=18`, and `near_miss_rows=644`.
+The measured repair-axis branch now has useful scenario/task-quality findings
+but still no joint clearance-containment outcome and no controller-ranking
+surface. M1918 must synthesize M1909-M1917 before any additional local repair,
+task-quality interpretation, controller-family ranking, paper-level claim,
+training, replay, PPO, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

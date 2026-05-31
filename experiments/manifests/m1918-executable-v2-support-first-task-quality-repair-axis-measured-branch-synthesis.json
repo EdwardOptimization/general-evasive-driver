@@ -1,0 +1,187 @@
+{
+  "id": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+      "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+      "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+      "docs/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.md",
+      "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.json",
+      "experiments/manifests/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.json"
+    ],
+    "parent_objective": [
+      "synthesize the measured-wrapper branch after complete execution and full-panel outcome localization"
+    ],
+    "derived_from": [
+      "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation",
+      "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization"
+    ],
+    "blocked_by": [
+      "M1917 found zero joint clearance-containment rows and recommended branch synthesis before more local repair"
+    ],
+    "supersedes": [
+      "another local task-quality repair-axis tweak on the same branch",
+      "controller ranking from zero-joint outcome surface"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+  "public_gates": [
+    "M1918 must synthesize M1909-M1917 before any further measured-wrapper repair",
+    "M1918 must answer the required synthesis questions",
+    "M1918 must decide continue pivot stop or promote_to_next_branch",
+    "M1918 must keep reset rollout measured execution training replay PPO private holdout controller ranking paper claims and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_branch_synthesis",
+    "evidence_increment": "synthesizes measured-wrapper implementation execution repair audit and outcome localization evidence",
+    "claim_scope": "branch synthesis only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the branch has zero joint clearance-containment outcomes",
+      "stop if another local repair would not expand paper-route evidence",
+      "stop if task-quality findings need a broader scenario-design branch"
+    ],
+    "fallback_plan": [
+      "stop this branch if M1917 zero-joint outcome dominates",
+      "pivot to a broader task-quality/scenario design branch if near-miss evidence is useful",
+      "continue only if synthesis identifies a non-local evidence expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1917 recommended branch synthesis with task-quality findings",
+    "synthesis_decision": "stop",
+    "synthesis_artifact": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality repair-axis measured branch synthesis",
+    "admission_evidence": [
+      "M1917 produced a complete 1536-row no-rerun localization with zero joint clearance-containment rows and 644 near-miss rows"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1918 synthesis document",
+      "M1918 status queue scoreboard research log and review",
+      "one follow-up manifest using a new branch if synthesis chooses pivot or stop"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality and execution infrastructure.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1918."
+    ],
+    "temporal_evidence_window": "M1909-M1917 public artifacts only.",
+    "negative_result_policy": "If synthesis stops this branch, record it as task-quality/scenario evidence and route to a broader branch rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured branch synthesis and next-route decision",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "synthesizes accumulated measured-wrapper evidence instead of opening another local repair",
+    "paper_verdict_delta": "can decide whether this branch should stop or pivot to broader task-quality/scenario design",
+    "must_synthesize_if": [
+      "this milestone cannot answer the synthesis questions",
+      "next branch decision is ambiguous",
+      "public-gate overfit risk cannot be assessed"
+    ]
+  },
+  "hypothesis": "M1909-M1917 contain enough evidence to stop the measured repair-axis branch and choose a broader next route rather than continuing local task-quality repair.",
+  "success_criteria": [
+    "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md exists",
+    "synthesis answers all required questions",
+    "synthesis chooses continue pivot stop or promote_to_next_branch",
+    "next manifest is explicit if work continues",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs reset rollout measured execution training replay or PPO",
+    "synthesis changes actor inputs or tunes controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+    "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
+    "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1918 passes if it synthesizes M1909-M1917 and selects a next route without running reset rollout ranking or paper-level claims.",
+  "next_blocker": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis"
+}

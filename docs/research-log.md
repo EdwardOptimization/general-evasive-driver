@@ -33149,3 +33149,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.json`
 - next: `m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization`
+
+## M1917 Executable V2 Support-First Task-Quality Repair-Axis Measured Panel Outcome Localization
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_panel_outcome_localization_pass_route_to_branch_synthesis`
+- result class: `task_quality_repair_axis_measured_panel_outcome_localization_pass`
+- doc: `docs/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.md`
+- summary: `runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json`
+- implementation: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_outcome_localization.py`
+- focused tests: `2 passed`
+- rerun/reset/rollout/measured execution in M1917: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- row coverage: `1536/1536` classified once; selected metrics finite `true`
+- classification source counts: `explicit_task_quality_fields=576 raw_metric_inference=960`
+- primary conflict counts: `joint_clearance_containment=0 clearance_only_offtrack=1257 containment_collision=261 collision_and_offtrack=18 other_non_success=0`
+- near-miss counts: `near_containment_after_clearance=457 near_clearance_with_containment=165 late_offtrack_after_clearance=66 near_miss_rows=644`
+- recommended next route: `route_to_branch_synthesis_with_task_quality_findings`
+- supported: complete panel localization and scenario/task-quality findings
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json`
+- next: `m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis`
