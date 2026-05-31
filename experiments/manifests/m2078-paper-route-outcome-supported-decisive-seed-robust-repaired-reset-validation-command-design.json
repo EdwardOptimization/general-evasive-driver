@@ -1,0 +1,169 @@
+{
+  "id": "m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_seed_robust_repaired_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json",
+      "docs/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze reset-only validation command for seed-robust repaired specs"
+    ],
+    "derived_from": [
+      "m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit"
+    ],
+    "blocked_by": [
+      "reset validity remains untested after M2076 no-reset repair"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "reset rerun on M2070 single-seed repaired specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
+  "public_gates": [
+    "M2078 must freeze an exact reset-only validation command",
+    "M2078 must use the M2076 seed-robust repaired specs",
+    "M2078 must use a fresh eval seed base outside the M2076 support seed panel",
+    "M2078 must not run reset rollout measured execution training replay PPO ranking or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_seed_robust_repaired_reset_validation_command_design",
+    "evidence_increment": "freezes a fresh-seed reset-only command after no-reset seed-robust support passes",
+    "claim_scope": "command design only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if an exact fresh-seed reset command cannot be specified",
+      "stop if command would reuse only M2076 support seeds",
+      "stop if command would execute reset inside M2078",
+      "stop if command would run rollout or policy actions"
+    ],
+    "fallback_plan": [
+      "route to synthesis if reset command cannot be specified",
+      "route to reset implementation only after exact command is frozen"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2077 admits reset command design after clean M2076 repair audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "seed-robust repaired reset-validation command design",
+    "admission_evidence": [
+      "M2077 audits M2076 no-reset repair artifact as clean",
+      "M2076 seed_robust_support_pass_count 240",
+      "M2076 seed_robust_support_fail_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in command design",
+      "do not run measured execution",
+      "do not interpret command design as reset validity"
+    ],
+    "allowed_updates": [
+      "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
+      "M2078 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "exact reset command is frozen",
+      "fresh seed base is explicit",
+      "pass/fail gates are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2078 designs reset validation only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2078."
+    ],
+    "temporal_evidence_window": "M2076-M2077 no-reset seed-robust repair evidence.",
+    "negative_result_policy": "If the reset command cannot be made exact and fresh-seed, route to synthesis rather than running a weak validation.",
+    "allowed_claims": [
+      "seed-robust repaired reset-validation command design",
+      "no reset validity, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "moves from no-reset support to fresh-seed reset-validation readiness",
+    "paper_verdict_delta": "can admit the decisive reset rerun if the command is frozen",
+    "must_synthesize_if": [
+      "M2078 cannot specify a fresh-seed reset command",
+      "M2078 attempts measured execution before reset validation",
+      "the following reset validation still fails scenario sampling"
+    ]
+  },
+  "hypothesis": "The M2076 seed-robust repaired specs can be validated with a fresh-seed reset-only command before measured execution is considered.",
+  "success_criteria": [
+    "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md exists",
+    "exact reset-only command is frozen",
+    "fresh eval seed base is 207900",
+    "target reset count is 240",
+    "expected observation dimension is 72",
+    "next implementation-and-run route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "reset command is ambiguous",
+    "fresh seed base is not explicit",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write reset-validation command design from M2077 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_seed_robust_repaired_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json",
+    "docs/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.md"
+  ],
+  "decision_rule": "M2078 passes if it freezes an exact fresh-seed reset-only validation command without running it or overclaiming.",
+  "next_blocker": "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run"
+}

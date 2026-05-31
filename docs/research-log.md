@@ -36347,3 +36347,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2076 produces stronger materialization evidence after M2073's `164/240` reset failure but still does not prove reset validity or controller performance
 - follow-up manifest: `experiments/manifests/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.json`
 - next: `m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit`
+
+## M2077 Paper-Route Outcome-Supported Decisive Seed-Robust Obstacle-Filter Repair Result Audit
+
+- status: completed
+- decision: `seed_robust_repair_audit_admit_reset_validation_command_design`
+- audited artifact: `runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json`
+- failure taxonomy: `none`
+- reset/rollout/measured execution in M2077: `false`
+- policy actions executed in M2077: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2076 no-reset seed-robust repair artifact is clean enough to admit reset command design
+- support evidence: `240/240` specs reach `5/5` support seeds; `0` support failures
+- bound evidence: distance window max `12.0`, half-width window max `0.8`, threshold-score ceiling used `1.0`
+- guard evidence: family quota true, split quota true, difficulty-axis true, contract `0`, metadata `0`, forbidden-key `0`, profile missing `0`, guardrail `0`
+- caution: `101` specs use max distance window and `60` use max half-width window, so reset validation remains mandatory before measured execution
+- selected route: M2078 must freeze a fresh-seed reset-only command over M2076 repaired specs with eval seed base `207900`
+- rejected: direct measured execution, another no-reset repair, paper/controller interpretation
+- follow-up manifest: `experiments/manifests/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.json`
+- next: `m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design`
