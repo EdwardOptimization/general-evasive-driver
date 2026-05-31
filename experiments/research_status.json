@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1982,
+    "completed": 1983,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
+    "command_log": "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit"
+    "task_id": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.json",
-    "hypothesis": "The repaired reset-valid calibrated panel can be given an exact measured execution command over M1969 repaired specs and workload without changing claim boundaries.",
-    "id": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze measured execution command over repaired specs and workload without running rollout",
-    "priority": 19690,
+    "command": "see experiments/manifests/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.json",
+    "hypothesis": "The repaired calibrated measured runner can execute the M1969 960-cell public diagnostic workload with complete metadata-preserving episode rows and no guardrail violations.",
+    "id": "m1975-executable-v2-task-quality-calibrated-repaired-measured-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run repaired calibrated 960-cell measured execution command without ranking or paper claims",
+    "priority": 19700,
     "status": "pending",
-    "success_artifact": "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md"
+    "success_artifact": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json"
   },
-  "updated_at_utc": "20260531T112954Z"
+  "updated_at_utc": "20260531T113213Z"
 }

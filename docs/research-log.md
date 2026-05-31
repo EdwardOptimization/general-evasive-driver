@@ -34321,3 +34321,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.json`
 - next: `m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design`
+
+## M1974 Executable V2 Task-Quality Calibrated Repaired Measured Execution Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_measured_execution_command_design_admit_execution`
+- doc: `docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md`
+- measured execution in M1974: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_measured_runner --executable-task-specs runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json --workload runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/planned_workload.csv --output-dir runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired --eval-seed-base 197500 --device cpu --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --next-blocker m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis`
+- target: `960` episodes, `80` specs, `12` profiles
+- pass gates: zero failures, metric completeness `0`, source-kind and role-surface quotas pass, guardrail `0`, ranking/paper/self-ID claims false
+- follow-up manifest: `experiments/manifests/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.json`
+- next: `m1975-executable-v2-task-quality-calibrated-repaired-measured-execution`

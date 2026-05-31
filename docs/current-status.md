@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit
+m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design
+m1975-executable-v2-task-quality-calibrated-repaired-measured-execution
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -157,7 +157,12 @@ M1973 must audit this reset pass before measured execution design is admitted.
 M1973 audits it as clean reset-validity evidence for the repaired calibrated
 panel and admits repaired measured execution command design. M1974 must freeze
 a measured execution command over the M1969 repaired specs/workload; direct
-measured execution remains blocked until then.
+measured execution remains blocked until then. M1974 freezes that command for
+M1975 using repaired specs/workload, output
+`runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired`,
+eval seed base `197500`, and targets `960` episodes / `80` specs / `12`
+profiles. M1975 may run the frozen measured execution command; interpretation
+is deferred to M1976 result synthesis.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
