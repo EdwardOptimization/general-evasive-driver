@@ -31,6 +31,7 @@ DEFAULT_EXECUTABLE_TASK_SPECS = Path(
 )
 DEFAULT_OUTPUT_DIR = Path("runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining")
 DEFAULT_NEXT_BLOCKER = "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit"
+CALIBRATED_ANCHOR_FALLBACK_SOURCE_PREFIX = "m1950_calibrated_anchor_fallback"
 SOURCE_KIND_ORDER = (
     "anchor_neighborhood",
     "success_stabilizer",
@@ -167,6 +168,20 @@ def _load_specs(path: Path | str) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
+def _load_anchor_fallback_geometry(path: Path | str | None) -> dict[str, dict[str, Any]]:
+    if path is None or str(path).strip() == "":
+        return {}
+    payload = read_json(path)
+    if not isinstance(payload, dict):
+        raise ValueError("anchor fallback geometry artifact must be a JSON object")
+    output: dict[str, dict[str, Any]] = {}
+    for key, value in payload.items():
+        if not isinstance(value, dict):
+            raise ValueError(f"anchor fallback geometry entry {key!r} must be an object")
+        output[str(key)] = dict(value)
+    return output
+
+
 def _spec_lookup(specs: list[Mapping[str, Any]]) -> dict[str, Mapping[str, Any]]:
     lookup: dict[str, Mapping[str, Any]] = {}
     for spec in specs:
@@ -190,7 +205,47 @@ def _fallback_geometry(row: Mapping[str, Any]) -> dict[str, float]:
     return base
 
 
-def resolve_base_geometry(row: Mapping[str, Any], specs_by_id: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+def _calibrated_anchor_fallback_geometry(
+    row: Mapping[str, Any],
+    anchor_fallback_geometry: Mapping[str, Mapping[str, Any]] | None = None,
+) -> dict[str, Any] | None:
+    if not anchor_fallback_geometry:
+        return None
+    if str(row.get("repair_source_kind", "")) != "anchor_neighborhood":
+        return None
+    tier = str(row.get("feasibility_tier_id", ""))
+    role = str(row.get("source_role_semantics", ""))
+    label = str(row.get("sampled_obstacle_label", ""))
+    surface = str(row.get("surface_variant", ""))
+    key = f"{tier}::{role}::{label}::{surface}"
+    selected = anchor_fallback_geometry.get(key)
+    if selected is None:
+        return None
+    required = {
+        "speed_ref",
+        "mu",
+        "obstacle_distance",
+        "obstacle_half_width",
+        "base_track_width",
+    }
+    missing = sorted(required - set(selected))
+    if missing:
+        raise ValueError(f"calibrated anchor fallback {key!r} is missing fields: {', '.join(missing)}")
+    return {
+        "base_geometry_source": f"{CALIBRATED_ANCHOR_FALLBACK_SOURCE_PREFIX}::{surface}",
+        "speed_ref": _float(selected.get("speed_ref"), _float(row.get("speed_ref"), 18.0)),
+        "mu": _float(selected.get("mu"), _float(row.get("mu"), 0.40)),
+        "obstacle_distance": _float(selected.get("obstacle_distance"), 30.0),
+        "obstacle_half_width": _float(selected.get("obstacle_half_width"), 0.90),
+        "base_track_width": _float(selected.get("base_track_width"), 6.0),
+    }
+
+
+def resolve_base_geometry(
+    row: Mapping[str, Any],
+    specs_by_id: Mapping[str, Mapping[str, Any]],
+    anchor_fallback_geometry: Mapping[str, Mapping[str, Any]] | None = None,
+) -> dict[str, Any]:
     for key in ("parent_task_source_id", "parent_candidate_source_id"):
         value = str(row.get(key, "")).strip()
         spec = specs_by_id.get(value)
@@ -203,6 +258,9 @@ def resolve_base_geometry(row: Mapping[str, Any], specs_by_id: Mapping[str, Mapp
                 "obstacle_half_width": _float(spec.get("obstacle_half_width"), 0.90),
                 "base_track_width": _float(spec.get("track_width"), 6.0),
             }
+    calibrated = _calibrated_anchor_fallback_geometry(row, anchor_fallback_geometry)
+    if calibrated is not None:
+        return calibrated
     fallback = _fallback_geometry(row)
     return {
         "base_geometry_source": "tier_role_surface_default",
@@ -230,11 +288,15 @@ def _min_accepted_cells(source_kind: str) -> int:
     return 3
 
 
-def template_to_source_candidate(row: Mapping[str, Any], specs_by_id: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+def template_to_source_candidate(
+    row: Mapping[str, Any],
+    specs_by_id: Mapping[str, Mapping[str, Any]],
+    anchor_fallback_geometry: Mapping[str, Mapping[str, Any]] | None = None,
+) -> dict[str, Any]:
     source_kind = str(row.get("repair_source_kind", ""))
     if source_kind not in SCAN_WINDOWS:
         raise ValueError(f"unknown repair_source_kind {source_kind!r}")
-    geometry = resolve_base_geometry(row, specs_by_id)
+    geometry = resolve_base_geometry(row, specs_by_id, anchor_fallback_geometry=anchor_fallback_geometry)
     window = SCAN_WINDOWS[source_kind]
     distance_center = float(geometry["obstacle_distance"]) + _float(row.get("obstacle_distance_delta"), 0.0)
     half_width_center = max(0.10, float(geometry["obstacle_half_width"]) + _float(row.get("obstacle_half_width_delta"), 0.0))
@@ -347,6 +409,7 @@ def run_offtrack_support_repair_source_mining(
     *,
     repair_templates_path: Path | str = DEFAULT_REPAIR_TEMPLATES,
     executable_task_specs_path: Path | str = DEFAULT_EXECUTABLE_TASK_SPECS,
+    anchor_fallback_geometry_path: Path | str | None = None,
     output_dir: Path | str = DEFAULT_OUTPUT_DIR,
     next_blocker: str = DEFAULT_NEXT_BLOCKER,
 ) -> dict[str, Any]:
@@ -354,12 +417,15 @@ def run_offtrack_support_repair_source_mining(
     output.mkdir(parents=True, exist_ok=True)
     template_rows = _load_templates(repair_templates_path)
     specs_by_id = _spec_lookup(_load_specs(executable_task_specs_path))
+    anchor_fallback_geometry = _load_anchor_fallback_geometry(anchor_fallback_geometry_path)
 
     source_candidates: list[dict[str, Any]] = []
     resolution_failures: list[dict[str, Any]] = []
     for row in template_rows:
         try:
-            source_candidates.append(template_to_source_candidate(row, specs_by_id))
+            source_candidates.append(
+                template_to_source_candidate(row, specs_by_id, anchor_fallback_geometry=anchor_fallback_geometry)
+            )
         except Exception as exc:  # noqa: BLE001 - adapter must preserve row-level failures.
             resolution_failures.append(
                 {
@@ -411,6 +477,15 @@ def run_offtrack_support_repair_source_mining(
         str(row.get("source_support_status", "")) == SUPPORTED and str(row.get("source_split", "")) == "public_gate"
         for row in source_rows
     )
+    calibrated_anchor_fallback_rows = [
+        row
+        for row in source_rows
+        if str(row.get("base_geometry_source", "")).startswith(CALIBRATED_ANCHOR_FALLBACK_SOURCE_PREFIX)
+    ]
+    calibrated_anchor_fallback_used_count = len(calibrated_anchor_fallback_rows)
+    calibrated_anchor_fallback_used_by_surface = dict(
+        sorted(Counter(str(row.get("parent_surface_variant", "")) for row in calibrated_anchor_fallback_rows).items())
+    )
     source_kind_supported = {
         kind: sum(
             str(row.get("source_support_status", "")) == SUPPORTED and str(row.get("repair_source_kind", "")) == kind
@@ -420,6 +495,15 @@ def run_offtrack_support_repair_source_mining(
     }
     guardrail_flags = {key: False for key in FORBIDDEN_GUARDRAILS}
     guardrail_violation_count = sum(1 for value in guardrail_flags.values() if value)
+    calibration_expected = bool(anchor_fallback_geometry)
+    calibration_passes = (
+        not calibration_expected
+        or (
+            calibrated_anchor_fallback_used_count == 64
+            and calibrated_anchor_fallback_used_by_surface.get("post_friction_step", 0) == 32
+            and calibrated_anchor_fallback_used_by_surface.get("steady_surface", 0) == 32
+        )
+    )
     result_passes = (
         len(template_rows) == 160
         and len(source_candidates) == 160
@@ -431,6 +515,7 @@ def run_offtrack_support_repair_source_mining(
         and source_kind_supported.get("success_stabilizer", 0) >= 16
         and source_kind_supported.get("offtrack_boundary_relief", 0) >= 8
         and sum(1 for row in source_rows if str(row.get("repair_source_kind", "")) == "mitigation_isolation_check") == 16
+        and calibration_passes
         and guardrail_violation_count == 0
     )
     artifacts = {
@@ -453,6 +538,7 @@ def run_offtrack_support_repair_source_mining(
         "output_dir": str(output),
         "repair_templates_path": str(repair_templates_path),
         "executable_task_specs_path": str(executable_task_specs_path),
+        "anchor_fallback_geometry_path": str(anchor_fallback_geometry_path or ""),
         "input_template_count": len(template_rows),
         "target_input_template_count": 160,
         "source_candidate_count": len(source_candidates),
@@ -465,6 +551,8 @@ def run_offtrack_support_repair_source_mining(
         "source_kind_supported_source_counts": source_kind_supported,
         "source_kind_counts": dict(sorted(Counter(str(row.get("repair_source_kind", "")) for row in source_rows).items())),
         "split_counts": dict(sorted(Counter(str(row.get("source_split", "")) for row in source_rows).items())),
+        "calibrated_anchor_fallback_used_count": calibrated_anchor_fallback_used_count,
+        "calibrated_anchor_fallback_used_by_surface": calibrated_anchor_fallback_used_by_surface,
         "labels_enter_actor_input_count": 0,
         "v2_ranking_admissible_by_default_count": 0,
         "profile_specific_tuning_count": 0,
@@ -494,12 +582,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repair-templates", type=Path, default=DEFAULT_REPAIR_TEMPLATES)
     parser.add_argument("--executable-task-specs", type=Path, default=DEFAULT_EXECUTABLE_TASK_SPECS)
+    parser.add_argument("--anchor-fallback-geometry", type=Path, default=None)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--next-blocker", default=DEFAULT_NEXT_BLOCKER)
     args = parser.parse_args()
     summary = run_offtrack_support_repair_source_mining(
         repair_templates_path=args.repair_templates,
         executable_task_specs_path=args.executable_task_specs,
+        anchor_fallback_geometry_path=args.anchor_fallback_geometry,
         output_dir=args.output_dir,
         next_blocker=str(args.next_blocker),
     )

@@ -167,3 +167,43 @@ def test_template_to_source_candidate_preserves_repair_metadata(tmp_path: Path) 
     assert candidate["labels_enter_actor_input"] is False
     assert "accepted" in cell
     assert evaluate["reject_reason"]
+
+
+def test_source_mining_uses_calibrated_anchor_fallback_geometry(tmp_path: Path) -> None:
+    templates_path = _write_template_inputs(tmp_path)
+    specs_path = _write_specs(tmp_path)
+    fallback_path = tmp_path / "selected_anchor_fallback_geometry.json"
+    write_json(
+        fallback_path,
+        {
+            f"tier_c_boundary_near_miss::stable_aeb::aeb_feasible::{surface}": {
+                "speed_ref": 18.0,
+                "mu": 0.40,
+                "obstacle_distance": 52.0,
+                "obstacle_half_width": 0.75,
+                "base_track_width": 5.75,
+                "surface_variant": surface,
+                "source_role_semantics": "stable_aeb",
+                "required_label": "aeb_feasible",
+                "center_label": "aeb_feasible",
+                "supported_anchor_count": 32,
+                "accepted_cell_count_total": 2016,
+            }
+            for surface in ("post_friction_step", "steady_surface")
+        },
+    )
+
+    summary = mining.run_offtrack_support_repair_source_mining(
+        repair_templates_path=templates_path,
+        executable_task_specs_path=specs_path,
+        anchor_fallback_geometry_path=fallback_path,
+        output_dir=tmp_path / "out",
+    )
+
+    assert summary["calibrated_anchor_fallback_used_count"] == 64
+    assert summary["calibrated_anchor_fallback_used_by_surface"] == {
+        "post_friction_step": 32,
+        "steady_surface": 32,
+    }
+    assert summary["source_kind_supported_source_counts"]["anchor_neighborhood"] >= 16
+    assert summary["guardrail_violation_count"] == 0

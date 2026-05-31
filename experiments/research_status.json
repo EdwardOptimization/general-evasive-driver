@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1960,
+    "completed": 1961,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+    "command_log": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining",
     "status": "completed",
-    "task_id": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design"
+    "task_id": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.json",
-    "hypothesis": "Applying the M1950 calibrated fallback artifact to the full source-mining adapter will repair the anchor-neighborhood gate while preserving non-anchor support and guardrails.",
-    "id": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement artifact-provenanced calibrated fallback source-mining rerun",
-    "priority": 19470,
+    "command": "see experiments/manifests/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.json",
+    "hypothesis": "M1952 can be audited as a clean calibrated source-mining pass that repairs M1947's anchor blocker and should route to branch synthesis before execution.",
+    "id": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit calibrated source-mining pass and route to branch synthesis before execution",
+    "priority": 19480,
     "status": "pending",
-    "success_artifact": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json"
+    "success_artifact": "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md"
   },
-  "updated_at_utc": "20260531T094551Z"
+  "updated_at_utc": "20260531T095006Z"
 }

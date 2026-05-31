@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design
+m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation
 ```
 
 Current next task:
 
 ```text
-m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation
+m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -43,9 +43,13 @@ speed `18.0`, mu `0.40`, obstacle distance `52.0`, and obstacle half-width
 `0.75`; selected center labels are `aeb_feasible`, selected support is `64/64`
 anchor rows with `4032` accepted cells, and guardrail is `0`. M1951 must now
 designs the artifact-provenanced `--anchor-fallback-geometry` application path
-for the full no-rollout source-mining adapter. M1952 must implement that path,
-preserve the original M1947 source-kind gates, and verify provenance fields
-show `64` calibrated anchor fallback uses split `32/32` by surface.
+for the full no-rollout source-mining adapter. M1952 implements it and the
+calibrated source-mining run passes: support `130`, accepted cells `5981`,
+anchor-neighborhood `64/64`, success-stabilizer `39/48`,
+offtrack-boundary-relief `11/32`, mitigation-isolation `16/16`, public-gate
+support `40`, calibrated fallback uses `64` split `32/32`, and guardrail `0`.
+M1953 must audit this result and route to branch synthesis before any reset or
+measured execution.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

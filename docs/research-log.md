@@ -33896,3 +33896,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - preserved gates: original M1947 source-kind support floors and guardrails remain unchanged
 - follow-up manifest: `experiments/manifests/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.json`
 - next: `m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation`
+
+## M1952 Executable V2 Task-Quality Offtrack Support Repair Calibrated Source-Mining Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_source_mining_pass_route_to_result_audit`
+- result class: `task_quality_offtrack_support_repair_source_mining_pass`
+- doc: `docs/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_offtrack_support_repair_source_mining.py`
+- focused tests: `5 passed`
+- summary: `runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json`
+- reset/rollout/measured execution in M1952: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- calibrated source-mining result: `160` input templates, `160` source candidates, `0` resolution failures, `5981` accepted cells, `130` supported sources, `40` public-gate supported sources, guardrail `0`
+- source-kind support: anchor-neighborhood `64/64`, success-stabilizer `39/48`, offtrack-boundary-relief `11/32`, mitigation-isolation `16/16`
+- calibration provenance: `64` calibrated anchor fallback uses, split `32` post-friction-step and `32` steady-surface
+- route: result audit next; because the branch is at synthesis cadence, route to branch synthesis before reset/materialized execution
+- follow-up manifest: `experiments/manifests/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.json`
+- next: `m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit`
