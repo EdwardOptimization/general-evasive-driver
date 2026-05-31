@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1905 implements wrapper dry-run infrastructure and focused tests for splitting planned rollout rows import-postprocess joins metadata preservation and no-rollout summary; real M1902 execution remains deferred",
+  "failure_criteria": [
+    "wrapper source or tests are missing",
+    "focused tests fail",
+    "implementation runs the real M1902 workload",
+    "implementation changes actor inputs or controller profiles",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T054236Z",
+  "hypothesis": "The task-quality repair-axis execution wrapper can be implemented and tested without running the real M1902 workload.",
+  "lineage": {
+    "blocked_by": [
+      "M1904 requires a dedicated wrapper before any real execution"
+    ],
+    "derived_from": [
+      "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_wrapper_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_spec.json"
+    ],
+    "parent_objective": [
+      "implement the wrapper required to execute the M1902 repair-axis matrix in a later milestone"
+    ],
+    "supersedes": [
+      "direct use of the old repaired bounded-smoke runner"
+    ]
+  },
+  "milestone": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation",
+  "next_blocker": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_repair_axis_wrapper_implementation_pass_admit_preflight",
+  "public_gates": [
+    "M1905 must implement wrapper loaders splitters import/postprocess joins and aggregate helpers",
+    "M1905 must include focused tests for row splitting metadata preservation and import/postprocess joins",
+    "M1905 must not run the real M1902 matrix environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_repair_axis_wrapper_implementation_pass_admit_preflight",
+    "milestone": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation",
+    "reason": "M1905 implements wrapper dry-run infrastructure and focused tests for splitting planned rollout rows import-postprocess joins metadata preservation and no-rollout summary; real M1902 execution remains deferred",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py exists",
+    "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py exists",
+    "focused tests pass",
+    "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md exists",
+    "real M1902 execution remains deferred"
+  ],
+  "type": "infrastructure"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1913,
+    "completed": 1914,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+    "command_log": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+    "run_dir": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
     "status": "completed",
-    "task_id": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
+    "task_id": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.json",
-    "hypothesis": "The task-quality repair-axis execution wrapper can be implemented and tested without running the real M1902 workload.",
-    "id": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation",
+    "command": "see experiments/manifests/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.json",
+    "hypothesis": "The M1905 wrapper can dry-run the real M1902 repair-axis matrix with 960 planned rollout rows, 576 import/postprocess rows, and zero join or metadata failures.",
+    "id": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight",
     "kind": "infrastructure",
-    "notes": "Pending: implement wrapper infrastructure and focused tests; no real M1902 execution",
-    "priority": 19000,
+    "notes": "Pending: run no-rollout wrapper dry-run/preflight over the real M1902 matrix",
+    "priority": 19010,
     "status": "pending",
-    "success_artifact": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md"
+    "success_artifact": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T053501Z"
+  "updated_at_utc": "20260531T054059Z"
 }

@@ -1,0 +1,177 @@
+{
+  "id": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_wrapper_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.json"
+    ],
+    "parent_objective": [
+      "run the no-rollout wrapper dry-run/preflight over the real M1902 matrix"
+    ],
+    "derived_from": [
+      "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation"
+    ],
+    "blocked_by": [
+      "M1905 focused tests passed but the real M1902 matrix has not been preflighted through the wrapper"
+    ],
+    "supersedes": [
+      "direct measured execution without wrapper preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.md",
+  "public_gates": [
+    "M1906 must run only the wrapper dry-run/preflight over the real M1902 matrix",
+    "M1906 must write summary planned rollout import/postprocess combined panel and aggregate artifacts",
+    "M1906 must not run environment reset rollout measured execution training replay PPO private holdout controller ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clearance_containment_task_quality_repair_axis",
+    "evidence_axis": "Q_task_quality_repair_axis_wrapper_preflight",
+    "evidence_increment": "runs the implemented wrapper in no-rollout dry-run mode on the real M1902 matrix",
+    "claim_scope": "infrastructure preflight only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if wrapper preflight fails count or join gates",
+      "stop if preflight indicates metadata loss",
+      "stop if the next route would admit measured execution without preflight audit"
+    ],
+    "fallback_plan": [
+      "route to helper repair if preflight fails",
+      "route to preflight result audit if preflight passes",
+      "route to branch synthesis if failure is structural"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1905 admits wrapper dry-run over the real M1902 matrix",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run no-rollout wrapper preflight",
+    "admission_evidence": [
+      "M1905 wrapper focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1906 preflight artifacts",
+      "M1906 status queue scoreboard research log and review",
+      "one follow-up manifest for preflight audit helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "summary confirms 960 planned rollout rows",
+      "summary confirms 576 import/postprocess rows",
+      "summary confirms 1536 combined rows",
+      "failure count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; wrapper preflight does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1906."
+    ],
+    "temporal_evidence_window": "M1902-M1905 artifacts only.",
+    "negative_result_policy": "If wrapper preflight fails, route to helper repair or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis wrapper preflight",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "validates the new wrapper against the real repair-axis matrix without rollout",
+    "paper_verdict_delta": "can decide whether execution wrapper command design is admissible",
+    "must_synthesize_if": [
+      "M1906 preflight fails structurally",
+      "the next route would be another wrapper tweak without audit",
+      "wrapper preflight erases baseline provenance"
+    ]
+  },
+  "hypothesis": "The M1905 wrapper can dry-run the real M1902 repair-axis matrix with 960 planned rollout rows, 576 import/postprocess rows, and zero join or metadata failures.",
+  "success_criteria": [
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json exists",
+    "planned rollout row count is 960",
+    "import/postprocess row count is 576",
+    "combined panel row count is 1536",
+    "failure count is zero",
+    "guardrail claims remain false"
+  ],
+  "failure_criteria": [
+    "preflight runs environment reset or rollout",
+    "summary artifact is missing",
+    "planned/import counts do not match M1904",
+    "source episode joins fail",
+    "metadata validation fails",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_support_first_task_quality_repair_axis_execution --task-quality-repair-axis-matrix runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv --source-episode-rows runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv --output-dir runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight --eval-seed-base 190600"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/planned_rollout_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/import_postprocess_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/episode_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_wrapper_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv"
+  ],
+  "decision_rule": "M1906 passes if the wrapper dry-run/preflight produces count-complete artifacts with zero failures and no rollout.",
+  "next_blocker": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight"
+}
