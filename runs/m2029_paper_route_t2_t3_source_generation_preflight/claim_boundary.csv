@@ -1,0 +1,7 @@
+claim,admissible,reason
+t2_t3_source_generation_preflight_completed,True,M2029 writes no-rollout generated source specs and projected coverage artifacts
+panel_projected_ready_for_routing_smoke,True,requires all five task families to pass projected source count and source-kind share gates
+controller_family_ranking,False,M2029 does not execute the panel or compare controller outcomes
+finite_window_vs_gru_conclusion,False,M2029 is source-generation preflight only
+paper_level_benchmark_result,False,M2029 does not run routing smoke measured execution or private holdout
+level3_self_identification,False,M2029 does not run wrong delayed reset or mismatched history outcome tests

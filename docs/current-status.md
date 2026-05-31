@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2028-paper-route-t2-t3-source-generation-design
+m2029-paper-route-t2-t3-source-generation-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m2029-paper-route-t2-t3-source-generation-preflight-implementation
+m2030-paper-route-t2-t3-source-generation-preflight-result-audit
 ```
 
-Immediate route: M2028 designs no-rollout source generation for the unresolved
-T2/T3 controlled-panel families. T2 currently has a dominant source kind
-`21/36 = 0.5833`; M2028 targets `36` new non-dominant same-family rows for a
-projected `21/72 = 0.2917`. T3 currently has a dominant share `9/24 = 0.3750`;
-M2028 targets `18` new warmup rows for a projected `9/42 = 0.2143`. M2029 must
-implement and run the no-rollout source-generation preflight only. Broad
-ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain
-blocked.
+Immediate route: M2029 implements and runs the no-rollout T2/T3 source
+generation preflight. It generates `54` source rows (`36` T2 and `18` T3),
+merges them with the M2026 repaired panel, and projects all five families as
+ready under the registered count/share gates. T2 improves to source count/share
+`72 / 0.2917`; T3 improves to `42 / 0.2143`; guardrail violations are `0`.
+M2030 must audit this artifact-layer pass before routing-smoke command design,
+including the caveat that T1 remains below the nonblocking target count
+`18/24`. Broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID
+claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

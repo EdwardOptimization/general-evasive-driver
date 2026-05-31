@@ -35352,3 +35352,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: design only; no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json`
 - next: `m2029-paper-route-t2-t3-source-generation-preflight-implementation`
+
+## M2029 Paper-Route T2/T3 Source Generation Preflight Implementation
+
+- status: completed
+- decision: `t2_t3_source_generation_preflight_pass_route_to_result_audit`
+- result class: `t2_t3_source_generation_preflight_pass`
+- implementation: `src/autodrift/paper_route_t2_t3_source_generation_preflight.py`
+- focused tests: `1 passed`
+- compileall: `passed`
+- summary: `runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json`
+- reset/rollout/measured execution in M2029: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: generated source rows `54`, T2 `36`, T3 `18`, merged source count `237`, projected ready `true`, guardrail `0`
+- projection: T2 source count/share `72 / 0.2917`; T3 source count/share `42 / 0.2143`; T1/T4/T5 remain ready
+- caveat: T1 target count `18/24` remains below nonblocking target, so M2030 must audit readiness before routing-smoke design
+- boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.json`
+- next: `m2030-paper-route-t2-t3-source-generation-preflight-result-audit`

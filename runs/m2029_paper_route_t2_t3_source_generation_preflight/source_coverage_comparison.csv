@@ -1,0 +1,6 @@
+panel_task_family,before_source_count,after_source_count,before_source_kind_count,after_source_kind_count,before_max_single_source_kind_share,after_max_single_source_kind_share,before_source_kind_share_pass,after_source_kind_share_pass,status
+T1_reactive_active_safety,18,18,4,4,0.3333333333333333,0.3333333333333333,True,True,already_ready
+T2_same_current_different_older_history,36,72,4,10,0.5833333333333334,0.2916666666666667,False,True,passes_after_generation
+T3_active_diagnostic_warmup,24,42,4,10,0.375,0.21428571428571427,False,True,passes_after_generation
+T4_variable_diagnostic_delay,33,33,4,4,0.2727272727272727,0.2727272727272727,True,True,already_ready
+T5_source_rich_extreme_dynamics,72,72,8,8,0.2916666666666667,0.2916666666666667,True,True,already_ready

@@ -1,0 +1,168 @@
+{
+  "id": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_t2_t3_source_generation_preflight_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_projection.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_comparison.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/generated_source_specs.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit generated T2/T3 source projection before routing smoke command design"
+    ],
+    "derived_from": [
+      "m2029-paper-route-t2-t3-source-generation-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2029 produced a positive no-rollout source-generation projection but no execution has occurred"
+    ],
+    "supersedes": [
+      "direct routing smoke without auditing generated-source projection"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md",
+  "public_gates": [
+    "M2030 must audit M2029 artifacts without rerun",
+    "M2030 must state whether projected coverage is sufficient for routing-smoke command design",
+    "M2030 must explicitly handle the T1 target-count caveat",
+    "M2030 must preserve claim boundaries and keep ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_t2_t3_source_generation",
+    "evidence_axis": "Q_fair_controller_matrix_t2_t3_source_generation_result_audit",
+    "evidence_increment": "audits generated-source projection and chooses whether routing-smoke design is admissible",
+    "claim_scope": "result audit only; no execution driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if projection artifacts are missing or inconsistent",
+      "stop if generated rows violate claim boundary",
+      "stop if the audit admits execution despite unresolved source-coverage blockers"
+    ],
+    "fallback_plan": [
+      "route to routing-smoke command design if projection and claim boundaries are clean",
+      "route to generated-source semantics repair if generated rows are too synthetic or ambiguous",
+      "route to threshold/source-kind semantics audit if T1 target-count caveat blocks routing smoke"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2029 source-generation preflight produced artifacts requiring audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T2/T3 source-generation preflight result audit",
+    "admission_evidence": [
+      "M2029 result_class is t2_t3_source_generation_preflight_pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run execution in the audit",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md",
+      "M2030 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2029 result class is audited",
+      "projection readiness is accepted or rejected",
+      "T1 target-count caveat is addressed",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2030 audits source-generation artifacts only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2030."
+    ],
+    "temporal_evidence_window": "M2029 no-rollout source-generation preflight artifacts.",
+    "negative_result_policy": "If projection readiness is rejected, route to repair or semantics audit instead of execution.",
+    "allowed_claims": [
+      "T2/T3 source-generation preflight result audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new source-generation panel evidence before execution",
+    "paper_verdict_delta": "can admit or reject routing-smoke command design for the fair controller matrix",
+    "must_synthesize_if": [
+      "M2030 cannot choose a single next route",
+      "M2030 finds generated-source projection is only a gate-passing artifact",
+      "M2030 would start another repair loop without new evidence"
+    ]
+  },
+  "hypothesis": "The M2029 generated-source projection can be cleanly audited into a routing-smoke command-design route without overclaiming.",
+  "success_criteria": [
+    "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md exists",
+    "M2030 audits M2029 result_class and coverage projection",
+    "M2030 addresses the T1 target-count caveat",
+    "M2030 chooses a single next route",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit admits execution despite unresolved projection blockers",
+    "T1 target-count caveat is ignored",
+    "next route is ambiguous",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit M2029 source-generation preflight artifacts and choose the next route"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_t2_t3_source_generation_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json",
+    "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_projection.csv"
+  ],
+  "decision_rule": "M2030 passes if it audits M2029 artifacts and chooses a single non-overclaiming next route.",
+  "next_blocker": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2037,
+    "completed": 2038,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+    "command_log": "docs/m2029-paper-route-t2-t3-source-generation-preflight-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2029_paper_route_t2_t3_source_generation_preflight",
     "status": "completed",
-    "task_id": "m2028-paper-route-t2-t3-source-generation-design"
+    "task_id": "m2029-paper-route-t2-t3-source-generation-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json",
-    "hypothesis": "A no-rollout preflight can generate clean T2/T3 source rows with enough source-kind slack to make the controlled comparison panel projection ready.",
-    "id": "m2029-paper-route-t2-t3-source-generation-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout T2/T3 source-generation preflight over M2026 repaired panel sources",
-    "priority": 20240,
+    "command": "see experiments/manifests/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.json",
+    "hypothesis": "The M2029 generated-source projection can be cleanly audited into a routing-smoke command-design route without overclaiming.",
+    "id": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2029 projected-ready generated-source artifacts before routing smoke command design",
+    "priority": 20250,
     "status": "pending",
-    "success_artifact": "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json"
+    "success_artifact": "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260531T171201Z"
+  "updated_at_utc": "20260531T172347Z"
 }
