@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1944,
+    "completed": 1945,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
+    "command_log": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
+    "run_dir": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
     "status": "completed",
-    "task_id": "m1935-executable-v2-task-quality-measured-execution-design"
+    "task_id": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.json",
-    "hypothesis": "A focused measured runner adapter can preserve M1928 task-quality metadata and support synthetic execution tests without running real measured rollout.",
-    "id": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement metadata-preserving measured runner adapter with synthetic tests and no real 960-cell rollout",
-    "priority": 19310,
+    "command": "see experiments/manifests/m1937-executable-v2-task-quality-measured-execution-command-design.json",
+    "hypothesis": "The M1936 adapter can be routed into a single exact measured execution command over the 960-cell M1928 workload.",
+    "id": "m1937-executable-v2-task-quality-measured-execution-command-design",
+    "kind": "gate",
+    "notes": "Pending: freeze exact measured execution command target counts artifacts and gates before real 960-cell rollout",
+    "priority": 19320,
     "status": "pending",
-    "success_artifact": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md"
+    "success_artifact": "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T082606Z"
+  "updated_at_utc": "20260531T083327Z"
 }

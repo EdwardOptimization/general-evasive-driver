@@ -1,0 +1,162 @@
+{
+  "id": "m1937-executable-v2-task-quality-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "freeze exact measured execution command for the M1928 960-cell public diagnostic workload"
+    ],
+    "derived_from": [
+      "m1936-executable-v2-task-quality-measured-runner-adapter-implementation"
+    ],
+    "blocked_by": [
+      "real measured execution command has not been frozen"
+    ],
+    "supersedes": [
+      "running measured execution without command-design gates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1937-executable-v2-task-quality-measured-execution-command-design.md",
+  "public_gates": [
+    "M1937 must freeze exact measured execution command and output directory",
+    "M1937 must specify target episode/spec/profile counts",
+    "M1937 must specify pass/fail gates and artifact set",
+    "M1937 must not run real measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real M1928 environment rollout",
+    "do not execute real policy actions over the 960-cell workload",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_measured_execution_command_design",
+    "evidence_increment": "freezes the command for first real measured rollout over the reset-valid redesigned panel",
+    "claim_scope": "command design only; no real rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if command target counts are ambiguous",
+      "stop if output artifact set is ambiguous",
+      "stop if command would use holdout or rank controller families"
+    ],
+    "fallback_plan": [
+      "route back to adapter repair if command cannot target M1928 artifacts",
+      "repair manifest/status if gates are under-specified",
+      "synthesize if branch cannot safely enter measured execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "eighth milestone of reset execution branch after M1930-M1936",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured execution command design",
+    "admission_evidence": [
+      "M1936 implemented focused measured runner adapter and tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not run real measured execution in command design",
+      "do not train replay PPO",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
+      "M1937 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is frozen",
+      "target episode count is 960",
+      "target spec/profile counts are 80/12",
+      "result audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1937."
+    ],
+    "temporal_evidence_window": "M1936 measured runner adapter implementation.",
+    "negative_result_policy": "If command cannot be made exact, repair adapter before measured execution.",
+    "allowed_claims": [
+      "task-quality measured execution command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares first real measured rollout data over the reset-valid task-quality panel",
+    "paper_verdict_delta": "can admit measured execution but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1937 cannot freeze one exact command",
+      "M1937 would skip result audit",
+      "M1937 would overclaim command design"
+    ]
+  },
+  "hypothesis": "The M1936 adapter can be routed into a single exact measured execution command over the 960-cell M1928 workload.",
+  "success_criteria": [
+    "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md exists",
+    "exact command and output directory are specified",
+    "target counts and pass gates are specified",
+    "M1938 execution manifest is created",
+    "real measured execution is not run"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "command is ambiguous",
+    "target counts are ambiguous",
+    "real measured execution is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1937-executable-v2-task-quality-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md"
+  ],
+  "decision_rule": "M1937 passes if it freezes the exact measured execution command and next manifest without running rollout or ranking.",
+  "next_blocker": "m1937-executable-v2-task-quality-measured-execution-command-design"
+}

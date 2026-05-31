@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1936 implements metadata-preserving measured runner adapter with synthetic tests 3 passed while real 960-cell rollout ranking paper and self-ID claims remain blocked",
+  "failure_criteria": [
+    "adapter is missing",
+    "focused tests fail",
+    "adapter cannot preserve tier role split surface metadata",
+    "real 960-cell measured execution is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real M1928 environment rollout",
+    "do not execute real policy actions over the 960-cell workload",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T083508Z",
+  "hypothesis": "A focused measured runner adapter can preserve M1928 task-quality metadata and support synthetic execution tests without running real measured rollout.",
+  "lineage": {
+    "blocked_by": [
+      "existing measured runners are not exact schema matches for M1928 workload rows"
+    ],
+    "derived_from": [
+      "m1935-executable-v2-task-quality-measured-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_runner_adapter"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1935-executable-v2-task-quality-measured-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_objective": [
+      "implement focused measured runner adapter for M1928 task-quality workload without real rollout"
+    ],
+    "supersedes": [
+      "direct generic full rollout over M1928 workload"
+    ]
+  },
+  "milestone": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation",
+  "next_blocker": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_measured_runner_adapter_implementation_pass_admit_command_design",
+  "public_gates": [
+    "M1936 must add focused measured runner adapter and tests",
+    "M1936 must preserve M1928 tier role split surface metadata",
+    "M1936 must support mocked execution path without running real M1928 rollout",
+    "M1936 must keep ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_measured_runner_adapter_implementation_pass_admit_command_design",
+    "milestone": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation",
+    "reason": "M1936 implements metadata-preserving measured runner adapter with synthetic tests 3 passed while real 960-cell rollout ranking paper and self-ID claims remain blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/executable_v2_task_quality_measured_runner.py exists",
+    "tests/test_executable_v2_task_quality_measured_runner.py exists",
+    "focused tests pass",
+    "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md exists",
+    "real M1928 measured execution is not run"
+  ],
+  "type": "infrastructure"
+}

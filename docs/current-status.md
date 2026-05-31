@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1935-executable-v2-task-quality-measured-execution-design
+m1936-executable-v2-task-quality-measured-runner-adapter-implementation
 ```
 
 Current next task:
 
 ```text
-m1936-executable-v2-task-quality-measured-runner-adapter-implementation
+m1937-executable-v2-task-quality-measured-execution-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -300,7 +300,11 @@ claims blocked. M1935 found existing measured runners are not exact schema
 matches for the M1928 workload: the generic runner assumes legacy fields and
 the support-first/repair-axis runners expect older schemas. It therefore routes
 to M1936 focused measured-runner adapter implementation, with real 960-cell
-rollout still blocked.
+rollout still blocked. M1936 implemented that adapter and synthetic tests
+passed (`3 passed`): it preserves M1928 tier/role/split/surface metadata,
+writes episode/failure/aggregate/claim-boundary artifacts, and fails closed on
+schema mismatch or rollout exceptions. M1937 must now freeze the exact real
+measured execution command before M1938 can run the 960-cell workload.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

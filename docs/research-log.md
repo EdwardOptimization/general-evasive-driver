@@ -33572,3 +33572,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - repair-axis runner issue: expects repair-axis matrix/import-postprocess schema rather than fresh reset-valid source distribution
 - follow-up manifest: `experiments/manifests/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.json`
 - next: `m1936-executable-v2-task-quality-measured-runner-adapter-implementation`
+
+## M1936 Executable V2 Task-Quality Measured Runner Adapter Implementation
+
+- status: completed
+- decision: `task_quality_measured_runner_adapter_implementation_pass_admit_command_design`
+- doc: `docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md`
+- source: `src/autodrift/executable_v2_task_quality_measured_runner.py`
+- tests: `tests/test_executable_v2_task_quality_measured_runner.py`
+- focused tests: `3 passed`
+- real M1928 measured execution in M1936: `false`
+- rollout over real 960-cell workload: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- adapter behavior: joins M1928 executable specs and workload rows, preserves tier/role/split/surface metadata, writes episode/failure/aggregate/claim-boundary artifacts
+- test coverage: metadata preservation and aggregates; rollout failure preservation; schema mismatch fail-closed
+- follow-up manifest: `experiments/manifests/m1937-executable-v2-task-quality-measured-execution-command-design.json`
+- next: `m1937-executable-v2-task-quality-measured-execution-command-design`
