@@ -34622,3 +34622,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit as fail-closed quota-expectation mismatch before validator repair or rerun
 - follow-up manifest: `experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json`
 - next: `m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit`
+
+## M1991 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_validation_audit_route_to_quota_parameterization_repair_design`
+- failure taxonomy: `metric_artifact`
+- doc: `docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md`
+- audited summary: `runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json`
+- reset rerun in M1991: `false`
+- rollout/measured execution in M1991: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1990 failed only because the reset validator's source-kind and role-surface quota expectations are stale for the M1986 repaired outcome-support panel; reset successes `80/80`, reset failures `0`, finite observations `80`, observation dim failures `0`, obstacle initialized `80`, contract `0`, label actor-input `0`, forbidden-key `0`, guardrail `0`
+- route: design artifact-driven quota parameterization before any validator repair implementation or reset rerun
+- follow-up manifest: `experiments/manifests/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.json`
+- next: `m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design`

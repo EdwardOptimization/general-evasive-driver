@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1999,
+    "completed": 2000,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
+    "command_log": "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight"
+    "task_id": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json",
-    "hypothesis": "M1990's fail result is a stale quota-expectation metric artifact rather than a true reset or contract failure.",
-    "id": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit",
+    "command": "see experiments/manifests/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.json",
+    "hypothesis": "The reset validator can be repaired by parameterizing expected source-kind and role-surface quotas from the active materialization artifact or an explicit expected-quota file while preserving fail-closed semantics.",
+    "id": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
     "kind": "gate",
-    "notes": "Pending: classify M1990 quota-gate fail before validator repair or rerun",
-    "priority": 19860,
+    "notes": "Pending: design artifact-driven reset validator quota repair before code change or rerun",
+    "priority": 19870,
     "status": "pending",
-    "success_artifact": "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md"
+    "success_artifact": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md"
   },
-  "updated_at_utc": "20260531T130339Z"
+  "updated_at_utc": "20260531T130650Z"
 }

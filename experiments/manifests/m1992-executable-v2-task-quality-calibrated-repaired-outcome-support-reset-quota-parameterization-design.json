@@ -1,0 +1,166 @@
+{
+  "id": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json",
+      "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a reset-validator quota parameterization repair after M1990 stale quota gate failure"
+    ],
+    "derived_from": [
+      "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M1990 reset validator quota gates are hard-coded to an older panel and reject the M1986 repaired outcome-support distribution"
+    ],
+    "supersedes": [
+      "rerunning M1990 with unchanged stale quota expectations"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+  "public_gates": [
+    "M1992 must design the quota repair before code changes",
+    "M1992 must not rerun reset",
+    "M1992 must preserve fail-closed behavior for missing or inconsistent expected distributions",
+    "M1992 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code in M1992",
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_quota_repair_design",
+    "evidence_increment": "designs how to make reset quota gates artifact-driven instead of stale hard-coded checks",
+    "claim_scope": "repair design only; no reset rerun rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if expected quota source is ambiguous",
+      "stop if design would silently disable quota checks",
+      "stop if design would treat diagnostic-only rows as ranking evidence"
+    ],
+    "fallback_plan": [
+      "implement artifact-driven expected quota loading if design is exact",
+      "route to materialization audit if expected quotas cannot be recovered",
+      "stop and synthesize if quota repair would become another broad local-search loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1991 audits M1990 as stale quota metric artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset quota parameterization repair design",
+    "admission_evidence": [
+      "M1991 classifies M1990 fail as stale quota metric artifact"
+    ],
+    "blocked_shortcuts": [
+      "do not edit code in design",
+      "do not rerun reset",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+      "M1992 status queue scoreboard research log and review",
+      "one follow-up manifest for focused implementation"
+    ],
+    "next_stage_criteria": [
+      "expected quota source is specified",
+      "fail-closed semantics are specified",
+      "focused tests are specified",
+      "follow-up implementation manifest is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset quota repair design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1992."
+    ],
+    "temporal_evidence_window": "M1990/M1991 reset validation audit artifacts.",
+    "negative_result_policy": "If quota repair cannot be designed exactly, route to materialization audit rather than disabling quota checks.",
+    "allowed_claims": [
+      "reset-validator quota repair design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns stale quota failure into a bounded validator repair design",
+    "paper_verdict_delta": "can unblock reset-validation pass rerun but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1992 cannot identify a clean expected-quota source",
+      "the same quota mismatch repeats after implementation",
+      "another design-only milestone would be needed before implementation"
+    ]
+  },
+  "hypothesis": "The reset validator can be repaired by parameterizing expected source-kind and role-surface quotas from the active materialization artifact or an explicit expected-quota file while preserving fail-closed semantics.",
+  "success_criteria": [
+    "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md exists",
+    "expected quota source is specified",
+    "fail-closed behavior is specified",
+    "focused implementation tests are specified",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "expected quota source is ambiguous",
+    "design disables quota checks silently",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+  ],
+  "decision_rule": "M1992 passes if it designs a bounded artifact-driven quota repair without rerun or overclaiming.",
+  "next_blocker": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design"
+}
