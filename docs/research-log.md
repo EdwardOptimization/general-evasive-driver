@@ -33058,3 +33058,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: execution pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json`
 - next: `m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit`
+
+## M1913 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Execution Failure Audit
+
+- status: completed
+- decision: `measured_wrapper_failure_audit_route_to_geometry_delta_mapping_repair`
+- doc: `docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md`
+- audited execution: `docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md`
+- rerun in M1913: `false`
+- environment reset/rollout/measured execution in M1913: `false`
+- failure rows audited: `192`
+- dominant failure: `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- failure classification: `scenario_sampling_failure caused by geometry-delta mapping`
+- localized surface: `contained_collision_clearance_feasibility`
+- failed deltas: `obstacle_reaction_distance_delta_m with road_geometry_fixed=true` and `obstacle_clearance_gap_delta_m with road_geometry_fixed=true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: the failure is localized enough for a focused road_geometry_fixed obstacle-delta mapping repair
+- unsupported: rerun pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.json`
+- next: `m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair`

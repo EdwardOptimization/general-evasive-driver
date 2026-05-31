@@ -1,0 +1,172 @@
+{
+  "id": "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_geometry_delta_mapping_repair"
+    ],
+    "parent_dataset": [
+      "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
+      "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json"
+    ],
+    "parent_objective": [
+      "repair road_geometry_fixed obstacle-delta mapping before rerunning measured execution"
+    ],
+    "derived_from": [
+      "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit"
+    ],
+    "blocked_by": [
+      "M1912 contained-collision feasibility rows failed sampling after M1911 mapped obstacle deltas into env_config"
+    ],
+    "supersedes": [
+      "rerunning M1912 without geometry-delta mapping repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+  "public_gates": [
+    "M1914 must repair road_geometry_fixed obstacle-delta mapping without rerunning execution",
+    "M1914 must keep dry-run and measured CLI tests passing",
+    "M1914 must not change actor inputs or controller profiles",
+    "M1914 must not run environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_geometry_delta_mapping_repair",
+    "evidence_increment": "repairs the specific M1912 scenario-sampling failure before rerun",
+    "claim_scope": "infrastructure repair only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if road_geometry_fixed semantics are still ambiguous",
+      "stop if repair requires actor input or controller profile changes",
+      "stop if focused tests cannot reproduce the intended mapping distinction"
+    ],
+    "fallback_plan": [
+      "route to rerun command if repair tests pass",
+      "route to task-quality spec repair if geometry mapping remains ambiguous",
+      "route to synthesis if another implementation-only step would be needed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new measured-wrapper branch requires synthesis by cadence or local-search guard",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "repair geometry-delta mapping for road_geometry_fixed rows",
+    "admission_evidence": [
+      "M1913 localizes M1912 failures to road_geometry_fixed obstacle diagnostic deltas"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "wrapper source modifications",
+      "focused mapping tests",
+      "M1914 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution rerun or synthesis"
+    ],
+    "next_stage_criteria": [
+      "road_geometry_fixed obstacle deltas no longer mutate env_config.obstacle",
+      "non-fixed explicit geometry mappings remain tested",
+      "focused tests pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; mapping repair does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1914."
+    ],
+    "temporal_evidence_window": "M1912-M1913 artifacts only.",
+    "negative_result_policy": "Keep M1912 as incomplete execution evidence until rerun passes.",
+    "allowed_claims": [
+      "task-quality repair-axis geometry-delta mapping repair",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "repair_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "repairs the specific failure mode exposed by new M1912 execution data",
+    "paper_verdict_delta": "can admit a clean rerun but cannot change paper verdict by itself",
+    "must_synthesize_if": [
+      "M1914 cannot repair the mapping with one focused source/test change",
+      "the next route would still be another repair before rerun",
+      "focused tests pass but rerun command would remain ambiguous"
+    ]
+  },
+  "hypothesis": "Skipping obstacle-delta env mutations when road_geometry_fixed=true will remove the M1912 sampling failure mechanism without changing actor inputs or controller profiles.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py skips obstacle delta env mutations for road_geometry_fixed rows",
+    "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py covers road_geometry_fixed and non-fixed delta mapping",
+    "focused tests pass",
+    "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md exists",
+    "real M1902 execution remains deferred"
+  ],
+  "failure_criteria": [
+    "mapping repair is missing",
+    "focused tests fail",
+    "repair changes actor inputs or controller profiles",
+    "M1914 reruns measured execution",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_geometry_delta_mapping_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
+    "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/failure_rows.csv"
+  ],
+  "decision_rule": "M1914 passes if the mapping repair and focused tests complete without rerun or claim expansion.",
+  "next_blocker": "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair"
+}

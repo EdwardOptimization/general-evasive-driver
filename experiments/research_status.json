@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1921,
+    "completed": 1922,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
-    "returncode": 2,
-    "run_dir": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution",
+    "command_log": "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
+    "returncode": 0,
+    "run_dir": "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
     "status": "completed",
-    "task_id": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
+    "task_id": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json",
-    "hypothesis": "M1912's 192 failures are localized enough to route to a specific repair without rerunning measured execution.",
-    "id": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M1912 incomplete execution and choose repair route without rerun",
-    "priority": 19080,
+    "command": "see experiments/manifests/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.json",
+    "hypothesis": "Skipping obstacle-delta env mutations when road_geometry_fixed=true will remove the M1912 sampling failure mechanism without changing actor inputs or controller profiles.",
+    "id": "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair",
+    "kind": "infrastructure",
+    "notes": "Pending: repair road_geometry_fixed obstacle-delta mapping with focused tests only",
+    "priority": 19090,
     "status": "pending",
-    "success_artifact": "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md"
+    "success_artifact": "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md"
   },
-  "updated_at_utc": "20260531T062924Z"
+  "updated_at_utc": "20260531T063335Z"
 }
