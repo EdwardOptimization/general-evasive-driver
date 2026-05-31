@@ -34337,3 +34337,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gates: zero failures, metric completeness `0`, source-kind and role-surface quotas pass, guardrail `0`, ranking/paper/self-ID claims false
 - follow-up manifest: `experiments/manifests/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.json`
 - next: `m1975-executable-v2-task-quality-calibrated-repaired-measured-execution`
+
+## M1975 Executable V2 Task-Quality Calibrated Repaired Measured Execution
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_measured_execution_pass_route_to_result_synthesis`
+- doc: `docs/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.md`
+- run dir: `runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired`
+- measured execution in M1975: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: measured execution pass with `960` episodes, `80` specs, `12` profiles, failures `0`, metric completeness failures `0`, guardrail `0`, source-kind quota pass, and role-surface quota pass
+- raw outcomes: success `38`, collision failure `150`, offtrack noncollision noncompletion `772`
+- interpretation: complete metadata-preserving public diagnostic execution, but still low-support and offtrack-dominated; ranking, paper-level comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.json`
+- next: `m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis`

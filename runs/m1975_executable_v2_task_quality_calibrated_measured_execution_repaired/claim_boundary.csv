@@ -1,0 +1,5 @@
+claim,admissible,reason
+calibrated_task_quality_measured_execution_completed,True,episode rows are measured rollout artifacts when the runner is executed
+controller_family_ranking,False,measured execution must be audited before ranking or comparison claims
+paper_level_benchmark_result,False,single public diagnostic execution is not paper-level evidence
+level3_self_identification,False,measured rollout does not test wrong-history or history necessity by itself

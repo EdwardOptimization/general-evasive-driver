@@ -1,0 +1,4 @@
+termination_reason,episode_count,success_rate,collision_rate,clearance_margin_mean,return_mean,steps_mean,all_selected_metrics_finite
+,38,1.0,0.0,2.289894422101019,28.22428340878803,26.210526315789473,True
+obstacle_collision,109,0.0,1.0,-0.3751806363903089,-10.401483330490676,18.220183486238533,True
+off_track,813,0.0,0.05043050430504305,25.211773166905218,4.024853820914689,18.83148831488315,True

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design
+m1975-executable-v2-task-quality-calibrated-repaired-measured-execution
 ```
 
 Current next task:
 
 ```text
-m1975-executable-v2-task-quality-calibrated-repaired-measured-execution
+m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -161,8 +161,15 @@ measured execution remains blocked until then. M1974 freezes that command for
 M1975 using repaired specs/workload, output
 `runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired`,
 eval seed base `197500`, and targets `960` episodes / `80` specs / `12`
-profiles. M1975 may run the frozen measured execution command; interpretation
-is deferred to M1976 result synthesis.
+profiles. M1975 runs the frozen measured execution command and passes the
+execution/metadata gates: `960` episodes, failures `0`, metric completeness
+failures `0`, guardrail `0`, source-kind and role-surface quotas pass,
+environment rollout started, policy action executed, and no training/replay/PPO
+or ranking/paper/self-ID claim. Raw outcomes remain low-support and
+offtrack-dominated: success `38`, collision failure `150`, offtrack
+noncollision noncompletion `772`. M1976 must synthesize M1966-M1975 before any
+additional local repair or rerun; execution completeness is now proven, but
+controller-family ranking and paper-level comparison remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

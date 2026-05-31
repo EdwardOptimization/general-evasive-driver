@@ -1,0 +1,180 @@
+{
+  "id": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_measured_execution_synthesis"
+    ],
+    "parent_dataset": [
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+      "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
+      "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json",
+      "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json",
+      "experiments/manifests/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.json"
+    ],
+    "parent_objective": [
+      "synthesize M1966-M1975 repaired measured execution branch and choose the next branch"
+    ],
+    "derived_from": [
+      "m1966-executable-v2-task-quality-calibrated-measured-execution",
+      "m1975-executable-v2-task-quality-calibrated-repaired-measured-execution"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1966-M1975",
+      "M1975 produced complete measured execution evidence but raw outcomes remain low-support and offtrack-dominated"
+    ],
+    "supersedes": [
+      "continuing local measured-execution repair without branch-level synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+  "public_gates": [
+    "M1976 must synthesize M1966-M1975 repaired measured execution evidence",
+    "M1976 must separate execution completeness from controller-ranking readiness",
+    "M1976 must classify the M1966 metadata failure and the M1975 low-support outcome blocker",
+    "M1976 must decide the next branch without rerun or profile tuning",
+    "M1976 must keep paper and level3 claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_measured_execution_synthesis",
+    "evidence_increment": "synthesizes the repaired measured execution branch after metadata repair reset validation and 960-row rollout completion",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary is incomplete",
+      "stop if supported and unsupported claims are not separated",
+      "stop if synthesis overclaims complete measured execution as comparison-ready evidence"
+    ],
+    "fallback_plan": [
+      "pivot to outcome localization if raw outcome support is low",
+      "pivot to measured comparison design only if synthesis finds support sufficient",
+      "route to task-quality repair if offtrack dominance remains the primary blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M1966-M1975 repaired measured execution branch cadence",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated repaired measured execution branch synthesis",
+    "admission_evidence": [
+      "M1975 completed repaired calibrated measured execution with 960 rows and zero runner metric or guardrail failures",
+      "workflow cadence requires synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout in synthesis",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+      "M1976 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next branch"
+    ],
+    "next_stage_criteria": [
+      "M1966-M1975 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "public overfit and local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1976."
+    ],
+    "temporal_evidence_window": "M1966-M1975 repaired measured execution branch artifacts.",
+    "negative_result_policy": "If outcome support remains weak, route to localization or task-quality repair before ranking.",
+    "allowed_claims": [
+      "workflow and task-quality repaired measured execution branch synthesis",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns ten repaired measured-execution milestones into a next-branch decision",
+    "paper_verdict_delta": "decides whether the repaired public diagnostic route is ready for comparison, localization, repair, or pivot",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "The M1966-M1975 branch evidence is sufficient to choose a next branch without continuing local search.",
+  "success_criteria": [
+    "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md exists",
+    "evidence summary covers M1966-M1975",
+    "supported and unsupported claims are explicit",
+    "public gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "evidence summary is incomplete",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "reset rollout measured execution training replay or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_measured_execution_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.md",
+    "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json",
+    "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/episode_rows.csv"
+  ],
+  "decision_rule": "M1976 passes if it synthesizes branch evidence and chooses the next branch without overclaiming.",
+  "next_blocker": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis"
+}

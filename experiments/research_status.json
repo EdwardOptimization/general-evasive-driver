@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1983,
+    "completed": 1984,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md",
+    "command_log": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired",
     "status": "completed",
-    "task_id": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design"
+    "task_id": "m1975-executable-v2-task-quality-calibrated-repaired-measured-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1975-executable-v2-task-quality-calibrated-repaired-measured-execution.json",
-    "hypothesis": "The repaired calibrated measured runner can execute the M1969 960-cell public diagnostic workload with complete metadata-preserving episode rows and no guardrail violations.",
-    "id": "m1975-executable-v2-task-quality-calibrated-repaired-measured-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run repaired calibrated 960-cell measured execution command without ranking or paper claims",
-    "priority": 19700,
+    "command": "see experiments/manifests/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.json",
+    "hypothesis": "The M1966-M1975 branch evidence is sufficient to choose a next branch without continuing local search.",
+    "id": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize repaired measured execution branch; separate execution completeness from comparison readiness and choose next branch",
+    "priority": 19710,
     "status": "pending",
-    "success_artifact": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json"
+    "success_artifact": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md"
   },
-  "updated_at_utc": "20260531T113213Z"
+  "updated_at_utc": "20260531T113957Z"
 }
