@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2036,
+    "completed": 2037,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+    "command_log": "docs/m2028-paper-route-t2-t3-source-generation-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit"
+    "task_id": "m2028-paper-route-t2-t3-source-generation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2028-paper-route-t2-t3-source-generation-design.json",
-    "hypothesis": "A no-rollout design can specify clean T2/T3 same-family source generation that preserves the paper-route controller contract and source-diversity thresholds.",
-    "id": "m2028-paper-route-t2-t3-source-generation-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout T2/T3 same-family source generation after M2027 pivot; no execution or ranking",
-    "priority": 20230,
+    "command": "see experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json",
+    "hypothesis": "A no-rollout preflight can generate clean T2/T3 source rows with enough source-kind slack to make the controlled comparison panel projection ready.",
+    "id": "m2029-paper-route-t2-t3-source-generation-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rollout T2/T3 source-generation preflight over M2026 repaired panel sources",
+    "priority": 20240,
     "status": "pending",
-    "success_artifact": "docs/m2028-paper-route-t2-t3-source-generation-design.md"
+    "success_artifact": "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T170529Z"
+  "updated_at_utc": "20260531T171201Z"
 }

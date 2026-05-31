@@ -1,0 +1,183 @@
+{
+  "id": "m2029-paper-route-t2-t3-source-generation-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_t2_t3_source_generation_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_panel_sources.csv",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_source_coverage.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2028-paper-route-t2-t3-source-generation-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout T2/T3 source-generation preflight and projected coverage check"
+    ],
+    "derived_from": [
+      "m2028-paper-route-t2-t3-source-generation-design"
+    ],
+    "blocked_by": [
+      "M2028 admits no-rollout T2/T3 source-generation preflight implementation"
+    ],
+    "supersedes": [
+      "direct routing smoke from M2026 partial source repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2029-paper-route-t2-t3-source-generation-preflight-implementation.md",
+  "public_gates": [
+    "M2029 must not reset the environment or execute policy actions",
+    "M2029 must generate exactly the registered T2/T3 source rows unless it fails closed",
+    "M2029 must write source specs generated panel sources merged panel sources coverage projection generation actions and claim boundary artifacts",
+    "M2029 must preserve actor-input and claim boundaries",
+    "M2029 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not relabel T4/T5 rows as T2/T3",
+    "do not weaken source-kind thresholds",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_t2_t3_source_generation",
+    "evidence_axis": "Q_fair_controller_matrix_t2_t3_source_generation_preflight",
+    "evidence_increment": "materializes no-rollout T2/T3 source specs and projected coverage artifacts",
+    "claim_scope": "source-generation preflight only; no execution driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if generation needs hidden/oracle actor inputs",
+      "stop if generation relabels T4/T5 rows as T2/T3",
+      "stop if projected coverage fails and the reason cannot be localized",
+      "stop if implementation would execute policy actions"
+    ],
+    "fallback_plan": [
+      "route to result audit if generation artifacts are written",
+      "route to threshold/source-kind semantics audit if projected coverage fails despite clean source generation",
+      "route to branch synthesis if source generation becomes another local repair loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2028 admits no-rollout implementation after source-generation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T2/T3 source-generation preflight implementation",
+    "admission_evidence": [
+      "M2028 defines T2/T3 quotas source semantics and artifact contract"
+    ],
+    "blocked_shortcuts": [
+      "do not run execution",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_t2_t3_source_generation_preflight.py",
+      "tests/test_paper_route_t2_t3_source_generation_preflight.py",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight",
+      "docs/m2029-paper-route-t2-t3-source-generation-preflight-implementation.md",
+      "M2029 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "generated source specs exist",
+      "merged panel sources exist",
+      "projected coverage exists",
+      "guardrail violation count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2029 generates source rows only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2029."
+    ],
+    "temporal_evidence_window": "M2028 source-generation design and M2026 repaired panel sources.",
+    "negative_result_policy": "If generated coverage is partial or fail-closed, route to audit instead of execution.",
+    "allowed_claims": [
+      "T2/T3 source-generation preflight implementation",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates new source-generation artifacts rather than repairing the same public panel rows",
+    "paper_verdict_delta": "can make the controlled comparison panel ready for future routing smoke if projected coverage passes",
+    "must_synthesize_if": [
+      "M2029 cannot generate clean T2/T3 source rows",
+      "M2029 generated rows do not improve projected coverage",
+      "M2029 would need threshold weakening to pass"
+    ]
+  },
+  "hypothesis": "A no-rollout preflight can generate clean T2/T3 source rows with enough source-kind slack to make the controlled comparison panel projection ready.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json exists",
+    "generated source specs merged panel sources projected coverage and claim boundary artifacts exist",
+    "projected T1/T2/T3/T4/T5 coverage passes source count and source-kind share",
+    "guardrail_violation_count is 0",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "source-generation tool is missing",
+    "source-generation artifacts are missing",
+    "generation changes actor inputs or controller profiles",
+    "generation relabels T4/T5 rows as T2/T3",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rollout T2/T3 source-generation preflight and run it on M2026 repaired panel sources"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_projection.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2029-paper-route-t2-t3-source-generation-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_t2_t3_source_generation_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_panel_sources.csv"
+  ],
+  "decision_rule": "M2029 passes if it writes clean no-rollout source-generation artifacts and projected coverage passes all five task families without claim-boundary violations.",
+  "next_blocker": "m2029-paper-route-t2-t3-source-generation-preflight-implementation"
+}

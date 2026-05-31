@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2028 designs no-rollout T2/T3 source generation with T2 plus 36 rows T3 plus 18 rows source-kind slack and no execution",
+  "failure_criteria": [
+    "design is missing",
+    "T2/T3 semantics are ambiguous",
+    "design weakens thresholds instead of generating sources",
+    "design depends on oracle actor inputs",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not relabel T4/T5 rows as T2/T3",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T171249Z",
+  "hypothesis": "A no-rollout design can specify clean T2/T3 same-family source generation that preserves the paper-route controller contract and source-diversity thresholds.",
+  "lineage": {
+    "blocked_by": [
+      "M2027 pivots from same-artifact repair to T2/T3 same-family source generation"
+    ],
+    "derived_from": [
+      "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_t2_t3_source_generation_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/coverage_comparison.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design a no-rollout source-generation branch for unresolved T2/T3 source-kind diversity"
+    ],
+    "supersedes": [
+      "another same-artifact source repair over M2023/M2026 rows",
+      "direct routing smoke from partial panel readiness"
+    ]
+  },
+  "milestone": "m2028-paper-route-t2-t3-source-generation-design",
+  "next_blocker": "m2028-paper-route-t2-t3-source-generation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "t2_t3_source_generation_design_admit_no_rollout_preflight_implementation",
+  "public_gates": [
+    "M2028 must design source-diverse T2/T3 source generation without rollout",
+    "M2028 must preserve T2 same-current different-older-history semantics",
+    "M2028 must preserve T3 active diagnostic warmup semantics",
+    "M2028 must not weaken the source-kind share threshold without a separate semantics audit",
+    "M2028 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "t2_t3_source_generation_design_admit_no_rollout_preflight_implementation",
+    "milestone": "m2028-paper-route-t2-t3-source-generation-design",
+    "reason": "M2028 designs no-rollout T2/T3 source generation with T2 plus 36 rows T3 plus 18 rows source-kind slack and no execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2028-paper-route-t2-t3-source-generation-design.md exists",
+    "T2 source-generation semantics and quotas are specified",
+    "T3 source-generation semantics and quotas are specified",
+    "guardrails and claim boundaries remain intact",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "type": "gate"
+}

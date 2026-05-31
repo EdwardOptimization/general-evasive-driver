@@ -35333,3 +35333,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2028-paper-route-t2-t3-source-generation-design.json`
 - next: `m2028-paper-route-t2-t3-source-generation-design`
+
+## M2028 Paper-Route T2/T3 Source Generation Design
+
+- status: completed
+- decision: `t2_t3_source_generation_design_admit_no_rollout_preflight_implementation`
+- doc: `docs/m2028-paper-route-t2-t3-source-generation-design.md`
+- governing plans: `docs/self-id-go-no-go-paper-route-plan.md`, `docs/paper-route-finite-window-vs-gru-plan.md`
+- reset/rollout/measured execution in M2028: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- current T2 blocker: dominant source kind `21/36 = 0.5833`; target add `36` non-dominant rows for projected `21/72 = 0.2917`
+- current T3 blocker: dominant source kind `9/24 = 0.3750`; target add `18` warmup rows for projected `9/42 = 0.2143`
+- design: no-rollout M2029 preflight should write generated specs, generated panel sources, merged panel sources, projected coverage, generation actions, claim boundary, and summary
+- boundary: design only; no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json`
+- next: `m2029-paper-route-t2-t3-source-generation-preflight-implementation`
