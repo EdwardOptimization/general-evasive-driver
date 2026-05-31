@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1930,
+    "completed": 1931,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
+    "command_log": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
+    "run_dir": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
     "status": "completed",
-    "task_id": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation"
+    "task_id": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.json",
-    "hypothesis": "The M1921 template can be given an exact source-mining execution command and acceptance gates without running source mining in the design milestone.",
-    "id": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design",
-    "kind": "gate",
-    "notes": "Pending: register exact source-mining execution command and acceptance gates",
-    "priority": 19170,
+    "command": "see experiments/manifests/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.json",
+    "hypothesis": "The M1921 640-row template can be scanned by the existing source-mining helper with clean counts and guardrails.",
+    "id": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: execute source mining over 640-row scenario redesign template",
+    "priority": 19180,
     "status": "pending",
-    "success_artifact": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md"
+    "success_artifact": "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json"
   },
-  "updated_at_utc": "20260531T071334Z"
+  "updated_at_utc": "20260531T071638Z"
 }

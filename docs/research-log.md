@@ -33249,3 +33249,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim-boundary counts: `labels_enter_actor_input=0 ranking_admissible_by_default=0 positive_support_gate_required=512`
 - follow-up manifest: `experiments/manifests/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.json`
 - next: `m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design`
+
+## M1922 Executable V2 Task-Quality Scenario Redesign Source-Mining Execution Design
+
+- status: completed
+- decision: `task_quality_scenario_source_mining_execution_design_admit_execution`
+- doc: `docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md`
+- input template: `configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json`
+- source mining/reset/rollout/measured execution in M1922: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- exact command: run `autodrift.executable_v2_support_first_source_mining` over the 640-row template into `runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution`
+- target counts: `candidate_source_count=640 candidate_profile_count=640 role_count=4 supported_source_count>0 accepted_cell_count_total>0`
+- interpretation boundary: Tier/split support is deferred to M1924 result audit because source-mining summary does not directly aggregate new scenario-quality fields
+- follow-up manifest: `experiments/manifests/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.json`
+- next: `m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution`

@@ -1,0 +1,170 @@
+{
+  "id": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_source_mining_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+      "configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.json"
+    ],
+    "parent_objective": [
+      "run source mining over the deterministic 640-row scenario redesign template"
+    ],
+    "derived_from": [
+      "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design"
+    ],
+    "blocked_by": [
+      "M1922 designed the command but did not run source mining"
+    ],
+    "supersedes": [
+      "manual source-mining execution without fixed gates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.md",
+  "public_gates": [
+    "M1923 must run exactly the M1922 source-mining command",
+    "M1923 must produce target source/profile counts and required artifacts",
+    "M1923 must keep reset rollout measured execution training replay PPO controller ranking paper claims and level3 self-ID blocked",
+    "M1923 must defer tier/split interpretation to M1924 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_source_mining_execution",
+    "evidence_increment": "executes grid/source mining over the first fresh 640-row scenario redesign template",
+    "claim_scope": "source-mining execution only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if source-mining execution fails",
+      "stop if target counts or guardrails fail",
+      "stop if tier/split interpretation would be claimed before audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if execution passes",
+      "route to failure audit if target counts fail",
+      "route to schema repair if template fields break source mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1922 admitted source-mining execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "scenario redesign source-mining execution",
+    "admission_evidence": [
+      "M1922 fixed exact source-mining command and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs",
+      "do not interpret tier support before audit"
+    ],
+    "allowed_updates": [
+      "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/*",
+      "M1923 execution document",
+      "M1923 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit failure audit or schema repair"
+    ],
+    "next_stage_criteria": [
+      "source-mining artifacts exist",
+      "target counts and guardrails pass",
+      "tier/split interpretation remains deferred",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source mining does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1923."
+    ],
+    "temporal_evidence_window": "M1921 template and M1922 command design.",
+    "negative_result_policy": "If source mining finds no support, record it as scenario-quality evidence and audit before changing thresholds.",
+    "allowed_claims": [
+      "task-quality source-mining execution result",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates the first mined source-support artifacts for the new scenario redesign branch",
+    "paper_verdict_delta": "can materially update scenario-quality feasibility after result audit",
+    "must_synthesize_if": [
+      "M1923 source mining fails due to template/schema mismatch",
+      "M1923 produces zero supported sources",
+      "M1923 would require threshold tuning before result audit"
+    ]
+  },
+  "hypothesis": "The M1921 640-row template can be scanned by the existing source-mining helper with clean counts and guardrails.",
+  "success_criteria": [
+    "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json exists",
+    "candidate_source_count is 640",
+    "candidate_profile_count is 640",
+    "role_count is 4",
+    "supported_source_count is greater than 0",
+    "accepted_cell_count_total is greater than 0",
+    "labels_enter_actor_input_count is 0",
+    "materialized_row_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "source-mining command diverges from M1922",
+    "target counts fail",
+    "guardrail violations occur",
+    "tier/split interpretation or ranking is claimed before audit"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_support_first_source_mining --candidate-rows configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json --output-dir runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution --support-evidence-artifact configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json --support-evidence-stage task_quality_scenario_redesign_source_mining_v0 --claim-boundary-context project_artifact_execution --next-blocker m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_source_mining_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+    "configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json"
+  ],
+  "decision_rule": "M1923 passes if source mining executes over the 640-row template with target counts and clean guardrails while interpretation remains deferred.",
+  "next_blocker": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution"
+}

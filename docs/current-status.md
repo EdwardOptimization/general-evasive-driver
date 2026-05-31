@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1921-executable-v2-task-quality-scenario-redesign-template-implementation
+m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design
 ```
 
 Current next task:
 
 ```text
-m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design
+m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -238,7 +238,9 @@ candidate-template generator, wrote
 focused tests passed (`4 passed`). M1922 must now register the exact
 source-mining execution command and acceptance gates before any source mining,
 reset, rollout, measured execution, training, replay, PPO, controller ranking,
-paper-level claims, or level3 self-ID claims.
+paper-level claims, or level3 self-ID claims. M1922 registered that command and
+target gates over the 640-row template. M1923 must now run source mining only;
+tier/split interpretation is deferred to a later result audit.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
