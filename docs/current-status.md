@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit
+m1962-executable-v2-task-quality-calibrated-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m1962-executable-v2-task-quality-calibrated-measured-execution-design
+m1963-executable-v2-task-quality-calibrated-measured-runner-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -93,7 +93,12 @@ controller comparison. M1961 audits it as clean reset-validity evidence for the
 calibrated 80-spec panel and admits measured execution design, while keeping
 direct execution, controller ranking, paper-level claim, and level3 self-ID
 blocked. M1962 must now design a metadata-preserving measured execution route
-over the M1958 960-row planned workload.
+over the M1958 960-row planned workload. M1962 audits runner compatibility and
+chooses a focused calibrated measured runner: the old task-quality measured
+runner has reusable rollout primitives, but its output schema does not preserve
+calibrated repair metadata as first-class episode/aggregate fields. M1963 must
+now implement that adapter with focused tests only; real measured execution and
+ranking remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

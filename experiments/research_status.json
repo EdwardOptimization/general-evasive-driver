@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1970,
+    "completed": 1971,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+    "command_log": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit"
+    "task_id": "m1962-executable-v2-task-quality-calibrated-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1962-executable-v2-task-quality-calibrated-measured-execution-design.json",
-    "hypothesis": "A measured execution protocol can be designed for the reset-valid M1958 calibrated panel while preserving calibrated source metadata and keeping ranking claims blocked.",
-    "id": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design metadata-preserving measured execution route for M1958 planned workload after M1960 reset pass",
-    "priority": 19570,
+    "command": "see experiments/manifests/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.json",
+    "hypothesis": "A focused calibrated measured runner adapter can preserve M1958 repair metadata and support synthetic execution tests without running real measured rollout.",
+    "id": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement metadata-preserving calibrated measured runner adapter with focused tests only",
+    "priority": 19580,
     "status": "pending",
-    "success_artifact": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md"
+    "success_artifact": "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py"
   },
-  "updated_at_utc": "20260531T104000Z"
+  "updated_at_utc": "20260531T104152Z"
 }

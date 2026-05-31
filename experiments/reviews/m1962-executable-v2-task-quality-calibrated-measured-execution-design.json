@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1962 requires a focused calibrated measured runner before execution because legacy runner outputs do not preserve repair-source metadata as first-class evidence",
+  "failure_criteria": [
+    "design document is missing",
+    "measured execution route is ambiguous",
+    "target counts are ambiguous",
+    "metadata preservation is not specified",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T104336Z",
+  "hypothesis": "A measured execution protocol can be designed for the reset-valid M1958 calibrated panel while preserving calibrated source metadata and keeping ranking claims blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M1961 admits measured execution design but no exact runner protocol is frozen"
+    ],
+    "derived_from": [
+      "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_measured_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_objective": [
+      "design measured execution route for reset-valid calibrated task-quality panel"
+    ],
+    "supersedes": [
+      "direct measured execution without metadata-preserving protocol design"
+    ]
+  },
+  "milestone": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
+  "next_blocker": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_measured_execution_design_requires_focused_runner",
+  "public_gates": [
+    "M1962 must design the exact measured execution route for the M1958 planned workload",
+    "M1962 must preserve calibrated source metadata and controller profile provenance",
+    "M1962 must specify target counts output artifacts and pass/fail gates",
+    "M1962 must keep controller ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_measured_execution_design_requires_focused_runner",
+    "milestone": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
+    "reason": "M1962 requires a focused calibrated measured runner before execution because legacy runner outputs do not preserve repair-source metadata as first-class evidence",
+    "reset_success": "1.0000000000",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md exists",
+    "measured execution inputs outputs and pass gates are explicit",
+    "target workload count is 960",
+    "metadata preservation requirements are explicit",
+    "next implementation or command route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

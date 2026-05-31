@@ -34105,3 +34105,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: measured execution design next; direct execution and ranking remain blocked
 - follow-up manifest: `experiments/manifests/m1962-executable-v2-task-quality-calibrated-measured-execution-design.json`
 - next: `m1962-executable-v2-task-quality-calibrated-measured-execution-design`
+
+## M1962 Executable V2 Task-Quality Calibrated Measured Execution Design
+
+- status: completed
+- decision: `task_quality_calibrated_measured_execution_design_requires_focused_runner`
+- doc: `docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- rollout/measured execution in M1962: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- compatibility audit: legacy M1936 runner can reuse rollout primitives but does not preserve calibrated metadata such as repair source kind, quota name, parent feasibility tier, normalized surface, base geometry source, and representative cell rule as first-class episode/aggregate fields
+- design decision: implement focused calibrated measured-runner adapter before any real 960-cell rollout
+- target: `80` reset-valid executable specs x `12` controller profiles = `960` public diagnostic rollout cells
+- staged route: M1963 adapter/tests only, M1964 exact command design, M1965 real measured execution, M1966 result audit
+- unsupported claims: rollout success, controller ranking, policy improvement, finite-window-vs-GRU comparison, paper-level evidence, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.json`
+- next: `m1963-executable-v2-task-quality-calibrated-measured-runner-implementation`
