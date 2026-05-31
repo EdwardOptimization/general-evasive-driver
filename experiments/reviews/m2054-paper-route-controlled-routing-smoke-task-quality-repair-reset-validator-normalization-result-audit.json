@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2054 audits M2053 reset pass and synthesizes M2044-M2053 task-quality repair branch promote_to_next_branch measured execution command design",
+  "failure_criteria": [
+    "audit/synthesis doc is missing",
+    "M2053 reset result is not audited",
+    "evidence summary omits materialization or reset validation",
+    "synthesis overclaims reset validity as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T195753Z",
+  "hypothesis": "M2053 reset-validity pass and M2044-M2053 evidence are sufficient to promote from task-quality repair to measured-execution command design without local-search drift.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_controlled_routing_smoke_task_quality_repair",
+      "M2053 requires result audit before measured execution design"
+    ],
+    "derived_from": [
+      "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design",
+      "m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validator_normalization_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.json"
+    ],
+    "parent_dataset": [
+      "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+      "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json",
+      "runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json",
+      "docs/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.md"
+    ],
+    "parent_objective": [
+      "audit repaired reset-validation pass and synthesize task-quality repair branch"
+    ],
+    "supersedes": [
+      "direct measured execution design without reset result audit and branch synthesis"
+    ]
+  },
+  "milestone": "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit",
+  "next_blocker": "m2055-selected-by-m2054-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_task_quality_repair_synthesis_promote_to_measured_execution_command_design",
+  "public_gates": [
+    "M2054 must audit M2053 repaired reset-validation result",
+    "M2054 must synthesize M2044-M2053 task-quality repair branch evidence",
+    "M2054 must choose continue pivot stop or promote-to-next-branch",
+    "M2054 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_task_quality_repair_synthesis_promote_to_measured_execution_command_design",
+    "milestone": "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit",
+    "reason": "M2054 audits M2053 reset pass and synthesizes M2044-M2053 task-quality repair branch promote_to_next_branch measured execution command design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md exists",
+    "M2053 reset result is audited",
+    "M2044-M2053 evidence summary is complete",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy and public overfit risk are assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking paper or self-ID claim is made"
+  ],
+  "type": "gate"
+}

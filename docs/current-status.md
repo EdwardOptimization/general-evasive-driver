@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair
+m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit
+m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design
 ```
 
-Immediate route: M2053 repairs the generated-proxy key normalization artifact
-and reruns reset validation. The repaired run passes: `192/192` reset success,
-reset failures `0`, finite observations `192`, observation-dimension failures
-`0`, contract violations `0`, metadata missing `0`, forbidden-key violations
-`0`, all quota gates including generated-proxy pass, and guardrail `0`. M2054
-must audit this result and synthesize the M2044-M2053 task-quality repair
-branch before measured-execution command design. Measured execution, ranking,
+Immediate route: M2054 audits the M2053 repaired reset-validation pass and
+synthesizes the M2044-M2053 task-quality repair branch. The branch is promoted
+to measured-execution command design: the repaired panel is now `192` specs,
+`2304` workload rows, and reset-valid with contract/metadata/guardrail `0`.
+M2055 must audit runner compatibility and freeze the measured-execution command
+for the repaired workload before any rollout. Measured execution, ranking,
 paper claims, and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
