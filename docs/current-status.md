@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design
+m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation
 ```
 
 Current next task:
 
 ```text
-m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation
+m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -42,9 +42,10 @@ audit this zero-row validation failure and routes to a bounded
 `selection_quota_name` compatibility design because M1986 has complete
 `repair_axis` provenance. M2005 designs that compatibility: use
 `selection_quota_name` when present, otherwise fall back to `repair_axis`, and
-fail closed if both are missing. M2006 may implement focused runner tests only.
-Interpretation, controller-family ranking, paper-level claims, and level3
-self-ID remain blocked.
+fail closed if both are missing. M2006 implements the focused compatibility
+repair with tests `6 passed`; M2007 must audit it before measured execution
+rerun command design. Interpretation, controller-family ranking, paper-level
+claims, and level3 self-ID remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

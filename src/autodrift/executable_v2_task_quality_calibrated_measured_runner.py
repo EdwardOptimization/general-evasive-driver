@@ -82,6 +82,7 @@ CALIBRATED_PASSTHROUGH_FIELDS = (
     "task_source_id",
     "candidate_source_id",
     "repair_candidate_id",
+    "repair_axis",
     "repair_source_kind",
     "selection_quota_name",
     "source_role_semantics",
@@ -152,6 +153,10 @@ def _group_counts(rows: Iterable[Mapping[str, Any]], keys: tuple[str, ...]) -> d
     return dict(sorted(counts.items()))
 
 
+def _repair_axis_provenance(row: Mapping[str, Any]) -> str:
+    return str(row.get("selection_quota_name", "")).strip() or str(row.get("repair_axis", "")).strip()
+
+
 def quota_metadata_missing_rows(rows: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
     missing_rows: list[dict[str, Any]] = []
     for index, row in enumerate(rows):
@@ -200,6 +205,11 @@ def _spec_metadata(spec: Mapping[str, Any]) -> dict[str, Any]:
 
 def calibrated_metadata_row(workload_row: Mapping[str, Any], spec: Mapping[str, Any]) -> dict[str, Any]:
     row = {field: str(workload_row.get(field, spec.get(field, ""))) for field in CALIBRATED_PASSTHROUGH_FIELDS}
+    repair_axis = str(workload_row.get("repair_axis", spec.get("repair_axis", "")))
+    if not row.get("repair_axis", "").strip():
+        row["repair_axis"] = repair_axis
+    if not row.get("selection_quota_name", "").strip():
+        row["selection_quota_name"] = repair_axis
     row.update(_spec_metadata(spec))
     return row
 
@@ -285,7 +295,6 @@ def validation_failure_rows(
         "profile_config_path",
         "checkpoint_path",
         "repair_source_kind",
-        "selection_quota_name",
         "source_role_semantics",
         "normalized_surface_variant",
     )
@@ -294,7 +303,6 @@ def validation_failure_rows(
         "candidate_source_id",
         "repair_candidate_id",
         "repair_source_kind",
-        "selection_quota_name",
         "source_role_semantics",
         "parent_feasibility_tier_id",
         "normalized_surface_variant",
@@ -307,6 +315,14 @@ def validation_failure_rows(
             failures.append({"workload_id": workload_id, "error_type": "duplicate_workload_id", "error_message": str(count)})
     for spec in executable_specs:
         task_source_id = str(spec.get("task_source_id", ""))
+        if not _repair_axis_provenance(spec):
+            failures.append(
+                {
+                    "workload_id": task_source_id,
+                    "error_type": "missing_repair_axis_provenance",
+                    "error_message": "selection_quota_name_or_repair_axis",
+                }
+            )
         for field in required_spec_fields:
             if field == "env_config":
                 if not isinstance(spec.get(field), Mapping):
@@ -318,6 +334,14 @@ def validation_failure_rows(
                 failures.append({"workload_id": task_source_id, "error_type": "missing_spec_field", "error_message": field})
     for index, row in enumerate(workload_rows):
         workload_id = str(row.get("workload_id", f"row_{index}"))
+        if not _repair_axis_provenance(row):
+            failures.append(
+                {
+                    "workload_id": workload_id,
+                    "error_type": "missing_repair_axis_provenance",
+                    "error_message": "selection_quota_name_or_repair_axis",
+                }
+            )
         for field in required_workload_fields:
             if not str(row.get(field, "")).strip():
                 failures.append({"workload_id": workload_id, "error_type": "missing_workload_field", "error_message": field})

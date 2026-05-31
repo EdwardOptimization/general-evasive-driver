@@ -17,6 +17,7 @@ def _spec(
         "task_source_id": task_id,
         "candidate_source_id": f"{task_id}_candidate",
         "repair_candidate_id": f"{task_id}_repair",
+        "repair_axis": f"{kind}_{surface}",
         "repair_source_kind": kind,
         "selection_quota_name": f"{kind}_{surface}",
         "source_role_semantics": role,
@@ -57,6 +58,7 @@ def _workload(
         "task_source_id": task_id,
         "candidate_source_id": f"{task_id}_candidate",
         "repair_source_kind": kind,
+        "repair_axis": f"{kind}_{surface}",
         "selection_quota_name": f"{kind}_{surface}",
         "source_role_semantics": role,
         "parent_feasibility_tier_id": "tier_b_feasible_emergency",
@@ -154,6 +156,7 @@ def test_calibrated_measured_runner_preserves_metadata_and_aggregates(tmp_path: 
     assert summary["guardrail_violation_count"] == 0
     episode_rows = (tmp_path / "out" / "episode_rows.csv").read_text(encoding="utf-8")
     assert "repair_source_kind" in episode_rows
+    assert "repair_axis" in episode_rows
     assert "offtrack_boundary_relief" in episode_rows
     assert "relief_surface_unspecified" in episode_rows
     assert "representative_cell_rule" in episode_rows
@@ -243,3 +246,61 @@ def test_calibrated_measured_runner_fails_closed_on_missing_quota_metadata(tmp_p
     assert "normalized_surface_variant" in missing_rows
     validation_failures = (tmp_path / "out" / "validation_failure_rows.csv").read_text(encoding="utf-8")
     assert "missing_workload_field" in validation_failures
+
+
+def test_calibrated_measured_runner_falls_back_to_repair_axis_for_selection_quota_name(tmp_path: Path) -> None:
+    specs_path = tmp_path / "specs.json"
+    workload_path = tmp_path / "workload.csv"
+    spec = _spec("task_a")
+    row = _workload("task_a", "L0_current_masked")
+    spec.pop("selection_quota_name")
+    row.pop("selection_quota_name")
+    write_json(specs_path, {"executable_task_specs": [spec]})
+    write_csv_rows(workload_path, [row])
+
+    summary = runner.run_calibrated_task_quality_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=123,
+        target_episode_count=1,
+        target_spec_count=1,
+        target_profile_count=1,
+        rollout_fn=_fake_rollout,
+    )
+
+    assert summary["result_class"] == "task_quality_calibrated_measured_execution_pass"
+    assert summary["episode_count"] == 1
+    episode_rows = (tmp_path / "out" / "episode_rows.csv").read_text(encoding="utf-8")
+    assert "repair_axis" in episode_rows
+    assert "success_stabilizer_steady_surface" in episode_rows
+    assert "selection_quota_name" in episode_rows
+
+
+def test_calibrated_measured_runner_requires_repair_axis_provenance(tmp_path: Path) -> None:
+    specs_path = tmp_path / "specs.json"
+    workload_path = tmp_path / "workload.csv"
+    spec = _spec("task_a")
+    row = _workload("task_a", "L0_current_masked")
+    for item in (spec, row):
+        item.pop("selection_quota_name")
+        item.pop("repair_axis")
+    write_json(specs_path, {"executable_task_specs": [spec]})
+    write_csv_rows(workload_path, [row])
+
+    summary = runner.run_calibrated_task_quality_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=123,
+        target_episode_count=1,
+        target_spec_count=1,
+        target_profile_count=1,
+        rollout_fn=_fake_rollout,
+    )
+
+    assert summary["result_class"] == "task_quality_calibrated_measured_execution_incomplete_or_fail"
+    assert summary["episode_count"] == 0
+    validation_failures = (tmp_path / "out" / "validation_failure_rows.csv").read_text(encoding="utf-8")
+    assert "missing_repair_axis_provenance" in validation_failures
+    assert "selection_quota_name_or_repair_axis" in validation_failures

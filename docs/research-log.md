@@ -34887,3 +34887,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: focused M2006 implementation and tests only; real measured execution remains blocked until implementation audit and command design/rerun
 - follow-up manifest: `experiments/manifests/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.json`
 - next: `m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation`
+
+## M2006 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Selection Quota Compatibility Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_selection_quota_compatibility_implementation_pass_route_to_audit`
+- doc: `docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py`
+- focused tests: `6 passed`
+- real measured execution in M2006: `false`
+- environment rollout in M2006: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- change: measured runner now materializes `selection_quota_name` from `repair_axis` when missing, preserves both fields, and fails closed with `missing_repair_axis_provenance` if both are missing
+- route: audit focused implementation before measured execution rerun command design
+- follow-up manifest: `experiments/manifests/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.json`
+- next: `m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit`
