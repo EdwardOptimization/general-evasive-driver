@@ -34744,3 +34744,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design measured-runner artifact-driven quota parameterization before 960-row measured execution command design
 - follow-up manifest: `experiments/manifests/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.json`
 - next: `m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design`
+
+## M1998 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured-Runner Quota Parameterization Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_measured_runner_quota_parameterization_design_route_to_required_branch_synthesis`
+- doc: `docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md`
+- code edited in M1998: `false`
+- reset rerun in M1998: `false`
+- rollout/measured execution in M1998: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: measured-runner expected quotas should default to the active `planned_workload.csv`, computing expected source-kind counts from `repair_source_kind` and role-surface counts from `(repair_source_kind, source_role_semantics, normalized_surface_variant)`
+- fail-closed rule: missing workload quota metadata must write `quota_metadata_missing_rows.csv`, set `quota_metadata_missing_count > 0`, and keep `result_class` incomplete/fail
+- route: M1989-M1998 has reached workflow synthesis cadence, so route to required M1999 branch synthesis before focused implementation; real 960-row measured execution remains blocked
+- follow-up manifest: `experiments/manifests/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.json`
+- next: `m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis`

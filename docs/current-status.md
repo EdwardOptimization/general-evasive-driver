@@ -16,14 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit
+m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design
 ```
 
 Current next task:
 
 ```text
-m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design
+m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis
 ```
+
+Immediate route: M1998 designs the measured-runner equivalent of the M1993
+reset-validator quota repair. Expected source-kind and role-surface quotas must
+come from the active `planned_workload.csv`, and missing quota metadata must
+fail closed. The branch has reached workflow synthesis cadence, so M1999 must
+synthesize M1989-M1998 before any focused implementation/tests. Real 960-row
+measured execution, controller-family ranking, paper-level claims, and level3
+self-ID remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

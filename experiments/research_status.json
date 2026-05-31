@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2006,
+    "completed": 2007,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+    "command_log": "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit"
+    "task_id": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.json",
-    "hypothesis": "The calibrated measured runner should use artifact-driven expected source-kind and role-surface counts from the active workload or executable specs instead of stale historical constants.",
-    "id": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design",
+    "command": "see experiments/manifests/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.json",
+    "hypothesis": "The M1989-M1998 branch evidence is sufficient to choose whether to continue to measured-runner quota implementation without local-search drift.",
+    "id": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design measured-runner artifact-driven quota repair before measured execution command design",
-    "priority": 19930,
+    "notes": "Pending: required synthesis after M1989-M1998 before focused measured-runner quota implementation",
+    "priority": 19940,
     "status": "pending",
-    "success_artifact": "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md"
+    "success_artifact": "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T132744Z"
+  "updated_at_utc": "20260531T133314Z"
 }
