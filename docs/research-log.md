@@ -34253,3 +34253,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: reset validity of repaired artifacts, measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json`
 - next: `m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit`
+
+## M1970 Executable V2 Task-Quality Calibrated Offtrack Parent-Tier Normalization Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_offtrack_parent_tier_normalization_audit_admit_repaired_reset_command_design`
+- doc: `docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md`
+- audited summary: `runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json`
+- reset/rollout/measured execution in M1970: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: repaired no-reset materialization pass with `80` specs, `960` workload cells, blank parent-tier spec/workload counts `0`, normalized sentinel counts `8` specs and `96` workload cells, source-kind and role-surface quotas pass, contract `0`, forbidden-key `0`, guardrail `0`
+- unsupported claims: reset validity of repaired artifacts, measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.json`
+- next: `m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1978,
+    "completed": 1979,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
+    "command_log": "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation"
+    "task_id": "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json",
-    "hypothesis": "M1969 repaired the offtrack parent-tier metadata blocker cleanly enough to admit repaired reset-validation design, while measured execution remains blocked.",
-    "id": "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit",
+    "command": "see experiments/manifests/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.json",
+    "hypothesis": "The repaired M1969 executable specs can be reset-validated with the focused calibrated reset validator using a frozen reset-only command.",
+    "id": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit repaired no-reset materialization before reset validation or measured execution",
-    "priority": 19650,
+    "notes": "Pending: freeze reset-only command over repaired executable specs without running reset",
+    "priority": 19660,
     "status": "pending",
-    "success_artifact": "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md"
+    "success_artifact": "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T111647Z"
+  "updated_at_utc": "20260531T112238Z"
 }

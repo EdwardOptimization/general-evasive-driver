@@ -1,0 +1,162 @@
+{
+  "id": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze reset-only command over repaired executable specs"
+    ],
+    "derived_from": [
+      "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit"
+    ],
+    "blocked_by": [
+      "repaired executable specs have not been reset-validated"
+    ],
+    "supersedes": [
+      "reusing old M1960 reset-validation artifacts after repaired materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md",
+  "public_gates": [
+    "M1971 must freeze exact reset-only command over M1969 repaired executable specs",
+    "M1971 must target 80 specs and observation dimension 72",
+    "M1971 must keep rollout measured execution ranking paper and level3 claims blocked",
+    "M1971 must not run reset"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_reset_command",
+    "evidence_increment": "freezes reset-only command for repaired executable specs after metadata repair audit",
+    "claim_scope": "command design only; no reset measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if repaired spec path is ambiguous",
+      "stop if reset target counts are ambiguous",
+      "stop if command would use stale M1958 specs"
+    ],
+    "fallback_plan": [
+      "route to repaired reset-validation execution if command is exact",
+      "route back to repaired artifact audit if paths are ambiguous",
+      "route to implementation repair if blank metadata is rediscovered"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1970 admits repaired reset command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired reset validation command design",
+    "admission_evidence": [
+      "M1970 audits repaired no-reset artifacts as clean metadata repair"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in command design",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md",
+      "M1971 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is frozen",
+      "target count and observation dimension are explicit",
+      "follow-up reset execution manifest is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1971."
+    ],
+    "temporal_evidence_window": "M1969 repaired executable specs and M1970 audit.",
+    "negative_result_policy": "If command cannot be made exact, route back to repaired artifact audit before reset execution.",
+    "allowed_claims": [
+      "repaired reset-validation command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "admits reset validation for repaired metadata artifacts",
+    "paper_verdict_delta": "can restore reset-validation evidence but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1971 cannot freeze an exact command",
+      "M1971 would be followed by another design-only step",
+      "the repaired metadata failure repeats"
+    ]
+  },
+  "hypothesis": "The repaired M1969 executable specs can be reset-validated with the focused calibrated reset validator using a frozen reset-only command.",
+  "success_criteria": [
+    "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md exists",
+    "exact reset-only command is specified",
+    "target reset/spec count is 80",
+    "expected observation dimension is 72",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "command is ambiguous",
+    "stale M1958 executable specs are used",
+    "reset rollout measured execution or ranking is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json",
+    "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md"
+  ],
+  "decision_rule": "M1971 passes if it freezes an exact reset-only command over the repaired executable specs without execution or ranking.",
+  "next_blocker": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design"
+}

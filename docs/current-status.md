@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation
+m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit
+m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -139,7 +139,12 @@ implements the sentinel and reruns no-reset materialization:
 `80` executable specs, `960` workload cells, blank parent-tier counts `0`,
 normalized sentinel counts `8` specs / `96` workload cells, and guardrail `0`.
 M1970 must audit the repaired artifacts before reset validation or measured
-execution is admitted.
+execution is admitted. M1970 audits the repair as clean no-reset metadata
+evidence: `parent_feasibility_tier_blank_spec_count=0`,
+`parent_feasibility_tier_blank_workload_count=0`, normalized sentinel counts
+`8` specs / `96` workload cells, source-kind and role-surface quotas pass, and
+guardrail `0`. M1971 must now freeze a reset-only validation command over the
+repaired executable specs; measured execution remains blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
