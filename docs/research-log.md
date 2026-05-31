@@ -34977,3 +34977,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: pivot to `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`
 - follow-up manifest: `experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json`
 - next: `m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design`
+
+## M2011 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Outcome Localization V2 Design
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_command_design_admit_no_rerun_execution`
+- branch: `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`
+- doc: `docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md`
+- source measured run: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`
+- output directory: `runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2`
+- measured execution in M2011: `false`
+- environment rollout in M2011: `false`
+- policy action execution in M2011: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: no-rerun localizer over M2009 `summary.json` and `episode_rows.csv`, target 960 episodes, 12 profiles, 4 source kinds, 4 roles, 3 normalized surfaces, 4 sampled labels
+- interpretation boundary: M2012 may identify support slices but must not rank controller families or claim paper-level evidence
+- follow-up manifest: `experiments/manifests/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.json`
+- next: `m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2`

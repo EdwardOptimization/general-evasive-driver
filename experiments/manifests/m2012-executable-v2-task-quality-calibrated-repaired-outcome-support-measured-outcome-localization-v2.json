@@ -1,0 +1,174 @@
+{
+  "id": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2"
+    ],
+    "parent_dataset": [
+      "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json"
+    ],
+    "parent_objective": [
+      "run no-rerun outcome localization over completed M2009 measured execution artifacts"
+    ],
+    "derived_from": [
+      "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design"
+    ],
+    "blocked_by": [
+      "M2011 froze the no-rerun localization command; result evidence is not yet generated"
+    ],
+    "supersedes": [
+      "manual interpretation of M2009 without localization artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
+  "public_gates": [
+    "M2012 must run only the frozen no-rerun localization command",
+    "M2012 must not reset the environment or execute policy actions",
+    "M2012 must reproduce M2009 outcome counts exactly",
+    "M2012 must write required aggregate files",
+    "M2012 must route interpretation to M2013 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2",
+    "evidence_increment": "generates no-rerun localization artifacts over completed M2009 measured execution rows",
+    "claim_scope": "localization artifact generation only; no ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if source outcome counts cannot be reproduced exactly",
+      "stop if any localizer guardrail indicates environment rollout or policy execution",
+      "stop if required aggregate files are missing"
+    ],
+    "fallback_plan": [
+      "route to M2013 audit if localization passes",
+      "route to localizer schema audit if localization fails before producing aggregates",
+      "do not repair task quality directly from a failed localizer result"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2011 freezes the localization command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "run measured outcome localization v2 as no-rerun postprocess",
+    "admission_evidence": [
+      "M2011 exact command design is complete"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2",
+      "docs/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
+      "M2012 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary.json is written",
+      "episode count and outcome counts match M2009",
+      "required aggregate files are written",
+      "M2013 audit manifest is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; no-rerun localization does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2012."
+    ],
+    "temporal_evidence_window": "M2009 measured execution rows.",
+    "negative_result_policy": "If localization shows no comparison-ready support, audit and route to task-quality repair or scenario redesign rather than ranking.",
+    "allowed_claims": [
+      "outcome localization artifact generation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2009 episode rows into slice-level outcome support diagnostics without new rollout",
+    "paper_verdict_delta": "can unblock a route decision but cannot by itself create paper-level comparison evidence",
+    "must_synthesize_if": [
+      "localization shows no comparison-ready support and another repair loop is proposed",
+      "localization identifies only singleton support",
+      "a third outcome-support repair branch is proposed without fresh scenario distribution evidence"
+    ]
+  },
+  "hypothesis": "The no-rerun localization over M2009 will reproduce source outcomes and identify whether comparison-ready or repair-support slices exist.",
+  "success_criteria": [
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json exists",
+    "result_class is task_quality_calibrated_repaired_measured_outcome_localization_pass",
+    "episode_count is 960",
+    "outcome_counts_match_source_summary is true",
+    "guardrail_violation_count is 0",
+    "no measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary.json is missing",
+    "source outcome counts are not reproduced",
+    "any localizer guardrail is violated",
+    "required aggregate files are missing",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "localize",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_repaired_measured_outcome_localization --summary runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json --episode-rows runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv --output-dir runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2 --target-episode-count 960 --target-profile-count 12 --target-source-kind-count 4 --target-role-count 4 --target-normalized-surface-count 3 --target-sampled-label-count 4 --next-blocker m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/outcome_by_profile.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/comparison_candidates.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2"
+  ],
+  "baseline_artifacts": [
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json",
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+  ],
+  "decision_rule": "M2012 passes if the frozen no-rerun localizer completes and all guardrails remain clean.",
+  "next_blocker": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2"
+}

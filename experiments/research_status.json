@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2019,
+    "completed": 2020,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
+    "command_log": "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit"
+    "task_id": "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json",
-    "hypothesis": "A no-rerun localization over M2009 can identify whether any comparison-ready or repair-support slices exist.",
-    "id": "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design",
-    "kind": "gate",
-    "notes": "Pending: freeze no-rerun outcome localization command over M2009 artifacts",
-    "priority": 20060,
+    "command": "see experiments/manifests/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.json",
+    "hypothesis": "The no-rerun localization over M2009 will reproduce source outcomes and identify whether comparison-ready or repair-support slices exist.",
+    "id": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen no-rerun localization command over M2009 artifacts",
+    "priority": 20070,
     "status": "pending",
-    "success_artifact": "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md"
+    "success_artifact": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json"
   },
-  "updated_at_utc": "20260531T142842Z"
+  "updated_at_utc": "20260531T143844Z"
 }

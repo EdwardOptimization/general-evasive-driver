@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit
+m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design
 ```
 
 Current next task:
 
 ```text
-m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design
+m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -54,9 +54,10 @@ success `40`, collision failure `265`, off-track noncollision noncompletion
 `655`. M2010 audits the result, treats the branch as complete execution but not
 comparison-ready evidence, and pivots to
 `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`.
-M2011 must freeze a no-rerun outcome localization command over M2009 artifacts.
-Controller-family ranking, paper-level claims, and level3 self-ID remain
-blocked.
+M2011 freezes a no-rerun outcome localization command over M2009 artifacts.
+M2012 must run only that postprocess command and audit-ready artifacts must be
+interpreted in M2013. Controller-family ranking, paper-level claims, and level3
+self-ID remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean
