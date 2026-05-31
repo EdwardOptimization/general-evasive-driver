@@ -1,0 +1,162 @@
+{
+  "id": "m1939-executable-v2-task-quality-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_execution_audit"
+    ],
+    "parent_dataset": [
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/profile_aggregate.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/tier_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1938-executable-v2-task-quality-measured-execution.json"
+    ],
+    "parent_objective": [
+      "audit measured execution completeness and raw outcome structure before comparison or repair"
+    ],
+    "derived_from": [
+      "m1938-executable-v2-task-quality-measured-execution"
+    ],
+    "blocked_by": [
+      "M1938 measured execution needs result audit before interpretation"
+    ],
+    "supersedes": [
+      "ranking controller families directly from M1938 summary"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+  "public_gates": [
+    "M1939 must audit M1938 completeness and guardrails",
+    "M1939 must summarize raw outcome structure",
+    "M1939 must decide outcome localization, repair, comparison, or synthesis route",
+    "M1939 must keep paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_measured_execution_result_audit",
+    "evidence_increment": "audits first measured rollout data over the reset-valid redesigned task-quality panel",
+    "claim_scope": "result audit only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1938 completeness is not actually clean",
+      "stop if raw outcome structure blocks controller comparison",
+      "stop if next route would overclaim public diagnostic data"
+    ],
+    "fallback_plan": [
+      "route to no-rerun outcome localization if raw outcome dominance is unclear",
+      "route to measured comparison design only if outcome support is sufficient",
+      "route to synthesis if this branch reaches cadence before new data"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "tenth milestone of reset execution branch after M1930-M1938",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured execution result audit",
+    "admission_evidence": [
+      "M1938 measured execution passed with 960/960 episode rows, zero failures, and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout in audit",
+      "do not rank controller families before outcome support is audited",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+      "M1939 status queue scoreboard research log and review",
+      "one follow-up manifest for outcome localization, comparison design, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M1938 pass gates are confirmed",
+      "raw outcome structure is summarized",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1939."
+    ],
+    "temporal_evidence_window": "M1938 measured execution artifacts.",
+    "negative_result_policy": "If outcome support is weak, route to localization or task-quality repair before ranking.",
+    "allowed_claims": [
+      "task-quality measured execution result audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns first measured rollout data into an explicit next evidence route",
+    "paper_verdict_delta": "can decide whether public diagnostic comparison is admissible or whether outcome localization is required",
+    "must_synthesize_if": [
+      "M1939 cannot decide next route",
+      "M1939 finds another zero-support or low-support outcome dominance",
+      "M1939 would rank controllers from incomplete evidence"
+    ]
+  },
+  "hypothesis": "The M1938 measured execution is complete enough to audit raw outcome support and choose the next route without overclaiming.",
+  "success_criteria": [
+    "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md exists",
+    "M1938 pass gates are checked",
+    "raw outcome counts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1938 counts are not checked",
+    "raw outcome structure is ignored",
+    "next route is ambiguous",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_execution_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1938_executable_v2_task_quality_measured_execution/summary.json"
+  ],
+  "decision_rule": "M1939 passes if it audits M1938 completeness and records the next route without ranking or overclaiming.",
+  "next_blocker": "m1939-executable-v2-task-quality-measured-execution-result-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1937-executable-v2-task-quality-measured-execution-command-design
+m1938-executable-v2-task-quality-measured-execution
 ```
 
 Current next task:
 
 ```text
-m1938-executable-v2-task-quality-measured-execution
+m1939-executable-v2-task-quality-measured-execution-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -308,7 +308,13 @@ measured execution command before M1938 can run the 960-cell workload. M1937
 completed that command design: M1938 must run the focused measured runner over
 the `960` public diagnostic cells with seed base `193800`, `80` target specs,
 `12` target profiles, CPU device, and output dir
-`runs/m1938_executable_v2_task_quality_measured_execution`.
+`runs/m1938_executable_v2_task_quality_measured_execution`. M1938 ran that
+measured workload and passed the execution gate: `960/960` episode rows,
+failures `0`, metric-completeness failures `0`, guardrail `0`, `80` specs,
+`12` profiles, `5` tiers, `4` roles, and `2` surfaces. Raw outcomes are not yet
+interpreted: `40` success-obstacle-pass, `105` collision failures, and `815`
+off-track noncollision noncompletion rows. M1939 must audit outcome support
+before any controller ranking, repair, or paper-level claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

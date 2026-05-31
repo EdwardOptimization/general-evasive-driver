@@ -33614,3 +33614,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_measured_runner --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --workload runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m1938_executable_v2_task_quality_measured_execution --eval-seed-base 193800 --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --device cpu --next-blocker m1939-executable-v2-task-quality-measured-execution-result-audit`
 - follow-up manifest: `experiments/manifests/m1938-executable-v2-task-quality-measured-execution.json`
 - next: `m1938-executable-v2-task-quality-measured-execution`
+
+## M1938 Executable V2 Task-Quality Measured Execution
+
+- status: completed
+- decision: `task_quality_measured_execution_pass_route_to_result_audit`
+- doc: `docs/m1938-executable-v2-task-quality-measured-execution.md`
+- summary: `runs/m1938_executable_v2_task_quality_measured_execution/summary.json`
+- episode rows: `runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv`
+- environment rollout started: `true`
+- policy action executed: `true`
+- measured rollout started: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `task_quality_measured_execution_pass`
+- episode count: `960`
+- failure count: `0`
+- spec/profile count: `80/12`
+- tier/role/surface count: `5/4/2`
+- metric completeness failures: `0`
+- guardrail violations: `0`
+- raw outcomes: `success_obstacle_pass=40 collision_failure=105 off_track_noncollision_noncompletion=815`
+- termination reasons: `obstacle_collision=90 off_track=830 empty_or_none=40`
+- follow-up manifest: `experiments/manifests/m1939-executable-v2-task-quality-measured-execution-result-audit.json`
+- next: `m1939-executable-v2-task-quality-measured-execution-result-audit`
