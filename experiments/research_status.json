@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2021,
+    "completed": 2022,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
+    "command_log": "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2"
+    "task_id": "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.json",
-    "hypothesis": "The M2012 localization result is sufficient to choose the next route without direct ranking or rerun.",
-    "id": "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit localization v2 candidate support and stale claim-boundary wording before route decision",
-    "priority": 20080,
+    "command": "see experiments/manifests/m2014-bounded-comparison-candidate-qualification-implementation-and-run.json",
+    "hypothesis": "A deterministic no-rerun qualification pass can decide whether the M2012 candidate is admissible for bounded comparison design.",
+    "id": "m2014-bounded-comparison-candidate-qualification-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun bounded comparison candidate qualification over M2012 artifacts",
+    "priority": 20090,
     "status": "pending",
-    "success_artifact": "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md"
+    "success_artifact": "runs/m2014_bounded_comparison_candidate_qualification/summary.json"
   },
-  "updated_at_utc": "20260531T144121Z"
+  "updated_at_utc": "20260531T144544Z"
 }

@@ -35019,3 +35019,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - caveat: `claim_boundary.csv` has stale M1977/M1975 wording although summary paths, guardrails, and aggregates point to M2009/M2012
 - follow-up manifest: `experiments/manifests/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.json`
 - next: `m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit`
+
+## M2013 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Outcome Localization V2 Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_localization_v2_audit_route_to_bounded_comparison_qualification`
+- branch: `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`
+- doc: `docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md`
+- audited summary: `runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json`
+- next branch: `paper_route_bounded_comparison_candidate_qualification`
+- reset/rollout/measured execution in M2013: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2012 localization is complete and exact-count matching, with guardrail violations `0`
+- candidate decision: one stable-AES localizer-labeled comparison candidate is actionable for qualification (`17/60` success, `2/60` collision, `41/60` offtrack) but not ranking-ready
+- diagnostic: L2 total success remains `0`; this is not a finite-window-vs-GRU conclusion
+- artifact caveat: stale M1977/M1975 claim-boundary wording is classified as text-only and nonblocking for localization pass
+- follow-up manifest: `experiments/manifests/m2014-bounded-comparison-candidate-qualification-implementation-and-run.json`
+- next: `m2014-bounded-comparison-candidate-qualification-implementation-and-run`

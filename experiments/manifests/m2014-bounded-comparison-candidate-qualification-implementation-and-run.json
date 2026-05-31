@@ -1,0 +1,183 @@
+{
+  "id": "m2014-bounded-comparison-candidate-qualification-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_comparison_candidate_qualification"
+    ],
+    "parent_dataset": [
+      "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/comparison_support_candidates.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/outcome_by_profile.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/outcome_by_profile_source_kind.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/l2_zero_success_diagnostic.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.json"
+    ],
+    "parent_objective": [
+      "qualify localizer-labeled comparison candidates before any controller-family ranking"
+    ],
+    "derived_from": [
+      "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit"
+    ],
+    "blocked_by": [
+      "M2013 admits bounded qualification but rejects direct ranking from the single localizer-labeled candidate"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M2012 comparison_ready_candidate_count"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+  "public_gates": [
+    "M2014 must implement a no-rerun candidate qualification tool or equivalent deterministic postprocess",
+    "M2014 must read only M2012 localization artifacts",
+    "M2014 must not reset the environment or execute policy actions",
+    "M2014 must separate qualification from ranking",
+    "M2014 must write structured admitted and rejected candidate rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bounded_comparison_candidate_qualification",
+    "evidence_axis": "Q_bounded_comparison_candidate_qualification",
+    "evidence_increment": "turns M2012 localizer-labeled candidates into explicit admit/reject qualification decisions before ranking",
+    "claim_scope": "candidate qualification only; no controller ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if qualification requires new rollout",
+      "stop if candidate rules rank controller families",
+      "stop if qualification cannot explain admission or rejection reasons",
+      "stop if no candidate is admitted and another local repair is proposed without synthesis"
+    ],
+    "fallback_plan": [
+      "route to bounded comparison design if at least one candidate is admitted",
+      "route to targeted task-quality repair or scenario redesign if no candidate is admitted",
+      "route to artifact text repair if stale localizer text blocks clean exports"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2013 routes to bounded comparison qualification",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded comparison candidate qualification postprocess",
+    "admission_evidence": [
+      "M2013 found one actionable localizer-labeled comparison-ready candidate but rejected direct ranking"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not tune controller profiles",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/bounded_comparison_candidate_qualification.py",
+      "tests/test_bounded_comparison_candidate_qualification.py",
+      "runs/m2014_bounded_comparison_candidate_qualification",
+      "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+      "M2014 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit or next route"
+    ],
+    "next_stage_criteria": [
+      "qualification summary is written",
+      "candidate admit/reject rows are written",
+      "guardrails show no rollout or ranking",
+      "M2015 route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; candidate qualification does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2014."
+    ],
+    "temporal_evidence_window": "M2012 localization artifacts.",
+    "negative_result_policy": "If no candidate qualifies, do not rank; route to repair/redesign or synthesis.",
+    "allowed_claims": [
+      "bounded comparison candidate qualification",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds explicit comparison-readiness qualification instead of accepting or rejecting a localizer label by narrative",
+    "paper_verdict_delta": "can decide whether bounded controller-family comparison is admissible from M2012 support",
+    "must_synthesize_if": [
+      "no candidate is admitted",
+      "only singleton support is admitted and another repair loop is proposed",
+      "qualification requires thresholds to be repeatedly changed"
+    ]
+  },
+  "hypothesis": "A deterministic no-rerun qualification pass can decide whether the M2012 candidate is admissible for bounded comparison design.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2014_bounded_comparison_candidate_qualification/summary.json exists",
+    "candidate qualification rows are written",
+    "guardrail_violation_count is 0",
+    "the output separates admitted and rejected candidates",
+    "no ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "qualification tool is missing",
+    "qualification output is missing",
+    "candidate decisions lack explicit reasons",
+    "environment rollout or policy action execution occurs",
+    "controller-family ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rerun bounded comparison candidate qualification and run it on M2012 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2014_bounded_comparison_candidate_qualification/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2014_bounded_comparison_candidate_qualification/candidate_qualification_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_comparison_candidate_qualification"
+  ],
+  "baseline_artifacts": [
+    "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/comparison_support_candidates.csv"
+  ],
+  "decision_rule": "M2014 passes if it produces no-rerun admit/reject candidate qualification rows with clean guardrails.",
+  "next_blocker": "m2014-bounded-comparison-candidate-qualification-implementation-and-run"
+}
