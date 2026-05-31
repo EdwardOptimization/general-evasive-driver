@@ -32797,3 +32797,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.json`
 - next: `m1902-executable-v2-support-first-task-quality-repair-axis-materialization`
+
+## M1902 Executable V2 Support-First Task-Quality Repair-Axis Materialization
+
+- status: completed
+- decision: `task_quality_repair_axis_materialization_pass_route_to_result_audit`
+- doc: `docs/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.md`
+- helper: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json`
+- result class: `task_quality_repair_axis_materialization_pass`
+- source episode rows read: `960`
+- base original rows: `192`
+- source specs: `16`
+- controller profiles: `12`
+- role surfaces: `8`
+- repair-axis variants: `8`
+- repair-axis matrix rows: `1536 / 1536`
+- original retained rows: `192`
+- geometry rollout variant rows for later design: `960`
+- role-surface axis target rows: `25`
+- duplicate axis keys: `0`
+- guardrail violation count: `0`
+- environment reset/rollout/measured execution in M1902: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: no-rollout baseline-preserving repair-axis matrix materialized with count-complete artifacts
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.json`
+- next: `m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit`

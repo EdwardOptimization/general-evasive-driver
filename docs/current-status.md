@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1901-executable-v2-support-first-task-quality-repair-axis-design
+m1902-executable-v2-support-first-task-quality-repair-axis-materialization
 ```
 
 Current next task:
 
 ```text
-m1902-executable-v2-support-first-task-quality-repair-axis-materialization
+m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -152,9 +152,12 @@ defined that design as an eight-variant baseline-preserving repair-axis matrix:
 `contained_reaction_distance_plus`, and `mitigation_scored_semantics`. The axes
 separate baseline retention, post-clearance containment/recovery,
 contained-collision clearance feasibility, and unavoidable mitigation semantics.
-M1902 must now implement and run only the no-rollout materialization of this
-matrix before any reset, rollout, measured execution, controller ranking,
-training, PPO, paper-level claim, or level3 self-ID claim.
+M1902 implemented and ran the no-rollout materializer: `1536` matrix rows, `8`
+variants, `16` source specs, `12` controller profiles, `192`
+`original_retained` rows, all role surfaces represented, duplicate axis keys
+`0`, guardrail `0`, and no reset/rollout/measured execution/training/PPO.
+M1903 must now audit the materialized matrix before any execution design,
+controller ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

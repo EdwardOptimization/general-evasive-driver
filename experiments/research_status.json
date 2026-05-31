@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1910,
+    "completed": 1911,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md",
+    "command_log": "docs/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.md",
     "returncode": 0,
-    "run_dir": "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md",
+    "run_dir": "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization",
     "status": "completed",
-    "task_id": "m1901-executable-v2-support-first-task-quality-repair-axis-design"
+    "task_id": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.json",
-    "hypothesis": "A no-rollout materializer can emit the M1901 eight-variant repair-axis matrix while preserving baseline metadata, controller profiles, and actor-input boundaries.",
-    "id": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout task-quality repair-axis materialization",
-    "priority": 18970,
+    "command": "see experiments/manifests/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.json",
+    "hypothesis": "M1902 materialization can be audited as a clean baseline-preserving repair-axis panel ready for execution design.",
+    "id": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1902 repair-axis materialization before execution design or synthesis",
+    "priority": 18980,
     "status": "pending",
-    "success_artifact": "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json"
+    "success_artifact": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260531T051913Z"
+  "updated_at_utc": "20260531T052829Z"
 }

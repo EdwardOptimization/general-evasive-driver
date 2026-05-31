@@ -1,0 +1,101 @@
+{
+  "decision_reason": "M1902 materializes 1536 no-rollout axis rows across 8 variants 16 sources and 12 profiles with original baseline retained duplicate axis keys 0 guardrail 0 and ranking blocked",
+  "failure_criteria": [
+    "materialization runs reset rollout measured execution training replay or PPO",
+    "actor inputs are changed",
+    "controller profiles are tuned or dropped",
+    "original_retained baseline rows are missing",
+    "repair axes are merged into one scalar variant",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T053014Z",
+  "hypothesis": "A no-rollout materializer can emit the M1901 eight-variant repair-axis matrix while preserving baseline metadata, controller profiles, and actor-input boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M1901 admits no-rollout repair-axis materialization before any execution or ranking"
+    ],
+    "derived_from": [
+      "m1901-executable-v2-support-first-task-quality-repair-axis-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_materialization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1901-executable-v2-support-first-task-quality-repair-axis-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md",
+      "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/near_miss_rows.csv",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/role_surface_conflict_aggregate.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json"
+    ],
+    "parent_objective": [
+      "materialize a no-rollout baseline-preserving task-quality repair-axis matrix"
+    ],
+    "supersedes": [
+      "repeat of the old broad road_relaxed and finish_extended variants"
+    ]
+  },
+  "milestone": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization",
+  "next_blocker": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_repair_axis_materialization_pass_route_to_result_audit",
+  "public_gates": [
+    "M1902 must implement and run only no-rollout materialization",
+    "M1902 must emit original_retained role_semantics_only post-clearance containment contained-clearance and mitigation semantics variants",
+    "M1902 must preserve original baseline support-first metadata controller profiles and actor inputs",
+    "M1902 must not run environment reset rollout measured execution training replay PPO private holdout controller ranking paper claims or level3 self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_repair_axis_materialization_pass_route_to_result_audit",
+    "milestone": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization",
+    "reason": "M1902 materializes 1536 no-rollout axis rows across 8 variants 16 sources and 12 profiles with original baseline retained duplicate axis keys 0 guardrail 0 and ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json exists",
+    "task_quality_repair_axis_matrix.csv exists",
+    "task_quality_repair_axis_spec.json exists",
+    "role_surface_axis_target_map.csv exists",
+    "source spec count is 16",
+    "controller profile count is 12",
+    "repair-axis variant count is 8",
+    "expected matrix rows is 1536",
+    "original_retained rows is 192",
+    "all controller profiles and role surfaces remain represented",
+    "guardrail violation count is zero"
+  ],
+  "type": "infrastructure"
+}

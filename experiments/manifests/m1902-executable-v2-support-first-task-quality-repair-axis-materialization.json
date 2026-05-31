@@ -188,5 +188,5 @@
     "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json"
   ],
   "decision_rule": "M1902 passes if it emits a baseline-preserving no-rollout repair-axis matrix with count-complete artifacts and zero guardrail violations.",
-  "next_blocker": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization"
+  "next_blocker": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit"
 }
