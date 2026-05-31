@@ -1,0 +1,187 @@
+{
+  "id": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_outcome_localization"
+    ],
+    "parent_dataset": [
+      "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1941-executable-v2-task-quality-measured-outcome-localization-design.json"
+    ],
+    "parent_objective": [
+      "implement and run bounded no-rerun outcome localization over M1938 measured artifacts"
+    ],
+    "derived_from": [
+      "m1941-executable-v2-task-quality-measured-outcome-localization-design"
+    ],
+    "blocked_by": [
+      "M1938 outcome support is low and off-track dominated; direct ranking remains blocked"
+    ],
+    "supersedes": [
+      "direct controller ranking from low-support M1938 outcomes"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.md",
+  "public_gates": [
+    "M1942 must not rerun reset rollout measured execution training replay PPO or profile tuning",
+    "M1942 must load exactly 960 M1938 episode rows",
+    "M1942 must preserve source outcome counts from M1938 summary",
+    "M1942 must write required profile tier role surface label source and L2 diagnostic tables",
+    "M1942 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_measured_outcome_localization",
+    "evidence_axis": "Q_task_quality_measured_outcome_localization",
+    "evidence_increment": "converts complete M1938 measured outcomes into no-rerun localization artifacts for route selection",
+    "claim_scope": "diagnostic outcome localization only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if source outcome counts cannot be reproduced",
+      "stop if localization outputs are empty or missing",
+      "stop if implementation would require rerun before no-rerun artifact analysis",
+      "stop if ranking is inferred from diagnostic slices"
+    ],
+    "fallback_plan": [
+      "route to failure audit if any source-count or guardrail gate fails",
+      "route to result audit if no-rerun localization completes",
+      "route to task-quality repair or scenario redesign only after M1943 audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "second milestone in outcome localization branch after M1940 pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured outcome localization implementation and no-rerun execution",
+    "admission_evidence": [
+      "M1941 defines bounded no-rerun localization questions, slices, outputs, and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run new environment interaction",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_measured_outcome_localization.py",
+      "tests/test_executable_v2_task_quality_measured_outcome_localization.py",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/*",
+      "M1942 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "M1938 episode rows are loaded without rerun",
+      "source outcome counts are reproduced",
+      "diagnostic aggregate artifacts are written",
+      "claim boundary remains blocked for ranking and paper-level conclusions"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; outcome localization does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1942."
+    ],
+    "temporal_evidence_window": "M1938 measured execution artifacts.",
+    "negative_result_policy": "If no comparison-ready support slice exists, route to task-quality repair or scenario redesign rather than local ranking.",
+    "allowed_claims": [
+      "no-rerun task-quality measured outcome localization",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "re-analyzes the complete 960-row measured panel across source/profile/scenario slices before choosing repair or comparison",
+    "paper_verdict_delta": "can decide whether M1938 contains any comparison-ready support slice or only task-quality repair evidence",
+    "must_synthesize_if": [
+      "localization cannot reproduce M1938 source counts",
+      "localization yields only another narrow table without route decision",
+      "comparison claims are made from diagnostic slices"
+    ]
+  },
+  "hypothesis": "A no-rerun localization implementation can reproduce M1938 source counts and identify whether outcome support is concentrated enough for later comparison design.",
+  "success_criteria": [
+    "focused tests for the localizer pass",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json exists",
+    "episode_count equals 960",
+    "source outcome counts match M1938 summary",
+    "required aggregate and diagnostic files are written",
+    "guardrail violation count is zero",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "source episode rows cannot be loaded",
+    "source outcome counts do not match M1938 summary",
+    "required aggregate or diagnostic files are missing",
+    "any rerun or ranking guardrail is violated"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_measured_outcome_localization.py"
+    },
+    {
+      "name": "localize",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_measured_outcome_localization --summary runs/m1938_executable_v2_task_quality_measured_execution/summary.json --episode-rows runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv --output-dir runs/m1942_executable_v2_task_quality_measured_outcome_localization --target-episode-count 960 --target-profile-count 12 --target-tier-count 5 --target-role-count 4 --target-surface-count 2 --next-blocker m1943-executable-v2-task-quality-measured-outcome-localization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_measured_outcome_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_measured_outcome_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/claim_boundary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_outcome_localization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+    "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+    "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1942 passes if it implements and runs no-rerun localization over M1938 artifacts with source-count reproduction and guardrail cleanliness.",
+  "next_blocker": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run"
+}

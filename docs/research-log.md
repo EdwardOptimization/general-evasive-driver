@@ -33681,3 +33681,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public gate overfit risk: `medium_high`
 - follow-up manifest: `experiments/manifests/m1941-executable-v2-task-quality-measured-outcome-localization-design.json`
 - next: `m1941-executable-v2-task-quality-measured-outcome-localization-design`
+
+## M1941 Executable V2 Task-Quality Measured Outcome Localization Design
+
+- status: completed
+- decision: `task_quality_measured_outcome_localization_design_admit_implementation_and_run`
+- doc: `docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md`
+- branch: `paper_route_task_quality_measured_outcome_localization`
+- no-rerun localization in M1941: `false`
+- reset/rollout/measured execution in M1941: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- source measured run: `runs/m1938_executable_v2_task_quality_measured_execution`
+- design: M1942 must postprocess only existing M1938 CSV/JSON artifacts, reproduce 960 rows and source outcome counts, write profile/tier/role/surface/label/source localization tables, and keep comparison/ranking blocked
+- support labels: `no_support`, `weak_support`, `candidate_support`, `comparison_ready_candidate`
+- L2 diagnostic: localize all-zero L2 success by tier/role/surface/label and same-source contrasts without concluding finite-window inferiority
+- follow-up manifest: `experiments/manifests/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.json`
+- next: `m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run`

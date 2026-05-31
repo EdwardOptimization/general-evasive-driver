@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1941 defines no-rerun outcome localization slices support labels L2 zero-success diagnostic pass gates and M1942 implementation-and-run route while ranking paper and self-ID claims remain blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "localization questions are ambiguous",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T085542Z",
+  "hypothesis": "A bounded no-rerun localization design can determine whether M1938 outcomes support comparison, repair, or scenario redesign.",
+  "lineage": {
+    "blocked_by": [
+      "M1940 pivoted to outcome localization before ranking or repair"
+    ],
+    "derived_from": [
+      "m1940-executable-v2-task-quality-reset-execution-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_outcome_localization_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/profile_aggregate.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/tier_aggregate.csv"
+    ],
+    "parent_objective": [
+      "design no-rerun outcome localization over M1938 measured artifacts"
+    ],
+    "supersedes": [
+      "direct controller ranking from low-support M1938 outcomes"
+    ]
+  },
+  "milestone": "m1941-executable-v2-task-quality-measured-outcome-localization-design",
+  "next_blocker": "m1941-executable-v2-task-quality-measured-outcome-localization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_measured_outcome_localization_design_admit_implementation_and_run",
+  "public_gates": [
+    "M1941 must design a no-rerun localization pass over M1938 artifacts",
+    "M1941 must define output slices and target questions",
+    "M1941 must keep ranking paper and level3 claims blocked",
+    "M1941 must not run new measured execution"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_measured_outcome_localization_design_admit_implementation_and_run",
+    "milestone": "m1941-executable-v2-task-quality-measured-outcome-localization-design",
+    "reason": "M1941 defines no-rerun outcome localization slices support labels L2 zero-success diagnostic pass gates and M1942 implementation-and-run route while ranking paper and self-ID claims remain blocked",
+    "reset_success": "0.0416666667",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md exists",
+    "input artifacts are named",
+    "localization slices and questions are explicit",
+    "next implementation manifest is created",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
