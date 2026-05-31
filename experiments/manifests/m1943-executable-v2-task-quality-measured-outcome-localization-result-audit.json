@@ -1,0 +1,165 @@
+{
+  "id": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_outcome_localization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.md",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/outcome_by_profile.csv",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/l2_zero_success_diagnostic.csv",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/comparison_support_candidates.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun measured outcome localization result and choose next route"
+    ],
+    "derived_from": [
+      "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M1942 found zero comparison-ready slices and persistent off-track dominance"
+    ],
+    "supersedes": [
+      "direct controller ranking from diagnostic localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M1943 must audit M1942 without rerun or ranking",
+    "M1943 must decide whether next route is task-quality repair support collection scenario redesign or bounded comparison design",
+    "M1943 must explicitly interpret comparison_ready_candidate_count zero",
+    "M1943 must keep L2 zero-success as diagnostic unless evidence supports a controlled comparison"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_measured_outcome_localization",
+    "evidence_axis": "Q_task_quality_measured_outcome_route_audit",
+    "evidence_increment": "turns M1942 diagnostic localization into a next-route decision",
+    "claim_scope": "result audit and route decision only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if route remains ambiguous",
+      "stop if audit treats candidate-support slices as ranking evidence",
+      "stop if L2 zero-success is overclaimed as a controller-family conclusion"
+    ],
+    "fallback_plan": [
+      "route to task-quality repair if off-track dominance is the primary blocker",
+      "route to support collection if positive support is narrow but useful",
+      "route to scenario redesign if no useful support slice exists",
+      "route to bounded comparison design only if support rules justify it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "third milestone in outcome localization branch after M1940 pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured outcome localization result audit",
+    "admission_evidence": [
+      "M1942 produced complete no-rerun localization artifacts with zero comparison-ready slices and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run new environment interaction",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+      "M1943 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M1942 findings are summarized",
+      "comparison readiness is explicitly accepted or rejected",
+      "next branch route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1943."
+    ],
+    "temporal_evidence_window": "M1938 measured execution and M1942 localization artifacts.",
+    "negative_result_policy": "If no comparison-ready support slice exists, route away from ranking and toward task-quality repair or support collection.",
+    "allowed_claims": [
+      "task-quality measured outcome localization result audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts no-rerun localization findings into a branch route decision",
+    "paper_verdict_delta": "can decide whether M1938 is usable for comparison or should route to task-quality repair/support collection",
+    "must_synthesize_if": [
+      "M1943 route decision is ambiguous",
+      "M1943 would continue with another localization table without changing evidence",
+      "M1943 would rank controllers from diagnostic slices"
+    ]
+  },
+  "hypothesis": "M1942 localization results are sufficient to choose the next route without direct ranking or rerun.",
+  "success_criteria": [
+    "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md exists",
+    "M1942 result class and key counts are audited",
+    "comparison readiness is explicitly evaluated",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "comparison readiness is ambiguous",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_outcome_localization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.md",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1943 passes if it audits M1942 and chooses a route without overclaiming diagnostic public outcomes.",
+  "next_blocker": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit"
+}

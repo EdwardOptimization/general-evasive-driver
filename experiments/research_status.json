@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1950,
+    "completed": 1951,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+    "command_log": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+    "run_dir": "runs/m1942_executable_v2_task_quality_measured_outcome_localization",
     "status": "completed",
-    "task_id": "m1941-executable-v2-task-quality-measured-outcome-localization-design"
+    "task_id": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.json",
-    "hypothesis": "A no-rerun localization implementation can reproduce M1938 source counts and identify whether outcome support is concentrated enough for later comparison design.",
-    "id": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused no-rerun localization, run tests, and localize M1938 outcomes without reset rollout training or ranking",
-    "priority": 19370,
+    "command": "see experiments/manifests/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.json",
+    "hypothesis": "M1942 localization results are sufficient to choose the next route without direct ranking or rerun.",
+    "id": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1942 localization result and route next work without ranking or overclaiming L2 diagnostic pattern",
+    "priority": 19380,
     "status": "pending",
-    "success_artifact": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json"
+    "success_artifact": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md"
   },
-  "updated_at_utc": "20260531T085337Z"
+  "updated_at_utc": "20260531T090153Z"
 }

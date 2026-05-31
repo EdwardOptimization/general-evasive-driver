@@ -33700,3 +33700,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - L2 diagnostic: localize all-zero L2 success by tier/role/surface/label and same-source contrasts without concluding finite-window inferiority
 - follow-up manifest: `experiments/manifests/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.json`
 - next: `m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run`
+
+## M1942 Executable V2 Task-Quality Measured Outcome Localization Implementation And Run
+
+- status: completed
+- decision: `task_quality_measured_outcome_localization_pass_route_to_result_audit`
+- result class: `task_quality_measured_outcome_localization_pass`
+- doc: `docs/m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run.md`
+- implementation: `src/autodrift/executable_v2_task_quality_measured_outcome_localization.py`
+- focused tests: `2 passed`
+- summary: `runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json`
+- source measured run: `runs/m1938_executable_v2_task_quality_measured_execution`
+- reset/rollout/measured execution in M1942: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- source reproduction: `960` rows, outcome counts match M1938 summary exactly
+- outcome counts: `40` success, `105` collision, `815` off-track noncollision noncompletion
+- comparison readiness: `0` comparison-ready slices, `2` candidate-support slices
+- L2 diagnostic: `0` total L2 successes, `320` L2 diagnostic rows, `136` same-slice non-L2-success/L2-zero patterns
+- blocker: off-track dominance remains the primary task-quality blocker; direct ranking remains blocked
+- follow-up manifest: `experiments/manifests/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.json`
+- next: `m1943-executable-v2-task-quality-measured-outcome-localization-result-audit`

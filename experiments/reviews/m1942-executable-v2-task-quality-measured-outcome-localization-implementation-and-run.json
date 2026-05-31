@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1942 localizes M1938 outcomes without rerun: 960 rows source counts match guardrail 0 comparison-ready 0 candidate-support 2 L2 success 0 offtrack dominance remains primary blocker",
+  "failure_criteria": [
+    "focused tests fail",
+    "source episode rows cannot be loaded",
+    "source outcome counts do not match M1938 summary",
+    "required aggregate or diagnostic files are missing",
+    "any rerun or ranking guardrail is violated"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T090528Z",
+  "hypothesis": "A no-rerun localization implementation can reproduce M1938 source counts and identify whether outcome support is concentrated enough for later comparison design.",
+  "lineage": {
+    "blocked_by": [
+      "M1938 outcome support is low and off-track dominated; direct ranking remains blocked"
+    ],
+    "derived_from": [
+      "m1941-executable-v2-task-quality-measured-outcome-localization-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_outcome_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1941-executable-v2-task-quality-measured-outcome-localization-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "implement and run bounded no-rerun outcome localization over M1938 measured artifacts"
+    ],
+    "supersedes": [
+      "direct controller ranking from low-support M1938 outcomes"
+    ]
+  },
+  "milestone": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run",
+  "next_blocker": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_measured_outcome_localization_pass_route_to_result_audit",
+  "public_gates": [
+    "M1942 must not rerun reset rollout measured execution training replay PPO or profile tuning",
+    "M1942 must load exactly 960 M1938 episode rows",
+    "M1942 must preserve source outcome counts from M1938 summary",
+    "M1942 must write required profile tier role surface label source and L2 diagnostic tables",
+    "M1942 must keep ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_measured_outcome_localization_pass_route_to_result_audit",
+    "milestone": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run",
+    "reason": "M1942 localizes M1938 outcomes without rerun: 960 rows source counts match guardrail 0 comparison-ready 0 candidate-support 2 L2 success 0 offtrack dominance remains primary blocker",
+    "reset_success": "0.0416666667",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests for the localizer pass",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json exists",
+    "episode_count equals 960",
+    "source outcome counts match M1938 summary",
+    "required aggregate and diagnostic files are written",
+    "guardrail violation count is zero",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "type": "infrastructure"
+}
