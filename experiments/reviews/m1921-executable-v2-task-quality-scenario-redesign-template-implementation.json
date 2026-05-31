@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1921 implements deterministic 640-row candidate template generator with config artifact and focused tests 4 passed",
+  "failure_criteria": [
+    "template generator is missing",
+    "target counts fail",
+    "focused tests fail",
+    "labels or ranking fields leak into actor input",
+    "source mining or rollout is run in M1921",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run source mining execution",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T071536Z",
+  "hypothesis": "A deterministic template generator can materialize the M1920 640-row scenario redesign candidate set without source-mining execution or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M1920 requires a deterministic 640-row template generator before source-mining execution"
+    ],
+    "derived_from": [
+      "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_template_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md",
+      "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md"
+    ],
+    "parent_objective": [
+      "implement deterministic candidate templates for the scenario redesign source-mining branch"
+    ],
+    "supersedes": [
+      "manual ad hoc source-mining candidate CSVs"
+    ]
+  },
+  "milestone": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation",
+  "next_blocker": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_scenario_template_implementation_pass_admit_source_mining_execution_design",
+  "public_gates": [
+    "M1921 must implement deterministic scenario-redesign candidate templates and focused tests",
+    "M1921 must target 640 candidate rows across 5 tiers 4 roles 2 surfaces 4 speeds and 4 mu buckets",
+    "M1921 must keep labels and ranking fields out of actor input",
+    "M1921 must not run source mining reset rollout measured execution training replay PPO controller ranking paper claims or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_scenario_template_implementation_pass_admit_source_mining_execution_design",
+    "milestone": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation",
+    "reason": "M1921 implements deterministic 640-row candidate template generator with config artifact and focused tests 4 passed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "template generator source exists",
+    "focused tests pass",
+    "generated template summary has 640 candidate rows across required tiers roles surfaces speeds and mu buckets",
+    "labels_enter_actor_input_count is 0",
+    "ranking_admissible_by_default_count is 0",
+    "next manifest is explicit",
+    "no source mining reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "infrastructure"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1920-executable-v2-task-quality-scenario-redesign-source-mining-design
+m1921-executable-v2-task-quality-scenario-redesign-template-implementation
 ```
 
 Current next task:
 
 ```text
-m1921-executable-v2-task-quality-scenario-redesign-template-implementation
+m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -232,8 +232,11 @@ fresh source splits, role-separated metrics, and a positive-support gate before
 ranking. M1920 designed the exact source-mining schema and acceptance gates:
 the first wave targets `640` candidate rows across `5` feasibility tiers, `4`
 roles, `2` surfaces, `4` speed buckets, and `4` mu buckets, with labels and
-ranking blocked from actor input. M1921 must now implement the deterministic
-candidate-template generator and focused tests without running source mining,
+ranking blocked from actor input. M1921 implemented that deterministic
+candidate-template generator, wrote
+`configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json`, and
+focused tests passed (`4 passed`). M1922 must now register the exact
+source-mining execution command and acceptance gates before any source mining,
 reset, rollout, measured execution, training, replay, PPO, controller ranking,
 paper-level claims, or level3 self-ID claims.
 

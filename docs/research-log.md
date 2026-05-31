@@ -33229,3 +33229,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - gates: positive support required before ranking; Tier A/B joint support and Tier C/D near-miss support required in later source-mining execution
 - follow-up manifest: `experiments/manifests/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.json`
 - next: `m1921-executable-v2-task-quality-scenario-redesign-template-implementation`
+
+## M1921 Executable V2 Task-Quality Scenario Redesign Template Implementation
+
+- status: completed
+- decision: `task_quality_scenario_template_implementation_pass_admit_source_mining_execution_design`
+- doc: `docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md`
+- source: `src/autodrift/executable_v2_task_quality_scenario_redesign_templates.py`
+- tests: `tests/test_executable_v2_task_quality_scenario_redesign_templates.py`
+- generated template: `configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json`
+- focused tests: `4 passed`
+- source mining/reset/rollout/measured execution in M1921: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- template counts: `640` candidate rows, `5` tiers, `4` roles, `2` surfaces, `4` speed buckets, `4` mu buckets
+- split counts: `public_debug=384 public_gate=192 paper_holdout_candidate=64`
+- claim-boundary counts: `labels_enter_actor_input=0 ranking_admissible_by_default=0 positive_support_gate_required=512`
+- follow-up manifest: `experiments/manifests/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.json`
+- next: `m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design`

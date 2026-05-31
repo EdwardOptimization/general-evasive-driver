@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1929,
+    "completed": 1930,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md",
+    "command_log": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md",
+    "run_dir": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
     "status": "completed",
-    "task_id": "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design"
+    "task_id": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.json",
-    "hypothesis": "A deterministic template generator can materialize the M1920 640-row scenario redesign candidate set without source-mining execution or ranking.",
-    "id": "m1921-executable-v2-task-quality-scenario-redesign-template-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic 640-row candidate template generator and focused tests",
-    "priority": 19160,
+    "command": "see experiments/manifests/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.json",
+    "hypothesis": "The M1921 template can be given an exact source-mining execution command and acceptance gates without running source mining in the design milestone.",
+    "id": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design",
+    "kind": "gate",
+    "notes": "Pending: register exact source-mining execution command and acceptance gates",
+    "priority": 19170,
     "status": "pending",
-    "success_artifact": "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md"
+    "success_artifact": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md"
   },
-  "updated_at_utc": "20260531T070827Z"
+  "updated_at_utc": "20260531T071334Z"
 }

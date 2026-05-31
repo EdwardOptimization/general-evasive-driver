@@ -1,0 +1,164 @@
+{
+  "id": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_source_mining_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
+      "configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.json"
+    ],
+    "parent_objective": [
+      "register exact source-mining execution command and gates for the M1921 template"
+    ],
+    "derived_from": [
+      "m1921-executable-v2-task-quality-scenario-redesign-template-implementation"
+    ],
+    "blocked_by": [
+      "M1921 generated the candidate template but did not run source mining"
+    ],
+    "supersedes": [
+      "running source mining without an explicit command/gate design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+  "public_gates": [
+    "M1922 must register the exact source-mining execution command over the M1921 template",
+    "M1922 must define target counts and acceptance gates before execution",
+    "M1922 must keep reset rollout measured execution training replay PPO controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run source mining execution",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_source_mining_execution_design",
+    "evidence_increment": "fixes the exact source-mining execution route before running the generated template",
+    "claim_scope": "command design only; no source-mining execution reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts are ambiguous",
+      "stop if acceptance gates do not enforce positive-support discipline",
+      "stop if the command would run rollout or ranking"
+    ],
+    "fallback_plan": [
+      "route to source-mining execution if command design is complete",
+      "route to template repair if counts cannot be derived",
+      "route to branch synthesis if positive-support gates cannot be stated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1921 generated the concrete 640-row template artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-mining execution command design",
+    "admission_evidence": [
+      "M1921 generated configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json with 640 candidate rows and clean claim boundaries"
+    ],
+    "blocked_shortcuts": [
+      "do not run source mining execution",
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1922 command-design document",
+      "M1922 status queue scoreboard research log and review",
+      "one follow-up manifest for source-mining execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is written",
+      "target counts and gates are explicit",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1922."
+    ],
+    "temporal_evidence_window": "M1921 template artifact and M1920 design.",
+    "negative_result_policy": "If command/gates cannot be defined, repair the source-mining schema rather than weakening scenario-quality gates.",
+    "allowed_claims": [
+      "task-quality source-mining execution design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the concrete template artifact into an execution-ready source-mining route",
+    "paper_verdict_delta": "can admit source-mining execution but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "M1922 cannot define target counts",
+      "M1922 cannot define positive-support gates",
+      "M1922 would run source mining or rollout prematurely"
+    ]
+  },
+  "hypothesis": "The M1921 template can be given an exact source-mining execution command and acceptance gates without running source mining in the design milestone.",
+  "success_criteria": [
+    "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md exists",
+    "exact source-mining command is defined",
+    "target counts and acceptance gates are defined",
+    "follow-up execution manifest is explicit",
+    "no source mining reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "command-design document is missing",
+    "source-mining command is ambiguous",
+    "acceptance gates are ambiguous",
+    "source mining or rollout is run in M1922",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_source_mining_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.md",
+    "configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json"
+  ],
+  "decision_rule": "M1922 passes if it registers exact source-mining execution command and gates without running execution rollout or ranking.",
+  "next_blocker": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design"
+}
