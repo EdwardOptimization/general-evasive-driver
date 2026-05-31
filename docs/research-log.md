@@ -34870,3 +34870,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design bounded selection_quota_name compatibility using repair_axis fallback; no code or rerun in audit
 - follow-up manifest: `experiments/manifests/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.json`
 - next: `m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design`
+
+## M2005 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Selection Quota Compatibility Design
+
+- status: completed
+- decision: `task_quality_calibrated_selection_quota_compatibility_design_admit_focused_implementation`
+- doc: `docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md`
+- code edited in M2005: `false`
+- measured execution in M2005: `false`
+- environment rollout in M2005: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: measured runner should accept `selection_quota_name` when present or fall back to `repair_axis` when present, materialize both fields in outputs, and fail closed when both are missing
+- route: focused M2006 implementation and tests only; real measured execution remains blocked until implementation audit and command design/rerun
+- follow-up manifest: `experiments/manifests/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.json`
+- next: `m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation`

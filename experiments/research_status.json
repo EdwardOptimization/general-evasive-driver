@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2013,
+    "completed": 2014,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+    "command_log": "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit"
+    "task_id": "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.json",
-    "hypothesis": "The measured runner can safely accept repair_axis as the newer provenance field when selection_quota_name is absent, while still failing closed when both are missing.",
-    "id": "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design",
-    "kind": "gate",
-    "notes": "Pending: design measured-runner selection_quota_name compatibility with repair_axis fallback",
-    "priority": 20000,
+    "command": "see experiments/manifests/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.json",
+    "hypothesis": "Runner-side selection_quota_name fallback to repair_axis can validate M1986-style artifacts without accepting missing repair provenance.",
+    "id": "m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused selection_quota_name compatibility repair and tests; no real measured execution",
+    "priority": 20010,
     "status": "pending",
-    "success_artifact": "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md"
+    "success_artifact": "docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md"
   },
-  "updated_at_utc": "20260531T135749Z"
+  "updated_at_utc": "20260531T140009Z"
 }

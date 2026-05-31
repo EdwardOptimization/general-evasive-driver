@@ -1,0 +1,163 @@
+{
+  "id": "m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.json"
+    ],
+    "parent_objective": [
+      "implement measured-runner selection_quota_name compatibility with repair_axis fallback"
+    ],
+    "derived_from": [
+      "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design"
+    ],
+    "blocked_by": [
+      "M2003 failed closed because M1986 artifacts have repair_axis but not selection_quota_name"
+    ],
+    "supersedes": [
+      "rerunning M2003 without selection quota compatibility"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md",
+  "public_gates": [
+    "M2006 must implement repair_axis fallback for missing selection_quota_name",
+    "M2006 must fail closed when both provenance fields are missing",
+    "M2006 must add focused tests",
+    "M2006 must not run real measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout except focused fake-rollout unit tests",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_implementation",
+    "evidence_increment": "implements local schema compatibility needed before rerunning measured execution",
+    "claim_scope": "infrastructure compatibility repair only; no real measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if focused tests fail",
+      "stop if implementation accepts rows missing both provenance fields",
+      "stop if implementation mutates M1986 artifacts in place"
+    ],
+    "fallback_plan": [
+      "route back to design if fallback semantics are ambiguous",
+      "route to implementation audit if focused tests pass",
+      "route to artifact rematerialization if runner-side compatibility is unsafe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2005 admits focused compatibility implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "selection quota compatibility implementation",
+    "admission_evidence": [
+      "M2005 designs selection_quota_name fallback to repair_axis"
+    ],
+    "blocked_shortcuts": [
+      "do not run real measured execution",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "tests/test_executable_v2_task_quality_calibrated_measured_runner.py",
+      "docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md",
+      "M2006 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "missing both provenance fields fails closed",
+      "real measured execution remains blocked until audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; compatibility repair does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2006."
+    ],
+    "temporal_evidence_window": "focused measured-runner compatibility tests only.",
+    "negative_result_policy": "If focused tests fail, record implementation failure and do not rerun real measured execution.",
+    "allowed_claims": [
+      "selection quota compatibility implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "repairs a local schema compatibility blocker before measured execution rerun",
+    "paper_verdict_delta": "can unblock measured execution rerun after audit but cannot establish performance",
+    "must_synthesize_if": [
+      "focused repair fails twice",
+      "another zero-row validation failure follows implementation",
+      "another design-only milestone is proposed before implementation audit"
+    ]
+  },
+  "hypothesis": "Runner-side selection_quota_name fallback to repair_axis can validate M1986-style artifacts without accepting missing repair provenance.",
+  "success_criteria": [
+    "runner materializes selection_quota_name from repair_axis when missing",
+    "runner preserves repair_axis in outputs",
+    "runner fails closed when both selection_quota_name and repair_axis are missing",
+    "focused tests pass",
+    "no real measured execution is performed"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "rows missing both provenance fields pass validation",
+    "M1986-style rows still fail validation in focused tests",
+    "real measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+    "tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+  ],
+  "decision_rule": "M2006 passes if focused tests verify selection_quota_name compatibility and fail-closed missing provenance without real measured execution.",
+  "next_blocker": "m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation"
+}
