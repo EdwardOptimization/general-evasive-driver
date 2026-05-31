@@ -33266,3 +33266,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation boundary: Tier/split support is deferred to M1924 result audit because source-mining summary does not directly aggregate new scenario-quality fields
 - follow-up manifest: `experiments/manifests/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.json`
 - next: `m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution`
+
+## M1923 Executable V2 Task-Quality Scenario Redesign Source-Mining Execution
+
+- status: completed
+- decision: `task_quality_scenario_source_mining_execution_pass_route_to_result_audit`
+- doc: `docs/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.md`
+- summary: `runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json`
+- input template: `configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json`
+- source mining execution: `true`
+- reset/rollout/measured execution: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: `candidate_source_count=640 candidate_profile_count=640 role_count=4 supported_source_count=399 unsupported_source_count=241 accepted_cell_count_total=44142`
+- role support: `stable_aeb=74 stable_aes_only=113 drift_required_recovery=122 unavoidable_mitigation=90`
+- guardrail violation count: `0`
+- interpretation boundary: Tier/split support deferred to M1924 template-join audit
+- follow-up manifest: `experiments/manifests/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.json`
+- next: `m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit`

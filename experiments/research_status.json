@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1931,
+    "completed": 1932,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+    "command_log": "docs/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.md",
     "returncode": 0,
-    "run_dir": "docs/m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design.md",
+    "run_dir": "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json",
     "status": "completed",
-    "task_id": "m1922-executable-v2-task-quality-scenario-redesign-source-mining-execution-design"
+    "task_id": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.json",
-    "hypothesis": "The M1921 640-row template can be scanned by the existing source-mining helper with clean counts and guardrails.",
-    "id": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: execute source mining over 640-row scenario redesign template",
-    "priority": 19180,
+    "command": "see experiments/manifests/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.json",
+    "hypothesis": "M1923's mined sources include enough tier/split support to admit a materialization design, but this must be audited by joining to M1921 template metadata.",
+    "id": "m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: join source-mining outputs to template metadata and audit tier/split support",
+    "priority": 19190,
     "status": "pending",
-    "success_artifact": "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json"
+    "success_artifact": "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json"
   },
-  "updated_at_utc": "20260531T071638Z"
+  "updated_at_utc": "20260531T072004Z"
 }
