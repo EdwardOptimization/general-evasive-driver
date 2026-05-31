@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1866-executable-v2-support-first-reset-validation-adapter-execution
+m1867-executable-v2-support-first-reset-validation-adapter-result-audit
 ```
 
 Current next task:
 
 ```text
-m1867-executable-v2-support-first-reset-validation-adapter-result-audit
+m1868-executable-v2-support-first-reset-validation-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -34,8 +34,9 @@ was implemented. M1864 adds the no-reset adapter and focused tests for
 converting those support-first specs into reset-validation
 `executable_v2_panel_specs` payloads. M1865 pre-registers the exact no-reset
 adapter execution over M1861 artifacts. M1866 ran only that adapter conversion
-and produced a clean 180-row reset payload. M1867 must now audit the result
-before any reset-validation execution design; reset, rollout, measured
+and produced a clean 180-row reset payload. M1867 audits the result as clean
+and admits reset-validation execution design. M1868 must now pre-register the
+exact reset-only validation command; reset, rollout, measured
 execution, controller ranking, paper-level claims, and level3 self-ID claims
 remain blocked.
 

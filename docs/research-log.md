@@ -31818,3 +31818,43 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json`
 - next: `m1867-executable-v2-support-first-reset-validation-adapter-result-audit`
+
+## M1867 Executable V2 Support-First Reset Validation Adapter Result Audit
+
+- status: completed
+- decision: `support_first_reset_adapter_result_clean_admit_reset_validation_design`
+- artifact: `docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md`
+- parent result: `runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json`
+- result class: `executable_v2_support_first_reset_validation_adapter_pass`
+- input materialized spec count: `180`
+- targeted reset executable spec count: `180`
+- role count: `4`
+- surface count: `2`
+- role-surface count: `8`
+- profile count: `8`
+- reset ready spec count: `180`
+- reset validation required count: `180`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- measured execution admissible count: `0`
+- controller-family ranking admissible count: `0`
+- missing required field count: `0`
+- duplicate key count: `0`
+- payload has executable_v2_panel_specs: `true`
+- payload row count: `180`
+- payload v2_panel_spec ids unique: `true`
+- payload required field missing count: `0`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean adapter result audit reset-validation execution design route
+- unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1868-executable-v2-support-first-reset-validation-execution-design.json`
+- next: `m1868-executable-v2-support-first-reset-validation-execution-design`

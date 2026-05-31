@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1875,
+    "completed": 1876,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
+    "command_log": "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1866-executable-v2-support-first-reset-validation-adapter-execution"
+    "task_id": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json",
-    "hypothesis": "The clean M1866 no-reset adapter output is sufficient to admit a reset-validation execution design over the converted support-first payload.",
-    "id": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit",
+    "command": "see experiments/manifests/m1868-executable-v2-support-first-reset-validation-execution-design.json",
+    "hypothesis": "A fixed command can run reset-only validation over the converted 180-row support-first payload with explicit target counts and guardrails.",
+    "id": "m1868-executable-v2-support-first-reset-validation-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1866 converted reset payload before reset-validation execution design",
-    "priority": 18620,
+    "notes": "Pending: pre-register exact reset-only validation over converted support-first payload",
+    "priority": 18630,
     "status": "pending",
-    "success_artifact": "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md"
+    "success_artifact": "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md"
   },
-  "updated_at_utc": "20260531T015552Z"
+  "updated_at_utc": "20260531T015906Z"
 }
