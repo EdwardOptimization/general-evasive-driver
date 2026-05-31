@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2086,
+    "completed": 2087,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.md",
+    "command_log": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight",
+    "run_dir": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
     "status": "completed",
-    "task_id": "m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit"
+    "task_id": "m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.json",
-    "hypothesis": "The M2076 seed-robust repaired specs can be validated with a fresh-seed reset-only command before measured execution is considered.",
-    "id": "m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exact fresh-seed reset-only command over M2076 seed-robust repaired specs",
-    "priority": 20730,
+    "command": "see experiments/manifests/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.json",
+    "hypothesis": "The M2076 seed-robust repaired 240-spec panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 207900.",
+    "id": "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run focused fresh-seed reset-only validation over M2076 seed-robust repaired specs",
+    "priority": 20740,
     "status": "pending",
-    "success_artifact": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md"
+    "success_artifact": "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T221422Z"
+  "updated_at_utc": "20260531T221717Z"
 }

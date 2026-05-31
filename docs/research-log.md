@@ -36370,3 +36370,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected: direct measured execution, another no-reset repair, paper/controller interpretation
 - follow-up manifest: `experiments/manifests/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.json`
 - next: `m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design`
+
+## M2078 Paper-Route Outcome-Supported Decisive Seed-Robust Repaired Reset Validation Command Design
+
+- status: completed
+- decision: `seed_robust_repaired_reset_command_design_route_to_fresh_seed_validator_run`
+- parent audit: `docs/m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit.md`
+- reset execution in M2078: `false`
+- rollout/measured execution in M2078: `false`
+- policy actions executed in M2078: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- repaired specs: `runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json`
+- frozen target: `240` reset attempts, expected observation dim `72`, eval seed base `207900`
+- output dir: `runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight`
+- validator: `autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight`
+- seed discipline: `207900` is outside M2076 support seed panel `207300 + task_index + [0, 240, 480, 720, 960]`
+- pass/fail route: M2079 must route to M2080 result audit before measured execution
+- follow-up manifest: `experiments/manifests/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.json`
+- next: `m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run`

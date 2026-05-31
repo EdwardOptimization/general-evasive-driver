@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit
+m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design
+m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run
 ```
 
-Immediate route: M2077 audits the M2076 no-reset seed-robust repair artifact as
-clean and admits reset command design. M2076 passed with `240/240` specs reaching
-`5/5` deterministic support seeds, `1200` sentinel workload rows, max distance
-window `12.0`, max half-width window `0.8`, threshold-score ceiling used `1.0`,
-quotas preserved, and contract/metadata/forbidden-key/profile/guardrail counts
-`0`. M2078 must freeze a fresh-seed reset-only command over the M2076 repaired
-specs; reset execution, measured execution, ranking, paper claims, and self-ID
-claims remain blocked.
+Immediate route: M2078 freezes the fresh-seed reset-only validation command over
+the M2076 seed-robust repaired specs. M2079 may run exactly `240` resets with
+expected observation dim `72`, output
+`runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight`,
+and fresh eval seed base `207900`, which is outside the M2076 support seed panel.
+Measured execution, ranking, paper claims, and self-ID claims remain blocked
+until reset validation is run and audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
