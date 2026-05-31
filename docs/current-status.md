@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2022-paper-route-controlled-comparison-panel-design
+m2023-paper-route-controlled-comparison-panel-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m2023-paper-route-controlled-comparison-panel-preflight-implementation
+m2024-paper-route-controlled-comparison-panel-preflight-result-audit
 ```
 
-Immediate route: M2022 completes the design-only paper-route controlled
-comparison panel. The panel keeps the 12 corrected controller profiles
-(`L0_current_masked`, `L1_one_step`, L2 finite-window plus current-tiled
-controls, `L3_online_gru`, and `L3_reset_control_corrected`), requires five task
-families (reactive active safety, same-current different-older-history, active
-diagnostic warmup, variable diagnostic delay, and source-rich extreme
-dynamics), and freezes fairness, source/holdout, staged execution, metric, claim
-gate, and stop/pivot rules. M2023 must implement a no-rollout preflight that
-materializes this design into protocol, workload, source coverage, and
-claim-boundary artifacts before any routing smoke or ranking. Broad ranking,
+Immediate route: M2023 implements and runs the no-rollout controlled-comparison
+panel preflight. The artifacts are guardrail-clean and include `171` panel
+sources, `2052` workload cells, all `12` corrected controller profiles, and all
+`5` planned task families. The panel is not ready for routing smoke:
+`panel_ready_for_routing_smoke=false` because T1 active-safety has only `6`
+sources and source-kind share `1.0`, while T2/T3 exceed the max source-kind
+share target. T4/T5 pass the count and source-kind share thresholds. M2024 must
+audit whether to repair T1/T2/T3 source coverage, revise thresholds with
+justification, split a ready T4/T5 route, synthesize, or stop. Broad ranking,
 finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before

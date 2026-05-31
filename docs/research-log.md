@@ -35232,3 +35232,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: design artifact only; no driver performance ranking or self-ID evidence yet
 - follow-up manifest: `experiments/manifests/m2023-paper-route-controlled-comparison-panel-preflight-implementation.json`
 - next: `m2023-paper-route-controlled-comparison-panel-preflight-implementation`
+
+## M2023 Paper-Route Controlled Comparison Panel Preflight Implementation
+
+- status: completed
+- decision: `controlled_comparison_panel_preflight_source_repair_required_route_to_result_audit`
+- result class: `controlled_comparison_panel_preflight_source_repair_required`
+- implementation: `src/autodrift/paper_route_controlled_comparison_panel_preflight.py`
+- focused tests: `1 passed`
+- compileall: `passed`
+- summary: `runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json`
+- reset/rollout/measured execution in M2023: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: profiles `12`, task families `5`, panel sources `171`, workload cells `2052`, guardrail violations `0`, panel ready for routing smoke `false`
+- coverage gaps: T1 `6` sources and source-kind share `1.0`; T2 max source-kind share `0.5833`; T3 max source-kind share `0.3750`; T4/T5 pass count and share thresholds
+- boundary: preflight artifacts are clean but current panel is not routing-smoke-ready, so no execution or ranking is admitted
+- follow-up manifest: `experiments/manifests/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.json`
+- next: `m2024-paper-route-controlled-comparison-panel-preflight-result-audit`

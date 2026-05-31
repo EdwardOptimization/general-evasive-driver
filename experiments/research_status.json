@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2031,
+    "completed": 2032,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+    "command_log": "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2022-paper-route-controlled-comparison-panel-design"
+    "task_id": "m2023-paper-route-controlled-comparison-panel-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2023-paper-route-controlled-comparison-panel-preflight-implementation.json",
-    "hypothesis": "A no-rollout preflight can materialize the M2022 controlled comparison panel into protocol artifacts with clean guardrails.",
-    "id": "m2023-paper-route-controlled-comparison-panel-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout controlled comparison panel preflight over existing profile/source artifacts",
-    "priority": 20180,
+    "command": "see experiments/manifests/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.json",
+    "hypothesis": "The M2023 preflight result is sufficient to choose whether source repair, threshold revision, split route, synthesis, or stop is needed before routing smoke.",
+    "id": "m2024-paper-route-controlled-comparison-panel-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2023 preflight source coverage gaps and choose repair revision split synthesis or stop before routing smoke",
+    "priority": 20190,
     "status": "pending",
-    "success_artifact": "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json"
+    "success_artifact": "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260531T160622Z"
+  "updated_at_utc": "20260531T161846Z"
 }

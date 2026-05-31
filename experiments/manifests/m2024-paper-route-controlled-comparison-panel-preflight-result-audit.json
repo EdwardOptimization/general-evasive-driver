@@ -1,0 +1,169 @@
+{
+  "id": "m2024-paper-route-controlled-comparison-panel-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_panel_preflight_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/source_coverage.csv",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2023-paper-route-controlled-comparison-panel-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout controlled comparison panel preflight and choose source repair, threshold revision, split route, synthesis, or stop"
+    ],
+    "derived_from": [
+      "m2023-paper-route-controlled-comparison-panel-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2023 materialized the panel but panel_ready_for_routing_smoke is false due T1/T2/T3 source coverage and source-kind share gaps"
+    ],
+    "supersedes": [
+      "direct routing smoke from an unready controlled panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
+  "public_gates": [
+    "M2024 must audit M2023 without rerun",
+    "M2024 must separate clean preflight artifacts from routing-smoke readiness",
+    "M2024 must decide source repair threshold revision split route synthesis or stop",
+    "M2024 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_preflight_audit",
+    "evidence_increment": "audits M2023 preflight coverage gaps and chooses whether the panel needs source repair before execution",
+    "claim_scope": "result audit and route decision only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if preflight source gaps are ignored",
+      "stop if direct routing smoke is proposed despite panel_ready_for_routing_smoke false",
+      "stop if next route is ambiguous",
+      "stop if another repair loop is proposed without explaining evidence expansion"
+    ],
+    "fallback_plan": [
+      "route to source repair design if T1/T2/T3 gaps block routing smoke",
+      "route to threshold revision only if thresholds are proven too strict or mismatched",
+      "route to split-panel smoke only if audit justifies separating ready T4/T5 from unready families",
+      "route to synthesis if another local repair would exceed useful scope"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2023 completed no-rollout preflight with panel_ready_for_routing_smoke false",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled comparison panel preflight result audit",
+    "admission_evidence": [
+      "M2023 wrote preflight artifacts with guardrail violation count 0 and panel_ready_for_routing_smoke false"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
+      "M2024 status queue scoreboard research log and review",
+      "one follow-up manifest for selected route"
+    ],
+    "next_stage_criteria": [
+      "M2023 facts are summarized",
+      "coverage gaps are classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2024 audits preflight coverage only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2024."
+    ],
+    "temporal_evidence_window": "M2023 no-rollout preflight artifacts.",
+    "negative_result_policy": "If panel coverage is insufficient, route to repair or synthesis rather than running smoke or ranking.",
+    "allowed_claims": [
+      "controlled comparison panel preflight result audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2023 panel coverage into a route decision before any execution",
+    "paper_verdict_delta": "can decide whether the controlled comparison panel needs source repair before it can support fair public routing smoke",
+    "must_synthesize_if": [
+      "M2024 cannot choose a next route",
+      "M2024 proposes direct routing smoke from the unready panel",
+      "M2024 proposes another narrow source repair without new evidence type"
+    ]
+  },
+  "hypothesis": "The M2023 preflight result is sufficient to choose whether source repair, threshold revision, split route, synthesis, or stop is needed before routing smoke.",
+  "success_criteria": [
+    "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md exists",
+    "M2023 facts are summarized",
+    "coverage gaps are explicit",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2023 facts are not summarized",
+    "coverage gaps are ignored",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_panel_preflight_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+    "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json"
+  ],
+  "decision_rule": "M2024 passes if it audits M2023 and chooses a route without overclaiming or executing the unready panel.",
+  "next_blocker": "m2024-paper-route-controlled-comparison-panel-preflight-result-audit"
+}

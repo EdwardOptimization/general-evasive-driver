@@ -1,0 +1,7 @@
+claim,admissible,reason
+controlled_comparison_panel_preflight_completed,True,M2023 writes no-rollout protocol workload coverage and claim-boundary artifacts
+panel_ready_for_routing_smoke,False,"requires all families present, minimum source counts, profile coverage, and clean historical guardrails"
+controller_family_ranking,False,M2023 does not execute the panel or use private holdout
+finite_window_vs_gru_conclusion,False,M2023 is no-rollout preflight and does not compare outcomes
+paper_level_benchmark_result,False,M2023 only materializes public preflight artifacts
+level3_self_identification,False,M2023 does not run wrong/delayed/mismatched history outcome tests

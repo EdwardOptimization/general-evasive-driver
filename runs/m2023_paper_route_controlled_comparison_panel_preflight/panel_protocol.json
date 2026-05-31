@@ -1,0 +1,102 @@
+{
+  "claim_gates": [
+    "deployable_feedback_driver",
+    "history_conditioned_output_feedback",
+    "recurrent_belief_advantage",
+    "strong_self_identification"
+  ],
+  "claim_scope": "no-rollout panel preflight only",
+  "controller_profiles": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_13",
+    "L2_window_13_current_tiled",
+    "L2_window_25",
+    "L2_window_25_current_tiled",
+    "L2_window_50",
+    "L2_window_50_current_tiled",
+    "L2_window_100",
+    "L2_window_100_current_tiled",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "coverage": [
+    {
+      "max_single_source_kind_share": 1.0,
+      "min_clean_sources_pass": false,
+      "min_clean_sources_target": 12,
+      "panel_task_family": "T1_reactive_active_safety",
+      "source_count": 6,
+      "source_kind_count": 1,
+      "source_kind_share_pass": false,
+      "target_clean_sources_pass": false,
+      "target_clean_sources_target": 24
+    },
+    {
+      "max_single_source_kind_share": 0.5833333333333334,
+      "min_clean_sources_pass": true,
+      "min_clean_sources_target": 12,
+      "panel_task_family": "T2_same_current_different_older_history",
+      "source_count": 36,
+      "source_kind_count": 4,
+      "source_kind_share_pass": false,
+      "target_clean_sources_pass": true,
+      "target_clean_sources_target": 24
+    },
+    {
+      "max_single_source_kind_share": 0.375,
+      "min_clean_sources_pass": true,
+      "min_clean_sources_target": 12,
+      "panel_task_family": "T3_active_diagnostic_warmup",
+      "source_count": 24,
+      "source_kind_count": 4,
+      "source_kind_share_pass": false,
+      "target_clean_sources_pass": true,
+      "target_clean_sources_target": 24
+    },
+    {
+      "max_single_source_kind_share": 0.2727272727272727,
+      "min_clean_sources_pass": true,
+      "min_clean_sources_target": 12,
+      "panel_task_family": "T4_variable_diagnostic_delay",
+      "source_count": 33,
+      "source_kind_count": 4,
+      "source_kind_share_pass": true,
+      "target_clean_sources_pass": true,
+      "target_clean_sources_target": 24
+    },
+    {
+      "max_single_source_kind_share": 0.2916666666666667,
+      "min_clean_sources_pass": true,
+      "min_clean_sources_target": 12,
+      "panel_task_family": "T5_source_rich_extreme_dynamics",
+      "source_count": 72,
+      "source_kind_count": 8,
+      "source_kind_share_pass": true,
+      "target_clean_sources_pass": true,
+      "target_clean_sources_target": 24
+    }
+  ],
+  "execution_ladder": [
+    "stage0_no_rollout_panel_preflight",
+    "stage1_public_routing_smoke",
+    "stage2_public_full_panel_execution",
+    "stage3_fair_training_evaluation_repeat",
+    "stage4_private_holdout_after_public_protocol_freeze"
+  ],
+  "generated_at_utc": "20260531T161654Z",
+  "panel_ready_for_routing_smoke": false,
+  "protocol_name": "paper_route_controlled_comparison_panel_preflight",
+  "source_targets": {
+    "max_single_source_kind_share": 0.35,
+    "min_clean_sources_per_family": 12,
+    "target_clean_sources_per_family": 24
+  },
+  "task_families": [
+    "T1_reactive_active_safety",
+    "T2_same_current_different_older_history",
+    "T3_active_diagnostic_warmup",
+    "T4_variable_diagnostic_delay",
+    "T5_source_rich_extreme_dynamics"
+  ]
+}
