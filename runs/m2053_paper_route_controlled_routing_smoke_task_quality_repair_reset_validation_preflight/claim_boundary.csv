@@ -1,0 +1,7 @@
+claim,admissible,reason
+controlled_routing_smoke_reset_validity,True,M2036 may claim reset-validity only if all reset gates pass
+measured_controller_performance,False,policy actions and measured rollout remain blocked until reset validation is audited
+controller_family_ranking,False,"reset validation is a scenario admissibility gate, not a controller comparison"
+paper_valid_generated_task_semantics,False,generated T2/T3 rows remain smoke proxies until later task-semantics validation
+finite_window_vs_gru_conclusion,False,reset validation does not compare controller-family outcomes
+level3_self_identification,False,reset validation does not test history necessity or wrong-history interventions

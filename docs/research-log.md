@@ -35828,3 +35828,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to focused validator key-normalization repair and rerun; materialization/scenario repair and direct ranking remain blocked
 - follow-up manifest: `experiments/manifests/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.json`
 - next: `m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair`
+
+## M2053 Paper-Route Controlled Routing Smoke Task-Quality Repair Reset Validator Normalization Repair
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_reset_validator_normalization_pass_route_to_result_audit_and_synthesis`
+- result class: `controlled_routing_smoke_reset_validation_preflight_pass`
+- doc: `docs/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.md`
+- summary: `runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json`
+- focused tests: `2 passed`
+- reset execution in M2053: `true`
+- rollout/measured execution in M2053: `false`
+- policy actions executed in M2053: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- repair: canonicalized generated-proxy `paper_validity_claim` keys to lowercase before expected/observed aggregate comparison
+- reset pass: reset attempts `192`, successes `192`, failures `0`, finite observations `192`, observation-dimension failures `0`, obstacles initialized `192`, contract `0`, metadata missing `0`, forbidden keys `0`, all quotas including generated-proxy pass, guardrail `0`
+- decision: route to M2054 result audit and branch synthesis before measured execution design
+- follow-up manifest: `experiments/manifests/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.json`
+- next: `m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit`

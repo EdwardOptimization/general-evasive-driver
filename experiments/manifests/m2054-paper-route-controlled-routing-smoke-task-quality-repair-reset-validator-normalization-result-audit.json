@@ -1,0 +1,186 @@
+{
+  "id": "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validator_normalization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+      "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json",
+      "runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json",
+      "docs/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.json"
+    ],
+    "parent_objective": [
+      "audit repaired reset-validation pass and synthesize task-quality repair branch"
+    ],
+    "derived_from": [
+      "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design",
+      "m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_controlled_routing_smoke_task_quality_repair",
+      "M2053 requires result audit before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution design without reset result audit and branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+  "public_gates": [
+    "M2054 must audit M2053 repaired reset-validation result",
+    "M2054 must synthesize M2044-M2053 task-quality repair branch evidence",
+    "M2054 must choose continue pivot stop or promote-to-next-branch",
+    "M2054 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_reset_validation_synthesis",
+    "evidence_increment": "audits repaired reset-validity and synthesizes M2044-M2053 before measured execution",
+    "claim_scope": "branch synthesis and reset-result audit only; no new rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2053 reset result is not pass",
+      "stop if branch evidence summary is incomplete",
+      "stop if reset validity is overclaimed as rollout or ranking evidence",
+      "stop if the next route would continue adapter work without evidence delta"
+    ],
+    "fallback_plan": [
+      "promote to measured-execution command design if M2053 reset-validity passes",
+      "route to validator repair if M2053 exposes another metric artifact",
+      "route to materialization repair if metadata or contract failures appear",
+      "stop or redesign if task-quality repair did not produce a reset-valid panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M2044-M2053 task-quality repair cadence and M2053 reset-validity pass",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair reset result audit and branch synthesis",
+    "admission_evidence": [
+      "M2048 materializes 192 repaired specs and 2304 workload rows with guardrail 0",
+      "M2053 repaired reset validator passes 192/192 reset validation with guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M2054",
+      "do not rank controller families",
+      "do not interpret reset validity as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+      "M2054 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next branch"
+    ],
+    "next_stage_criteria": [
+      "M2053 reset result is audited",
+      "M2044-M2053 branch evidence is synthesized",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2054 synthesizes process and reset-validity evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2054."
+    ],
+    "temporal_evidence_window": "M2044-M2053 task-quality repair artifacts.",
+    "negative_result_policy": "If reset-validity is not clean, route to repair before measured execution; do not weaken claim standards.",
+    "allowed_claims": [
+      "task-quality repair branch synthesis",
+      "repaired-panel reset validity if M2053 pass is audited",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "turns M2044-M2053 task-quality repair work into a next-branch decision",
+    "paper_verdict_delta": "can decide whether the repaired reset-valid panel may enter measured execution",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone after task-quality repair cadence"
+    ]
+  },
+  "hypothesis": "M2053 reset-validity pass and M2044-M2053 evidence are sufficient to promote from task-quality repair to measured-execution command design without local-search drift.",
+  "success_criteria": [
+    "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md exists",
+    "M2053 reset result is audited",
+    "M2044-M2053 evidence summary is complete",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy and public overfit risk are assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking paper or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "audit/synthesis doc is missing",
+    "M2053 reset result is not audited",
+    "evidence summary omits materialization or reset validation",
+    "synthesis overclaims reset validity as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit_and_synthesis",
+      "command": "write docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md from M2044-M2053 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validator_normalization_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json",
+    "runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json",
+    "docs/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.md"
+  ],
+  "decision_rule": "M2054 passes if it audits M2053, synthesizes M2044-M2053 evidence, and chooses the next branch without overclaiming.",
+  "next_blocker": "m2055-selected-by-m2054-synthesis"
+}

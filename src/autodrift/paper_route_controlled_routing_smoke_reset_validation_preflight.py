@@ -148,10 +148,11 @@ def _aggregate_rows(counts: Mapping[str, int]) -> list[dict[str, Any]]:
 
 
 def _generated_proxy_key(row: Mapping[str, Any]) -> str:
+    paper_claim = str(row.get("paper_validity_claim", "")).strip().lower()
     return (
         f"generated={_string_bool(row.get('generated_source_row'))}|"
         f"semantics={row.get('materialization_semantics', '')}|"
-        f"paper_claim={row.get('paper_validity_claim', '')}"
+        f"paper_claim={paper_claim}"
     )
 
 

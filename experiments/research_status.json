@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2061,
+    "completed": 2062,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md",
+    "command_log": "docs/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit"
+    "task_id": "m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.json",
-    "hypothesis": "Canonicalizing generated-proxy paper-claim values in expected and observed aggregate keys will convert the M2051 metric-artifact failure into a clean reset-validity pass without changing scenarios or actor inputs.",
-    "id": "m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair",
-    "kind": "infrastructure",
-    "notes": "Pending: canonicalize generated-proxy paper_claim keys and rerun reset validation",
-    "priority": 20480,
+    "command": "see experiments/manifests/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.json",
+    "hypothesis": "M2053 reset-validity pass and M2044-M2053 evidence are sufficient to promote from task-quality repair to measured-execution command design without local-search drift.",
+    "id": "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2053 reset pass and synthesize task-quality repair branch before measured execution",
+    "priority": 20490,
     "status": "pending",
-    "success_artifact": "runs/m2053_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md"
   },
-  "updated_at_utc": "20260531T194854Z"
+  "updated_at_utc": "20260531T195233Z"
 }
