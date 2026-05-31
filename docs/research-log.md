@@ -32604,3 +32604,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.json`
 - next: `m1895-executable-v2-support-first-repaired-bounded-smoke-execution`
+
+## M1895 Executable V2 Support-First Repaired Bounded-Smoke Execution
+
+- status: completed
+- decision: `support_first_repaired_bounded_smoke_execution_pass_route_to_result_audit`
+- summary: `runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json`
+- doc: `docs/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.md`
+- result class: `executable_v2_support_first_repaired_bounded_smoke_execution_pass`
+- rollout episode count: `576 / 576`
+- import episode count: `384 / 384`
+- total panel row count: `960 / 960`
+- failure/import failure count: `0 / 0`
+- source episode join missing count: `0`
+- controller profile count: `12`
+- selected source spec count: `16`
+- repaired executable spec count: `48`
+- role panel/surface count: `4 / 8`
+- repair variant count: `5`
+- rollout/import variant count: `3 / 2`
+- profile alias mismatch count: `0`
+- duplicate panel row count: `0`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- environment rollout started: `true`
+- measured rollout started: `true`
+- policy action executed: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- raw all-variant success obstacle pass rate: `0.0`
+- supported: exact repaired bounded-smoke workload executed successfully and produced complete public diagnostic artifacts
+- unsupported: controller-family ranking repaired task-quality conclusion policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json`
+- next: `m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit`

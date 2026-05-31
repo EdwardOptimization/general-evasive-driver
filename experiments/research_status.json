@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1903,
+    "completed": 1904,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+    "command_log": "docs/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.md",
     "returncode": 0,
-    "run_dir": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+    "run_dir": "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution",
     "status": "completed",
-    "task_id": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design"
+    "task_id": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.json",
-    "hypothesis": "The fixed repaired bounded-smoke workload can execute completely and materialize 576 rollout rows plus 384 imported rows with complete metrics and clean guardrails.",
-    "id": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution",
+    "command": "see experiments/manifests/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json",
+    "hypothesis": "M1895 completed cleanly and can be audited to decide whether repaired task quality is interpretable enough for the next paper-route step.",
+    "id": "m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
     "kind": "gate",
-    "notes": "Pending: run exact repaired bounded-smoke public diagnostic workload and defer interpretation to result audit",
-    "priority": 18900,
+    "notes": "Pending: audit M1895 result before controller comparison or further task-quality repair",
+    "priority": 18910,
     "status": "pending",
-    "success_artifact": "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json"
+    "success_artifact": "docs/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md"
   },
-  "updated_at_utc": "20260531T042129Z"
+  "updated_at_utc": "20260531T042623Z"
 }
