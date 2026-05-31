@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1990,
+    "completed": 1991,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+    "command_log": "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit"
+    "task_id": "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.json",
-    "hypothesis": "A bounded no-rollout source-mining route can map M1980 repair templates into accepted candidate cells before materialization.",
-    "id": "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout source-mining route for calibrated outcome-support repair templates",
-    "priority": 19770,
+    "command": "see experiments/manifests/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.json",
+    "hypothesis": "The M1980 repair templates can be mapped into a source-supported accepted-cell set with clean guardrails before materialization.",
+    "id": "m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rollout source mining over M1980 outcome-support repair templates",
+    "priority": 19780,
     "status": "pending",
-    "success_artifact": "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md"
+    "success_artifact": "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json"
   },
-  "updated_at_utc": "20260531T121648Z"
+  "updated_at_utc": "20260531T122148Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit
+m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design
 ```
 
 Current next task:
 
 ```text
-m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design
+m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -207,7 +207,13 @@ materialization, reset validation, or measured execution. M1981 audits it as
 clean and admits no-rollout source-mining design. M1982 must design the
 accepted-cell/source-mining route for the M1980 templates before implementation;
 template readiness is still not executable scenario, reset, rollout, ranking,
-paper-level, or self-ID evidence.
+paper-level, or self-ID evidence. M1982 designs that route: normalize target
+fields into source candidates, resolve geometry from M1969 repaired executable
+specs or artifact-provenanced fallback, scan by repair axis, preserve
+accepted-cell/source metadata, and require source-support floors before any
+materialization. M1983 must implement and run the no-rollout source-mining
+adapter; reset validation, measured execution, controller ranking, paper-level
+claims, and level3 self-ID remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

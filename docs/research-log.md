@@ -34460,3 +34460,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit no-rollout source-mining design before materialization reset validation or measured execution
 - follow-up manifest: `experiments/manifests/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.json`
 - next: `m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design`
+
+## M1982 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Source-Mining Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_source_mining_design_admit_implementation`
+- doc: `docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md`
+- source-mining execution in M1982: `false`
+- reset/rollout/measured execution in M1982: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: defines the no-rollout adapter target, input schema, template normalization, geometry resolution order, repair-axis scan windows, output artifacts, and pass gates for the `192` M1980 outcome-support repair templates
+- route: admit M1983 implementation and no-rollout source-mining execution before any materialization reset validation measured execution or ranking
+- follow-up manifest: `experiments/manifests/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.json`
+- next: `m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation`
