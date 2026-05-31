@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1989,
+    "completed": 1990,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json",
+    "command_log": "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
     "returncode": 0,
-    "run_dir": "configs",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation"
+    "task_id": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.json",
-    "hypothesis": "The M1980 template artifact is clean enough to admit calibrated outcome-support source-mining design.",
-    "id": "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit",
+    "command": "see experiments/manifests/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.json",
+    "hypothesis": "A bounded no-rollout source-mining route can map M1980 repair templates into accepted candidate cells before materialization.",
+    "id": "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: audit outcome-support repair template artifact before source mining",
-    "priority": 19760,
+    "notes": "Pending: design no-rollout source-mining route for calibrated outcome-support repair templates",
+    "priority": 19770,
     "status": "pending",
-    "success_artifact": "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md"
+    "success_artifact": "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md"
   },
-  "updated_at_utc": "20260531T121347Z"
+  "updated_at_utc": "20260531T121648Z"
 }

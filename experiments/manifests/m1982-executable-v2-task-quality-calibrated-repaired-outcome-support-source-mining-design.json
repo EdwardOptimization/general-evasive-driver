@@ -1,0 +1,162 @@
+{
+  "id": "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_source_mining_design"
+    ],
+    "parent_dataset": [
+      "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+      "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rollout source-mining route for calibrated outcome-support repair templates"
+    ],
+    "derived_from": [
+      "m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit"
+    ],
+    "blocked_by": [
+      "M1981 admits source mining but no source-mining route is designed yet"
+    ],
+    "supersedes": [
+      "direct materialization from templates without accepted-cell mining"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md",
+  "public_gates": [
+    "M1982 must design source mining without running environment interaction",
+    "M1982 must define input template schema output accepted-cell schema and pass gates",
+    "M1982 must keep materialization reset rollout measured execution ranking paper and self-ID claims blocked",
+    "M1982 must route to implementation only if the design is bounded"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_source_mining_design",
+    "evidence_increment": "designs accepted-cell mining for the calibrated repair templates before materialization",
+    "claim_scope": "source-mining design only; no materialization reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if source-mining outputs are ambiguous",
+      "stop if design would materialize without support evidence",
+      "stop if design would rank controllers from templates"
+    ],
+    "fallback_plan": [
+      "route to source-mining implementation if design is bounded",
+      "route to template repair if required fields are insufficient",
+      "route to branch synthesis if the repair route becomes local search"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1981 admitted source-mining design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated outcome-support source-mining design",
+    "admission_evidence": [
+      "M1981 audits M1980 template artifact as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run new environment interaction",
+      "do not materialize reset or measure before source-mining design",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md",
+      "M1982 status queue scoreboard research log and review",
+      "one follow-up manifest for source-mining implementation"
+    ],
+    "next_stage_criteria": [
+      "input schema is explicit",
+      "output accepted-cell schema is explicit",
+      "pass/fail gates are explicit",
+      "implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1982."
+    ],
+    "temporal_evidence_window": "M1980 template artifact and M1981 audit.",
+    "negative_result_policy": "If source-mining cannot be bounded, route to template repair or scenario redesign.",
+    "allowed_claims": [
+      "task-quality calibrated repaired outcome-support source-mining design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from template artifact to accepted-cell source-mining route",
+    "paper_verdict_delta": "can admit implementation of source mining if design is bounded",
+    "must_synthesize_if": [
+      "M1982 cannot define accepted-cell outputs",
+      "M1982 would materialize or reset directly",
+      "M1982 would rank controllers"
+    ]
+  },
+  "hypothesis": "A bounded no-rollout source-mining route can map M1980 repair templates into accepted candidate cells before materialization.",
+  "success_criteria": [
+    "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md exists",
+    "source-mining input and output schemas are explicit",
+    "pass gates are explicit",
+    "next implementation manifest is created",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "input or output schema is ambiguous",
+    "next route is ambiguous",
+    "materialization reset rollout ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_source_mining_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md",
+    "configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json"
+  ],
+  "decision_rule": "M1982 passes if it designs a bounded no-rollout source-mining route and follow-up implementation manifest without overclaiming.",
+  "next_blocker": "m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design"
+}

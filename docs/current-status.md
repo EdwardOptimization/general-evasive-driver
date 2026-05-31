@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1980-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-implementation
+m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit
 ```
 
 Current next task:
 
 ```text
-m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit
+m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -203,7 +203,11 @@ that generator and passes focused tests `2 passed`; the deterministic artifact
 has `192` candidates, exact repair-axis quotas, split public-debug `112` /
 public-gate `80`, holdout `0`, labels-enter-actor `0`, profile tuning `0`, and
 guardrail `0`. M1981 must audit the template artifact before source mining,
-materialization, reset validation, or measured execution.
+materialization, reset validation, or measured execution. M1981 audits it as
+clean and admits no-rollout source-mining design. M1982 must design the
+accepted-cell/source-mining route for the M1980 templates before implementation;
+template readiness is still not executable scenario, reset, rollout, ranking,
+paper-level, or self-ID evidence.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

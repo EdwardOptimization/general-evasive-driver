@@ -34444,3 +34444,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: no-rollout template artifact pass with `192` candidates, repair-axis quotas `64/32/48/32/16`, split public-debug `112` / public-gate `80`, no holdout, no actor labels, profile tuning `0`, guardrail `0`
 - follow-up manifest: `experiments/manifests/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.json`
 - next: `m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit`
+
+## M1981 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Repair Template Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_repair_template_audit_admit_source_mining_design`
+- doc: `docs/m1981-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-template-result-audit.md`
+- audited artifact: `configs/executable_v2_task_quality_calibrated_outcome_support_repair_candidates_v0.json`
+- reset/rollout/measured execution in M1981: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1980 template artifact is clean with `192` candidates, exact repair-axis quotas, split `112/80`, holdout `0`, actor-label leakage `0`, profile tuning `0`, guardrail `0`
+- route: admit no-rollout source-mining design before materialization reset validation or measured execution
+- follow-up manifest: `experiments/manifests/m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design.json`
+- next: `m1982-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-design`
