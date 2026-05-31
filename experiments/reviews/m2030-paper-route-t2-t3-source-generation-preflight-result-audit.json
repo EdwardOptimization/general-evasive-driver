@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2030 audits M2029 projected-ready panel accepts T1 target-count caveat for smoke only and routes to bounded routing-smoke command design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit admits execution despite unresolved projection blockers",
+    "T1 target-count caveat is ignored",
+    "next route is ambiguous",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T173259Z",
+  "hypothesis": "The M2029 generated-source projection can be cleanly audited into a routing-smoke command-design route without overclaiming.",
+  "lineage": {
+    "blocked_by": [
+      "M2029 produced a positive no-rollout source-generation projection but no execution has occurred"
+    ],
+    "derived_from": [
+      "m2029-paper-route-t2-t3-source-generation-preflight-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_t2_t3_source_generation_preflight_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2029-paper-route-t2-t3-source-generation-preflight-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_projection.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/source_coverage_comparison.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/generated_source_specs.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit generated T2/T3 source projection before routing smoke command design"
+    ],
+    "supersedes": [
+      "direct routing smoke without auditing generated-source projection"
+    ]
+  },
+  "milestone": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit",
+  "next_blocker": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "t2_t3_source_generation_preflight_audit_admit_routing_smoke_command_design",
+  "public_gates": [
+    "M2030 must audit M2029 artifacts without rerun",
+    "M2030 must state whether projected coverage is sufficient for routing-smoke command design",
+    "M2030 must explicitly handle the T1 target-count caveat",
+    "M2030 must preserve claim boundaries and keep ranking blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "t2_t3_source_generation_preflight_audit_admit_routing_smoke_command_design",
+    "milestone": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit",
+    "reason": "M2030 audits M2029 projected-ready panel accepts T1 target-count caveat for smoke only and routes to bounded routing-smoke command design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md exists",
+    "M2030 audits M2029 result_class and coverage projection",
+    "M2030 addresses the T1 target-count caveat",
+    "M2030 chooses a single next route",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "type": "gate"
+}

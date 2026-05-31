@@ -35374,3 +35374,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.json`
 - next: `m2030-paper-route-t2-t3-source-generation-preflight-result-audit`
+
+## M2030 Paper-Route T2/T3 Source Generation Preflight Result Audit
+
+- status: completed
+- decision: `t2_t3_source_generation_preflight_audit_admit_routing_smoke_command_design`
+- doc: `docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md`
+- audited summary: `runs/m2029_paper_route_t2_t3_source_generation_preflight/summary.json`
+- reset/rollout/measured execution in M2030: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2029 result class pass, projected ready true, all five families pass count/share, guardrail 0, claim boundary clean
+- T1 caveat: target count `18/24` remains below nonblocking target but does not block routing-smoke command design; it must be revisited before paper benchmark claims
+- rejected routes: generated-source semantics repair, threshold/source-kind semantics audit, direct execution, paper benchmark execution
+- selected route: bounded controlled routing-smoke command design
+- boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2031-paper-route-controlled-routing-smoke-command-design.json`
+- next: `m2031-paper-route-controlled-routing-smoke-command-design`

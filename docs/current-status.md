@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2029-paper-route-t2-t3-source-generation-preflight-implementation
+m2030-paper-route-t2-t3-source-generation-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m2030-paper-route-t2-t3-source-generation-preflight-result-audit
+m2031-paper-route-controlled-routing-smoke-command-design
 ```
 
-Immediate route: M2029 implements and runs the no-rollout T2/T3 source
-generation preflight. It generates `54` source rows (`36` T2 and `18` T3),
-merges them with the M2026 repaired panel, and projects all five families as
-ready under the registered count/share gates. T2 improves to source count/share
-`72 / 0.2917`; T3 improves to `42 / 0.2143`; guardrail violations are `0`.
-M2030 must audit this artifact-layer pass before routing-smoke command design,
-including the caveat that T1 remains below the nonblocking target count
-`18/24`. Broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID
-claims remain blocked.
+Immediate route: M2030 audits M2029 as a clean artifact-layer pass and admits
+bounded routing-smoke command design. The projected panel is ready under the
+registered count/share gates, with T2 `72 / 0.2917`, T3 `42 / 0.2143`, and
+guardrail violations `0`. The T1 target-count caveat (`18/24`) is accepted for
+smoke only and remains a full-benchmark caveat. M2031 must design a smoke-only
+command over the M2029 merged panel; it must not execute, rank controllers, or
+claim finite-window-vs-GRU, paper-level, or level3 self-ID evidence.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
