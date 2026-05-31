@@ -1,0 +1,158 @@
+{
+  "id": "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_preflight_design"
+    ],
+    "parent_dataset": [
+      "docs/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.md",
+      "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py",
+      "tests/test_executable_v2_support_first_repaired_runner_adapter.py",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact no-rollout preflight command for real M1884 repaired runner adapter"
+    ],
+    "derived_from": [
+      "m1887-executable-v2-support-first-repaired-runner-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1887 implemented adapter with synthetic tests only; real M1884 preflight command must be registered before running it"
+    ],
+    "supersedes": [
+      "unregistered real repaired adapter preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+  "public_gates": [
+    "M1888 must fix the exact no-rollout preflight command over real M1884 artifacts",
+    "M1888 must pre-register target counts for 576 rollout cells 384 import rows and 960 total panel rows",
+    "M1888 must not run the preflight",
+    "M1888 must keep repaired measured execution and ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run the real repaired adapter preflight",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_runner_adapter_preflight_design",
+    "evidence_increment": "registers the exact no-rollout real-artifact preflight command after adapter implementation",
+    "claim_scope": "preflight design only; no reset, rollout, preflight run, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if exact expected counts cannot be specified",
+      "stop if command would run reset or rollout",
+      "stop if command cannot preserve the original/import versus rollout split"
+    ],
+    "fallback_plan": [
+      "route to adapter repair if exact command cannot be specified",
+      "route to branch synthesis if repaired execution remains too broad",
+      "route to semantics-only path if geometry variants remain non-executable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1887 implementation complete and real-artifact preflight needs command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first repaired runner adapter preflight design",
+    "admission_evidence": [
+      "M1887 adapter implementation passes focused tests"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run real repaired adapter preflight",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1888 preflight command design document",
+      "M1888 status queue scoreboard research log and review",
+      "one follow-up manifest for real no-rollout preflight execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is registered",
+      "target counts are registered",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; preflight design does not test history necessity.",
+    "history_necessity_tests": [
+      "Design must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1887 artifacts only.",
+    "negative_result_policy": "If exact preflight cannot be registered, route to adapter repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired runner adapter preflight design",
+      "no reset, rollout, preflight run, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The exact real-artifact no-rollout repaired adapter preflight can be registered with fixed counts before execution.",
+  "success_criteria": [
+    "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md exists",
+    "design includes the exact command",
+    "design includes target selected source spec count 16",
+    "design includes target rollout workload cell count 576",
+    "design includes target import row count 384 and total panel row count 960",
+    "design keeps preflight execution ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs the preflight",
+    "design changes actor inputs or tunes controller profiles",
+    "target counts are missing",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_runner_adapter_preflight_design"
+  ],
+  "baseline_artifacts": [
+    "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv"
+  ],
+  "decision_rule": "M1888 passes if it fixes the exact no-rollout preflight command and target counts without running it.",
+  "next_blocker": "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design"
+}

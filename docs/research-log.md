@@ -32387,3 +32387,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured result controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.json`
 - next: `m1887-executable-v2-support-first-repaired-runner-adapter-implementation`
+
+## M1887 Executable V2 Support-First Repaired Runner Adapter Implementation
+
+- status: completed
+- decision: `support_first_repaired_runner_adapter_implementation_pass_admit_preflight_design`
+- implementation: `src/autodrift/executable_v2_support_first_repaired_runner_adapter.py`
+- doc: `docs/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.md`
+- focused tests: `tests/test_executable_v2_support_first_repaired_runner_adapter.py`
+- focused test result: `3 passed`
+- config delta validation implemented: `true`
+- rollout/import split implemented: `true`
+- real M1884 matrix executed: `false`
+- reset/rollout in M1887: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: no-rollout repaired runner adapter infrastructure exists and focused tests pass
+- unsupported: real M1884 preflight repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.json`
+- next: `m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design`
