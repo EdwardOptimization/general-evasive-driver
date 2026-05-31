@@ -1,0 +1,168 @@
+{
+  "id": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_materialization_adapter_design"
+    ],
+    "parent_dataset": [
+      "docs/m2031-paper-route-controlled-routing-smoke-command-design.md",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/generated_source_specs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2031-paper-route-controlled-routing-smoke-command-design.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout materialization adapter before routing-smoke execution"
+    ],
+    "derived_from": [
+      "m2031-paper-route-controlled-routing-smoke-command-design"
+    ],
+    "blocked_by": [
+      "M2031 finds no direct runner can execute M2029 merged panel while preserving provenance"
+    ],
+    "supersedes": [
+      "direct routing-smoke command that ignores M2029 source provenance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+  "public_gates": [
+    "M2032 must design materialization only and not execute it",
+    "M2032 must preserve M2029 source provenance into executable specs and workload rows",
+    "M2032 must define bounded smoke workload scope and result classes",
+    "M2032 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not drop M2029 source provenance",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_routing_smoke_materialization_adapter_design",
+    "evidence_increment": "designs the adapter required before executing the projected-ready panel",
+    "claim_scope": "adapter design only; no execution driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if executable semantics for generated T2/T3 rows cannot be defined",
+      "stop if the adapter drops provenance or profile metadata",
+      "stop if the adapter would change actor inputs or controller profiles",
+      "stop if the adapter would produce ranking claims"
+    ],
+    "fallback_plan": [
+      "route to generated-source semantics repair if T2/T3 executable semantics are underspecified",
+      "route to workload adapter implementation if the design is clean",
+      "route to branch synthesis if smoke materialization cannot be bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2031 routes to materialization adapter design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke materialization adapter design",
+    "admission_evidence": [
+      "M2031 rejects direct command freezing because existing runners cannot preserve M2029 source provenance"
+    ],
+    "blocked_shortcuts": [
+      "do not execute materialization in the design milestone",
+      "do not run environment reset or rollout",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+      "M2032 status queue scoreboard research log and review",
+      "one follow-up manifest for adapter implementation or source-semantics repair"
+    ],
+    "next_stage_criteria": [
+      "input artifacts are specified",
+      "executable spec schema is specified",
+      "planned workload schema is specified",
+      "result classes and guardrails are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2032 designs materialization only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2032."
+    ],
+    "temporal_evidence_window": "M2031 command-design audit and M2029 merged panel artifacts.",
+    "negative_result_policy": "If generated T2/T3 rows cannot be materialized without invented semantics, route to source-semantics repair instead of execution.",
+    "allowed_claims": [
+      "controlled routing-smoke materialization adapter design",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "defines the missing materialization bridge between source panel and executable smoke workload",
+    "paper_verdict_delta": "can admit implementation of the first executable smoke workload for the fair controlled panel",
+    "must_synthesize_if": [
+      "M2032 cannot define executable semantics for generated rows",
+      "M2032 cannot preserve provenance into workload rows",
+      "M2032 would require profile tuning"
+    ]
+  },
+  "hypothesis": "A no-rollout materialization adapter can be designed to convert the M2029 source panel into a bounded executable routing-smoke workload while preserving provenance.",
+  "success_criteria": [
+    "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md exists",
+    "input artifacts and output artifact contract are explicit",
+    "executable task spec and workload schemas are explicit",
+    "result classes and claim boundaries are explicit",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "adapter design is missing",
+    "generated T2/T3 executable semantics are ambiguous",
+    "provenance preservation is missing",
+    "design overclaims smoke as ranking or paper evidence",
+    "environment rollout or policy action execution occurs"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_materialization_adapter_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2031-paper-route-controlled-routing-smoke-command-design.md",
+    "runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv"
+  ],
+  "decision_rule": "M2032 passes if it defines a bounded no-rollout materialization adapter route or cleanly rejects execution due missing semantics.",
+  "next_blocker": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design"
+}

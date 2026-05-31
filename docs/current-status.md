@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2030-paper-route-t2-t3-source-generation-preflight-result-audit
+m2031-paper-route-controlled-routing-smoke-command-design
 ```
 
 Current next task:
 
 ```text
-m2031-paper-route-controlled-routing-smoke-command-design
+m2032-paper-route-controlled-routing-smoke-materialization-adapter-design
 ```
 
-Immediate route: M2030 audits M2029 as a clean artifact-layer pass and admits
-bounded routing-smoke command design. The projected panel is ready under the
-registered count/share gates, with T2 `72 / 0.2917`, T3 `42 / 0.2143`, and
-guardrail violations `0`. The T1 target-count caveat (`18/24`) is accepted for
-smoke only and remains a full-benchmark caveat. M2031 must design a smoke-only
-command over the M2029 merged panel; it must not execute, rank controllers, or
-claim finite-window-vs-GRU, paper-level, or level3 self-ID evidence.
+Immediate route: M2031 audits direct routing-smoke command options and does not
+freeze execution. The old routing-smoke runner is hard-coded to historical
+T4/T5 hook specs and would not consume M2029 source rows; the calibrated
+measured runner can preserve workload quotas but requires executable specs plus
+planned workload rows that do not yet exist for the M2029 panel. M2032 must
+design a no-rollout materialization adapter from M2029 source rows to executable
+specs/workload rows before any routing-smoke execution. Ranking,
+finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

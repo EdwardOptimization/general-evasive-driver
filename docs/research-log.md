@@ -35394,3 +35394,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2031-paper-route-controlled-routing-smoke-command-design.json`
 - next: `m2031-paper-route-controlled-routing-smoke-command-design`
+
+## M2031 Paper-Route Controlled Routing Smoke Command Design
+
+- status: completed
+- decision: `controlled_routing_smoke_command_design_route_to_materialization_adapter_design`
+- doc: `docs/m2031-paper-route-controlled-routing-smoke-command-design.md`
+- target panel source artifact: `runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv`
+- reset/rollout/measured execution in M2031: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- runner audit: old `controller_family_measured_routing_smoke.py` is hard-coded to historical T4/T5 hooks and would not consume M2029 source rows; calibrated measured runner can preserve workload quotas but requires executable specs and planned workload
+- decision: do not freeze an execution command yet; design a no-rollout materialization adapter from M2029 source rows to executable specs/workload rows
+- boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.json`
+- next: `m2032-paper-route-controlled-routing-smoke-materialization-adapter-design`

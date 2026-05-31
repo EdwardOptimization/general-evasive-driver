@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2039,
+    "completed": 2040,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2030-paper-route-t2-t3-source-generation-preflight-result-audit.md",
+    "command_log": "docs/m2031-paper-route-controlled-routing-smoke-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2030-paper-route-t2-t3-source-generation-preflight-result-audit"
+    "task_id": "m2031-paper-route-controlled-routing-smoke-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2031-paper-route-controlled-routing-smoke-command-design.json",
-    "hypothesis": "A bounded routing-smoke command can be designed over the M2029 projected-ready panel while preserving smoke-only claim boundaries.",
-    "id": "m2031-paper-route-controlled-routing-smoke-command-design",
+    "command": "see experiments/manifests/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.json",
+    "hypothesis": "A no-rollout materialization adapter can be designed to convert the M2029 source panel into a bounded executable routing-smoke workload while preserving provenance.",
+    "id": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design",
     "kind": "gate",
-    "notes": "Pending: design bounded smoke-only routing command over M2029 projected-ready panel; no execution or ranking",
-    "priority": 20260,
+    "notes": "Pending: design no-rollout materialization adapter because existing runners cannot directly execute M2029 merged panel with provenance",
+    "priority": 20270,
     "status": "pending",
-    "success_artifact": "docs/m2031-paper-route-controlled-routing-smoke-command-design.md"
+    "success_artifact": "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md"
   },
-  "updated_at_utc": "20260531T173158Z"
+  "updated_at_utc": "20260531T174010Z"
 }
