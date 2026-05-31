@@ -1,0 +1,170 @@
+{
+  "id": "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun"
+    ],
+    "parent_dataset": [
+      "docs/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.json"
+    ],
+    "parent_objective": [
+      "run frozen 960-row measured execution rerun after quota-readiness repair"
+    ],
+    "derived_from": [
+      "m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design"
+    ],
+    "blocked_by": [
+      "measured execution result unknown until the frozen command is run"
+    ],
+    "supersedes": [
+      "command-design-only measured execution route"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md",
+  "public_gates": [
+    "M2003 must run only the frozen M2002 command",
+    "M2003 must write summary and episode/failure artifacts",
+    "M2003 must preserve workload-derived quota metadata fields",
+    "M2003 must not train replay PPO promote tune profiles rank controllers or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not modify the frozen command",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun",
+    "evidence_increment": "runs the frozen repaired outcome-support 960-cell measured execution after reset and quota-readiness repair",
+    "claim_scope": "measured execution completeness only; no ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if validation failures occur before rollout",
+      "stop if any workload row fails and preserve failure artifacts",
+      "stop if guardrail violations appear"
+    ],
+    "fallback_plan": [
+      "route to result audit regardless of pass or fail",
+      "classify validation failure separately from policy outcome failure",
+      "do not repair and rerun in the same milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2002 freezes exact measured execution rerun command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run repaired outcome-support measured execution rerun",
+    "admission_evidence": [
+      "M2002 freezes exact measured execution command"
+    ],
+    "blocked_shortcuts": [
+      "do not alter command during execution",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/**",
+      "docs/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md",
+      "M2003 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "episode/failure artifacts exist",
+      "result is not interpreted until M2004 audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured execution does not test history necessity by itself.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2003."
+    ],
+    "temporal_evidence_window": "M1986 repaired outcome-support measured execution rows.",
+    "negative_result_policy": "If measured execution fails, preserve artifacts and route to audit rather than rerun.",
+    "allowed_claims": [
+      "measured execution completion or failure artifact",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces fresh measured execution evidence after reset and quota-readiness repair",
+    "paper_verdict_delta": "can reveal whether the repaired outcome-support panel is measured-execution complete but cannot by itself rank controllers",
+    "must_synthesize_if": [
+      "execution fails from another validation metric artifact",
+      "execution passes but outcome support remains low",
+      "two more local repair milestones are proposed before result audit"
+    ]
+  },
+  "hypothesis": "The repaired outcome-support workload can now complete 960 measured execution rows with workload-derived quota gates and no guardrail violations.",
+  "success_criteria": [
+    "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json exists",
+    "episode_count == 960",
+    "failure_count == 0",
+    "expected_quota_source == workload",
+    "quota_metadata_missing_count == 0",
+    "source_kind_quota_pass == true",
+    "role_surface_quota_pass == true",
+    "metric_completeness_failure_count == 0",
+    "guardrail_violation_count == 0",
+    "no ranking paper-level or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "summary artifact is missing",
+    "episode_count != 960",
+    "failure_count > 0",
+    "quota metadata is missing",
+    "quota gates fail",
+    "metric completeness failures occur",
+    "guardrail violations occur",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "measured_execution",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_measured_runner --executable-task-specs runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json --workload runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv --output-dir runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun --eval-seed-base 200300 --device cpu --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --next-blocker m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun"
+  ],
+  "baseline_artifacts": [
+    "docs/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.md",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+  ],
+  "decision_rule": "M2003 passes only if the frozen command completes the 960-row measured execution with clean metadata and guardrails; interpretation is deferred to M2004.",
+  "next_blocker": "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun"
+}

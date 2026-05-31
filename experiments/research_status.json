@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2010,
+    "completed": 2011,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md",
+    "command_log": "docs/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit"
+    "task_id": "m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.json",
-    "hypothesis": "A fresh measured execution rerun command can now be frozen over the M1986 artifacts after reset and measured-runner quota readiness repairs.",
-    "id": "m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exact 960-row measured execution rerun command in a fresh output directory",
-    "priority": 19970,
+    "command": "see experiments/manifests/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.json",
+    "hypothesis": "The repaired outcome-support workload can now complete 960 measured execution rows with workload-derived quota gates and no guardrail violations.",
+    "id": "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun",
+    "kind": "infrastructure",
+    "notes": "Pending: run only frozen M2002 measured execution command; interpretation deferred to M2004 audit",
+    "priority": 19980,
     "status": "pending",
-    "success_artifact": "docs/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.md"
+    "success_artifact": "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json"
   },
-  "updated_at_utc": "20260531T134742Z"
+  "updated_at_utc": "20260531T135257Z"
 }
