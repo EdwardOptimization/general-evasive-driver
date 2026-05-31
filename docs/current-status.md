@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit
+m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design
 ```
 
 Current next task:
 
 ```text
-m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design
+m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -259,8 +259,12 @@ obstacle initialized `80`, contract `0`, label actor-input `0`, forbidden-key
 `role_surface_quota_pass=false` because the reset validator still expects the
 older calibrated source distribution. M1991 audits this as a `metric_artifact`:
 the failure is stale quota expectation, not reset, contract, observation, or
-guardrail failure. M1992 must design an artifact-driven quota-parameterization
-repair before any code change or reset rerun.
+guardrail failure. M1992 designs an artifact-driven quota-parameterization
+repair: compute expected source-kind and role-surface counts from the active
+`executable_task_specs`, compare reset rows against those expected counts, and
+fail closed if required quota metadata is missing. M1993 must implement this
+focused validator repair and tests only; the real M1990 reset rerun remains
+blocked until the implementation is audited.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

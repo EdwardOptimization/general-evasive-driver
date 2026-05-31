@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2000,
+    "completed": 2001,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+    "command_log": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
+    "task_id": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.json",
-    "hypothesis": "The reset validator can be repaired by parameterizing expected source-kind and role-surface quotas from the active materialization artifact or an explicit expected-quota file while preserving fail-closed semantics.",
-    "id": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
-    "kind": "gate",
-    "notes": "Pending: design artifact-driven reset validator quota repair before code change or rerun",
-    "priority": 19870,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_reset_validation_preflight.py",
+    "hypothesis": "Artifact-driven quota expectations will preserve reset-validator quota checking while accepting active panels with intentional repaired distributions.",
+    "id": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused artifact-driven quota repair and tests without real reset rerun",
+    "priority": 19880,
     "status": "pending",
-    "success_artifact": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md"
+    "success_artifact": "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md"
   },
-  "updated_at_utc": "20260531T130650Z"
+  "updated_at_utc": "20260531T131003Z"
 }

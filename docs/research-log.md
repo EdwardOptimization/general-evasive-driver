@@ -34640,3 +34640,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design artifact-driven quota parameterization before any validator repair implementation or reset rerun
 - follow-up manifest: `experiments/manifests/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.json`
 - next: `m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design`
+
+## M1992 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Quota Parameterization Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_quota_parameterization_design_admit_focused_implementation`
+- doc: `docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md`
+- code edited in M1992: `false`
+- reset rerun in M1992: `false`
+- rollout/measured execution in M1992: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: reset validator should compute expected source-kind and role-surface quotas from the active `executable_task_specs` before reset, compare reset rows against those expected counts, and fail closed if required quota metadata is missing
+- required summary fields: `expected_quota_source`, `expected_source_kind_counts`, `expected_role_surface_counts`, `quota_metadata_missing_count`
+- tests required: repaired M1986-style quota distribution passes, legacy distribution still passes, missing quota metadata fails closed, summary schema includes expected quota fields
+- route: focused implementation and tests only; no real M1990 reset rerun until implementation is audited
+- follow-up manifest: `experiments/manifests/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.json`
+- next: `m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation`

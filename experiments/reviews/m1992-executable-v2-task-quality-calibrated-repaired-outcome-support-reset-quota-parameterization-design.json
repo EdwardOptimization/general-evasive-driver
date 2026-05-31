@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1992 designs artifact-driven reset validator quota expectations from active executable specs with fail-closed missing metadata behavior and admits focused implementation",
+  "failure_criteria": [
+    "design document is missing",
+    "expected quota source is ambiguous",
+    "design disables quota checks silently",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code in M1992",
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T131157Z",
+  "hypothesis": "The reset validator can be repaired by parameterizing expected source-kind and role-surface quotas from the active materialization artifact or an explicit expected-quota file while preserving fail-closed semantics.",
+  "lineage": {
+    "blocked_by": [
+      "M1990 reset validator quota gates are hard-coded to an older panel and reject the M1986 repaired outcome-support distribution"
+    ],
+    "derived_from": [
+      "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json",
+      "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+    ],
+    "parent_objective": [
+      "design a reset-validator quota parameterization repair after M1990 stale quota gate failure"
+    ],
+    "supersedes": [
+      "rerunning M1990 with unchanged stale quota expectations"
+    ]
+  },
+  "milestone": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
+  "next_blocker": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_reset_quota_parameterization_design_admit_focused_implementation",
+  "public_gates": [
+    "M1992 must design the quota repair before code changes",
+    "M1992 must not rerun reset",
+    "M1992 must preserve fail-closed behavior for missing or inconsistent expected distributions",
+    "M1992 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_reset_quota_parameterization_design_admit_focused_implementation",
+    "milestone": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design",
+    "reason": "M1992 designs artifact-driven reset validator quota expectations from active executable specs with fail-closed missing metadata behavior and admits focused implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md exists",
+    "expected quota source is specified",
+    "fail-closed behavior is specified",
+    "focused implementation tests are specified",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

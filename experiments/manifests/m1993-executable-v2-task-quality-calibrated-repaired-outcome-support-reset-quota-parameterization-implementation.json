@@ -1,0 +1,165 @@
+{
+  "id": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py",
+      "tests"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-driven quota expectations for calibrated reset validation"
+    ],
+    "derived_from": [
+      "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design"
+    ],
+    "blocked_by": [
+      "reset validator hard-codes old source-kind and role-surface quota expectations"
+    ],
+    "supersedes": [
+      "M1990 rerun with stale hard-coded quota expectations"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+  "public_gates": [
+    "M1993 must implement artifact-driven reset quota expectations",
+    "M1993 must add focused tests for repaired and legacy quota distributions",
+    "M1993 must preserve fail-closed behavior for missing quota metadata",
+    "M1993 must not rerun the real M1990 reset command"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun real reset validation",
+    "do not run environment rollout",
+    "do not execute policy actions outside focused tests",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_quota_repair_implementation",
+    "evidence_increment": "implements focused validator repair needed before rerunning reset validation",
+    "claim_scope": "infrastructure repair only; no real reset rerun rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if focused tests fail",
+      "stop if fail-closed metadata behavior is not implemented",
+      "stop if implementation silently bypasses quota checks"
+    ],
+    "fallback_plan": [
+      "route back to repair design if expected quota metadata cannot be represented cleanly",
+      "route to focused implementation audit if tests pass",
+      "do not rerun M1990 until implementation has been audited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1992 admits focused implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "artifact-driven reset quota validator repair",
+    "admission_evidence": [
+      "M1992 designs artifact-driven expected quota computation from active executable specs"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun real reset validation",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py",
+      "focused tests for calibrated reset validation",
+      "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+      "M1993 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation audit or rerun command design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary schema includes expected quota fields",
+      "real reset rerun remains blocked until audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset validator repair does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1993."
+    ],
+    "temporal_evidence_window": "focused reset validator tests only.",
+    "negative_result_policy": "If focused tests fail, record implementation failure and do not rerun real reset.",
+    "allowed_claims": [
+      "reset-validator quota repair implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "repairs a stale validation gate blocking reset-valid evidence",
+    "paper_verdict_delta": "can enable a clean reset-validation rerun but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "focused repair fails twice",
+      "same quota mismatch repeats after implementation",
+      "another design-only milestone is proposed before tests"
+    ]
+  },
+  "hypothesis": "Artifact-driven quota expectations will preserve reset-validator quota checking while accepting active panels with intentional repaired distributions.",
+  "success_criteria": [
+    "reset validator computes expected source-kind counts from input specs",
+    "reset validator computes expected role-surface counts from input specs",
+    "summary includes expected quota source and expected counts",
+    "missing quota metadata fails closed",
+    "focused tests pass",
+    "no real M1990 reset rerun is performed"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "quota checks are silently disabled",
+    "missing quota metadata passes",
+    "real reset validation rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+  ],
+  "decision_rule": "M1993 passes if focused tests verify artifact-driven quota expectations and fail-closed metadata behavior without real reset rerun.",
+  "next_blocker": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation"
+}
