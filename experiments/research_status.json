@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2028,
+    "completed": 2029,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+    "command_log": "docs/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2019-source-diverse-diagnostic-expansion-mining-result-audit"
+    "task_id": "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.json",
-    "hypothesis": "A no-rerun multi-slice bounded diagnostic comparison can summarize M2018 admitted candidates without overclaiming broad ranking.",
-    "id": "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun multi-slice bounded diagnostic comparison over M2018 admitted candidates",
-    "priority": 20150,
+    "command": "see experiments/manifests/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.json",
+    "hypothesis": "The M2020 multi-slice diagnostic table is sufficient to choose whether this branch should move toward controlled comparison design, repair source/task quality, synthesize, or stop.",
+    "id": "m2021-multi-slice-bounded-diagnostic-comparison-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2020 multi-slice bounded diagnostic table while preserving source-kind singleton and no-ranking boundaries",
+    "priority": 20160,
     "status": "pending",
-    "success_artifact": "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json"
+    "success_artifact": "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md"
   },
-  "updated_at_utc": "20260531T153220Z"
+  "updated_at_utc": "20260531T154318Z"
 }

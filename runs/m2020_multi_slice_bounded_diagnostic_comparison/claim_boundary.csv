@@ -1,0 +1,6 @@
+claim,admissible,reason
+multi_slice_bounded_diagnostic_comparison_completed,True,M2020 reads existing M2018/M2009 artifacts and writes diagnostic tables only
+controller_family_ranking,False,multi-slice public diagnostic table is not a ranking experiment
+finite_window_vs_gru_conclusion,False,M2020 remains source-kind singleton and lacks controlled holdout comparison
+paper_level_benchmark_result,False,public diagnostic table is not paper-level benchmark evidence
+level3_self_identification,False,M2020 does not test wrong-history or history necessity

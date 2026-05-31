@@ -1,0 +1,172 @@
+{
+  "id": "m2021-multi-slice-bounded-diagnostic-comparison-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_multi_slice_bounded_diagnostic_comparison_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/candidate_profile_group_comparison.csv",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/aggregate_profile_group_comparison.csv",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/candidate_support.csv",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun multi-slice bounded diagnostic comparison and choose next route"
+    ],
+    "derived_from": [
+      "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2020 produced a multi-slice diagnostic table that is still source-kind singleton and public-gate bounded"
+    ],
+    "supersedes": [
+      "direct broad conclusion from M2020 without auditing diagnostic boundaries"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+  "public_gates": [
+    "M2021 must audit M2020 without rerun",
+    "M2021 must separate multi-slice bounded diagnostic signal from broad ranking or finite-window-vs-GRU conclusions",
+    "M2021 must explicitly address the source-kind singleton boundary",
+    "M2021 must choose controlled comparison design, task-quality repair, branch synthesis, or stop",
+    "M2021 must keep paper-level and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_multi_slice_bounded_diagnostic_comparison",
+    "evidence_axis": "Q_multi_slice_bounded_diagnostic_comparison_audit",
+    "evidence_increment": "audits whether M2020 multi-slice bounded diagnostic evidence is enough for a next paper-route comparison step or should remain bounded diagnostic evidence",
+    "claim_scope": "result audit and route decision only; no broad ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M2020 diagnostic evidence is overclaimed",
+      "stop if source-kind singleton boundary is ignored",
+      "stop if next route is ambiguous",
+      "stop if another no-rerun local slice repair is proposed without synthesis"
+    ],
+    "fallback_plan": [
+      "route to controlled comparison design if diagnostic support is broad enough within its bounded scope",
+      "route to task-quality or source-kind repair if singleton evidence is too narrow",
+      "route to synthesis if another narrow diagnostic extension is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2020 completed multi-slice bounded diagnostic comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "multi-slice bounded diagnostic comparison result audit",
+    "admission_evidence": [
+      "M2020 produced multi-slice diagnostic artifacts over six admitted candidates with guardrail violation count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+      "M2021 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2020 facts are summarized",
+      "source-kind singleton boundary is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; M2021 audits diagnostic tables and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2021."
+    ],
+    "temporal_evidence_window": "M2020 no-rerun multi-slice diagnostic artifacts.",
+    "negative_result_policy": "If evidence remains bounded and source-kind singleton, do not rank; route to controlled design, repair, synthesis, or stop.",
+    "allowed_claims": [
+      "multi-slice bounded diagnostic comparison audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2020 multi-slice diagnostic tables into a route decision",
+    "paper_verdict_delta": "can decide whether the bounded multi-slice signal is enough to design a controlled comparison or whether task-quality/source-kind support must be repaired first",
+    "must_synthesize_if": [
+      "M2021 cannot choose a next route",
+      "M2021 would rank controllers directly",
+      "M2021 proposes another narrow public-slice extension without new evidence type"
+    ]
+  },
+  "hypothesis": "The M2020 multi-slice diagnostic table is sufficient to choose whether this branch should move toward controlled comparison design, repair source/task quality, synthesize, or stop.",
+  "success_criteria": [
+    "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md exists",
+    "M2020 facts are summarized",
+    "source-kind singleton boundary is explicit",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2020 facts are not summarized",
+    "diagnostic evidence is overclaimed",
+    "source-kind singleton boundary is omitted",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_multi_slice_bounded_diagnostic_comparison_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
+    "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json"
+  ],
+  "decision_rule": "M2021 passes if it audits M2020 and chooses a next route without overclaiming.",
+  "next_blocker": "m2021-multi-slice-bounded-diagnostic-comparison-result-audit"
+}

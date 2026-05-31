@@ -16,64 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2019-source-diverse-diagnostic-expansion-mining-result-audit
+m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run
+m2021-multi-slice-bounded-diagnostic-comparison-result-audit
 ```
 
-Immediate route: M1998 designs the measured-runner equivalent of the M1993
-reset-validator quota repair. Expected source-kind and role-surface quotas must
-come from the active `planned_workload.csv`, and missing quota metadata must
-fail closed. M1999 synthesizes M1989-M1998 and chooses `continue`. M2000
-implements the focused measured-runner quota repair with tests `4 passed`;
-M2001 audits it as clean and admits measured execution rerun command design.
-M2002 freezes the exact M2003 960-row measured execution command over M1986
-specs/workload with output
-`runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun`.
-M2003 runs that frozen command and fails closed before rollout: `episode_count=0`,
-`guardrail_violation_count=0`, `expected_quota_source=workload`,
-`quota_metadata_missing_count=0`, and `1040` validation failures all tied to
-missing `selection_quota_name` in `80` specs and `960` workload rows. M2004 must
-audit this zero-row validation failure and routes to a bounded
-`selection_quota_name` compatibility design because M1986 has complete
-`repair_axis` provenance. M2005 designs that compatibility: use
-`selection_quota_name` when present, otherwise fall back to `repair_axis`, and
-fail closed if both are missing. M2006 implements the focused compatibility
-repair with tests `6 passed`; M2007 audits it as clean and admits a fresh
-measured execution rerun command design. M2008 freezes the exact M2009 command
-with fresh output
-`runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`.
-M2009 runs successfully: `960` episodes, `failure_count=0`,
-`quota_metadata_missing_count=0`, source/role quota pass `true`, metric
-completeness failures `0`, guardrail `0`. Raw outcomes are still low-support:
-success `40`, collision failure `265`, off-track noncollision noncompletion
-`655`. M2010 audits the result, treats the branch as complete execution but not
-comparison-ready evidence, and pivots to
-`paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`.
-M2011 freezes a no-rerun outcome localization command over M2009 artifacts.
-M2012 runs that postprocess command successfully: outcome counts match M2009,
-guardrails remain clean, and the localizer finds `1` comparison-ready-labeled
-candidate plus `2` support candidates. M2013 audits the result as actionable
-but not ranking-ready. M2014 implements and runs bounded comparison candidate
-qualification: `1/2` candidates is admitted for bounded diagnostic comparison
-only, with `l2_success_present=false`, so finite-window-vs-GRU and paper-level
-claims remain blocked. M2015 audits the qualification and routes to M2016: a
-no-rerun bounded diagnostic profile comparison on the admitted stable-AES slice.
-M2016 produces that table: L3 is `10/10`, L0 is `4/5`, L1 is `3/5`, and L2 is
-`0/40` on the singleton public slice. M2017 must audit whether to expand source
-diversity or stop this as a singleton diagnostic; it routes to M2018 no-rerun
-source-diverse diagnostic expansion mining. M2018 finds `7` L2-zero/non-L2
-success candidate slices, `6` admitted, and `5` admitted beyond the M2016
-singleton. The support is diverse across role/tier/surface/label but still
-source-kind singleton (`repair_source_kind_count=1`). M2019 must audit whether
-this supports multi-slice diagnostic comparison or requires task-quality
-repair/redesign; it routes to M2020 multi-slice bounded diagnostic comparison
-while preserving the source-kind singleton boundary. No broad ranking or
-finite-window-vs-GRU conclusion is allowed yet.
+Immediate route: M2020 implemented and ran a no-rerun multi-slice bounded
+diagnostic comparison over the six M2018 admitted candidates and M2009 episode
+rows. The run passed with `candidate_count=6`, `matched_episode_count=216`,
+`guardrail_violation_count=0`, and aggregate profile-group success counts L3
+`22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144`. This broadens the M2016 singleton
+diagnostic table across roles, tiers, surfaces, and labels, but the evidence is
+still source-kind singleton and public-gate bounded. M2021 must audit the result
+before any controlled comparison, repair, synthesis, or paper-route claim. Broad
+ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain
+blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

@@ -35172,3 +35172,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2020 no-rerun multi-slice bounded diagnostic comparison over admitted M2018 candidates
 - follow-up manifest: `experiments/manifests/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.json`
 - next: `m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run`
+
+## M2020 Multi-Slice Bounded Diagnostic Comparison Implementation And Run
+
+- status: completed
+- decision: `multi_slice_bounded_diagnostic_comparison_pass_route_to_result_audit`
+- implementation: `src/autodrift/multi_slice_bounded_diagnostic_comparison.py`
+- focused tests: `1 passed`
+- compileall: `passed`
+- summary: `runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json`
+- admitted candidates: `runs/m2018_source_diverse_diagnostic_expansion_mining/admitted_expansion_candidates.csv`
+- episode rows: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv`
+- reset/rollout/measured execution in M2020: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: candidates `6`, matched episodes `216`, candidate/profile rows `24`, aggregate group rows `4`, guardrail violations `0`
+- aggregate diagnostic table: L3 `22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144`
+- boundary: supports multi-slice bounded diagnostic comparison only; source-kind singleton remains, so broad ranking finite-window-vs-GRU paper-level and level3 self-ID claims remain blocked
+- follow-up manifest: `experiments/manifests/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.json`
+- next: `m2021-multi-slice-bounded-diagnostic-comparison-result-audit`
