@@ -150,5 +150,40 @@
     "runs/m1882_executable_v2_support_first_outcome_localization/summary.json"
   ],
   "decision_rule": "M1883 passes if it designs a clean no-training support-first success-semantics/task-quality repair route without ranking or paper-level claims.",
-  "next_blocker": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+    "decision": "support_first_success_semantics_task_quality_repair_design_admit_materialization",
+    "parent_result_class": "support_first_outcome_localization_pass",
+    "parent_episode_count": 2160,
+    "parent_outcome_counts": {
+      "collision_failure": 480,
+      "off_track_noncollision_noncompletion": 1680,
+      "success_obstacle_pass": 0
+    },
+    "parent_dominant_slice_count": 526,
+    "parent_outcome_dominance_class": "diffuse_support_first_outcome_dominance",
+    "repair_scope": [
+      "success_semantics",
+      "road_boundary_geometry",
+      "obstacle_task_quality"
+    ],
+    "next_route": "no_rollout_success_semantics_task_quality_repair_materialization",
+    "ranking_blocked": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json"
+  },
+  "next_blocker": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1882-executable-v2-support-first-outcome-localization
+m1883-executable-v2-support-first-success-semantics-task-quality-repair-design
 ```
 
 Current next task:
 
 ```text
-m1883-executable-v2-support-first-success-semantics-task-quality-repair-design
+m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -74,9 +74,12 @@ execution pass but not an interpretable controller comparison; ranking remains
 blocked. M1882 localized the outcome dominance from existing artifacts without
 rerun: `526` dominant slices across all `4` role panels, all `8` role-surfaces,
 and all `12` profiles. The result is diffuse support-first outcome dominance,
-not a controller-specific signal. M1883 must now design a no-training success
-semantics and task-quality repair route before any ranking. Controller ranking,
-paper-level claims, and level3 self-ID claims remain blocked.
+not a controller-specific signal. M1883 designed the no-training repair route:
+preserve the original baseline, add role-aware success semantics, separate
+road-boundary geometry from obstacle task quality, and keep controller ranking
+blocked. M1884 must now implement and run no-rollout repair materialization
+before any measured rerun or ranking. Controller ranking, paper-level claims,
+and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

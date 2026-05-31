@@ -32284,3 +32284,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json`
 - next: `m1883-executable-v2-support-first-success-semantics-task-quality-repair-design`
+
+## M1883 Executable V2 Support-First Success Semantics Task-Quality Repair Design
+
+- status: completed
+- decision: `support_first_success_semantics_task_quality_repair_design_admit_materialization`
+- artifact: `docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md`
+- parent localization: `runs/m1882_executable_v2_support_first_outcome_localization/summary.json`
+- parent execution: `runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv`
+- reset/rollout in M1883: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- repair scope: success semantics, road-boundary geometry, obstacle task quality
+- supported: M1880/M1882 require baseline-preserving role-aware success semantics and task-quality repair before ranking
+- unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json`
+- next: `m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization`

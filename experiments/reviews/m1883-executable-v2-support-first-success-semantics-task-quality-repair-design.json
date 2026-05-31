@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1883 designs baseline-preserving role-aware success semantics and task-quality repair route and keeps ranking blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T032752Z",
+  "hypothesis": "A success-semantics and task-quality repair route can be designed from M1882 localization without changing actor inputs or tuning controller profiles.",
+  "lineage": {
+    "blocked_by": [
+      "M1882 finds diffuse zero-success outcome dominance across role panels role-surfaces and profiles"
+    ],
+    "derived_from": [
+      "m1882-executable-v2-support-first-outcome-localization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_success_semantics_task_quality_repair_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json"
+    ],
+    "parent_dataset": [
+      "docs/m1882-executable-v2-support-first-outcome-localization.md",
+      "runs/m1882_executable_v2_support_first_outcome_localization/summary.json",
+      "runs/m1882_executable_v2_support_first_outcome_localization/dominant_slices.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "design success semantics and task-quality repair after diffuse zero-success localization"
+    ],
+    "supersedes": [
+      "controller repair or ranking without success-semantics and task-quality repair design"
+    ]
+  },
+  "milestone": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design",
+  "next_blocker": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_success_semantics_task_quality_repair_design_admit_materialization",
+  "public_gates": [
+    "M1883 must design a no-training repair route for success semantics and task-quality geometry",
+    "M1883 must decide which fields or scenario parameters can be changed without violating actor input contract",
+    "M1883 must keep controller-family ranking blocked",
+    "M1883 must not run reset rollout training replay PPO or profile tuning"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_success_semantics_task_quality_repair_design_admit_materialization",
+    "milestone": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design",
+    "reason": "M1883 designs baseline-preserving role-aware success semantics and task-quality repair route and keeps ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md exists",
+    "design separates success semantics from road-boundary and obstacle geometry repair",
+    "design defines a no-rollout materialization or semantics-audit next step",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "type": "gate"
+}

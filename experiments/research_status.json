@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1891,
+    "completed": 1892,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1882-executable-v2-support-first-outcome-localization.md",
+    "command_log": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1882_executable_v2_support_first_outcome_localization",
+    "run_dir": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
     "status": "completed",
-    "task_id": "m1882-executable-v2-support-first-outcome-localization"
+    "task_id": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json",
-    "hypothesis": "A success-semantics and task-quality repair route can be designed from M1882 localization without changing actor inputs or tuning controller profiles.",
-    "id": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design no-training repair route separating success semantics road-boundary geometry and obstacle task quality before ranking",
-    "priority": 18780,
+    "command": "see experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json",
+    "hypothesis": "A no-rollout repair materializer can preserve the original support-first baseline while adding role-aware success semantics and task-quality variants needed before controller-family ranking.",
+    "id": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rollout repair materialization with original semantics and geometry variants before any measured ranking",
+    "priority": 18790,
     "status": "pending",
-    "success_artifact": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md"
+    "success_artifact": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json"
   },
-  "updated_at_utc": "20260531T031936Z"
+  "updated_at_utc": "20260531T032409Z"
 }

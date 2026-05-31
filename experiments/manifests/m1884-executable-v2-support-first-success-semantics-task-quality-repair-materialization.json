@@ -1,0 +1,172 @@
+{
+  "id": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_success_semantics_task_quality_repair_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+      "runs/m1882_executable_v2_support_first_outcome_localization/summary.json",
+      "runs/m1882_executable_v2_support_first_outcome_localization/dominant_slices.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize a no-rollout baseline-preserving success-semantics and task-quality repair matrix"
+    ],
+    "derived_from": [
+      "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
+    ],
+    "blocked_by": [
+      "M1880/M1882 are not interpretable for controller-family ranking until success semantics and task-quality variants are materialized"
+    ],
+    "supersedes": [
+      "direct measured ranking from M1880/M1882"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.md",
+  "public_gates": [
+    "M1884 must materialize a no-rollout repair matrix",
+    "M1884 must preserve the original baseline variant",
+    "M1884 must include role-aware success semantics metadata",
+    "M1884 must preserve controller profile identity without tuning profiles",
+    "M1884 must not run reset rollout training replay PPO or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_success_semantics_task_quality_repair_materialization",
+    "evidence_increment": "materializes the no-rollout repair matrix required before support-first controller comparison can be rerun",
+    "claim_scope": "infrastructure only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if original baseline variant is not retained",
+      "stop if repair variants require actor input changes",
+      "stop if controller profile identity is ambiguous",
+      "stop if no materially auditable repair matrix can be emitted without rollout"
+    ],
+    "fallback_plan": [
+      "route to support-first schema redesign if metadata is insufficient",
+      "route to success-semantics-only audit if geometry materialization is not possible",
+      "route to branch synthesis if repair scope becomes too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1883 admits no-rollout success-semantics/task-quality repair materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-rollout support-first success-semantics and task-quality repair materialization",
+    "admission_evidence": [
+      "M1883 designs a baseline-preserving semantics and geometry repair route"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "implementation of a no-rollout repair materializer",
+      "focused tests for the materializer",
+      "M1884 run artifacts",
+      "M1884 status queue scoreboard research log and review",
+      "one follow-up manifest for repair materialization audit or execution design"
+    ],
+    "next_stage_criteria": [
+      "repair matrix exists",
+      "role semantics spec exists",
+      "summary verifies original baseline retention",
+      "summary verifies zero actor input and controller profile tuning violations"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; task-quality materialization does not test history necessity.",
+    "history_necessity_tests": [
+      "Materialization must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1880, M1882, and M1883 artifacts only.",
+    "negative_result_policy": "If materialization cannot preserve baseline and role coverage, route to schema redesign rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repair materialization infrastructure",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-rollout repair materializer can preserve the original support-first baseline while adding role-aware success semantics and task-quality variants needed before controller-family ranking.",
+  "success_criteria": [
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json exists",
+    "repair_variant_matrix.csv exists",
+    "role_semantics_spec.json exists",
+    "original baseline variant is present for every repair source",
+    "all controller profiles remain represented without profile tuning",
+    "guardrail violation count is zero"
+  ],
+  "failure_criteria": [
+    "materialization runs reset or rollout",
+    "actor inputs are changed",
+    "controller profiles are tuned or dropped",
+    "original baseline variant is missing",
+    "role-aware semantics are not represented",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "implement and run a no-rollout support-first success-semantics/task-quality repair materializer"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_success_semantics_task_quality_repair_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+    "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv",
+    "runs/m1882_executable_v2_support_first_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1884 passes if it emits a baseline-preserving no-rollout repair matrix and role semantics spec with zero guardrail violations.",
+  "next_blocker": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization"
+}
