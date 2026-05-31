@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1971,
+    "completed": 1972,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+    "command_log": "docs/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1962-executable-v2-task-quality-calibrated-measured-execution-design"
+    "task_id": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.json",
-    "hypothesis": "A focused calibrated measured runner adapter can preserve M1958 repair metadata and support synthetic execution tests without running real measured rollout.",
-    "id": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement metadata-preserving calibrated measured runner adapter with focused tests only",
-    "priority": 19580,
+    "command": "see experiments/manifests/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.json",
+    "hypothesis": "The M1963 calibrated measured runner can be given an exact command for the M1958 960-cell workload while preserving claim boundaries.",
+    "id": "m1964-executable-v2-task-quality-calibrated-measured-execution-command-design",
+    "kind": "gate",
+    "notes": "Pending: freeze exact real measured execution command over M1958 planned workload using calibrated runner",
+    "priority": 19590,
     "status": "pending",
-    "success_artifact": "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py"
+    "success_artifact": "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T104152Z"
+  "updated_at_utc": "20260531T104847Z"
 }

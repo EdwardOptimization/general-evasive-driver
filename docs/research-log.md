@@ -34124,3 +34124,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: rollout success, controller ranking, policy improvement, finite-window-vs-GRU comparison, paper-level evidence, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.json`
 - next: `m1963-executable-v2-task-quality-calibrated-measured-runner-implementation`
+
+## M1963 Executable V2 Task-Quality Calibrated Measured Runner Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_measured_runner_adapter_pass_admit_command_design`
+- doc: `docs/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py`
+- focused tests: `3 passed`
+- real rollout/measured execution in M1963: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implemented: calibrated metadata-preserving measured runner adapter with episode/failure rows and aggregates for profile, repair source kind, role, normalized surface, kind-role-surface, sampled label, outcome, and termination reason
+- tested: synthetic measured execution pass, rollout failure preservation, and fail-closed schema mismatch
+- route: exact real measured execution command design next; real 960-cell rollout and ranking remain blocked
+- follow-up manifest: `experiments/manifests/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.json`
+- next: `m1964-executable-v2-task-quality-calibrated-measured-execution-command-design`

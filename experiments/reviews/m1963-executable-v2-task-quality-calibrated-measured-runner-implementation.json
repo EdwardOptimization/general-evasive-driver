@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1963 implements calibrated measured runner adapter with focused tests 3 passed preserving repair-source metadata and aggregates without real 960-cell rollout",
+  "failure_criteria": [
+    "adapter is missing",
+    "focused tests fail",
+    "adapter cannot preserve calibrated repair metadata",
+    "real 960-cell measured execution is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real M1958 environment rollout",
+    "do not execute real policy actions over the 960-cell workload",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T105015Z",
+  "hypothesis": "A focused calibrated measured runner adapter can preserve M1958 repair metadata and support synthetic execution tests without running real measured rollout.",
+  "lineage": {
+    "blocked_by": [
+      "existing measured runners do not preserve calibrated repair metadata as first-class output fields"
+    ],
+    "derived_from": [
+      "m1962-executable-v2-task-quality-calibrated-measured-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_measured_runner"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1962-executable-v2-task-quality-calibrated-measured-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_objective": [
+      "implement focused calibrated measured runner adapter without real rollout"
+    ],
+    "supersedes": [
+      "direct measured execution over M1958 workload with legacy M1936 runner outputs"
+    ]
+  },
+  "milestone": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation",
+  "next_blocker": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_measured_runner_adapter_pass_admit_command_design",
+  "public_gates": [
+    "M1963 must add focused calibrated measured runner adapter and tests",
+    "M1963 must preserve calibrated repair metadata and profile provenance",
+    "M1963 must support mocked execution path without running real 960-cell rollout",
+    "M1963 must keep ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_measured_runner_adapter_pass_admit_command_design",
+    "milestone": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation",
+    "reason": "M1963 implements calibrated measured runner adapter with focused tests 3 passed preserving repair-source metadata and aggregates without real 960-cell rollout",
+    "reset_success": "1.0000000000",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py exists",
+    "tests/test_executable_v2_task_quality_calibrated_measured_runner.py exists",
+    "focused tests pass",
+    "docs/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.md exists",
+    "real M1958 measured execution is not run"
+  ],
+  "type": "infrastructure"
+}

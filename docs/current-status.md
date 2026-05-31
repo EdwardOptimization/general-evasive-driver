@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1962-executable-v2-task-quality-calibrated-measured-execution-design
+m1963-executable-v2-task-quality-calibrated-measured-runner-implementation
 ```
 
 Current next task:
 
 ```text
-m1963-executable-v2-task-quality-calibrated-measured-runner-implementation
+m1964-executable-v2-task-quality-calibrated-measured-execution-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -98,7 +98,11 @@ chooses a focused calibrated measured runner: the old task-quality measured
 runner has reusable rollout primitives, but its output schema does not preserve
 calibrated repair metadata as first-class episode/aggregate fields. M1963 must
 now implement that adapter with focused tests only; real measured execution and
-ranking remain blocked.
+ranking remain blocked. M1963 implements the calibrated measured runner with
+focused tests `3 passed`, preserving repair-source metadata and calibrated
+aggregates without running the real 960-cell workload. M1964 must now freeze
+the exact real measured execution command; ranking and paper-level claims remain
+blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
