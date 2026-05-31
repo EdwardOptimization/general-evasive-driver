@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1936,
+    "completed": 1937,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+    "command_log": "docs/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+    "run_dir": "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json",
     "status": "completed",
-    "task_id": "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design"
+    "task_id": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.json",
-    "hypothesis": "The focused materializer can convert the 80-source M1926 subset into 80 executable specs and 960 workload rows without rollout or contract violations.",
-    "id": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused no-rollout materializer for 80 executable specs and 960 workload rows",
-    "priority": 19230,
+    "command": "see experiments/manifests/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.json",
+    "hypothesis": "M1919-M1928 materially expanded task-quality scenario evidence enough to promote from scenario redesign/materialization to a reset/materialized execution branch.",
+    "id": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M1919-M1928 before any further result audit execution design or controller comparison",
+    "priority": 19240,
     "status": "pending",
-    "success_artifact": "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T074316Z"
+  "updated_at_utc": "20260531T075107Z"
 }

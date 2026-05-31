@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design
+m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation
+m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -262,7 +262,13 @@ execution, controller ranking, paper-level claim, or level3 self-ID claim.
 M1927 completed that command design and found that historical materializers are
 not exact schema matches; M1928 must implement a focused no-rollout materializer
 that joins the subset, original template, and accepted-cell artifact to produce
-`80` executable specs and `960` workload rows.
+`80` executable specs and `960` workload rows. M1928 implemented and ran that
+preflight: `80` executable specs, `80` selected accepted cells, `960` workload
+rows, `12` profiles, contract violations `0`, forbidden-key violations `0`,
+and guardrail `0`. The workflow synthesis cadence has now fired, so M1929 must
+synthesize the whole M1919-M1928 task-quality scenario redesign branch before
+any further result audit, reset, rollout, measured execution, controller
+ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

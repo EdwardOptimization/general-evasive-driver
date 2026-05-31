@@ -1,0 +1,181 @@
+{
+  "id": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+      "docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md",
+      "docs/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.md",
+      "docs/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json",
+      "experiments/manifests/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize the task-quality scenario redesign branch before adding more local result-audit or execution-design milestones"
+    ],
+    "derived_from": [
+      "m1919-executable-v2-task-quality-scenario-redesign-plan",
+      "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation"
+    ],
+    "blocked_by": [
+      "Workflow synthesis cadence reached for paper_route_task_quality_scenario_redesign after more than 10 non-synthesis milestones"
+    ],
+    "supersedes": [
+      "continuing directly to M1929 result audit without branch synthesis"
+    ],
+    "invalidates": [
+      "experiments/manifests/m1929-executable-v2-task-quality-scenario-redesign-materialization-result-audit.json"
+    ]
+  },
+  "review_artifact": "docs/reviews/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+  "public_gates": [
+    "M1929 must synthesize M1919-M1928 before any more local result-audit or execution-design milestone",
+    "M1929 must answer evidence summary supported claims falsified claims failure taxonomy public-gate overfit risk and next branch decision",
+    "M1929 must decide whether to promote to a reset/materialized execution branch, continue the same branch, pivot, or stop",
+    "M1929 must keep reset rollout measured execution controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun materialization",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_branch_synthesis",
+    "evidence_increment": "synthesizes source mining materialization selector and no-rollout executable materialization evidence into a branch decision",
+    "claim_scope": "branch synthesis only; no materialization rerun reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1919-M1928 did not materially expand scenario/task-quality evidence",
+      "stop if public-source overfit risk remains high",
+      "stop if executable materialization is not clean enough to admit a next branch"
+    ],
+    "fallback_plan": [
+      "promote to a new reset/materialized execution branch if M1928 artifacts are clean",
+      "pivot to materializer repair if M1928 defects are found",
+      "stop or synthesize broader route if the branch is process-heavy without evidence expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M1919-M1928 task-quality scenario redesign milestones",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality scenario redesign branch synthesis",
+    "admission_evidence": [
+      "M1919-M1928 produced source support audit, 80-source balanced subset, and 80-spec/960-workload no-rollout materialization preflight"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun materialization",
+      "do not run reset rollout measured execution",
+      "do not train or run PPO",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "M1929 synthesis document",
+      "M1929 status queue scoreboard research log and review",
+      "one follow-up manifest for the next branch or repair"
+    ],
+    "next_stage_criteria": [
+      "synthesis questions are answered",
+      "actual progress and process overhead are classified",
+      "public overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1929."
+    ],
+    "temporal_evidence_window": "M1919-M1928 task-quality scenario redesign artifacts.",
+    "negative_result_policy": "If synthesis finds the branch is mostly process overhead, stop or pivot before controller comparison.",
+    "allowed_claims": [
+      "task-quality scenario redesign branch synthesis",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "summarizes the new fresh scenario source distribution and executable panel artifacts created since M1919",
+    "paper_verdict_delta": "can decide whether scenario/task-quality infrastructure is ready for a reset/materialized execution branch",
+    "must_synthesize_if": [
+      "This milestone is the required synthesis before further branch work."
+    ]
+  },
+  "hypothesis": "M1919-M1928 materially expanded task-quality scenario evidence enough to promote from scenario redesign/materialization to a reset/materialized execution branch.",
+  "success_criteria": [
+    "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are separated",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "next manifest is explicit",
+    "no materialization rerun reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis questions are not answered",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "reset rollout measured execution training replay or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+    "docs/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M1929 passes if it writes a synthesis artifact with an explicit next branch decision and no execution or ranking.",
+  "next_blocker": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis"
+}
