@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit
+m2062-paper-route-outcome-supported-decisive-materialization-design
 ```
 
 Current next task:
 
 ```text
-m2062-paper-route-outcome-supported-decisive-materialization-design
+m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation
 ```
 
-Immediate route: M2061 audits the M2060 no-rollout outcome-supported decisive
-candidate artifact as quota-complete and guardrail-clean: `240` candidates,
-T1/T2/T3/T4/T5 quotas `48/60/60/36/36`, split `144/96/0`, all configured
-difficulty axes covered per family, source-kind count `6` per family, max
-single-source-kind share `0.1667`, actor-input forbidden-key count `0`, and
-guardrail `0`. M2062 must design the provenance-preserving materialization and
-reset-validation route before any reset, rollout, ranking, paper claim, or
-self-ID claim.
+Immediate route: M2062 designs the provenance-preserving materialization route
+for the M2060 candidate artifact. M2063 must implement a no-reset preflight that
+writes `240` executable specs and `1200` sentinel workload rows using only the
+five smoke profiles `L0_current_masked`, `L1_one_step`, `L2_window_50`,
+`L3_online_gru`, and `L3_reset_control_corrected`. The full 12-profile matrix,
+reset validation, measured execution, ranking, paper claims, and self-ID claims
+remain blocked until the materialization artifact is audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

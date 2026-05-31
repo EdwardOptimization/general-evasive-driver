@@ -36016,3 +36016,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit provenance-preserving materialization/reset-validation design before any reset or measured smoke
 - follow-up manifest: `experiments/manifests/m2062-paper-route-outcome-supported-decisive-materialization-design.json`
 - next: `m2062-paper-route-outcome-supported-decisive-materialization-design`
+
+## M2062 Paper-Route Outcome-Supported Decisive Materialization Design
+
+- status: completed
+- decision: `outcome_supported_decisive_materialization_design_admit_no_reset_preflight_implementation`
+- doc: `docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md`
+- source artifact: `configs/paper_route_outcome_supported_decisive_task_candidates_v0.json`
+- reset/rollout/measured execution in M2062: `false`
+- policy actions executed in M2062: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: materialize all `240` M2060 candidates into executable smoke-proxy specs while preserving provenance and claim guards
+- first workload scope: `5` sentinel profiles only, expected `1200` workload rows
+- full 12-profile matrix remains blocked until reset validation and outcome-support measured smoke pass
+- decision: admit M2063 no-reset materialization preflight implementation
+- follow-up manifest: `experiments/manifests/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.json`
+- next: `m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation`

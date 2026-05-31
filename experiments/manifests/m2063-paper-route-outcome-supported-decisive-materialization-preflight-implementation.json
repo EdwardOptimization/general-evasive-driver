@@ -1,0 +1,184 @@
+{
+  "id": "m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_materialization_preflight"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2062-paper-route-outcome-supported-decisive-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset materialization preflight for outcome-supported decisive candidates"
+    ],
+    "derived_from": [
+      "m2062-paper-route-outcome-supported-decisive-materialization-design"
+    ],
+    "blocked_by": [
+      "M2062 freezes materialization schema and guardrails"
+    ],
+    "supersedes": [
+      "direct reset or measured execution of raw candidate rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.md",
+  "public_gates": [
+    "M2063 must write 240 executable specs and 1200 sentinel workload rows",
+    "M2063 must preserve M2060 family split and difficulty-axis metadata",
+    "M2063 must preserve smoke_proxy and paper_validity_claim=false semantics",
+    "M2063 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_materialization_preflight",
+    "evidence_increment": "creates no-reset executable specs and sentinel workload for later reset validation",
+    "claim_scope": "materialization preflight only; no reset rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if executable spec or workload counts fail",
+      "stop if provenance or claim guards fail",
+      "stop if contract checks fail",
+      "stop if preflight schedules reset or rollout"
+    ],
+    "fallback_plan": [
+      "repair materializer if schema or guardrails fail",
+      "route to result audit if preflight artifact passes",
+      "route to design repair if smoke-proxy semantics are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2062 admits materialization preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive materialization preflight",
+    "admission_evidence": [
+      "M2062 designs a bounded provenance-preserving materialization route"
+    ],
+    "blocked_shortcuts": [
+      "do not reset or rollout candidates in M2063",
+      "do not rank controller families",
+      "do not interpret materialization as paper evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_materialization_preflight.py",
+      "tests/test_paper_route_outcome_supported_decisive_materialization_preflight.py",
+      "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/*",
+      "docs/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.md",
+      "M2063 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization preflight result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "materialization summary exists",
+      "executable specs and sentinel workload counts pass",
+      "contract and claim guards pass",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2063 materializes tasks and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2063."
+    ],
+    "temporal_evidence_window": "M2062 materialization design.",
+    "negative_result_policy": "If materialization cannot preserve provenance and claim guards, repair the materializer rather than weakening evidence standards.",
+    "allowed_claims": [
+      "outcome-supported decisive materialization preflight",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a new candidate panel into reset-validatable specs",
+    "paper_verdict_delta": "can admit reset validation after audit but cannot decide paper verdict by itself",
+    "must_synthesize_if": [
+      "M2063 fails after one repair attempt",
+      "M2063 schedules reset or rollout in preflight",
+      "M2063 cannot preserve M2060 provenance"
+    ]
+  },
+  "hypothesis": "A deterministic no-reset materialization preflight can convert the M2060 candidate artifact into 240 executable specs and 1200 sentinel workload rows without violating contract or claim guards.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json exists",
+    "executable_spec_count is 240",
+    "planned_sentinel_workload_count is 1200",
+    "sentinel_profile_count is 5",
+    "family quotas are 48 60 60 36 36",
+    "split quotas are public_debug 144 public_gate 96 private_holdout 0",
+    "materialization_failure_count is 0",
+    "contract_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "materializer is missing",
+    "focused tests fail",
+    "summary artifact is missing",
+    "counts or guardrails fail",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_materialization_preflight.py"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_materialization_preflight --candidates configs/paper_route_outcome_supported_decisive_task_candidates_v0.json --output-dir runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight --next-blocker m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_materialization_preflight"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+    "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md"
+  ],
+  "decision_rule": "M2063 passes if it writes a no-reset materialization preflight artifact that is count-complete and guardrail-clean.",
+  "next_blocker": "m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit"
+}
