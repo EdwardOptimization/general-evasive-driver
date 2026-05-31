@@ -33031,3 +33031,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real measured execution success task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.json`
 - next: `m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution`
+
+## M1912 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Execution
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_wrapper_execution_incomplete_route_to_failure_audit`
+- result class: `task_quality_repair_axis_measured_wrapper_execution_needs_repair`
+- doc: `docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md`
+- summary: `runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json`
+- return code: `2`
+- matrix rows: `1536`
+- planned rollout rows: `960`
+- measured rollout rows: `768`
+- import/postprocess rows: `576`
+- combined panel rows: `1344`
+- failure count: `192`
+- guardrail violation count: `0`
+- dominant failure: `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- failed task-quality axis: `contained_collision_clearance_feasibility`
+- failed variants: `contained_reaction_distance_plus=108 contained_clearance_gap_plus=84`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: real measured execution produced partial clean artifacts and localized failure rows
+- unsupported: execution pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json`
+- next: `m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit`

@@ -168,5 +168,34 @@
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
   ],
   "decision_rule": "M1912 passes if the exact command completes with target counts and clean guardrails while interpretation remains deferred.",
-  "next_blocker": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
+    "summary": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json",
+    "decision": "task_quality_repair_axis_measured_wrapper_execution_incomplete_route_to_failure_audit",
+    "result_class": "task_quality_repair_axis_measured_wrapper_execution_needs_repair",
+    "returncode": 2,
+    "matrix_row_count": 1536,
+    "planned_rollout_row_count": 960,
+    "measured_rollout_row_count": 768,
+    "import_postprocess_row_count": 576,
+    "combined_panel_row_count": 1344,
+    "failure_count": 192,
+    "guardrail_violation_count": 0,
+    "dominant_error_type": "RuntimeError",
+    "dominant_error_message": "failed to sample an obstacle scenario matching the configured filters",
+    "failed_task_quality_axis_id": "contained_collision_clearance_feasibility",
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json"
+  },
+  "next_blocker": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit"
 }

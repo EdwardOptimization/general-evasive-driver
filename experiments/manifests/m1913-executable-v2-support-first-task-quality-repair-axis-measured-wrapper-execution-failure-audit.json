@@ -1,0 +1,165 @@
+{
+  "id": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_execution_failure_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
+      "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json",
+      "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/failure_rows.csv",
+      "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/rollout_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.json"
+    ],
+    "parent_objective": [
+      "audit M1912 incomplete measured execution before repair or rerun"
+    ],
+    "derived_from": [
+      "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
+    ],
+    "blocked_by": [
+      "M1912 produced 192 scenario sampling failures and failed target counts"
+    ],
+    "supersedes": [
+      "rerunning or repairing M1912 without failure audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
+  "public_gates": [
+    "M1913 must localize the M1912 192 failure rows without rerunning execution",
+    "M1913 must classify whether failure is geometry-delta mapping, source infeasibility, or task-quality spec issue",
+    "M1913 must choose repair rerun audit or synthesis as next route",
+    "M1913 must keep controller-family ranking and paper claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_execution_failure_audit",
+    "evidence_increment": "localizes M1912 execution failure before any repair or rerun",
+    "claim_scope": "failure audit only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if failure cannot be localized from existing artifacts",
+      "stop if repair route would require actor input or controller profile changes",
+      "stop if another execution would be proposed without a specific repair"
+    ],
+    "fallback_plan": [
+      "route to geometry-delta mapping repair if road_geometry_fixed obstacle deltas caused sampling failures",
+      "route to source/spec repair if source scenarios are infeasible",
+      "route to branch synthesis if failure cause remains ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new measured-wrapper branch requires synthesis by cadence or local-search guard",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit measured-wrapper execution failure",
+    "admission_evidence": [
+      "M1912 execution produced 768 measured rollout rows, 576 imports, and 192 scenario sampling failures"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1913 failure-audit document",
+      "M1913 status queue scoreboard research log and review",
+      "one follow-up manifest for repair rerun synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "failure source is classified",
+      "next route is explicit",
+      "claim boundaries remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; failure audit does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1913."
+    ],
+    "temporal_evidence_window": "M1912 public artifacts only.",
+    "negative_result_policy": "Treat M1912 as incomplete execution evidence, not as controller ranking or self-ID evidence.",
+    "allowed_claims": [
+      "task-quality repair-axis measured-wrapper failure diagnosis",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts the new M1912 failure data into a repair or stop decision",
+    "paper_verdict_delta": "can decide whether M1912 is a repairable wrapper issue or a deeper task-quality blocker",
+    "must_synthesize_if": [
+      "M1913 cannot localize the 192 failures",
+      "the selected next step would be another execution without repair",
+      "failure cause spans multiple unrelated systems"
+    ]
+  },
+  "hypothesis": "M1912's 192 failures are localized enough to route to a specific repair without rerunning measured execution.",
+  "success_criteria": [
+    "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md exists",
+    "failure rows are grouped by error type task-quality axis variant and role surface",
+    "failure cause is classified",
+    "next route is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1913 reruns execution",
+    "failure cause is ambiguous",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made from partial rows"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_execution_failure_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
+    "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json",
+    "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/failure_rows.csv"
+  ],
+  "decision_rule": "M1913 passes if it localizes the M1912 failure and selects a specific next route without rerun or ranking.",
+  "next_blocker": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation
+m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution
 ```
 
 Current next task:
 
 ```text
-m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution
+m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -196,7 +196,12 @@ explicit measured CLI mode with mocked tests before any real M1902 execution.
 M1911 implemented that CLI mode, base-spec binding, explicit geometry-delta
 mapping, and mocked tests (`8 passed`) without running the real workload. M1912
 must now run the exact measured-wrapper public diagnostic execution and defer
-interpretation to a result audit.
+interpretation to a result audit. M1912 ran the command but did not pass:
+`768/960` measured rollout rows completed, `576` import/postprocess rows joined,
+`1344/1536` combined panel rows were written, and `192` contained-collision
+feasibility rollout rows failed with obstacle-sampling errors. Guardrails stayed
+clean (`0` violations), and ranking remains blocked. M1913 must audit that
+failure surface before any repair or rerun.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

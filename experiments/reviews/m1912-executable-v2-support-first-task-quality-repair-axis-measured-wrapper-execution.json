@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1912 produces 768 measured rollout rows and 576 imports but fails target counts with 192 contained-collision feasibility sampling failures while guardrails remain clean",
+  "failure_criteria": [
+    "summary is missing",
+    "execution command diverges from M1910/M1911",
+    "target counts fail",
+    "guardrail violations occur",
+    "interpretation or ranking is claimed before audit"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T063230Z",
+  "hypothesis": "The fixed measured-wrapper command can execute the 960 rollout rows and merge 576 import/postprocess rows into a 1536-row public diagnostic panel with clean guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1911 must provide the measured CLI mode before real execution"
+    ],
+    "derived_from": [
+      "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_execution"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
+    ],
+    "parent_objective": [
+      "run the fixed task-quality repair-axis measured-wrapper execution"
+    ],
+    "supersedes": [
+      "manual or unregistered measured-wrapper execution"
+    ]
+  },
+  "milestone": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution",
+  "next_blocker": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_repair_axis_measured_wrapper_execution_incomplete_route_to_failure_audit",
+  "public_gates": [
+    "M1912 must run the exact M1910/M1911 measured-wrapper command",
+    "M1912 must produce 960 measured rollout rows, 576 import/postprocess rows, and 1536 combined panel rows",
+    "M1912 must preserve all guardrails and claim boundaries",
+    "M1912 must defer interpretation to a later result audit",
+    "M1912 must keep controller-family ranking blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_repair_axis_measured_wrapper_execution_incomplete_route_to_failure_audit",
+    "milestone": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution",
+    "reason": "M1912 produces 768 measured rollout rows and 576 imports but fails target counts with 192 contained-collision feasibility sampling failures while guardrails remain clean",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json exists",
+    "summary result_class is task_quality_repair_axis_measured_wrapper_execution_pass",
+    "measured_rollout_row_count is 960",
+    "import_postprocess_row_count is 576",
+    "combined_panel_row_count is 1536",
+    "failure_count is 0",
+    "guardrail_violation_count is 0",
+    "controller-family ranking and paper claims remain blocked"
+  ],
+  "type": "gate"
+}

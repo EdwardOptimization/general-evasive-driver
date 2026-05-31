@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1920,
+    "completed": 1921,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
-    "returncode": 0,
-    "run_dir": "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+    "command_log": "docs/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
+    "returncode": 2,
+    "run_dir": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution",
     "status": "completed",
-    "task_id": "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation"
+    "task_id": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.json",
-    "hypothesis": "The fixed measured-wrapper command can execute the 960 rollout rows and merge 576 import/postprocess rows into a 1536-row public diagnostic panel with clean guardrails.",
-    "id": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution",
+    "command": "see experiments/manifests/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.json",
+    "hypothesis": "M1912's 192 failures are localized enough to route to a specific repair without rerunning measured execution.",
+    "id": "m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit",
     "kind": "gate",
-    "notes": "Pending: run measured-wrapper public diagnostic execution and defer interpretation to audit",
-    "priority": 19070,
+    "notes": "Pending: audit M1912 incomplete execution and choose repair route without rerun",
+    "priority": 19080,
     "status": "pending",
-    "success_artifact": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json"
+    "success_artifact": "docs/m1913-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-failure-audit.md"
   },
-  "updated_at_utc": "20260531T062455Z"
+  "updated_at_utc": "20260531T062924Z"
 }
