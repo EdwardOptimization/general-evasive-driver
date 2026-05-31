@@ -1,0 +1,175 @@
+{
+  "id": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.json"
+    ],
+    "parent_objective": [
+      "run no-rollout real-artifact repaired runner adapter preflight"
+    ],
+    "derived_from": [
+      "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design"
+    ],
+    "blocked_by": [
+      "real repaired adapter preflight has been designed but not executed"
+    ],
+    "supersedes": [
+      "unregistered repaired adapter preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.md",
+  "public_gates": [
+    "M1889 must run only the no-rollout adapter preflight command registered in M1888",
+    "M1889 must produce 48 executable specs 576 rollout workload cells 384 import rows and 960 total panel rows",
+    "M1889 must not run environment reset rollout training replay PPO or ranking",
+    "M1889 must not change actor inputs or tune controller profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_runner_adapter_preflight",
+    "evidence_increment": "runs the no-rollout real-artifact repaired adapter preflight after exact command registration",
+    "claim_scope": "preflight infrastructure only; no reset, rollout, measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts do not match",
+      "stop if config delta validation fails",
+      "stop if import rows are missing",
+      "stop if any guardrail violation occurs"
+    ],
+    "fallback_plan": [
+      "route to repaired adapter bugfix if preflight fails",
+      "route to adapter result audit if preflight passes",
+      "route to branch synthesis if repaired execution remains blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1888 registered exact preflight command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-rollout support-first repaired runner adapter preflight",
+    "admission_evidence": [
+      "M1888 fixes exact real-artifact no-rollout command and target counts"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1889 run artifacts",
+      "M1889 docs status queue scoreboard research log and review",
+      "one follow-up manifest for result audit or adapter repair"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "target counts pass",
+      "guardrails remain clean",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter preflight does not test history necessity.",
+    "history_necessity_tests": [
+      "Preflight must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1884-M1888 artifacts only.",
+    "negative_result_policy": "If preflight fails, route to adapter repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired runner adapter preflight result",
+      "no reset, rollout, measured execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The real-artifact no-rollout repaired adapter preflight will produce the registered bounded-smoke artifacts with clean guardrails.",
+  "success_criteria": [
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json exists",
+    "result_class is support_first_repaired_runner_adapter_pass",
+    "selected source spec count is 16",
+    "executable spec count is 48",
+    "rollout workload cell count is 576",
+    "import row count is 384",
+    "total panel row count is 960",
+    "guardrail violation count is zero"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "target counts fail",
+    "config failure rows exist",
+    "missing import rows exist",
+    "environment reset or rollout starts",
+    "ranking or paper claims are made"
+  ],
+  "commands": [
+    {
+      "name": "preflight",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_support_first_repaired_runner_adapter --repair-matrix runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv --measured-specs runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json --episode-rows runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv --output-dir runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight --sources-per-role-surface 2 --target-role-surface-count 8 --target-controller-profile-count 12 --target-selected-source-spec-count 16 --target-executable-spec-count 48 --target-rollout-workload-cell-count 576 --target-import-row-count 384 --target-total-panel-row-count 960 --next-blocker m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_runner_adapter_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+    "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py"
+  ],
+  "decision_rule": "M1889 passes if the exact no-rollout adapter preflight completes with registered counts and clean guardrails.",
+  "next_blocker": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
+}

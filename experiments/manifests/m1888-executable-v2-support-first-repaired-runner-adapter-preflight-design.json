@@ -154,5 +154,33 @@
     "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv"
   ],
   "decision_rule": "M1888 passes if it fixes the exact no-rollout preflight command and target counts without running it.",
-  "next_blocker": "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+    "decision": "support_first_repaired_adapter_preflight_design_admit_preflight_run",
+    "exact_command_registered": true,
+    "preflight_execution_started": false,
+    "target_role_surface_count": 8,
+    "target_controller_profile_count": 12,
+    "target_selected_source_spec_count": 16,
+    "target_executable_spec_count": 48,
+    "target_rollout_workload_cell_count": 576,
+    "target_import_row_count": 384,
+    "target_total_panel_row_count": 960,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.json"
+  },
+  "next_blocker": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
 }

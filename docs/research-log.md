@@ -32410,3 +32410,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real M1884 preflight repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.json`
 - next: `m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design`
+
+## M1888 Executable V2 Support-First Repaired Runner Adapter Preflight Design
+
+- status: completed
+- decision: `support_first_repaired_adapter_preflight_design_admit_preflight_run`
+- artifact: `docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md`
+- exact command registered: `true`
+- preflight execution started in M1888: `false`
+- target role-surface count: `8`
+- target controller profile count: `12`
+- target selected source spec count: `16`
+- target executable spec count: `48`
+- target rollout workload cell count: `576`
+- target import row count: `384`
+- target total panel row count: `960`
+- reset/rollout in M1888: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: exact no-rollout real-artifact preflight command and target counts are registered
+- unsupported: real preflight result repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.json`
+- next: `m1889-executable-v2-support-first-repaired-runner-adapter-preflight`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1887-executable-v2-support-first-repaired-runner-adapter-implementation
+m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design
 ```
 
 Current next task:
 
 ```text
-m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design
+m1889-executable-v2-support-first-repaired-runner-adapter-preflight
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -94,8 +94,11 @@ M1887 implemented the no-rollout repaired runner adapter with focused tests:
 config delta validation, rollout/import row separation, and synthetic
 bounded-smoke fixture checks pass; the real M1884 matrix has not been run.
 M1888 must now register the exact real-artifact no-rollout preflight command
-and target counts before executing it. Controller ranking, paper-level claims,
-and level3 self-ID claims remain blocked.
+and target counts before executing it. M1888 registered that command: `16`
+selected sources, `48` patched executable specs, `576` rollout workload cells,
+`384` import rows, and `960` total repaired-smoke panel rows. M1889 must now
+run only that no-rollout adapter preflight over real M1884 artifacts. Controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
