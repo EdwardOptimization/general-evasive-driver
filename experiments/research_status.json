@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2068,
+    "completed": 2069,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+    "command_log": "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "configs",
     "status": "completed",
-    "task_id": "m2059-paper-route-outcome-supported-decisive-task-distribution-design"
+    "task_id": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json",
-    "hypothesis": "A deterministic no-rollout generator can produce the 240-source outcome-supported decisive task candidate artifact specified by M2059 without weakening contract or claim boundaries.",
-    "id": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rollout 240-source candidate generator",
-    "priority": 20550,
+    "command": "see experiments/manifests/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.json",
+    "hypothesis": "The M2060 no-rollout candidate artifact is quota-complete guardrail-clean and admissible for reset/materialization design.",
+    "id": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2060 candidate artifact quotas guardrails source diversity and next route before reset/materialization",
+    "priority": 20560,
     "status": "pending",
-    "success_artifact": "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json"
+    "success_artifact": "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md"
   },
-  "updated_at_utc": "20260531T201741Z"
+  "updated_at_utc": "20260531T202642Z"
 }

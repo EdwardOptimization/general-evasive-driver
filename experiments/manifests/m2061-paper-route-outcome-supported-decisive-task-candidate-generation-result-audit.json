@@ -1,0 +1,165 @@
+{
+  "id": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_candidate_generation_result_audit"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout outcome-supported decisive task candidate artifact before reset or materialization"
+    ],
+    "derived_from": [
+      "m2060-paper-route-outcome-supported-decisive-task-candidate-generation"
+    ],
+    "blocked_by": [
+      "M2060 generated a new candidate artifact that requires claim-boundary and quota audit before reset/materialization"
+    ],
+    "supersedes": [
+      "direct reset or measured execution of unaudited generated candidates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md",
+  "public_gates": [
+    "M2061 must audit M2060 candidate_count family quotas split quotas and difficulty-axis coverage",
+    "M2061 must audit claim guards and actor-input forbidden-key count",
+    "M2061 must decide whether reset/materialization design is admissible",
+    "M2061 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_candidate_artifact_audit",
+    "evidence_increment": "audits whether the no-rollout candidate artifact is clean enough for reset/materialization design",
+    "claim_scope": "artifact audit only; no reset rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if candidate quotas fail",
+      "stop if guardrails fail",
+      "stop if generated rows are marked paper-valid",
+      "stop if the artifact cannot preserve actor input contract"
+    ],
+    "fallback_plan": [
+      "route to candidate generator repair if quotas or guardrails fail",
+      "route to reset/materialization design if artifact is clean",
+      "route to synthesis if the new panel repeats local-search failure modes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2060 produced a candidate artifact that must be audited before reset/materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive task candidate result audit",
+    "admission_evidence": [
+      "M2060 writes a quota-complete guardrail-clean candidate artifact"
+    ],
+    "blocked_shortcuts": [
+      "do not reset or rollout candidates in M2061",
+      "do not rank controller families",
+      "do not interpret candidate generation as paper evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md",
+      "M2061 status queue scoreboard research log and review",
+      "one follow-up manifest for reset/materialization design or candidate-generator repair"
+    ],
+    "next_stage_criteria": [
+      "artifact quotas and guardrails audited",
+      "source diversity and claim boundaries audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2061 audits a candidate artifact and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2061."
+    ],
+    "temporal_evidence_window": "M2060 candidate artifact.",
+    "negative_result_policy": "If the artifact is not clean enough for reset/materialization, repair the generator or synthesize rather than weakening claim guards.",
+    "allowed_claims": [
+      "outcome-supported decisive task candidate artifact audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new panel before reset/materialization",
+    "paper_verdict_delta": "can admit reset/materialization design but cannot decide paper verdict by itself",
+    "must_synthesize_if": [
+      "M2061 routes to another design-only milestone without artifact audit",
+      "M2061 weakens claim guards to admit reset/materialization",
+      "M2061 finds the artifact repeats M2048 local repair semantics"
+    ]
+  },
+  "hypothesis": "The M2060 no-rollout candidate artifact is quota-complete guardrail-clean and admissible for reset/materialization design.",
+  "success_criteria": [
+    "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md exists",
+    "M2060 candidate_count family quotas split quotas and difficulty-axis coverage are audited",
+    "M2060 guardrail_violation_count actor_input_forbidden_key_count and paper_validity_claim_true_count are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "quota or guardrail evidence is not audited",
+    "next route is ambiguous",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_task_candidate_generation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+    "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md"
+  ],
+  "decision_rule": "M2061 passes if it audits the M2060 candidate artifact as clean and selects a bounded next route without overclaiming.",
+  "next_blocker": "m2062-selected-by-m2061-audit"
+}

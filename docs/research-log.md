@@ -35972,3 +35972,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit M2060 no-rollout candidate generator implementation
 - follow-up manifest: `experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json`
 - next: `m2060-paper-route-outcome-supported-decisive-task-candidate-generation`
+
+## M2060 Paper-Route Outcome-Supported Decisive Task Candidate Generation
+
+- status: completed
+- decision: `outcome_supported_decisive_task_candidate_generation_pass_route_to_result_audit`
+- artifact: `configs/paper_route_outcome_supported_decisive_task_candidates_v0.json`
+- focused tests: `3 passed`
+- reset/rollout/measured execution in M2060: `false`
+- policy actions executed in M2060: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_task_candidate_generation_pass`
+- candidate count: `240`
+- family quotas: T1 `48`, T2 `60`, T3 `60`, T4 `36`, T5 `36`
+- split quotas: public_debug `144`, public_gate `96`, private_holdout `0`
+- difficulty-axis coverage pass: `true`
+- actor-input forbidden-key count: `0`
+- paper validity claim true count: `0`
+- guardrail violation count: `0`
+- follow-up manifest: `experiments/manifests/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.json`
+- next: `m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit`

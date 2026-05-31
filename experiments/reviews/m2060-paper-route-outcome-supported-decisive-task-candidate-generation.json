@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2060 focused tests 3 passed and writes 240 no-rollout candidates family quotas 48/60/60/36/36 split 144/96/0 difficulty-axis coverage pass actor forbidden-key 0 guardrail 0",
+  "failure_criteria": [
+    "candidate generator is missing",
+    "focused tests fail",
+    "candidate artifact is missing",
+    "quotas or guardrails fail",
+    "new reset rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T202910Z",
+  "hypothesis": "A deterministic no-rollout generator can produce the 240-source outcome-supported decisive task candidate artifact specified by M2059 without weakening contract or claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2059 designs exact candidate quotas and support gates"
+    ],
+    "derived_from": [
+      "m2059-paper-route-outcome-supported-decisive-task-distribution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_candidate_generation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "implement no-rollout candidate generator for outcome-supported decisive task distribution"
+    ],
+    "supersedes": [
+      "another repair-wave generator for M2048 routing-smoke panel"
+    ]
+  },
+  "milestone": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
+  "next_blocker": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "outcome_supported_decisive_task_candidate_generation_pass_route_to_result_audit",
+  "public_gates": [
+    "M2060 must generate 240 no-rollout candidate sources",
+    "M2060 must preserve family and split quotas",
+    "M2060 must include difficulty-axis coverage metadata",
+    "M2060 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+    "clearance_margin_mean": "",
+    "decision": "outcome_supported_decisive_task_candidate_generation_pass_route_to_result_audit",
+    "milestone": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
+    "reason": "M2060 focused tests 3 passed and writes 240 no-rollout candidates family quotas 48/60/60/36/36 split 144/96/0 difficulty-axis coverage pass actor forbidden-key 0 guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json exists",
+    "candidate_count is 240",
+    "family quotas are 48 60 60 36 36",
+    "split quotas are public_debug 144 public_gate 96 private_holdout 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

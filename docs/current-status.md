@@ -16,21 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2059-paper-route-outcome-supported-decisive-task-distribution-design
+m2060-paper-route-outcome-supported-decisive-task-candidate-generation
 ```
 
 Current next task:
 
 ```text
-m2060-paper-route-outcome-supported-decisive-task-candidate-generation
+m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit
 ```
 
-Immediate route: M2059 designs a new outcome-supported decisive task
-distribution to replace the offtrack-dominated routing-smoke repair loop. The
-next panel targets `240` no-rollout candidates across T1/T2/T3/T4/T5 quotas
-`48/60/60/36/36`, with smoke support gates before any full 12-profile
-comparison. M2060 must implement the no-rollout candidate generator; reset,
-rollout, ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2060 implements the no-rollout outcome-supported decisive task
+candidate generator and writes `configs/paper_route_outcome_supported_decisive_task_candidates_v0.json`.
+The artifact has `240` candidates, T1/T2/T3/T4/T5 quotas `48/60/60/36/36`,
+split `public_debug/public_gate/private_holdout = 144/96/0`,
+difficulty-axis coverage pass, actor-input forbidden-key count `0`, and
+guardrail `0`. M2061 must audit the artifact before any reset/materialization
+design; reset, rollout, ranking, paper claims, and self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
