@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2089,
+    "completed": 2090,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md",
+    "command_log": "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight",
+    "run_dir": "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md",
     "status": "completed",
-    "task_id": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit"
+    "task_id": "m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.json",
-    "hypothesis": "A bounded density-aware repair criterion can address the six residual M2079 reset sampling failures without dropping specs or weakening claim guards.",
-    "id": "m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design",
-    "kind": "gate",
-    "notes": "Pending: freeze accepted-density criteria for the six residual reset failures without reset or rollout",
-    "priority": 20760,
+    "command": "see experiments/manifests/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.json",
+    "hypothesis": "A no-reset density-aware repair can produce a 240-spec artifact where the six targeted rows each have 5-of-5 support seeds and at least 80 accepted grid cells per support seed.",
+    "id": "m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-reset density-aware repair over six M2079 failure rows",
+    "priority": 20770,
     "status": "pending",
-    "success_artifact": "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md"
+    "success_artifact": "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T222621Z"
+  "updated_at_utc": "20260531T222953Z"
 }

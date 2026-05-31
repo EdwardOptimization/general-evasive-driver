@@ -1,0 +1,199 @@
+{
+  "id": "m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_density_aware_obstacle_filter_repair_preflight"
+    ],
+    "parent_dataset": [
+      "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json",
+      "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset density-aware obstacle-filter repair preflight"
+    ],
+    "derived_from": [
+      "m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design"
+    ],
+    "blocked_by": [
+      "M2079 reset validation failed 6/240 attempts",
+      "M2081 requires density-aware support before any reset rerun"
+    ],
+    "supersedes": [
+      "existence-only M2076 obstacle-filter repair for the six failed rows",
+      "direct reset rerun from M2076 repaired specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md",
+  "public_gates": [
+    "M2082 must run no environment reset rollout measured execution training replay PPO ranking or promotion",
+    "M2082 must write 240 repaired specs and 1200 sentinel workload rows",
+    "M2082 must modify only the six M2079 failure rows",
+    "M2082 must prove density support min accepted cells >= 80 for targeted rows"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not drop any of the 240 specs"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_density_aware_obstacle_filter_repair_preflight",
+    "evidence_increment": "implements the bounded density-aware no-reset repair artifact",
+    "claim_scope": "density-aware repair artifact only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if targeted repair count is not 6",
+      "stop if any non-target spec changes",
+      "stop if density support min accepted cells is below 80",
+      "stop if any reset or rollout is executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if the repair preflight runs",
+      "route to synthesis and stop if density support is not achievable",
+      "route to panel reduction only through a separate audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2081 freezes density-aware obstacle-filter repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "density-aware obstacle-filter repair preflight implementation",
+    "admission_evidence": [
+      "M2081 freezes minimum accepted grid cell count 80",
+      "M2081 freezes targeted repair count 6",
+      "M2081 freezes bounded window and threshold-score limits"
+    ],
+    "blocked_shortcuts": [
+      "do not reset environments",
+      "do not run measured execution",
+      "do not interpret density-aware no-reset repair as controller performance"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight.py",
+      "tests/test_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight.py",
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/*",
+      "docs/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md",
+      "M2082 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary artifact exists",
+      "density support pass or fail is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2082 repairs generated task filters only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2082."
+    ],
+    "temporal_evidence_window": "M2079-M2081 reset-validity synthesis and density design evidence.",
+    "negative_result_policy": "If density support fails, route to audit and synthesis rather than weakening claim guards or running measured execution.",
+    "allowed_claims": [
+      "density-aware no-reset obstacle-filter repair preflight",
+      "no reset validity, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "tests a stricter accepted-density condition before reset rerun",
+    "paper_verdict_delta": "can admit one fresh reset command design only if density repair passes",
+    "must_synthesize_if": [
+      "M2082 fails density support",
+      "M2082 routes to another repair without audit",
+      "M2082 attempts to weaken claim guards",
+      "the following reset validation still fails scenario sampling"
+    ]
+  },
+  "hypothesis": "A no-reset density-aware repair can produce a 240-spec artifact where the six targeted rows each have 5-of-5 support seeds and at least 80 accepted grid cells per support seed.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "repaired_executable_spec_count is 240",
+    "targeted_repair_count is 6",
+    "non_target_spec_changed_count is 0",
+    "planned_sentinel_workload_count is 1200",
+    "target_support_seed_count is 5",
+    "required_seed_support is 5",
+    "minimum_accepted_grid_cell_count_required is 80",
+    "density_support_pass_count is 6",
+    "density_support_fail_count is 0",
+    "density_support_min_accepted_grid_cell_count is at least 80",
+    "distance_window_width_max is at most 12.0",
+    "half_width_window_width_max is at most 0.8",
+    "threshold_score_ceiling_used is at most 1.0",
+    "family_quota_pass split_quota_pass and difficulty_axis_coverage_pass are true",
+    "contract_violation_count metadata_missing_count forbidden_key_violation_count and guardrail_violation_count are 0",
+    "environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used promoted private_holdout_used actor_input_contract_changed profile_specific_tuning controller_family_ranking_claim_made finite_window_vs_gru_conclusion_made paper_level_claim_made and level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "any density support gate fails",
+    "any reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight.py"
+    },
+    {
+      "name": "density_repair_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight --seed-robust-repaired-executable-task-specs runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json --reset-failure-rows runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight --support-seed-count 5 --required-seed-support 5 --minimum-accepted-grid-cell-count 80 --target-spec-count 240 --targeted-repair-count 6 --max-distance-window-width 12.0 --max-half-width-window-width 0.8 --max-threshold-score-ceiling 1.0 --next-blocker m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_density_aware_obstacle_filter_repair_preflight"
+  ],
+  "baseline_artifacts": [
+    "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_robust_repaired_executable_task_specs.json",
+    "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv",
+    "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md"
+  ],
+  "decision_rule": "M2082 passes if the no-reset repair writes a 240-spec density-aware artifact that only changes the six targeted rows and satisfies the min-density gates without overclaiming.",
+  "next_blocker": "m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit"
+}

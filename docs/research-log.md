@@ -36441,3 +36441,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: continue to M2081 density-aware obstacle-filter repair design
 - follow-up manifest: `experiments/manifests/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.json`
 - next: `m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design`
+
+## M2081 Paper-Route Outcome-Supported Decisive Density-Aware Obstacle-Filter Repair Design
+
+- status: completed
+- decision: `density_aware_repair_design_admit_no_reset_implementation`
+- parent synthesis: `docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md`
+- reset/rollout/measured execution in M2081: `false`
+- policy actions executed in M2081: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- target: only the six M2079 failed task IDs; no spec dropping allowed
+- density criterion: `5/5` support seeds from each M2079 failure seed and minimum accepted grid cells `>=80` per support seed
+- repair bounds: distance window max `12.0`, half-width window max `0.8`, threshold-score ceiling `1.0`
+- no-write probe: threshold `1.0` can satisfy minimum accepted cell counts `90,120,90,90,90,120` for the six failed rows
+- M2082 pass gate: `240` specs, targeted repair count `6`, non-target spec changed count `0`, density support pass `6`, density support fail `0`, quotas/contract/metadata/guardrails clean
+- follow-up manifest: `experiments/manifests/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.json`
+- next: `m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation`
