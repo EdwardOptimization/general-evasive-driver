@@ -31924,3 +31924,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json`
 - next: `m1870-executable-v2-support-first-reset-validation-result-audit`
+
+## M1870 Executable V2 Support-First Reset Validation Result Audit
+
+- status: completed
+- decision: `support_first_reset_validation_result_clean_admit_measured_execution_design`
+- artifact: `docs/m1870-executable-v2-support-first-reset-validation-result-audit.md`
+- parent result: `runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json`
+- result class: `executable_v2_reset_feasibility_preflight_pass`
+- attempted spec count: `180`
+- reset success count: `180`
+- sampling failure count: `0`
+- profile count: `8`
+- role-surface count: `8`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- guardrail violation count: `0`
+- known imbalance: `unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24`
+- imbalance blocks measured execution design: `false`
+- imbalance blocks controller ranking: `true`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: clean reset-validation result measured-execution design route role-wise diagnostic requirement
+- unsupported: measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1871-executable-v2-support-first-measured-execution-design.json`
+- next: `m1871-executable-v2-support-first-measured-execution-design`

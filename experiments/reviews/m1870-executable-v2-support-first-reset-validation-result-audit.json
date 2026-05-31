@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1870 audits clean 180-row reset pass and admits measured execution design while keeping ranking blocked by imbalance",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores failed counts or guardrails",
+    "audit runs rollout or measured rollout",
+    "audit routes directly to controller ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T020901Z",
+  "hypothesis": "The clean M1869 reset-only validation result is sufficient to admit measured execution design over the support-first payload.",
+  "lineage": {
+    "blocked_by": [
+      "M1869 reset-only validation pass requires audit before measured execution design"
+    ],
+    "derived_from": [
+      "m1869-executable-v2-support-first-reset-validation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/reset_stress_rows.csv",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/sampling_failure_rows.csv"
+    ],
+    "parent_objective": [
+      "audit support-first reset-validation result before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution after reset preflight",
+      "manual interpretation of reset preflight"
+    ]
+  },
+  "milestone": "m1870-executable-v2-support-first-reset-validation-result-audit",
+  "next_blocker": "m1871-executable-v2-support-first-measured-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_reset_validation_result_clean_admit_measured_execution_design",
+  "public_gates": [
+    "M1870 must audit M1869 reset result counts label distribution sampling failures and guardrails",
+    "M1870 must decide measured execution design versus task-quality/source-balance repair",
+    "M1870 must not run measured rollout training replay PPO ranking paper-level or level3 claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_reset_validation_result_clean_admit_measured_execution_design",
+    "milestone": "m1870-executable-v2-support-first-reset-validation-result-audit",
+    "reason": "M1870 audits clean 180-row reset pass and admits measured execution design while keeping ranking blocked by imbalance",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md exists",
+    "audit checks result_class counts sampling failures label distribution and guardrails",
+    "audit chooses measured execution design or repair route",
+    "no rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

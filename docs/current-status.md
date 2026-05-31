@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1869-executable-v2-support-first-reset-validation-preflight
+m1870-executable-v2-support-first-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m1870-executable-v2-support-first-reset-validation-result-audit
+m1871-executable-v2-support-first-measured-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -38,7 +38,9 @@ and produced a clean 180-row reset payload. M1867 audits the result as clean
 and admits reset-validation execution design. M1868 fixes the exact reset-only
 validation command. M1869 ran reset-only validation over the converted 180-row
 payload with `180/180` reset success and zero sampling failures. M1870 must now
-audit this result before measured execution design; rollout, policy action
+audits this result as clean and admits measured-execution design while keeping
+ranking blocked by the known unavoidable post-friction imbalance. M1871 must
+now design the measured-execution route or runner adapter; policy action
 execution, measured execution, controller ranking, paper-level claims, and
 level3 self-ID claims remain blocked.
 

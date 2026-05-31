@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1878,
+    "completed": 1879,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
+    "command_log": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1869-executable-v2-support-first-reset-validation-preflight"
+    "task_id": "m1870-executable-v2-support-first-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json",
-    "hypothesis": "The clean M1869 reset-only validation result is sufficient to admit measured execution design over the support-first payload.",
-    "id": "m1870-executable-v2-support-first-reset-validation-result-audit",
+    "command": "see experiments/manifests/m1871-executable-v2-support-first-measured-execution-design.json",
+    "hypothesis": "A measured-execution protocol can be designed over the reset-validated support-first payload while preserving role-wise diagnostics and blocking ranking claims.",
+    "id": "m1871-executable-v2-support-first-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1869 reset result before measured execution design",
-    "priority": 18650,
+    "notes": "Pending: design measured execution or runner-adapter route over reset-validated support-first payload",
+    "priority": 18660,
     "status": "pending",
-    "success_artifact": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md"
+    "success_artifact": "docs/m1871-executable-v2-support-first-measured-execution-design.md"
   },
-  "updated_at_utc": "20260531T020411Z"
+  "updated_at_utc": "20260531T020720Z"
 }
