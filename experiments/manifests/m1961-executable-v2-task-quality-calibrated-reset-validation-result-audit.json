@@ -1,0 +1,164 @@
+{
+  "id": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.md",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/reset_rows.csv",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/contract_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit calibrated reset-validation result before measured execution design"
+    ],
+    "derived_from": [
+      "m1960-executable-v2-task-quality-calibrated-reset-validation-preflight"
+    ],
+    "blocked_by": [
+      "M1960 reset evidence must be audited before measured execution or ranking design"
+    ],
+    "supersedes": [
+      "directly interpreting reset pass as measured controller evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+  "public_gates": [
+    "M1961 must audit M1960 reset counts contract checks and guardrails",
+    "M1961 must state exactly what the reset pass supports and does not support",
+    "M1961 must decide whether measured execution design is admitted",
+    "M1961 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_reset_result_audit",
+    "evidence_increment": "audits the first reset-validation data over the calibrated 80-spec task-quality panel",
+    "claim_scope": "reset-result audit only; no rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1960 counts or guardrails are inconsistent",
+      "stop if reset pass is being interpreted as measured performance",
+      "stop if measured execution route would drop calibrated repair metadata"
+    ],
+    "fallback_plan": [
+      "route to measured execution design if reset audit is clean",
+      "route to reset failure audit if any reset or contract issue is found",
+      "synthesize if the calibrated materialization branch reaches cadence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1960 produced reset-validation data",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated reset validation result audit",
+    "admission_evidence": [
+      "M1960 reports 80/80 reset success with zero contract and guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families",
+      "do not interpret reset success as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+      "M1961 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution design or reset failure repair"
+    ],
+    "next_stage_criteria": [
+      "reset result is classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1961."
+    ],
+    "temporal_evidence_window": "M1960 reset-validation result.",
+    "negative_result_policy": "If reset evidence is inconsistent, classify it before repair or rerun.",
+    "allowed_claims": [
+      "task-quality reset-validity audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns raw reset-validation data into an audited next-route decision",
+    "paper_verdict_delta": "can admit measured rollout design if clean but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M1961 cannot make a clean route decision",
+      "M1961 would treat reset success as measured performance",
+      "calibrated materialization branch reaches cadence"
+    ]
+  },
+  "hypothesis": "The M1960 reset pass can be audited as clean reset-validity evidence for the calibrated 80-spec panel while keeping rollout ranking paper and self-ID claims blocked.",
+  "success_criteria": [
+    "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md exists",
+    "M1960 reset result is audited",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1960 result is not audited",
+    "claim boundary is ambiguous",
+    "next route is ambiguous",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.md",
+    "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M1961 passes if it audits M1960 reset evidence and registers the next route without execution or ranking.",
+  "next_blocker": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1959-executable-v2-task-quality-calibrated-reset-validation-command-design
+m1960-executable-v2-task-quality-calibrated-reset-validation-preflight
 ```
 
 Current next task:
 
 ```text
-m1960-executable-v2-task-quality-calibrated-reset-validation-preflight
+m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -83,7 +83,13 @@ expected observation dimension `72`. The focused validator is required because
 the generic M1933 validator can reset env configs but does not preserve all
 calibrated repair metadata in reset rows. M1960 may now run only the frozen
 reset-validation command; rollout, measured execution, ranking, paper-level
-claim, and level3 self-ID remain blocked.
+claim, and level3 self-ID remain blocked. M1960 runs that reset-only command
+and passes: `80` reset attempts, `80` successes, `0` failures, finite
+observations `80`, observation dimension failures `0`, obstacles initialized
+`80`, contract violations `0`, label actor input violations `0`, forbidden-key
+violations `0`, source-kind and role-surface quota pass, guardrail `0`.
+M1961 must audit this reset pass before measured execution design or
+controller comparison.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

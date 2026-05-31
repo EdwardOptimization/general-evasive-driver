@@ -34062,3 +34062,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: rollout success, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.json`
 - next: `m1960-executable-v2-task-quality-calibrated-reset-validation-preflight`
+
+## M1960 Executable V2 Task-Quality Calibrated Reset Validation Preflight
+
+- status: completed
+- decision: `task_quality_calibrated_reset_validation_pass_route_to_result_audit`
+- doc: `docs/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py`
+- focused tests: `2 passed`
+- summary: `runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json`
+- reset execution in M1960: `true`
+- rollout/measured execution in M1960: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `task_quality_calibrated_reset_validation_preflight_pass`
+- reset result: `80` attempts, `80` successes, `0` failures
+- observation/contract checks: finite observations `80`, observation dimension failures `0`, obstacles initialized `80`, contract violations `0`, label actor input violations `0`, forbidden-key violations `0`, guardrail `0`
+- source preservation: source-kind quota pass `true`, role-surface quota pass `true`
+- sampled labels: aeb-feasible `44`, aes-feasible `14`, drift-required `9`, unavoidable `13`
+- supported claim: M1958 calibrated 80-spec panel is reset-valid under the current simulator and strict human-view contract
+- unsupported claims: rollout success, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.json`
+- next: `m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit`
