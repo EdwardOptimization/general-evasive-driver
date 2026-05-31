@@ -1,0 +1,182 @@
+{
+  "id": "m1899-executable-v2-support-first-clearance-containment-conflict-localization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_clearance_containment_conflict_localization"
+    ],
+    "parent_dataset": [
+      "docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rollout localization for clearance-only versus containment-collision conflict"
+    ],
+    "derived_from": [
+      "m1898-executable-v2-support-first-clearance-containment-conflict-localization-design"
+    ],
+    "blocked_by": [
+      "M1898 requires a dedicated conflict localizer before any ranking or repair execution"
+    ],
+    "supersedes": [
+      "manual ad hoc clearance/containment tables"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1899-executable-v2-support-first-clearance-containment-conflict-localization.md",
+  "public_gates": [
+    "M1899 must implement a dedicated no-rollout conflict localizer with focused tests",
+    "M1899 must run the localizer on M1895 episode rows without environment reset or rollout",
+    "M1899 must write summary conflict class near-miss and slice aggregate artifacts",
+    "M1899 must classify the next route without controller ranking",
+    "M1899 must keep training PPO replay private holdout promotion actor-input changes paper claims and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_clearance_containment_conflict_localization_artifact",
+    "evidence_increment": "produces a no-rollout conflict localization artifact set for the disjoint M1895 clearance/containment surface",
+    "claim_scope": "no-rollout task-quality localization artifact only; no measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the helper drops rows or cannot classify every row",
+      "stop if the generated artifacts do not identify conflict slices",
+      "stop if the route decision still requires ranking before task quality is localized"
+    ],
+    "fallback_plan": [
+      "if implementation fails, reduce scope to summary plus primary conflict aggregate",
+      "if localization remains diffuse, route to workflow synthesis before another repair",
+      "if localization identifies a clear axis, route to task-quality repair-axis design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1898 admitted a dedicated no-rollout conflict localization artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and execute no-rollout conflict localization artifact generation",
+    "admission_evidence": [
+      "M1898 defines required conflict classes and artifacts",
+      "M1895 episode rows already contain obstacle_clearance_pass road_containment_pass and collision_failure fields"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset or rollout",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "conflict localization helper",
+      "focused tests",
+      "M1899 no-rollout artifact run",
+      "M1899 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary reports 960 rows and zero guardrail violations",
+      "all rows receive exactly one primary conflict class",
+      "near-miss and aggregate artifacts are written",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; no-rollout task-quality localization does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1899."
+    ],
+    "temporal_evidence_window": "M1895 measured rows only.",
+    "negative_result_policy": "If the conflict is broad, route to branch synthesis or task-design repair instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "no-rollout clearance-containment conflict localization artifact",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "generates a new conflict localization artifact set from M1895 measured rows without new rollout",
+    "paper_verdict_delta": "can determine whether the support-first branch has a repairable task-quality axis or needs branch synthesis",
+    "must_synthesize_if": [
+      "localization remains broad across all axes",
+      "the next step would be another repair without a localized axis",
+      "controller comparison is proposed while joint clearance/containment remains zero"
+    ]
+  },
+  "hypothesis": "A dedicated no-rollout conflict localizer can produce source and slice evidence for the M1895 clearance/containment conflict without ranking controller families.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_clearance_containment_conflict_localization.py exists",
+    "tests cover primary conflict class and near-miss aggregation behavior",
+    "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json exists",
+    "summary reports episode_count 960 and guardrail_violation_count 0",
+    "all rows are assigned exactly one primary conflict class",
+    "required aggregate artifacts are written",
+    "next route is explicit and controller ranking remains blocked"
+  ],
+  "failure_criteria": [
+    "helper is missing",
+    "focused tests fail",
+    "no-rollout execution drops rows",
+    "classification omits any primary conflict class without explicit zero-count accounting",
+    "helper runs environment reset rollout measured execution training replay PPO or ranking"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_executable_v2_support_first_clearance_containment_conflict_localization.py"
+    },
+    {
+      "name": "run_no_rollout_localization",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_support_first_clearance_containment_conflict_localization --episode-rows runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv --summary runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json --output-dir runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization --target-episode-count 960 --next-blocker m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_clearance_containment_conflict_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_clearance_containment_conflict_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_clearance_containment_conflict_localization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md",
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json"
+  ],
+  "decision_rule": "M1899 passes if it implements and runs no-rollout conflict localization over M1895 rows with complete artifacts and no ranking shortcuts.",
+  "next_blocker": "m1899-executable-v2-support-first-clearance-containment-conflict-localization"
+}

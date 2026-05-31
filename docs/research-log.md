@@ -32689,3 +32689,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired task-quality conclusion controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.json`
 - next: `m1898-executable-v2-support-first-clearance-containment-conflict-localization-design`
+
+## M1898 Executable V2 Support-First Clearance-Containment Conflict Localization Design
+
+- status: completed
+- decision: `clearance_containment_conflict_localization_design_admit_no_rollout_implementation_execution`
+- doc: `docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md`
+- parent audit: `docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md`
+- chosen route: dedicated no-rollout conflict localizer
+- reuse old outcome localizer: `false`
+- required primary classes: `joint_clearance_containment clearance_only_offtrack containment_collision collision_and_offtrack other_non_success`
+- required near-miss classes: `near_containment_after_clearance near_clearance_with_containment late_offtrack_after_clearance`
+- required target episode count: `960`
+- environment reset/rollout/measured execution in M1898: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: exact no-rollout localization artifact design for M1895 clearance/containment conflict
+- unsupported: conflict localization result repaired task-quality conclusion controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1899-executable-v2-support-first-clearance-containment-conflict-localization.json`
+- next: `m1899-executable-v2-support-first-clearance-containment-conflict-localization`

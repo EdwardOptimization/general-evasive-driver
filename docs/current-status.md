@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit
+m1898-executable-v2-support-first-clearance-containment-conflict-localization-design
 ```
 
 Current next task:
 
 ```text
-m1898-executable-v2-support-first-clearance-containment-conflict-localization-design
+m1899-executable-v2-support-first-clearance-containment-conflict-localization
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -134,7 +134,11 @@ leave the road, `169` rows stay road-contained but collide, `7` collide and
 leave the road, and `0` rows satisfy both obstacle clearance and road
 containment. The next task is M1898: design a no-rollout localization pass for
 that conflict before any controller ranking, task-quality repair execution,
-training, PPO, paper-level claim, or level3 self-ID claim.
+training, PPO, paper-level claim, or level3 self-ID claim. M1898 completed that
+design and selected a dedicated conflict localizer rather than reusing the old
+outcome-dominance helper. M1899 must implement and run the no-rollout localizer
+over M1895 rows, writing conflict-class, near-miss, and slice aggregate
+artifacts before any further repair design or ranking.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
