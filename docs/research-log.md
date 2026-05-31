@@ -33456,3 +33456,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass-gate theme: reset success, finite observation, obstacle initialization, human-view contract, zero guardrail violations
 - follow-up manifest: `experiments/manifests/m1931-executable-v2-task-quality-reset-validator-implementation.json`
 - next: `m1931-executable-v2-task-quality-reset-validator-implementation`
+
+## M1931 Executable V2 Task-Quality Reset Validator Implementation
+
+- status: completed
+- decision: `task_quality_reset_validator_implementation_pass_admit_command_design`
+- doc: `docs/m1931-executable-v2-task-quality-reset-validator-implementation.md`
+- source: `src/autodrift/executable_v2_task_quality_reset_validation_preflight.py`
+- tests: `tests/test_executable_v2_task_quality_reset_validation_preflight.py`
+- focused tests: `3 passed`
+- real M1928 reset execution in M1931: `false`
+- rollout/measured execution in M1931: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- helper input: M1928 `executable_task_specs`
+- helper outputs: reset rows, reset failure rows, contract rows, tier/role/surface aggregates, claim boundary, summary
+- guarded behavior: preserves reset failures and fails closed on contract violations
+- follow-up manifest: `experiments/manifests/m1932-executable-v2-task-quality-reset-validation-command-design.json`
+- next: `m1932-executable-v2-task-quality-reset-validation-command-design`

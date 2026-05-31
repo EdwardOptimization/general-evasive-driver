@@ -1,0 +1,163 @@
+{
+  "id": "m1932-executable-v2-task-quality-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1931-executable-v2-task-quality-reset-validator-implementation.json"
+    ],
+    "parent_objective": [
+      "register exact reset-only validation command over the M1928 executable task-quality panel"
+    ],
+    "derived_from": [
+      "m1931-executable-v2-task-quality-reset-validator-implementation"
+    ],
+    "blocked_by": [
+      "real reset validation command has not been frozen"
+    ],
+    "supersedes": [
+      "running reset validation without command-design gates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+  "public_gates": [
+    "M1932 must name the exact reset-only command and output directory",
+    "M1932 must set target counts and pass/fail gates",
+    "M1932 must keep rollout measured execution ranking paper and level3 claims blocked",
+    "M1932 must not run real reset execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real M1928 environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_command_design",
+    "evidence_increment": "freezes the exact real reset-validation command after M1931 helper implementation",
+    "claim_scope": "command design only; no reset rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if command target counts are ambiguous",
+      "stop if output artifact boundaries are ambiguous",
+      "stop if command would run rollout or controller-family comparison"
+    ],
+    "fallback_plan": [
+      "route back to M1931 helper repair if command cannot target M1928 payload directly",
+      "repair manifest/status if gates are under-specified",
+      "synthesize if reset execution branch cannot enter real reset validation safely"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "third milestone of reset execution branch after M1930 and M1931",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality reset validation command design",
+    "admission_evidence": [
+      "M1931 implemented reset validator helper and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not run real reset execution in command design",
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+      "M1932 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is frozen",
+      "target count is 80",
+      "expected observation dim is 72",
+      "output artifacts and failure taxonomy are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1932."
+    ],
+    "temporal_evidence_window": "M1928 executable panel, M1930 design, and M1931 helper implementation.",
+    "negative_result_policy": "If the command cannot be made exact, document blocker and repair before reset execution.",
+    "allowed_claims": [
+      "task-quality reset-validation command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares the first real reset-validation data milestone for the redesigned task-quality panel",
+    "paper_verdict_delta": "does not change driver verdict by itself but should admit reset execution if exact",
+    "must_synthesize_if": [
+      "M1932 cannot freeze a single exact command",
+      "M1932 would jump to measured rollout or ranking",
+      "M1932 changes scenario specs or actor inputs"
+    ]
+  },
+  "hypothesis": "The M1931 helper can be routed into a single exact reset-only validation command over the M1928 80-spec panel.",
+  "success_criteria": [
+    "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md exists",
+    "exact command and output directory are specified",
+    "target count and expected observation dimension are specified",
+    "M1933 execution manifest is created",
+    "real reset execution is not run"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "command is ambiguous",
+    "target counts are ambiguous",
+    "real reset execution is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1932-executable-v2-task-quality-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M1932 passes if it freezes the exact reset-only validation command and next execution manifest without running reset or ranking.",
+  "next_blocker": "m1932-executable-v2-task-quality-reset-validation-command-design"
+}

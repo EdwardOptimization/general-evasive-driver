@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1930-executable-v2-task-quality-reset-execution-design
+m1931-executable-v2-task-quality-reset-validator-implementation
 ```
 
 Current next task:
 
 ```text
-m1931-executable-v2-task-quality-reset-validator-implementation
+m1932-executable-v2-task-quality-reset-validation-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -276,7 +276,12 @@ M1930 selected reset-only validation as the first execution stage, blocked
 one-step and measured rollout until reset success is established, and routes to
 M1931 focused reset-validator implementation over M1928
 `executable_task_specs` without running real reset execution in the
-implementation milestone.
+implementation milestone. M1931 implemented that helper and focused synthetic
+tests passed (`3 passed`): the helper consumes `executable_task_specs`, writes
+reset/failure/contract/aggregate/claim-boundary artifacts, preserves reset-only
+guardrails, and keeps real M1928 reset execution deferred. M1932 must now
+freeze the exact reset-only command before M1933 runs the first real reset
+validation over the `80` specs.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

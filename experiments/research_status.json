@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1939,
+    "completed": 1940,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
+    "command_log": "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
+    "run_dir": "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
     "status": "completed",
-    "task_id": "m1930-executable-v2-task-quality-reset-execution-design"
+    "task_id": "m1931-executable-v2-task-quality-reset-validator-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1931-executable-v2-task-quality-reset-validator-implementation.json",
-    "hypothesis": "A focused helper can validate M1928 executable_task_specs reset readiness on synthetic inputs while preserving reset-only guardrails.",
-    "id": "m1931-executable-v2-task-quality-reset-validator-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused reset-only validator for M1928 executable_task_specs with synthetic tests and no real reset execution",
-    "priority": 19260,
+    "command": "see experiments/manifests/m1932-executable-v2-task-quality-reset-validation-command-design.json",
+    "hypothesis": "The M1931 helper can be routed into a single exact reset-only validation command over the M1928 80-spec panel.",
+    "id": "m1932-executable-v2-task-quality-reset-validation-command-design",
+    "kind": "gate",
+    "notes": "Pending: freeze exact reset-only command output artifacts target counts and gates before real M1933 reset validation",
+    "priority": 19270,
     "status": "pending",
-    "success_artifact": "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md"
+    "success_artifact": "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T080344Z"
+  "updated_at_utc": "20260531T081104Z"
 }
