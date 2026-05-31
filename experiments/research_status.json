@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2088,
+    "completed": 2089,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md",
     "returncode": 0,
     "run_dir": "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run"
+    "task_id": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.json",
-    "hypothesis": "M2079's 6 remaining failures are sparse support-window density issues rather than contract or general scenario infeasibility and a required branch synthesis can decide whether one bounded continuation is justified.",
-    "id": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.json",
+    "hypothesis": "A bounded density-aware repair criterion can address the six residual M2079 reset sampling failures without dropping specs or weakening claim guards.",
+    "id": "m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design",
     "kind": "gate",
-    "notes": "Pending: required branch synthesis plus audit of six remaining fresh-seed obstacle sampling failures before density repair rerun or stop",
-    "priority": 20750,
+    "notes": "Pending: freeze accepted-density criteria for the six residual reset failures without reset or rollout",
+    "priority": 20760,
     "status": "pending",
-    "success_artifact": "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md"
   },
-  "updated_at_utc": "20260531T222038Z"
+  "updated_at_utc": "20260531T222621Z"
 }

@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2080 synthesizes M2059-M2079 and continues to one bounded density-aware repair design after reset success improved 0/240 to 234/240 with six residual sampling failures",
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2079 failure reason is not classified",
+    "branch synthesis questions are not answered",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T222814Z",
+  "hypothesis": "M2079's 6 remaining failures are sparse support-window density issues rather than contract or general scenario infeasibility, and a required branch synthesis can decide whether one bounded continuation is justified.",
+  "lineage": {
+    "blocked_by": [
+      "M2079 reset validation failed 6/240 attempts under fresh reset seed base 207900"
+    ],
+    "derived_from": [
+      "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_seed_robust_repaired_reset_validation_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/summary.json",
+      "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.md"
+    ],
+    "parent_objective": [
+      "audit six remaining fresh-seed reset failures before repair or rerun"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "repair rerun without failure audit"
+    ]
+  },
+  "milestone": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit",
+  "next_blocker": "m2081-selected-by-m2080-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_one_bounded_density_aware_repair_design",
+  "public_gates": [
+    "M2080 must audit M2079 reset counts and six-failure distribution",
+    "M2080 must distinguish support-window density from general scenario infeasibility",
+    "M2080 must choose density repair, panel reduction, synthesis, or another bounded route",
+    "M2080 must not rerun reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_one_bounded_density_aware_repair_design",
+    "milestone": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit",
+    "reason": "M2080 synthesizes M2059-M2079 and continues to one bounded density-aware repair design after reset success improved 0/240 to 234/240 with six residual sampling failures",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md exists",
+    "M2079 reset counts and fail reasons are audited",
+    "M2059-M2079 branch evidence is synthesized",
+    "failure taxonomy is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

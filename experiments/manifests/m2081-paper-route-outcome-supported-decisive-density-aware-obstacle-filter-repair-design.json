@@ -1,0 +1,177 @@
+{
+  "id": "m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_density_aware_obstacle_filter_repair_design"
+    ],
+    "parent_dataset": [
+      "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/seed_support_rows.csv",
+      "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design density-aware no-reset repair for the six residual reset failures"
+    ],
+    "derived_from": [
+      "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2079 reset validation failed 6/240 attempts",
+      "M2080 synthesis permits one bounded density-aware continuation"
+    ],
+    "supersedes": [
+      "existence-only seed-support repair",
+      "direct reset rerun without density repair",
+      "direct measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md",
+  "public_gates": [
+    "M2081 must design a bounded no-reset density-aware repair",
+    "M2081 must target the six M2079 failures without dropping specs",
+    "M2081 must preserve family split source-kind and difficulty-axis quotas",
+    "M2081 must not run reset rollout measured execution training replay PPO ranking or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_density_aware_obstacle_filter_repair_design",
+    "evidence_increment": "designs a bounded density-aware repair after required branch synthesis",
+    "claim_scope": "repair design only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if accepted-density criteria cannot be specified",
+      "stop if repair would require dropping specs or weakening quotas",
+      "stop if repair would require measured execution or policy actions",
+      "stop if this becomes another existence-only support repair"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis and stop if density criteria cannot be specified",
+      "route to panel reduction design only if density repair cannot preserve task semantics",
+      "route to implementation only after exact pass and failure criteria are frozen"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2080 synthesis continues to exactly one bounded density-aware repair route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "density-aware obstacle-filter repair design",
+    "admission_evidence": [
+      "M2080 synthesizes branch and permits one bounded continuation",
+      "M2079 reset_success_count 234",
+      "M2079 reset_failure_count 6",
+      "M2076 support rows show very low accepted grid density for failed rows"
+    ],
+    "blocked_shortcuts": [
+      "do not implement before freezing density criteria",
+      "do not run reset before no-reset repaired artifact is audited",
+      "do not treat density repair as driver evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md",
+      "M2081 status queue scoreboard research log and review",
+      "one follow-up manifest for density-aware no-reset repair implementation or stop synthesis"
+    ],
+    "next_stage_criteria": [
+      "density criterion is explicit",
+      "repair bounds are explicit",
+      "guardrails and claim boundaries are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2081 designs reset-materialization repair only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2081."
+    ],
+    "temporal_evidence_window": "M2079-M2080 reset-validity and synthesis evidence.",
+    "negative_result_policy": "If density repair cannot preserve task semantics and quotas, route to synthesis or panel reduction rather than overclaiming.",
+    "allowed_claims": [
+      "density-aware obstacle-filter repair design",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from accepted-cell existence to accepted-region density as a reset sampler reliability criterion",
+    "paper_verdict_delta": "can admit one bounded density-aware no-reset repair attempt before stop or panel reduction",
+    "must_synthesize_if": [
+      "M2081 cannot specify minimum accepted-density gates",
+      "M2081 selects another existence-only repair",
+      "a following density-aware reset validation still fails scenario sampling",
+      "the branch reaches the next 10-milestone synthesis cadence"
+    ]
+  },
+  "hypothesis": "A bounded density-aware repair criterion can address the six residual M2079 reset sampling failures without dropping specs or weakening claim guards.",
+  "success_criteria": [
+    "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md exists",
+    "minimum accepted grid-cell count or fraction criterion is specified",
+    "distance half-width and threshold-score relaxation bounds are specified",
+    "M2079 six-failure targeting is specified without dropping the remaining 234 specs",
+    "next implementation or stop route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "repair protocol permits existence-only support without density",
+    "density pass criteria are ambiguous",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write density-aware obstacle-filter repair design from M2080 synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_density_aware_obstacle_filter_repair_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/reset_failure_rows.csv",
+    "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md"
+  ],
+  "decision_rule": "M2081 passes if it freezes a density-aware no-reset repair protocol with explicit density support gates and no overclaiming.",
+  "next_blocker": "m2082-selected-by-m2081-design"
+}

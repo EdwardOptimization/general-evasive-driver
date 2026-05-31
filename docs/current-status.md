@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run
+m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit
+m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design
 ```
 
-Immediate route: M2079 ran the fresh-seed reset-only validation over the M2076
-seed-robust repaired specs and failed closed with `234/240` reset success. The
-six remaining failures are all `RuntimeError failed to sample an obstacle
-scenario matching the configured filters`; contract, metadata, forbidden-key,
-observation-dim, quota, and guardrail checks remain clean. M2080 must audit the
-six-failure set and synthesize the branch before any density repair, reset rerun,
-measured execution, ranking, paper claim, or self-ID claim.
+Immediate route: M2080 synthesizes the M2059-M2079 branch and continues to one
+bounded density-aware obstacle-filter repair design. The branch improved reset
+success from `0/240` to `234/240`; the remaining six failures are localized to
+fresh-seed obstacle sampling with very low accepted-grid density in the repaired
+windows. M2081 may design a density-aware no-reset repair, but reset rerun,
+measured execution, ranking, paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

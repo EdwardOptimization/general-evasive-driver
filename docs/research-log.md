@@ -36418,3 +36418,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2076 seed-robust repair improves reset success from M2073 `164/240` to `234/240`, but grid support is still not enough for full fresh-seed reset sampling
 - follow-up manifest: `experiments/manifests/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.json`
 - next: `m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit` as a required branch synthesis and failure audit
+
+## M2080 Paper-Route Outcome-Supported Decisive Seed-Robust Repaired Reset Validation Result Audit and Synthesis
+
+- status: completed
+- decision: `continue_to_one_bounded_density_aware_repair_design`
+- synthesis decision: `continue`
+- audited artifact: `runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- reset/rollout/measured execution in M2080: `false`
+- policy actions executed in M2080: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: reset feasibility improved from M2066 `0/240` to M2073 `164/240` to M2079 `234/240`
+- supported claim: task-validity infrastructure improved and the remaining six failures are localized sparse scenario-sampling failures
+- falsified claim: single-seed exact feasibility and existence-only 5/5 grid support are not sufficient for full reset validity
+- failure subtype: support-window density failure with lowest accepted grid-cell fractions near `0.00032077`
+- overfit risk: medium due repeated repair on public generated rows; allow exactly one bounded density-aware repair cycle
+- next branch decision: continue to M2081 density-aware obstacle-filter repair design
+- follow-up manifest: `experiments/manifests/m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design.json`
+- next: `m2081-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-design`
