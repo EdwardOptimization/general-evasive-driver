@@ -34958,3 +34958,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit completed measured execution before localization repair ranking or interpretation
 - follow-up manifest: `experiments/manifests/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.json`
 - next: `m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit`
+
+## M2010 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Execution Rerun V2 Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_audit_pivot_to_outcome_localization`
+- synthesis decision: `pivot`
+- doc: `docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md`
+- audited summary: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json`
+- measured execution in M2010: `false`
+- environment rollout in M2010: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2000-M2009 repaired measured-runner quota and schema readiness, then completed a 960-row measured execution with all metadata/guardrail gates passing
+- outcome audit: raw support remains low with success `40`, collision failure `265`, off-track noncollision noncompletion `655`; direct controller-family ranking remains blocked
+- next branch decision: pivot to `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`
+- follow-up manifest: `experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json`
+- next: `m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design`

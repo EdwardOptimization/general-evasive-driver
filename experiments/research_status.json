@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2018,
+    "completed": 2019,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.md",
+    "command_log": "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2"
+    "task_id": "m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.json",
-    "hypothesis": "M2009 provides complete measured execution evidence but likely still needs outcome-support audit before controller comparison.",
-    "id": "m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit",
+    "command": "see experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json",
+    "hypothesis": "A no-rerun localization over M2009 can identify whether any comparison-ready or repair-support slices exist.",
+    "id": "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design",
     "kind": "gate",
-    "notes": "Pending: audit completed measured execution and synthesize M2000-M2009 branch before localization repair ranking or interpretation",
-    "priority": 20050,
+    "notes": "Pending: freeze no-rerun outcome localization command over M2009 artifacts",
+    "priority": 20060,
     "status": "pending",
-    "success_artifact": "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md"
+    "success_artifact": "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md"
   },
-  "updated_at_utc": "20260531T141157Z"
+  "updated_at_utc": "20260531T142842Z"
 }
