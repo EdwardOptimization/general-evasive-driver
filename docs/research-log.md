@@ -35488,3 +35488,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: M2035 is command design only; no reset, rollout, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.json`
 - next: `m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run`
+
+## M2036 Paper-Route Controlled Routing Smoke Reset Validation Implementation and Run
+
+- status: completed
+- decision: `controlled_routing_smoke_reset_validation_pass_route_to_result_audit`
+- result class: `controlled_routing_smoke_reset_validation_preflight_pass`
+- implementation: `src/autodrift/paper_route_controlled_routing_smoke_reset_validation_preflight.py`
+- focused tests: `1 passed`
+- summary: `runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json`
+- reset execution in M2036: `true`
+- rollout/measured execution in M2036: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: reset attempts `36`, reset successes `36`, reset failures `0`, observation finite `36`, observation dimension failures `0`, obstacle initialized `36`, contract violations `0`, metadata missing `0`, forbidden-key violations `0`, family/source-kind/proxy/generated quotas pass, guardrail `0`
+- boundary: reset validity only; no rollout success, ranking, finite-window-vs-GRU, paper-level generated-task validity, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.json`
+- next: `m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit`

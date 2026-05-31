@@ -177,5 +177,5 @@
     "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
   ],
   "decision_rule": "M2036 passes if the focused validator and real reset-only run satisfy all target counts metadata and guardrails, then routes to result audit.",
-  "next_blocker": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run"
+  "next_blocker": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
 }

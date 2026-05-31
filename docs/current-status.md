@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2035-paper-route-controlled-routing-smoke-reset-validation-command-design
+m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run
+m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit
 ```
 
-Immediate route: M2035 designs the reset-only validation route for the M2033
-36-spec controlled routing-smoke panel. Existing generic/calibrated reset
-validators can reset env configs but would drop or mis-map M2033 metadata such
-as `panel_task_family`, `source_kind`, `proxy_template_family`, and
-`generated_source_row`. M2036 must therefore implement a focused
-`paper_route_controlled_routing_smoke_reset_validation_preflight` and run only
-the frozen 36-spec reset validation with expected observation dim `72`.
-Rollout, policy actions, ranking, finite-window-vs-GRU, paper-level, and level3
-self-ID claims remain blocked.
+Immediate route: M2036 implements and runs the focused controlled routing-smoke
+reset validator over the M2033 36-spec panel. The reset-only run passes:
+`36/36` reset success, observation dimension failures `0`, obstacle initialized
+`36`, contract violations `0`, metadata missing `0`, forbidden-key violations
+`0`, all family/source-kind/proxy/generated quotas pass, and guardrail `0`.
+M2037 must audit this reset result before measured execution command design.
+Rollout, policy actions, ranking, finite-window-vs-GRU, paper-level generated
+task validity, and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

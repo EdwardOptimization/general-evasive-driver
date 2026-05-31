@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2044,
+    "completed": 2045,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md",
+    "command_log": "docs/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2035-paper-route-controlled-routing-smoke-reset-validation-command-design"
+    "task_id": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.json",
-    "hypothesis": "A focused controlled-routing-smoke reset validator can reset all 36 M2033 executable specs with finite 72-dim observations while preserving M2033 metadata and claim boundaries.",
-    "id": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused reset validator and run exact reset-only validation; no rollout or policy actions",
-    "priority": 20310,
+    "command": "see experiments/manifests/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.json",
+    "hypothesis": "M2036 reset validation artifacts are clean enough to admit measured execution command design while keeping ranking and paper claims blocked.",
+    "id": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2036 reset validation pass before measured execution command design",
+    "priority": 20320,
     "status": "pending",
-    "success_artifact": "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T182430Z"
+  "updated_at_utc": "20260531T183201Z"
 }

@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2036 focused reset validator passes 36/36 resets with obs dim failures 0 metadata 0 contract 0 guardrail 0 and no rollout or policy actions",
+  "failure_criteria": [
+    "focused validator is missing",
+    "focused tests fail",
+    "summary artifact is missing",
+    "any reset fails",
+    "metadata is dropped",
+    "policy actions or rollout are executed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T183434Z",
+  "hypothesis": "A focused controlled-routing-smoke reset validator can reset all 36 M2033 executable specs with finite 72-dim observations while preserving M2033 metadata and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2035 finds older reset validators cannot preserve M2033 metadata schema"
+    ],
+    "derived_from": [
+      "m2035-paper-route-controlled-routing-smoke-reset-validation-command-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_reset_validation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_objective": [
+      "implement and run focused reset-only validation for M2033 controlled routing-smoke specs"
+    ],
+    "supersedes": [
+      "lossy reuse of generic task-quality reset validator"
+    ]
+  },
+  "milestone": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run",
+  "next_blocker": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_reset_validation_pass_route_to_result_audit",
+  "public_gates": [
+    "M2036 must implement focused reset validator preserving M2033 metadata",
+    "M2036 must run only reset validation over 36 executable specs",
+    "M2036 must not execute rollout steps or policy actions",
+    "M2036 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_reset_validation_pass_route_to_result_audit",
+    "milestone": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run",
+    "reason": "M2036 focused reset validator passes 36/36 resets with obs dim failures 0 metadata 0 contract 0 guardrail 0 and no rollout or policy actions",
+    "reset_success": "1.0",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json exists",
+    "result_class is controlled_routing_smoke_reset_validation_preflight_pass",
+    "reset_attempt_count is 36",
+    "reset_success_count is 36",
+    "guardrail_violation_count is 0",
+    "metadata_missing_count is 0",
+    "no rollout measured execution ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}
