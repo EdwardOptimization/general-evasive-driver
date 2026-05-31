@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1908,
+    "completed": 1909,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1899-executable-v2-support-first-clearance-containment-conflict-localization.md",
+    "command_log": "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization",
+    "run_dir": "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md",
     "status": "completed",
-    "task_id": "m1899-executable-v2-support-first-clearance-containment-conflict-localization"
+    "task_id": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.json",
-    "hypothesis": "M1899 conflict localization can be audited to choose a targeted task-quality repair-axis design instead of controller ranking.",
-    "id": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit",
+    "command": "see experiments/manifests/m1901-executable-v2-support-first-task-quality-repair-axis-design.json",
+    "hypothesis": "A targeted repair-axis design can turn the M1899 localized conflict into a fair no-rollout repair matrix without controller ranking.",
+    "id": "m1901-executable-v2-support-first-task-quality-repair-axis-design",
     "kind": "gate",
-    "notes": "Pending: audit M1899 conflict localization before repair-axis design or synthesis",
-    "priority": 18950,
+    "notes": "Pending: design targeted task-quality repair axes from M1899/M1900 before no-rollout materialization",
+    "priority": 18960,
     "status": "pending",
-    "success_artifact": "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md"
+    "success_artifact": "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md"
   },
-  "updated_at_utc": "20260531T050635Z"
+  "updated_at_utc": "20260531T051504Z"
 }

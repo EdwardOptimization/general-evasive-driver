@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1899-executable-v2-support-first-clearance-containment-conflict-localization
+m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit
+m1901-executable-v2-support-first-task-quality-repair-axis-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -140,8 +140,12 @@ outcome-dominance helper. M1899 implemented and ran that no-rollout localizer:
 `960/960` rows classified, joint clearance/containment `0`, clearance-only
 offtrack `784`, containment-collision `169`, collision-and-offtrack `7`,
 near-miss rows `429`, guardrail `0`, and recommended next route
-`route_to_task_quality_repair_axis_design`. M1900 must audit the artifact before
-any repair-axis design, branch synthesis, controller ranking, training, PPO,
+`route_to_task_quality_repair_axis_design`. M1900 audited that artifact as
+valid and actionable: controller ranking remains blocked because joint
+clearance/containment is still `0`, but the `429` near-miss rows and
+role-surface split justify a targeted task-quality repair-axis design. M1901
+must now define that baseline-preserving no-rollout repair-axis matrix before
+any materialization, measured execution, controller ranking, training, PPO,
 paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not

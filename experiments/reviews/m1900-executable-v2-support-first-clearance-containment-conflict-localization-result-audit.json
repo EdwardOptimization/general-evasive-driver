@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1900 audits M1899 as valid and actionable: joint clearance-containment remains 0 but 429 near-miss rows and role-surface split justify targeted repair-axis design while ranking remains blocked",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset rollout measured execution training replay or PPO",
+    "audit ranks controller families from M1899 aggregates",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T051603Z",
+  "hypothesis": "M1899 conflict localization can be audited to choose a targeted task-quality repair-axis design instead of controller ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M1899 result must be audited before task-quality repair or branch synthesis"
+    ],
+    "derived_from": [
+      "m1899-executable-v2-support-first-clearance-containment-conflict-localization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_clearance_containment_conflict_localization_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1899-executable-v2-support-first-clearance-containment-conflict-localization.json"
+    ],
+    "parent_dataset": [
+      "docs/m1899-executable-v2-support-first-clearance-containment-conflict-localization.md",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/conflict_class_aggregate.csv",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/near_miss_aggregate.csv",
+      "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/role_surface_conflict_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit the no-rollout clearance/containment conflict localization result before choosing repair-axis design or synthesis"
+    ],
+    "supersedes": [
+      "direct repair design from raw conflict localization aggregates"
+    ]
+  },
+  "milestone": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit",
+  "next_blocker": "m1901-executable-v2-support-first-task-quality-repair-axis-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "clearance_containment_conflict_audit_admit_task_quality_repair_axis_design",
+  "public_gates": [
+    "M1900 must audit M1899 target counts conflict classes near-miss counts and guardrails",
+    "M1900 must decide whether to route to task-quality repair-axis design or branch synthesis",
+    "M1900 must not run environment reset rollout measured execution training replay PPO private holdout or ranking",
+    "M1900 must keep paper-level and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "clearance_containment_conflict_audit_admit_task_quality_repair_axis_design",
+    "milestone": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit",
+    "reason": "M1900 audits M1899 as valid and actionable: joint clearance-containment remains 0 but 429 near-miss rows and role-surface split justify targeted repair-axis design while ranking remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md exists",
+    "audit verifies M1899 target counts conflict class counts near-miss counts and guardrails",
+    "audit chooses repair-axis design or branch synthesis",
+    "controller ranking and paper claims remain blocked unless a later design admits them"
+  ],
+  "type": "gate"
+}
