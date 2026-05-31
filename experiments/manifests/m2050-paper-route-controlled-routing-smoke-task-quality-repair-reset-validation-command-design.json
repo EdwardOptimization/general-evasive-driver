@@ -1,0 +1,174 @@
+{
+  "id": "m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design exact reset-only validation route for the repaired 192-spec controlled routing-smoke panel"
+    ],
+    "derived_from": [
+      "m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M2049 admits reset-validation command design after clean repaired materialization audit"
+    ],
+    "supersedes": [
+      "direct reset execution without frozen command and target-count audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md",
+  "public_gates": [
+    "M2050 must design the exact reset-only validation route without running reset",
+    "M2050 must preserve M2048 repaired controlled-routing-smoke metadata in reset artifacts",
+    "M2050 must specify target spec count 192 expected observation dimension 72 and pass/fail gates",
+    "M2050 must keep rollout ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_reset_validation_command_design",
+    "evidence_increment": "freezes the reset-only validation command needed before repaired routing-smoke execution",
+    "claim_scope": "reset command design only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset validator would drop M2048 repaired metadata",
+      "stop if reset command target counts or observation dimension are ambiguous",
+      "stop if command design would execute reset or policy actions",
+      "stop if smoke proxy rows would be treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "route to focused reset-validator implementation if existing validator cannot preserve M2048 schema",
+      "route to frozen reset-only execution manifest if the existing validator is compatible",
+      "route to materialization metadata repair if executable specs are schema-incomplete",
+      "route to branch synthesis if another adapter-only loop would not change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2049 admits reset-validation command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair reset validation command design",
+    "admission_evidence": [
+      "M2049 audits M2048 materialization artifacts as clean with 192 specs 2304 workload rows and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2050",
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families",
+      "do not interpret reset design as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md",
+      "M2050 status queue scoreboard research log and review",
+      "one follow-up manifest for reset validator execution or metadata repair"
+    ],
+    "next_stage_criteria": [
+      "reset-only command or implementation route is exact",
+      "target reset count is 192",
+      "expected observation dimension and contract checks are explicit",
+      "metadata preservation is explicit",
+      "next execution or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2050 designs reset validation only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2050."
+    ],
+    "temporal_evidence_window": "M2048 materialization artifacts and M2049 result audit.",
+    "negative_result_policy": "If no existing reset validator can preserve M2048 metadata, register focused implementation or repair rather than running a lossy validator.",
+    "allowed_claims": [
+      "controlled routing-smoke task-quality repair reset validation command design",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "prepares reset evidence for the repaired 192-spec routing-smoke panel",
+    "paper_verdict_delta": "can admit reset validation but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "M2050 finds another schema bridge is required after M2048",
+      "M2050 cannot freeze an exact route",
+      "next action would run rollout or ranking before reset audit"
+    ]
+  },
+  "hypothesis": "An exact reset-only validation route can be designed for the M2048 repaired controlled routing-smoke executable specs while preserving metadata and claim boundaries.",
+  "success_criteria": [
+    "docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md exists",
+    "reset-only command target and output directory are explicit or a focused implementation route is justified",
+    "target reset count is 192",
+    "expected observation dimension is 72",
+    "metadata preservation and pass/fail gates are explicit",
+    "next implementation or execution route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "reset command is ambiguous",
+    "target counts are ambiguous",
+    "M2048 metadata preservation is not specified",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json",
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M2050 passes if it freezes an exact reset-only command design or cleanly routes to focused validator repair without running reset or ranking.",
+  "next_blocker": "m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run"
+}

@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation
+m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit
+m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design
 ```
 
-Immediate route: M2048 implements and runs no-reset materialization preflight
-for the repaired routing-smoke panel. It passes with `192` repaired specs,
-`2304` workload rows, unresolved parents `0`, contract violations `0`,
-forbidden/claim guards `0`, generated-proxy paper claims `0`, and guardrail
-`0`. M2049 must audit this before reset validation command design. Measured
+Immediate route: M2049 audits the M2048 repaired routing-smoke materialization
+as clean: `192` repaired specs, `2304` workload rows, unresolved parents `0`,
+contract violations `0`, forbidden/claim guards `0`, generated-proxy paper
+claims `0`, and guardrail `0`. M2050 must freeze the exact reset-only command
+for the repaired `192`-spec panel before any reset execution. Measured
 execution, ranking, paper claims, and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2

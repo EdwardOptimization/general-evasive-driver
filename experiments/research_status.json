@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2057,
+    "completed": 2058,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation.md",
+    "command_log": "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation"
+    "task_id": "m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.json",
-    "hypothesis": "M2048 repaired materialization can be audited as clean enough to admit reset-validation command design.",
-    "id": "m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit",
+    "command": "see experiments/manifests/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.json",
+    "hypothesis": "An exact reset-only validation route can be designed for the M2048 repaired controlled routing-smoke executable specs while preserving metadata and claim boundaries.",
+    "id": "m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit repaired no-reset materialization before reset-validation design",
-    "priority": 20440,
+    "notes": "Pending: freeze exact reset-only command for repaired 192-spec panel before reset execution",
+    "priority": 20450,
     "status": "pending",
-    "success_artifact": "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md"
+    "success_artifact": "docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T193526Z"
+  "updated_at_utc": "20260531T193944Z"
 }

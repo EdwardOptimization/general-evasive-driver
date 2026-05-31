@@ -35747,3 +35747,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to materialization result audit before reset validation command design
 - follow-up manifest: `experiments/manifests/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.json`
 - next: `m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit`
+
+## M2049 Paper-Route Controlled Routing Smoke Task-Quality Repair Materialization Preflight Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_materialization_audit_admit_reset_command_design`
+- doc: `docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md`
+- audited summary: `runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2049: `false`
+- policy actions executed in M2049: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- materialization audit: result class pass, repaired specs `192/192`, workload `2304/2304`, profiles `12/12`, unresolved parents `0`, materialization failures `0`, duplicate specs/workload `0`
+- guards: contract violations `0`, forbidden key violations `0`, generated proxy paper claims `0`, profile-specific tuning `0`, forbidden claims `0`, guardrail `0`
+- decision: admit reset-validation command design for the repaired 192-spec panel; direct reset, measured execution, ranking, paper-level claim, and self-ID claim remain blocked
+- follow-up manifest: `experiments/manifests/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.json`
+- next: `m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design`
