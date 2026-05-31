@@ -34938,3 +34938,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: M2009 may run only the frozen command; interpretation remains deferred to M2010 audit
 - follow-up manifest: `experiments/manifests/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.json`
 - next: `m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2`
+
+## M2009 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Execution Rerun V2
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_pass_route_to_result_audit`
+- doc: `docs/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.md`
+- summary: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json`
+- measured execution command used: frozen M2008 command
+- environment rollout started: `true`
+- measured rollout started: `true`
+- policy action executed: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: measured execution pass with `episode_count=960`, `failure_count=0`, `expected_quota_source=workload`, `quota_metadata_missing_count=0`, source/role quota pass `true`, metric completeness failures `0`, guardrail `0`
+- raw outcomes: success `40`, collision failure `265`, off-track noncollision noncompletion `655`
+- route: audit completed measured execution before localization repair ranking or interpretation
+- follow-up manifest: `experiments/manifests/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.json`
+- next: `m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit`

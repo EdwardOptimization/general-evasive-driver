@@ -1,0 +1,11 @@
+repair_source_kind,source_role_semantics,normalized_surface_variant,episode_count,success_rate,collision_rate,clearance_margin_mean,return_mean,all_selected_metrics_finite
+anchor_neighborhood,stable_aeb,post_friction_step,288,0.0,0.0,41.85437811251789,5.521559131527261,True
+mitigation_isolation_check,drift_required_recovery,steady_surface,12,0.0,0.0,7.0027669743487175,5.592742838218449,True
+mitigation_isolation_check,unavoidable_mitigation,steady_surface,228,0.0,1.0,-0.39361278519970844,-10.762951816064374,True
+offtrack_boundary_relief,stable_aes_only,relief_surface_unspecified,192,0.0,0.0,11.840195090746102,5.901324639077234,True
+success_stabilizer,drift_required_recovery,post_friction_step,36,0.19444444444444445,0.0,2.6165522078263193,9.703554837354927,True
+success_stabilizer,drift_required_recovery,steady_surface,24,0.20833333333333334,0.7916666666666666,-0.08093987530637559,-1.38344499727006,True
+success_stabilizer,stable_aeb,post_friction_step,72,0.1111111111111111,0.0,7.862552278863234,6.84165336181854,True
+success_stabilizer,stable_aeb,steady_surface,24,0.041666666666666664,0.0,10.505803811880673,5.999242280028066,True
+success_stabilizer,stable_aes_only,post_friction_step,60,0.2833333333333333,0.03333333333333333,2.4621094991705,12.153237011763846,True
+success_stabilizer,unavoidable_mitigation,post_friction_step,24,0.08333333333333333,0.6666666666666666,0.033489489179798,0.4476238711476664,True

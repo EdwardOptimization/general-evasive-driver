@@ -1,0 +1,173 @@
+{
+  "id": "m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.md",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.json"
+    ],
+    "parent_objective": [
+      "audit completed measured execution rerun v2 before interpretation or repair"
+    ],
+    "derived_from": [
+      "m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2"
+    ],
+    "blocked_by": [
+      "M2009 result must be audited before localization ranking or repair"
+    ],
+    "supersedes": [
+      "interpreting completed measured execution without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
+  "public_gates": [
+    "M2010 must audit M2009 execution completeness and outcome distribution",
+    "M2010 must synthesize M2000-M2009 measured-runner readiness and execution branch evidence",
+    "M2010 must separate completion evidence from ranking or paper evidence",
+    "M2010 must choose continue pivot stop or promote-to-next-branch",
+    "M2010 must not run measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_audit_and_synthesis",
+    "evidence_increment": "audits completed measured execution and synthesizes the M2000-M2009 quota compatibility execution branch after cadence",
+    "claim_scope": "result audit and branch synthesis only; no ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if execution completeness is not verified",
+      "stop if outcome support is overclaimed as ranking evidence",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to outcome localization if execution is complete but support remains low",
+      "route to comparison design only if audit finds comparison-ready support",
+      "synthesize if branch cadence or local-search guard fires"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2009 measured execution completes and branch cadence is reached",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured execution rerun v2 result audit and branch synthesis",
+    "admission_evidence": [
+      "M2009 summary and episode rows exist"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
+      "M2010 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next branch"
+    ],
+    "next_stage_criteria": [
+      "execution completeness is audited",
+      "outcome support is audited",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2010."
+    ],
+    "temporal_evidence_window": "M2009 measured execution artifacts.",
+    "negative_result_policy": "If outcome support remains low, route to localization or repair rather than ranking.",
+    "allowed_claims": [
+      "measured execution result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns completed measured execution into a branch decision",
+    "paper_verdict_delta": "decides whether to pivot from readiness repair to outcome localization/repair or comparison design",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "M2009 provides complete measured execution evidence but likely still needs outcome-support audit before controller comparison.",
+  "success_criteria": [
+    "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md exists",
+    "execution completeness is audited",
+    "outcome distribution is audited",
+    "branch synthesis questions are answered",
+    "next branch decision is explicit",
+    "no ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "execution completeness is not checked",
+    "outcome distribution is not checked",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json",
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+  ],
+  "decision_rule": "M2010 passes if it audits M2009 result and chooses the next route without overclaiming.",
+  "next_blocker": "m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design
+m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2
 ```
 
 Current next task:
 
 ```text
-m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2
+m2010-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-result-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -47,8 +47,12 @@ repair with tests `6 passed`; M2007 audits it as clean and admits a fresh
 measured execution rerun command design. M2008 freezes the exact M2009 command
 with fresh output
 `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`.
-Interpretation, controller-family ranking, paper-level claims, and level3
-self-ID remain blocked.
+M2009 runs successfully: `960` episodes, `failure_count=0`,
+`quota_metadata_missing_count=0`, source/role quota pass `true`, metric
+completeness failures `0`, guardrail `0`. Raw outcomes are still low-support:
+success `40`, collision failure `265`, off-track noncollision noncompletion
+`655`. M2010 must audit the result before localization repair, interpretation,
+controller-family ranking, paper-level claims, or level3 self-ID.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean
