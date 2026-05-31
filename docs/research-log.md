@@ -35452,3 +35452,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: materialization preflight only; no reset, rollout, execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.json`
 - next: `m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit`
+
+## M2034 Paper-Route Controlled Routing Smoke Materialization Preflight Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_materialization_result_audit_admit_reset_validation_command_design`
+- doc: `docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md`
+- audited summary: `runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2034: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2033 result class pass, selected sources `36`, executable specs `36`, planned workload rows `432`, profiles `12`, materialization failures `0`, duplicate IDs `0`, contract violations `0`, guardrail `0`
+- proxy boundary: generated rows `12`, semantics `smoke_proxy`, paper validity claims `false`; paper-valid generated-task semantics remain blocked
+- decision: admit reset-only validation command design over the M2033 36-spec panel; direct rollout, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked
+- follow-up manifest: `experiments/manifests/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.json`
+- next: `m2035-paper-route-controlled-routing-smoke-reset-validation-command-design`

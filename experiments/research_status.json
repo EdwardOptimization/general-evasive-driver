@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2042,
+    "completed": 2043,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.md",
+    "command_log": "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation"
+    "task_id": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.json",
-    "hypothesis": "M2033 materialization artifacts are clean enough to admit reset-only validation command design while keeping all ranking and paper claims blocked.",
-    "id": "m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit",
+    "command": "see experiments/manifests/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.json",
+    "hypothesis": "An exact reset-only validation route can be designed for the M2033 controlled routing-smoke executable specs while preserving metadata and claim boundaries.",
+    "id": "m2035-paper-route-controlled-routing-smoke-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2033 materialization pass before reset-only validation command design; no reset or rollout",
-    "priority": 20290,
+    "notes": "Pending: design exact reset-only validation route for M2033 36-spec panel; no reset or rollout",
+    "priority": 20300,
     "status": "pending",
-    "success_artifact": "docs/m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit.md"
+    "success_artifact": "docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T180851Z"
+  "updated_at_utc": "20260531T181838Z"
 }

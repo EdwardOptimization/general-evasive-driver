@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation
+m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m2034-paper-route-controlled-routing-smoke-materialization-preflight-result-audit
+m2035-paper-route-controlled-routing-smoke-reset-validation-command-design
 ```
 
-Immediate route: M2033 implemented and ran the no-reset controlled routing-smoke
-materialization preflight. It selected `36` source-kind representatives from the
-M2029 panel, wrote `36` executable specs, crossed them with `12` controller
-profiles into `432` planned workload rows, and passed with guardrail `0`,
-profile missing `0`, materialization failures `0`, contract violations `0`, and
-duplicate task/workload IDs `0`. Generated T2/T3 rows remain `smoke_proxy` with
-`paper_validity_claim=false`. M2034 must audit these artifacts before any
-reset-only validation command design. Rollout, ranking, finite-window-vs-GRU,
-paper-level, and level3 self-ID claims remain blocked.
+Immediate route: M2034 audited the M2033 no-reset materialization artifacts as
+clean: `36` executable specs, `432` planned workload rows, `12` profiles,
+guardrail `0`, no materialization failures, no duplicate IDs, no contract
+violations, and generated T2/T3 rows still marked `smoke_proxy` with
+`paper_validity_claim=false`. M2035 must design the exact reset-only validation
+route for the M2033 36-spec panel and preserve the controlled-routing-smoke
+metadata schema. Reset execution, rollout, ranking, finite-window-vs-GRU,
+paper-level, and level3 self-ID claims remain blocked until separately admitted
+and audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
