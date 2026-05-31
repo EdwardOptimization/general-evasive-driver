@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1902,
+    "completed": 1903,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+    "command_log": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+    "run_dir": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
     "status": "completed",
-    "task_id": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation"
+    "task_id": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.json",
-    "hypothesis": "The repaired bounded-smoke execution can be pre-registered as an exact command with explicit target counts and audit gates, without running rollout or changing actor inputs.",
-    "id": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design",
+    "command": "see experiments/manifests/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.json",
+    "hypothesis": "The fixed repaired bounded-smoke workload can execute completely and materialize 576 rollout rows plus 384 imported rows with complete metrics and clean guardrails.",
+    "id": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution",
     "kind": "gate",
-    "notes": "Pending: register exact repaired bounded-smoke execution command and pass gates before real rollout",
-    "priority": 18890,
+    "notes": "Pending: run exact repaired bounded-smoke public diagnostic workload and defer interpretation to result audit",
+    "priority": 18900,
     "status": "pending",
-    "success_artifact": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md"
+    "success_artifact": "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json"
   },
-  "updated_at_utc": "20260531T041723Z"
+  "updated_at_utc": "20260531T042129Z"
 }

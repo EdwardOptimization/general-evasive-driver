@@ -1,0 +1,162 @@
+{
+  "id": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "run the fixed repaired bounded-smoke public diagnostic workload"
+    ],
+    "derived_from": [
+      "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design"
+    ],
+    "blocked_by": [
+      "M1894 command design must complete before real repaired bounded-smoke execution"
+    ],
+    "supersedes": [
+      "direct repaired bounded-smoke execution without exact command design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.md",
+  "public_gates": [
+    "M1895 must run the exact M1894 command",
+    "M1895 must produce 576 rollout rows, 384 import rows, and 960 total panel rows",
+    "M1895 must preserve all guardrails and claim boundaries",
+    "M1895 must defer interpretation to M1896 result audit",
+    "M1895 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_bounded_smoke_execution",
+    "evidence_increment": "runs the fixed repaired bounded-smoke public diagnostic workload and materializes measured artifacts for audit",
+    "claim_scope": "measured execution only; no training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if execution fails or produces incomplete artifacts",
+      "stop if metric completeness or guardrails fail",
+      "stop if import joins are incomplete"
+    ],
+    "fallback_plan": [
+      "route to failure audit if execution fails",
+      "route to import/wrapper repair if import joins fail",
+      "route to result audit if execution passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1894 admits measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "support-first repaired bounded-smoke measured execution",
+    "admission_evidence": [
+      "M1894 registers the exact execution command and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/*",
+      "M1895 execution document",
+      "M1895 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary target counts pass",
+      "metric completeness and guardrails pass",
+      "interpretation remains deferred to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution materializes task-quality diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "Execution must preserve all controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1889-M1894 artifacts plus M1895 measured outputs.",
+    "negative_result_policy": "If execution fails or remains outcome dominated, route to result/failure audit rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired bounded-smoke measured execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The fixed repaired bounded-smoke workload can execute completely and materialize 576 rollout rows plus 384 imported rows with complete metrics and clean guardrails.",
+  "success_criteria": [
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json exists",
+    "summary result_class is executable_v2_support_first_repaired_bounded_smoke_execution_pass",
+    "rollout_episode_count is 576",
+    "import_episode_count is 384",
+    "total_panel_row_count is 960",
+    "failure_count and import_failure_count are 0",
+    "metric_completeness_passed is true",
+    "guardrail_violation_count is 0",
+    "controller-family ranking and paper claims remain blocked"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "execution command diverges from M1894",
+    "target counts fail",
+    "metric completeness fails",
+    "guardrail violations occur",
+    "interpretation or ranking is claimed before audit"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_support_first_repaired_bounded_smoke_execution --support-first-repaired-measured-specs runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json --support-first-repaired-workload runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv --support-first-repaired-import-rows runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv --source-episode-rows runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv --m1674-run-dir runs/m1674_controller_family_one_seed_public_pilot --eval-seed-base 189500 --device cpu --output-dir runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution --no-resume --next-blocker m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_bounded_smoke_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+    "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1895 passes if the exact M1894 command completes with target counts, metric completeness, and clean guardrails, while interpretation remains deferred.",
+  "next_blocker": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
+}

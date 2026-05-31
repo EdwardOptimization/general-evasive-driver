@@ -32575,3 +32575,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real repaired bounded-smoke execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.json`
 - next: `m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design`
+
+## M1894 Executable V2 Support-First Repaired Bounded-Smoke Execution Command Design
+
+- status: completed
+- decision: `support_first_repaired_bounded_smoke_execution_command_design_admit_execution`
+- artifact: `docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md`
+- exact command registered: `true`
+- execution output dir: `runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution`
+- target rollout episode count: `576`
+- target import episode count: `384`
+- target total panel row count: `960`
+- target controller profile count: `12`
+- target selected source spec count: `16`
+- target repaired executable spec count: `48`
+- target role panel count: `4`
+- target role-surface count: `8`
+- target repair variant count: `5`
+- target rollout/import variant counts: `3 / 2`
+- reset/rollout in M1894: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: exact M1895 command and pass/fail counters are pre-registered
+- unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.json`
+- next: `m1895-executable-v2-support-first-repaired-bounded-smoke-execution`
