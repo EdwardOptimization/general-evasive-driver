@@ -1,0 +1,158 @@
+{
+  "id": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_runner_adapter_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1875-executable-v2-support-first-measured-runner-adapter-preflight.md",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json"
+    ],
+    "parent_objective": [
+      "audit support-first measured-runner adapter preflight before measured rollout design"
+    ],
+    "derived_from": [
+      "m1875-executable-v2-support-first-measured-runner-adapter-preflight"
+    ],
+    "blocked_by": [
+      "M1875 adapter preflight result requires audit before measured runner execution design"
+    ],
+    "supersedes": [
+      "direct measured rollout after adapter preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
+  "public_gates": [
+    "M1876 must audit result_class counts semantic separation guardrails and role-surface imbalance",
+    "M1876 must decide measured runner execution design versus adapter/profile repair",
+    "M1876 must not run environment reset rollout policy actions measured rollout training replay PPO ranking paper-level or level3 claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_measured_runner_adapter_result_audit",
+    "evidence_increment": "audits no-rollout adapter preflight before measured execution design",
+    "claim_scope": "adapter preflight result audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1875 result_class is not pass",
+      "stop if target counts or semantic separation fail",
+      "stop if any guardrail indicates reset or rollout",
+      "stop if measured execution would hide role-surface imbalance"
+    ],
+    "fallback_plan": [
+      "route to measured runner execution design if preflight is clean",
+      "route to adapter schema repair if semantic separation fails",
+      "route to profile artifact repair if controller artifacts are missing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1875 adapter preflight completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first measured-runner adapter result audit",
+    "admission_evidence": [
+      "M1875 summary exists and reports adapter preflight pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1876 audit document",
+      "M1876 status queue scoreboard research log and review",
+      "one follow-up manifest for measured runner execution design or repair"
+    ],
+    "next_stage_criteria": [
+      "audit checks pass/fail counts",
+      "audit preserves role-surface imbalance",
+      "audit route decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve controller profile identity for later current-response/finite-window/GRU comparisons."
+    ],
+    "temporal_evidence_window": "No-rollout adapter materialization result only.",
+    "negative_result_policy": "If preflight is not clean, route to repair rather than weakening evidence standards.",
+    "allowed_claims": [
+      "support-first measured-runner adapter result audit",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The clean M1875 adapter preflight is sufficient to admit measured runner execution design while preserving diagnostic-only claim boundaries.",
+  "success_criteria": [
+    "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md exists",
+    "audit checks result_class target counts semantic separation role-surface imbalance and guardrails",
+    "audit chooses measured runner execution design or repair route",
+    "no environment reset rollout policy action measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores counts semantic separation role-surface imbalance or guardrails",
+    "audit runs reset rollout or measured execution",
+    "audit routes directly to controller ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_measured_runner_adapter_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1875-executable-v2-support-first-measured-runner-adapter-preflight.md",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+  ],
+  "decision_rule": "M1876 passes if it audits the adapter preflight and routes to measured runner execution design or repair without running rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit"
+}

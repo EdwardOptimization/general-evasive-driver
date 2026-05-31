@@ -32063,3 +32063,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: adapter execution result 2160-cell workload matrix environment reset rollout measured controller comparison ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json`
 - next: `m1875-executable-v2-support-first-measured-runner-adapter-preflight`
+
+## M1875 Executable V2 Support-First Measured Runner Adapter Preflight
+
+- status: completed
+- decision: `support_first_measured_runner_adapter_preflight_pass_route_to_result_audit`
+- artifact: `runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json`
+- docs artifact: `docs/m1875-executable-v2-support-first-measured-runner-adapter-preflight.md`
+- result class: `executable_v2_support_first_measured_runner_adapter_pass`
+- support-first spec count: `180`
+- controller profile count: `12`
+- workload cell count: `2160`
+- role count: `4`
+- role-surface count: `8`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- missing profile artifact count: `0`
+- profile alias mismatch count: `0`
+- scenario as controller profile count: `0`
+- missing required field count: `0`
+- duplicate key count: `0`
+- guardrail violation count: `0`
+- known imbalance: `unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24`
+- environment reset started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: no-rollout adapter preflight passed; 2160 workload rows materialized locally; scenario/controller profile separation passed
+- unsupported: environment reset rollout measured controller comparison ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.json`
+- next: `m1876-executable-v2-support-first-measured-runner-adapter-result-audit`

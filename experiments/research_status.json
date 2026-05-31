@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1883,
+    "completed": 1884,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md",
+    "command_log": "docs/m1875-executable-v2-support-first-measured-runner-adapter-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1874-executable-v2-support-first-measured-runner-adapter-execution-design"
+    "task_id": "m1875-executable-v2-support-first-measured-runner-adapter-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json",
-    "hypothesis": "The M1873 adapter can materialize the real support-first measured workload matrix with 180 specs, 12 profiles, and 2160 workload rows while preserving semantic guardrails.",
-    "id": "m1875-executable-v2-support-first-measured-runner-adapter-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-rollout adapter preflight over M1866 and M1674 artifacts",
-    "priority": 18700,
+    "command": "see experiments/manifests/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.json",
+    "hypothesis": "The clean M1875 adapter preflight is sufficient to admit measured runner execution design while preserving diagnostic-only claim boundaries.",
+    "id": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit clean 2160-cell no-rollout adapter preflight before measured runner execution design",
+    "priority": 18710,
     "status": "pending",
-    "success_artifact": "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json"
+    "success_artifact": "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md"
   },
-  "updated_at_utc": "20260531T022927Z"
+  "updated_at_utc": "20260531T023244Z"
 }
