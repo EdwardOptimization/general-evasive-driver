@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1952,
+    "completed": 1953,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+    "command_log": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+    "run_dir": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
     "status": "completed",
-    "task_id": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit"
+    "task_id": "m1944-executable-v2-task-quality-offtrack-support-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json",
-    "hypothesis": "A focused off-track support repair design can turn M1942 candidate-support diagnostics into a pre-registered task-quality repair route without ranking or profile tuning.",
-    "id": "m1944-executable-v2-task-quality-offtrack-support-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design off-track support repair route using M1942 candidate-support anchors while keeping controller ranking blocked",
-    "priority": 19390,
+    "command": "see experiments/manifests/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.json",
+    "hypothesis": "A deterministic no-rollout template generator can materialize the M1944 offtrack-support repair plan with exact counts and guardrails.",
+    "id": "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement deterministic 160-row offtrack-support repair template generator with focused tests and no environment interaction",
+    "priority": 19400,
     "status": "pending",
-    "success_artifact": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md"
+    "success_artifact": "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
   },
-  "updated_at_utc": "20260531T090654Z"
+  "updated_at_utc": "20260531T091043Z"
 }

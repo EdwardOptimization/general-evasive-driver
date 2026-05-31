@@ -33744,3 +33744,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design off-track support repair before any new measured execution or ranking
 - follow-up manifest: `experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json`
 - next: `m1944-executable-v2-task-quality-offtrack-support-repair-design`
+
+## M1944 Executable V2 Task-Quality Offtrack Support Repair Design
+
+- status: completed
+- decision: `task_quality_offtrack_support_repair_design_admit_template_implementation`
+- doc: `docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md`
+- branch: `paper_route_task_quality_offtrack_support_repair`
+- reset/rollout/measured execution in M1944: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- positive support anchors: two tier C stable-AEB AEB-feasible slices, one post-friction-step and one steady-surface, each with `5/24` success and `0.75` offtrack outcome rate
+- broader anchors: 40 success rows across tiers B/C/D/E, roles stable-AEB/stable-AES/drift-required/unavoidable, and both surfaces
+- repair levers: bounded recovery corridor/reaction distance/obstacle width/lateral placement changes plus source resampling, without profile tuning or actor input changes
+- first repair wave: 160 no-rollout candidate sources with 64 anchor-neighborhood, 48 success-stabilizer, 32 offtrack-boundary-relief, and 16 mitigation-isolation rows
+- pass gates: exact source-kind and split counts, guardrail zero, no labels entering actor input, no ranking admissible by default
+- follow-up manifest: `experiments/manifests/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.json`
+- next: `m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation`

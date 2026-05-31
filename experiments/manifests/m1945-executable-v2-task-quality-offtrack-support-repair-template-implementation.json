@@ -1,0 +1,188 @@
+{
+  "id": "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_templates"
+    ],
+    "parent_dataset": [
+      "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/success_source_rows.csv",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/comparison_support_candidates.csv",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/offtrack_dominance_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement deterministic no-rollout offtrack-support repair templates"
+    ],
+    "derived_from": [
+      "m1944-executable-v2-task-quality-offtrack-support-repair-design"
+    ],
+    "blocked_by": [
+      "M1944 requires a repair template artifact before source mining or execution"
+    ],
+    "supersedes": [
+      "manual repair candidate selection",
+      "direct measured execution without repair templates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md",
+  "public_gates": [
+    "M1945 must implement a deterministic no-rollout template generator",
+    "M1945 must write a 160-row repair candidate config artifact",
+    "M1945 must include focused tests for counts splits guardrails and source kinds",
+    "M1945 must not run reset rollout measured execution training replay PPO profile tuning or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_repair_templates",
+    "evidence_increment": "materializes the M1944 repair plan into deterministic no-rollout candidate templates",
+    "claim_scope": "template infrastructure only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if template counts cannot be made deterministic",
+      "stop if required anchors are missing",
+      "stop if implementation would tune profiles or run environment interaction"
+    ],
+    "fallback_plan": [
+      "route to design audit if source anchors are insufficient",
+      "route to broader scenario redesign if repair templates collapse to a single source",
+      "route to branch synthesis if another local template tweak would be needed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "second milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack support repair template implementation",
+    "admission_evidence": [
+      "M1944 defines 160 repair candidate sources with anchor-neighborhood, success-stabilizer, offtrack-boundary-relief, and mitigation-isolation groups"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment interaction",
+      "do not tune controller profiles",
+      "do not rank controllers"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_offtrack_support_repair_templates.py",
+      "tests/test_executable_v2_task_quality_offtrack_support_repair_templates.py",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "docs/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md",
+      "M1945 status queue scoreboard research log and review",
+      "one follow-up manifest for source-mining/preflight design"
+    ],
+    "next_stage_criteria": [
+      "candidate template artifact has 160 rows",
+      "all source-kind and split counts match M1944 gates",
+      "guardrails remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; repair templates do not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1945."
+    ],
+    "temporal_evidence_window": "M1942 localization artifacts and M1944 repair design.",
+    "negative_result_policy": "If template generation cannot preserve source diversity, route to broader scenario redesign.",
+    "allowed_claims": [
+      "offtrack support repair template infrastructure",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns a result-audit blocker into a new repair candidate panel instead of another localization table",
+    "paper_verdict_delta": "can make the next task-quality support repair executable without profile ranking",
+    "must_synthesize_if": [
+      "template output is not source-diverse",
+      "template output cannot meet M1944 count gates",
+      "implementation would run environment interaction or rank profiles"
+    ]
+  },
+  "hypothesis": "A deterministic no-rollout template generator can materialize the M1944 offtrack-support repair plan with exact counts and guardrails.",
+  "success_criteria": [
+    "focused tests pass",
+    "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json exists",
+    "candidate_source_count equals 160",
+    "source-kind split counts match M1944",
+    "public_debug/public_gate split counts match M1944",
+    "guardrail violation count is zero",
+    "no reset rollout ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "config artifact is missing",
+    "candidate count gates fail",
+    "guardrail flags are violated",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_offtrack_support_repair_templates.py"
+    },
+    {
+      "name": "generate_templates",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_offtrack_support_repair_templates --success-source-rows runs/m1942_executable_v2_task_quality_measured_outcome_localization/success_source_rows.csv --comparison-support-candidates runs/m1942_executable_v2_task_quality_measured_outcome_localization/comparison_support_candidates.csv --offtrack-dominance-rows runs/m1942_executable_v2_task_quality_measured_outcome_localization/offtrack_dominance_rows.csv --output configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_offtrack_support_repair_templates.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_offtrack_support_repair_templates.py",
+      "type": "py"
+    },
+    {
+      "path": "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_templates"
+  ],
+  "baseline_artifacts": [
+    "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/success_source_rows.csv",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/comparison_support_candidates.csv",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/offtrack_dominance_rows.csv"
+  ],
+  "decision_rule": "M1945 passes if it produces a deterministic 160-row repair template artifact with exact M1944 counts and guardrails.",
+  "next_blocker": "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation"
+}
