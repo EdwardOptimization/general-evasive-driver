@@ -35670,3 +35670,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: generated rows remain `smoke_proxy` with `paper_validity_claim=false`; no profile-specific tuning or controller ranking
 - follow-up manifest: `experiments/manifests/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.json`
 - next: `m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation`
+
+## M2045 Paper-Route Controlled Routing Smoke Task-Quality Repair Template Implementation
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_templates_pass_route_to_audit`
+- result class: `controlled_routing_smoke_task_quality_repair_templates_pass`
+- implementation: `src/autodrift/paper_route_controlled_routing_smoke_task_quality_repair_templates.py`
+- focused tests: `3 passed`
+- artifact: `configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json`
+- reset/rollout/measured execution in M2045: `false`
+- policy actions executed in M2045: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- artifact gates: candidate count `192`, repair-axis quotas `64/48/40/24/16`, split public_debug `112` / public_gate `80`, quota pass `true`, generated proxy paper claim count `0`, guardrail `0`, profile-specific tuning count `0`
+- decision: route to artifact audit before source mining, materialization, reset validation, measured execution, ranking, or paper/self-ID claims
+- follow-up manifest: `experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json`
+- next: `m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit`

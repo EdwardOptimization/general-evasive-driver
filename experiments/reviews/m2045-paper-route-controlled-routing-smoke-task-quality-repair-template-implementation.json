@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2045 writes clean 192-candidate no-rollout repair template artifact with quotas 64/48/40/24/16 split 112/80 guardrail 0",
+  "failure_criteria": [
+    "generator is missing",
+    "focused tests fail",
+    "template artifact is missing",
+    "quota or guardrail gates fail",
+    "generated proxy paper-validity claim is true",
+    "profile-specific tuning appears"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T192213Z",
+  "hypothesis": "A deterministic no-rollout generator can produce a clean 192-candidate task-quality repair artifact from M2042 localization.",
+  "lineage": {
+    "blocked_by": [
+      "M2044 admits template implementation before any reset rollout or ranking"
+    ],
+    "derived_from": [
+      "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_templates"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/success_rows.csv"
+    ],
+    "parent_objective": [
+      "implement deterministic no-rollout repair template generator"
+    ],
+    "supersedes": [
+      "manual repair templates without quota/guardrail validation"
+    ]
+  },
+  "milestone": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation",
+  "next_blocker": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_task_quality_repair_templates_pass_route_to_audit",
+  "public_gates": [
+    "M2045 must implement deterministic no-rollout repair templates",
+    "M2045 must produce exactly 192 candidates with registered axis and split quotas",
+    "M2045 must fail closed on missing M2042 artifacts or forbidden claim flags",
+    "M2045 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_task_quality_repair_templates_pass_route_to_audit",
+    "milestone": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation",
+    "reason": "M2045 writes clean 192-candidate no-rollout repair template artifact with quotas 64/48/40/24/16 split 112/80 guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json exists",
+    "candidate count is 192",
+    "repair-axis quotas match M2044",
+    "public_debug/public_gate split is 112/80",
+    "guardrail violation count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

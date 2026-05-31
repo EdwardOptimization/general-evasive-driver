@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2044-paper-route-controlled-routing-smoke-task-quality-repair-design
+m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation
 ```
 
 Current next task:
 
 ```text
-m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation
+m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit
 ```
 
-Immediate route: M2044 designs a no-rollout task-quality repair wave from the
-M2042/M2043 localization. The active blocker is broad offtrack dominance:
-comparison-ready candidates `0`, candidate-support slices `0`, and
-offtrack-dominance slices `138`. M2045 must implement the deterministic
-192-candidate repair-template artifact with axis quotas `64/48/40/24/16` and
-split `112/80`, without reset, rollout, measured execution, ranking, profile
-tuning, or paper/self-ID claims.
+Immediate route: M2045 implements the deterministic no-rollout task-quality
+repair-template generator and writes
+`configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json`.
+The artifact passes: `192` candidates, axis quotas `64/48/40/24/16`, split
+`112/80`, quota pass `true`, guardrail `0`, generated-proxy paper claims `0`,
+and profile-specific tuning `0`. M2046 must audit this artifact before source
+mining, materialization, reset validation, measured execution, or ranking.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

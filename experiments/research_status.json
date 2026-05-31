@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2053,
+    "completed": 2054,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+    "command_log": "docs/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "configs",
     "status": "completed",
-    "task_id": "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design"
+    "task_id": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.json",
-    "hypothesis": "A deterministic no-rollout generator can produce a clean 192-candidate task-quality repair artifact from M2042 localization.",
-    "id": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic no-rollout repair template generator and artifact",
-    "priority": 20400,
+    "command": "see experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json",
+    "hypothesis": "The M2045 repair template artifact is clean enough to seed source-mining or materialization design.",
+    "id": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit no-rollout repair template artifact before source mining or materialization",
+    "priority": 20410,
     "status": "pending",
-    "success_artifact": "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json"
+    "success_artifact": "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md"
   },
-  "updated_at_utc": "20260531T191622Z"
+  "updated_at_utc": "20260531T192028Z"
 }
