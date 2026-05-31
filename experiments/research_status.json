@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2055,
+    "completed": 2056,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md",
+    "command_log": "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
+    "task_id": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.json",
-    "hypothesis": "The M2045 templates can be converted into a bounded no-rollout source-mining/materialization plan with explicit parent resolution and claim guards.",
-    "id": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design",
-    "kind": "gate",
-    "notes": "Pending: design template-to-source conversion before implementation/materialization",
-    "priority": 20420,
+    "command": "see experiments/manifests/m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation.json",
+    "hypothesis": "The M2045 templates can be materialized into 192 repaired specs and 2304 workload rows without reset or claim violations.",
+    "id": "m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-reset materialization preflight for repaired routing-smoke specs",
+    "priority": 20430,
     "status": "pending",
-    "success_artifact": "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md"
+    "success_artifact": "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T192325Z"
+  "updated_at_utc": "20260531T192739Z"
 }

@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit
+m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design
 ```
 
 Current next task:
 
 ```text
-m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design
+m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation
 ```
 
-Immediate route: M2046 audits the M2045 no-rollout repair-template artifact as
-clean: `192` candidates, axis quotas `64/48/40/24/16`, split `112/80`, quota
-pass `true`, guardrail `0`, generated-proxy paper claims `0`, and
-profile-specific tuning `0`. M2047 must design template-to-source conversion
-with explicit parent resolution before implementation, materialization, reset
-validation, measured execution, or ranking.
+Immediate route: M2047 designs template-to-source conversion for the repaired
+routing-smoke panel. Parent resolution is deterministic: exact source ID,
+source-profile localization, family slice, source-kind slice, then generated
+proxy slice. M2048 must implement a no-reset materialization preflight producing
+`192` repaired specs and `2304` workload rows while preserving claim and actor
+contract guards. Reset validation, measured execution, ranking, paper claims,
+and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

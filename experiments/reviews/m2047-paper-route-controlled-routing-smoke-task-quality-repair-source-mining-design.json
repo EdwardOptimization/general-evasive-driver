@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2047 designs parent resolution and no-reset materialization for 192 repaired specs 2304 workload rows preserving claim guards",
+  "failure_criteria": [
+    "design doc is missing",
+    "parent-resolution rules are ambiguous",
+    "output artifact shape is ambiguous",
+    "design weakens claim boundaries",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit source-mining code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T192829Z",
+  "hypothesis": "The M2045 templates can be converted into a bounded no-rollout source-mining/materialization plan with explicit parent resolution and claim guards.",
+  "lineage": {
+    "blocked_by": [
+      "M2046 admits source-mining/materialization design but templates are not executable specs"
+    ],
+    "derived_from": [
+      "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_source_mining_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit.md",
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/success_rows.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv"
+    ],
+    "parent_objective": [
+      "design no-rollout conversion from repair templates to concrete repair sources"
+    ],
+    "supersedes": [
+      "direct reset validation from repair templates"
+    ]
+  },
+  "milestone": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design",
+  "next_blocker": "m2048-selected-by-m2047-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_task_quality_repair_source_mining_design_admit_materialization_preflight_implementation",
+  "public_gates": [
+    "M2047 must design template-to-source conversion before implementation",
+    "M2047 must specify parent-resolution and fail-closed rules",
+    "M2047 must preserve repair-axis quotas split and claim boundaries",
+    "M2047 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_task_quality_repair_source_mining_design_admit_materialization_preflight_implementation",
+    "milestone": "m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design",
+    "reason": "M2047 designs parent resolution and no-reset materialization for 192 repaired specs 2304 workload rows preserving claim guards",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md exists",
+    "parent-resolution and fail-closed rules are explicit",
+    "template delta application is explicit",
+    "output artifact shape is explicit",
+    "next route is explicit",
+    "no code reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

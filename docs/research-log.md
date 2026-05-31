@@ -35708,3 +35708,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit source-mining/materialization design; direct reset/execution/ranking remain blocked because templates are not executable specs yet
 - follow-up manifest: `experiments/manifests/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.json`
 - next: `m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design`
+
+## M2047 Paper-Route Controlled Routing Smoke Task-Quality Repair Source Mining Design
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_source_mining_design_admit_materialization_preflight_implementation`
+- doc: `docs/m2047-paper-route-controlled-routing-smoke-task-quality-repair-source-mining-design.md`
+- reset/rollout/measured execution in M2047: `false`
+- policy actions executed in M2047: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: resolve each repair template to concrete M2033 parent specs by exact task_source_id, source-profile localization, family slice, source-kind slice, or generated-proxy slice; fail closed if unresolved
+- materialization target: clone parent specs, apply task-quality deltas only, preserve actor contract/profile/checkpoint fields, output `192` repaired specs x `12` profiles = `2304` workload rows
+- guardrails: unresolved parents `0`, contract/claim flags `0`, generated proxy paper claims `0`, reset/rollout/execution `false`
+- follow-up manifest: `experiments/manifests/m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation.json`
+- next: `m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation`
