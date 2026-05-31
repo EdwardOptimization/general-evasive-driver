@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M2004 audits zero-row validation failure as legacy selection_quota_name compatibility issue with repair_axis present",
+  "failure_criteria": [
+    "audit document is missing",
+    "failure source is ambiguous",
+    "zero-row validation failure is interpreted as policy result",
+    "next route is ambiguous",
+    "repair rerun ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T135933Z",
+  "hypothesis": "M2003 failed closed from a local schema/readiness issue rather than driver behavior or quota repair failure.",
+  "lineage": {
+    "blocked_by": [
+      "M2003 failed closed before rollout because M1986 artifacts lack selection_quota_name"
+    ],
+    "derived_from": [
+      "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.json"
+    ],
+    "parent_dataset": [
+      "docs/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md",
+      "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json",
+      "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/validation_failure_rows.csv"
+    ],
+    "parent_objective": [
+      "audit measured execution rerun validation failure before repair or rerun"
+    ],
+    "supersedes": [
+      "repairing or rerunning measured execution without failure audit"
+    ]
+  },
+  "milestone": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit",
+  "next_blocker": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_audit_route_to_selection_quota_compatibility_design",
+  "public_gates": [
+    "M2004 must audit M2003 validation failure source",
+    "M2004 must separate validation/schema failure from policy outcome failure",
+    "M2004 must choose repair rerun stop or synthesis route",
+    "M2004 must not run real measured execution"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_audit_route_to_selection_quota_compatibility_design",
+    "milestone": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit",
+    "reason": "M2004 audits zero-row validation failure as legacy selection_quota_name compatibility issue with repair_axis present",
+    "reset_success": "0.0000000000",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md exists",
+    "validation failure is classified",
+    "zero-row result is not treated as policy outcome",
+    "next route is explicit",
+    "no repair rerun ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

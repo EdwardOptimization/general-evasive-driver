@@ -34852,3 +34852,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit zero-row validation failure before repair, rerun, ranking, or interpretation
 - follow-up manifest: `experiments/manifests/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.json`
 - next: `m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit`
+
+## M2004 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Execution Rerun Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_audit_route_to_selection_quota_compatibility_design`
+- doc: `docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md`
+- audited summary: `runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json`
+- measured execution in M2004: `false`
+- environment rollout in M2004: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2003 is a zero-row validation/schema failure, not policy outcome evidence; quota metadata is clean and expected quota source is `workload`
+- blocker: legacy `selection_quota_name` required by measured runner is missing from M1986 artifacts, while newer `repair_axis` provenance is complete
+- route: design bounded selection_quota_name compatibility using repair_axis fallback; no code or rerun in audit
+- follow-up manifest: `experiments/manifests/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.json`
+- next: `m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design`

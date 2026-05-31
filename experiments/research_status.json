@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2012,
+    "completed": 2013,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md",
+    "command_log": "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun"
+    "task_id": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.json",
-    "hypothesis": "M2003 failed closed from a local schema/readiness issue rather than driver behavior or quota repair failure.",
-    "id": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit",
+    "command": "see experiments/manifests/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.json",
+    "hypothesis": "The measured runner can safely accept repair_axis as the newer provenance field when selection_quota_name is absent, while still failing closed when both are missing.",
+    "id": "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design",
     "kind": "gate",
-    "notes": "Pending: audit zero-row validation failure before repair rerun or interpretation",
-    "priority": 19990,
+    "notes": "Pending: design measured-runner selection_quota_name compatibility with repair_axis fallback",
+    "priority": 20000,
     "status": "pending",
-    "success_artifact": "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md"
+    "success_artifact": "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md"
   },
-  "updated_at_utc": "20260531T135451Z"
+  "updated_at_utc": "20260531T135749Z"
 }

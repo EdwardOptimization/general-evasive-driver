@@ -1,0 +1,166 @@
+{
+  "id": "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_design"
+    ],
+    "parent_dataset": [
+      "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured-runner compatibility for selection_quota_name versus repair_axis provenance"
+    ],
+    "derived_from": [
+      "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "M2003 failed closed because M1986 artifacts carry repair_axis but not selection_quota_name"
+    ],
+    "supersedes": [
+      "rerunning measured execution without repairing selection_quota_name compatibility"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
+  "public_gates": [
+    "M2005 must design selection_quota_name compatibility without code edits",
+    "M2005 must preserve fail-closed behavior when both selection_quota_name and repair_axis are missing",
+    "M2005 must not run measured execution",
+    "M2005 must keep ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_design",
+    "evidence_increment": "designs local measured-runner schema compatibility needed after M2003 zero-row validation failure",
+    "claim_scope": "schema compatibility design only; no code run ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if repair_axis is not sufficient provenance",
+      "stop if design would silently allow missing provenance",
+      "stop if design would mutate M1986 artifacts in place"
+    ],
+    "fallback_plan": [
+      "implement runner-side compatibility if design is bounded",
+      "route to artifact rematerialization design if runner-side compatibility is unsafe",
+      "synthesize if schema compatibility repair becomes another local-search loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2004 audits selection_quota_name as the current validation blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "selection quota compatibility design",
+    "admission_evidence": [
+      "M2004 localizes M2003 failure to missing selection_quota_name with repair_axis present"
+    ],
+    "blocked_shortcuts": [
+      "do not edit code in design",
+      "do not rerun measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
+      "M2005 status queue scoreboard research log and review",
+      "one follow-up manifest for focused compatibility implementation"
+    ],
+    "next_stage_criteria": [
+      "compatibility source is specified",
+      "fail-closed behavior is specified",
+      "focused tests are specified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; schema compatibility design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2005."
+    ],
+    "temporal_evidence_window": "M1986 artifact schema and M2003 validation failure.",
+    "negative_result_policy": "If compatibility cannot be designed safely, route to artifact rematerialization rather than relaxing validation silently.",
+    "allowed_claims": [
+      "selection_quota_name compatibility design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns a zero-row validation failure into a bounded compatibility repair route",
+    "paper_verdict_delta": "can unblock measured execution rerun after implementation but cannot establish performance",
+    "must_synthesize_if": [
+      "compatibility cannot be implemented with focused tests",
+      "another zero-row validation failure follows the repair",
+      "another design-only milestone is proposed before implementation"
+    ]
+  },
+  "hypothesis": "The measured runner can safely accept repair_axis as the newer provenance field when selection_quota_name is absent, while still failing closed when both are missing.",
+  "success_criteria": [
+    "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md exists",
+    "compatibility source is specified",
+    "fail-closed behavior is specified",
+    "focused tests are specified",
+    "next route is explicit",
+    "no code measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "compatibility source is ambiguous",
+    "design silently allows missing provenance",
+    "next route is ambiguous",
+    "code measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+    "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/validation_failure_rows.csv"
+  ],
+  "decision_rule": "M2005 passes if it designs a bounded selection_quota_name/repair_axis compatibility repair without code edits or overclaiming.",
+  "next_blocker": "m2005-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-design"
+}
