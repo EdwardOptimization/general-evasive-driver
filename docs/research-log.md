@@ -34726,3 +34726,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit repaired reset-validation pass before measured execution command design
 - follow-up manifest: `experiments/manifests/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.json`
 - next: `m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit`
+
+## M1997 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Rerun Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_rerun_audit_route_to_measured_runner_quota_parameterization_design`
+- doc: `docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md`
+- audited summary: `runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json`
+- reset rerun in M1997: `false`
+- rollout/measured execution in M1997: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1996 is a clean repaired reset-validation pass for the M1986 panel
+- readiness blocker: calibrated measured runner still has stale hard-coded quota expectations; M1986 workload counts are anchor `288`, mitigation `240`, offtrack-boundary `192`, success `240`, while legacy expected counts are anchor `384`, mitigation `192`, offtrack-boundary `96`, success `288`
+- route: design measured-runner artifact-driven quota parameterization before 960-row measured execution command design
+- follow-up manifest: `experiments/manifests/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.json`
+- next: `m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design`

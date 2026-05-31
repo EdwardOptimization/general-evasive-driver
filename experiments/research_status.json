@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2005,
+    "completed": 2006,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md",
+    "command_log": "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun"
+    "task_id": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.json",
-    "hypothesis": "The M1996 repaired reset-validation pass is clean enough to admit measured execution command design.",
-    "id": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit",
+    "command": "see experiments/manifests/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.json",
+    "hypothesis": "The calibrated measured runner should use artifact-driven expected source-kind and role-surface counts from the active workload or executable specs instead of stale historical constants.",
+    "id": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design",
     "kind": "gate",
-    "notes": "Pending: audit repaired reset pass before measured execution command design",
-    "priority": 19920,
+    "notes": "Pending: design measured-runner artifact-driven quota repair before measured execution command design",
+    "priority": 19930,
     "status": "pending",
-    "success_artifact": "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md"
+    "success_artifact": "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md"
   },
-  "updated_at_utc": "20260531T132428Z"
+  "updated_at_utc": "20260531T132744Z"
 }

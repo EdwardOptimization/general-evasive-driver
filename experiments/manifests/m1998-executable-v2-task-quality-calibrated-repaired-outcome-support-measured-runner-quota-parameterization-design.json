@@ -1,0 +1,166 @@
+{
+  "id": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_parameterization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "design artifact-driven quota expectations for calibrated measured runner before measured execution"
+    ],
+    "derived_from": [
+      "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "calibrated measured runner still hard-codes older source-kind and role-surface quotas that do not match M1986 workload"
+    ],
+    "supersedes": [
+      "direct measured execution command design with known stale measured-runner quota expectations"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+  "public_gates": [
+    "M1998 must design measured-runner quota repair before code changes",
+    "M1998 must not run measured execution",
+    "M1998 must preserve fail-closed behavior for missing or inconsistent expected distributions",
+    "M1998 must keep controller ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code in M1998",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_repair_design",
+    "evidence_increment": "designs measured-runner stale quota repair before 960-row measured execution",
+    "claim_scope": "repair design only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if expected quota source is ambiguous",
+      "stop if design would silently disable measured-runner quota checks",
+      "stop if design would treat diagnostic-only mitigation rows as ranking evidence"
+    ],
+    "fallback_plan": [
+      "implement artifact-driven measured-runner quota loading if design is exact",
+      "route to measured execution command design only after implementation audit",
+      "synthesize if quota repair becomes another broad local-search loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1997 audits reset pass and identifies measured-runner stale quota risk",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured-runner quota parameterization repair design",
+    "admission_evidence": [
+      "M1997 audits M1996 reset-validation pass and measured-runner stale quota risk"
+    ],
+    "blocked_shortcuts": [
+      "do not edit code in design",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+      "M1998 status queue scoreboard research log and review",
+      "one follow-up manifest for focused measured-runner implementation"
+    ],
+    "next_stage_criteria": [
+      "expected quota source is specified",
+      "fail-closed semantics are specified",
+      "focused tests are specified",
+      "follow-up implementation manifest is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured-runner quota repair design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1998."
+    ],
+    "temporal_evidence_window": "M1996/M1997 reset validation audit artifacts and measured-runner code.",
+    "negative_result_policy": "If measured-runner quota repair cannot be designed exactly, route to runner audit rather than disabling quota checks.",
+    "allowed_claims": [
+      "measured-runner quota repair design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "prevents repeating a known stale quota metric artifact at measured execution",
+    "paper_verdict_delta": "can unblock measured execution command design but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1998 cannot identify a clean expected-quota source",
+      "same quota mismatch repeats after implementation",
+      "another design-only milestone is proposed before implementation"
+    ]
+  },
+  "hypothesis": "The calibrated measured runner should use artifact-driven expected source-kind and role-surface counts from the active workload or executable specs instead of stale historical constants.",
+  "success_criteria": [
+    "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md exists",
+    "expected quota source is specified",
+    "fail-closed behavior is specified",
+    "focused implementation tests are specified",
+    "next route is explicit",
+    "no measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "expected quota source is ambiguous",
+    "design disables quota checks silently",
+    "next route is ambiguous",
+    "measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_parameterization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py"
+  ],
+  "decision_rule": "M1998 passes if it designs a bounded artifact-driven measured-runner quota repair without measured execution or overclaiming.",
+  "next_blocker": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun
+m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit
 ```
 
 Current next task:
 
 ```text
-m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit
+m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -282,7 +282,10 @@ obstacle initialized `80`, expected quota source `executable_task_specs`,
 quota metadata missing `0`, source-kind quota pass `true`, role-surface quota
 pass `true`, contract `0`, label actor-input `0`, forbidden-key `0`, and
 guardrail `0`. M1997 must audit this pass before measured execution command
-design.
+design. M1997 audits M1996 as a clean repaired reset-validation pass, but
+blocks direct measured execution because the calibrated measured runner still
+uses stale hard-coded quota expectations. M1998 must design the measured-runner
+artifact-driven quota repair before 960-row measured execution command design.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
