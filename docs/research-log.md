@@ -35631,3 +35631,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to result audit before task-quality repair or comparison qualification; ranking/paper/self-ID claims remain blocked
 - follow-up manifest: `experiments/manifests/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.json`
 - next: `m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit`
+
+## M2043 Paper-Route Controlled Routing Smoke Outcome Localization Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_outcome_localization_audit_route_to_task_quality_repair_design`
+- doc: `docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md`
+- audited summary: `runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json`
+- reset/rollout/measured execution in M2043: `false`
+- policy actions executed in M2043: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2042 localization pass reproduced M2039 counts exactly, missing schema `[]`, selected metrics finite, guardrail `0`
+- blocker: comparison-ready candidates `0`, candidate-support slices `0`, offtrack-dominance slices `138`, collision-dominance slices `0`
+- failure taxonomy: `scenario_sampling_failure`; the active blocker is broad offtrack-dominated task quality, not runner/localizer failure
+- decision: reject ranking, candidate qualification, another same-artifact localization, or new measured rollout; route to no-rollout task-quality repair design
+- follow-up manifest: `experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json`
+- next: `m2044-paper-route-controlled-routing-smoke-task-quality-repair-design`

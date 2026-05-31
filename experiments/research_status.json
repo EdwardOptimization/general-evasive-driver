@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2051,
+    "completed": 2052,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.md",
+    "command_log": "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run"
+    "task_id": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.json",
-    "hypothesis": "M2042 localization can be audited into a single repair or comparison route without new rollout.",
-    "id": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit",
+    "command": "see experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json",
+    "hypothesis": "A bounded no-rollout repair design can target M2042 offtrack dominance without controller tuning or claim-boundary weakening.",
+    "id": "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2042 localization pass with zero candidates and broad offtrack dominance",
-    "priority": 20380,
+    "notes": "Pending: design no-rollout task-quality repair from M2042/M2043 broad offtrack localization",
+    "priority": 20390,
     "status": "pending",
-    "success_artifact": "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md"
+    "success_artifact": "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md"
   },
-  "updated_at_utc": "20260531T190748Z"
+  "updated_at_utc": "20260531T191107Z"
 }

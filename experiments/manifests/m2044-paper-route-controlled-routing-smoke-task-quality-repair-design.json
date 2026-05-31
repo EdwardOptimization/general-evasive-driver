@@ -1,0 +1,173 @@
+{
+  "id": "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/outcome_by_profile.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/outcome_by_family.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/success_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout repair route for broad offtrack dominance in the routing-smoke panel"
+    ],
+    "derived_from": [
+      "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M2043 rejects ranking and candidate qualification because M2042 found no supported slices"
+    ],
+    "supersedes": [
+      "rerunning measured execution without task-quality repair design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+  "public_gates": [
+    "M2044 must design a bounded no-rollout task-quality repair route",
+    "M2044 must use M2042 offtrack localization instead of profile-specific tuning",
+    "M2044 must keep generated rows smoke_proxy unless separately validated",
+    "M2044 must not run reset rollout measured execution or ranking",
+    "M2044 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit runner code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_design_from_outcome_localization",
+    "evidence_increment": "turns M2042/M2043 broad offtrack localization into a repair-wave design",
+    "claim_scope": "repair design only; no execution ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repair axes are not tied to M2042 localization evidence",
+      "stop if design requires controller profile tuning",
+      "stop if design weakens generated-proxy claim boundaries",
+      "stop if no no-rollout repair artifact can be specified"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if repair axes are ambiguous",
+      "route to source semantics audit if generated proxy validity is the blocker",
+      "route to scenario redesign if no localized repair can address offtrack dominance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2043 routes broad offtrack dominance to task-quality repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair design",
+    "admission_evidence": [
+      "M2042 comparison_ready_candidate_count is 0",
+      "M2042 comparison_support_candidate_count is 0",
+      "M2042 offtrack_dominance_slice_count is 138"
+    ],
+    "blocked_shortcuts": [
+      "do not run a new measured execution before repair design",
+      "do not tune profiles",
+      "do not convert smoke_proxy rows into paper-valid tasks by assertion"
+    ],
+    "allowed_updates": [
+      "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "M2044 status queue scoreboard research log and review",
+      "one follow-up manifest for selected repair implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "repair axes are explicitly linked to M2042 localization",
+      "repair artifact shape and guardrails are specified",
+      "claim boundaries are preserved",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2044 designs task-quality repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2044."
+    ],
+    "temporal_evidence_window": "M2042 localization and M2043 audit artifacts.",
+    "negative_result_policy": "If task-quality repair cannot be tied to localization evidence, route to synthesis or scenario redesign instead of local tweaks.",
+    "allowed_claims": [
+      "task-quality repair design from routing-smoke localization",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "translates broad offtrack localization into a concrete repair design",
+    "paper_verdict_delta": "can decide how to make the routing-smoke panel comparison-admissible rather than rerunning low-support rows",
+    "must_synthesize_if": [
+      "M2044 cannot define bounded repair axes",
+      "M2044 would require another localization over the same artifact",
+      "M2044 would weaken support criteria to admit ranking"
+    ]
+  },
+  "hypothesis": "A bounded no-rollout repair design can target M2042 offtrack dominance without controller tuning or claim-boundary weakening.",
+  "success_criteria": [
+    "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md exists",
+    "repair axes are tied to M2042 localization evidence",
+    "repair artifact shape and guardrails are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "repair axes are not tied to M2042 evidence",
+    "design proposes profile-specific tuning",
+    "design weakens claim boundaries",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+    "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2044 passes if it specifies a bounded localization-driven repair route without overclaiming.",
+  "next_blocker": "m2045-selected-by-m2044-design"
+}
