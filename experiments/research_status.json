@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1889,
+    "completed": 1890,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1880-executable-v2-support-first-measured-runner-execution.md",
+    "command_log": "docs/m1881-executable-v2-support-first-measured-runner-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1880_executable_v2_support_first_measured_runner_execution",
     "status": "completed",
-    "task_id": "m1880-executable-v2-support-first-measured-runner-execution"
+    "task_id": "m1881-executable-v2-support-first-measured-runner-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1881-executable-v2-support-first-measured-runner-result-audit.json",
-    "hypothesis": "M1880 can be audited as a complete support-first measured execution before interpretation.",
-    "id": "m1881-executable-v2-support-first-measured-runner-result-audit",
+    "command": "see experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json",
+    "hypothesis": "The M1880 outcome dominance can be localized from existing artifacts enough to choose the next route without rerunning rollout.",
+    "id": "m1882-executable-v2-support-first-outcome-localization",
     "kind": "gate",
-    "notes": "Pending: audit M1880 outcome distribution and choose localization repair synthesis or later ranking route without rerun",
-    "priority": 18760,
+    "notes": "Pending: localize M1880 off-track and collision dominance without reset rollout training or ranking",
+    "priority": 18770,
     "status": "pending",
-    "success_artifact": "docs/m1881-executable-v2-support-first-measured-runner-result-audit.md"
+    "success_artifact": "runs/m1882_executable_v2_support_first_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260531T030421Z"
+  "updated_at_utc": "20260531T031022Z"
 }

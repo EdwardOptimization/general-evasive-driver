@@ -32233,3 +32233,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1881-executable-v2-support-first-measured-runner-result-audit.json`
 - next: `m1881-executable-v2-support-first-measured-runner-result-audit`
+
+## M1881 Executable V2 Support-First Measured Runner Result Audit
+
+- status: completed
+- decision: `support_first_result_audit_route_to_outcome_localization`
+- synthesis decision: `continue`
+- artifact: `docs/m1881-executable-v2-support-first-measured-runner-result-audit.md`
+- audited summary: `runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json`
+- audited result class: `executable_v2_support_first_measured_runner_execution_pass`
+- episode count: `2160`
+- failure count: `0`
+- metric completeness passed: `true`
+- guardrail violation count: `0`
+- outcome counts: `success_obstacle_pass=0`, `collision_failure=480`, `off_track_noncollision_noncompletion=1680`
+- ranking blocked: `true`
+- outcome localization required: `true`
+- reset/rollout in audit: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1880 execution pass verified and zero-success outcome dominance identified
+- unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json`
+- next: `m1882-executable-v2-support-first-outcome-localization`

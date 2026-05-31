@@ -163,6 +163,38 @@
     "docs/m1880-executable-v2-support-first-measured-runner-execution.md",
     "runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1881-executable-v2-support-first-measured-runner-result-audit.md",
+    "decision": "support_first_result_audit_route_to_outcome_localization",
+    "synthesis_decision": "continue",
+    "audited_result_class": "executable_v2_support_first_measured_runner_execution_pass",
+    "episode_count": 2160,
+    "failure_count": 0,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "guardrail_violation_count": 0,
+    "outcome_counts": {
+      "collision_failure": 480,
+      "off_track_noncollision_noncompletion": 1680,
+      "success_obstacle_pass": 0
+    },
+    "ranking_blocked": true,
+    "outcome_localization_required": true,
+    "environment_reset_started_in_audit": false,
+    "environment_rollout_started_in_audit": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json"
+  },
   "decision_rule": "M1881 passes if it audits M1880 and chooses the next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1881-executable-v2-support-first-measured-runner-result-audit"
+  "next_blocker": "m1882-executable-v2-support-first-outcome-localization"
 }

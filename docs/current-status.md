@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1880-executable-v2-support-first-measured-runner-execution
+m1881-executable-v2-support-first-measured-runner-result-audit
 ```
 
 Current next task:
 
 ```text
-m1881-executable-v2-support-first-measured-runner-result-audit
+m1882-executable-v2-support-first-outcome-localization
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -69,9 +69,11 @@ M1880 ran the fixed support-first public diagnostic measured workload:
 `2160/2160` episodes, `0` failures, complete metrics, clean guardrails, and no
 ranking/paper/self-ID claim. Raw outcomes were dominated by off-track and
 collision (`success_obstacle_pass=0`, `collision_failure=480`,
-`off_track_noncollision_noncompletion=1680`), so M1881 must audit the result
-before any localization, repair, synthesis, or later ranking route. Controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+`off_track_noncollision_noncompletion=1680`). M1881 audited this as a valid
+execution pass but not an interpretable controller comparison; ranking remains
+blocked. M1882 must now localize the off-track/collision dominance from existing
+artifacts without reset, rollout, training, or ranking. Controller ranking,
+paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
