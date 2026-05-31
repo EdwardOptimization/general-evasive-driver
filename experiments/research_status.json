@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2102,
+    "completed": 2103,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
+    "command_log": "docs/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
+    "run_dir": "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction",
     "status": "completed",
-    "task_id": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design"
+    "task_id": "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.json",
-    "hypothesis": "A no-reset selector can materialize a 96-row public-gate core panel from M2091 reset-success rows while preserving env configs and metadata.",
-    "id": "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-reset public-gate-only core panel selector",
-    "priority": 20890,
+    "command": "see experiments/manifests/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.json",
+    "hypothesis": "M2094's 96-row public-gate panel artifact is clean enough to admit public-gate core measured-execution command design while preserving the M2091 reset-evidence boundary.",
+    "id": "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2094 public-gate core panel and decide whether measured-execution command design is admitted",
+    "priority": 20900,
     "status": "pending",
-    "success_artifact": "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json"
+    "success_artifact": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md"
   },
-  "updated_at_utc": "20260531T232603Z"
+  "updated_at_utc": "20260531T233659Z"
 }

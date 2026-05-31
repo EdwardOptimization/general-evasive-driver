@@ -1,0 +1,173 @@
+{
+  "id": "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_panel_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_executable_task_specs.json",
+      "docs/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the public-gate core panel materialization before any measured execution command design"
+    ],
+    "derived_from": [
+      "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation"
+    ],
+    "blocked_by": [
+      "M2094 no-reset materialization must be audited before any measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution without public-gate panel audit",
+      "another public-debug obstacle-filter repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+  "public_gates": [
+    "M2095 must audit M2094 public-gate counts and claim guards",
+    "M2095 must explicitly preserve the M2091 reset-evidence boundary",
+    "M2095 must decide whether public-gate core measured-execution command design is admitted",
+    "M2095 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_panel",
+    "evidence_axis": "Q_public_gate_core_panel_extraction_audit",
+    "evidence_increment": "audits whether the 96-row public-gate panel is clean enough to admit measured-execution command design",
+    "claim_scope": "materialization result audit only; no reset rerun rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2094 materialization violates guardrails",
+      "stop if public-debug rows were included",
+      "stop if audit treats M2094 as fresh reset validation",
+      "stop if audit would run reset or rollout"
+    ],
+    "fallback_plan": [
+      "route to public-gate measured-execution command design if M2094 artifact is clean",
+      "route to scenario-distribution redesign if public-gate materialization is not clean",
+      "do not repair public-debug filters"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2094 materializes the public-gate core panel",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core panel extraction result audit",
+    "admission_evidence": [
+      "M2094 focused tests passed",
+      "M2094 public_gate_core_executable_spec_count 96",
+      "M2094 public_gate_excluded_count 0",
+      "M2094 public_debug_included_count 0",
+      "M2094 env_config_changed_count 0",
+      "M2094 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in audit",
+      "do not run measured execution in audit",
+      "do not interpret M2094 as fresh reset validity beyond M2091 evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+      "M2095 status queue scoreboard research log and review",
+      "one follow-up manifest for public-gate core measured-execution command design or distribution redesign"
+    ],
+    "next_stage_criteria": [
+      "M2094 materialization is audited",
+      "M2091 reset-evidence boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2095 audits a task panel and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2095."
+    ],
+    "temporal_evidence_window": "M2094 no-reset public-gate panel materialization artifact and M2091 reset evidence.",
+    "negative_result_policy": "If the public-gate panel is not clean, pivot to distribution redesign rather than repairing filters.",
+    "allowed_claims": [
+      "public-gate core panel materialization audit",
+      "no reset rerun, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new public-gate panel rather than repairing fixed public-debug rows",
+    "paper_verdict_delta": "can admit public-gate smoke measured-execution command design if clean",
+    "must_synthesize_if": [
+      "M2095 routes back to local obstacle-filter repair",
+      "M2095 treats M2094 as a new reset validation",
+      "M2095 proposes ranking or paper claims before measured execution evidence"
+    ]
+  },
+  "hypothesis": "M2094's 96-row public-gate panel artifact is clean enough to admit public-gate core measured-execution command design while preserving the M2091 reset-evidence boundary.",
+  "success_criteria": [
+    "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md exists",
+    "M2094 summary and public-gate core panel artifacts are audited",
+    "M2091 reset-evidence boundary is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2094 result is not classified",
+    "M2091 reset-evidence boundary is omitted",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction artifacts and write M2095 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_panel_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json",
+    "docs/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.md"
+  ],
+  "decision_rule": "M2095 passes if it audits the public-gate panel and selects a bounded next route without overclaiming.",
+  "next_blocker": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design"
+}

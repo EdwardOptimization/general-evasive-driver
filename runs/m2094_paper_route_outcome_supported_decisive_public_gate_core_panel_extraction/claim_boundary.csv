@@ -1,0 +1,8 @@
+claim,admissible,reason
+public_gate_core_panel_materialization,True,admissible only if the no-reset selector includes exactly public-gate reset-success rows
+fresh_reset_validity,False,M2094 reuses M2091 reset evidence and does not rerun environment reset
+measured_controller_performance,False,policy actions and measured rollouts remain blocked
+controller_family_ranking,False,"panel extraction is task-quality infrastructure, not controller comparison"
+paper_valid_generated_task_semantics,False,generated rows remain smoke proxies until later task-semantics validation
+finite_window_vs_gru_conclusion,False,M2094 does not execute controller families or compare architectures
+level3_self_identification,False,M2094 does not test history necessity

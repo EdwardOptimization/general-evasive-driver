@@ -36728,3 +36728,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - M2094 pass gate: materialize public-gate specs and 480-row planned sentinel workload with env_config changed `0`, metadata/contract/forbidden-key/guardrail `0`, and no reset or rollout
 - follow-up manifest: `experiments/manifests/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.json`
 - next: `m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation`
+
+## M2094 Paper-Route Outcome-Supported Decisive Public-Gate Core Panel Extraction Implementation
+
+- status: completed
+- decision: `public_gate_core_panel_extraction_pass_route_to_result_audit`
+- run artifact: `runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json`
+- focused tests: `1 passed`
+- reset/rollout/measured execution in M2094: `false`
+- policy actions executed in M2094: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- selected panel: input `238`, public-gate core `96`, excluded public-debug rows `142`
+- reset evidence boundary: selected rows are M2091 reset-success rows; M2094 itself does not rerun reset
+- planned sentinel workload: `480`
+- coverage: T3 `24`, T4 `36`, T5 `36`; dynamics bands `24` each; difficulty-axis min/max `8/8`
+- guardrails: env_config changed `0`, metadata missing `0`, contract `0`, forbidden-key `0`, guardrail `0`
+- follow-up manifest: `experiments/manifests/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.json`
+- next: `m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit`
