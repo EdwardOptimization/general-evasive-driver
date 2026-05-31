@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M2058 synthesizes complete repaired execution but repeated offtrack dominance and pivots to outcome-supported decisive task distribution design",
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "evidence summary omits reset validity or measured execution",
+    "synthesis overclaims sparse outcomes as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T201624Z",
+  "hypothesis": "M2054-M2057 evidence is sufficient to pivot away from another local routing-smoke repair loop and choose a higher-leverage route.",
+  "lineage": {
+    "blocked_by": [
+      "M2057 finds repeated broad offtrack dominance after repaired measured execution",
+      "M2057 local-search guard requires synthesis before another repair/localization loop"
+    ],
+    "derived_from": [
+      "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit",
+      "m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repaired_measured_execution_synthesis"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+      "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/profile_aggregate.csv",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/family_aggregate.csv"
+    ],
+    "parent_objective": [
+      "synthesize repaired measured-execution branch after repeated offtrack-dominated outcomes"
+    ],
+    "supersedes": [
+      "direct repaired-panel localization or repair without branch synthesis"
+    ]
+  },
+  "milestone": "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis",
+  "next_blocker": "m2059-selected-by-m2058-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_repaired_measured_synthesis_pivot_to_outcome_supported_task_distribution",
+  "public_gates": [
+    "M2058 must synthesize M2054-M2057 repaired measured-execution evidence",
+    "M2058 must separate execution completeness from ranking readiness",
+    "M2058 must assess whether repeated offtrack dominance indicates local-search drift",
+    "M2058 must choose continue pivot stop or promote-to-next-branch",
+    "M2058 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked unless a new registered route supports them"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_repaired_measured_synthesis_pivot_to_outcome_supported_task_distribution",
+    "milestone": "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis",
+    "reason": "M2058 synthesizes complete repaired execution but repeated offtrack dominance and pivots to outcome-supported decisive task distribution design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md exists",
+    "evidence summary covers M2054-M2057",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy and public overfit risk are assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking paper or self-ID claim is made"
+  ],
+  "type": "gate"
+}

@@ -35932,3 +35932,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: direct ranking/localization/repair are blocked; repeated broad offtrack dominance triggers branch synthesis before another local repair loop
 - follow-up manifest: `experiments/manifests/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.json`
 - next: `m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis`
+
+## M2058 Paper-Route Controlled Routing Smoke Task-Quality Repaired Measured Execution Synthesis
+
+- status: completed
+- decision: `controlled_routing_smoke_repaired_measured_synthesis_pivot_to_outcome_supported_task_distribution`
+- synthesis decision: `pivot`
+- failure taxonomy: `scenario_sampling_failure`
+- doc: `docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md`
+- synthesis window: `M2054-M2057`
+- reset/rollout/measured execution in M2058: `false`
+- policy actions executed in M2058: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: repaired panel is materialized reset-valid and fully executed, but outcome support remains sparse and offtrack-dominated
+- falsified for this branch: M2044-M2053 repair made the routing-smoke panel ranking-ready; another local repair is highest leverage
+- decision: pivot to `paper_route_outcome_supported_decisive_task_distribution`
+- follow-up manifest: `experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json`
+- next: `m2059-paper-route-outcome-supported-decisive-task-distribution-design`

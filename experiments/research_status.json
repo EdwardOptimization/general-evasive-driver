@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2066,
+    "completed": 2067,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md",
+    "command_log": "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit"
+    "task_id": "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.json",
-    "hypothesis": "M2054-M2057 evidence is sufficient to pivot away from another local routing-smoke repair loop and choose a higher-leverage route.",
-    "id": "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis",
+    "command": "see experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json",
+    "hypothesis": "A new outcome-supported decisive task-distribution route can be designed to replace the offtrack-dominated routing-smoke panel as the next paper-route comparison substrate.",
+    "id": "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
     "kind": "gate",
-    "notes": "Pending: synthesize repeated offtrack-dominance before another localization or repair loop",
-    "priority": 20530,
+    "notes": "Pending: design new outcome-supported task distribution before full controller comparison",
+    "priority": 20540,
     "status": "pending",
-    "success_artifact": "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md"
+    "success_artifact": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md"
   },
-  "updated_at_utc": "20260531T201119Z"
+  "updated_at_utc": "20260531T201440Z"
 }

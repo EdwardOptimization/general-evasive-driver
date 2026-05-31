@@ -1,0 +1,172 @@
+{
+  "id": "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_distribution_design"
+    ],
+    "parent_dataset": [
+      "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.json"
+    ],
+    "parent_objective": [
+      "design an outcome-supported decisive task distribution before another controller-family comparison"
+    ],
+    "derived_from": [
+      "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis"
+    ],
+    "blocked_by": [
+      "M2058 pivots away from local routing-smoke repair toward outcome-supported task distribution"
+    ],
+    "supersedes": [
+      "another repair wave on the same offtrack-dominated public routing-smoke panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+  "public_gates": [
+    "M2059 must design a new outcome-supported task-distribution route",
+    "M2059 must state role/family support gates before full comparison",
+    "M2059 must preserve actor input/output contract and smoke-proxy claim boundaries",
+    "M2059 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_task_distribution_design",
+    "evidence_increment": "designs a new distribution route that treats outcome support as a precondition for fair controller comparison",
+    "claim_scope": "design only; no rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design repeats local repair of M2048 public panel",
+      "stop if support gates are ambiguous",
+      "stop if actor contract or generated-row claim boundaries are weakened",
+      "stop if design assumes GRU should win rather than comparing fairly"
+    ],
+    "fallback_plan": [
+      "route to no-rollout source generation if design is exact",
+      "route to synthesis if design cannot avoid public-panel overfit",
+      "route to benchmark-plan cleanup if task-family definitions are inconsistent"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2058 pivots to outcome-supported decisive task distribution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive task distribution design",
+    "admission_evidence": [
+      "M2058 rejects another local repair of the offtrack-dominated routing-smoke panel",
+      "governing plans require fair L0/L1/L2/L3 comparison on decisive tasks"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout in M2059",
+      "do not rank controller families",
+      "do not weaken support thresholds to reuse M2056 as ranking evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+      "M2059 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout source generation or preflight"
+    ],
+    "next_stage_criteria": [
+      "task families and role-specific support gates are explicit",
+      "source diversity and holdout policy are explicit",
+      "calibration-before-full-comparison route is explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2059 designs task distribution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2059."
+    ],
+    "temporal_evidence_window": "M2058 synthesis and governing paper-route plans.",
+    "negative_result_policy": "If the design cannot create source-diverse outcome-supported tasks, pivot away from strong self-ID claims rather than weakening standards.",
+    "allowed_claims": [
+      "outcome-supported task-distribution design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a new task distribution instead of repairing fixed public rows",
+    "paper_verdict_delta": "can admit source generation for a fair comparison panel but cannot decide the paper verdict by itself",
+    "must_synthesize_if": [
+      "M2059 cannot define support gates",
+      "M2059 routes back to another M2048 repair",
+      "M2059 would allow full comparison before outcome-support smoke gates"
+    ]
+  },
+  "hypothesis": "A new outcome-supported decisive task-distribution route can be designed to replace the offtrack-dominated routing-smoke panel as the next paper-route comparison substrate.",
+  "success_criteria": [
+    "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md exists",
+    "task families and support gates are explicit",
+    "calibration-before-full-comparison route is explicit",
+    "actor contract and generated-row claim boundaries are preserved",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "support gates are ambiguous",
+    "design repeats local public-panel repair",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_task_distribution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2059 passes if it designs a bounded outcome-supported task distribution and selects a concrete no-rollout implementation route without overclaiming.",
+  "next_blocker": "m2060-selected-by-m2059-design"
+}

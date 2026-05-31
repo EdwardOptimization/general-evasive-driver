@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit
+m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis
 ```
 
 Current next task:
 
 ```text
-m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis
+m2059-paper-route-outcome-supported-decisive-task-distribution-design
 ```
 
-Immediate route: M2057 audits M2056 as complete execution but not
-ranking-ready. The repaired panel still has sparse support and broad offtrack
-dominance: success `45/2304`, collision `14/2304`, offtrack `2245/2304`;
-L3 online GRU has `26/192` successes, L3 reset corrected `17/192`, L0/L1
-`1/192` each, and all L2/tiled controls `0`. Because this repeats the earlier
-routing-smoke offtrack-dominated blocker after a full repair path, M2058 must
-synthesize and pivot before another localization/repair loop.
+Immediate route: M2058 synthesizes the repaired routing-smoke measured branch
+and pivots away from another local repair loop. The branch proved the panel can
+be materialized, reset, and executed end-to-end, but it also falsified the idea
+that the repaired routing-smoke panel is ranking-ready: outcome support remains
+sparse and offtrack-dominated. M2059 must design a new outcome-supported
+decisive task distribution before any full controller-family comparison.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
