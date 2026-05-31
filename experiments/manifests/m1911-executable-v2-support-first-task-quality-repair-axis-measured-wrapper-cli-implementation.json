@@ -1,0 +1,175 @@
+{
+  "id": "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_cli_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
+      "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.json"
+    ],
+    "parent_objective": [
+      "implement the measured-execution CLI mode designed by M1910 without running the real M1902 workload"
+    ],
+    "derived_from": [
+      "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design"
+    ],
+    "blocked_by": [
+      "M1910 fixed a command contract but the module CLI remains dry-run-only"
+    ],
+    "supersedes": [
+      "manual measured-wrapper execution without a registered CLI mode"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+  "public_gates": [
+    "M1911 must implement --measured-execution CLI mode or an equivalent explicit measured CLI switch",
+    "M1911 must keep dry-run CLI behavior intact",
+    "M1911 must include focused mocked tests that do not run the real M1902 workload",
+    "M1911 must not run environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_cli_implementation",
+    "evidence_increment": "makes the M1910 measured command contract executable through a tested CLI mode",
+    "claim_scope": "infrastructure only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the CLI cannot preserve dry-run behavior",
+      "stop if the measured CLI requires actor input or controller profile changes",
+      "stop if mocked CLI tests cannot preserve target artifact paths"
+    ],
+    "fallback_plan": [
+      "route to helper repair if CLI tests expose missing dependencies",
+      "route to measured execution command if CLI tests pass",
+      "route to synthesis if another implementation/design step would be needed before execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new measured-wrapper branch requires synthesis by cadence or local-search guard",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement measured-wrapper CLI mode with mocked tests",
+    "admission_evidence": [
+      "M1910 fixed exact command target counts and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run real M1902 workload",
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "wrapper source modifications",
+      "focused mocked CLI tests",
+      "M1911 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "measured CLI mode exists",
+      "dry-run mode remains intact",
+      "focused mocked tests pass",
+      "real M1902 execution remains deferred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; CLI implementation does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1911."
+    ],
+    "temporal_evidence_window": "M1909-M1910 artifacts only.",
+    "negative_result_policy": "If CLI implementation cannot preserve command boundaries, route to helper repair instead of weakening claim standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured-wrapper CLI implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the exact measured-wrapper command design into executable infrastructure",
+    "paper_verdict_delta": "can admit a later measured execution milestone but cannot change the paper verdict by itself",
+    "must_synthesize_if": [
+      "M1911 cannot implement the CLI without scope expansion",
+      "the next route would still be another implementation-only step",
+      "dry-run behavior regresses"
+    ]
+  },
+  "hypothesis": "The M1910 command contract can be implemented as an explicit measured CLI mode with mocked tests while keeping real M1902 execution deferred.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py includes measured CLI mode",
+    "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py includes mocked CLI tests",
+    "focused tests pass",
+    "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md exists",
+    "real M1902 execution remains deferred"
+  ],
+  "failure_criteria": [
+    "measured CLI mode is missing",
+    "dry-run CLI behavior regresses",
+    "focused tests fail",
+    "implementation runs the real M1902 workload",
+    "implementation changes actor inputs or controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_cli_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
+    "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md"
+  ],
+  "decision_rule": "M1911 passes if the measured CLI mode and mocked tests are added without running the real workload.",
+  "next_blocker": "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation"
+}

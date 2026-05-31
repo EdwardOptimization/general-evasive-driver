@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1918,
+    "completed": 1919,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+    "command_log": "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+    "run_dir": "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
     "status": "completed",
-    "task_id": "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation"
+    "task_id": "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.json",
-    "hypothesis": "M1909's measured wrapper extension points are sufficient to register an exact no-surprise measured execution command and pass gates for a later milestone.",
-    "id": "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design",
-    "kind": "gate",
-    "notes": "Pending: design exact measured-wrapper execution command and gates without running it",
-    "priority": 19050,
+    "command": "see experiments/manifests/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.json",
+    "hypothesis": "The M1910 command contract can be implemented as an explicit measured CLI mode with mocked tests while keeping real M1902 execution deferred.",
+    "id": "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement measured CLI mode with mocked tests only",
+    "priority": 19060,
     "status": "pending",
-    "success_artifact": "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md"
+    "success_artifact": "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md"
   },
-  "updated_at_utc": "20260531T061004Z"
+  "updated_at_utc": "20260531T061449Z"
 }

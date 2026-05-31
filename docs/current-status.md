@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation
+m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design
 ```
 
 Current next task:
 
 ```text
-m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design
+m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -188,7 +188,11 @@ self-ID claim. M1909 added those measured-wrapper extension points
 real M1902 execution still deferred. M1910 must now register the exact measured
 execution command, output directory, target counts, pass/fail gates, and claim
 boundaries without running reset, rollout, measured execution, training, PPO,
-controller ranking, paper-level claim, or level3 self-ID claim.
+controller ranking, paper-level claim, or level3 self-ID claim. M1910 fixed
+that command contract and derived the target counts from M1906: `960` measured
+rollout rows, `576` import/postprocess rows, and `1536` combined panel rows.
+Because the module CLI is still dry-run-only, M1911 must now implement the
+explicit measured CLI mode with mocked tests before any real M1902 execution.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

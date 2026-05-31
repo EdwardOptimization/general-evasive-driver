@@ -405,7 +405,7 @@ def dry_run_prepare_execution(
         "paper_level_claim_made": False,
         "level3_self_id_claim_made": False,
         "ranking_blocked": True,
-        "next_blocker": DEFAULT_MEASURED_NEXT_BLOCKER,
+        "next_blocker": DEFAULT_NEXT_BLOCKER,
     }
     return {
         "summary": summary,
@@ -462,7 +462,7 @@ def measured_prepare_execution(
         **_claim_boundary_flags(),
         "ranking_blocked": True,
         "real_m1902_workload_executed": False,
-        "next_blocker": DEFAULT_NEXT_BLOCKER,
+        "next_blocker": DEFAULT_MEASURED_NEXT_BLOCKER,
     }
     return {
         "summary": summary,

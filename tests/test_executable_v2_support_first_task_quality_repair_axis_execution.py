@@ -133,6 +133,7 @@ def test_dry_run_prepare_execution_summarizes_wrapper_contract() -> None:
     assert summary["failure_count"] == 0
     assert summary["environment_rollout_started"] is False
     assert summary["controller_family_ranking_claim_made"] is False
+    assert summary["next_blocker"].startswith("m1907-")
 
 
 def test_measured_rollout_episode_rows_uses_mocked_rollout_and_preserves_axis_metadata() -> None:
@@ -216,6 +217,7 @@ def test_measured_prepare_execution_combines_mocked_rollout_with_imports(tmp_pat
     assert summary["controller_family_ranking_claim_made"] is False
     assert summary["paper_level_claim_made"] is False
     assert summary["level3_self_id_claim_made"] is False
+    assert summary["next_blocker"].startswith("m1910-")
 
     write_measured_artifacts(result, tmp_path)
     panel_rows = read_csv_rows(tmp_path / "episode_rows.csv")

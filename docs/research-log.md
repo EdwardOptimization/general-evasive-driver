@@ -32988,3 +32988,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real measured execution task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.json`
 - next: `m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design`
+
+## M1910 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Command Design
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_wrapper_command_design_admit_cli_implementation`
+- doc: `docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md`
+- branch: `paper_route_repair_axis_measured_wrapper`
+- exact later command: `PYTHONPATH=src python -m autodrift.executable_v2_support_first_task_quality_repair_axis_execution --task-quality-repair-axis-matrix runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv --source-episode-rows runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv --output-dir runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution --eval-seed-base 191200 --measured-execution`
+- target rollout rows: `960`
+- target import/postprocess rows: `576`
+- target combined panel rows: `1536`
+- real M1902 workload run: `false`
+- environment reset/rollout/measured execution in M1910: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: command contract target counts artifact list pass gates and claim boundaries are fixed
+- unsupported: executable CLI availability real measured execution task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.json`
+- next: `m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation`
