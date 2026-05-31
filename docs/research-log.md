@@ -35470,3 +35470,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit reset-only validation command design over the M2033 36-spec panel; direct rollout, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked
 - follow-up manifest: `experiments/manifests/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.json`
 - next: `m2035-paper-route-controlled-routing-smoke-reset-validation-command-design`
+
+## M2035 Paper-Route Controlled Routing Smoke Reset Validation Command Design
+
+- status: completed
+- decision: `controlled_routing_smoke_reset_command_design_route_to_focused_validator_implementation_and_run`
+- doc: `docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md`
+- executable specs: `runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json`
+- reset/rollout/measured execution in M2035: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: older generic/calibrated reset validators can reset env configs but are lossy for the M2033 controlled-routing-smoke metadata schema
+- route: implement focused reset validator `autodrift.paper_route_controlled_routing_smoke_reset_validation_preflight` and run exact reset-only validation over 36 specs with expected observation dim 72 in M2036
+- boundary: M2035 is command design only; no reset, rollout, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.json`
+- next: `m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run`

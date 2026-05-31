@@ -170,5 +170,5 @@
     "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json"
   ],
   "decision_rule": "M2035 passes if it freezes an exact reset-only command design or cleanly routes to focused validator implementation without running reset or ranking.",
-  "next_blocker": "m2035-paper-route-controlled-routing-smoke-reset-validation-command-design"
+  "next_blocker": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run"
 }

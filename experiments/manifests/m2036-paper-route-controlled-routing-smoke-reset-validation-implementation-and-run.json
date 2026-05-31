@@ -1,0 +1,181 @@
+{
+  "id": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_reset_validation"
+    ],
+    "parent_dataset": [
+      "docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "implement and run focused reset-only validation for M2033 controlled routing-smoke specs"
+    ],
+    "derived_from": [
+      "m2035-paper-route-controlled-routing-smoke-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "M2035 finds older reset validators cannot preserve M2033 metadata schema"
+    ],
+    "supersedes": [
+      "lossy reuse of generic task-quality reset validator"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.md",
+  "public_gates": [
+    "M2036 must implement focused reset validator preserving M2033 metadata",
+    "M2036 must run only reset validation over 36 executable specs",
+    "M2036 must not execute rollout steps or policy actions",
+    "M2036 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_reset_validation",
+    "evidence_increment": "adds the first reset-validity evidence for the controlled routing-smoke executable panel",
+    "claim_scope": "reset validity only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset validator drops M2033 metadata",
+      "stop if any reset fails",
+      "stop if observation dimension or human-view contract fails",
+      "stop if guardrail violations are nonzero"
+    ],
+    "fallback_plan": [
+      "route to result audit if reset validation runs",
+      "route to focused implementation repair if tests fail before real reset",
+      "route to materialization repair if specs are schema-incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2035 freezes the focused reset-only command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke reset validation implementation and run",
+    "admission_evidence": [
+      "M2035 freezes exact reset-only command and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or policy actions",
+      "do not rank controller families",
+      "do not interpret reset validity as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_controlled_routing_smoke_reset_validation_preflight.py",
+      "tests/test_paper_route_controlled_routing_smoke_reset_validation_preflight.py",
+      "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight",
+      "docs/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.md",
+      "M2036 status queue scoreboard research log and review",
+      "one follow-up manifest for reset validation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary artifact exists",
+      "36 reset attempts are made",
+      "guardrail violation count is zero",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2036 tests reset validity only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2036."
+    ],
+    "temporal_evidence_window": "M2033 materialized specs and M2035 reset command design.",
+    "negative_result_policy": "If reset validation fails, route to result/failure audit; do not repair and rerun inside M2036.",
+    "allowed_claims": [
+      "controlled routing-smoke reset validity if all gates pass",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "runs reset-only validation for the controlled routing-smoke panel",
+    "paper_verdict_delta": "can move the controlled panel from materialized to reset-valid but cannot rank controllers",
+    "must_synthesize_if": [
+      "M2036 fails for metadata/schema reasons already seen in M2035",
+      "M2036 passes but next branch would require another adapter before measured execution",
+      "M2036 result is ambiguous and does not admit audit"
+    ]
+  },
+  "hypothesis": "A focused controlled-routing-smoke reset validator can reset all 36 M2033 executable specs with finite 72-dim observations while preserving M2033 metadata and claim boundaries.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json exists",
+    "result_class is controlled_routing_smoke_reset_validation_preflight_pass",
+    "reset_attempt_count is 36",
+    "reset_success_count is 36",
+    "guardrail_violation_count is 0",
+    "metadata_missing_count is 0",
+    "no rollout measured execution ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused validator is missing",
+    "focused tests fail",
+    "summary artifact is missing",
+    "any reset fails",
+    "metadata is dropped",
+    "policy actions or rollout are executed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_controlled_routing_smoke_reset_validation_preflight.py"
+    },
+    {
+      "name": "run_reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_controlled_routing_smoke_reset_validation_preflight --executable-task-specs runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json --output-dir runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight --eval-seed-base 203600 --target-spec-count 36 --expected-observation-dim 72 --next-blocker m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2035-paper-route-controlled-routing-smoke-reset-validation-command-design.md",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M2036 passes if the focused validator and real reset-only run satisfy all target counts metadata and guardrails, then routes to result audit.",
+  "next_blocker": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run"
+}
