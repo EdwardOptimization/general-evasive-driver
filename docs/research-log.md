@@ -36301,3 +36301,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected: direct measured execution, panel reduction, another seed-only rerun, another exact single-seed repair, and any controller or paper interpretation
 - follow-up manifest: `experiments/manifests/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.json`
 - next: `m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design`
+
+## M2075 Paper-Route Outcome-Supported Decisive Seed-Robust Obstacle-Filter Repair Design
+
+- status: completed
+- decision: `seed_robust_obstacle_filter_repair_design_admit_no_reset_implementation`
+- parent audit: `docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md`
+- reset/rollout/measured execution in M2075: `false`
+- policy actions executed in M2075: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design rule: repair toward multi-seed obstacle support rather than one exact accepted point
+- seed panel: offsets `[0, 240, 480, 720, 960]` from each spec's M2073 eval seed, including the failing M2073 seed at offset `0`
+- required support: `5/5` support seeds per spec before reset rerun can be admitted
+- repair bounds: distance window width max `12.0 m`, half-width window width max `0.80 m`, global distance `[1.0, 80.0]`, global half-width `[0.20, 1.35]`, max threshold-score ceiling `1.0`
+- M2076 pass gate: `240` specs, `1200` sentinel workload rows, `seed_robust_support_pass_count=240`, `seed_robust_support_fail_count=0`, quotas preserved, contract/metadata/forbidden-key/guardrail counts `0`, and all no-reset/no-rollout/no-ranking guards false
+- supported claim: seed-robust repair protocol is explicit enough to implement
+- unsupported claims: reset validity, measured execution readiness, controller ranking, paper evidence, finite-window-vs-GRU conclusion, and level3 self-ID
+- follow-up manifest: `experiments/manifests/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.json`
+- next: `m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation`

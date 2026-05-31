@@ -1,0 +1,196 @@
+{
+  "id": "m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_seed_robust_obstacle_filter_repair_preflight"
+    ],
+    "parent_dataset": [
+      "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json",
+      "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/reset_rows.csv",
+      "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset seed-robust obstacle-filter repair preflight"
+    ],
+    "derived_from": [
+      "m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design"
+    ],
+    "blocked_by": [
+      "M2073 fresh-seed reset validation failed 76/240 attempts",
+      "M2075 requires multi-seed support before any reset rerun"
+    ],
+    "supersedes": [
+      "single-seed M2070 obstacle-filter repair",
+      "direct reset rerun from M2070 repaired specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.md",
+  "public_gates": [
+    "M2076 must run no environment reset rollout measured execution training replay PPO ranking or promotion",
+    "M2076 must write 240 repaired specs and 1200 sentinel workload rows",
+    "M2076 must prove 5-of-5 no-reset support seeds per spec or fail closed",
+    "M2076 must preserve family split source-kind and difficulty-axis quotas"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not weaken max threshold score above 1.0",
+    "do not exceed bounded obstacle windows"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_seed_robust_obstacle_filter_repair_preflight",
+    "evidence_increment": "implements the bounded multi-seed no-reset repair artifact",
+    "claim_scope": "seed-robust repair artifact only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if seed_robust_support_fail_count is nonzero",
+      "stop if support criteria require threshold score above 1.0",
+      "stop if distance or half-width window bounds are exceeded",
+      "stop if any reset or rollout is executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if the repair preflight runs",
+      "route to synthesis if seed-robust support is not achievable",
+      "route to panel reduction only through a separate audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2075 freezes seed-robust obstacle-filter repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "seed-robust obstacle-filter repair preflight implementation",
+    "admission_evidence": [
+      "M2075 freezes support_seed_count 5",
+      "M2075 freezes required_seed_support 5",
+      "M2075 freezes bounded window and threshold-score limits"
+    ],
+    "blocked_shortcuts": [
+      "do not reset environments",
+      "do not run measured execution",
+      "do not interpret seed-robust no-reset repair as controller performance"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight.py",
+      "tests/test_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight.py",
+      "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/*",
+      "docs/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.md",
+      "M2076 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary artifact exists",
+      "seed-robust support pass or fail is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2076 repairs generated task filters only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2076."
+    ],
+    "temporal_evidence_window": "M2073-M2075 reset-validity and seed-fragility evidence.",
+    "negative_result_policy": "If seed-robust support fails, route to audit and synthesis rather than weakening claim guards or running measured execution.",
+    "allowed_claims": [
+      "seed-robust no-reset obstacle-filter repair preflight",
+      "no reset validity, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "tests a stricter multi-seed support condition before reset rerun",
+    "paper_verdict_delta": "can admit reset command design only if the no-reset repair proves seed-robust support",
+    "must_synthesize_if": [
+      "M2076 fails seed-robust support",
+      "M2076 routes to another repair without audit",
+      "M2076 attempts to weaken claim guards",
+      "the following reset validation still fails scenario sampling"
+    ]
+  },
+  "hypothesis": "A no-reset multi-seed support repair can produce 240 seed-robust obstacle filters while preserving the outcome-supported decisive panel metadata and claim guards.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "repaired_executable_spec_count is 240",
+    "planned_sentinel_workload_count is 1200",
+    "target_support_seed_count is 5",
+    "required_seed_support is 5",
+    "seed_robust_support_pass_count is 240",
+    "seed_robust_support_fail_count is 0",
+    "distance_window_width_max is at most 12.0",
+    "half_width_window_width_max is at most 0.8",
+    "threshold_score_ceiling_used is at most 1.0",
+    "family_quota_pass split_quota_pass and difficulty_axis_coverage_pass are true",
+    "contract_violation_count metadata_missing_count forbidden_key_violation_count and guardrail_violation_count are 0",
+    "environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used promoted private_holdout_used actor_input_contract_changed profile_specific_tuning controller_family_ranking_claim_made finite_window_vs_gru_conclusion_made paper_level_claim_made and level3_self_id_claim_made are false"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "any seed-robust support gate fails",
+    "any reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight.py"
+    },
+    {
+      "name": "seed_robust_repair_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight --repaired-executable-task-specs runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json --reset-rows runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/reset_rows.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight --support-seed-count 5 --required-seed-support 5 --target-spec-count 240 --max-distance-window-width 12.0 --max-half-width-window-width 0.8 --max-threshold-score-ceiling 1.0 --next-blocker m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_seed_robust_obstacle_filter_repair_preflight"
+  ],
+  "baseline_artifacts": [
+    "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json",
+    "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/reset_rows.csv",
+    "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md"
+  ],
+  "decision_rule": "M2076 passes if the no-reset repair writes a 240-spec seed-robust artifact with 5-of-5 support and no claim-boundary violations.",
+  "next_blocker": "m2077-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-result-audit"
+}

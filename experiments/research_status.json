@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2083,
+    "completed": 2084,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md",
+    "command_log": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight",
+    "run_dir": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md",
     "status": "completed",
-    "task_id": "m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit"
+    "task_id": "m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.json",
-    "hypothesis": "A bounded multi-seed obstacle-filter repair protocol can avoid the seed-specific feasibility overfit found in M2073 without weakening task semantics or claim guards.",
-    "id": "m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design",
-    "kind": "gate",
-    "notes": "Pending: freeze multi-seed support criteria and bounded obstacle-filter repair route before implementation or reset rerun",
-    "priority": 20700,
+    "command": "see experiments/manifests/m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation.json",
+    "hypothesis": "A no-reset multi-seed support repair can produce 240 seed-robust obstacle filters while preserving the outcome-supported decisive panel metadata and claim guards.",
+    "id": "m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-reset multi-seed support repair preflight over M2070 repaired specs and M2073 reset rows",
+    "priority": 20710,
     "status": "pending",
-    "success_artifact": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md"
+    "success_artifact": "runs/m2076_paper_route_outcome_supported_decisive_seed_robust_obstacle_filter_repair_preflight/summary.json"
   },
   "updated_at_utc": "20260531T215531Z"
 }

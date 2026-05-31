@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit
+m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design
 ```
 
 Current next task:
 
 ```text
-m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design
+m2076-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-preflight-implementation
 ```
 
-Immediate route: M2074 audits the M2073 repaired reset-validation failure as
-seed-fragile obstacle-filter materialization. M2073 improved reset success from
-M2066's `0/240` to `164/240`, but `76` fresh-seed resets still failed with
-`RuntimeError failed to sample an obstacle scenario matching the configured
-filters`; contract, metadata, forbidden-key, warmup, and guardrail counts remain
-clean. M2075 must design a bounded multi-seed obstacle-filter repair before any
-repair implementation, reset rerun, measured execution, ranking, paper claim, or
-self-ID claim.
+Immediate route: M2075 freezes a bounded seed-robust obstacle-filter repair
+design. M2073 improved reset success from M2066's `0/240` to `164/240`, but
+M2074 localized the remaining `76` failures to fresh-seed obstacle sampling.
+M2076 may now implement a no-reset repair preflight that requires `5/5`
+deterministic support seeds per spec, bounded obstacle windows, and threshold
+score ceiling `1.0`. Reset rerun, measured execution, ranking, paper claims, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
