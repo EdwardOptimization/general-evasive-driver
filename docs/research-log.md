@@ -35651,3 +35651,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: reject ranking, candidate qualification, another same-artifact localization, or new measured rollout; route to no-rollout task-quality repair design
 - follow-up manifest: `experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json`
 - next: `m2044-paper-route-controlled-routing-smoke-task-quality-repair-design`
+
+## M2044 Paper-Route Controlled Routing Smoke Task-Quality Repair Design
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_design_admit_template_generator_implementation`
+- doc: `docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md`
+- reset/rollout/measured execution in M2044: `false`
+- policy actions executed in M2044: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design target: M2042/M2043 show comparison-ready `0`, candidate-support `0`, offtrack-dominance slices `138`, collision-dominance slices `0`
+- repair wave: `192` deterministic no-rollout candidates, split public_debug `112` / public_gate `80`, holdout `0`
+- repair axes: L2 offtrack relief `64`, family offtrack relief `48`, zero-success source-kind relief `40`, success-neighborhood expansion `24`, generated-proxy support check `16`
+- boundary: generated rows remain `smoke_proxy` with `paper_validity_claim=false`; no profile-specific tuning or controller ranking
+- follow-up manifest: `experiments/manifests/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.json`
+- next: `m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation`

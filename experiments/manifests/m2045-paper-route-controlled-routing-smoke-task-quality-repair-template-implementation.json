@@ -1,0 +1,181 @@
+{
+  "id": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_templates"
+    ],
+    "parent_dataset": [
+      "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/success_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement deterministic no-rollout repair template generator"
+    ],
+    "derived_from": [
+      "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design"
+    ],
+    "blocked_by": [
+      "M2044 admits template implementation before any reset rollout or ranking"
+    ],
+    "supersedes": [
+      "manual repair templates without quota/guardrail validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md",
+  "public_gates": [
+    "M2045 must implement deterministic no-rollout repair templates",
+    "M2045 must produce exactly 192 candidates with registered axis and split quotas",
+    "M2045 must fail closed on missing M2042 artifacts or forbidden claim flags",
+    "M2045 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_template_artifact",
+    "evidence_increment": "turns M2044 repair design into a deterministic template artifact",
+    "claim_scope": "no-rollout template generation only; no reset execution ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if focused tests fail",
+      "stop if template quotas do not match",
+      "stop if forbidden claim flags are true",
+      "stop if generated proxy paper validity is asserted"
+    ],
+    "fallback_plan": [
+      "repair generator schema if quotas or guardrails fail",
+      "route to audit if template artifact passes",
+      "route to synthesis if design cannot be implemented without profile tuning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2044 repair design admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair template implementation",
+    "admission_evidence": [
+      "M2044 defines a 192-candidate no-rollout repair wave"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or rollout",
+      "do not make repaired templates ranking-admissible",
+      "do not tune profiles"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_controlled_routing_smoke_task_quality_repair_templates.py",
+      "tests/test_paper_route_controlled_routing_smoke_task_quality_repair_templates.py",
+      "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "docs/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md",
+      "M2045 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "template artifact exists",
+      "quota and guardrail gates pass",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2045 creates task repair templates and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2045."
+    ],
+    "temporal_evidence_window": "M2042 localization and M2044 design.",
+    "negative_result_policy": "If repair templates cannot satisfy quota and claim guards, route to audit/redesign rather than execution.",
+    "allowed_claims": [
+      "no-rollout task-quality repair template artifact",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "creates new repair candidates instead of rerunning low-support rows",
+    "paper_verdict_delta": "can produce a repaired panel candidate set for later materialization and execution",
+    "must_synthesize_if": [
+      "M2045 cannot create clean templates",
+      "M2045 would require profile tuning",
+      "M2045 would route to another design without artifact output"
+    ]
+  },
+  "hypothesis": "A deterministic no-rollout generator can produce a clean 192-candidate task-quality repair artifact from M2042 localization.",
+  "success_criteria": [
+    "focused tests pass",
+    "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json exists",
+    "candidate count is 192",
+    "repair-axis quotas match M2044",
+    "public_debug/public_gate split is 112/80",
+    "guardrail violation count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "generator is missing",
+    "focused tests fail",
+    "template artifact is missing",
+    "quota or guardrail gates fail",
+    "generated proxy paper-validity claim is true",
+    "profile-specific tuning appears"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_controlled_routing_smoke_task_quality_repair_templates.py"
+    },
+    {
+      "name": "generate_templates",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_controlled_routing_smoke_task_quality_repair_templates --localization-summary runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json --output configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json --next-blocker m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_templates"
+  ],
+  "baseline_artifacts": [
+    "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
+    "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2045 passes if it writes a clean no-rollout repair template artifact and routes to audit.",
+  "next_blocker": "m2046-paper-route-controlled-routing-smoke-task-quality-repair-template-result-audit"
+}

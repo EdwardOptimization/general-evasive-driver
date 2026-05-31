@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit
+m2044-paper-route-controlled-routing-smoke-task-quality-repair-design
 ```
 
 Current next task:
 
 ```text
-m2044-paper-route-controlled-routing-smoke-task-quality-repair-design
+m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation
 ```
 
-Immediate route: M2043 audits the M2042 no-rerun localization as clean but not
-comparison-ready. The localizer reproduced M2039 exactly: success `20`,
-collision `13`, offtrack noncollision noncompletion `399`, guardrail `0`,
+Immediate route: M2044 designs a no-rollout task-quality repair wave from the
+M2042/M2043 localization. The active blocker is broad offtrack dominance:
 comparison-ready candidates `0`, candidate-support slices `0`, and
-offtrack-dominance slices `138`. M2044 must design a no-rollout
-task-quality repair from this localization before any rerun or ranking.
-Controller ranking, finite-window-vs-GRU, paper-level generated-task validity,
-and level3 self-ID claims remain blocked.
+offtrack-dominance slices `138`. M2045 must implement the deterministic
+192-candidate repair-template artifact with axis quotas `64/48/40/24/16` and
+split `112/80`, without reset, rollout, measured execution, ranking, profile
+tuning, or paper/self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

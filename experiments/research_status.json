@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2052,
+    "completed": 2053,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+    "command_log": "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit"
+    "task_id": "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.json",
-    "hypothesis": "A bounded no-rollout repair design can target M2042 offtrack dominance without controller tuning or claim-boundary weakening.",
-    "id": "m2044-paper-route-controlled-routing-smoke-task-quality-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout task-quality repair from M2042/M2043 broad offtrack localization",
-    "priority": 20390,
+    "command": "see experiments/manifests/m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation.json",
+    "hypothesis": "A deterministic no-rollout generator can produce a clean 192-candidate task-quality repair artifact from M2042 localization.",
+    "id": "m2045-paper-route-controlled-routing-smoke-task-quality-repair-template-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement deterministic no-rollout repair template generator and artifact",
+    "priority": 20400,
     "status": "pending",
-    "success_artifact": "docs/m2044-paper-route-controlled-routing-smoke-task-quality-repair-design.md"
+    "success_artifact": "configs/paper_route_controlled_routing_smoke_task_quality_repair_candidates_v0.json"
   },
-  "updated_at_utc": "20260531T191107Z"
+  "updated_at_utc": "20260531T191622Z"
 }
