@@ -1,0 +1,172 @@
+{
+  "id": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md",
+      "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution route for the reset-valid controlled routing-smoke workload"
+    ],
+    "derived_from": [
+      "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2037 admits measured execution command design after clean reset validation audit"
+    ],
+    "supersedes": [
+      "direct measured execution without command and runner compatibility design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md",
+  "public_gates": [
+    "M2038 must audit existing measured runners for compatibility with M2033 workload metadata",
+    "M2038 must design an exact measured execution command or focused runner route without executing it",
+    "M2038 must preserve controlled-routing-smoke metadata and controller profile artifacts",
+    "M2038 must keep controller ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_measured_execution_command_design",
+    "evidence_increment": "moves the reset-valid controlled panel toward measured execution without executing or ranking",
+    "claim_scope": "measured execution command design only; no rollout result ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if existing runners cannot preserve M2033 metadata",
+      "stop if command target counts or profile scope are ambiguous",
+      "stop if command design would rank controller families",
+      "stop if smoke proxy rows would be treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "route to focused measured-runner implementation if existing runners are lossy",
+      "route to frozen measured execution manifest if an existing runner is compatible",
+      "route to workload metadata repair if planned workload is schema-incomplete",
+      "route to branch synthesis if another adapter-only loop would not change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2037 admits measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke measured execution command design",
+    "admission_evidence": [
+      "M2037 audits reset validation pass over 36 specs and 432 planned workload rows"
+    ],
+    "blocked_shortcuts": [
+      "do not execute measured workload in M2038",
+      "do not rank controller families",
+      "do not interpret command design as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md",
+      "M2038 status queue scoreboard research log and review",
+      "one follow-up manifest for focused measured runner implementation, frozen measured execution, or workload repair"
+    ],
+    "next_stage_criteria": [
+      "runner compatibility decision is explicit",
+      "target workload count is 432",
+      "profile count is 12",
+      "metadata preservation and pass/fail gates are explicit",
+      "next implementation or execution route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2038 designs measured execution only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2038."
+    ],
+    "temporal_evidence_window": "M2033 materialized workload and M2036 reset validation artifacts.",
+    "negative_result_policy": "If no measured runner can preserve M2033 metadata, register focused implementation rather than running a lossy runner.",
+    "allowed_claims": [
+      "controlled routing-smoke measured execution command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares measured execution evidence for the controlled routing-smoke panel",
+    "paper_verdict_delta": "can admit measured execution but cannot rank controllers by itself",
+    "must_synthesize_if": [
+      "M2038 finds another schema bridge is required after M2036",
+      "M2038 cannot freeze an exact route",
+      "next action would rank controllers before measured execution audit"
+    ]
+  },
+  "hypothesis": "An exact measured execution route can be designed for the M2033 432-row controlled routing-smoke workload while preserving metadata and claim boundaries.",
+  "success_criteria": [
+    "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md exists",
+    "runner compatibility decision is explicit",
+    "target workload count is 432",
+    "target profile count is 12",
+    "metadata preservation and pass/fail gates are explicit",
+    "next implementation or execution route is explicit",
+    "no measured execution rollout policy action ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "measured execution command is ambiguous",
+    "target counts are ambiguous",
+    "metadata preservation is not specified",
+    "measured execution or ranking is run in the design milestone"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M2038 passes if it freezes an exact measured execution route or cleanly routes to focused runner implementation without executing or ranking.",
+  "next_blocker": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design"
+}

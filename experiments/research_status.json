@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2045,
+    "completed": 2046,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run"
+    "task_id": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.json",
-    "hypothesis": "M2036 reset validation artifacts are clean enough to admit measured execution command design while keeping ranking and paper claims blocked.",
-    "id": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.json",
+    "hypothesis": "An exact measured execution route can be designed for the M2033 432-row controlled routing-smoke workload while preserving metadata and claim boundaries.",
+    "id": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2036 reset validation pass before measured execution command design",
-    "priority": 20320,
+    "notes": "Pending: design measured execution command or focused runner route for reset-valid 432-row workload",
+    "priority": 20330,
     "status": "pending",
-    "success_artifact": "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T183201Z"
+  "updated_at_utc": "20260531T183654Z"
 }

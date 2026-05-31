@@ -35509,3 +35509,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: reset validity only; no rollout success, ranking, finite-window-vs-GRU, paper-level generated-task validity, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.json`
 - next: `m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit`
+
+## M2037 Paper-Route Controlled Routing Smoke Reset Validation Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_reset_validation_audit_admit_measured_execution_command_design`
+- doc: `docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md`
+- audited summary: `runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json`
+- reset/rollout/measured execution in M2037: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2036 result class pass, reset attempts `36`, reset successes `36`, reset failures `0`, observation dimension failures `0`, obstacle initialized `36`, contract violations `0`, metadata missing `0`, guardrail `0`
+- workload target: M2033 planned workload has `432` rows, `36` task sources, `12` profiles
+- decision: admit measured execution command design; direct execution, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked
+- follow-up manifest: `experiments/manifests/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.json`
+- next: `m2038-paper-route-controlled-routing-smoke-measured-execution-command-design`

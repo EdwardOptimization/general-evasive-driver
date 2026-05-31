@@ -168,5 +168,5 @@
     "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv"
   ],
   "decision_rule": "M2037 passes if it confirms reset validation is clean and admits only measured execution command design, not ranking.",
-  "next_blocker": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
+  "next_blocker": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design"
 }

@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2036-paper-route-controlled-routing-smoke-reset-validation-implementation-and-run
+m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit
+m2038-paper-route-controlled-routing-smoke-measured-execution-command-design
 ```
 
-Immediate route: M2036 implements and runs the focused controlled routing-smoke
-reset validator over the M2033 36-spec panel. The reset-only run passes:
-`36/36` reset success, observation dimension failures `0`, obstacle initialized
-`36`, contract violations `0`, metadata missing `0`, forbidden-key violations
-`0`, all family/source-kind/proxy/generated quotas pass, and guardrail `0`.
-M2037 must audit this reset result before measured execution command design.
-Rollout, policy actions, ranking, finite-window-vs-GRU, paper-level generated
-task validity, and level3 self-ID claims remain blocked.
+Immediate route: M2037 audits the M2036 reset-validation pass as clean:
+`36/36` reset success, observation dimension failures `0`, metadata missing `0`,
+contract violations `0`, and guardrail `0`. The M2033 workload remains `432`
+rows across `36` task sources and `12` controller profiles. M2038 must design
+the exact measured execution route or focused runner for this reset-valid
+workload while preserving controlled-routing-smoke metadata. Measured execution,
+controller ranking, finite-window-vs-GRU, paper-level generated-task validity,
+and level3 self-ID claims remain blocked until separately executed and audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
