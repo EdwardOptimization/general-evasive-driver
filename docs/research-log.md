@@ -32014,3 +32014,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: adapter execution result measured rollout controller ranking paper-level result profile comparison result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1873-executable-v2-support-first-measured-runner-adapter-implementation.json`
 - next: `m1873-executable-v2-support-first-measured-runner-adapter-implementation`
+
+## M1873 Executable V2 Support-First Measured Runner Adapter Implementation
+
+- status: completed
+- decision: `support_first_measured_runner_adapter_implementation_pass_route_to_execution_design`
+- artifact: `docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md`
+- implementation: `src/autodrift/executable_v2_support_first_measured_runner_adapter.py`
+- tests: `tests/test_executable_v2_support_first_measured_runner_adapter.py`
+- focused test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_measured_runner_adapter.py`
+- focused test result: `4 passed in 0.92s`
+- project materialization run: `false`
+- environment reset started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: no-rollout adapter helper implemented; fixture tests pass; scenario/controller profile separation enforced; adapter execution design admitted
+- unsupported: real M1866/M1674 adapter execution result 2160-cell workload matrix measured rollout controller ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.json`
+- next: `m1874-executable-v2-support-first-measured-runner-adapter-execution-design`

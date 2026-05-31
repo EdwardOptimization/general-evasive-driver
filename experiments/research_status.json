@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1881,
+    "completed": 1882,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md",
+    "command_log": "docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1872-executable-v2-support-first-measured-runner-adapter-design"
+    "task_id": "m1873-executable-v2-support-first-measured-runner-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1873-executable-v2-support-first-measured-runner-adapter-implementation.json",
-    "hypothesis": "A no-rollout adapter can be implemented to convert support-first executable-v2 specs into normalized measured specs and workload rows while enforcing scenario/controller profile separation.",
-    "id": "m1873-executable-v2-support-first-measured-runner-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rollout support-first measured-runner adapter and focused tests without project materialization or rollout",
-    "priority": 18680,
+    "command": "see experiments/manifests/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.json",
+    "hypothesis": "The no-rollout support-first measured-runner adapter can be executed over M1866 and M1674 artifacts under explicit 180 x 12 target gates.",
+    "id": "m1874-executable-v2-support-first-measured-runner-adapter-execution-design",
+    "kind": "gate",
+    "notes": "Pending: fix exact adapter execution command and gates before real no-rollout materialization",
+    "priority": 18690,
     "status": "pending",
-    "success_artifact": "docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md"
+    "success_artifact": "docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md"
   },
-  "updated_at_utc": "20260531T022217Z"
+  "updated_at_utc": "20260531T022628Z"
 }
