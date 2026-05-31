@@ -35039,3 +35039,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - artifact caveat: stale M1977/M1975 claim-boundary wording is classified as text-only and nonblocking for localization pass
 - follow-up manifest: `experiments/manifests/m2014-bounded-comparison-candidate-qualification-implementation-and-run.json`
 - next: `m2014-bounded-comparison-candidate-qualification-implementation-and-run`
+
+## M2014 Bounded Comparison Candidate Qualification Implementation And Run
+
+- status: completed
+- decision: `bounded_comparison_candidate_qualification_pass_route_to_result_audit`
+- result class: `bounded_comparison_candidate_qualification_pass`
+- implementation: `src/autodrift/bounded_comparison_candidate_qualification.py`
+- focused tests: `3 passed`
+- compileall: `passed`
+- summary: `runs/m2014_bounded_comparison_candidate_qualification/summary.json`
+- source localization: `runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2`
+- environment reset/rollout in M2014: `false`
+- policy action execution in M2014: `false`
+- measured rollout in M2014: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: 2 source candidates, 1 admitted, 1 rejected, guardrail violations `0`
+- admitted candidate: `success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible`
+- admitted scope: `bounded_diagnostic_comparison_not_finite_window_vs_gru`
+- rejected candidate: `success_stabilizer|drift_required_recovery|tier_e_mitigation_only|steady_surface|drift_required`
+- rejection reasons: source label not comparison-ready, low episode count, low success count, high collision rate
+- follow-up manifest: `experiments/manifests/m2015-bounded-comparison-candidate-qualification-result-audit.json`
+- next: `m2015-bounded-comparison-candidate-qualification-result-audit`

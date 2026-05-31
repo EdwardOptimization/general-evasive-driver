@@ -1,0 +1,168 @@
+{
+  "id": "m2015-bounded-comparison-candidate-qualification-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_comparison_candidate_qualification_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+      "runs/m2014_bounded_comparison_candidate_qualification/summary.json",
+      "runs/m2014_bounded_comparison_candidate_qualification/candidate_qualification_rows.csv",
+      "runs/m2014_bounded_comparison_candidate_qualification/admitted_candidates.csv",
+      "runs/m2014_bounded_comparison_candidate_qualification/rejected_candidates.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2014-bounded-comparison-candidate-qualification-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit bounded comparison candidate qualification result and choose next route"
+    ],
+    "derived_from": [
+      "m2014-bounded-comparison-candidate-qualification-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2014 admitted one bounded diagnostic comparison candidate but not a finite-window-vs-GRU or paper-level route"
+    ],
+    "supersedes": [
+      "direct bounded comparison design without auditing qualification scope"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+  "public_gates": [
+    "M2015 must audit M2014 qualification without rerun",
+    "M2015 must separate bounded diagnostic comparison from ranking and paper-level comparison",
+    "M2015 must decide bounded comparison design, repair, redesign, or synthesis",
+    "M2015 must keep finite-window-vs-GRU and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bounded_comparison_candidate_qualification",
+    "evidence_axis": "Q_bounded_comparison_candidate_qualification_audit",
+    "evidence_increment": "audits no-rerun candidate qualification and chooses whether bounded diagnostic comparison is warranted",
+    "claim_scope": "result audit and route decision only; no ranking paper-level finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if admitted candidate scope is overclaimed",
+      "stop if no next route is chosen",
+      "stop if direct ranking is proposed from the admitted slice"
+    ],
+    "fallback_plan": [
+      "route to bounded diagnostic comparison design if the admitted candidate is useful enough",
+      "route to task-quality repair or scenario redesign if the admitted candidate is too narrow",
+      "synthesize if only singleton support remains and another repair loop is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2014 completed bounded comparison candidate qualification",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded comparison candidate qualification result audit",
+    "admission_evidence": [
+      "M2014 produced candidate qualification rows with one admitted bounded diagnostic candidate and guardrail violation count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+      "M2015 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2014 facts are summarized",
+      "admitted scope is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; qualification audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2015."
+    ],
+    "temporal_evidence_window": "M2014 qualification artifacts.",
+    "negative_result_policy": "If candidate scope is too narrow, do not rank; route to repair/redesign or synthesis.",
+    "allowed_claims": [
+      "bounded comparison candidate qualification audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns qualification rows into an explicit next route decision",
+    "paper_verdict_delta": "can decide whether bounded diagnostic comparison is admissible before any broader paper comparison",
+    "must_synthesize_if": [
+      "M2015 cannot choose a next route",
+      "M2015 would rank controllers directly",
+      "M2015 would propose another local repair without explaining why admitted bounded comparison is insufficient"
+    ]
+  },
+  "hypothesis": "The M2014 qualification result is sufficient to decide whether bounded diagnostic comparison design is warranted.",
+  "success_criteria": [
+    "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md exists",
+    "M2014 facts are summarized",
+    "admitted candidate scope is audited",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "qualification facts are not summarized",
+    "admitted scope is overclaimed",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2015-bounded-comparison-candidate-qualification-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_comparison_candidate_qualification_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+    "runs/m2014_bounded_comparison_candidate_qualification/summary.json"
+  ],
+  "decision_rule": "M2015 passes if it audits M2014 qualification and chooses a next route without overclaiming.",
+  "next_blocker": "m2015-bounded-comparison-candidate-qualification-result-audit"
+}

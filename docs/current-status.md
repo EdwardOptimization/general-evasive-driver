@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit
+m2014-bounded-comparison-candidate-qualification-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2014-bounded-comparison-candidate-qualification-implementation-and-run
+m2015-bounded-comparison-candidate-qualification-result-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -58,10 +58,11 @@ M2011 freezes a no-rerun outcome localization command over M2009 artifacts.
 M2012 runs that postprocess command successfully: outcome counts match M2009,
 guardrails remain clean, and the localizer finds `1` comparison-ready-labeled
 candidate plus `2` support candidates. M2013 audits the result as actionable
-but not ranking-ready: the stable-AES candidate has `17/60` successes and low
-collision rate, but offtrack remains high and support is single-slice. The next
-step is M2014 bounded comparison candidate qualification, not controller-family
-ranking. Paper-level claims and level3 self-ID remain blocked.
+but not ranking-ready. M2014 implements and runs bounded comparison candidate
+qualification: `1/2` candidates is admitted for bounded diagnostic comparison
+only, with `l2_success_present=false`, so finite-window-vs-GRU and paper-level
+claims remain blocked. M2015 must audit whether this bounded diagnostic scope
+is worth a controlled comparison design.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

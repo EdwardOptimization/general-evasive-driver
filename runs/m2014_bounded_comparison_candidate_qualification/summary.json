@@ -1,0 +1,68 @@
+{
+  "actor_input_contract_changed": false,
+  "admitted_candidate_count": 1,
+  "admitted_candidate_keys": [
+    "success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible"
+  ],
+  "artifacts": {
+    "admitted_candidates": "runs/m2014_bounded_comparison_candidate_qualification/admitted_candidates.csv",
+    "candidate_qualification_rows": "runs/m2014_bounded_comparison_candidate_qualification/candidate_qualification_rows.csv",
+    "rejected_candidates": "runs/m2014_bounded_comparison_candidate_qualification/rejected_candidates.csv",
+    "run_state": "runs/m2014_bounded_comparison_candidate_qualification/run_state.json",
+    "summary": "runs/m2014_bounded_comparison_candidate_qualification/summary.json"
+  },
+  "controller_family_ranking_claim_made": false,
+  "environment_reset_started": false,
+  "environment_rollout_started": false,
+  "finite_window_vs_gru_conclusion_made": false,
+  "generated_at_utc": "20260531T145343Z",
+  "guardrail_flags": {
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "finite_window_vs_gru_conclusion_made": false,
+    "level3_self_id_claim_made": false,
+    "measured_rollout_started": false,
+    "paper_level_claim_made": false,
+    "policy_action_executed": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "guardrail_violation_count": 0,
+  "level3_self_id_claim_made": false,
+  "measured_rollout_started": false,
+  "next_blocker": "m2015-bounded-comparison-candidate-qualification-result-audit",
+  "output_dir": "runs/m2014_bounded_comparison_candidate_qualification",
+  "paper_level_claim_made": false,
+  "policy_action_executed": false,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "profile_specific_tuning": false,
+  "promoted": false,
+  "qualification_row_count": 2,
+  "rejected_candidate_count": 1,
+  "rejected_candidate_keys": [
+    "success_stabilizer|drift_required_recovery|tier_e_mitigation_only|steady_surface|drift_required"
+  ],
+  "replay_started": false,
+  "result_class": "bounded_comparison_candidate_qualification_pass",
+  "source_candidate_count": 2,
+  "source_candidates_path": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/comparison_support_candidates.csv",
+  "source_l2_total_success_count": 0,
+  "source_summary_path": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+  "thresholds": {
+    "max_collision_rate": 0.1,
+    "max_offtrack_outcome_rate": 0.75,
+    "min_episode_count": 48,
+    "min_nonzero_success_profile_count": 3,
+    "min_success_count": 10,
+    "min_success_profile_group_count": 2,
+    "min_success_rate": 0.15
+  },
+  "training_started": false
+}
