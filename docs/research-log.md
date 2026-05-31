@@ -32360,3 +32360,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: direct repaired execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1886-executable-v2-support-first-repaired-measured-execution-design.json`
 - next: `m1886-executable-v2-support-first-repaired-measured-execution-design`
+
+## M1886 Executable V2 Support-First Repaired Measured Execution Design
+
+- status: completed
+- decision: `support_first_repaired_measured_execution_design_admit_adapter_implementation`
+- artifact: `docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md`
+- parent audit: `docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md`
+- selected route: bounded repaired smoke before full matrix
+- direct execution admitted: `false`
+- full matrix execution admitted: `false`
+- adapter implementation admitted: `true`
+- expected smoke new rollout cells: `576`
+- expected smoke import rows: `384`
+- expected smoke total panel rows: `960`
+- full matrix geometry rollout cells: `6480`
+- full matrix import rows: `4320`
+- full matrix total panel rows: `10800`
+- reset/rollout in M1886: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: repaired measured execution requires a new adapter and bounded smoke should precede full matrix
+- unsupported: repaired measured result controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.json`
+- next: `m1887-executable-v2-support-first-repaired-runner-adapter-implementation`

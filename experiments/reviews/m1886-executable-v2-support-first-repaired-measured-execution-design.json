@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1886 chooses bounded repaired smoke before full matrix and admits no-rollout repaired runner adapter implementation",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T034251Z",
+  "hypothesis": "A repaired measured execution protocol can be designed from M1884/M1885 that applies repair variants without actor input changes and preserves ranking discipline.",
+  "lineage": {
+    "blocked_by": [
+      "geometry variants in M1884 are materialized as config_delta_json and need runner protocol design before execution"
+    ],
+    "derived_from": [
+      "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_measured_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json"
+    ],
+    "parent_objective": [
+      "design repaired measured execution protocol over M1884 repair variants before any rollout"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without protocol design"
+    ]
+  },
+  "milestone": "m1886-executable-v2-support-first-repaired-measured-execution-design",
+  "next_blocker": "m1887-executable-v2-support-first-repaired-runner-adapter-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_repaired_measured_execution_design_admit_adapter_implementation",
+  "public_gates": [
+    "M1886 must design repaired measured execution protocol without running it",
+    "M1886 must decide bounded-smoke versus full-matrix execution route",
+    "M1886 must define how repair config deltas are applied without actor input changes",
+    "M1886 must preserve original baseline and controller profile identity",
+    "M1886 must keep controller-family ranking blocked until post-execution audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_repaired_measured_execution_design_admit_adapter_implementation",
+    "milestone": "m1886-executable-v2-support-first-repaired-measured-execution-design",
+    "reason": "M1886 chooses bounded repaired smoke before full matrix and admits no-rollout repaired runner adapter implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md exists",
+    "design decides bounded-smoke versus full-matrix route",
+    "design defines repaired runner or adapter requirements",
+    "design defines post-execution audit outputs and gates",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "type": "gate"
+}

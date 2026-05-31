@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1894,
+    "completed": 1895,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+    "command_log": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+    "run_dir": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
     "status": "completed",
-    "task_id": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit"
+    "task_id": "m1886-executable-v2-support-first-repaired-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1886-executable-v2-support-first-repaired-measured-execution-design.json",
-    "hypothesis": "A repaired measured execution protocol can be designed from M1884/M1885 that applies repair variants without actor input changes and preserves ranking discipline.",
-    "id": "m1886-executable-v2-support-first-repaired-measured-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design repaired measured execution protocol and decide bounded-smoke versus full-matrix route before any rollout",
-    "priority": 18810,
+    "command": "see experiments/manifests/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.json",
+    "hypothesis": "A no-rollout repaired runner adapter can be implemented to convert M1884 repair rows into bounded-smoke executable specs, rollout workload rows, and import rows without changing actor inputs.",
+    "id": "m1887-executable-v2-support-first-repaired-runner-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout repaired runner adapter with focused tests; do not run real M1884 matrix",
+    "priority": 18820,
     "status": "pending",
-    "success_artifact": "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md"
+    "success_artifact": "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py"
   },
-  "updated_at_utc": "20260531T033613Z"
+  "updated_at_utc": "20260531T034040Z"
 }

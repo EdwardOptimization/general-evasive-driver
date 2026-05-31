@@ -1,0 +1,162 @@
+{
+  "id": "m1887-executable-v2-support-first-repaired-runner-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1886-executable-v2-support-first-repaired-measured-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout repaired runner adapter for bounded repaired smoke preflight"
+    ],
+    "derived_from": [
+      "m1886-executable-v2-support-first-repaired-measured-execution-design"
+    ],
+    "blocked_by": [
+      "M1884 repair matrix cannot be consumed by existing measured runner until repair config deltas are converted into executable specs and workload rows"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without adapter"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1887-executable-v2-support-first-repaired-runner-adapter-implementation.md",
+  "public_gates": [
+    "M1887 must implement a no-rollout repaired runner adapter",
+    "M1887 must include focused tests for bounded-smoke selection and config delta validation",
+    "M1887 must not run the real M1884 matrix",
+    "M1887 must preserve original baseline import rows and controller profile identity",
+    "M1887 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_runner_adapter_implementation",
+    "evidence_increment": "implements no-rollout adapter infrastructure needed before repaired bounded-smoke execution preflight",
+    "claim_scope": "infrastructure only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if config deltas cannot be validated with build_env_config",
+      "stop if bounded-smoke selection cannot preserve all role surfaces and profiles",
+      "stop if original and semantics-only import rows cannot be separated from rollout rows"
+    ],
+    "fallback_plan": [
+      "route to repaired adapter redesign if tests expose ambiguous delta semantics",
+      "route to semantics-only audit if geometry variants cannot be made executable",
+      "route to branch synthesis if adapter complexity exceeds the measured-execution branch scope"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1886 admits no-rollout repaired runner adapter implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "no-rollout support-first repaired runner adapter implementation",
+    "admission_evidence": [
+      "M1886 defines bounded smoke protocol and adapter requirements"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "implementation of no-rollout repaired runner adapter",
+      "focused tests",
+      "M1887 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout real-artifact preflight"
+    ],
+    "next_stage_criteria": [
+      "adapter code exists",
+      "focused tests pass",
+      "real M1884 execution remains unrun",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter implementation does not test history necessity.",
+    "history_necessity_tests": [
+      "Adapter must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1884-M1886 artifacts only.",
+    "negative_result_policy": "If adapter cannot be implemented cleanly, route to redesign rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired runner adapter infrastructure",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-rollout repaired runner adapter can be implemented to convert M1884 repair rows into bounded-smoke executable specs, rollout workload rows, and import rows without changing actor inputs.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py exists",
+    "focused tests pass",
+    "adapter validates config delta keys",
+    "adapter separates rollout geometry rows from imported original and semantics-only rows",
+    "adapter does not run the real M1884 matrix"
+  ],
+  "failure_criteria": [
+    "adapter code is missing",
+    "focused tests fail",
+    "adapter runs reset or rollout",
+    "adapter changes actor inputs or tunes controller profiles",
+    "adapter routes directly to ranking"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_repaired_runner_adapter.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_repaired_runner_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_repaired_runner_adapter.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_runner_adapter_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1886-executable-v2-support-first-repaired-measured-execution-design.md",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv"
+  ],
+  "decision_rule": "M1887 passes if the adapter and focused tests exist and no real reset rollout or ranking is run.",
+  "next_blocker": "m1887-executable-v2-support-first-repaired-runner-adapter-implementation"
+}
