@@ -1,28 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1904,
+    "completed": 1905,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1895-executable-v2-support-first-repaired-bounded-smoke-execution.md",
+    "command_log": "docs/m1896-local-search-guard-harness-implementation.md",
     "returncode": 0,
-    "run_dir": "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution",
     "status": "completed",
-    "task_id": "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
+    "task_id": "m1896-local-search-guard-harness-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json",
+    "command": "see experiments/manifests/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json",
     "hypothesis": "M1895 completed cleanly and can be audited to decide whether repaired task quality is interpretable enough for the next paper-route step.",
-    "id": "m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
+    "id": "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
     "kind": "gate",
     "notes": "Pending: audit M1895 result before controller comparison or further task-quality repair",
-    "priority": 18910,
+    "priority": 18920,
     "status": "pending",
-    "success_artifact": "docs/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md"
+    "success_artifact": "docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md"
   },
-  "updated_at_utc": "20260531T042623Z"
+  "updated_at_utc": "20260531T044621Z"
 }

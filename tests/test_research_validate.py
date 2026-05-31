@@ -146,6 +146,25 @@ def _process_v5_manifest(task_id, artifact="docs/m1090.md", stage="infrastructur
     return manifest
 
 
+def _process_v6_manifest(task_id, artifact="docs/m1896.md", stage="infrastructure", progress_type="new_tool_or_infra"):
+    manifest = _process_v5_manifest(task_id, artifact=artifact, stage=stage)
+    manifest["local_search_guard"] = {
+        "actual_progress_type": progress_type,
+        "process_overhead": "medium",
+        "local_search_risk": "low",
+        "same_failure_repeat_count": 0,
+        "same_public_gate_repair_count": 0,
+        "evidence_expansion": "adds a validator-enforced process guard but no driver-performance evidence",
+        "paper_verdict_delta": "improves evidence governance only",
+        "must_synthesize_if": [
+            "same failure type repeats three times",
+            "same public gate is repaired three times",
+            "five consecutive milestones add no new data or panel evidence",
+        ],
+    }
+    return manifest
+
+
 def test_normalize_next_task_supports_string_and_object():
     assert normalize_next_task("m90") == "m90"
     assert normalize_next_task({"id": "m91"}) == "m91"
@@ -1071,3 +1090,159 @@ def test_process_v5_rejects_unknown_self_id_claim_level(tmp_path):
     issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
 
     assert any("claim_level must be one of" in issue.message for issue in issues)
+
+
+def test_process_v6_requires_local_search_guard_from_m1896(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1896",
+                "priority": 18910,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "enforce local search guard",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps(
+            {
+                "counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0},
+                "next_task": "m1896",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1896.json").write_text(json.dumps(_process_v5_manifest("m1896")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("process-v6 manifest missing fields" in issue.message for issue in issues)
+
+
+def test_process_v6_accepts_local_search_guard(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1896",
+                "priority": 18910,
+                "status": "pending",
+                "kind": "infrastructure",
+                "hypothesis": "enforce local search guard",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps(
+            {
+                "counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0},
+                "next_task": "m1896",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (manifest_dir / "m1896.json").write_text(json.dumps(_process_v6_manifest("m1896")), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert issues == []
+
+
+def test_process_v6_repeat_counts_require_synthesis_decision(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    _write_queue(
+        queue,
+        [
+            {
+                "id": "m1896",
+                "priority": 18910,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "bad repeated local search",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        ],
+    )
+    status.write_text(
+        json.dumps(
+            {
+                "counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 1, "running": 0},
+                "next_task": "m1896",
+            }
+        ),
+        encoding="utf-8",
+    )
+    manifest = _process_v6_manifest("m1896", progress_type="repair_only")
+    manifest["local_search_guard"]["same_failure_repeat_count"] = 3
+    (manifest_dir / "m1896.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("requires a workflow synthesis decision" in issue.message for issue in issues)
+
+
+def test_process_v6_rejects_non_evidence_streak_without_synthesis(tmp_path):
+    queue = tmp_path / "queue.csv"
+    status = tmp_path / "status.json"
+    manifest_dir = tmp_path / "manifests"
+    scoreboard = tmp_path / "scoreboard.csv"
+    manifest_dir.mkdir()
+    rows = []
+    for index in range(6):
+        task_id = f"m189{index + 6}"
+        rows.append(
+            {
+                "id": task_id,
+                "priority": 18910 + index * 10,
+                "status": "pending",
+                "kind": "gate",
+                "hypothesis": "continue local process iteration",
+                "command": "see manifest",
+                "success_artifact": "",
+                "notes": "",
+            }
+        )
+        manifest = _process_v6_manifest(task_id, progress_type="design_only")
+        (manifest_dir / f"{task_id}.json").write_text(json.dumps(manifest), encoding="utf-8")
+    _write_queue(queue, rows)
+    status.write_text(
+        json.dumps(
+            {
+                "counts": {"planned": 0, "completed": 0, "failed": 0, "blocked": 0, "pending": 6, "running": 0},
+                "next_task": "m1896",
+            }
+        ),
+        encoding="utf-8",
+    )
+    _write_scoreboard(scoreboard, [])
+
+    issues = validate_research_state(tmp_path, queue, status, manifest_dir, scoreboard)
+
+    assert any("consecutive non-evidence milestones" in issue.message for issue in issues)

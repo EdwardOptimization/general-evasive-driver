@@ -361,6 +361,61 @@ A synthesis milestone with `synthesis_decision: continue` resets the counter.
 `pivot`, `stop`, and `promote_to_next_branch` close the branch; later work must
 use a new branch name instead of silently extending the old local loop.
 
+## Process V4: Training Stage Discipline
+
+The M1087 workflow upgrade adds staged training admission. It starts at
+priority `10820`. M1087+ manifests must declare `training_stage` so PPO cannot
+start as a default next action. The stage record names the stage objective,
+admission evidence, blocked shortcuts, allowed updates, and next-stage
+criteria. Manifests that run `autodrift.train_ppo` must use
+`training_stage.stage: guarded_rl` and cite pre/posttrain capability evidence,
+exact/proof gates, and rollback or repair protection.
+
+## Process V5: Self-ID Evidence Discipline
+
+The M1090 workflow upgrade adds explicit self-identification claim discipline.
+It starts at priority `10850`. M1090+ manifests must declare
+`self_id_evidence_discipline` with claim level, current-frame substitution
+risk, history-necessity tests, temporal evidence window, negative-result
+policy, and allowed claims. The validator blocks unsupported stronger claim
+levels, so robust closed-loop performance cannot be silently treated as
+level3 anticipatory self-identification.
+
+## Process V6: Local Search Guard
+
+The M1896 workflow upgrade adds a local-search guard. It starts at priority
+`18910`. M1896+ manifests must declare:
+
+```text
+local_search_guard.actual_progress_type
+local_search_guard.process_overhead
+local_search_guard.local_search_risk
+local_search_guard.same_failure_repeat_count
+local_search_guard.same_public_gate_repair_count
+local_search_guard.evidence_expansion
+local_search_guard.paper_verdict_delta
+local_search_guard.must_synthesize_if
+```
+
+The guard is intentionally about research flow, not driver quality. It forces
+each milestone to state whether it produced new closed-loop data, a new dataset
+or panel, a new scenario distribution, a new baseline comparison, an audit, a
+tooling change, a synthesis decision, or only design/repair motion.
+
+The validator blocks three failure modes:
+
+- `local_search_risk: high` without an explicit workflow synthesis decision;
+- `same_failure_repeat_count >= 3` or `same_public_gate_repair_count >= 3`
+  without synthesis;
+- more than five consecutive non-evidence milestones on the same
+  `workflow_synthesis.branch` without synthesis or new data/panel evidence.
+
+This is the repository-level version of the "do not become a gate-passing
+machine" rule. Process milestones are still allowed, but a branch cannot keep
+rolling through design, repair, audit, and tooling steps forever without
+either producing fresh evidence or writing a synthesis that chooses continue,
+pivot, stop, or promote-to-next-branch.
+
 ## Review Generator
 
 M227 also adds a deterministic review artifact generator:

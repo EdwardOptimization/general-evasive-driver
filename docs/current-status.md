@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1895-executable-v2-support-first-repaired-bounded-smoke-execution
+m1896-local-search-guard-harness-implementation
 ```
 
 Current next task:
 
 ```text
-m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit
+m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -121,10 +121,16 @@ rows, `384` imported original/semantics rows, and `960` combined panel rows.
 M1895 ran that exact public diagnostic workload successfully: `576/576`
 rollout rows, `384/384` import rows, `960/960` combined panel rows, failure
 and import failure counts `0`, metric completeness passed, and guardrail `0`.
-Raw variant aggregates still show `0.0` obstacle-pass success across variants,
-so M1896 must audit whether this is remaining diffuse task-quality dominance,
-a semantics issue, or a route to further localization. Controller ranking,
-paper-level claims, and level3 self-ID claims remain blocked.
+Raw variant aggregates still show `0.0` obstacle-pass success across variants.
+M1896 then implemented the Process V6 local-search guard: M1896+ manifests must
+declare actual progress type, process overhead, local-search risk, repeat/repair
+counts, evidence expansion, paper verdict delta, and synthesis triggers. The
+validator now blocks high-risk local search or repeated same-failure/same-gate
+repair without workflow synthesis, and also blocks more than five consecutive
+non-evidence milestones on one branch. The M1895 result audit is now M1897, and
+must decide whether the repaired smoke outcome is remaining diffuse task-quality
+dominance, a semantics issue, or a route to further localization. Controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

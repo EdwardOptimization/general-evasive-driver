@@ -7,6 +7,7 @@ PROCESS_V2_ENFORCE_FROM_PRIORITY = 2220
 PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY = 6850
 PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY = 10820
 PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY = 10850
+PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY = 18910
 
 SCOREBOARD_FIELDS = [
     "milestone",
@@ -137,3 +138,42 @@ PROCESS_V5_SELF_ID_CLAIM_LEVELS = {
     "level2_history_encoded_reactive",
     "level3_anticipatory_self_identification",
 }
+
+PROCESS_V6_LOCAL_SEARCH_GUARD_FIELDS = [
+    "actual_progress_type",
+    "process_overhead",
+    "local_search_risk",
+    "same_failure_repeat_count",
+    "same_public_gate_repair_count",
+    "evidence_expansion",
+    "paper_verdict_delta",
+    "must_synthesize_if",
+]
+
+PROCESS_V6_ACTUAL_PROGRESS_TYPES = {
+    "new_closed_loop_data",
+    "new_dataset_or_panel",
+    "new_tool_or_infra",
+    "new_scenario_distribution",
+    "new_baseline_comparison",
+    "result_audit",
+    "evidence_reanalysis",
+    "synthesis_decision",
+    "design_only",
+    "repair_only",
+}
+
+PROCESS_V6_LOCAL_SEARCH_RISK_LEVELS = {
+    "low",
+    "medium",
+    "high",
+}
+
+PROCESS_V6_EVIDENCE_PROGRESS_TYPES = {
+    "new_closed_loop_data",
+    "new_dataset_or_panel",
+    "new_scenario_distribution",
+    "new_baseline_comparison",
+}
+
+PROCESS_V6_DEFAULT_NON_EVIDENCE_STREAK_LIMIT = 5

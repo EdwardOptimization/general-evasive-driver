@@ -32,6 +32,12 @@ from autodrift.research_schema import (
     PROCESS_V5_SELF_ID_CLAIM_LEVELS,
     PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
     PROCESS_V5_SELF_ID_DISCIPLINE_FIELDS,
+    PROCESS_V6_ACTUAL_PROGRESS_TYPES,
+    PROCESS_V6_DEFAULT_NON_EVIDENCE_STREAK_LIMIT,
+    PROCESS_V6_EVIDENCE_PROGRESS_TYPES,
+    PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
+    PROCESS_V6_LOCAL_SEARCH_GUARD_FIELDS,
+    PROCESS_V6_LOCAL_SEARCH_RISK_LEVELS,
     SCOREBOARD_FIELDS,
 )
 
@@ -69,6 +75,9 @@ PROCESS_V4_REQUIRED_FIELDS = (
 PROCESS_V5_REQUIRED_FIELDS = (
     "self_id_evidence_discipline",
 )
+PROCESS_V6_REQUIRED_FIELDS = (
+    "local_search_guard",
+)
 
 
 @dataclass(frozen=True)
@@ -95,6 +104,10 @@ def _is_process_v4(task: ResearchTask, process_v4_from_priority: int) -> bool:
 
 def _is_process_v5(task: ResearchTask, process_v5_from_priority: int) -> bool:
     return int(task.priority) >= int(process_v5_from_priority)
+
+
+def _is_process_v6(task: ResearchTask, process_v6_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v6_from_priority)
 
 
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
@@ -193,6 +206,7 @@ def _validate_manifest(
     process_v3: bool = False,
     process_v4: bool = False,
     process_v5: bool = False,
+    process_v6: bool = False,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     missing = [field for field in MANIFEST_REQUIRED_FIELDS if field not in manifest]
@@ -221,6 +235,8 @@ def _validate_manifest(
         issues.extend(_validate_process_v4_manifest(task, manifest))
     if process_v5:
         issues.extend(_validate_process_v5_manifest(task, manifest))
+    if process_v6:
+        issues.extend(_validate_process_v6_manifest(task, manifest))
     return issues
 
 
@@ -599,6 +615,133 @@ def _validate_process_v5_manifest(task: ResearchTask, manifest: dict[str, Any]) 
     return issues
 
 
+def _validate_non_negative_int(task: ResearchTask, field: str, value: Any) -> ValidationIssue | None:
+    if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+        return ValidationIssue("error", f"{task.id}: local_search_guard.{field} must be a non-negative integer")
+    return None
+
+
+def _validate_process_v6_manifest(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    missing = [field for field in PROCESS_V6_REQUIRED_FIELDS if field not in manifest]
+    if missing:
+        issues.append(ValidationIssue("error", f"{task.id}: process-v6 manifest missing fields {missing}"))
+        return issues
+
+    guard = manifest.get("local_search_guard")
+    if not isinstance(guard, dict):
+        return [ValidationIssue("error", f"{task.id}: local_search_guard must be an object")]
+
+    missing_guard = [field for field in PROCESS_V6_LOCAL_SEARCH_GUARD_FIELDS if field not in guard]
+    if missing_guard:
+        issues.append(ValidationIssue("error", f"{task.id}: local_search_guard missing fields {missing_guard}"))
+        return issues
+
+    progress_type = guard.get("actual_progress_type")
+    if progress_type not in PROCESS_V6_ACTUAL_PROGRESS_TYPES:
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: local_search_guard.actual_progress_type must be one of "
+                f"{sorted(PROCESS_V6_ACTUAL_PROGRESS_TYPES)}",
+            )
+        )
+
+    for field in ("process_overhead", "local_search_risk"):
+        if guard.get(field) not in PROCESS_V6_LOCAL_SEARCH_RISK_LEVELS:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: local_search_guard.{field} must be one of "
+                    f"{sorted(PROCESS_V6_LOCAL_SEARCH_RISK_LEVELS)}",
+                )
+            )
+
+    for field in ("same_failure_repeat_count", "same_public_gate_repair_count"):
+        issue = _validate_non_negative_int(task, field, guard.get(field))
+        if issue is not None:
+            issues.append(issue)
+
+    for field in ("evidence_expansion", "paper_verdict_delta"):
+        if not _non_empty_text(guard.get(field)):
+            issues.append(ValidationIssue("error", f"{task.id}: local_search_guard.{field} must be non-empty text"))
+
+    must_synthesize_if = guard.get("must_synthesize_if")
+    if not _non_empty_list(must_synthesize_if) or not all(_non_empty_text(item) for item in must_synthesize_if):
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: local_search_guard.must_synthesize_if must be a non-empty list of non-empty text",
+            )
+        )
+
+    repeat_count = guard.get("same_failure_repeat_count")
+    repair_count = guard.get("same_public_gate_repair_count")
+    trigger_repeat = isinstance(repeat_count, int) and repeat_count >= 3
+    trigger_repair = isinstance(repair_count, int) and repair_count >= 3
+    high_risk = guard.get("local_search_risk") == "high"
+    if (trigger_repeat or trigger_repair or high_risk) and not _is_workflow_synthesis_milestone(manifest):
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: local_search_guard requires a workflow synthesis decision when "
+                "local_search_risk is high or repeat/repair counts reach 3",
+            )
+        )
+
+    return issues
+
+
+def _validate_process_v6_local_search_cadence(records: list[tuple[ResearchTask, dict[str, Any]]]) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    non_evidence_counts: dict[str, int] = {}
+    sorted_records = sorted(records, key=lambda item: (item[0].priority, item[0].id))
+
+    for task, manifest in sorted_records:
+        synthesis = _workflow_synthesis(manifest)
+        if synthesis is None:
+            continue
+        branch = synthesis.get("branch")
+        if not _non_empty_text(branch):
+            continue
+
+        branch_text = str(branch)
+        if _is_workflow_synthesis_milestone(manifest):
+            non_evidence_counts[branch_text] = 0
+            continue
+
+        guard = manifest.get("local_search_guard")
+        if not isinstance(guard, dict):
+            continue
+        progress_type = guard.get("actual_progress_type")
+        if progress_type in PROCESS_V6_EVIDENCE_PROGRESS_TYPES:
+            non_evidence_counts[branch_text] = 0
+            continue
+
+        limit = guard.get("non_evidence_streak_limit", PROCESS_V6_DEFAULT_NON_EVIDENCE_STREAK_LIMIT)
+        if not isinstance(limit, int) or isinstance(limit, bool) or limit < 1:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: local_search_guard.non_evidence_streak_limit must be a positive integer when set",
+                )
+            )
+            limit = PROCESS_V6_DEFAULT_NON_EVIDENCE_STREAK_LIMIT
+
+        non_evidence_counts[branch_text] = non_evidence_counts.get(branch_text, 0) + 1
+        if non_evidence_counts[branch_text] > limit:
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: local_search_guard branch {branch_text!r} has "
+                    f"{non_evidence_counts[branch_text]} consecutive non-evidence milestones; "
+                    f"limit is {limit}, so add a process synthesis milestone or produce new data/panel evidence",
+                )
+            )
+
+    return issues
+
+
 def _validate_metric_extractors(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     extractors = manifest.get("metric_extractors", [])
@@ -689,6 +832,7 @@ def validate_research_state(
     process_v3_from_priority: int = PROCESS_V3_SYNTHESIS_ENFORCE_FROM_PRIORITY,
     process_v4_from_priority: int = PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
     process_v5_from_priority: int = PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
+    process_v6_from_priority: int = PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)
@@ -733,6 +877,7 @@ def validate_research_state(
         issues.append(ValidationIssue("error", "experiments/scoreboard.csv contains duplicate milestone rows"))
 
     process_v3_records: list[tuple[ResearchTask, dict[str, Any]]] = []
+    process_v6_records: list[tuple[ResearchTask, dict[str, Any]]] = []
     for task in tasks:
         if task.status not in ALLOWED_STATUSES:
             issues.append(ValidationIssue("error", f"{task.id}: unknown status {task.status!r}"))
@@ -750,6 +895,7 @@ def validate_research_state(
         process_v3 = _is_process_v3(task, process_v3_from_priority)
         process_v4 = _is_process_v4(task, process_v4_from_priority)
         process_v5 = _is_process_v5(task, process_v5_from_priority)
+        process_v6 = _is_process_v6(task, process_v6_from_priority)
         issues.extend(
             _validate_manifest(
                 task,
@@ -758,10 +904,13 @@ def validate_research_state(
                 process_v3=process_v3,
                 process_v4=process_v4,
                 process_v5=process_v5,
+                process_v6=process_v6,
             )
         )
         if process_v3:
             process_v3_records.append((task, manifest))
+        if process_v6:
+            process_v6_records.append((task, manifest))
         if task.status == "completed":
             if process_v2 and manifest.get("review_artifact") and not _path_exists(root, str(manifest["review_artifact"])):
                 issues.append(ValidationIssue("error", f"{task.id}: review_artifact is missing: {manifest['review_artifact']}"))
@@ -789,6 +938,7 @@ def validate_research_state(
                             )
                         )
     issues.extend(_validate_process_v3_branch_cadence(process_v3_records))
+    issues.extend(_validate_process_v6_local_search_cadence(process_v6_records))
     return issues
 
 
@@ -816,6 +966,11 @@ def main() -> None:
         type=int,
         default=PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
     )
+    parser.add_argument(
+        "--process-v6-from-priority",
+        type=int,
+        default=PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
+    )
     args = parser.parse_args()
 
     issues = validate_research_state(
@@ -829,6 +984,7 @@ def main() -> None:
         process_v3_from_priority=args.process_v3_from_priority,
         process_v4_from_priority=args.process_v4_from_priority,
         process_v5_from_priority=args.process_v5_from_priority,
+        process_v6_from_priority=args.process_v6_from_priority,
     )
     for issue in issues:
         print(f"{issue.severity}: {issue.message}")
@@ -841,7 +997,8 @@ def main() -> None:
         f"process_v2_from_priority={args.process_v2_from_priority}, "
         f"process_v3_from_priority={args.process_v3_from_priority}, "
         f"process_v4_from_priority={args.process_v4_from_priority}, "
-        f"process_v5_from_priority={args.process_v5_from_priority})"
+        f"process_v5_from_priority={args.process_v5_from_priority}, "
+        f"process_v6_from_priority={args.process_v6_from_priority})"
     )
 
 

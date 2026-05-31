@@ -1,0 +1,93 @@
+{
+  "decision_reason": "Adds Process V6 local_search_guard docs schema validator tests and skill rule so narrow process loops require synthesis or new evidence",
+  "failure_criteria": [
+    "Process V6 fields remain prompt-only",
+    "validator accepts missing local_search_guard for M1896+",
+    "validator accepts repeated failure or high local-search risk without synthesis",
+    "research queue/status become inconsistent",
+    "M1896 runs rollout, training, replay, PPO, ranking, or promotion"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T044723Z",
+  "hypothesis": "A Process V6 local_search_guard in docs, skill, schema, validator, and tests can prevent aimless local repair loops from becoming prompt-only discipline.",
+  "lineage": {
+    "blocked_by": [
+      "long process-heavy branches can keep rolling through design repair audit and tooling without fresh evidence"
+    ],
+    "derived_from": [
+      "user request to implement workflow issues 2 and 3 before continuing research",
+      "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_process_harness"
+    ],
+    "parent_config": [
+      "src/autodrift/research_schema.py",
+      "src/autodrift/research_validate.py",
+      "tests/test_research_validate.py"
+    ],
+    "parent_dataset": [
+      "docs/research-process-enforcement.md",
+      "/home/quyaonan/.agents/skills/autodrift-research-harness/SKILL.md"
+    ],
+    "parent_objective": [
+      "make local-search and synthesis discipline validator-enforced rather than prompt-only"
+    ],
+    "supersedes": [
+      "prompt-only local-search caution"
+    ]
+  },
+  "milestone": "m1896-local-search-guard-harness-implementation",
+  "next_blocker": "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "local_search_guard_harness_implementation_pass",
+  "public_gates": [
+    "M1896 must add repository documentation for the local-search guard",
+    "M1896 must add validator-enforced Process V6 local_search_guard fields",
+    "M1896 must add tests for missing guard, valid guard, synthesis-trigger repeat counts, and non-evidence streak",
+    "M1896 must update the local autodrift-research-harness skill so future sessions see the same rules",
+    "M1896 must not run rollout, training, replay, PPO, controller ranking, promotion, private holdout, paper-level claims, or level3 self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1896-local-search-guard-harness-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "local_search_guard_harness_implementation_pass",
+    "milestone": "m1896-local-search-guard-harness-implementation",
+    "reason": "Adds Process V6 local_search_guard docs schema validator tests and skill rule so narrow process loops require synthesis or new evidence",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/research-process-enforcement.md documents Process V6 Local Search Guard",
+    "local autodrift-research-harness skill documents the same guard",
+    "src/autodrift/research_schema.py defines Process V6 constants",
+    "src/autodrift/research_validate.py enforces local_search_guard and non-evidence streak rules",
+    "tests/test_research_validate.py covers the new guard behavior",
+    "make research-validate passes with M1897 as the next task"
+  ],
+  "type": "infrastructure"
+}

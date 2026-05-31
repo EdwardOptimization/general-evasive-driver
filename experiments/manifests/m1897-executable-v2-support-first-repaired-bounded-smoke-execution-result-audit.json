@@ -1,5 +1,5 @@
 {
-  "id": "m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
+  "id": "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit",
   "type": "gate",
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
@@ -24,7 +24,8 @@
       "audit repaired bounded-smoke execution result before any controller-family ranking or next repair route"
     ],
     "derived_from": [
-      "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
+      "m1895-executable-v2-support-first-repaired-bounded-smoke-execution",
+      "m1896-local-search-guard-harness-implementation"
     ],
     "blocked_by": [
       "M1895 execution result requires audit before interpretation"
@@ -34,13 +35,13 @@
     ],
     "invalidates": []
   },
-  "review_artifact": "docs/reviews/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
+  "review_artifact": "docs/reviews/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
   "public_gates": [
-    "M1896 must audit M1895 target counts, metric completeness, import joins, and guardrails",
-    "M1896 must decide whether repaired task quality is interpretable enough for a later controller-family comparison design",
-    "M1896 must classify any remaining outcome dominance before ranking",
-    "M1896 must not run new rollout or training",
-    "M1896 must keep paper-level and level3 self-ID claims blocked"
+    "M1897 must audit M1895 target counts, metric completeness, import joins, and guardrails",
+    "M1897 must decide whether repaired task quality is interpretable enough for a later controller-family comparison design",
+    "M1897 must classify any remaining outcome dominance before ranking",
+    "M1897 must not run new rollout or training",
+    "M1897 must keep paper-level and level3 self-ID claims blocked"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -97,8 +98,8 @@
       "do not claim controller ranking or level3 self-identification"
     ],
     "allowed_updates": [
-      "M1896 audit document",
-      "M1896 status queue scoreboard research log and review",
+      "M1897 audit document",
+      "M1897 status queue scoreboard research log and review",
       "one follow-up manifest for the selected next route"
     ],
     "next_stage_criteria": [
@@ -120,9 +121,23 @@
       "no new reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
     ]
   },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "interprets existing M1895 measured artifacts and selects a route; does not create new data",
+    "paper_verdict_delta": "can decide whether the support-first repaired smoke panel is interpretable enough for controller comparison or needs more task-quality repair",
+    "must_synthesize_if": [
+      "M1895 outcome dominance remains diffuse and non-localized",
+      "another task-quality repair is proposed without new data evidence",
+      "controller ranking is requested before task quality becomes interpretable"
+    ]
+  },
   "hypothesis": "M1895 completed cleanly and can be audited to decide whether repaired task quality is interpretable enough for the next paper-route step.",
   "success_criteria": [
-    "docs/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md exists",
+    "docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md exists",
     "audit verifies M1895 target counts and guardrails",
     "audit summarizes raw repaired variant outcomes",
     "audit decides whether controller comparison, outcome localization, or further task-quality repair is next",
@@ -138,12 +153,12 @@
   "commands": [
     {
       "name": "audit",
-      "command": "write docs/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md"
+      "command": "write docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md"
     }
   ],
   "required_artifacts": [
     {
-      "path": "docs/m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
+      "path": "docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
       "type": "md"
     }
   ],
@@ -156,6 +171,6 @@
     "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/execution_row_kind_aggregate.csv",
     "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv"
   ],
-  "decision_rule": "M1896 passes if it audits M1895 and selects the next route without running new rollout or ranking.",
-  "next_blocker": "m1896-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit"
+  "decision_rule": "M1897 passes if it audits M1895 and selects the next route without running new rollout or ranking.",
+  "next_blocker": "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit"
 }

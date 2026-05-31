@@ -1,0 +1,190 @@
+{
+  "id": "m1896-local-search-guard-harness-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_harness"
+    ],
+    "parent_dataset": [
+      "docs/research-process-enforcement.md",
+      "/home/quyaonan/.agents/skills/autodrift-research-harness/SKILL.md"
+    ],
+    "parent_config": [
+      "src/autodrift/research_schema.py",
+      "src/autodrift/research_validate.py",
+      "tests/test_research_validate.py"
+    ],
+    "parent_objective": [
+      "make local-search and synthesis discipline validator-enforced rather than prompt-only"
+    ],
+    "derived_from": [
+      "user request to implement workflow issues 2 and 3 before continuing research",
+      "m1895-executable-v2-support-first-repaired-bounded-smoke-execution"
+    ],
+    "blocked_by": [
+      "long process-heavy branches can keep rolling through design repair audit and tooling without fresh evidence"
+    ],
+    "supersedes": [
+      "prompt-only local-search caution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1896-local-search-guard-harness-implementation.md",
+  "public_gates": [
+    "M1896 must add repository documentation for the local-search guard",
+    "M1896 must add validator-enforced Process V6 local_search_guard fields",
+    "M1896 must add tests for missing guard, valid guard, synthesis-trigger repeat counts, and non-evidence streak",
+    "M1896 must update the local autodrift-research-harness skill so future sessions see the same rules",
+    "M1896 must not run rollout, training, replay, PPO, controller ranking, promotion, private holdout, paper-level claims, or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "research_harness_governance_upgrade",
+    "evidence_axis": "workflow_governance",
+    "evidence_increment": "turns local-search caution into repo docs, skill rules, validator schema, and focused tests",
+    "claim_scope": "process and infrastructure only; no driver-performance, controller-ranking, paper-level, or self-ID claim",
+    "stop_condition": [
+      "stop if validator cannot enforce local_search_guard without breaking current queue",
+      "stop if focused tests for trigger behavior fail",
+      "stop if research-validate cannot pass after queue/status update"
+    ],
+    "fallback_plan": [
+      "if Process V6 breaks historical records, move the enforcement priority forward rather than weakening prior manifests",
+      "if non-evidence streak detection is too strict, keep per-manifest trigger enforcement and document the limitation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "user asked to prevent aimless local search with hook or skill rather than prompt-only memory",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "add local-search guard enforcement to the research harness",
+    "admission_evidence": [
+      "workflow synthesis discipline already exists but does not directly classify actual progress versus process overhead",
+      "user requested a hook or skill-level enforcement mechanism before continuing research"
+    ],
+    "blocked_shortcuts": [
+      "do not run PPO or measured execution",
+      "do not change actor inputs or controller profiles",
+      "do not convert process guard changes into scientific evidence claims"
+    ],
+    "allowed_updates": [
+      "research schema and validator",
+      "research validation tests",
+      "research-process documentation",
+      "local autodrift-research-harness skill",
+      "queue status scoreboard review artifacts"
+    ],
+    "next_stage_criteria": [
+      "Process V6 fields are validator-enforced",
+      "focused research_validate tests pass",
+      "make research-validate passes with M1897 as next task"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; process harness implementation does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1896."
+    ],
+    "temporal_evidence_window": "not applicable for infrastructure guard implementation.",
+    "negative_result_policy": "If the guard blocks too much, refine enforcement in a later process milestone rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "Process V6 local-search guard exists and is validator-tested",
+      "no driver, controller-ranking, paper-level, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds validator-enforced workflow governance but no new driver-performance evidence",
+    "paper_verdict_delta": "improves paper-route reliability by reducing process-only drift; does not change the scientific result",
+    "must_synthesize_if": [
+      "same failure type repeats three times",
+      "same public gate is repaired three times",
+      "more than five consecutive non-evidence milestones occur on one branch",
+      "local_search_risk becomes high"
+    ]
+  },
+  "hypothesis": "A Process V6 local_search_guard in docs, skill, schema, validator, and tests can prevent aimless local repair loops from becoming prompt-only discipline.",
+  "success_criteria": [
+    "docs/research-process-enforcement.md documents Process V6 Local Search Guard",
+    "local autodrift-research-harness skill documents the same guard",
+    "src/autodrift/research_schema.py defines Process V6 constants",
+    "src/autodrift/research_validate.py enforces local_search_guard and non-evidence streak rules",
+    "tests/test_research_validate.py covers the new guard behavior",
+    "make research-validate passes with M1897 as the next task"
+  ],
+  "failure_criteria": [
+    "Process V6 fields remain prompt-only",
+    "validator accepts missing local_search_guard for M1896+",
+    "validator accepts repeated failure or high local-search risk without synthesis",
+    "research queue/status become inconsistent",
+    "M1896 runs rollout, training, replay, PPO, ranking, or promotion"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_research_validate.py"
+    },
+    {
+      "name": "validate",
+      "command": "make research-validate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1896-local-search-guard-harness-implementation.md",
+      "type": "md"
+    },
+    {
+      "path": "docs/research-process-enforcement.md",
+      "type": "md"
+    },
+    {
+      "path": "src/autodrift/research_schema.py",
+      "type": "py"
+    },
+    {
+      "path": "src/autodrift/research_validate.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_research_validate.py",
+      "type": "py"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_harness"
+  ],
+  "baseline_artifacts": [
+    "docs/research-process-enforcement.md",
+    "src/autodrift/research_validate.py",
+    "tests/test_research_validate.py"
+  ],
+  "decision_rule": "M1896 passes if Process V6 local-search guard is documented, validator-tested, skill-reflected, and research validation passes without running driver experiments.",
+  "next_blocker": "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit"
+}
