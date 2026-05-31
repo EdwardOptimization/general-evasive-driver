@@ -36036,3 +36036,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit M2063 no-reset materialization preflight implementation
 - follow-up manifest: `experiments/manifests/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.json`
 - next: `m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation`
+
+## M2063 Paper-Route Outcome-Supported Decisive Materialization Preflight Implementation
+
+- status: completed
+- decision: `outcome_supported_decisive_materialization_preflight_pass_route_to_result_audit`
+- run artifact: `runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M2063: `false`
+- policy actions executed in M2063: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_materialization_preflight_pass`
+- executable specs: `240`
+- planned sentinel workload rows: `1200`
+- sentinel profile count: `5`
+- family quotas: T1 `48`, T2 `60`, T3 `60`, T4 `36`, T5 `36`
+- split quotas: public_debug `144`, public_gate `96`, private_holdout `0`
+- difficulty-axis coverage pass: `true`
+- materialization failures/profile missing/contract violations/guardrail: `0/0/0/0`
+- follow-up manifest: `experiments/manifests/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.json`
+- next: `m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit`

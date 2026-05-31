@@ -1,0 +1,7 @@
+claim,admissible,reason
+outcome_supported_decisive_materialization_preflight_completed,True,M2063 writes no-reset materialization artifacts for the M2060 candidate panel
+reset_validation_ready,True,requires executable specs workload profile artifacts contract checks and claim guards to pass
+controller_family_ranking,False,M2063 does not execute or compare controller outcomes
+paper_valid_generated_task_semantics,False,M2063 materializes smoke proxies only
+finite_window_vs_gru_conclusion,False,M2063 is materialization preflight only
+level3_self_identification,False,M2063 does not run history intervention outcome tests

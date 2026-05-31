@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2062-paper-route-outcome-supported-decisive-materialization-design
+m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation
+m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit
 ```
 
-Immediate route: M2062 designs the provenance-preserving materialization route
-for the M2060 candidate artifact. M2063 must implement a no-reset preflight that
-writes `240` executable specs and `1200` sentinel workload rows using only the
-five smoke profiles `L0_current_masked`, `L1_one_step`, `L2_window_50`,
-`L3_online_gru`, and `L3_reset_control_corrected`. The full 12-profile matrix,
-reset validation, measured execution, ranking, paper claims, and self-ID claims
-remain blocked until the materialization artifact is audited.
+Immediate route: M2063 implements the no-reset materialization preflight and
+writes `runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json`.
+The artifact has `240` executable specs, `1200` sentinel workload rows, `5`
+sentinel profiles, family quotas `48/60/60/36/36`, split `144/96/0`, difficulty
+axis coverage pass, materialization failures `0`, contract violations `0`, and
+guardrail `0`. M2064 must audit this artifact before reset-validation command
+design; reset, rollout, measured execution, ranking, paper claims, and self-ID
+claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

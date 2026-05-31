@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2071,
+    "completed": 2072,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md",
+    "command_log": "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight",
     "status": "completed",
-    "task_id": "m2062-paper-route-outcome-supported-decisive-materialization-design"
+    "task_id": "m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.json",
-    "hypothesis": "A deterministic no-reset materialization preflight can convert the M2060 candidate artifact into 240 executable specs and 1200 sentinel workload rows without violating contract or claim guards.",
-    "id": "m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset materialization preflight for 240 specs and 1200 sentinel workload rows",
-    "priority": 20580,
+    "command": "see experiments/manifests/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.json",
+    "hypothesis": "The M2063 materialization preflight artifact is count-complete guardrail-clean and admissible for reset-validation command design.",
+    "id": "m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2063 materialization preflight before reset-validation command design",
+    "priority": 20590,
     "status": "pending",
-    "success_artifact": "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260531T203632Z"
+  "updated_at_utc": "20260531T204333Z"
 }
