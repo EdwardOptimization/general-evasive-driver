@@ -1,0 +1,7 @@
+claim,supported,reason
+calibrated_materialization_preflight_artifact,True,M1958 creates no-reset executable specs and planned workload artifacts
+reset_validity,False,M1958 does not run environment reset
+measured_execution_success,False,M1958 does not run rollout or measured execution
+controller_family_ranking,False,M1958 writes a planned workload only
+paper_level_evidence,False,M1958 is a no-reset preflight milestone
+level3_self_identification,False,M1958 does not test history necessity

@@ -34020,3 +34020,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: reset validity, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation.json`
 - next: `m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation`
+
+## M1958 Executable V2 Task-Quality Calibrated Materialization Preflight Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_materialization_preflight_pass_route_to_reset_command_design`
+- doc: `docs/m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_materialization_preflight.py`
+- focused tests: `2 passed`
+- summary: `runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M1958: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `task_quality_calibrated_materialization_preflight_pass`
+- executable specs: `80`, controller profiles `12`, planned workload rows `960`
+- accepted-cell provenance: input accepted rows `5981`, selected accepted rows `3382`, missing accepted cells `0`
+- integrity checks: materialization failures `0`, duplicate task source IDs `0`, duplicate workload keys `0`, contract violations `0`, forbidden-key violations `0`, missing profile artifacts `0`, guardrail `0`
+- source-kind preservation: anchor-neighborhood `32`, success-stabilizer `24`, offtrack-boundary-relief `8`, mitigation-isolation-check `16`
+- route: reset validation command design next; rollout, measured execution, ranking, paper evidence, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.json`
+- next: `m1959-executable-v2-task-quality-calibrated-reset-validation-command-design`

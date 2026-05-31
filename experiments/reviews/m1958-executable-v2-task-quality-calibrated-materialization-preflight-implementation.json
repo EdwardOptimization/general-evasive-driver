@@ -1,0 +1,103 @@
+{
+  "decision_reason": "M1958 no-reset preflight pass creates 80 executable specs and 960 planned workload rows with missing accepted 0 contract 0 forbidden-key 0 missing profile 0 guardrail 0",
+  "failure_criteria": [
+    "summary is missing",
+    "executable task specs are missing",
+    "planned workload is missing",
+    "target counts fail",
+    "accepted-cell provenance is missing",
+    "contract or forbidden-key checks fail",
+    "reset rollout measured execution training replay or PPO is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T102844Z",
+  "hypothesis": "A focused no-reset preflight adapter can convert the M1956 calibrated source subset into 80 executable task specs and 960 planned workload rows while preserving source metadata, accepted-cell provenance, and guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1957 determines the M1928 preflight is not an exact schema match for M1956 selected sources"
+    ],
+    "derived_from": [
+      "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_materialization_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+      "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+      "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv",
+      "runs/m1674_controller_family_one_seed_public_pilot"
+    ],
+    "parent_objective": [
+      "implement focused no-reset calibrated materialization preflight adapter"
+    ],
+    "supersedes": [
+      "attempting to reuse M1928 materialization preflight without schema adaptation"
+    ]
+  },
+  "milestone": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation",
+  "next_blocker": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_materialization_preflight_pass_route_to_reset_command_design",
+  "public_gates": [
+    "M1958 must implement the focused calibrated materialization preflight adapter",
+    "M1958 must create exactly 80 executable task specs and 960 planned workload rows",
+    "M1958 must preserve M1956 source metadata and M1952 accepted-cell provenance",
+    "M1958 must pass human-view contract and forbidden-key checks without reset or rollout",
+    "M1958 must keep controller-family ranking paper claims and level3 self-ID blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_materialization_preflight_pass_route_to_reset_command_design",
+    "milestone": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation",
+    "reason": "M1958 no-reset preflight pass creates 80 executable specs and 960 planned workload rows with missing accepted 0 contract 0 forbidden-key 0 missing profile 0 guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json exists",
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json exists",
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv exists",
+    "result_class is task_quality_calibrated_materialization_preflight_pass",
+    "executable_task_spec_count is 80",
+    "planned_workload_cell_count is 960",
+    "missing_accepted_cell_count is 0",
+    "forbidden_key_violation_count is 0",
+    "contract_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "focused tests pass",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "infrastructure"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1966,
+    "completed": 1967,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+    "command_log": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight",
     "status": "completed",
-    "task_id": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design"
+    "task_id": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation.json",
-    "hypothesis": "A focused no-reset preflight adapter can convert the M1956 calibrated source subset into 80 executable task specs and 960 planned workload rows while preserving source metadata, accepted-cell provenance, and guardrails.",
-    "id": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused no-reset preflight adapter for M1956 selected sources and M1952 accepted cells",
-    "priority": 19530,
+    "command": "see experiments/manifests/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.json",
+    "hypothesis": "An exact reset-only validation command can be designed for the M1958 executable task specs while preserving calibrated repair metadata, target counts, and human-view observation checks.",
+    "id": "m1959-executable-v2-task-quality-calibrated-reset-validation-command-design",
+    "kind": "gate",
+    "notes": "Pending: design exact reset-only validation command for M1958 executable specs while preserving calibrated repair metadata",
+    "priority": 19540,
     "status": "pending",
-    "success_artifact": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T102000Z"
+  "updated_at_utc": "20260531T102538Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design
+m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation
+m1959-executable-v2-task-quality-calibrated-reset-validation-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -70,7 +70,13 @@ implement a focused no-reset preflight adapter that produces `80` executable
 task specs and `960` planned workload rows while preserving selected-source
 metadata, accepted-cell provenance, and human-view contract checks. Reset,
 measured execution, ranking, paper-level claim, and level3 self-ID remain
-blocked.
+blocked. M1958 implements that adapter and passes the no-reset preflight:
+`80` executable specs, `960` planned workload rows, selected accepted-cell rows
+`3382`, missing accepted cells `0`, materialization failures `0`, duplicate
+task IDs `0`, duplicate workload keys `0`, contract violations `0`,
+forbidden-key violations `0`, missing profile artifacts `0`, guardrail `0`.
+M1959 must now design the exact reset-only validation command while preserving
+the calibrated repair metadata before any reset execution.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
