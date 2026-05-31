@@ -1,0 +1,168 @@
+{
+  "id": "m1933-executable-v2-task-quality-reset-validation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_validation_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1932-executable-v2-task-quality-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "run reset-only validation over the M1928 80-spec public task-quality panel"
+    ],
+    "derived_from": [
+      "m1932-executable-v2-task-quality-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "real reset validation has not been run over the M1928 task-quality panel"
+    ],
+    "supersedes": [
+      "claiming the M1928 panel is reset-valid from no-rollout materialization alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1933-executable-v2-task-quality-reset-validation-preflight.md",
+  "public_gates": [
+    "M1933 must run exactly the frozen reset-only command",
+    "M1933 must attempt 80 resets and write reset rows",
+    "M1933 must preserve failure rows if any reset fails",
+    "M1933 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_execution_data",
+    "evidence_increment": "produces the first real reset-validation data over the redesigned 80-spec task-quality panel",
+    "claim_scope": "reset-only public diagnostic evidence; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if any reset fails",
+      "stop if any contract or guardrail violation appears",
+      "stop if output counts differ from the frozen command"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any reset or contract failure",
+      "repair helper only after failure audit localizes the issue",
+      "design measured rollout only after reset validation passes and audit confirms it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fourth milestone of reset execution branch after M1930-M1932",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "task-quality reset validation preflight",
+    "admission_evidence": [
+      "M1932 froze the exact reset-only command"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families",
+      "do not interpret reset success as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/reset_rows.csv",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/contract_rows.csv",
+      "M1933 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "80 reset attempts",
+      "80 reset successes",
+      "zero reset failures",
+      "zero contract and guardrail violations",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset validation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1933."
+    ],
+    "temporal_evidence_window": "M1928 executable panel and M1932 frozen command.",
+    "negative_result_policy": "If reset validation fails, classify the failure before repair or rerun.",
+    "allowed_claims": [
+      "task-quality reset-validation public diagnostic evidence",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds real simulator reset evidence over the redesigned task-quality scenario panel",
+    "paper_verdict_delta": "can admit measured rollout design if reset validation passes but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M1933 fails due to the same task-quality sampling class seen in earlier branches",
+      "M1933 output counts are incomplete",
+      "M1933 produces reset evidence but no audit route is registered"
+    ]
+  },
+  "hypothesis": "The M1928 80-spec redesigned public task-quality panel is reset-valid under the current simulator and strict human-view contract.",
+  "success_criteria": [
+    "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json exists",
+    "result_class is task_quality_reset_validation_preflight_pass",
+    "reset_attempt_count equals 80",
+    "reset_success_count equals 80",
+    "reset_failure_count equals 0",
+    "contract_violation_count equals 0",
+    "guardrail_violation_count equals 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "reset_attempt_count differs from 80",
+    "any reset fails",
+    "any contract or guardrail violation appears",
+    "rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_reset_validation_preflight --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --output-dir runs/m1933_executable_v2_task_quality_reset_validation_preflight --eval-seed-base 193300 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1934-executable-v2-task-quality-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_validation_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M1933 passes if the frozen reset-only command validates all 80 specs with zero failures and zero guardrail violations, then routes to result audit.",
+  "next_blocker": "m1933-executable-v2-task-quality-reset-validation-preflight"
+}

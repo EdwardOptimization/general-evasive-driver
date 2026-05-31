@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1931-executable-v2-task-quality-reset-validator-implementation
+m1932-executable-v2-task-quality-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m1932-executable-v2-task-quality-reset-validation-command-design
+m1933-executable-v2-task-quality-reset-validation-preflight
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -281,7 +281,12 @@ tests passed (`3 passed`): the helper consumes `executable_task_specs`, writes
 reset/failure/contract/aggregate/claim-boundary artifacts, preserves reset-only
 guardrails, and keeps real M1928 reset execution deferred. M1932 must now
 freeze the exact reset-only command before M1933 runs the first real reset
-validation over the `80` specs.
+validation over the `80` specs. M1932 completed that command design: M1933
+must run the reset-only validator over
+`runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
+with seed base `193300`, target spec count `80`, expected observation dim `72`,
+and output dir
+`runs/m1933_executable_v2_task_quality_reset_validation_preflight`.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

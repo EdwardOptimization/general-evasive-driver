@@ -33476,3 +33476,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guarded behavior: preserves reset failures and fails closed on contract violations
 - follow-up manifest: `experiments/manifests/m1932-executable-v2-task-quality-reset-validation-command-design.json`
 - next: `m1932-executable-v2-task-quality-reset-validation-command-design`
+
+## M1932 Executable V2 Task-Quality Reset Validation Command Design
+
+- status: completed
+- decision: `task_quality_reset_validation_command_design_admit_execution`
+- doc: `docs/m1932-executable-v2-task-quality-reset-validation-command-design.md`
+- branch: `paper_route_task_quality_reset_execution`
+- source helper: `src/autodrift/executable_v2_task_quality_reset_validation_preflight.py`
+- input specs: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
+- output dir: `runs/m1933_executable_v2_task_quality_reset_validation_preflight`
+- eval seed base: `193300`
+- target spec count: `80`
+- expected observation dim: `72`
+- real reset execution in M1932: `false`
+- rollout/measured execution in M1932: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_reset_validation_preflight --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --output-dir runs/m1933_executable_v2_task_quality_reset_validation_preflight --eval-seed-base 193300 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1934-executable-v2-task-quality-reset-validation-result-audit`
+- follow-up manifest: `experiments/manifests/m1933-executable-v2-task-quality-reset-validation-preflight.json`
+- next: `m1933-executable-v2-task-quality-reset-validation-preflight`
