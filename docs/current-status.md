@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit
+m1892-executable-v2-support-first-measured-execution-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design
+m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -105,8 +105,15 @@ audit the preflight result before any repaired bounded-smoke execution design.
 M1890 audited the preflight as count-complete and guardrail-clean, and admits a
 repaired bounded-smoke execution design; direct execution remains blocked
 because the old runner cannot consume repaired specs plus import rows without a
-wrapper/protocol. M1891 must now design that execution route. Controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+wrapper/protocol. M1891 designed that execution route: run only the `576`
+geometry repair workload rows, import `384` original/semantics-only rows from
+M1880 source episode rows after rollout, preserve repair metadata and row
+provenance, write repaired variant aggregates, and keep interpretation deferred
+to a post-execution audit. M1892 completed the required branch synthesis over
+M1882-M1891 and continues the support-first measured-execution branch to
+wrapper implementation. M1893 must now implement the repaired bounded-smoke
+runner wrapper with focused tests before any real rollout. Controller ranking,
+paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

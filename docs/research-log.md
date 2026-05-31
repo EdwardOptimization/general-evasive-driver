@@ -32498,3 +32498,55 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json`
 - next: `m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design`
+
+## M1891 Executable V2 Support-First Repaired Bounded-Smoke Execution Design
+
+- status: completed
+- decision: `support_first_repaired_bounded_smoke_execution_design_admit_wrapper_implementation`
+- artifact: `docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md`
+- parent audit: `docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md`
+- target rollout episode count: `576`
+- target import episode count: `384`
+- target total repaired-smoke panel rows: `960`
+- target selected source spec count: `16`
+- target repaired executable spec count: `48`
+- target controller profile count: `12`
+- target role-surface count: `8`
+- reset/rollout in M1891: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: repaired bounded-smoke execution wrapper protocol is specified with rollout/import merge rules, repaired aggregate outputs, pass gates, and resumability
+- unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1892-executable-v2-support-first-measured-execution-branch-synthesis.json`
+- next: `m1892-executable-v2-support-first-measured-execution-branch-synthesis`
+
+## M1892 Executable V2 Support-First Measured Execution Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- artifact: `docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md`
+- evidence window: `M1882-M1891`
+- continued branch: `paper_route_executable_v2_support_first_measured_execution`
+- selected source spec count: `16`
+- repaired executable spec count: `48`
+- rollout workload cell count: `576`
+- import row count: `384`
+- total repaired-smoke panel rows: `960`
+- controller profile count: `12`
+- role-surface count: `8`
+- reset/rollout in M1892: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1882-M1891 repaired task-quality and execution-plumbing evidence is coherent enough to continue to wrapper implementation
+- unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.json`
+- next: `m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation`

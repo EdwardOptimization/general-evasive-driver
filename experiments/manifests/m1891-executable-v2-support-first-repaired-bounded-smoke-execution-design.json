@@ -155,5 +155,36 @@
     "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
   ],
   "decision_rule": "M1891 passes if it designs a clear repaired bounded-smoke execution route without running rollout or ranking.",
-  "next_blocker": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design"
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+    "decision": "support_first_repaired_bounded_smoke_execution_design_admit_wrapper_implementation",
+    "rollout_episode_count_target": 576,
+    "import_episode_count_target": 384,
+    "total_panel_row_count_target": 960,
+    "selected_source_spec_count_target": 16,
+    "repaired_executable_spec_count_target": 48,
+    "controller_profile_count_target": 12,
+    "role_surface_count_target": 8,
+    "wrapper_implementation_admitted": true,
+    "direct_execution_admitted": false,
+    "ranking_blocked": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "measured_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1892-executable-v2-support-first-measured-execution-branch-synthesis.json"
+  },
+  "next_blocker": "m1892-executable-v2-support-first-measured-execution-branch-synthesis"
 }

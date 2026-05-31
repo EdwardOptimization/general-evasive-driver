@@ -1,0 +1,182 @@
+{
+  "id": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_runner_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+      "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json",
+      "experiments/manifests/m1892-executable-v2-support-first-measured-execution-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement repaired bounded-smoke execution wrapper without running real rollout"
+    ],
+    "derived_from": [
+      "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+      "m1892-executable-v2-support-first-measured-execution-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1892 continues the branch and admits wrapper implementation"
+    ],
+    "supersedes": [
+      "direct repaired bounded-smoke execution with old support-first runner"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+  "public_gates": [
+    "M1893 must implement a repaired bounded-smoke execution wrapper",
+    "M1893 must load support_first_repaired_measured_executable_specs",
+    "M1893 must keep rollout and import row provenance distinct",
+    "M1893 must preserve repair metadata in output rows and aggregates",
+    "M1893 must use focused tests and must not run the real 576-rollout workload",
+    "M1893 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real environment rollout",
+    "do not run real measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_bounded_smoke_runner_implementation",
+    "evidence_increment": "implements the repaired bounded-smoke runner wrapper specified by M1891 after M1892 synthesis while keeping real rollout blocked",
+    "claim_scope": "infrastructure implementation only; focused tests allowed, no real measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repaired specs cannot be loaded without changing actor inputs",
+      "stop if import rows cannot be joined to source episode rows",
+      "stop if wrapper cannot preserve repair metadata and provenance"
+    ],
+    "fallback_plan": [
+      "route to design repair if M1891 contract is insufficient",
+      "route to adapter repair if M1889 artifacts lack required metadata",
+      "route to execution-command design if focused tests pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1892 synthesis continues the branch and admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first repaired bounded-smoke runner implementation",
+    "admission_evidence": [
+      "M1891 specifies wrapper requirements, artifacts, and pass gates",
+      "M1892 completes the required branch synthesis and continues to implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not run real environment rollout",
+      "do not run real measured execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_support_first_repaired_bounded_smoke_execution.py",
+      "tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py",
+      "M1893 implementation document",
+      "M1893 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired execution command design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "wrapper rejects wrong JSON keys or missing import joins",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; runner implementation does not test history necessity.",
+    "history_necessity_tests": [
+      "Implementation must preserve controller profile labels for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1889, M1890, M1891, and M1892 artifacts only.",
+    "negative_result_policy": "If wrapper implementation fails, route to adapter/design repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired bounded-smoke runner wrapper implementation",
+      "no real measured execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1891 repaired bounded-smoke execution protocol can be implemented as a wrapper with focused tests, without actor input changes or real rollout.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_repaired_bounded_smoke_execution.py exists",
+    "tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py exists",
+    "focused tests pass",
+    "wrapper supports 576 rollout rows and 384 import rows",
+    "wrapper preserves repair metadata and provenance",
+    "wrapper keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "implementation file is missing",
+    "tests are missing or fail",
+    "implementation runs real rollout as part of M1893",
+    "implementation changes actor inputs or tunes controller profiles",
+    "implementation drops import row provenance",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py"
+    },
+    {
+      "name": "compileall",
+      "command": "python -m compileall -q src tests"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_repaired_bounded_smoke_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_bounded_smoke_runner_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+    "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+    "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1893 passes if it implements and tests the repaired bounded-smoke wrapper without running real rollout or ranking.",
+  "next_blocker": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "m1892-executable-v2-support-first-measured-execution-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1882-executable-v2-support-first-outcome-localization.md",
+      "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json",
+      "experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M1882-M1891 repaired support-first measured-execution evidence before continuing to wrapper implementation"
+    ],
+    "derived_from": [
+      "m1881-executable-v2-support-first-measured-runner-result-audit",
+      "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1891; implementation requires synthesis first"
+    ],
+    "supersedes": [
+      "direct M1892 wrapper implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+  "public_gates": [
+    "M1892 must synthesize M1882-M1891 evidence before any wrapper implementation",
+    "M1892 must decide whether the branch continues, pivots, stops, or promotes",
+    "M1892 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_branch_synthesis",
+    "evidence_increment": "synthesizes support-first outcome-localization, repair materialization, bounded-smoke preflight, and execution-design evidence from M1882 through M1891",
+    "claim_scope": "branch synthesis only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if bounded-smoke inputs are insufficient",
+      "stop if wrapper implementation is not justified",
+      "stop if the branch should pivot before execution"
+    ],
+    "fallback_plan": [
+      "repair task-quality materialization if M1884/M1889 artifacts are insufficient",
+      "repair execution design if M1891 protocol is incomplete",
+      "continue to wrapper implementation if synthesis passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow cadence reached after M1882-M1891 branch work",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first measured-execution branch synthesis",
+    "admission_evidence": [
+      "M1891 designs repaired bounded-smoke execution but workflow cadence requires synthesis before implementation"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1892 synthesis document",
+      "M1892 status queue scoreboard research log and review",
+      "one follow-up manifest for wrapper implementation"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality and execution infrastructure.",
+    "history_necessity_tests": [
+      "Synthesis must preserve profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1882-M1891 public artifacts only; no reset or rollout.",
+    "negative_result_policy": "If synthesis finds incomplete measured-execution evidence, route to repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first measured-execution branch synthesis and continuation decision",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1882-M1891 have repaired enough support-first task-quality and execution plumbing to continue the branch to repaired bounded-smoke wrapper implementation.",
+  "success_criteria": [
+    "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md exists",
+    "synthesis summarizes M1882-M1891 evidence",
+    "synthesis answers all required synthesis questions",
+    "synthesis chooses continue or an explicit pivot/repair route",
+    "next manifest is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs reset or rollout",
+    "synthesis opens measured execution without an implementation milestone",
+    "synthesis changes actor inputs or tunes profiles"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1882-executable-v2-support-first-outcome-localization.md",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+    "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md"
+  ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+    "decision": "continue",
+    "continued_branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_window": "M1882-M1891",
+    "selected_source_spec_count": 16,
+    "repaired_executable_spec_count": 48,
+    "rollout_workload_cell_count": 576,
+    "import_row_count": 384,
+    "total_panel_row_count": 960,
+    "controller_profile_count": 12,
+    "role_surface_count": 8,
+    "guardrail_violation_count": 0,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "supported_claims": [
+      "bounded repaired smoke is the right next execution scale",
+      "bounded-smoke inputs are count-complete and guardrail-clean",
+      "repaired bounded-smoke wrapper implementation is admitted"
+    ],
+    "unsupported_claims": [
+      "repaired measured execution result",
+      "repaired task-quality success",
+      "controller-family ranking",
+      "paper-level benchmark evidence",
+      "level3 self-identification"
+    ],
+    "next_manifest": "experiments/manifests/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.json"
+  },
+  "decision_rule": "M1892 passes if it synthesizes M1882-M1891 and chooses a next route without running reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation"
+}

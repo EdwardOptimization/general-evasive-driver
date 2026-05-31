@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1891 designs repaired bounded-smoke execution wrapper protocol for 576 rollout rows plus 384 import rows and admits implementation while ranking remains blocked",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T040954Z",
+  "hypothesis": "A repaired bounded-smoke execution protocol can be designed from M1889 artifacts without actor input changes or ranking claims.",
+  "lineage": {
+    "blocked_by": [
+      "M1889 preflight output uses repaired specs and import rows that need a repaired execution wrapper/protocol"
+    ],
+    "derived_from": [
+      "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+    ],
+    "parent_objective": [
+      "design repaired bounded-smoke measured execution wrapper/protocol before rollout"
+    ],
+    "supersedes": [
+      "direct repaired measured execution with old support-first runner"
+    ]
+  },
+  "milestone": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+  "next_blocker": "m1892-executable-v2-support-first-measured-execution-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_repaired_bounded_smoke_execution_design_admit_wrapper_implementation",
+  "public_gates": [
+    "M1891 must design repaired bounded-smoke execution without running it",
+    "M1891 must define how 576 rollout rows and 384 import rows are combined",
+    "M1891 must specify repaired aggregate outputs and post-execution audit gates",
+    "M1891 must keep controller-family ranking blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_repaired_bounded_smoke_execution_design_admit_wrapper_implementation",
+    "milestone": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+    "reason": "M1891 designs repaired bounded-smoke execution wrapper protocol for 576 rollout rows plus 384 import rows and admits implementation while ranking remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md exists",
+    "design specifies 576 rollout rows and 384 import rows",
+    "design specifies repaired runner or wrapper requirements",
+    "design specifies post-execution audit gates",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "type": "gate"
+}
