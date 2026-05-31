@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design
+m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation
+m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit
 ```
 
-Immediate route: M2097 freezes the no-rollout metadata compatibility repair for
-the M2094 public-gate core panel. The exact mapping is
-`spec.panel_source_id := spec.source_reference`, plus workload
-`proxy_template_family` and `generated_source_row` joined from the corresponding
-spec. M2098 must implement this repair and prove measured-runner validation
-failures are `0`, while preserving env configs, workload keys, scenario filters,
-controller profiles, and runner validation. Reset, rollout, measured execution,
-ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2098 implements the no-rollout measured-runner metadata
+compatibility repair for the M2094 public-gate core panel. The repaired
+artifacts have `96` specs, `480` workload rows, `5` profiles, measured-runner
+validation failures `0`, env_config changed `0`, duplicate workload ids `0`,
+and guardrail `0`. M2099 must audit these artifacts before measured-execution
+command design. Reset, rollout, measured execution, ranking, paper claims, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,7 @@
+claim,admissible,reason
+public_gate_core_measured_runner_metadata_compatibility,True,admissible only if repaired artifacts pass measured-runner validation without rollout
+measured_execution_readiness_before_audit,False,M2098 only repairs metadata; measured execution remains blocked until audit
+controller_family_ranking,False,no measured execution or ranking is run
+paper_level_benchmark_evidence,False,metadata compatibility is not paper-level performance evidence
+finite_window_vs_gru_conclusion,False,no controller-family comparison is run
+level3_self_identification,False,metadata compatibility does not test history necessity

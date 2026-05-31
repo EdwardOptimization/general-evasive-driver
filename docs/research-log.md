@@ -36808,3 +36808,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrails: preserve env_config, workload keys, scenario filters, controller profiles, and measured-runner validation
 - follow-up manifest: `experiments/manifests/m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation.json`
 - next: `m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation`
+
+## M2098 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Runner Compatibility Repair Implementation
+
+- status: completed
+- decision: `public_gate_core_measured_runner_compatibility_repair_pass_route_to_result_audit`
+- run artifact: `runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/summary.json`
+- focused tests: `1 passed`
+- reset/rollout/measured execution in M2098: `false`
+- policy actions executed in M2098: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- repaired artifacts: compatible specs `96`, compatible workload rows `480`, profiles `5`
+- validation: spec panel_source_id missing `0`, workload proxy_template_family missing `0`, workload generated_source_row missing `0`, measured-runner validation failures `0`
+- guardrails: env_config changed `0`, duplicate workload ids `0`, guardrail `0`
+- follow-up manifest: `experiments/manifests/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.json`
+- next: `m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit`
