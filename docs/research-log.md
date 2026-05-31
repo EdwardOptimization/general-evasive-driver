@@ -36789,3 +36789,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: no-rollout metadata compatibility repair design; do not weaken measured runner validation and do not mutate env configs or filters
 - follow-up manifest: `experiments/manifests/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.json`
 - next: `m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design`
+
+## M2097 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Runner Compatibility Repair Design
+
+- status: completed
+- decision: `public_gate_core_measured_runner_compatibility_repair_design_admit_no_rollout_implementation`
+- parent design: `docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md`
+- reset/rollout/measured execution in M2097: `false`
+- policy actions executed in M2097: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- exact mapping: `spec.panel_source_id := spec.source_reference`
+- exact mapping: `workload.proxy_template_family := joined spec.proxy_template_family`
+- exact mapping: `workload.generated_source_row := joined spec.generated_source_row`
+- guardrails: preserve env_config, workload keys, scenario filters, controller profiles, and measured-runner validation
+- follow-up manifest: `experiments/manifests/m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation.json`
+- next: `m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation`
