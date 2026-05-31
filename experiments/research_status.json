@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1974,
+    "completed": 1975,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+    "command_log": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution",
     "status": "completed",
-    "task_id": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis"
+    "task_id": "m1966-executable-v2-task-quality-calibrated-measured-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json",
-    "hypothesis": "The calibrated measured runner can execute the M1958 960-cell public diagnostic workload with complete metadata-preserving episode rows and no guardrail violations.",
-    "id": "m1966-executable-v2-task-quality-calibrated-measured-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run calibrated 960-cell measured execution command without ranking or paper claims",
-    "priority": 19610,
+    "command": "see experiments/manifests/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.json",
+    "hypothesis": "M1966 failed closed before rollout because required metadata is missing from the offtrack-boundary-relief workload slice, and the failure can be classified before repair or rerun.",
+    "id": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1966 pre-rollout metadata validation failure before repair or rerun",
+    "priority": 19620,
     "status": "pending",
-    "success_artifact": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json"
+    "success_artifact": "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260531T105927Z"
+  "updated_at_utc": "20260531T110240Z"
 }

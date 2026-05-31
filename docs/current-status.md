@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis
+m1966-executable-v2-task-quality-calibrated-measured-execution
 ```
 
 Current next task:
 
 ```text
-m1966-executable-v2-task-quality-calibrated-measured-execution
+m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -117,7 +117,14 @@ contract and guardrail checks, M1960 reset-validates the panel with `80/80`
 success, M1963 implements the calibrated metadata-preserving runner, and M1964
 freezes the measured execution route. M1966 may now run only the calibrated
 measured execution command with output
-`runs/m1966_executable_v2_task_quality_calibrated_measured_execution`.
+`runs/m1966_executable_v2_task_quality_calibrated_measured_execution`. M1966
+runs that command and fails closed before rollout: `episode_count=0`,
+`environment_rollout_started=false`, `measured_rollout_started=false`, and
+`guardrail_violation_count=0`. The immediate validation failure is
+`missing_spec_field=parent_feasibility_tier_id` for the offtrack-boundary-relief
+workload slice: `8` unique task sources, corresponding to `96` profile
+workload cells. M1967 must audit this metadata/schema gap before any repair or
+rerun.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

@@ -34180,3 +34180,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json`
 - next: `m1966-executable-v2-task-quality-calibrated-measured-execution`
+
+## M1966 Executable V2 Task-Quality Calibrated Measured Execution
+
+- status: completed
+- decision: `task_quality_calibrated_measured_execution_validation_fail_route_to_audit`
+- doc: `docs/m1966-executable-v2-task-quality-calibrated-measured-execution.md`
+- run dir: `runs/m1966_executable_v2_task_quality_calibrated_measured_execution`
+- command return code: `0`
+- result class: `task_quality_calibrated_measured_execution_incomplete_or_fail`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- outcome: failed closed before rollout with `episode_count=0`, `spec_count=0`, `profile_count=0`, `environment_rollout_started=false`, `policy_action_executed=false`, `measured_rollout_started=false`, `guardrail_violation_count=0`
+- validation failure: `missing_spec_field=parent_feasibility_tier_id`
+- localized slice: `8` offtrack-boundary-relief task sources, `96` planned workload profile cells
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.json`
+- next: `m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit`

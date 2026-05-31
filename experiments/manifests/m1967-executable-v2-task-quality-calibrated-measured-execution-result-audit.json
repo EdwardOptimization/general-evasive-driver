@@ -1,0 +1,168 @@
+{
+  "id": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_measured_execution_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+      "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/validation_failure_rows.csv",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1966-executable-v2-task-quality-calibrated-measured-execution.json"
+    ],
+    "parent_objective": [
+      "audit M1966 pre-rollout calibrated measured execution metadata validation failure"
+    ],
+    "derived_from": [
+      "m1966-executable-v2-task-quality-calibrated-measured-execution"
+    ],
+    "blocked_by": [
+      "M1966 failed closed before rollout with missing parent_feasibility_tier_id metadata in offtrack-boundary-relief workload rows"
+    ],
+    "supersedes": [
+      "repairing or rerunning M1966 before classifying the failure"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+  "public_gates": [
+    "M1967 must audit M1966 summary and validation failure rows",
+    "M1967 must determine whether the failure is workload materialization metadata gap runner validation overreach or source-schema gap",
+    "M1967 must separate pre-rollout schema failure from driver performance",
+    "M1967 must choose a repair route or stop condition",
+    "M1967 must not repair rerun rank or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_measured_execution_failure_audit",
+    "evidence_increment": "classifies the M1966 pre-rollout metadata failure and chooses the next repair route",
+    "claim_scope": "failure audit only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1966 failure cannot be localized",
+      "stop if repair route would require weakening metadata preservation",
+      "stop if audit would require rerun before classification"
+    ],
+    "fallback_plan": [
+      "route to workload metadata repair if planned workload omitted required fields",
+      "route to runner validation repair if executable specs contain the field and workload-level validation is over-strict",
+      "route to source-schema repair if offtrack-boundary-relief sources legitimately lack required provenance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1966 pre-rollout measured execution validation failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated measured execution result audit",
+    "admission_evidence": [
+      "M1966 produced summary and validation_failure_rows without starting rollout"
+    ],
+    "blocked_shortcuts": [
+      "do not repair or rerun before audit",
+      "do not interpret pre-rollout failure as driver performance",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+      "M1967 status queue scoreboard research log and review",
+      "one follow-up manifest for selected repair route"
+    ],
+    "next_stage_criteria": [
+      "failure source is classified",
+      "affected rows and cells are counted",
+      "supported and unsupported claims are explicit",
+      "repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; failure audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1967."
+    ],
+    "temporal_evidence_window": "M1966 failed measured execution artifacts.",
+    "negative_result_policy": "Record pre-rollout schema failure as task-quality infrastructure evidence, not driver-performance evidence.",
+    "allowed_claims": [
+      "calibrated measured execution failure audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns failed measured execution attempt into classified repair route",
+    "paper_verdict_delta": "can unblock measured execution only if metadata failure is localized cleanly",
+    "must_synthesize_if": [
+      "M1967 cannot classify the metadata failure",
+      "M1967 would need another audit without a repair route",
+      "the same metadata failure repeats after repair"
+    ]
+  },
+  "hypothesis": "M1966 failed closed before rollout because required metadata is missing from the offtrack-boundary-relief workload slice, and the failure can be classified before repair or rerun.",
+  "success_criteria": [
+    "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md exists",
+    "M1966 result_class and zero-episode failure are summarized",
+    "validation failure rows are counted",
+    "affected workload/source slice is identified",
+    "failure is classified",
+    "repair route is explicit",
+    "no measured execution rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "failure source remains ambiguous",
+    "pre-rollout validation failure is interpreted as driver performance",
+    "repair or rerun is performed before classification",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_measured_execution_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+    "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/validation_failure_rows.csv"
+  ],
+  "decision_rule": "M1967 passes if it classifies the M1966 failure and selects a repair route without rerun or ranking.",
+  "next_blocker": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit"
+}
