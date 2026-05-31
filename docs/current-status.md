@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1955-executable-v2-task-quality-calibrated-source-materialization-design
+m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation
 ```
 
 Current next task:
 
 ```text
-m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation
+m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -56,9 +56,15 @@ calibrated materialization subset from M1952 rows: `80` selected sources x `12`
 controller profiles = `960` planned workload cells, with source-kind quotas
 anchor-neighborhood `32`, success-stabilizer `24`, offtrack-boundary-relief
 `8`, mitigation-isolation-check `16`, and calibrated anchor provenance split
-`16/16` post-friction-step/steady-surface. M1956 must now implement the
-deterministic selector and source-only subset artifacts before any reset,
-measured execution, ranking, paper-level claim, or level3 self-ID claim.
+`16/16` post-friction-step/steady-surface. M1956 implements and runs the
+deterministic selector: selected sources `80`, expected workload `960`,
+source-kind quota pass, calibrated-anchor split `16/16`, success-stabilizer
+surface split `12/12`, duplicate candidate IDs `0`, labels-enter-actor-input
+`0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail
+`0`, result class `task_quality_calibrated_materialization_selector_pass`.
+M1957 must now design the exact preflight/materialization command path before
+any reset, measured execution, ranking, paper-level claim, or level3 self-ID
+claim.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

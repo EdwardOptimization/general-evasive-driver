@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1964,
+    "completed": 1965,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md",
+    "command_log": "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector",
     "status": "completed",
-    "task_id": "m1955-executable-v2-task-quality-calibrated-source-materialization-design"
+    "task_id": "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json",
-    "hypothesis": "The M1955 deterministic selector can create an 80-source calibrated materialization subset from M1952 supported source rows while preserving source-kind, role, surface, and calibrated-anchor provenance quotas.",
-    "id": "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic selector and source-only subset artifacts from M1952 calibrated supported rows",
-    "priority": 19510,
+    "command": "see experiments/manifests/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.json",
+    "hypothesis": "An exact calibrated materialization preflight command can be designed for the M1956 selected source subset while preserving source metadata, accepted-cell provenance, target counts, and no-execution guardrails.",
+    "id": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
+    "kind": "gate",
+    "notes": "Pending: design exact preflight/materialization command path for M1956 selected sources before reset validation",
+    "priority": 19520,
     "status": "pending",
-    "success_artifact": "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json"
+    "success_artifact": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md"
   },
-  "updated_at_utc": "20260531T100207Z"
+  "updated_at_utc": "20260531T101434Z"
 }

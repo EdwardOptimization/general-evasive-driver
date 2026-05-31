@@ -33976,3 +33976,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: reset validity, measured execution readiness, rollout success, ranking, paper-level benchmark evidence, policy improvement, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json`
 - next: `m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation`
+
+## M1956 Executable V2 Task-Quality Calibrated Source Materialization Selector Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_materialization_selector_pass_route_to_preflight_command_design`
+- doc: `docs/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_source_materialization_selector.py`
+- focused tests: `3 passed`
+- config: `configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json`
+- summary: `runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json`
+- reset/rollout/measured execution in M1956: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `task_quality_calibrated_materialization_selector_pass`
+- selected sources: `80` from `130` eligible M1952 supported rows
+- expected planned workload: `960` cells (`80` selected sources x `12` controller profiles)
+- source-kind quotas: anchor-neighborhood `32/32`, success-stabilizer `24/24`, offtrack-boundary-relief `8/8`, mitigation-isolation-check `16/16`
+- calibrated anchor provenance: `32` selected, split `16` post-friction-step and `16` steady-surface
+- success-stabilizer surface preservation: split `12/12` post-friction-step/steady-surface
+- selected supported sources: `80`, duplicate candidate IDs `0`, labels-enter-actor-input `0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail `0`
+- route: preflight/materialization command design next; reset validity, measured execution, ranking, paper evidence, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.json`
+- next: `m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design`

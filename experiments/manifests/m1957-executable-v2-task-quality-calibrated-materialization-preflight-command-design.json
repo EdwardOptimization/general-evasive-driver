@@ -1,0 +1,171 @@
+{
+  "id": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_materialization_preflight_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.md",
+      "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+      "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json",
+      "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/selected_sources.csv",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact calibrated materialization preflight command path for M1956 selected sources"
+    ],
+    "derived_from": [
+      "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation"
+    ],
+    "blocked_by": [
+      "M1956 creates a source-only subset but no executable-spec materialization or preflight command exists"
+    ],
+    "supersedes": [
+      "direct reset validation over M1956 selected source rows without materialization/preflight design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+  "public_gates": [
+    "M1957 must choose the exact preflight/materialization route for M1956 selected sources",
+    "M1957 must specify whether existing M1928 preflight can be adapted or a focused M1958 materializer is required",
+    "M1957 must preserve M1956 selected-source metadata and M1952 accepted-cell provenance",
+    "M1957 must specify target counts and guardrails for the next implementation",
+    "M1957 must keep reset rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_materialization_preflight_design",
+    "evidence_increment": "turns the M1956 source-only subset into an exact executable-spec materialization/preflight command design",
+    "claim_scope": "preflight command design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if no exact schema-safe materialization route exists",
+      "stop if accepted-cell provenance would be dropped",
+      "stop if preflight requires controller-profile tuning or reset execution"
+    ],
+    "fallback_plan": [
+      "route to focused materializer implementation if the existing preflight is not an exact schema match",
+      "route to adapter reuse only if schema compatibility is proven in the design",
+      "route back to source subset repair only if selected-source metadata is insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1956 produced calibrated source-only subset artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated materialization preflight command design",
+    "admission_evidence": [
+      "M1956 selected 80 supported sources with exact source-kind and calibrated-anchor provenance quotas"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset rollout measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not tune controller profiles"
+    ],
+    "allowed_updates": [
+      "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+      "M1957 status queue scoreboard research log and review",
+      "one follow-up manifest for calibrated materialization preflight implementation or schema repair"
+    ],
+    "next_stage_criteria": [
+      "preflight route is exact",
+      "target source/spec/workload counts are explicit",
+      "accepted-cell provenance and source metadata preservation are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; preflight command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1957."
+    ],
+    "temporal_evidence_window": "M1956 calibrated materialization selector artifacts.",
+    "negative_result_policy": "If exact preflight route cannot preserve schema and provenance, route to adapter implementation or source subset repair rather than running reset.",
+    "allowed_claims": [
+      "calibrated materialization preflight command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts a source-only calibrated subset into a preflight/materialization implementation route",
+    "paper_verdict_delta": "can admit executable materialization preflight implementation but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "preflight command design exposes a schema mismatch requiring broader branch change",
+      "calibrated materialization branch reaches cadence",
+      "next action would run reset before materialization preflight"
+    ]
+  },
+  "hypothesis": "An exact calibrated materialization preflight command can be designed for the M1956 selected source subset while preserving source metadata, accepted-cell provenance, target counts, and no-execution guardrails.",
+  "success_criteria": [
+    "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md exists",
+    "preflight/materialization inputs outputs and pass gates are explicit",
+    "target source spec workload and controller-profile counts are explicit",
+    "source metadata and accepted-cell provenance requirements are explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "preflight route is ambiguous",
+    "target counts are ambiguous",
+    "accepted-cell provenance is dropped",
+    "next route is ambiguous",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_materialization_preflight_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.md",
+    "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+    "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json"
+  ],
+  "decision_rule": "M1957 passes if it defines an exact calibrated materialization preflight command design without execution or ranking.",
+  "next_blocker": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design"
+}

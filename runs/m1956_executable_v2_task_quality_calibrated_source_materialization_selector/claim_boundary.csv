@@ -1,0 +1,7 @@
+claim,supported,reason
+calibrated_source_materialization_subset,True,selector artifact preserves M1955 quotas and guardrails
+reset_validity,False,M1956 does not run environment reset
+measured_execution_readiness,False,M1956 writes source-only subset artifacts
+controller_family_ranking,False,M1956 does not execute or compare controller profiles
+paper_level_evidence,False,M1956 is a materialization selector milestone
+level3_self_identification,False,M1956 does not test history necessity
