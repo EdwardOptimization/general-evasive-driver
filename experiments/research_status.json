@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2040,
+    "completed": 2041,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2031-paper-route-controlled-routing-smoke-command-design.md",
+    "command_log": "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2031-paper-route-controlled-routing-smoke-command-design"
+    "task_id": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.json",
-    "hypothesis": "A no-rollout materialization adapter can be designed to convert the M2029 source panel into a bounded executable routing-smoke workload while preserving provenance.",
-    "id": "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout materialization adapter because existing runners cannot directly execute M2029 merged panel with provenance",
-    "priority": 20270,
+    "command": "see experiments/manifests/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.json",
+    "hypothesis": "A no-reset preflight can materialize a bounded 36-source x 12-profile routing-smoke workload while preserving M2029 provenance and proxy semantics.",
+    "id": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-reset materialization preflight for bounded routing-smoke workload; no reset or rollout",
+    "priority": 20280,
     "status": "pending",
-    "success_artifact": "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md"
+    "success_artifact": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T174010Z"
+  "updated_at_utc": "20260531T174903Z"
 }

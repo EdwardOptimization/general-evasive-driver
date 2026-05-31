@@ -1,0 +1,182 @@
+{
+  "id": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_materialization_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv",
+      "runs/m2029_paper_route_t2_t3_source_generation_preflight/generated_source_specs.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.json"
+    ],
+    "parent_objective": [
+      "implement no-reset materialization preflight for controlled routing smoke"
+    ],
+    "derived_from": [
+      "m2032-paper-route-controlled-routing-smoke-materialization-adapter-design"
+    ],
+    "blocked_by": [
+      "M2032 admits no-reset materialization preflight implementation"
+    ],
+    "supersedes": [
+      "direct routing smoke execution without executable specs/workload"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.md",
+  "public_gates": [
+    "M2033 must not reset the environment or execute policy actions",
+    "M2033 must write selected sources executable specs planned workload profile artifacts aggregates claim boundary and summary",
+    "M2033 must preserve M2029 provenance and mark smoke proxy semantics",
+    "M2033 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not drop M2029 source provenance",
+    "do not claim smoke proxy rows are paper-valid tasks",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_routing_smoke_materialization_preflight",
+    "evidence_increment": "materializes bounded routing-smoke executable specs and workload without reset or rollout",
+    "claim_scope": "materialization preflight only; no execution driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization would drop source provenance",
+      "stop if smoke proxy rows are marked paper-valid",
+      "stop if profile artifacts are missing",
+      "stop if env contract checks fail"
+    ],
+    "fallback_plan": [
+      "route to result audit if preflight artifacts are written",
+      "route to adapter repair if materialization failures are localized",
+      "route to source-semantics repair if generated rows cannot be materialized honestly"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2032 admits no-reset materialization preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke materialization preflight implementation",
+    "admission_evidence": [
+      "M2032 defines smoke subset scope output schema proxy semantics and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not execute materialized workload",
+      "do not run environment reset or rollout",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_controlled_routing_smoke_materialization_preflight.py",
+      "tests/test_paper_route_controlled_routing_smoke_materialization_preflight.py",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight",
+      "docs/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.md",
+      "M2033 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "executable specs and planned workload exist",
+      "selected source count and workload count match targets or fail closed",
+      "guardrail violation count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2033 materializes a smoke workload only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2033."
+    ],
+    "temporal_evidence_window": "M2032 materialization adapter design and M2029 source artifacts.",
+    "negative_result_policy": "If materialization is partial or fail-closed, route to audit instead of execution.",
+    "allowed_claims": [
+      "controlled routing-smoke materialization preflight implementation",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates executable smoke workload artifacts from the projected-ready source panel",
+    "paper_verdict_delta": "can admit reset or smoke execution design if materialization passes",
+    "must_synthesize_if": [
+      "M2033 cannot materialize generated T2/T3 rows",
+      "M2033 fails to preserve source provenance",
+      "M2033 would need to treat smoke proxy rows as paper-valid"
+    ]
+  },
+  "hypothesis": "A no-reset preflight can materialize a bounded 36-source x 12-profile routing-smoke workload while preserving M2029 provenance and proxy semantics.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json exists",
+    "selected sources executable specs planned workload profile artifacts and claim boundary exist",
+    "selected source count is 36",
+    "planned workload count is 432",
+    "guardrail_violation_count is 0",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "materialization tool is missing",
+    "required artifacts are missing",
+    "profile artifacts are missing",
+    "source provenance is dropped",
+    "smoke proxy rows are marked paper-valid",
+    "environment reset or policy action execution occurs"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement no-reset materialization preflight and run it over M2029 merged panel sources"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_materialization_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+    "runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv"
+  ],
+  "decision_rule": "M2033 passes if it writes clean no-reset materialization artifacts for the bounded smoke workload without guardrail violations.",
+  "next_blocker": "m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation"
+}

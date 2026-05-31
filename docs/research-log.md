@@ -35412,3 +35412,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.json`
 - next: `m2032-paper-route-controlled-routing-smoke-materialization-adapter-design`
+
+## M2032 Paper-Route Controlled Routing Smoke Materialization Adapter Design
+
+- status: completed
+- decision: `controlled_routing_smoke_materialization_adapter_design_admit_no_reset_preflight_implementation`
+- doc: `docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md`
+- source panel: `runs/m2029_paper_route_t2_t3_source_generation_preflight/merged_panel_sources.csv`
+- reset/rollout/measured execution in M2032: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: select one representative source per family/source_kind from M2029 projected panel, expected `36` sources x `12` profiles = `432` planned smoke rows
+- semantics: generated T2/T3 rows are `smoke_proxy` and `paper_validity_claim=false`; adapter must preserve source provenance and profile artifacts
+- output contract: selected sources, executable specs json/csv, planned workload, profile artifacts, materialization failures, aggregates, claim boundary, summary
+- boundary: design only; no reset, rollout, execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation.json`
+- next: `m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation`

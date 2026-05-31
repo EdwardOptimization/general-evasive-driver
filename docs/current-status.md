@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2031-paper-route-controlled-routing-smoke-command-design
+m2032-paper-route-controlled-routing-smoke-materialization-adapter-design
 ```
 
 Current next task:
 
 ```text
-m2032-paper-route-controlled-routing-smoke-materialization-adapter-design
+m2033-paper-route-controlled-routing-smoke-materialization-preflight-implementation
 ```
 
-Immediate route: M2031 audits direct routing-smoke command options and does not
-freeze execution. The old routing-smoke runner is hard-coded to historical
-T4/T5 hook specs and would not consume M2029 source rows; the calibrated
-measured runner can preserve workload quotas but requires executable specs plus
-planned workload rows that do not yet exist for the M2029 panel. M2032 must
-design a no-rollout materialization adapter from M2029 source rows to executable
-specs/workload rows before any routing-smoke execution. Ranking,
-finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+Immediate route: M2032 designs the no-rollout materialization adapter needed
+before routing-smoke execution. It selects one representative source per
+family/source_kind from the M2029 panel, giving an expected `36` sources x `12`
+profiles = `432` planned smoke rows. Generated T2/T3 rows must be marked
+`smoke_proxy` with `paper_validity_claim=false`; provenance and profile
+metadata must be preserved. M2033 must implement and run only this no-reset
+materialization preflight. Ranking, finite-window-vs-GRU, paper-level, and
+level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
