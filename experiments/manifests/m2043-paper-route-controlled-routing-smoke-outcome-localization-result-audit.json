@@ -1,0 +1,170 @@
+{
+  "id": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_outcome_localization_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/outcome_by_profile.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/outcome_by_family.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/comparison_support_candidates.csv",
+      "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/offtrack_dominance_slices.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit M2042 no-rerun outcome localization and choose repair or comparison route"
+    ],
+    "derived_from": [
+      "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2042 found no comparison-ready or candidate-support slices and broad offtrack dominance"
+    ],
+    "supersedes": [
+      "direct ranking from localized low-support smoke outcomes"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M2043 must audit M2042 result class and count reproduction",
+    "M2043 must interpret zero comparison-ready candidates and broad offtrack dominance",
+    "M2043 must choose task-quality repair, candidate qualification, synthesis, or stop",
+    "M2043 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_outcome_localization",
+    "evidence_axis": "Q_fair_controller_matrix_outcome_localization_result_audit",
+    "evidence_increment": "audits the no-rerun localization result and chooses the next route",
+    "claim_scope": "result audit only; no new rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2042 did not reproduce M2039 outcome counts",
+      "stop if localization artifacts are incomplete",
+      "stop if the audit cannot choose between repair and comparison",
+      "stop if the audit would rank controller families from low-support smoke rows"
+    ],
+    "fallback_plan": [
+      "route to task-quality repair if offtrack dominance is broad and no comparison candidates exist",
+      "route to candidate qualification if supported slices exist",
+      "route to branch synthesis if the next route is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2042 writes no-rerun localization artifacts and names M2043 as next blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke outcome localization result audit",
+    "admission_evidence": [
+      "M2042 result class is controlled_routing_smoke_outcome_localization_pass",
+      "M2042 comparison_ready_candidate_count is 0",
+      "M2042 offtrack_dominance_slice_count is 138"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout during audit",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+      "M2043 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected route"
+    ],
+    "next_stage_criteria": [
+      "M2042 localization pass is audited",
+      "supported and unsupported claims are explicit",
+      "offtrack/candidate result is interpreted",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2043 audits outcome localization only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2043."
+    ],
+    "temporal_evidence_window": "M2042 no-rerun localization artifacts.",
+    "negative_result_policy": "If no candidate slice exists, route to repair or synthesis instead of ranking.",
+    "allowed_claims": [
+      "controlled routing-smoke outcome localization audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2042 localization into a route decision",
+    "paper_verdict_delta": "can determine whether routing-smoke evidence needs task-quality repair before any comparison",
+    "must_synthesize_if": [
+      "M2043 cannot choose a single next route",
+      "M2043 would route to another localization without new evidence"
+    ]
+  },
+  "hypothesis": "M2042 localization can be audited into a single repair or comparison route without new rollout.",
+  "success_criteria": [
+    "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md exists",
+    "M2042 result class and outcome count reproduction are audited",
+    "comparison-ready and candidate-support counts are interpreted",
+    "offtrack dominance is interpreted",
+    "next route is explicit",
+    "no new rollout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2042 artifacts are incomplete",
+    "candidate/offtrack result is not interpreted",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2042_paper_route_controlled_routing_smoke_outcome_localization artifacts and write M2043 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_outcome_localization_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2043 passes if it audits M2042 and chooses a bounded next route without overclaiming.",
+  "next_blocker": "m2044-selected-by-m2043-audit"
+}

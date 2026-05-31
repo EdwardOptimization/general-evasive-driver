@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2042 no-rerun localization pass reproduces M2039 counts with comparison-ready 0 candidate-support 0 offtrack dominance slices 138 guardrail 0",
+  "failure_criteria": [
+    "localizer is missing",
+    "focused tests fail",
+    "outcome counts do not match M2039",
+    "localization artifacts are missing",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T190953Z",
+  "hypothesis": "No-rerun localization can explain the sparse M2039 successes and choose a repair or comparison route without new rollout.",
+  "lineage": {
+    "blocked_by": [
+      "M2041 pivots from routing-smoke branch to no-rerun outcome localization"
+    ],
+    "derived_from": [
+      "m2041-paper-route-controlled-routing-smoke-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_outcome_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2041-paper-route-controlled-routing-smoke-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+      "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/episode_rows.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/profile_aggregate.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/outcome_aggregate.csv"
+    ],
+    "parent_objective": [
+      "localize low-support offtrack-dominated outcomes without rerun"
+    ],
+    "supersedes": [
+      "direct ranking from sparse M2039 successes"
+    ]
+  },
+  "milestone": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run",
+  "next_blocker": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_outcome_localization_pass_route_to_result_audit",
+  "public_gates": [
+    "M2042 must not run new rollout or policy actions",
+    "M2042 must reproduce M2039 outcome counts exactly",
+    "M2042 must localize success/offtrack/collision by profile family source_kind proxy_template and generated_proxy",
+    "M2042 must decide comparison-ready slices versus repair/localization route"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_outcome_localization_pass_route_to_result_audit",
+    "milestone": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run",
+    "reason": "M2042 no-rerun localization pass reproduces M2039 counts with comparison-ready 0 candidate-support 0 offtrack dominance slices 138 guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json exists",
+    "M2039 outcome counts are reproduced exactly",
+    "profile/source/family/proxy localization artifacts exist",
+    "comparison-ready support decision is explicit",
+    "next route is explicit",
+    "no new rollout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2041-paper-route-controlled-routing-smoke-branch-synthesis
+m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run
+m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit
 ```
 
-Immediate route: M2041 synthesizes the M2031-M2040 routing-smoke branch and
-pivots to no-rerun outcome localization. The M2039 run is complete and clean
-(`432/432` episodes, failure `0`, metric completeness `0`, metadata missing
-`0`, guardrail `0`), but not ranking-ready: success `20/432`, collision
-`13/432`, offtrack noncollision noncompletion `399/432`. M2042 must localize
-those outcomes without rerun before any ranking or repair. Controller ranking,
-finite-window-vs-GRU, paper-level generated-task validity, and level3 self-ID
-claims remain blocked.
+Immediate route: M2042 implements and runs no-rerun localization over the
+M2039 routing-smoke measured execution. The localizer reproduces M2039 exactly:
+success `20`, collision `13`, offtrack noncollision noncompletion `399`,
+guardrail `0`, comparison-ready candidates `0`, candidate-support slices `0`,
+and offtrack-dominance slices `138`. M2043 must audit this before selecting
+task-quality repair, comparison candidate qualification, or synthesis.
+Controller ranking, finite-window-vs-GRU, paper-level generated-task validity,
+and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

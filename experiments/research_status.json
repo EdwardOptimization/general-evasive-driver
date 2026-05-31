@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2050,
+    "completed": 2051,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+    "command_log": "docs/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2041-paper-route-controlled-routing-smoke-branch-synthesis"
+    "task_id": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.json",
-    "hypothesis": "No-rerun localization can explain the sparse M2039 successes and choose a repair or comparison route without new rollout.",
-    "id": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rerun outcome localization over M2039 artifacts; no rollout or ranking",
-    "priority": 20370,
+    "command": "see experiments/manifests/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.json",
+    "hypothesis": "M2042 localization can be audited into a single repair or comparison route without new rollout.",
+    "id": "m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2042 localization pass with zero candidates and broad offtrack dominance",
+    "priority": 20380,
     "status": "pending",
-    "success_artifact": "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json"
+    "success_artifact": "docs/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.md"
   },
-  "updated_at_utc": "20260531T190123Z"
+  "updated_at_utc": "20260531T190748Z"
 }

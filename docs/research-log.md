@@ -35608,3 +35608,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: pivot to no-rerun outcome localization before any ranking, task repair, or paper comparison
 - follow-up manifest: `experiments/manifests/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.json`
 - next: `m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run`
+
+## M2042 Paper-Route Controlled Routing Smoke Outcome Localization Implementation and Run
+
+- status: completed
+- decision: `controlled_routing_smoke_outcome_localization_pass_route_to_result_audit`
+- result class: `controlled_routing_smoke_outcome_localization_pass`
+- implementation: `src/autodrift/paper_route_controlled_routing_smoke_outcome_localization.py`
+- focused tests: `3 passed`
+- summary: `runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json`
+- reset/rollout/measured execution in M2042: `false`
+- policy actions executed in M2042: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- localization pass: episode `432/432`, profiles `12/12`, specs `36/36`, families `5/5`, outcome counts match source summary, missing schema fields `[]`, selected metrics finite, guardrail `0`
+- outcome counts: success `20`, collision `13`, offtrack noncollision noncompletion `399`
+- localization result: comparison-ready candidates `0`, candidate-support slices `0`, offtrack-dominance slices `138`, collision-dominance slices `0`
+- profile result: L3 online GRU `8/36`, L3 reset-control-corrected `8/36`, L1 one-step `4/36`, all L2 finite-window profiles `0/36`, L0 current-masked `0/36`
+- decision: route to result audit before task-quality repair or comparison qualification; ranking/paper/self-ID claims remain blocked
+- follow-up manifest: `experiments/manifests/m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit.json`
+- next: `m2043-paper-route-controlled-routing-smoke-outcome-localization-result-audit`

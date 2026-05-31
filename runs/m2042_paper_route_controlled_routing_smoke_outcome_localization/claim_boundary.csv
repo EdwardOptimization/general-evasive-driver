@@ -1,0 +1,6 @@
+claim,admissible,reason
+no_rerun_controlled_routing_smoke_outcome_localization_completed,True,M2042 reads existing M2039 artifacts and writes diagnostic aggregates only
+controller_family_ranking,False,localization identifies support slices but does not run a ranking experiment
+finite_window_vs_gru_conclusion,False,routing smoke is low-support and generated proxy rows are not paper-valid benchmark tasks
+paper_level_benchmark_result,False,routing smoke is not a paper-level benchmark and generated rows remain smoke proxies
+level3_self_identification,False,outcome localization does not test wrong-history or history necessity
