@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1890,
+    "completed": 1891,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1881-executable-v2-support-first-measured-runner-result-audit.md",
+    "command_log": "docs/m1882-executable-v2-support-first-outcome-localization.md",
     "returncode": 0,
+    "run_dir": "runs/m1882_executable_v2_support_first_outcome_localization",
     "status": "completed",
-    "task_id": "m1881-executable-v2-support-first-measured-runner-result-audit"
+    "task_id": "m1882-executable-v2-support-first-outcome-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json",
-    "hypothesis": "The M1880 outcome dominance can be localized from existing artifacts enough to choose the next route without rerunning rollout.",
-    "id": "m1882-executable-v2-support-first-outcome-localization",
+    "command": "see experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json",
+    "hypothesis": "A success-semantics and task-quality repair route can be designed from M1882 localization without changing actor inputs or tuning controller profiles.",
+    "id": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design",
     "kind": "gate",
-    "notes": "Pending: localize M1880 off-track and collision dominance without reset rollout training or ranking",
-    "priority": 18770,
+    "notes": "Pending: design no-training repair route separating success semantics road-boundary geometry and obstacle task quality before ranking",
+    "priority": 18780,
     "status": "pending",
-    "success_artifact": "runs/m1882_executable_v2_support_first_outcome_localization/summary.json"
+    "success_artifact": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md"
   },
-  "updated_at_utc": "20260531T031022Z"
+  "updated_at_utc": "20260531T031936Z"
 }

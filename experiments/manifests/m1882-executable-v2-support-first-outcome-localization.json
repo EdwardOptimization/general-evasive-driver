@@ -137,7 +137,7 @@
   "commands": [
     {
       "name": "localize",
-      "command": "localize M1880 support-first measured execution outcomes without reset or rollout"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_support_first_outcome_localization --episode-rows runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv --summary runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json --output-dir runs/m1882_executable_v2_support_first_outcome_localization --target-episode-count 2160 --next-blocker m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
     }
   ],
   "required_artifacts": [
@@ -154,6 +154,40 @@
     "runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json",
     "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1882_executable_v2_support_first_outcome_localization/summary.json",
+    "doc": "docs/m1882-executable-v2-support-first-outcome-localization.md",
+    "decision": "support_first_outcome_localization_route_to_success_semantics_task_quality_repair_design",
+    "result_class": "support_first_outcome_localization_pass",
+    "episode_count": 2160,
+    "outcome_counts": {
+      "collision_failure": 480,
+      "off_track_noncollision_noncompletion": 1680
+    },
+    "dominant_slice_count": 526,
+    "target_dominant_slice_count": 526,
+    "dominant_role_panel_count": 4,
+    "dominant_role_surface_count": 8,
+    "dominant_profile_count": 12,
+    "outcome_dominance_class": "diffuse_support_first_outcome_dominance",
+    "recommended_next_route": "success_metric_semantics_and_task_quality_repair_design",
+    "ranking_blocked": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json"
+  },
   "decision_rule": "M1882 passes if it localizes the M1880 outcome dominance and chooses a next route without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1882-executable-v2-support-first-outcome-localization"
+  "next_blocker": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
 }

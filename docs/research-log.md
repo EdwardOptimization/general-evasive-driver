@@ -32258,3 +32258,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json`
 - next: `m1882-executable-v2-support-first-outcome-localization`
+
+## M1882 Executable V2 Support-First Outcome Localization
+
+- status: completed
+- decision: `support_first_outcome_localization_route_to_success_semantics_task_quality_repair_design`
+- summary: `runs/m1882_executable_v2_support_first_outcome_localization/summary.json`
+- doc: `docs/m1882-executable-v2-support-first-outcome-localization.md`
+- result class: `support_first_outcome_localization_pass`
+- episode count: `2160`
+- outcome counts: `collision_failure=480`, `off_track_noncollision_noncompletion=1680`
+- dominant slice count: `526`
+- target dominant slice count: `526`
+- dominant role panel count: `4`
+- dominant role-surface count: `8`
+- dominant profile count: `12`
+- outcome dominance class: `diffuse_support_first_outcome_dominance`
+- recommended next route: `success_metric_semantics_and_task_quality_repair_design`
+- reset/rollout in M1882: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: diffuse outcome dominance localized across all role panels role-surfaces and profiles
+- unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json`
+- next: `m1883-executable-v2-support-first-success-semantics-task-quality-repair-design`

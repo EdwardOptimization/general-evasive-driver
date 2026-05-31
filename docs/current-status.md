@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1881-executable-v2-support-first-measured-runner-result-audit
+m1882-executable-v2-support-first-outcome-localization
 ```
 
 Current next task:
 
 ```text
-m1882-executable-v2-support-first-outcome-localization
+m1883-executable-v2-support-first-success-semantics-task-quality-repair-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -71,8 +71,11 @@ ranking/paper/self-ID claim. Raw outcomes were dominated by off-track and
 collision (`success_obstacle_pass=0`, `collision_failure=480`,
 `off_track_noncollision_noncompletion=1680`). M1881 audited this as a valid
 execution pass but not an interpretable controller comparison; ranking remains
-blocked. M1882 must now localize the off-track/collision dominance from existing
-artifacts without reset, rollout, training, or ranking. Controller ranking,
+blocked. M1882 localized the outcome dominance from existing artifacts without
+rerun: `526` dominant slices across all `4` role panels, all `8` role-surfaces,
+and all `12` profiles. The result is diffuse support-first outcome dominance,
+not a controller-specific signal. M1883 must now design a no-training success
+semantics and task-quality repair route before any ranking. Controller ranking,
 paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not

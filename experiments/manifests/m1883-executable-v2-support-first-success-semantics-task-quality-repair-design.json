@@ -1,0 +1,154 @@
+{
+  "id": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_success_semantics_task_quality_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m1882-executable-v2-support-first-outcome-localization.md",
+      "runs/m1882_executable_v2_support_first_outcome_localization/summary.json",
+      "runs/m1882_executable_v2_support_first_outcome_localization/dominant_slices.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1882-executable-v2-support-first-outcome-localization.json"
+    ],
+    "parent_objective": [
+      "design success semantics and task-quality repair after diffuse zero-success localization"
+    ],
+    "derived_from": [
+      "m1882-executable-v2-support-first-outcome-localization"
+    ],
+    "blocked_by": [
+      "M1882 finds diffuse zero-success outcome dominance across role panels role-surfaces and profiles"
+    ],
+    "supersedes": [
+      "controller repair or ranking without success-semantics and task-quality repair design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+  "public_gates": [
+    "M1883 must design a no-training repair route for success semantics and task-quality geometry",
+    "M1883 must decide which fields or scenario parameters can be changed without violating actor input contract",
+    "M1883 must keep controller-family ranking blocked",
+    "M1883 must not run reset rollout training replay PPO or profile tuning"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_success_semantics_task_quality_repair_design",
+    "evidence_increment": "designs the next no-training task-quality repair route after diffuse zero-success localization",
+    "claim_scope": "repair design only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repair would require actor input or reward shortcut changes",
+      "stop if design cannot separate success semantics from road-boundary geometry",
+      "stop if ranking would remain ambiguous after repair"
+    ],
+    "fallback_plan": [
+      "route to success-metric semantics audit if geometry repair is not justified",
+      "route to support-first scenario redesign if current geometry is invalid",
+      "route to branch synthesis if repair scope becomes too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1882 recommends success-metric semantics and task-quality repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first success semantics and task-quality repair design",
+    "admission_evidence": [
+      "M1882 localizes M1880 zero-success dominance as diffuse across all role panels role-surfaces and profiles"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1883 repair design document",
+      "M1883 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout repair materialization or semantics audit"
+    ],
+    "next_stage_criteria": [
+      "repair scope is explicit",
+      "success semantics and task geometry changes are separated",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; task-quality repair design does not test history necessity.",
+    "history_necessity_tests": [
+      "Design must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1880 and M1882 artifacts only.",
+    "negative_result_policy": "If repair design cannot produce comparison-ready scenarios, route to scenario redesign rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first success semantics and task-quality repair design",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A success-semantics and task-quality repair route can be designed from M1882 localization without changing actor inputs or tuning controller profiles.",
+  "success_criteria": [
+    "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md exists",
+    "design separates success semantics from road-boundary and obstacle geometry repair",
+    "design defines a no-rollout materialization or semantics-audit next step",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_success_semantics_task_quality_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1882-executable-v2-support-first-outcome-localization.md",
+    "runs/m1882_executable_v2_support_first_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1883 passes if it designs a clean no-training support-first success-semantics/task-quality repair route without ranking or paper-level claims.",
+  "next_blocker": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
+}
