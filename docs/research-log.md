@@ -32037,3 +32037,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real M1866/M1674 adapter execution result 2160-cell workload matrix measured rollout controller ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.json`
 - next: `m1874-executable-v2-support-first-measured-runner-adapter-execution-design`
+
+## M1874 Executable V2 Support-First Measured Runner Adapter Execution Design
+
+- status: completed
+- decision: `support_first_measured_runner_adapter_execution_design_admit_preflight_run`
+- artifact: `docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md`
+- exact command registered: `true`
+- adapter execution run: `false`
+- output dir: `runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight`
+- target support-first spec count: `180`
+- target controller profile count: `12`
+- target workload cell count: `2160`
+- target role count: `4`
+- target role-surface count: `8`
+- environment reset started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: exact no-rollout adapter execution command and pass gates registered
+- unsupported: adapter execution result 2160-cell workload matrix environment reset rollout measured controller comparison ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json`
+- next: `m1875-executable-v2-support-first-measured-runner-adapter-preflight`

@@ -158,6 +158,34 @@
     "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json",
     "runs/m1674_controller_family_one_seed_public_pilot"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md",
+    "decision": "support_first_measured_runner_adapter_execution_design_admit_preflight_run",
+    "exact_command_registered": true,
+    "adapter_execution_run": false,
+    "output_dir": "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight",
+    "target_support_first_spec_count": 180,
+    "target_controller_profile_count": 12,
+    "target_workload_cell_count": 2160,
+    "target_role_count": 4,
+    "target_role_surface_count": 8,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json"
+  },
   "decision_rule": "M1874 passes if it registers exact adapter execution command and gates without running execution, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1874-executable-v2-support-first-measured-runner-adapter-execution-design"
+  "next_blocker": "m1875-executable-v2-support-first-measured-runner-adapter-preflight"
 }

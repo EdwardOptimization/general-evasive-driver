@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1873-executable-v2-support-first-measured-runner-adapter-implementation
+m1874-executable-v2-support-first-measured-runner-adapter-execution-design
 ```
 
 Current next task:
 
 ```text
-m1874-executable-v2-support-first-measured-runner-adapter-execution-design
+m1875-executable-v2-support-first-measured-runner-adapter-preflight
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -51,9 +51,10 @@ and rollout blocked. M1873 implemented the no-rollout adapter helper and
 focused tests, enforcing separation between support-first scenario profile
 metadata and controller policy profiles. M1874 must now fix the exact adapter
 execution command and pass gates over the real M1866/M1674 artifacts before any
-real no-rollout materialization. Policy action execution, measured execution,
-controller ranking, paper-level claims, and level3 self-ID claims remain
-blocked.
+real no-rollout materialization. M1874 completed that design and admits M1875
+to run only the no-rollout adapter preflight for `180` specs x `12` profiles =
+`2160` workload rows. Policy action execution, measured execution, controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

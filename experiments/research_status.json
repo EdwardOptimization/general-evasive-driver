@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1882,
+    "completed": 1883,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md",
+    "command_log": "docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1873-executable-v2-support-first-measured-runner-adapter-implementation"
+    "task_id": "m1874-executable-v2-support-first-measured-runner-adapter-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.json",
-    "hypothesis": "The no-rollout support-first measured-runner adapter can be executed over M1866 and M1674 artifacts under explicit 180 x 12 target gates.",
-    "id": "m1874-executable-v2-support-first-measured-runner-adapter-execution-design",
-    "kind": "gate",
-    "notes": "Pending: fix exact adapter execution command and gates before real no-rollout materialization",
-    "priority": 18690,
+    "command": "see experiments/manifests/m1875-executable-v2-support-first-measured-runner-adapter-preflight.json",
+    "hypothesis": "The M1873 adapter can materialize the real support-first measured workload matrix with 180 specs, 12 profiles, and 2160 workload rows while preserving semantic guardrails.",
+    "id": "m1875-executable-v2-support-first-measured-runner-adapter-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run exact no-rollout adapter preflight over M1866 and M1674 artifacts",
+    "priority": 18700,
     "status": "pending",
-    "success_artifact": "docs/m1874-executable-v2-support-first-measured-runner-adapter-execution-design.md"
+    "success_artifact": "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T022628Z"
+  "updated_at_utc": "20260531T022927Z"
 }
