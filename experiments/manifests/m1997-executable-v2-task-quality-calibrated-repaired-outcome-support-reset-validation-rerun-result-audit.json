@@ -1,0 +1,161 @@
+{
+  "id": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_rerun_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md",
+      "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.json"
+    ],
+    "parent_objective": [
+      "audit repaired reset-validation rerun result before measured execution command design"
+    ],
+    "derived_from": [
+      "m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun"
+    ],
+    "blocked_by": [
+      "M1996 repaired reset-validation pass has not yet been audited"
+    ],
+    "supersedes": [
+      "direct measured execution command design from M1996 without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+  "public_gates": [
+    "M1997 must audit M1996 pass without rerun",
+    "M1997 must separate reset-validity from measured rollout or ranking claims",
+    "M1997 must decide whether measured execution command design is admissible",
+    "M1997 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_validation_audit",
+    "evidence_increment": "audits repaired reset-validation pass and chooses next execution layer",
+    "claim_scope": "reset result audit only; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1996 pass evidence is not summarized",
+      "stop if audit overclaims reset pass as measured evidence",
+      "stop if quota repair result is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to measured execution command design if reset pass is clean",
+      "route to validator repair if quota artifact repeats",
+      "route to materialization repair if reset or contract failures are real"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1996 produced repaired reset-validation result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired reset-validation rerun result audit",
+    "admission_evidence": [
+      "M1996 repaired reset-validation pass exists"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun reset in audit",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+      "M1997 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution command design or repair"
+    ],
+    "next_stage_criteria": [
+      "M1996 reset result is audited",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1997."
+    ],
+    "temporal_evidence_window": "M1996 reset validation artifacts.",
+    "negative_result_policy": "If audit finds reset evidence not clean, route to repair before measured execution.",
+    "allowed_claims": [
+      "repaired reset-validation result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns repaired reset-validation pass into a measured-execution or repair decision",
+    "paper_verdict_delta": "can admit measured execution command design but cannot rank controllers",
+    "must_synthesize_if": [
+      "M1997 cannot choose a next route",
+      "M1997 would lead to another reset repair",
+      "M1997 would overclaim reset evidence"
+    ]
+  },
+  "hypothesis": "The M1996 repaired reset-validation pass is clean enough to admit measured execution command design.",
+  "success_criteria": [
+    "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md exists",
+    "M1996 pass counts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1996 result is not summarized",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_rerun_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json",
+    "docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md"
+  ],
+  "decision_rule": "M1997 passes if it audits M1996 and chooses the next route without rerun or overclaiming.",
+  "next_blocker": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit"
+}

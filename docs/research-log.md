@@ -34709,3 +34709,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: M1996 may run only the frozen repaired reset-only command; interpretation deferred to M1997 audit
 - follow-up manifest: `experiments/manifests/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.json`
 - next: `m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun`
+
+## M1996 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Rerun
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_repaired_reset_validation_pass_route_to_result_audit`
+- doc: `docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md`
+- summary: `runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json`
+- reset/rollout/measured execution: reset `true`, rollout `false`, measured `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: repaired reset-only validation pass with `result_class=task_quality_calibrated_reset_validation_preflight_pass`, reset attempts `80`, reset successes `80`, reset failures `0`, finite observations `80`, observation dimension failures `0`, obstacle initialized `80`, expected quota source `executable_task_specs`, quota metadata missing `0`, source-kind quota pass `true`, role-surface quota pass `true`, contract `0`, label actor-input `0`, forbidden-key `0`, guardrail `0`
+- route: audit repaired reset-validation pass before measured execution command design
+- follow-up manifest: `experiments/manifests/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.json`
+- next: `m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit`

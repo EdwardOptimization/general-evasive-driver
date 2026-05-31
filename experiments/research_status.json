@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2004,
+    "completed": 2005,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.md",
+    "command_log": "docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired",
     "status": "completed",
-    "task_id": "m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design"
+    "task_id": "m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json --output-dir runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired --eval-seed-base 199600 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit",
-    "hypothesis": "The repaired artifact-driven quota validator restores a clean reset-validation pass for the M1986 repaired outcome-support executable specs.",
-    "id": "m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun",
-    "kind": "infrastructure",
-    "notes": "Pending: rerun only repaired reset-only validator over M1986 executable specs",
-    "priority": 19910,
+    "command": "see experiments/manifests/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.json",
+    "hypothesis": "The M1996 repaired reset-validation pass is clean enough to admit measured execution command design.",
+    "id": "m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit repaired reset pass before measured execution command design",
+    "priority": 19920,
     "status": "pending",
-    "success_artifact": "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json"
+    "success_artifact": "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md"
   },
-  "updated_at_utc": "20260531T132027Z"
+  "updated_at_utc": "20260531T132428Z"
 }

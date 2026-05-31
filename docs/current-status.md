@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design
+m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun
 ```
 
 Current next task:
 
 ```text
-m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun
+m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -275,7 +275,14 @@ freezes the M1996 repaired reset-only command using output
 `runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired`,
 eval seed base `199600`, target specs `80`, and expected observation dim `72`.
 M1996 may now run only that reset-only command; rollout, measured execution,
-ranking, paper-level evidence, and level3 self-ID remain blocked.
+ranking, paper-level evidence, and level3 self-ID remain blocked. M1996 runs
+that repaired reset-only command and passes: reset successes `80/80`, reset
+failures `0`, finite observations `80`, observation dimension failures `0`,
+obstacle initialized `80`, expected quota source `executable_task_specs`,
+quota metadata missing `0`, source-kind quota pass `true`, role-surface quota
+pass `true`, contract `0`, label actor-input `0`, forbidden-key `0`, and
+guardrail `0`. M1997 must audit this pass before measured execution command
+design.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
