@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1884,
+    "completed": 1885,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1875-executable-v2-support-first-measured-runner-adapter-preflight.md",
+    "command_log": "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1875-executable-v2-support-first-measured-runner-adapter-preflight"
+    "task_id": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.json",
-    "hypothesis": "The clean M1875 adapter preflight is sufficient to admit measured runner execution design while preserving diagnostic-only claim boundaries.",
-    "id": "m1876-executable-v2-support-first-measured-runner-adapter-result-audit",
+    "command": "see experiments/manifests/m1877-executable-v2-support-first-measured-runner-execution-design.json",
+    "hypothesis": "A measured runner execution protocol can be designed over the clean M1875 support-first workload while preserving role-wise diagnostics and claim boundaries.",
+    "id": "m1877-executable-v2-support-first-measured-runner-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit clean 2160-cell no-rollout adapter preflight before measured runner execution design",
-    "priority": 18710,
+    "notes": "Pending: design support-first measured runner execution or implementation route over clean M1875 workload",
+    "priority": 18720,
     "status": "pending",
-    "success_artifact": "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md"
+    "success_artifact": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md"
   },
-  "updated_at_utc": "20260531T023244Z"
+  "updated_at_utc": "20260531T023536Z"
 }

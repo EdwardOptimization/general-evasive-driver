@@ -1,0 +1,164 @@
+{
+  "id": "m1877-executable-v2-support-first-measured-runner-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_runner_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.json"
+    ],
+    "parent_objective": [
+      "design support-first measured runner execution over the clean M1875 workload"
+    ],
+    "derived_from": [
+      "m1876-executable-v2-support-first-measured-runner-adapter-result-audit"
+    ],
+    "blocked_by": [
+      "M1876 admits measured runner execution design but direct rollout command is not registered"
+    ],
+    "supersedes": [
+      "direct measured rollout after adapter preflight audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+  "public_gates": [
+    "M1877 must design measured execution over support-first measured specs and workload matrix without running rollout",
+    "M1877 must preserve scenario_profile_name controller_profile_name role surface and support-first metadata in episode rows",
+    "M1877 must define resumability output artifacts pass/fail counters and role-wise aggregates",
+    "M1877 must keep controller ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_measured_runner_execution_design",
+    "evidence_increment": "designs the actual measured rollout runner contract after clean no-rollout workload materialization",
+    "claim_scope": "measured runner execution design only; no reset, rollout, training, replay, PPO, promotion, private holdout, ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if existing runner cannot preserve support-first metadata",
+      "stop if measured execution would hide role-surface imbalance",
+      "stop if output artifacts or resumability are not explicit",
+      "stop if controller ranking would be admitted from diagnostic execution"
+    ],
+    "fallback_plan": [
+      "route to measured runner implementation if support-first wrapper is required",
+      "route to exact measured execution if an existing runner can safely consume the artifacts",
+      "route to adapter/schema repair if required metadata cannot be preserved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1876 clean adapter result audit admits measured runner execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first measured runner execution design",
+    "admission_evidence": [
+      "M1876 audits M1875 as clean and admits measured runner execution design"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1877 execution design document",
+      "M1877 status queue scoreboard research log and review",
+      "one follow-up manifest for measured runner implementation, execution, or repair"
+    ],
+    "next_stage_criteria": [
+      "runner route is explicit",
+      "metadata preservation contract is explicit",
+      "output artifacts and pass/fail counters are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured runner execution design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve controller profile identity for later current-response/finite-window/GRU comparisons."
+    ],
+    "temporal_evidence_window": "No rollout in design.",
+    "negative_result_policy": "If measured execution cannot preserve metadata and role-wise diagnostics, route to runner implementation or schema repair rather than weakening evidence standards.",
+    "allowed_claims": [
+      "support-first measured runner execution design",
+      "no rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A measured runner execution protocol can be designed over the clean M1875 support-first workload while preserving role-wise diagnostics and claim boundaries.",
+  "success_criteria": [
+    "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md exists",
+    "design states exact runner route or implementation need",
+    "design preserves support-first metadata and role-surface imbalance explicitly",
+    "design defines output artifacts pass/fail counters and resumability",
+    "design blocks ranking paper-level and level3 self-ID claims",
+    "no environment reset rollout policy action measured rollout training replay PPO or ranking is run"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset rollout or policy actions",
+    "design hides support-first metadata or role-surface imbalance",
+    "design routes directly to controller ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1877-executable-v2-support-first-measured-runner-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_measured_runner_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1876-executable-v2-support-first-measured-runner-adapter-result-audit.md",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/summary.json",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+  ],
+  "decision_rule": "M1877 passes if it designs measured runner execution or implementation route without running rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1877-executable-v2-support-first-measured-runner-execution-design"
+}

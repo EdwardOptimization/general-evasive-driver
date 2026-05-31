@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1875-executable-v2-support-first-measured-runner-adapter-preflight
+m1876-executable-v2-support-first-measured-runner-adapter-result-audit
 ```
 
 Current next task:
 
 ```text
-m1876-executable-v2-support-first-measured-runner-adapter-result-audit
+m1877-executable-v2-support-first-measured-runner-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -55,9 +55,12 @@ real no-rollout materialization. M1874 completed that design and admits M1875
 to run only the no-rollout adapter preflight for `180` specs x `12` profiles =
 `2160` workload rows. M1875 passed: it materialized the 2160-row diagnostic
 workload with zero profile semantic violations, zero missing artifacts, and
-zero guardrail violations. M1876 must audit this result before measured runner
-execution design. Policy action execution, measured execution, controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+zero guardrail violations. M1876 audited this result as clean and admits
+measured runner execution design, but not direct measured rollout. M1877 must
+now design the support-first measured runner route while preserving
+support-first metadata and role-wise diagnostics. Policy action execution,
+measured execution, controller ranking, paper-level claims, and level3 self-ID
+claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
