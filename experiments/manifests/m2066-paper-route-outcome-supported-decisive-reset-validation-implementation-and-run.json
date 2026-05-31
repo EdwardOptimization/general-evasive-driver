@@ -4,7 +4,7 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure"
   ],
   "lineage": {
     "parent_checkpoint": [
@@ -117,13 +117,13 @@
     ]
   },
   "local_search_guard": {
-    "actual_progress_type": "new_closed_loop_data",
+    "actual_progress_type": "new_dataset_or_panel",
     "process_overhead": "medium",
     "local_search_risk": "medium",
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0,
-    "evidence_expansion": "validates reset feasibility for the new materialized panel",
-    "paper_verdict_delta": "can admit measured smoke command design after audit but cannot decide paper verdict by itself",
+    "evidence_expansion": "implements a focused reset validator and shows the new materialized panel is not reset-valid yet",
+    "paper_verdict_delta": "blocks measured smoke and routes to reset-failure audit before any paper-route comparison",
     "must_synthesize_if": [
       "M2066 fails and the same reset failure repeats after one repair attempt",
       "M2066 suggests measured smoke before reset result audit",

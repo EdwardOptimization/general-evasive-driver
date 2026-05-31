@@ -16,22 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2065-paper-route-outcome-supported-decisive-reset-validation-command-design
+m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run
+m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit
 ```
 
-Immediate route: M2065 freezes the reset-validation route for the M2063
-`240`-spec materialized panel. Existing controlled-routing-smoke reset wrappers
-are not used as-is because they expect old metadata and would create false
-metadata-missing failures. M2066 must implement a focused reset-only validator
-that preserves M2063 candidate provenance, then run exactly `240` reset attempts
-with expected observation dimension `72`. Rollout, measured execution, policy
-actions, ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2066 implements the focused reset-only validator and fails
+closed on the M2063 `240`-spec materialized panel: reset attempts/success/failure
+are `240/0/240`. The failure distribution is `117` warmup-gate invalid configs
+and `123` obstacle-filter sampling failures. Metadata, actor-input contract,
+forbidden-key, and guardrail counts are all `0`; this is a task
+materialization/source-filter validity blocker, not controller evidence.
+M2067 must audit the failure classes and choose materialization schema repair,
+source/filter repair, combined repair, or synthesis. Rollout, measured
+execution, policy actions, ranking, paper claims, and self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
