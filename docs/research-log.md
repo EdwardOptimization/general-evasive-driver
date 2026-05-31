@@ -33591,3 +33591,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - test coverage: metadata preservation and aggregates; rollout failure preservation; schema mismatch fail-closed
 - follow-up manifest: `experiments/manifests/m1937-executable-v2-task-quality-measured-execution-command-design.json`
 - next: `m1937-executable-v2-task-quality-measured-execution-command-design`
+
+## M1937 Executable V2 Task-Quality Measured Execution Command Design
+
+- status: completed
+- decision: `task_quality_measured_execution_command_design_admit_execution`
+- doc: `docs/m1937-executable-v2-task-quality-measured-execution-command-design.md`
+- runner: `src/autodrift/executable_v2_task_quality_measured_runner.py`
+- executable specs: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
+- workload matrix: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv`
+- output dir: `runs/m1938_executable_v2_task_quality_measured_execution`
+- eval seed base: `193800`
+- target episode count: `960`
+- target spec count: `80`
+- target profile count: `12`
+- device: `cpu`
+- real measured execution in M1937: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_measured_runner --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --workload runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m1938_executable_v2_task_quality_measured_execution --eval-seed-base 193800 --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --device cpu --next-blocker m1939-executable-v2-task-quality-measured-execution-result-audit`
+- follow-up manifest: `experiments/manifests/m1938-executable-v2-task-quality-measured-execution.json`
+- next: `m1938-executable-v2-task-quality-measured-execution`

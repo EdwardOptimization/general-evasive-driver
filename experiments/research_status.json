@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1945,
+    "completed": 1946,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
+    "command_log": "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md",
+    "run_dir": "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation"
+    "task_id": "m1937-executable-v2-task-quality-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1937-executable-v2-task-quality-measured-execution-command-design.json",
-    "hypothesis": "The M1936 adapter can be routed into a single exact measured execution command over the 960-cell M1928 workload.",
-    "id": "m1937-executable-v2-task-quality-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exact measured execution command target counts artifacts and gates before real 960-cell rollout",
-    "priority": 19320,
+    "command": "see experiments/manifests/m1938-executable-v2-task-quality-measured-execution.json",
+    "hypothesis": "The M1936 adapter can complete the 960-cell public diagnostic measured workload with zero failures and clean guardrails.",
+    "id": "m1938-executable-v2-task-quality-measured-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen 960-cell public diagnostic measured workload and defer interpretation to result audit",
+    "priority": 19330,
     "status": "pending",
-    "success_artifact": "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md"
+    "success_artifact": "runs/m1938_executable_v2_task_quality_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260531T083327Z"
+  "updated_at_utc": "20260531T083613Z"
 }

@@ -1,0 +1,164 @@
+{
+  "id": "m1938-executable-v2-task-quality-measured-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1937-executable-v2-task-quality-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "run the frozen 960-cell public diagnostic measured workload over the reset-valid M1928 panel"
+    ],
+    "derived_from": [
+      "m1937-executable-v2-task-quality-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "measured rollout has not been run over the reset-valid M1928 panel"
+    ],
+    "supersedes": [
+      "claiming measured performance from reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1938-executable-v2-task-quality-measured-execution.md",
+  "public_gates": [
+    "M1938 must run exactly the frozen measured execution command",
+    "M1938 must preserve episode rows and failure rows",
+    "M1938 must not rank controller families or claim paper-level evidence",
+    "M1938 must route interpretation to M1939 audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_measured_execution_data",
+    "evidence_increment": "produces first measured rollout data over the reset-valid redesigned task-quality panel",
+    "claim_scope": "public diagnostic measured rollout artifacts only; no ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if any workload row fails",
+      "stop if metric completeness fails",
+      "stop if guardrails or output counts fail"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit if incomplete",
+      "repair runner only after M1939 localizes failure",
+      "design outcome localization or controller comparison only after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "ninth milestone of reset execution branch after M1930-M1937",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "task-quality measured execution",
+    "admission_evidence": [
+      "M1937 froze exact measured execution command and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not train replay PPO",
+      "do not rank controller families",
+      "do not interpret measured rows before audit"
+    ],
+    "allowed_updates": [
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/failure_rows.csv",
+      "M1938 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "960 episode rows",
+      "zero failures",
+      "zero metric completeness failures",
+      "zero guardrail violations",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured execution alone does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1938."
+    ],
+    "temporal_evidence_window": "M1928 reset-valid panel and M1936 measured runner adapter.",
+    "negative_result_policy": "If measured execution fails or shows zero-success dominance, audit before repair or ranking.",
+    "allowed_claims": [
+      "task-quality public diagnostic measured execution artifacts",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds measured closed-loop data over the redesigned task-quality panel",
+    "paper_verdict_delta": "can inform later controller comparison after audit but cannot be paper-level by itself",
+    "must_synthesize_if": [
+      "M1938 fails due to adapter metadata or metric completeness",
+      "M1938 produces zero-success dominance similar to earlier branches",
+      "M1938 output is interpreted without M1939 audit"
+    ]
+  },
+  "hypothesis": "The M1936 adapter can complete the 960-cell public diagnostic measured workload with zero failures and clean guardrails.",
+  "success_criteria": [
+    "runs/m1938_executable_v2_task_quality_measured_execution/summary.json exists",
+    "result_class is task_quality_measured_execution_pass",
+    "episode_count equals 960",
+    "failure_count equals 0",
+    "metric_completeness_failure_count equals 0",
+    "guardrail_violation_count equals 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "episode_count differs from 960",
+    "any workload row fails",
+    "metric completeness fails",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "measured_execution",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_measured_runner --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --workload runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m1938_executable_v2_task_quality_measured_execution --eval-seed-base 193800 --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --device cpu --next-blocker m1939-executable-v2-task-quality-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1937-executable-v2-task-quality-measured-execution-command-design.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "decision_rule": "M1938 passes if the frozen measured command completes all 960 rows with zero failures and clean guardrails, then routes to result audit.",
+  "next_blocker": "m1938-executable-v2-task-quality-measured-execution"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1936-executable-v2-task-quality-measured-runner-adapter-implementation
+m1937-executable-v2-task-quality-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m1937-executable-v2-task-quality-measured-execution-command-design
+m1938-executable-v2-task-quality-measured-execution
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -304,7 +304,11 @@ rollout still blocked. M1936 implemented that adapter and synthetic tests
 passed (`3 passed`): it preserves M1928 tier/role/split/surface metadata,
 writes episode/failure/aggregate/claim-boundary artifacts, and fails closed on
 schema mismatch or rollout exceptions. M1937 must now freeze the exact real
-measured execution command before M1938 can run the 960-cell workload.
+measured execution command before M1938 can run the 960-cell workload. M1937
+completed that command design: M1938 must run the focused measured runner over
+the `960` public diagnostic cells with seed base `193800`, `80` target specs,
+`12` target profiles, CPU device, and output dir
+`runs/m1938_executable_v2_task_quality_measured_execution`.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
