@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2080,
+    "completed": 2081,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
+    "command_log": "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit"
+    "task_id": "m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.json",
-    "hypothesis": "The M2070 repaired specs can be reset-validated using the focused reset validator with target count 240 and expected observation dimension 72.",
-    "id": "m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exact reset-only command for M2070 repaired specs without running reset",
-    "priority": 20670,
+    "command": "see experiments/manifests/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.json",
+    "hypothesis": "The repaired 240-spec panel can reset successfully with finite 72-dim human-view observations while preserving metadata and claim guards.",
+    "id": "m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen repaired reset-only validation 240 attempts obs dim 72",
+    "priority": 20680,
     "status": "pending",
-    "success_artifact": "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md"
+    "success_artifact": "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T214128Z"
+  "updated_at_utc": "20260531T214523Z"
 }

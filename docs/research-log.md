@@ -36233,3 +36233,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit repaired reset-validation command design; reset execution remains blocked until command design
 - follow-up manifest: `experiments/manifests/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.json`
 - next: `m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design`
+
+## M2072 Paper-Route Outcome-Supported Decisive Repaired Reset Validation Command Design
+
+- status: completed
+- decision: `outcome_supported_decisive_repaired_reset_command_design_route_to_existing_validator_run`
+- doc: `docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md`
+- repaired specs: `runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json`
+- reset execution in M2072: `false`
+- rollout/measured execution in M2072: `false`
+- policy actions executed in M2072: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen target: `240` reset attempts, expected observation dim `72`, eval seed base `207300`
+- output dir: `runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight`
+- validator: `autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight`
+- follow-up manifest: `experiments/manifests/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.json`
+- next: `m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run`
