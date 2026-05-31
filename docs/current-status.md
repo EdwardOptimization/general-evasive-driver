@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis
+m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design
+m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -245,7 +245,12 @@ unsupported selected `0`, contract `0`, and guardrail `0`. Reset validity,
 measured rollout success, controller-family ranking, paper-level evidence,
 finite-window vs GRU, and level3 self-ID remain blocked. M1989 must freeze the
 exact reset-only validation command over the M1986 executable specs; it must
-not run reset.
+not run reset. M1989 freezes that command for M1990: use
+`runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json`,
+output `runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight`,
+eval seed base `199000`, target specs `80`, and expected observation dim `72`.
+M1990 may now run only that reset-only command; rollout, measured execution,
+ranking, paper-level evidence, and level3 self-ID remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

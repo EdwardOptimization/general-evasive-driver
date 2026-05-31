@@ -1,0 +1,174 @@
+{
+  "id": "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "run the frozen reset-only validation command over M1986 repaired outcome-support executable specs"
+    ],
+    "derived_from": [
+      "m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "M1986 repaired outcome-support executable specs have not been reset-validated"
+    ],
+    "supersedes": [
+      "interpreting M1986 materialization as reset-valid without reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
+  "public_gates": [
+    "M1990 must run only the frozen reset-only command from M1989",
+    "M1990 must target 80 specs and observation dimension 72",
+    "M1990 must preserve reset failure artifacts if any reset fails",
+    "M1990 must not run rollout measured execution ranking training replay or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification",
+    "do not repair and rerun inside M1990"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_validation",
+    "evidence_increment": "tests reset validity of the M1986 repaired outcome-support executable specs",
+    "claim_scope": "reset validation only; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if reset_success_count is below 80",
+      "stop if observation dimension or finite checks fail",
+      "stop if contract forbidden-key or guardrail counts are nonzero",
+      "stop if the command differs from M1989"
+    ],
+    "fallback_plan": [
+      "route to reset result audit whether pass or fail",
+      "route to materialization repair only after audit if reset failures are real",
+      "do not rerun with modified seeds or specs inside M1990"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1989 freezes reset-only command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired outcome-support reset validation preflight",
+    "admission_evidence": [
+      "M1989 freezes exact reset-only command over M1986 executable specs"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/*",
+      "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
+      "M1990 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "reset summary exists",
+      "reset pass/fail counts are explicit",
+      "claim boundary is explicit",
+      "follow-up result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset validation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1990."
+    ],
+    "temporal_evidence_window": "M1986 executable specs reset validation only.",
+    "negative_result_policy": "If reset validation fails, preserve artifacts and route to audit before repair.",
+    "allowed_claims": [
+      "repaired outcome-support reset-validation result",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M1986 materialized executable specs into reset-valid or reset-failed evidence",
+    "paper_verdict_delta": "can admit measured execution command design if reset validation is clean but cannot rank controllers",
+    "must_synthesize_if": [
+      "M1990 is followed by repeated reset repair",
+      "reset failures reveal materialization schema drift",
+      "the branch reaches another 10-milestone cadence"
+    ]
+  },
+  "hypothesis": "The M1986 repaired outcome-support executable specs reset cleanly with finite 72-dim human-view observations and clean guardrails.",
+  "success_criteria": [
+    "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json exists",
+    "reset_attempt_count == 80",
+    "reset_success_count == 80",
+    "reset_failure_count == 0",
+    "observation_dimension_failure_count == 0",
+    "contract_violation_count == 0",
+    "forbidden_key_violation_count == 0",
+    "guardrail_violation_count == 0",
+    "no rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "any reset fails",
+    "observation dimension or finite checks fail",
+    "contract forbidden-key or guardrail counts are nonzero",
+    "environment rollout measured execution ranking training replay or PPO is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json --output-dir runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight --eval-seed-base 199000 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight"
+  ],
+  "baseline_artifacts": [
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+    "docs/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.md"
+  ],
+  "decision_rule": "M1990 passes if the frozen reset-only command validates all 80 specs with clean contract and guardrails and then routes to result audit.",
+  "next_blocker": "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight"
+}

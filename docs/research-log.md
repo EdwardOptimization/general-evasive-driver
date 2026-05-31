@@ -34586,3 +34586,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: continue to reset-validation command design only; no direct rollout or ranking
 - follow-up manifest: `experiments/manifests/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.json`
 - next: `m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design`
+
+## M1989 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_command_design_admit_execution`
+- doc: `docs/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.md`
+- executable specs: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json`
+- reset execution in M1989: `false`
+- rollout/measured execution in M1989: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- command: freeze M1990 reset-only validation with output `runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight`, eval seed base `199000`, target specs `80`, expected observation dim `72`
+- pass gates: `80/80` reset success, finite 72-dim observations, obstacle initialized `80`, contract `0`, label actor-input `0`, forbidden-key `0`, guardrail `0`, no rollout/measured execution/policy action/training/replay/PPO/ranking/paper/self-ID claim
+- route: M1990 may run only the frozen reset-only command; result interpretation deferred to M1991 audit
+- follow-up manifest: `experiments/manifests/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.json`
+- next: `m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight`
