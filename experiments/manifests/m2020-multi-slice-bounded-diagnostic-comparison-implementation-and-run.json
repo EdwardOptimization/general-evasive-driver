@@ -1,0 +1,180 @@
+{
+  "id": "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_multi_slice_bounded_diagnostic_comparison"
+    ],
+    "parent_dataset": [
+      "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/admitted_expansion_candidates.csv",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2019-source-diverse-diagnostic-expansion-mining-result-audit.json"
+    ],
+    "parent_objective": [
+      "produce a no-rerun multi-slice bounded diagnostic comparison over admitted M2018 candidates"
+    ],
+    "derived_from": [
+      "m2019-source-diverse-diagnostic-expansion-mining-result-audit"
+    ],
+    "blocked_by": [
+      "M2019 routes to multi-slice bounded diagnostic comparison while keeping ranking and finite-window-vs-GRU claims blocked"
+    ],
+    "supersedes": [
+      "single-slice-only diagnostic interpretation from M2016"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
+  "public_gates": [
+    "M2020 must run only a no-rerun diagnostic postprocess",
+    "M2020 must read admitted M2018 candidates and M2009 episode rows",
+    "M2020 must not reset the environment or execute policy actions",
+    "M2020 must write candidate/profile-group and aggregate profile-group tables",
+    "M2020 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_multi_slice_bounded_diagnostic_comparison",
+    "evidence_axis": "Q_multi_slice_bounded_diagnostic_comparison",
+    "evidence_increment": "turns six admitted M2018 candidates into one multi-slice profile-group diagnostic table without new rollout",
+    "claim_scope": "multi-slice bounded diagnostic comparison only; no ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if admitted candidates cannot be matched to episode rows",
+      "stop if diagnostic tables omit candidate/profile-group outcomes",
+      "stop if output claims broad ranking or finite-window-vs-GRU",
+      "stop if no next audit route is registered"
+    ],
+    "fallback_plan": [
+      "route to result audit if diagnostic tables are generated",
+      "route to candidate-key schema repair if matching fails",
+      "synthesize if multi-slice table remains source-kind singleton and another repair is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2019 routes to multi-slice bounded diagnostic comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "multi-slice bounded diagnostic comparison postprocess",
+    "admission_evidence": [
+      "M2019 routes from six admitted diagnostic candidates to multi-slice diagnostic comparison"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level or finite-window-vs-GRU conclusions"
+    ],
+    "allowed_updates": [
+      "src/autodrift/multi_slice_bounded_diagnostic_comparison.py",
+      "tests/test_multi_slice_bounded_diagnostic_comparison.py",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison",
+      "docs/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
+      "M2020 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "candidate profile-group table is written",
+      "aggregate profile-group table is written",
+      "claim-boundary artifact is written",
+      "guardrail violations are zero",
+      "M2021 audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; multi-slice diagnostic comparison does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2020."
+    ],
+    "temporal_evidence_window": "M2009 episode rows for M2018 admitted candidates.",
+    "negative_result_policy": "If table is weak or source-kind singleton-limited, do not rank; route to repair/redesign/synthesis.",
+    "allowed_claims": [
+      "multi-slice bounded diagnostic profile comparison on admitted public slices",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "summarizes six admitted diagnostic slices before deciding whether broader comparison is justified",
+    "paper_verdict_delta": "can decide whether public diagnostic evidence is broad enough for a controlled comparison design or needs new task-quality support",
+    "must_synthesize_if": [
+      "the diagnostic comparison remains source-kind singleton-limited and another repair loop is proposed",
+      "the table is used to claim broad ranking",
+      "M2021 cannot choose a next route"
+    ]
+  },
+  "hypothesis": "A no-rerun multi-slice bounded diagnostic comparison can summarize M2018 admitted candidates without overclaiming broad ranking.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json exists",
+    "candidate/profile-group and aggregate profile-group CSV files exist",
+    "guardrail_violation_count is 0",
+    "no ranking paper finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "diagnostic comparison tool is missing",
+    "admitted candidates cannot be matched to episode rows",
+    "diagnostic tables are missing",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rerun multi-slice bounded diagnostic comparison and run it on M2018 admitted candidates plus M2009 episode rows"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2020_multi_slice_bounded_diagnostic_comparison/candidate_profile_group_comparison.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_multi_slice_bounded_diagnostic_comparison"
+  ],
+  "baseline_artifacts": [
+    "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+    "runs/m2018_source_diverse_diagnostic_expansion_mining/admitted_expansion_candidates.csv",
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+  ],
+  "decision_rule": "M2020 passes if it writes a multi-slice no-rerun diagnostic comparison with clean guardrails.",
+  "next_blocker": "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run"
+}

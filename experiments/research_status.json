@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2027,
+    "completed": 2028,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+    "command_log": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2018_source_diverse_diagnostic_expansion_mining",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run"
+    "task_id": "m2019-source-diverse-diagnostic-expansion-mining-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2019-source-diverse-diagnostic-expansion-mining-result-audit.json",
-    "hypothesis": "The M2018 mining result is sufficient to choose whether multi-slice diagnostic comparison is warranted.",
-    "id": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2018 expansion diversity boundary and choose multi-slice diagnostic comparison versus repair/redesign",
-    "priority": 20140,
+    "command": "see experiments/manifests/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.json",
+    "hypothesis": "A no-rerun multi-slice bounded diagnostic comparison can summarize M2018 admitted candidates without overclaiming broad ranking.",
+    "id": "m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun multi-slice bounded diagnostic comparison over M2018 admitted candidates",
+    "priority": 20150,
     "status": "pending",
-    "success_artifact": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md"
+    "success_artifact": "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json"
   },
-  "updated_at_utc": "20260531T152541Z"
+  "updated_at_utc": "20260531T153220Z"
 }

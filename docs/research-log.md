@@ -35153,3 +35153,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: supports expansion beyond singleton but not full source-kind diversity, broad ranking, finite-window-vs-GRU, or level3 self-ID
 - follow-up manifest: `experiments/manifests/m2019-source-diverse-diagnostic-expansion-mining-result-audit.json`
 - next: `m2019-source-diverse-diagnostic-expansion-mining-result-audit`
+
+## M2019 Source-Diverse Diagnostic Expansion Mining Result Audit
+
+- status: completed
+- decision: `source_diverse_diagnostic_expansion_audit_route_to_multi_slice_bounded_diagnostic_comparison`
+- doc: `docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md`
+- audited summary: `runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json`
+- next branch: `paper_route_multi_slice_bounded_diagnostic_comparison`
+- reset/rollout/measured execution in M2019: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2018 is enough for multi-slice diagnostic comparison but not source-kind-diverse or paper-level evidence
+- diversity boundary: roles `4`, tiers `3`, surfaces `2`, labels `4`, repair source kinds `1`
+- decision: route to M2020 no-rerun multi-slice bounded diagnostic comparison over admitted M2018 candidates
+- follow-up manifest: `experiments/manifests/m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run.json`
+- next: `m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run`

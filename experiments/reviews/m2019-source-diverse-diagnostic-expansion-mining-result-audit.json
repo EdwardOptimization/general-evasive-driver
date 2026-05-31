@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2019 audits M2018 as multi-slice diagnostic-worthy but source-kind singleton and routes to M2020 comparison",
+  "failure_criteria": [
+    "audit document is missing",
+    "M2018 facts are not summarized",
+    "diversity is overclaimed",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T153428Z",
+  "hypothesis": "The M2018 mining result is sufficient to choose whether multi-slice diagnostic comparison is warranted.",
+  "lineage": {
+    "blocked_by": [
+      "M2018 found multiple admitted candidates beyond the singleton but only one repair_source_kind"
+    ],
+    "derived_from": [
+      "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_source_diverse_diagnostic_expansion_mining_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/diagnostic_expansion_candidates.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/admitted_expansion_candidates.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/source_diversity_summary.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit no-rerun source-diverse diagnostic expansion mining and choose next route"
+    ],
+    "supersedes": [
+      "direct broad comparison from M2018 without auditing diversity boundary"
+    ]
+  },
+  "milestone": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
+  "next_blocker": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_diverse_diagnostic_expansion_audit_route_to_multi_slice_bounded_diagnostic_comparison",
+  "public_gates": [
+    "M2019 must audit M2018 without rerun",
+    "M2019 must separate role/tier/surface/label diversity from source-kind diversity",
+    "M2019 must choose multi-slice diagnostic comparison design, repair, redesign, synthesis, or stop",
+    "M2019 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "source_diverse_diagnostic_expansion_audit_route_to_multi_slice_bounded_diagnostic_comparison",
+    "milestone": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
+    "reason": "M2019 audits M2018 as multi-slice diagnostic-worthy but source-kind singleton and routes to M2020 comparison",
+    "reset_success": "",
+    "success_rate": "0.2833333333",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md exists",
+    "M2018 facts are summarized",
+    "diversity boundary is explicit",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "type": "gate"
+}

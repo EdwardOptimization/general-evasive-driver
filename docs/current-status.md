@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run
+m2019-source-diverse-diagnostic-expansion-mining-result-audit
 ```
 
 Current next task:
 
 ```text
-m2019-source-diverse-diagnostic-expansion-mining-result-audit
+m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -71,8 +71,9 @@ success candidate slices, `6` admitted, and `5` admitted beyond the M2016
 singleton. The support is diverse across role/tier/surface/label but still
 source-kind singleton (`repair_source_kind_count=1`). M2019 must audit whether
 this supports multi-slice diagnostic comparison or requires task-quality
-repair/redesign. No broad ranking or finite-window-vs-GRU conclusion is allowed
-yet.
+repair/redesign; it routes to M2020 multi-slice bounded diagnostic comparison
+while preserving the source-kind singleton boundary. No broad ranking or
+finite-window-vs-GRU conclusion is allowed yet.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean
