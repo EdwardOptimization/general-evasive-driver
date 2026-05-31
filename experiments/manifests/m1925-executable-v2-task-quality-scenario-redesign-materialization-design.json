@@ -1,0 +1,166 @@
+{
+  "id": "m1925-executable-v2-task-quality-scenario-redesign-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_materialization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md",
+      "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json",
+      "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/joined_source_support.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded public materialization subset from audited source-mining support"
+    ],
+    "derived_from": [
+      "m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit"
+    ],
+    "blocked_by": [
+      "M1924 admits materialization design but no executable panel has been materialized"
+    ],
+    "supersedes": [
+      "directly materializing all 399 supported sources without a balanced subset design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md",
+  "public_gates": [
+    "M1925 must design a bounded public materialization subset, not use holdout candidates",
+    "M1925 must define exact selection counts across feasibility tier and role",
+    "M1925 must keep controller-family ranking paper claims and level3 self-ID blocked",
+    "M1925 must not run reset rollout measured execution training replay or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_materialization_design",
+    "evidence_increment": "turns audited source support into a bounded executable materialization plan",
+    "claim_scope": "design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if balanced non-holdout subset cannot be defined",
+      "stop if materialization would include paper holdout candidates",
+      "stop if ranking would be allowed before reset and measured gates"
+    ],
+    "fallback_plan": [
+      "route to materialization implementation if design is complete",
+      "route to source-template repair if balanced non-holdout subset is impossible",
+      "route to branch synthesis if positive support is too source-dominated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1924 admitted materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality scenario materialization design",
+    "admission_evidence": [
+      "M1924 found 399 supported sources and at least four non-holdout supported candidates in every tier-role cell"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset rollout measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not use holdout candidates"
+    ],
+    "allowed_updates": [
+      "M1925 materialization design document",
+      "M1925 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization implementation or schema repair"
+    ],
+    "next_stage_criteria": [
+      "selection protocol is explicit",
+      "target materialization counts are explicit",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1925."
+    ],
+    "temporal_evidence_window": "M1924 source-mining audit and M1921 template artifact.",
+    "negative_result_policy": "If balanced materialization is not possible, record it as scenario-quality evidence and repair/synthesize before controller comparison.",
+    "allowed_claims": [
+      "task-quality scenario materialization design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from source support audit to executable panel materialization design",
+    "paper_verdict_delta": "can admit executable reset/materialization infrastructure but cannot change driver verdict by itself",
+    "must_synthesize_if": [
+      "M1925 cannot define a bounded balanced subset",
+      "M1925 would include paper holdout candidates",
+      "M1925 would allow ranking before reset/measured gates"
+    ]
+  },
+  "hypothesis": "M1924 support is sufficient to define a bounded non-holdout materialization subset with 4 supported sources per feasibility-tier and role cell.",
+  "success_criteria": [
+    "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md exists",
+    "selection protocol excludes paper holdout candidates",
+    "target source count is 80 with 4 sources per 5 tiers x 4 roles",
+    "expected controller-profile workload count is defined",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "selection protocol is ambiguous",
+    "holdout candidates are included",
+    "target counts are ambiguous",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md",
+    "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/joined_source_support.csv"
+  ],
+  "decision_rule": "M1925 passes if it designs a balanced non-holdout materialization subset and explicit next route without rollout or ranking.",
+  "next_blocker": "m1925-executable-v2-task-quality-scenario-redesign-materialization-design"
+}

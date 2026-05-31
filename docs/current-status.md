@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution
+m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit
 ```
 
 Current next task:
 
 ```text
-m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit
+m1925-executable-v2-task-quality-scenario-redesign-materialization-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -245,7 +245,12 @@ supported sources, `44142` accepted cells, and guardrail `0`. Tier/split
 interpretation is deferred. M1924 must now join the mining outputs back to the
 M1921 template metadata and audit feasibility-tier/source-split support before
 any materialization, rollout, controller ranking, paper-level claim, or level3
-self-ID claim.
+self-ID claim. M1924 completed that audit: all `640` rows joined, Tier A/B
+positive-support gates passed, Tier C/D near-miss support passed, public
+debug/gate split support passed, and holdout support is present but unused.
+M1925 must now design a bounded non-holdout materialization subset before any
+reset, rollout, measured execution, controller ranking, paper-level claim, or
+level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

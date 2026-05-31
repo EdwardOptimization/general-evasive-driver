@@ -33286,3 +33286,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation boundary: Tier/split support deferred to M1924 template-join audit
 - follow-up manifest: `experiments/manifests/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.json`
 - next: `m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit`
+
+## M1924 Executable V2 Task-Quality Scenario Redesign Source-Mining Result Audit
+
+- status: completed
+- decision: `task_quality_scenario_source_mining_result_audit_pass_admit_materialization_design`
+- result class: `task_quality_scenario_source_mining_result_audit_pass`
+- doc: `docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md`
+- summary: `runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json`
+- source: `src/autodrift/executable_v2_task_quality_scenario_redesign_source_mining_audit.py`
+- tests: `tests/test_executable_v2_task_quality_scenario_redesign_source_mining_audit.py`
+- focused tests: `2 passed`
+- source-mining execution in M1924: `false`
+- reset/rollout/measured execution in M1924: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- joined sources: `640/640`, missing `0`
+- supported source count: `399`, accepted cells `44142`
+- tier support: `A=80 B=90 C=83 D=77 E=69`
+- split support: `public_debug=243 public_gate=114 paper_holdout_candidate=42`
+- gates: `tier_a_b_positive_support_pass=true tier_c_d_near_miss_support_pass=true split_support_pass=true`
+- follow-up manifest: `experiments/manifests/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.json`
+- next: `m1925-executable-v2-task-quality-scenario-redesign-materialization-design`

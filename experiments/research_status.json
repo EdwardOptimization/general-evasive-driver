@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1932,
+    "completed": 1933,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution.md",
+    "command_log": "docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/summary.json",
+    "run_dir": "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json",
     "status": "completed",
-    "task_id": "m1923-executable-v2-task-quality-scenario-redesign-source-mining-execution"
+    "task_id": "m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.json",
-    "hypothesis": "M1923's mined sources include enough tier/split support to admit a materialization design, but this must be audited by joining to M1921 template metadata.",
-    "id": "m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit",
+    "command": "see experiments/manifests/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.json",
+    "hypothesis": "M1924 support is sufficient to define a bounded non-holdout materialization subset with 4 supported sources per feasibility-tier and role cell.",
+    "id": "m1925-executable-v2-task-quality-scenario-redesign-materialization-design",
     "kind": "gate",
-    "notes": "Pending: join source-mining outputs to template metadata and audit tier/split support",
-    "priority": 19190,
+    "notes": "Pending: design bounded non-holdout materialization subset from audited support",
+    "priority": 19200,
     "status": "pending",
-    "success_artifact": "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json"
+    "success_artifact": "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md"
   },
-  "updated_at_utc": "20260531T072004Z"
+  "updated_at_utc": "20260531T072544Z"
 }
