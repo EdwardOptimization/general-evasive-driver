@@ -1,0 +1,172 @@
+{
+  "id": "m2028-paper-route-t2-t3-source-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_t2_t3_source_generation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/coverage_comparison.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout source-generation branch for unresolved T2/T3 source-kind diversity"
+    ],
+    "derived_from": [
+      "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M2027 pivots from same-artifact repair to T2/T3 same-family source generation"
+    ],
+    "supersedes": [
+      "another same-artifact source repair over M2023/M2026 rows",
+      "direct routing smoke from partial panel readiness"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2028-paper-route-t2-t3-source-generation-design.md",
+  "public_gates": [
+    "M2028 must design source-diverse T2/T3 source generation without rollout",
+    "M2028 must preserve T2 same-current different-older-history semantics",
+    "M2028 must preserve T3 active diagnostic warmup semantics",
+    "M2028 must not weaken the source-kind share threshold without a separate semantics audit",
+    "M2028 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not relabel T4/T5 rows as T2/T3",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_t2_t3_source_generation",
+    "evidence_axis": "Q_fair_controller_matrix_t2_t3_source_generation_design",
+    "evidence_increment": "designs new source-diverse T2/T3 panel evidence after M2027 pivot",
+    "claim_scope": "source-generation design only; no execution driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if the design weakens source-diversity thresholds instead of generating sources",
+      "stop if T2 semantics cannot preserve same-current/different-older-history",
+      "stop if T3 semantics cannot preserve active diagnostic warmup",
+      "stop if the design would use oracle actor inputs or labels as controller inputs"
+    ],
+    "fallback_plan": [
+      "route to threshold/source-kind semantics audit if source-kind taxonomy is the real blocker",
+      "route to split-panel plumbing smoke only if full-panel source generation is infeasible and explicitly bounded",
+      "route to branch synthesis if source generation cannot be specified without overclaiming"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2027 pivot admits a new T2/T3 source-generation design branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "T2/T3 source-generation design for controlled comparison panel readiness",
+    "admission_evidence": [
+      "M2027 synthesis rejects another same-artifact repair and direct execution"
+    ],
+    "blocked_shortcuts": [
+      "do not run execution from a source-generation design",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+      "M2028 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout source-generation implementation"
+    ],
+    "next_stage_criteria": [
+      "T2 generation quotas are specified",
+      "T3 generation quotas are specified",
+      "source-kind share targets remain explicit",
+      "guardrails and claim boundaries are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2028 designs task sources only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2028."
+    ],
+    "temporal_evidence_window": "M2027 synthesis plus governing paper-route plans.",
+    "negative_result_policy": "If source generation cannot preserve T2/T3 semantics, route to threshold/source-kind semantics audit or split-panel synthesis rather than execution.",
+    "allowed_claims": [
+      "T2/T3 source-generation design for controlled comparison readiness",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs a new source-generation branch rather than another same-artifact repair",
+    "paper_verdict_delta": "can unblock the fair controller matrix by making T2/T3 source coverage executable in a future milestone",
+    "must_synthesize_if": [
+      "M2028 cannot specify source-generation quotas",
+      "M2028 routes to another threshold discussion without a concrete artifact plan",
+      "M2028 would create source rows by relabeling existing ready-family rows"
+    ]
+  },
+  "hypothesis": "A no-rollout design can specify clean T2/T3 same-family source generation that preserves the paper-route controller contract and source-diversity thresholds.",
+  "success_criteria": [
+    "docs/m2028-paper-route-t2-t3-source-generation-design.md exists",
+    "T2 source-generation semantics and quotas are specified",
+    "T3 source-generation semantics and quotas are specified",
+    "guardrails and claim boundaries remain intact",
+    "no reset rollout training replay PPO ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design is missing",
+    "T2/T3 semantics are ambiguous",
+    "design weakens thresholds instead of generating sources",
+    "design depends on oracle actor inputs",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2028-paper-route-t2-t3-source-generation-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2028-paper-route-t2-t3-source-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_t2_t3_source_generation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/coverage_comparison.csv"
+  ],
+  "decision_rule": "M2028 passes if it defines a bounded no-rollout source-generation route for T2/T3 without weakening actor or source-diversity contracts.",
+  "next_blocker": "m2028-paper-route-t2-t3-source-generation-design"
+}

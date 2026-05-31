@@ -16,26 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2026-paper-route-controlled-comparison-source-coverage-repair-implementation
+m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit
+m2028-paper-route-t2-t3-source-generation-design
 ```
 
-Immediate route: M2026 implemented the no-rollout source-coverage repair over
-existing public artifacts. It added `12` clean T1 sources, repaired T1 from
-source count `6` and source-kind share `1.0` to source count `18` and share
-`0.3333`, and preserved T4/T5 readiness. The result is partial:
-`panel_ready_for_routing_smoke=false` because T2 and T3 still fail the
-source-kind share gate (`0.5833` and `0.3750`). M2027 must audit this partial
-repair and synthesize the branch before any execution because the local-search
-cadence has fired. It must choose between T2/T3 source generation,
-threshold/source-kind semantics audit, split-panel routing, or stop. Broad
-ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain
-blocked.
+Immediate route: M2027 audits the M2026 partial source repair and synthesizes
+the branch. M2026 fixed T1 and preserved T4/T5, but the panel is still not
+ready for full routing smoke because T2/T3 remain source-kind-share unready
+(`0.5833` and `0.3750`). M2027 rejects direct full routing smoke, threshold
+weakening, split ready-family execution, another same-artifact repair, and
+stopping the paper route. It pivots to M2028: no-rollout T2/T3 same-family
+source-generation design. Broad ranking, finite-window-vs-GRU, paper-level,
+and level3 self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

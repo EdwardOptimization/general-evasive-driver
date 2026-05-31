@@ -35312,3 +35312,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: no execution or ranking is admitted; partial repair must be audited before source generation, threshold semantics, split routing, synthesis, or stop
 - follow-up manifest: `experiments/manifests/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.json`
 - next: `m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit`
+
+## M2027 Paper-Route Controlled Comparison Source Coverage Repair Result Audit
+
+- status: completed
+- decision: `controlled_comparison_source_coverage_repair_synthesis_pivot_to_t2_t3_source_generation_design`
+- synthesis decision: `pivot`
+- doc: `docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md`
+- audited summary: `runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json`
+- reset/rollout/measured execution in M2027: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2026 fixed T1 and preserved T4/T5, but T2 share `0.5833` and T3 share `0.3750` remain unready
+- rejected routes: direct full routing smoke, threshold weakening now, split ready-family routing, another same-artifact repair, and stopping the paper route
+- selected route: pivot to no-rollout T2/T3 same-family source-generation design
+- quantitative planning: T2 likely needs at least `24` clean non-dominant same-family rows if the dominant `21` rows are retained; T3 should add source-diverse warmup rows with slack rather than two-row edge passing
+- boundary: no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2028-paper-route-t2-t3-source-generation-design.json`
+- next: `m2028-paper-route-t2-t3-source-generation-design`
