@@ -168,5 +168,5 @@
     "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json"
   ],
   "decision_rule": "M2038 passes if it freezes an exact measured execution route or cleanly routes to focused runner implementation without executing or ranking.",
-  "next_blocker": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design"
+  "next_blocker": "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run"
 }

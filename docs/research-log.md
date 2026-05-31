@@ -35528,3 +35528,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit measured execution command design; direct execution, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked
 - follow-up manifest: `experiments/manifests/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.json`
 - next: `m2038-paper-route-controlled-routing-smoke-measured-execution-command-design`
+
+## M2038 Paper-Route Controlled Routing Smoke Measured Execution Command Design
+
+- status: completed
+- decision: `controlled_routing_smoke_measured_command_design_route_to_focused_runner_implementation_and_run`
+- doc: `docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md`
+- executable specs: `runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/executable_task_specs.json`
+- planned workload: `runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/planned_workload.csv`
+- measured execution in M2038: `false`
+- rollout/policy actions in M2038: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- runner audit: old `controller_family_measured_routing_smoke.py` is hard-coded to 4 hooks / 48 episodes; calibrated task-quality runner expects repair schema and would lose or fail M2033 metadata
+- route: implement focused runner `autodrift.paper_route_controlled_routing_smoke_measured_runner` and run exact 432-row measured workload in M2039, preserving panel/proxy metadata
+- boundary: M2038 is command design only; no measured execution result, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json`
+- next: `m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run`

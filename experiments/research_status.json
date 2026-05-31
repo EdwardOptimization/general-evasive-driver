@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2046,
+    "completed": 2047,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit.md",
+    "command_log": "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2037-paper-route-controlled-routing-smoke-reset-validation-result-audit"
+    "task_id": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.json",
-    "hypothesis": "An exact measured execution route can be designed for the M2033 432-row controlled routing-smoke workload while preserving metadata and claim boundaries.",
-    "id": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: design measured execution command or focused runner route for reset-valid 432-row workload",
-    "priority": 20330,
+    "command": "see experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json",
+    "hypothesis": "A focused controlled-routing-smoke measured runner can execute the 432-row M2033 workload while preserving metadata and guardrail boundaries.",
+    "id": "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused measured runner and run exact 432-row workload; no ranking or paper claims",
+    "priority": 20340,
     "status": "pending",
-    "success_artifact": "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md"
+    "success_artifact": "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260531T183654Z"
+  "updated_at_utc": "20260531T184050Z"
 }
