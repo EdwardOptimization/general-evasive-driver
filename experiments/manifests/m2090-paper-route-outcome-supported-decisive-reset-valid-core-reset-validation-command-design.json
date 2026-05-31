@@ -1,0 +1,171 @@
+{
+  "id": "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json",
+      "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze reduced-panel fresh reset-validation command"
+    ],
+    "derived_from": [
+      "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit"
+    ],
+    "blocked_by": [
+      "fresh reset validity remains untested after M2088 no-reset reduced-panel materialization"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "another obstacle-filter repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md",
+  "public_gates": [
+    "M2090 must freeze an exact reduced-panel reset-only validation command",
+    "M2090 must use the M2088 reduced 238-row specs",
+    "M2090 must use a fresh eval seed base outside the M2085 reset seed evidence",
+    "M2090 must not run reset rollout measured execution training replay PPO ranking or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_reset_valid_core_panel",
+    "evidence_axis": "Q_reset_valid_core_fresh_reset_command_design",
+    "evidence_increment": "freezes a fresh reset-only command for the 238-row reduced panel",
+    "claim_scope": "command design only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if exact fresh reset command cannot be specified",
+      "stop if command reuses only M2085 reset seeds",
+      "stop if command executes reset in M2090",
+      "stop if command runs rollout or policy actions"
+    ],
+    "fallback_plan": [
+      "route to reduced-panel reset implementation only after command is frozen",
+      "route to distribution redesign if command cannot be specified",
+      "do not repair filters"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2089 admits reduced-panel fresh reset command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-valid core fresh reset-validation command design",
+    "admission_evidence": [
+      "M2089 audits M2088 reduced panel as clean",
+      "M2088 reduced_executable_spec_count 238",
+      "M2088 public_gate_preserved_count 96",
+      "M2088 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in command design",
+      "do not run measured execution",
+      "do not interpret command design as reset validity"
+    ],
+    "allowed_updates": [
+      "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md",
+      "M2090 status queue scoreboard research log and review",
+      "one follow-up manifest for reduced-panel reset implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "exact reset command is frozen",
+      "fresh seed base is explicit",
+      "pass/fail gates are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2090 designs reset validation only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2090."
+    ],
+    "temporal_evidence_window": "M2088-M2089 reduced panel artifacts.",
+    "negative_result_policy": "If the reduced-panel reset command cannot be made exact and fresh-seed, route to distribution redesign rather than weakening guards.",
+    "allowed_claims": [
+      "reset-valid core reset-validation command design",
+      "no reset validity, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from reduced-panel materialization to fresh reset-validation readiness",
+    "paper_verdict_delta": "can admit a fresh reduced-panel reset rerun if command is frozen",
+    "must_synthesize_if": [
+      "M2090 cannot specify a fresh reset command",
+      "M2090 attempts measured execution before reset validation",
+      "the following reset validation fails scenario sampling"
+    ]
+  },
+  "hypothesis": "The M2088 reduced 238-row core panel can be validated with a fresh reset-only command before measured execution is considered.",
+  "success_criteria": [
+    "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md exists",
+    "exact reset-only command is frozen",
+    "fresh eval seed base is 210100",
+    "target reset count is 238",
+    "expected observation dimension is 72",
+    "next implementation-and-run route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "reset command is ambiguous",
+    "fresh seed base is not explicit",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write reduced-panel reset-validation command design from M2089 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_valid_core_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json",
+    "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md"
+  ],
+  "decision_rule": "M2090 passes if it freezes an exact fresh reset-only validation command for the reduced panel without running it or overclaiming.",
+  "next_blocker": "m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run"
+}

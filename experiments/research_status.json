@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2097,
+    "completed": 2098,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md",
+    "command_log": "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md",
     "returncode": 0,
     "run_dir": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction",
     "status": "completed",
-    "task_id": "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation"
+    "task_id": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.json",
-    "hypothesis": "M2088's 238-row reduced panel artifact is clean enough to admit a fresh reduced-panel reset-validation command design.",
-    "id": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit",
+    "command": "see experiments/manifests/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.json",
+    "hypothesis": "The M2088 reduced 238-row core panel can be validated with a fresh reset-only command before measured execution is considered.",
+    "id": "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2088 reduced panel before reduced-panel reset command design or distribution redesign",
-    "priority": 20840,
+    "notes": "Pending: freeze exact fresh reset-only validation command over M2088 reduced 238-row panel",
+    "priority": 20850,
     "status": "pending",
-    "success_artifact": "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md"
+    "success_artifact": "docs/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T230906Z"
+  "updated_at_utc": "20260531T231157Z"
 }

@@ -36618,3 +36618,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2088 materializes the reduced core but does not establish fresh reset validity beyond the M2085 evidence
 - follow-up manifest: `experiments/manifests/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.json`
 - next: `m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit`
+
+## M2089 Paper-Route Outcome-Supported Decisive Reset-Valid Core Panel Reduction Result Audit
+
+- status: completed
+- decision: `reset_valid_core_panel_reduction_audit_admit_fresh_reset_command_design`
+- audited artifact: `runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json`
+- failure taxonomy: `none`
+- reset/rollout/measured execution in M2089: `false`
+- policy actions executed in M2089: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2088 is clean with `238` reduced specs, `2` excluded specs, public-gate preserved `96`, env_config changed `0`, contract/metadata/forbidden-key/profile/guardrail `0`
+- limitation: M2088 is no-reset materialization from M2085 evidence, not fresh reduced-panel reset validity
+- route decision: admits M2090 fresh reduced-panel reset-validation command design
+- frozen command target for M2090 design: reduced specs from M2088, target reset count `238`, expected observation dim `72`, fresh eval seed base `210100`
+- follow-up manifest: `experiments/manifests/m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design.json`
+- next: `m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design`

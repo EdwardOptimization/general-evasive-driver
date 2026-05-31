@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation
+m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit
 ```
 
 Current next task:
 
 ```text
-m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit
+m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design
 ```
 
-Immediate route: M2088 implements and runs the no-reset selector. It
-materializes a `238`-row reduced core, preserves all `96` public-gate rows,
-excludes the two public-debug reset failures, writes `1190` planned sentinel
-workload rows, and keeps env_config/metadata/contract/guardrail counts clean.
-M2089 must audit this artifact and explicitly handle the limitation that the
-reduced panel is reset-valid under M2085 evidence, not yet under a fresh
-reduced-panel reset run. Measured execution, ranking, paper claims, and self-ID
-claims remain blocked.
+Immediate route: M2089 audits the M2088 reduced panel as clean: `238` specs,
+all `96` public-gate rows preserved, two public-debug rows excluded,
+env_config changed `0`, and metadata/contract/guardrail counts clean. The
+remaining limitation is that M2088 is no-reset materialization from M2085
+evidence, not fresh reduced-panel reset validity. M2090 must freeze the fresh
+reset-only command for the reduced panel with target `238`, observation dim
+`72`, and seed base `210100`. Measured execution, ranking, paper claims, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

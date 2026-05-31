@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M2089 audits M2088 reduced panel as clean 238 specs public-gate preserved 96 env_config changed 0 guardrail 0 and admits fresh reduced-panel reset command design",
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2088 result is not classified",
+    "fresh-reset limitation is omitted",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T231338Z",
+  "hypothesis": "M2088's 238-row reduced panel artifact is clean enough to admit a fresh reduced-panel reset-validation command design.",
+  "lineage": {
+    "blocked_by": [
+      "M2088 no-reset materialization must be audited before any reset rerun or measured execution"
+    ],
+    "derived_from": [
+      "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_panel_reduction_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json",
+      "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/reset_valid_core_executable_task_specs.json",
+      "docs/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md"
+    ],
+    "parent_objective": [
+      "audit the reduced reset-valid core panel materialization before reduced-panel reset command design"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "reset validation without reduced-panel materialization audit"
+    ]
+  },
+  "milestone": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit",
+  "next_blocker": "m2090-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "reset_valid_core_panel_reduction_audit_admit_fresh_reset_command_design",
+  "public_gates": [
+    "M2089 must audit M2088 reduced-panel counts and claim guards",
+    "M2089 must decide whether reduced-panel fresh reset-validation command design is admitted",
+    "M2089 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "reset_valid_core_panel_reduction_audit_admit_fresh_reset_command_design",
+    "milestone": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit",
+    "reason": "M2089 audits M2088 reduced panel as clean 238 specs public-gate preserved 96 env_config changed 0 guardrail 0 and admits fresh reduced-panel reset command design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md exists",
+    "M2088 summary and reduced panel artifacts are audited",
+    "fresh-reset limitation is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}
