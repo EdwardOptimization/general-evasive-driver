@@ -1,0 +1,7 @@
+claim,admissible,reason
+density_aware_obstacle_filter_repair_preflight,True,admissible only if no-reset density support gates pass
+reset_validity,False,reset validity requires a later reset-validation rerun
+measured_controller_performance,False,policy actions and measured rollout remain blocked
+controller_family_ranking,False,"repair preflight is task-quality infrastructure, not controller comparison"
+paper_valid_generated_task_semantics,False,generated rows remain smoke proxies until later task-semantics validation
+level3_self_identification,False,repair preflight does not test history necessity

@@ -1,0 +1,168 @@
+{
+  "id": "m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_density_aware_obstacle_filter_repair_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json",
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repair_rows.csv",
+      "docs/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-reset density-aware obstacle-filter repair result before reset command design"
+    ],
+    "derived_from": [
+      "m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2082 repair artifact must be audited before reset validation rerun"
+    ],
+    "supersedes": [
+      "direct reset rerun without no-reset density repair audit",
+      "direct measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md",
+  "public_gates": [
+    "M2083 must audit M2082 density support counts and non-target immutability",
+    "M2083 must decide whether reset command design is admitted",
+    "M2083 must not run reset rollout measured execution training replay PPO ranking or promotion"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_density_aware_obstacle_filter_repair_audit",
+    "evidence_increment": "audits whether density-aware repair is sufficient to admit reset command design",
+    "claim_scope": "repair result audit only; no reset validity rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2082 support pass counts or repair bounds are inconsistent",
+      "stop if reset command design is not justified",
+      "stop if audit would run reset or rollout"
+    ],
+    "fallback_plan": [
+      "route to reset-validation command design if M2082 repair artifact is clean",
+      "route to synthesis and stop if the repair artifact is not clean",
+      "route to panel reduction only through a separate design"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2082 writes density-aware repair artifact with 6/6 targeted support",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "density-aware obstacle-filter repair result audit",
+    "admission_evidence": [
+      "M2082 focused tests passed",
+      "M2082 density_support_pass_count 6",
+      "M2082 density_support_fail_count 0",
+      "M2082 non_target_spec_changed_count 0",
+      "M2082 contract metadata forbidden-key profile and guardrail counts are all 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset before audit",
+      "do not treat no-reset density support as reset validity",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md",
+      "M2083 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2082 repair artifact is audited",
+      "claim boundary remains clean",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2083 audits repair artifacts only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2083."
+    ],
+    "temporal_evidence_window": "M2082 no-reset density-aware repair artifact.",
+    "negative_result_policy": "If the artifact is not audit-clean, route to synthesis or panel reduction rather than reset rerun.",
+    "allowed_claims": [
+      "density-aware obstacle-filter repair audit",
+      "no reset validity, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "separates no-reset density support from actual reset validity before rerun",
+    "paper_verdict_delta": "can admit reset command design if the density repair artifact is clean",
+    "must_synthesize_if": [
+      "M2083 cannot justify a reset command design",
+      "M2083 finds the repair artifact violates bounds or quotas",
+      "the following reset validation still fails scenario sampling"
+    ]
+  },
+  "hypothesis": "M2082's six-row density-aware no-reset repair artifact is clean enough to admit a bounded fresh-seed reset-validation command design.",
+  "success_criteria": [
+    "docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md exists",
+    "M2082 summary and repair rows are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2082 result is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight artifacts and write M2083 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_density_aware_obstacle_filter_repair_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json",
+    "docs/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md"
+  ],
+  "decision_rule": "M2083 passes if it audits the M2082 artifact and selects reset command design, synthesis, or another bounded route without overclaiming.",
+  "next_blocker": "m2084-selected-by-m2083-audit"
+}

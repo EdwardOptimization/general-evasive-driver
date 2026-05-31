@@ -36461,3 +36461,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - M2082 pass gate: `240` specs, targeted repair count `6`, non-target spec changed count `0`, density support pass `6`, density support fail `0`, quotas/contract/metadata/guardrails clean
 - follow-up manifest: `experiments/manifests/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.json`
 - next: `m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation`
+
+## M2082 Paper-Route Outcome-Supported Decisive Density-Aware Obstacle-Filter Repair Preflight Implementation
+
+- status: completed
+- decision: `density_aware_obstacle_filter_repair_preflight_pass_route_to_result_audit`
+- run artifact: `runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json`
+- focused tests: `1 passed`
+- reset/rollout/measured execution in M2082: `false`
+- policy actions executed in M2082: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight_pass`
+- specs/workload: `240` repaired specs and `1200` sentinel workload rows
+- targeted repair count: `6`
+- non-target spec changed count: `0`
+- density support: pass `6`, fail `0`, minimum accepted grid cells `90` against required `80`
+- bounds: distance window max `12.0`, half-width window max `0.7940476190476191`, threshold-score ceiling used `1.0`
+- quota/contract evidence: family quota true, split quota true, difficulty-axis true, contract `0`, metadata `0`, forbidden-key `0`, profile missing `0`, guardrail `0`
+- interpretation: the six residual M2079 failures now have density-aware no-reset support, but reset validity remains untested
+- follow-up manifest: `experiments/manifests/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.json`
+- next: `m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit`
