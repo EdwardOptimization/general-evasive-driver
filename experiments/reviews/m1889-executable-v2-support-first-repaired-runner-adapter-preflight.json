@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1889 preflight passes with 16 sources 48 specs 576 rollout cells 384 imports 960 total and guardrail 0",
+  "failure_criteria": [
+    "summary is missing",
+    "target counts fail",
+    "config failure rows exist",
+    "missing import rows exist",
+    "environment reset or rollout starts",
+    "ranking or paper claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T035532Z",
+  "hypothesis": "The real-artifact no-rollout repaired adapter preflight will produce the registered bounded-smoke artifacts with clean guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "real repaired adapter preflight has been designed but not executed"
+    ],
+    "derived_from": [
+      "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "run no-rollout real-artifact repaired runner adapter preflight"
+    ],
+    "supersedes": [
+      "unregistered repaired adapter preflight"
+    ]
+  },
+  "milestone": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight",
+  "next_blocker": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_repaired_adapter_preflight_pass_route_to_result_audit",
+  "public_gates": [
+    "M1889 must run only the no-rollout adapter preflight command registered in M1888",
+    "M1889 must produce 48 executable specs 576 rollout workload cells 384 import rows and 960 total panel rows",
+    "M1889 must not run environment reset rollout training replay PPO or ranking",
+    "M1889 must not change actor inputs or tune controller profiles"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "support_first_repaired_adapter_preflight_pass_route_to_result_audit",
+    "milestone": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight",
+    "reason": "M1889 preflight passes with 16 sources 48 specs 576 rollout cells 384 imports 960 total and guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json exists",
+    "result_class is support_first_repaired_runner_adapter_pass",
+    "selected source spec count is 16",
+    "executable spec count is 48",
+    "rollout workload cell count is 576",
+    "import row count is 384",
+    "total panel row count is 960",
+    "guardrail violation count is zero"
+  ],
+  "type": "infrastructure"
+}

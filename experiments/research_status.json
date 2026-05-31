@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1897,
+    "completed": 1898,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+    "command_log": "docs/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.md",
     "returncode": 0,
-    "run_dir": "docs/m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design.md",
+    "run_dir": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight",
     "status": "completed",
-    "task_id": "m1888-executable-v2-support-first-repaired-runner-adapter-preflight-design"
+    "task_id": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.json",
-    "hypothesis": "The real-artifact no-rollout repaired adapter preflight will produce the registered bounded-smoke artifacts with clean guardrails.",
-    "id": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run exact no-rollout repaired adapter preflight over real M1884 artifacts; no reset rollout or ranking",
-    "priority": 18840,
+    "command": "see experiments/manifests/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.json",
+    "hypothesis": "M1889 preflight is clean enough to admit repaired bounded-smoke execution design while keeping ranking blocked.",
+    "id": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1889 preflight target counts and decide repaired bounded-smoke execution design route",
+    "priority": 18850,
     "status": "pending",
-    "success_artifact": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json"
+    "success_artifact": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md"
   },
-  "updated_at_utc": "20260531T034956Z"
+  "updated_at_utc": "20260531T035316Z"
 }

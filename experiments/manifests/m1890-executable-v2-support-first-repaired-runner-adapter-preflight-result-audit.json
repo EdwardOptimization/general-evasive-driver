@@ -1,0 +1,159 @@
+{
+  "id": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_preflight_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.json"
+    ],
+    "parent_objective": [
+      "audit real-artifact no-rollout repaired adapter preflight before any measured execution design"
+    ],
+    "derived_from": [
+      "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
+    ],
+    "blocked_by": [
+      "M1889 preflight is adapter infrastructure only and needs audit before repaired measured execution design"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without preflight result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
+  "public_gates": [
+    "M1890 must audit M1889 summary and target counts",
+    "M1890 must decide whether repaired bounded-smoke execution design is admissible",
+    "M1890 must keep direct execution and ranking blocked unless a later exact execution design is registered",
+    "M1890 must not run reset rollout training replay PPO or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_adapter_preflight_audit",
+    "evidence_increment": "audits no-rollout repaired adapter preflight and decides whether bounded-smoke execution design is admissible",
+    "claim_scope": "process audit only; no reset, rollout, measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts fail",
+      "stop if guardrails are violated",
+      "stop if execution design would still be ambiguous"
+    ],
+    "fallback_plan": [
+      "route to adapter repair if preflight fails",
+      "route to execution design if preflight passes",
+      "route to branch synthesis if repaired execution remains blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1889 preflight completed and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first repaired adapter preflight result audit",
+    "admission_evidence": [
+      "M1889 produced a no-rollout preflight summary"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1890 audit document",
+      "M1890 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired bounded-smoke execution design or adapter repair"
+    ],
+    "next_stage_criteria": [
+      "preflight target counts audited",
+      "execution-readiness decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; preflight audit does not test history necessity.",
+    "history_necessity_tests": [
+      "Audit must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1889 artifacts only.",
+    "negative_result_policy": "If preflight is insufficient, route to repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired runner adapter preflight audit",
+      "no reset, rollout, measured execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1889 preflight is clean enough to admit repaired bounded-smoke execution design while keeping ranking blocked.",
+  "success_criteria": [
+    "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md exists",
+    "audit verifies M1889 result class and target counts",
+    "audit verifies guardrails",
+    "audit explicitly decides next route",
+    "audit keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit changes actor inputs or tunes controller profiles",
+    "audit routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_runner_adapter_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+  ],
+  "decision_rule": "M1890 passes if it audits M1889 clean and chooses a clear next route without running rollout or ranking.",
+  "next_blocker": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit"
+}
