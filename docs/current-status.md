@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun
+m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit
 ```
 
 Current next task:
 
 ```text
-m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit
+m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -209,10 +209,14 @@ execution. M1914 implemented the mapping repair and focused tests passed
 (`9 passed`). M1915 reran the exact measured-wrapper execution in a fresh
 output directory with the same eval seed base and passed: `960` measured
 rollout rows, `576` import/postprocess rows, `1536` combined rows, `0`
-failures, and `0` guardrail violations. Interpretation remains deferred.
-M1916 must now audit the complete M1915 panel before any task-quality
-interpretation, controller-family ranking, paper-level claim, training, replay,
-PPO, or level3 self-ID claim.
+failures, and `0` guardrail violations. M1916 audited the panel as complete,
+balanced, and failure-cleared, but not yet interpretable for ranking or
+task-quality claims: all `1536` rows still have raw `success=False`, and the
+`960` newly measured geometry rows are not uniformly classified into the same
+clearance/containment/near-miss taxonomy as the imported/postprocessed rows.
+M1917 must now run a no-rerun outcome localization over the complete M1915
+panel before any task-quality interpretation, controller-family ranking,
+paper-level claim, training, replay, PPO, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

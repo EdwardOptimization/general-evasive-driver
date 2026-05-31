@@ -33128,3 +33128,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.json`
 - next: `m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit`
+
+## M1916 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Rerun Result Audit
+
+- status: completed
+- decision: `measured_wrapper_rerun_result_audit_pass_route_to_outcome_localization`
+- doc: `docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md`
+- audited execution: `docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md`
+- rerun/reset/rollout/measured execution in M1916: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- completeness: `1536` rows, `960` measured rollout rows, `576` import/postprocess rows, `0` failures, `0` guardrail violations
+- M1912 sampling failures cleared: `192 -> 0`
+- balance: `8` repair-axis variants x `192` rows, `4` role panels x `384`, `8` role surfaces x `192`, `12` controller profiles x `128`
+- outcome surface: `success=0/1536`, `collision=True=279/1536`, `off_track termination=1275/1536`
+- blocker: `960` measured geometry rows are count-complete but not uniformly postprocessed into clearance/containment/near-miss conflict classes
+- supported: M1915 is complete enough for a bounded no-rerun outcome localization
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.json`
+- next: `m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization`

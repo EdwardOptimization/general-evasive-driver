@@ -1,0 +1,169 @@
+{
+  "id": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_panel_outcome_localization"
+    ],
+    "parent_dataset": [
+      "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/episode_rows.csv",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "localize the complete M1915 panel outcome surface without rerun"
+    ],
+    "derived_from": [
+      "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "M1916 found the measured geometry rows count-complete but not uniformly classified into clearance/containment conflict classes"
+    ],
+    "supersedes": [
+      "controller ranking from raw success fields",
+      "opening another repair loop before localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.md",
+  "public_gates": [
+    "M1917 must not rerun reset rollout or measured execution",
+    "M1917 must consume the complete M1915 episode rows",
+    "M1917 must assign a consistent clearance/containment/near-miss conflict class to all 1536 rows or explicitly report why a class is unavailable",
+    "M1917 must summarize by repair-axis variant task-quality axis role surface and execution row kind",
+    "M1917 must decide whether task-quality evidence is interpretable or whether branch synthesis is required",
+    "M1917 must keep controller-family ranking, paper-level claims, training, replay, PPO, and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_panel_outcome_localization",
+    "evidence_increment": "adds no-rerun conflict localization over the complete measured repair-axis panel",
+    "claim_scope": "task-quality outcome localization only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if localization cannot classify the measured geometry rows",
+      "stop if the panel remains outcome dominated with no task-quality signal",
+      "stop if the next route would be another local repair rather than synthesis or broader evidence"
+    ],
+    "fallback_plan": [
+      "route to task-quality aggregate audit if localization finds interpretable axis signal",
+      "route to branch synthesis if localization remains outcome dominated",
+      "route to infrastructure repair only if classification failure is a clear artifact bug"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1916 found complete measured execution but coarse outcome fields block interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "no-rerun task-quality measured panel outcome localization",
+    "admission_evidence": [
+      "M1916 audited M1915 as complete and balanced but lacking uniform conflict classes for measured geometry rows"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs",
+      "do not claim paper-level or level3 self-ID evidence"
+    ],
+    "allowed_updates": [
+      "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/*",
+      "M1917 status queue scoreboard research log and review",
+      "one follow-up manifest for aggregate audit branch synthesis or focused artifact repair"
+    ],
+    "next_stage_criteria": [
+      "full-panel localization exists",
+      "classification coverage and missingness are reported",
+      "next route is explicit",
+      "claim boundaries remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; outcome localization does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1917."
+    ],
+    "temporal_evidence_window": "M1915-M1916 public artifacts only.",
+    "negative_result_policy": "If localization remains outcome dominated, record it as task-quality/scenario evidence and synthesize instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured panel conflict localization",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "relabels the complete measured panel into task-quality conflict classes rather than opening another repair",
+    "paper_verdict_delta": "can decide whether the repair-axis branch produced usable scenario/task-quality evidence or must synthesize",
+    "must_synthesize_if": [
+      "M1917 finds zero interpretable task-quality movement",
+      "M1917 would recommend another local repair without broader evidence",
+      "M1917 cannot classify the full panel without rerun"
+    ]
+  },
+  "hypothesis": "A no-rerun full-panel localization can convert M1915's complete but coarse outcome surface into interpretable task-quality conflict classes or a synthesis decision.",
+  "success_criteria": [
+    "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json exists",
+    "all 1536 M1915 rows are accounted for",
+    "classification coverage and missingness are reported",
+    "variant axis role and execution-kind summaries are written",
+    "next route is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "localization artifact is missing",
+    "M1917 reruns measured execution",
+    "rows are dropped without accounting",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made from the localization"
+  ],
+  "commands": [
+    {
+      "name": "localize",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_support_first_task_quality_repair_axis_outcome_localization --episode-rows runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/episode_rows.csv --output-dir runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_panel_outcome_localization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+    "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/episode_rows.csv"
+  ],
+  "decision_rule": "M1917 passes if it accounts for the complete M1915 panel and selects a next route without rerun or ranking.",
+  "next_blocker": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization"
+}

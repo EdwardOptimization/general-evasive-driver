@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1924,
+    "completed": 1925,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md",
+    "command_log": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
+    "run_dir": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
     "status": "completed",
-    "task_id": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun"
+    "task_id": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.json",
-    "hypothesis": "The complete M1915 panel is count-complete and guardrail-clean enough to admit a bounded task-quality result analysis while keeping controller-family ranking and paper-level claims blocked.",
-    "id": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit",
+    "command": "see experiments/manifests/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.json",
+    "hypothesis": "A no-rerun full-panel localization can convert M1915's complete but coarse outcome surface into interpretable task-quality conflict classes or a synthesis decision.",
+    "id": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization",
     "kind": "gate",
-    "notes": "Pending: audit complete M1915 panel before task-quality interpretation or any ranking",
-    "priority": 19110,
+    "notes": "Pending: no-rerun conflict localization over full M1915 panel before branch interpretation",
+    "priority": 19120,
     "status": "pending",
-    "success_artifact": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md"
+    "success_artifact": "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260531T064331Z"
+  "updated_at_utc": "20260531T065014Z"
 }
