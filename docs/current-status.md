@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation
+m1959-executable-v2-task-quality-calibrated-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m1959-executable-v2-task-quality-calibrated-reset-validation-command-design
+m1960-executable-v2-task-quality-calibrated-reset-validation-preflight
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -76,7 +76,14 @@ blocked. M1958 implements that adapter and passes the no-reset preflight:
 task IDs `0`, duplicate workload keys `0`, contract violations `0`,
 forbidden-key violations `0`, missing profile artifacts `0`, guardrail `0`.
 M1959 must now design the exact reset-only validation command while preserving
-the calibrated repair metadata before any reset execution.
+the calibrated repair metadata before any reset execution. M1959 completes that
+design and freezes a focused M1960 reset-only validator command over the M1958
+80 executable specs with eval seed base `196000`, target reset count `80`, and
+expected observation dimension `72`. The focused validator is required because
+the generic M1933 validator can reset env configs but does not preserve all
+calibrated repair metadata in reset rows. M1960 may now run only the frozen
+reset-validation command; rollout, measured execution, ranking, paper-level
+claim, and level3 self-ID remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

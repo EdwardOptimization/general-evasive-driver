@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1967,
+    "completed": 1968,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json",
+    "command_log": "docs/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation"
+    "task_id": "m1959-executable-v2-task-quality-calibrated-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.json",
-    "hypothesis": "An exact reset-only validation command can be designed for the M1958 executable task specs while preserving calibrated repair metadata, target counts, and human-view observation checks.",
-    "id": "m1959-executable-v2-task-quality-calibrated-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: design exact reset-only validation command for M1958 executable specs while preserving calibrated repair metadata",
-    "priority": 19540,
+    "command": "see experiments/manifests/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.json",
+    "hypothesis": "The M1958 calibrated 80-spec public task-quality panel is reset-valid under the current simulator and strict human-view contract.",
+    "id": "m1960-executable-v2-task-quality-calibrated-reset-validation-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen reset-only validation over M1958 calibrated executable specs",
+    "priority": 19550,
     "status": "pending",
-    "success_artifact": "docs/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.md"
+    "success_artifact": "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T102538Z"
+  "updated_at_utc": "20260531T103000Z"
 }

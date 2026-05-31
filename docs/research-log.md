@@ -34042,3 +34042,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: reset validation command design next; rollout, measured execution, ranking, paper evidence, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.json`
 - next: `m1959-executable-v2-task-quality-calibrated-reset-validation-command-design`
+
+## M1959 Executable V2 Task-Quality Calibrated Reset Validation Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_reset_command_design_admit_focused_reset_validator`
+- doc: `docs/m1959-executable-v2-task-quality-calibrated-reset-validation-command-design.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- reset execution in M1959: `false`
+- rollout/measured execution in M1959: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design decision: use a focused calibrated reset validator because the generic M1933 validator can reset env configs but does not preserve all calibrated repair metadata in reset rows
+- frozen target: `80` executable specs, `80` reset attempts, expected observation dimension `72`, rollout steps `0`, policy actions `0`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json --output-dir runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight --eval-seed-base 196000 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit`
+- required preservation: repair source kind, quota name, parent feasibility tier, parent/normalized surface, base geometry source, representative cell rule, and sampled obstacle geometry
+- unsupported claims: rollout success, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.json`
+- next: `m1960-executable-v2-task-quality-calibrated-reset-validation-preflight`
