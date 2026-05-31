@@ -1,0 +1,190 @@
+{
+  "id": "m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_density_aware_repaired_reset_validation"
+    ],
+    "parent_dataset": [
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json",
+      "docs/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "run fresh-seed reset-only validation for M2082 density-aware repaired specs"
+    ],
+    "derived_from": [
+      "m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "M2084 freezes exact fresh-seed reset-validation command"
+    ],
+    "supersedes": [
+      "reset validation on M2076 seed-robust repaired specs",
+      "direct measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.md",
+  "public_gates": [
+    "M2085 must run the frozen M2084 reset-only command",
+    "M2085 must run exactly 240 reset attempts with expected observation dimension 72",
+    "M2085 must not execute policy actions rollout measured execution training replay PPO ranking or promotion",
+    "M2085 must route to result audit whether pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not repair and rerun inside the same milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_density_aware_repaired_reset_validation",
+    "evidence_increment": "runs fresh-seed reset-only validation for density-aware repaired specs",
+    "claim_scope": "reset validity only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset failures occur",
+      "stop if observation dimension or finite-observation checks fail",
+      "stop if metadata or contract guards fail",
+      "stop if policy actions or rollout are executed"
+    ],
+    "fallback_plan": [
+      "route to reset result audit if run completes",
+      "route to synthesis and stop pivot or panel reduction if density-aware repair still fails scenario sampling",
+      "route to measured execution command design only after reset result audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2084 freezes exact fresh-seed reset-validation command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "density-aware repaired reset validation",
+    "admission_evidence": [
+      "M2084 freezes exact focused reset-validation command",
+      "M2084 uses fresh eval seed base 209500",
+      "M2083 audits M2082 repair artifact as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not execute policy actions",
+      "do not run rollout or measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/*",
+      "docs/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.md",
+      "M2085 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "reset summary exists",
+      "reset gates pass or fail closed",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2085 resets environments but does not run policy actions or history-necessity tests.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2085."
+    ],
+    "temporal_evidence_window": "M2082-M2084 density-aware repair and command-design artifacts.",
+    "negative_result_policy": "If reset validation fails, audit the failure before repair and do not convert it into paper or ranking evidence.",
+    "allowed_claims": [
+      "density-aware repaired reset validation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "tests whether density-aware no-reset support transfers to fresh environment reset sampling",
+    "paper_verdict_delta": "can admit measured execution command design after audit if reset validation passes",
+    "must_synthesize_if": [
+      "M2085 fails scenario sampling after M2082 density-aware repair",
+      "M2085 suggests another local obstacle-filter repair",
+      "M2085 suggests measured execution before reset result audit",
+      "M2085 loses metadata or claim-boundary evidence"
+    ]
+  },
+  "hypothesis": "The M2082 density-aware repaired 240-spec panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 209500.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "reset_attempt_count is 240",
+    "reset_success_count is 240",
+    "reset_failure_count is 0",
+    "observation_dimension_failure_count is 0",
+    "observation_finite_count is 240",
+    "obstacle_initialized_count is 240",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started is true",
+    "environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "reset gates fail",
+    "policy actions rollout measured execution ranking or paper claims are performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_reset_validation_preflight.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight --executable-task-specs runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json --output-dir runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight --eval-seed-base 209500 --target-spec-count 240 --expected-observation-dim 72 --next-blocker m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_density_aware_repaired_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json",
+    "docs/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.md"
+  ],
+  "decision_rule": "M2085 passes if it runs focused reset-only validation and writes a clean reset artifact without overclaiming.",
+  "next_blocker": "m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit"
+}

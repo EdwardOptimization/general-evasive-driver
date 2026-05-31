@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit
+m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design
+m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run
 ```
 
-Immediate route: M2083 audits M2082's density-aware no-reset repair as clean:
-`6/6` targeted rows, `0` non-target spec changes, minimum accepted grid cell
-count `90`, all `240` specs preserved, and
-contract/metadata/forbidden-key/profile/guardrail counts `0`. M2084 must freeze
-the exact fresh-seed reset-only command over the M2082 density-aware repaired
-specs using seed base `209500`. Reset rerun, measured execution, ranking, paper
-claims, and self-ID claims remain blocked until that command is explicitly run
-and audited.
+Immediate route: M2084 freezes the exact fresh-seed reset-only command over the
+M2082 density-aware repaired specs using seed base `209500`, target `240`, and
+expected observation dimension `72`. M2085 may run only that command and must
+route pass or fail to M2086 audit. If M2085 still fails scenario sampling,
+M2086 must synthesize and stop, pivot, or reduce the panel rather than
+continuing local obstacle-filter repair. Measured execution, ranking, paper
+claims, and self-ID claims remain blocked until reset validation is run and
+audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

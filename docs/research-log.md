@@ -36506,3 +36506,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - stop condition: if the following reset validation still fails scenario sampling, synthesize and stop, pivot, or reduce panel rather than continuing local obstacle-filter repair
 - follow-up manifest: `experiments/manifests/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.json`
 - next: `m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design`
+
+## M2084 Paper-Route Outcome-Supported Decisive Density-Aware Repaired Reset Validation Command Design
+
+- status: completed
+- decision: `density_aware_repaired_reset_command_design_route_to_fresh_seed_validator_run`
+- parent audit: `docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md`
+- repaired specs: `runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json`
+- reset execution in M2084: `false`
+- rollout/measured execution in M2084: `false`
+- policy actions executed in M2084: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: M2085 reset-only validation over M2082 density-aware repaired specs, target `240`, expected observation dimension `72`, output `runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight`
+- fresh eval seed base: `209500`, outside M2079 eval seed base and M2082 targeted support seed panel whose largest targeted support seed is `209060`
+- pass gate: M2085 needs `240/240` reset successes, finite observations `240`, obstacles initialized `240`, contract/metadata/forbidden-key/guardrail `0`, and no policy action or rollout
+- stop rule: if M2085 still fails scenario sampling, M2086 must synthesize and stop, pivot, or reduce the panel rather than continuing local obstacle-filter repair
+- follow-up manifest: `experiments/manifests/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.json`
+- next: `m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run`
