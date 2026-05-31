@@ -36392,3 +36392,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass/fail route: M2079 must route to M2080 result audit before measured execution
 - follow-up manifest: `experiments/manifests/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.json`
 - next: `m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run`
+
+## M2079 Paper-Route Outcome-Supported Decisive Seed-Robust Repaired Reset Validation Implementation and Run
+
+- status: completed
+- decision: `seed_robust_repaired_reset_validation_fail_route_to_result_audit`
+- run artifact: `runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- focused tests: `2 passed`
+- reset execution in M2079: `true`
+- rollout/measured execution in M2079: `false`
+- policy actions executed in M2079: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_validation_preflight_fail`
+- reset attempts/success/failure: `240/234/6`
+- observation finite/obstacle initialized counts: `234/234`
+- failure class: `6` obstacle scenario sampling failures under fresh seed base `207900`
+- failure slice: T1 `2`, T2 `2`, T4 `2`; source kinds `curved_road_reactive_evasion`, `same_current_rear_lateral_authority_older_history`, and `long_delay_steer_lag_evidence`
+- shared failure axis: late obstacle distance, generous road width, moderate curvature, low initial speed, mixed or nominal mu
+- contract/metadata/forbidden-key/guardrail counts: `0/0/0/0`
+- interpretation: M2076 seed-robust repair improves reset success from M2073 `164/240` to `234/240`, but grid support is still not enough for full fresh-seed reset sampling
+- follow-up manifest: `experiments/manifests/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.json`
+- next: `m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit` as a required branch synthesis and failure audit

@@ -4,7 +4,8 @@
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
   "failure_types": [
-    "none"
+    "scenario_sampling_failure",
+    "seed_fragility"
   ],
   "lineage": {
     "parent_checkpoint": [

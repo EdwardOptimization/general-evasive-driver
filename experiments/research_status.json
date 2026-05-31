@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2087,
+    "completed": 2088,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
+    "command_log": "docs/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design.md",
+    "run_dir": "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design"
+    "task_id": "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run.json",
-    "hypothesis": "The M2076 seed-robust repaired 240-spec panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 207900.",
-    "id": "m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run focused fresh-seed reset-only validation over M2076 seed-robust repaired specs",
-    "priority": 20740,
+    "command": "see experiments/manifests/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.json",
+    "hypothesis": "M2079's 6 remaining failures are sparse support-window density issues rather than contract or general scenario infeasibility and a required branch synthesis can decide whether one bounded continuation is justified.",
+    "id": "m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: required branch synthesis plus audit of six remaining fresh-seed obstacle sampling failures before density repair rerun or stop",
+    "priority": 20750,
     "status": "pending",
-    "success_artifact": "runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T221717Z"
+  "updated_at_utc": "20260531T222038Z"
 }

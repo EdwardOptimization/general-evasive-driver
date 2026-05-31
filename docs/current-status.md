@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2078-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-command-design
+m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2079-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-implementation-and-run
+m2080-paper-route-outcome-supported-decisive-seed-robust-repaired-reset-validation-result-audit
 ```
 
-Immediate route: M2078 freezes the fresh-seed reset-only validation command over
-the M2076 seed-robust repaired specs. M2079 may run exactly `240` resets with
-expected observation dim `72`, output
-`runs/m2079_paper_route_outcome_supported_decisive_seed_robust_repaired_reset_validation_preflight`,
-and fresh eval seed base `207900`, which is outside the M2076 support seed panel.
-Measured execution, ranking, paper claims, and self-ID claims remain blocked
-until reset validation is run and audited.
+Immediate route: M2079 ran the fresh-seed reset-only validation over the M2076
+seed-robust repaired specs and failed closed with `234/240` reset success. The
+six remaining failures are all `RuntimeError failed to sample an obstacle
+scenario matching the configured filters`; contract, metadata, forbidden-key,
+observation-dim, quota, and guardrail checks remain clean. M2080 must audit the
+six-failure set and synthesize the branch before any density repair, reset rerun,
+measured execution, ranking, paper claim, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
