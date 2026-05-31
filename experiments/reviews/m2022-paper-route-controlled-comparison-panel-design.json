@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2022 designs fair 12-profile L0/L1/L2/L3 controlled panel with five task families source/holdout rules claim gates and no execution",
+  "failure_criteria": [
+    "design document is missing",
+    "controller matrix is incomplete",
+    "source-rich task families or holdout rules are omitted",
+    "design allows unfair profile-specific tuning",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T161047Z",
+  "hypothesis": "A design-only milestone can convert M2021 bounded diagnostic evidence into a fair paper-route controlled comparison panel without overclaiming public diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "M2021 routes from bounded public diagnostic evidence to controlled comparison design because source-kind singleton blocks direct ranking"
+    ],
+    "derived_from": [
+      "m2021-multi-slice-bounded-diagnostic-comparison-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_panel_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/aggregate_profile_group_comparison.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design a fair paper-route L0/L1/L2/L3 controlled comparison panel before any ranking or self-ID claim"
+    ],
+    "supersedes": [
+      "direct ranking from M2020 diagnostic tables"
+    ]
+  },
+  "milestone": "m2022-paper-route-controlled-comparison-panel-design",
+  "next_blocker": "m2022-paper-route-controlled-comparison-panel-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_comparison_panel_design_admit_no_rollout_preflight_implementation",
+  "public_gates": [
+    "M2022 must design but not execute the controlled comparison panel",
+    "M2022 must use the paper-route governing plans as constraints",
+    "M2022 must define controller families L0 L1 L2 L3 and reset/truncated controls",
+    "M2022 must define source-rich task families and holdout rules",
+    "M2022 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_comparison_panel_design_admit_no_rollout_preflight_implementation",
+    "milestone": "m2022-paper-route-controlled-comparison-panel-design",
+    "reason": "M2022 designs fair 12-profile L0/L1/L2/L3 controlled panel with five task families source/holdout rules claim gates and no execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2022-paper-route-controlled-comparison-panel-design.md exists",
+    "controller families L0 L1 L2 L3 and reset/truncated controls are specified",
+    "source-rich task families and holdout rules are specified",
+    "fairness requirements are explicit",
+    "claim gates and negative-result policy are explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "type": "gate"
+}

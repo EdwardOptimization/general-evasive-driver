@@ -16,26 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2021-multi-slice-bounded-diagnostic-comparison-result-audit
+m2022-paper-route-controlled-comparison-panel-design
 ```
 
 Current next task:
 
 ```text
-m2022-paper-route-controlled-comparison-panel-design
+m2023-paper-route-controlled-comparison-panel-preflight-implementation
 ```
 
-Immediate route: M2021 audits M2020 as a useful bounded diagnostic signal, not
-as ranking or paper-level evidence. M2020 was complete and guardrail-clean:
-`candidate_count=6`, `matched_episode_count=216`, aggregate profile-group
-success L3 `22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144`. The signal is broad
-enough to justify a fair controlled-comparison design, but it is still
-source-kind singleton, public-gate bounded, and lacks private holdout,
-fair-budget training, wrong-history, or history-necessity tests. M2022 must
-design the paper-route L0/L1/L2/L3 controlled comparison panel with source-rich
-task families, holdout discipline, shared action/input contract, and explicit
-claim gates. Broad ranking, finite-window-vs-GRU, paper-level, and level3
-self-ID claims remain blocked.
+Immediate route: M2022 completes the design-only paper-route controlled
+comparison panel. The panel keeps the 12 corrected controller profiles
+(`L0_current_masked`, `L1_one_step`, L2 finite-window plus current-tiled
+controls, `L3_online_gru`, and `L3_reset_control_corrected`), requires five task
+families (reactive active safety, same-current different-older-history, active
+diagnostic warmup, variable diagnostic delay, and source-rich extreme
+dynamics), and freezes fairness, source/holdout, staged execution, metric, claim
+gate, and stop/pivot rules. M2023 must implement a no-rollout preflight that
+materializes this design into protocol, workload, source coverage, and
+claim-boundary artifacts before any routing smoke or ranking. Broad ranking,
+finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

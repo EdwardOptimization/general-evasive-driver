@@ -35213,3 +35213,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2022 fair L0/L1/L2/L3 controlled comparison panel design; do not run another public-slice extension or direct ranking
 - follow-up manifest: `experiments/manifests/m2022-paper-route-controlled-comparison-panel-design.json`
 - next: `m2022-paper-route-controlled-comparison-panel-design`
+
+## M2022 Paper-Route Controlled Comparison Panel Design
+
+- status: completed
+- decision: `controlled_comparison_panel_design_admit_no_rollout_preflight_implementation`
+- doc: `docs/m2022-paper-route-controlled-comparison-panel-design.md`
+- governing plans: `docs/self-id-go-no-go-paper-route-plan.md`, `docs/paper-route-finite-window-vs-gru-plan.md`
+- reset/rollout/measured execution in M2022: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- controller matrix: 12 corrected profiles including L0 current-masked, L1 one-step, L2 windows/current-tiled controls, L3 online GRU, and L3 reset control
+- task families: reactive active safety, same-current different-older-history, active diagnostic warmup, variable diagnostic delay, source-rich extreme dynamics
+- design rules: same action/input contract, source-rich quotas, public/private holdout discipline, staged execution ladder, claim gates A-D, and explicit stop/pivot rules
+- boundary: design artifact only; no driver performance ranking or self-ID evidence yet
+- follow-up manifest: `experiments/manifests/m2023-paper-route-controlled-comparison-panel-preflight-implementation.json`
+- next: `m2023-paper-route-controlled-comparison-panel-preflight-implementation`

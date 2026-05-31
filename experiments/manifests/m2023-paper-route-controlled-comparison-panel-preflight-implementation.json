@@ -1,0 +1,185 @@
+{
+  "id": "m2023-paper-route-controlled-comparison-panel-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_panel_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+      "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+      "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2022-paper-route-controlled-comparison-panel-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-rollout controlled comparison panel preflight from M2022 design"
+    ],
+    "derived_from": [
+      "m2022-paper-route-controlled-comparison-panel-design"
+    ],
+    "blocked_by": [
+      "M2022 admits only no-rollout panel preflight before any routing smoke or ranking"
+    ],
+    "supersedes": [
+      "direct execution from M2022 design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+  "public_gates": [
+    "M2023 must not reset the environment or execute policy actions",
+    "M2023 must read profile metadata and candidate source artifacts",
+    "M2023 must write panel protocol workload source coverage and claim-boundary artifacts",
+    "M2023 must fail closed on missing profile coverage source coverage or actor-contract checks",
+    "M2023 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_preflight",
+    "evidence_increment": "materializes the M2022 design into no-rollout protocol artifacts and coverage checks",
+    "claim_scope": "no-rollout panel preflight only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if profile coverage is incomplete",
+      "stop if source coverage is too narrow or source-kind singleton dominated",
+      "stop if claim-boundary artifact is missing",
+      "stop if any environment reset or policy action is executed"
+    ],
+    "fallback_plan": [
+      "route to profile inventory repair if controller profiles are incomplete",
+      "route to source/task repair if source coverage is incomplete",
+      "route to design repair if claim gates cannot be represented in artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2022 admits no-rollout preflight implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled comparison panel no-rollout preflight",
+    "admission_evidence": [
+      "M2022 defines controller matrix task families source/holdout rules and claim gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_controlled_comparison_panel_preflight.py",
+      "tests/test_paper_route_controlled_comparison_panel_preflight.py",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight",
+      "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+      "M2023 status queue scoreboard research log and review",
+      "one follow-up manifest for preflight result audit"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "panel protocol artifact exists",
+      "workload matrix artifact exists",
+      "source coverage artifact exists",
+      "claim boundary artifact exists",
+      "guardrail violation count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2023 is no-rollout preflight; it prepares current-frame finite-window and recurrent controls but does not test history necessity.",
+    "history_necessity_tests": [
+      "Represent same-current different-older-history family in the panel protocol if source support exists.",
+      "Represent reset/truncated GRU controls.",
+      "Represent wrong/delayed/mismatched history gates only as future claim gates, not as M2023 results."
+    ],
+    "temporal_evidence_window": "No execution in M2023; protocol metadata only.",
+    "negative_result_policy": "If preflight coverage is insufficient, route to repair instead of ranking or self-ID testing.",
+    "allowed_claims": [
+      "controlled comparison panel preflight implementation",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a preflight artifact layer for a new controlled-comparison evidence type",
+    "paper_verdict_delta": "can determine whether the controlled panel is ready for routing smoke or must repair profile/source coverage first",
+    "must_synthesize_if": [
+      "M2023 cannot produce clean preflight artifacts",
+      "M2023 reveals source-kind singleton dominance across the intended panel",
+      "M2023 proposes direct full execution after failed preflight"
+    ]
+  },
+  "hypothesis": "A no-rollout preflight can materialize the M2022 controlled comparison panel into protocol artifacts with clean guardrails.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json exists",
+    "panel protocol workload matrix source coverage and claim-boundary artifacts exist",
+    "guardrail_violation_count is 0",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "preflight tool is missing",
+    "profile coverage is incomplete",
+    "source coverage is incomplete or overclaimed",
+    "claim-boundary artifact is missing",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rollout controlled comparison panel preflight and run it on existing profile/source artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2023_paper_route_controlled_comparison_panel_preflight/workload_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_panel_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+    "runs/m1683_controller_family_bounded_rollout_protocol_preflight/summary.json",
+    "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json"
+  ],
+  "decision_rule": "M2023 passes if it writes clean no-rollout preflight artifacts and keeps claim boundaries blocked.",
+  "next_blocker": "m2023-paper-route-controlled-comparison-panel-preflight-implementation"
+}

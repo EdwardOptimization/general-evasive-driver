@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2030,
+    "completed": 2031,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+    "command_log": "docs/m2022-paper-route-controlled-comparison-panel-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2021-multi-slice-bounded-diagnostic-comparison-result-audit"
+    "task_id": "m2022-paper-route-controlled-comparison-panel-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2022-paper-route-controlled-comparison-panel-design.json",
-    "hypothesis": "A design-only milestone can convert M2021 bounded diagnostic evidence into a fair paper-route controlled comparison panel without overclaiming public diagnostics.",
-    "id": "m2022-paper-route-controlled-comparison-panel-design",
-    "kind": "gate",
-    "notes": "Pending: design fair L0/L1/L2/L3 controlled comparison panel with source-rich tasks and holdout discipline before any ranking",
-    "priority": 20170,
+    "command": "see experiments/manifests/m2023-paper-route-controlled-comparison-panel-preflight-implementation.json",
+    "hypothesis": "A no-rollout preflight can materialize the M2022 controlled comparison panel into protocol artifacts with clean guardrails.",
+    "id": "m2023-paper-route-controlled-comparison-panel-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rollout controlled comparison panel preflight over existing profile/source artifacts",
+    "priority": 20180,
     "status": "pending",
-    "success_artifact": "docs/m2022-paper-route-controlled-comparison-panel-design.md"
+    "success_artifact": "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T155128Z"
+  "updated_at_utc": "20260531T160622Z"
 }
