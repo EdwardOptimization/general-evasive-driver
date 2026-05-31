@@ -34676,3 +34676,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit focused implementation before any repaired real reset rerun
 - follow-up manifest: `experiments/manifests/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.json`
 - next: `m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit`
+
+## M1994 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Quota Parameterization Implementation Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_quota_parameterization_audit_admit_repaired_reset_rerun_command_design`
+- doc: `docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md`
+- real M1990 reset rerun in M1994: `false`
+- rollout/measured execution in M1994: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1993 is a clean focused infrastructure repair; expected quota counts now come from active executable specs, missing quota metadata fails closed, focused tests passed `4`, and no real reset rerun happened
+- route: admit repaired reset-validation rerun command design in a fresh output directory so M1990 fail artifacts remain intact
+- follow-up manifest: `experiments/manifests/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.json`
+- next: `m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design`

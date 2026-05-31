@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2002,
+    "completed": 2003,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+    "command_log": "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation"
+    "task_id": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.json",
-    "hypothesis": "M1993's focused implementation is clean enough to admit a repaired reset-validation rerun command design.",
-    "id": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit",
+    "command": "see experiments/manifests/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.json",
+    "hypothesis": "A repaired reset-only command can rerun the M1990 semantics in a fresh output directory using the artifact-driven quota validator.",
+    "id": "m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design",
     "kind": "gate",
-    "notes": "Pending: audit focused quota repair before repaired reset rerun command design",
-    "priority": 19890,
+    "notes": "Pending: freeze repaired reset-only rerun command in fresh output directory",
+    "priority": 19900,
     "status": "pending",
-    "success_artifact": "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md"
+    "success_artifact": "docs/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.md"
   },
-  "updated_at_utc": "20260531T131404Z"
+  "updated_at_utc": "20260531T131654Z"
 }
