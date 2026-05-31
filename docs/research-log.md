@@ -36253,3 +36253,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - validator: `autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight`
 - follow-up manifest: `experiments/manifests/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.json`
 - next: `m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run`
+
+## M2073 Paper-Route Outcome-Supported Decisive Repaired Reset Validation Implementation and Run
+
+- status: completed
+- decision: `outcome_supported_decisive_repaired_reset_validation_fail_route_to_result_audit`
+- run artifact: `runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- focused tests: `2 passed`
+- reset execution in M2073: `true`
+- rollout/measured execution in M2073: `false`
+- policy actions executed in M2073: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_validation_preflight_fail`
+- reset attempts/success/failure: `240/164/76`
+- observation finite/obstacle initialized counts: `164/164`
+- failure class: `76` obstacle scenario sampling failures under fresh reset seeds
+- contract/metadata/forbidden-key/guardrail counts: `0/0/0/0`
+- interpretation: M2070 repair improved reset success from `0/240` to `164/240`, but obstacle filters remain seed-fragile
+- follow-up manifest: `experiments/manifests/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.json`
+- next: `m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit`

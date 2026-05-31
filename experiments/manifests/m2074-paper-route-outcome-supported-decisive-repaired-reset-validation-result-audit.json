@@ -1,0 +1,171 @@
+{
+  "id": "m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_repaired_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/summary.json",
+      "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit repaired reset-validation failure before repair or rerun"
+    ],
+    "derived_from": [
+      "m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2073 reset validation failed 76/240 attempts under fresh reset seeds"
+    ],
+    "supersedes": [
+      "direct measured execution or repair rerun without failure audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2074 must audit M2073 reset counts and failure distribution",
+    "M2074 must distinguish seed-specific repair fragility from general scenario infeasibility",
+    "M2074 must choose seed-robust repair, panel reduction, synthesis, or another bounded route",
+    "M2074 must not rerun reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_repaired_reset_failure_audit",
+    "evidence_increment": "audits why repaired reset validation still fails under fresh seeds",
+    "claim_scope": "reset failure audit only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2073 failure class cannot be localized",
+      "stop if next repair route is ambiguous",
+      "stop if audit would rerun reset or rollout",
+      "stop if generated rows are treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "route to seed-robust source/filter repair if failure is seed-specific",
+      "route to panel reduction only if repair cannot preserve task semantics",
+      "route to synthesis if repeated reset-validity repair suggests local-search drift"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2073 completes repaired reset validation with 164/240 success",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive repaired reset validation result audit",
+    "admission_evidence": [
+      "M2073 focused tests passed",
+      "M2073 reset_attempt_count 240",
+      "M2073 reset_success_count 164",
+      "M2073 reset_failure_count 76",
+      "M2073 contract metadata forbidden-key and guardrail counts are all 0"
+    ],
+    "blocked_shortcuts": [
+      "do not repair and rerun before audit",
+      "do not treat reset failure as driver failure",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md",
+      "M2074 status queue scoreboard research log and review",
+      "one follow-up manifest for seed-robust repair, panel reduction, synthesis, or reset command redesign"
+    ],
+    "next_stage_criteria": [
+      "M2073 fail reasons are classified",
+      "reset/contract evidence is separated from source-filter seed robustness",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2074 audits reset failures only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2074."
+    ],
+    "temporal_evidence_window": "M2073 reset-validation artifacts.",
+    "negative_result_policy": "If reset failures are seed-specific scenario sampling failures, repair the task panel before measured execution; do not weaken claim guards.",
+    "allowed_claims": [
+      "outcome-supported decisive repaired reset-validation failure audit",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "separates seed-specific repair fragility from general task validity",
+    "paper_verdict_delta": "can decide whether to repair toward seed-robust windows or stop this panel",
+    "must_synthesize_if": [
+      "M2074 cannot pick one explicit repair or stop route",
+      "M2074 routes to another narrow repair without classifying seed fragility",
+      "M2074 finds this is repeated local-search overfit to reset public seeds"
+    ]
+  },
+  "hypothesis": "M2073 failed because M2070 repaired obstacle filters were seed-specific; a result audit can decide whether a seed-robust repair is justified.",
+  "success_criteria": [
+    "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md exists",
+    "M2073 reset counts and fail reasons are audited",
+    "failure taxonomy is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2073 failure reason is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight artifacts and write M2074 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_repaired_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/summary.json",
+    "docs/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.md"
+  ],
+  "decision_rule": "M2074 passes if it classifies the M2073 fail reason and selects a repair, reduction, synthesis, or stop route without overclaiming.",
+  "next_blocker": "m2075-selected-by-m2074-audit"
+}

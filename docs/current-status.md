@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design
+m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run
+m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit
 ```
 
-Immediate route: M2072 freezes the exact repaired reset-validation command over
-the M2070 repaired specs: `240` reset attempts, expected observation dimension
-`72`, eval seed base `207300`, output
-`runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight`.
-M2073 may run only this reset-only validation. Rollout, policy actions, measured
+Immediate route: M2073 ran the repaired reset-only validation and failed closed:
+`164/240` reset success, `76` remaining scenario sampling failures, contract
+and guardrail counts `0`. This improves over M2066's `0/240` but shows the
+M2070 obstacle-filter repair is seed-fragile under fresh reset seeds. M2074 must
+audit that failure before any repair or rerun. Rollout, policy actions, measured
 execution, ranking, paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
