@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design
+m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight
 ```
 
 Current next task:
 
 ```text
-m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight
+m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -250,7 +250,15 @@ not run reset. M1989 freezes that command for M1990: use
 output `runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight`,
 eval seed base `199000`, target specs `80`, and expected observation dim `72`.
 M1990 may now run only that reset-only command; rollout, measured execution,
-ranking, paper-level evidence, and level3 self-ID remain blocked.
+ranking, paper-level evidence, and level3 self-ID remain blocked. M1990 runs
+the frozen reset-only command and fails closed because quota gates are stale,
+not because reset failed: reset attempts `80`, reset successes `80`, reset
+failures `0`, finite observations `80`, observation dimension failures `0`,
+obstacle initialized `80`, contract `0`, label actor-input `0`, forbidden-key
+`0`, and guardrail `0`; however `source_kind_quota_pass=false` and
+`role_surface_quota_pass=false` because the reset validator still expects the
+older calibrated source distribution. M1991 must audit this quota-expectation
+mismatch before any validator repair or rerun.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

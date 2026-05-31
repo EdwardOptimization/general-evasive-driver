@@ -34604,3 +34604,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: M1990 may run only the frozen reset-only command; result interpretation deferred to M1991 audit
 - follow-up manifest: `experiments/manifests/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.json`
 - next: `m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight`
+
+## M1990 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Preflight
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_validation_quota_gate_fail_route_to_audit`
+- doc: `docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md`
+- summary: `runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json`
+- reset/rollout/measured execution: reset `true`, rollout `false`, measured `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: reset-only run fail-closed with `result_class=task_quality_calibrated_reset_validation_preflight_fail`, but reset attempts `80`, reset successes `80`, reset failures `0`, finite observations `80`, observation dimension failures `0`, obstacle initialized `80`, contract `0`, label actor-input `0`, forbidden-key `0`, guardrail `0`
+- fail reason: `source_kind_quota_pass=false` and `role_surface_quota_pass=false`; observed source-kind distribution is anchor `24`, mitigation `20`, offtrack-boundary `16`, success `20`, matching M1986 selected quotas but not the older hard-coded calibrated reset-validator expectations
+- route: audit as fail-closed quota-expectation mismatch before validator repair or rerun
+- follow-up manifest: `experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json`
+- next: `m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit`

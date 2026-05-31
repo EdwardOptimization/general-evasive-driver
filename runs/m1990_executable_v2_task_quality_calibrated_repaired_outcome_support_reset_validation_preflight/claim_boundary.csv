@@ -1,0 +1,6 @@
+claim,admissible,reason
+calibrated_reset_validation,True,M1960 may claim only reset-validity if all reset gates pass
+measured_controller_performance,False,policy actions and measured rollout remain blocked until reset validation is audited
+controller_family_ranking,False,"reset validation is a scenario admissibility gate, not a controller comparison"
+paper_level_benchmark_evidence,False,reset validation is not measured rollout evidence
+level3_self_identification,False,reset validation does not test history necessity or wrong-history interventions

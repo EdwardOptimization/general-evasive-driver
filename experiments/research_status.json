@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1998,
+    "completed": 1999,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.md",
+    "command_log": "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design"
+    "task_id": "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json --output-dir runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight --eval-seed-base 199000 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit",
-    "hypothesis": "The M1986 repaired outcome-support executable specs reset cleanly with finite 72-dim human-view observations and clean guardrails.",
-    "id": "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run only frozen M1989 reset-only command over 80 M1986 executable specs",
-    "priority": 19850,
+    "command": "see experiments/manifests/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.json",
+    "hypothesis": "M1990's fail result is a stale quota-expectation metric artifact rather than a true reset or contract failure.",
+    "id": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: classify M1990 quota-gate fail before validator repair or rerun",
+    "priority": 19860,
     "status": "pending",
-    "success_artifact": "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T130004Z"
+  "updated_at_utc": "20260531T130339Z"
 }

@@ -1,0 +1,165 @@
+{
+  "id": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md",
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json",
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/reset_distribution_by_source_kind.csv",
+      "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/reset_distribution_by_role_surface.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit M1990 reset-validation fail-closed result before validator repair or rerun"
+    ],
+    "derived_from": [
+      "m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight"
+    ],
+    "blocked_by": [
+      "M1990 result_class failed despite 80/80 reset success because quota gates did not match the repaired M1986 distribution"
+    ],
+    "supersedes": [
+      "repairing or rerunning the reset validator without auditing the quota mismatch"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+  "public_gates": [
+    "M1991 must audit M1990 summary without rerunning reset",
+    "M1991 must separate reset validity from stale quota gate failure",
+    "M1991 must decide whether a quota-parameterization repair is needed",
+    "M1991 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_validation_audit",
+    "evidence_increment": "audits whether the M1990 fail is a stale quota expectation or a real reset/materialization failure",
+    "claim_scope": "reset result audit only; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1990 reset success counts are not summarized",
+      "stop if stale quota mismatch is not distinguished from reset failure",
+      "stop if audit overclaims fail-closed result as pass"
+    ],
+    "fallback_plan": [
+      "route to quota-parameterization repair design if stale quota expectations caused the fail",
+      "route to materialization repair if reset failures or contract failures are real",
+      "route to measured execution design only if audit can justify reset-valid status under the existing gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1990 produced a fail-closed reset-validation result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired outcome-support reset validation result audit",
+    "admission_evidence": [
+      "M1990 completed reset-only validation with 80 reset successes but fail result_class due quota gates"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun reset in audit",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+      "M1991 status queue scoreboard research log and review",
+      "one follow-up manifest for validator quota repair design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "reset and quota evidence are separated",
+      "failure taxonomy is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1991."
+    ],
+    "temporal_evidence_window": "M1990 reset validation artifacts.",
+    "negative_result_policy": "If M1990 fail is a metric artifact, repair the validator before rerun; if reset failures are real, route to materialization repair.",
+    "allowed_claims": [
+      "reset-validation result audit and failure classification",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies whether reset-valid evidence is blocked by stale quota metrics or real reset failure",
+    "paper_verdict_delta": "can decide whether a validator repair is necessary before measured execution can be considered",
+    "must_synthesize_if": [
+      "M1991 cannot classify the M1990 failure",
+      "the same quota mismatch repeats after one repair",
+      "audit would continue to measured execution without a clean pass or explicit gate repair"
+    ]
+  },
+  "hypothesis": "M1990's fail result is a stale quota-expectation metric artifact rather than a true reset or contract failure.",
+  "success_criteria": [
+    "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md exists",
+    "M1990 reset success and failure counts are summarized",
+    "quota gate failure is classified",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1990 result is not summarized",
+    "failure classification is ambiguous",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1990_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight/summary.json",
+    "docs/m1990-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-preflight.md"
+  ],
+  "decision_rule": "M1991 passes if it classifies the M1990 reset-validation failure and chooses a next route without rerun or overclaiming.",
+  "next_blocker": "m1991-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-result-audit"
+}
