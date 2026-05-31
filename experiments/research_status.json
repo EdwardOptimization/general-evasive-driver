@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1965,
+    "completed": 1966,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json",
+    "command_log": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation"
+    "task_id": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.json",
-    "hypothesis": "An exact calibrated materialization preflight command can be designed for the M1956 selected source subset while preserving source metadata, accepted-cell provenance, target counts, and no-execution guardrails.",
-    "id": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
-    "kind": "gate",
-    "notes": "Pending: design exact preflight/materialization command path for M1956 selected sources before reset validation",
-    "priority": 19520,
+    "command": "see experiments/manifests/m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation.json",
+    "hypothesis": "A focused no-reset preflight adapter can convert the M1956 calibrated source subset into 80 executable task specs and 960 planned workload rows while preserving source metadata, accepted-cell provenance, and guardrails.",
+    "id": "m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused no-reset preflight adapter for M1956 selected sources and M1952 accepted cells",
+    "priority": 19530,
     "status": "pending",
-    "success_artifact": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md"
+    "success_artifact": "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T101434Z"
+  "updated_at_utc": "20260531T102000Z"
 }

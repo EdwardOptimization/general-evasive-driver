@@ -34001,3 +34001,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: preflight/materialization command design next; reset validity, measured execution, ranking, paper evidence, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.json`
 - next: `m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design`
+
+## M1957 Executable V2 Task-Quality Calibrated Materialization Preflight Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_materialization_preflight_design_admit_focused_implementation`
+- doc: `docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- reset/rollout/measured execution in M1957: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- schema decision: do not directly reuse M1928 preflight because it is tied to the older M1925/M1926 schema and M1923 accepted cells; M1956 uses calibrated repair-wave selected sources and M1952 accepted cells
+- selected-source admissibility check: all `80` M1956 selected sources have accepted-cell support in M1952, with `3382` accepted rows total and minimum `2` accepted cells per selected source
+- M1958 target: implement focused no-reset preflight adapter producing `80` executable task specs and `960` planned workload rows
+- required preservation: M1956 selected-source metadata, repair source kind, quota name, normalized surface, parent feasibility tier, base geometry provenance, representative accepted cell, and human-view contract checks
+- unsupported claims: reset validity, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation.json`
+- next: `m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation`

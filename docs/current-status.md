@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation
+m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design
 ```
 
 Current next task:
 
 ```text
-m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design
+m1958-executable-v2-task-quality-calibrated-materialization-preflight-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -62,9 +62,15 @@ source-kind quota pass, calibrated-anchor split `16/16`, success-stabilizer
 surface split `12/12`, duplicate candidate IDs `0`, labels-enter-actor-input
 `0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail
 `0`, result class `task_quality_calibrated_materialization_selector_pass`.
-M1957 must now design the exact preflight/materialization command path before
-any reset, measured execution, ranking, paper-level claim, or level3 self-ID
-claim.
+M1957 designs the exact preflight/materialization route and concludes that the
+old M1928 preflight is not an exact schema match: M1956 uses calibrated
+repair-wave selected sources and M1952 accepted cells, while M1928 is tied to
+the older M1925/M1926 source schema and M1923 accepted cells. M1958 must now
+implement a focused no-reset preflight adapter that produces `80` executable
+task specs and `960` planned workload rows while preserving selected-source
+metadata, accepted-cell provenance, and human-view contract checks. Reset,
+measured execution, ranking, paper-level claim, and level3 self-ID remain
+blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1957 determines M1928 preflight is not an exact schema match and admits a focused no-reset M1958 preflight adapter targeting 80 specs and 960 planned workload rows",
+  "failure_criteria": [
+    "design document is missing",
+    "preflight route is ambiguous",
+    "target counts are ambiguous",
+    "accepted-cell provenance is dropped",
+    "next route is ambiguous",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T102047Z",
+  "hypothesis": "An exact calibrated materialization preflight command can be designed for the M1956 selected source subset while preserving source metadata, accepted-cell provenance, target counts, and no-execution guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1956 creates a source-only subset but no executable-spec materialization or preflight command exists"
+    ],
+    "derived_from": [
+      "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_materialization_preflight_command_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.md",
+      "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+      "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/summary.json",
+      "runs/m1956_executable_v2_task_quality_calibrated_source_materialization_selector/selected_sources.csv",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv"
+    ],
+    "parent_objective": [
+      "design exact calibrated materialization preflight command path for M1956 selected sources"
+    ],
+    "supersedes": [
+      "direct reset validation over M1956 selected source rows without materialization/preflight design"
+    ]
+  },
+  "milestone": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
+  "next_blocker": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_materialization_preflight_design_admit_focused_implementation",
+  "public_gates": [
+    "M1957 must choose the exact preflight/materialization route for M1956 selected sources",
+    "M1957 must specify whether existing M1928 preflight can be adapted or a focused M1958 materializer is required",
+    "M1957 must preserve M1956 selected-source metadata and M1952 accepted-cell provenance",
+    "M1957 must specify target counts and guardrails for the next implementation",
+    "M1957 must keep reset rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_materialization_preflight_design_admit_focused_implementation",
+    "milestone": "m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design",
+    "reason": "M1957 determines M1928 preflight is not an exact schema match and admits a focused no-reset M1958 preflight adapter targeting 80 specs and 960 planned workload rows",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1957-executable-v2-task-quality-calibrated-materialization-preflight-command-design.md exists",
+    "preflight/materialization inputs outputs and pass gates are explicit",
+    "target source spec workload and controller-profile counts are explicit",
+    "source metadata and accepted-cell provenance requirements are explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
