@@ -36575,3 +36575,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: pivot to M2087 reset-valid core panel reduction design, preserving all public-gate rows and excluding reset-failed public-debug rows without changing filters
 - follow-up manifest: `experiments/manifests/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.json`
 - next: `m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design`
+
+## M2087 Paper-Route Outcome-Supported Decisive Reset-Valid Core Panel Reduction Design
+
+- status: completed
+- decision: `reset_valid_core_panel_reduction_design_admit_no_reset_materialization`
+- parent synthesis: `docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md`
+- source reset artifact: `runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv`
+- reset/rollout/measured execution in M2087: `false`
+- policy actions executed in M2087: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- inclusion rule: include M2085 rows with `reset_success == true`; exclude rows with `reset_success == false`; do not change filters or rerun reset
+- designed panel size: input `240`, included `238`, excluded `2`
+- public-gate preservation: `96/96` public-gate rows preserved; excluded rows are `2` public-debug rows
+- coverage loss: T1 `48 -> 47`, T2 `60 -> 59`, late/generous/moderate/low_mu/low axis `20 -> 18`
+- M2088 pass gate: materialize reduced specs and workload with env_config changed `0`, metadata/contract/forbidden-key/guardrail `0`, and no reset or rollout
+- follow-up manifest: `experiments/manifests/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.json`
+- next: `m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2095,
+    "completed": 2096,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md",
+    "command_log": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight",
+    "run_dir": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
     "status": "completed",
-    "task_id": "m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit"
+    "task_id": "m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.json",
-    "hypothesis": "A reset-valid core panel can be defined from M2085 reset-success rows without further obstacle-filter repair, preserving all public-gate rows and enough coverage to justify materialization.",
-    "id": "m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-valid core panel reduction after M2086 pivots away from local obstacle-filter repair",
-    "priority": 20820,
+    "command": "see experiments/manifests/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.json",
+    "hypothesis": "A no-reset selector can materialize a 238-row reset-valid core panel from M2085 reset-success rows while preserving all public-gate rows and metadata.",
+    "id": "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-reset selector for 238-row reset-valid core panel",
+    "priority": 20830,
     "status": "pending",
-    "success_artifact": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md"
+    "success_artifact": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json"
   },
-  "updated_at_utc": "20260531T225825Z"
+  "updated_at_utc": "20260531T230156Z"
 }

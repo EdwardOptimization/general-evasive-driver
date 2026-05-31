@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit
+m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design
 ```
 
 Current next task:
 
 ```text
-m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design
+m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation
 ```
 
-Immediate route: M2086 audits M2085 and closes the local obstacle-filter repair
-loop. Reset feasibility improved from `0/240` to `238/240`, all `96`
-public-gate rows reset successfully, and the remaining failures are two
-public-debug low-mu scenario-sampling rows. The branch now pivots to M2087:
-design a reset-valid core panel from M2085 reset-success rows without changing
-filters or rerunning reset. Measured execution, ranking, paper claims, and
-self-ID claims remain blocked until the reduced panel is materialized and
-audited.
+Immediate route: M2087 designs a reset-valid core panel by including only
+M2085 reset-success rows. The reduced panel has `238` rows, preserves all `96`
+public-gate rows, and excludes the two public-debug reset-failure rows without
+changing filters or rerunning reset. M2088 must implement and run a no-reset
+selector that materializes this reduced panel and preserves metadata/contract
+guards. Measured execution, ranking, paper claims, and self-ID claims remain
+blocked until the reduced panel is materialized and audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

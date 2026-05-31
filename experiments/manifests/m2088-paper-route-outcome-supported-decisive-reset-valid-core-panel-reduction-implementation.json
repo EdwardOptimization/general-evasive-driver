@@ -1,0 +1,193 @@
+{
+  "id": "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_panel_reduction"
+    ],
+    "parent_dataset": [
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json",
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv",
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.json"
+    ],
+    "parent_objective": [
+      "materialize a reduced reset-valid core panel without changing filters or running reset"
+    ],
+    "derived_from": [
+      "m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design"
+    ],
+    "blocked_by": [
+      "M2087 must freeze the reduced-panel inclusion rule"
+    ],
+    "supersedes": [
+      "another obstacle-filter repair",
+      "direct measured execution on full 240-row panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md",
+  "public_gates": [
+    "M2088 must implement and run a no-reset reduced-panel selector",
+    "M2088 must preserve all public-gate rows and exclude only M2085 reset failures",
+    "M2088 must not change obstacle filters or run reset",
+    "M2088 must not run measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_reset_valid_core_panel",
+    "evidence_axis": "Q_reset_valid_core_panel_reduction_materialization",
+    "evidence_increment": "materializes a reduced reset-valid core panel from M2085 reset-success rows",
+    "claim_scope": "no-reset panel materialization only; no reset rerun rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if selector mutates env configs",
+      "stop if public-gate rows are excluded",
+      "stop if reset or rollout starts",
+      "stop if materialization cannot preserve metadata or claim boundary"
+    ],
+    "fallback_plan": [
+      "route to result audit if selector passes",
+      "route to scenario-distribution redesign if reduced panel materialization fails",
+      "do not repair filters"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2087 freezes reduced-panel design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-valid core panel reduction implementation",
+    "admission_evidence": [
+      "M2087 defines inclusion as M2085 reset_success true",
+      "M2087 preserves all 96 public-gate rows",
+      "M2087 excludes exactly two public-debug reset failures"
+    ],
+    "blocked_shortcuts": [
+      "do not repair filters",
+      "do not run reset",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction.py",
+      "tests/test_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction.py",
+      "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/*",
+      "docs/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md",
+      "M2088 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "reduced panel artifacts exist",
+      "claim boundary is clean",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2088 materializes a task panel and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2088."
+    ],
+    "temporal_evidence_window": "M2085 reset-success and reset-failure artifacts.",
+    "negative_result_policy": "If reduced-panel materialization fails, pivot to distribution redesign rather than repairing filters.",
+    "allowed_claims": [
+      "reset-valid core panel no-reset materialization",
+      "no reset rerun, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new reduced panel rather than repairing fixed public rows",
+    "paper_verdict_delta": "can admit a reduced-panel reset audit and later measured-execution command design if clean",
+    "must_synthesize_if": [
+      "M2088 routes back to local obstacle-filter repair",
+      "M2088 excludes public-gate rows",
+      "M2088 cannot preserve metadata or claim boundary"
+    ]
+  },
+  "hypothesis": "A no-reset selector can materialize a 238-row reset-valid core panel from M2085 reset-success rows while preserving all public-gate rows and metadata.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json exists",
+    "reduced_executable_spec_count is 238",
+    "excluded_spec_count is 2",
+    "public_gate_preserved_count is 96",
+    "public_gate_excluded_count is 0",
+    "env_config_changed_count is 0",
+    "metadata_missing_count is 0",
+    "contract_violation_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "selector mutates env configs",
+    "public-gate rows are excluded",
+    "reset rollout measured execution ranking or paper claims are performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction.py"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction --density-aware-executable-task-specs runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json --reset-rows runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv --reset-failure-rows runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_failure_rows.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction --target-input-spec-count 240 --target-reduced-spec-count 238 --target-excluded-spec-count 2 --target-public-gate-preserved-count 96 --next-blocker m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_valid_core_panel_reduction"
+  ],
+  "baseline_artifacts": [
+    "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json",
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_rows.csv",
+    "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md"
+  ],
+  "decision_rule": "M2088 passes if it materializes a 238-row reset-valid core panel without filter mutation, reset rerun, or overclaiming.",
+  "next_blocker": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit"
+}
