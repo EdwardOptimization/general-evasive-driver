@@ -36212,3 +36212,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: repaired no-reset materialization is clean enough for audit, but reset validation and measured execution remain blocked
 - follow-up manifest: `experiments/manifests/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.json`
 - next: `m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit`
+
+## M2071 Paper-Route Outcome-Supported Decisive Reset Materialization Repair Result Audit
+
+- status: completed
+- decision: `outcome_supported_decisive_repair_audit_admit_reset_validation_command_design`
+- audited artifact: `runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json`
+- failure taxonomy: `none`
+- reset/rollout/measured execution in M2071: `false`
+- policy actions executed in M2071: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2070 repaired artifact is count-complete warmup-schema-valid scenario-filter-feasible and guardrail-clean
+- repaired specs/workload/profiles: `240/1200/5`
+- warmup invalid/scenario infeasible after repair: `0/0`
+- contract/metadata/forbidden-key/profile-missing/guardrail counts: `0/0/0/0/0`
+- decision: admit repaired reset-validation command design; reset execution remains blocked until command design
+- follow-up manifest: `experiments/manifests/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.json`
+- next: `m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2079,
+    "completed": 2080,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md",
+    "command_log": "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation"
+    "task_id": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.json",
-    "hypothesis": "The M2070 repaired materialization artifact is clean enough to admit reset-validation command design while preserving claim guards.",
-    "id": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit",
+    "command": "see experiments/manifests/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.json",
+    "hypothesis": "The M2070 repaired specs can be reset-validated using the focused reset validator with target count 240 and expected observation dimension 72.",
+    "id": "m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2070 repair artifact before reset-validation command design",
-    "priority": 20660,
+    "notes": "Pending: freeze exact reset-only command for M2070 repaired specs without running reset",
+    "priority": 20670,
     "status": "pending",
-    "success_artifact": "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md"
+    "success_artifact": "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T213727Z"
+  "updated_at_utc": "20260531T214128Z"
 }

@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation
+m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit
+m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design
 ```
 
-Immediate route: M2070 passes the no-reset combined repair preflight:
+Immediate route: M2071 audits the M2070 repaired artifact as clean:
 `240` repaired specs, `1200` planned sentinel workload rows, warmup invalid
-after repair `0`, scenario-filter infeasible after repair `0`, contract
-violations `0`, and guardrail `0`. M2071 must audit the repaired artifact before
-any reset-validation command design. Environment reset, rollout, policy actions,
-measured execution, ranking, paper claims, and self-ID claims remain blocked.
+after repair `0`, scenario-filter infeasible after repair `0`, contract and
+guardrail counts `0`. M2072 must freeze the exact reset-only validation command
+over the repaired specs. Environment reset, rollout, policy actions, measured
+execution, ranking, paper claims, and self-ID claims remain blocked until that
+command design is complete and a later milestone runs it.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,164 @@
+{
+  "id": "m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_repaired_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
+      "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design exact reset-validation command for repaired outcome-supported decisive specs"
+    ],
+    "derived_from": [
+      "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M2071 admits reset-validation command design after repaired materialization audit"
+    ],
+    "supersedes": [
+      "direct reset run without command design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md",
+  "public_gates": [
+    "M2072 must freeze the exact reset-only command for M2073",
+    "M2072 must use the M2070 repaired executable specs",
+    "M2072 must preserve expected observation dimension 72 and target count 240",
+    "M2072 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_repaired_reset_validation_command_design",
+    "evidence_increment": "freezes the repaired reset-validation command after repair audit",
+    "claim_scope": "reset command design only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repaired spec path is not explicit",
+      "stop if output directory or seed base is not explicit",
+      "stop if command would run reset inside M2072",
+      "stop if follow-up audit route is missing"
+    ],
+    "fallback_plan": [
+      "route to command design correction if command is incomplete",
+      "route to repair audit if repaired artifact compatibility is unclear",
+      "route to reset implementation only after command design is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2071 admits reset-validation command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive repaired reset-validation command design",
+    "admission_evidence": [
+      "M2071 audits M2070 repair artifact as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in command design",
+      "do not execute policy actions",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md",
+      "M2072 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "reset command is frozen",
+      "output artifact paths are explicit",
+      "next audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2072 designs reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2072."
+    ],
+    "temporal_evidence_window": "M2070 repair artifact and M2071 audit.",
+    "negative_result_policy": "If reset validation later fails, audit failure before repair; do not reinterpret it as driver evidence.",
+    "allowed_claims": [
+      "outcome-supported decisive repaired reset-validation command design",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "freezes a bounded reset-validation command for the repaired panel",
+    "paper_verdict_delta": "can admit reset-validation execution but cannot decide paper-route comparison",
+    "must_synthesize_if": [
+      "M2072 adds another design-only hop without a runnable command",
+      "M2072 skips reset result audit route",
+      "M2072 weakens claim guards"
+    ]
+  },
+  "hypothesis": "The M2070 repaired specs can be reset-validated using the focused reset validator with target count 240 and expected observation dimension 72.",
+  "success_criteria": [
+    "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md exists",
+    "exact reset-validation command is documented",
+    "input repaired spec path output dir eval seed base target count expected obs dim and next blocker are explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "reset command is incomplete",
+    "next route is ambiguous",
+    "reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2072-paper-route-outcome-supported-decisive-repaired-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_repaired_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json",
+    "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md"
+  ],
+  "decision_rule": "M2072 passes if it freezes a complete repaired reset-validation command without running it or overclaiming.",
+  "next_blocker": "m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run"
+}
