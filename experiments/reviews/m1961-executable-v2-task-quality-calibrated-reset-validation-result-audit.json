@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1961 audits M1960 as clean reset-validity evidence for the calibrated 80-spec panel and admits measured execution design while ranking/paper/self-ID remain blocked",
+  "failure_criteria": [
+    "audit document is missing",
+    "M1960 result is not audited",
+    "claim boundary is ambiguous",
+    "next route is ambiguous",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T103935Z",
+  "hypothesis": "The M1960 reset pass can be audited as clean reset-validity evidence for the calibrated 80-spec panel while keeping rollout ranking paper and self-ID claims blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M1960 reset evidence must be audited before measured execution or ranking design"
+    ],
+    "derived_from": [
+      "m1960-executable-v2-task-quality-calibrated-reset-validation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_reset_validation_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1960-executable-v2-task-quality-calibrated-reset-validation-preflight.md",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/reset_rows.csv",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/contract_rows.csv"
+    ],
+    "parent_objective": [
+      "audit calibrated reset-validation result before measured execution design"
+    ],
+    "supersedes": [
+      "directly interpreting reset pass as measured controller evidence"
+    ]
+  },
+  "milestone": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit",
+  "next_blocker": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_reset_validation_audit_admit_measured_execution_design",
+  "public_gates": [
+    "M1961 must audit M1960 reset counts contract checks and guardrails",
+    "M1961 must state exactly what the reset pass supports and does not support",
+    "M1961 must decide whether measured execution design is admitted",
+    "M1961 must keep ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_reset_validation_audit_admit_measured_execution_design",
+    "milestone": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit",
+    "reason": "M1961 audits M1960 as clean reset-validity evidence for the calibrated 80-spec panel and admits measured execution design while ranking/paper/self-ID remain blocked",
+    "reset_success": "1.0000000000",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md exists",
+    "M1960 reset result is audited",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

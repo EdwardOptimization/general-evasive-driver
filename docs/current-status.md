@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1960-executable-v2-task-quality-calibrated-reset-validation-preflight
+m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit
+m1962-executable-v2-task-quality-calibrated-measured-execution-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -89,7 +89,11 @@ observations `80`, observation dimension failures `0`, obstacles initialized
 `80`, contract violations `0`, label actor input violations `0`, forbidden-key
 violations `0`, source-kind and role-surface quota pass, guardrail `0`.
 M1961 must audit this reset pass before measured execution design or
-controller comparison.
+controller comparison. M1961 audits it as clean reset-validity evidence for the
+calibrated 80-spec panel and admits measured execution design, while keeping
+direct execution, controller ranking, paper-level claim, and level3 self-ID
+blocked. M1962 must now design a metadata-preserving measured execution route
+over the M1958 960-row planned workload.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

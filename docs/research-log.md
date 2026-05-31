@@ -34087,3 +34087,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: rollout success, measured execution success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.json`
 - next: `m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit`
+
+## M1961 Executable V2 Task-Quality Calibrated Reset Validation Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_reset_validation_audit_admit_measured_execution_design`
+- doc: `docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md`
+- audited summary: `runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json`
+- reset/rollout/measured execution in M1961: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1960 is clean reset-validity evidence with `80/80` reset success, finite observations `80`, observation dimension failures `0`, obstacles initialized `80`, contract `0`, forbidden-key `0`, guardrail `0`
+- supported claims: calibrated 80-spec panel is reset-valid under the current simulator and strict human-view observation contract; metadata survives materialization and reset validation
+- unsupported claims: rollout success, measured controller performance, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID
+- route: measured execution design next; direct execution and ranking remain blocked
+- follow-up manifest: `experiments/manifests/m1962-executable-v2-task-quality-calibrated-measured-execution-design.json`
+- next: `m1962-executable-v2-task-quality-calibrated-measured-execution-design`

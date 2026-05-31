@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1969,
+    "completed": 1970,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+    "command_log": "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1960-executable-v2-task-quality-calibrated-reset-validation-preflight"
+    "task_id": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.json",
-    "hypothesis": "The M1960 reset pass can be audited as clean reset-validity evidence for the calibrated 80-spec panel while keeping rollout ranking paper and self-ID claims blocked.",
-    "id": "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit",
+    "command": "see experiments/manifests/m1962-executable-v2-task-quality-calibrated-measured-execution-design.json",
+    "hypothesis": "A measured execution protocol can be designed for the reset-valid M1958 calibrated panel while preserving calibrated source metadata and keeping ranking claims blocked.",
+    "id": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1960 reset pass before measured execution design or controller comparison",
-    "priority": 19560,
+    "notes": "Pending: design metadata-preserving measured execution route for M1958 planned workload after M1960 reset pass",
+    "priority": 19570,
     "status": "pending",
-    "success_artifact": "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md"
+    "success_artifact": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md"
   },
-  "updated_at_utc": "20260531T103449Z"
+  "updated_at_utc": "20260531T104000Z"
 }

@@ -1,0 +1,167 @@
+{
+  "id": "m1962-executable-v2-task-quality-calibrated-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_measured_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution route for reset-valid calibrated task-quality panel"
+    ],
+    "derived_from": [
+      "m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M1961 admits measured execution design but no exact runner protocol is frozen"
+    ],
+    "supersedes": [
+      "direct measured execution without metadata-preserving protocol design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+  "public_gates": [
+    "M1962 must design the exact measured execution route for the M1958 planned workload",
+    "M1962 must preserve calibrated source metadata and controller profile provenance",
+    "M1962 must specify target counts output artifacts and pass/fail gates",
+    "M1962 must keep controller ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_measured_execution_design",
+    "evidence_increment": "turns a reset-valid calibrated panel into a measured execution protocol design",
+    "claim_scope": "measured execution design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if measured runner would drop calibrated source metadata",
+      "stop if measured execution target counts are ambiguous",
+      "stop if design would claim ranking before post-execution audit"
+    ],
+    "fallback_plan": [
+      "route to focused measured-runner implementation if existing runners are not schema-compatible",
+      "route to direct measured command only if schema compatibility is proven",
+      "route to branch synthesis if measured execution design exposes broader task-quality limitations"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1961 admits measured execution design after reset pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated measured execution design",
+    "admission_evidence": [
+      "M1961 audits M1960 as a clean 80/80 reset-validation pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M1962",
+      "do not rank controller families",
+      "do not interpret reset success as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+      "M1962 status queue scoreboard research log and review",
+      "one follow-up manifest for measured-runner implementation or command registration"
+    ],
+    "next_stage_criteria": [
+      "measured execution route is exact",
+      "target workload count is explicit",
+      "metadata preservation is explicit",
+      "next implementation or execution route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured execution design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1962."
+    ],
+    "temporal_evidence_window": "M1958 materialized workload and M1960/M1961 reset-validation audit.",
+    "negative_result_policy": "If no schema-compatible measured route exists, register a focused runner or synthesis before execution.",
+    "allowed_claims": [
+      "calibrated measured execution design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares measured execution over a reset-valid calibrated scenario panel",
+    "paper_verdict_delta": "can admit measured execution but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "measured execution design requires another schema bridge",
+      "calibrated materialization branch reaches cadence",
+      "next action would rank controller families before measured execution audit"
+    ]
+  },
+  "hypothesis": "A measured execution protocol can be designed for the reset-valid M1958 calibrated panel while preserving calibrated source metadata and keeping ranking claims blocked.",
+  "success_criteria": [
+    "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md exists",
+    "measured execution inputs outputs and pass gates are explicit",
+    "target workload count is 960",
+    "metadata preservation requirements are explicit",
+    "next implementation or command route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "measured execution route is ambiguous",
+    "target counts are ambiguous",
+    "metadata preservation is not specified",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1962-executable-v2-task-quality-calibrated-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_measured_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1961-executable-v2-task-quality-calibrated-reset-validation-result-audit.md",
+    "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+  ],
+  "decision_rule": "M1962 passes if it freezes a measured execution design without execution or ranking.",
+  "next_blocker": "m1962-executable-v2-task-quality-calibrated-measured-execution-design"
+}
