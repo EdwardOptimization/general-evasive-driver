@@ -33878,3 +33878,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design calibrated fallback application to the full no-rollout source-mining adapter before any reset or measured execution
 - follow-up manifest: `experiments/manifests/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.json`
 - next: `m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design`
+
+## M1951 Executable V2 Task-Quality Offtrack Support Repair Calibrated Source-Mining Application Design
+
+- status: completed
+- decision: `task_quality_calibrated_source_mining_application_design_admit_implementation`
+- doc: `docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md`
+- branch: `paper_route_task_quality_offtrack_support_repair`
+- reset/rollout/measured execution in M1951: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: add an artifact-provenanced `--anchor-fallback-geometry` input to the offtrack-support repair source-mining adapter
+- application scope: only slice-level `anchor_neighborhood / stable_aeb / aeb_feasible` fallback rows without exact M1928 geometry; all non-anchor and exact-source rows keep M1947 behavior
+- required provenance: `calibrated_anchor_fallback_used_count == 64`, split `32` post-friction-step and `32` steady-surface
+- preserved gates: original M1947 source-kind support floors and guardrails remain unchanged
+- follow-up manifest: `experiments/manifests/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.json`
+- next: `m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation`

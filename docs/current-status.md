@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation
+m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design
 ```
 
 Current next task:
 
 ```text
-m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design
+m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -42,8 +42,10 @@ runs that calibration: both `post_friction_step` and `steady_surface` select
 speed `18.0`, mu `0.40`, obstacle distance `52.0`, and obstacle half-width
 `0.75`; selected center labels are `aeb_feasible`, selected support is `64/64`
 anchor rows with `4032` accepted cells, and guardrail is `0`. M1951 must now
-design how to apply `selected_anchor_fallback_geometry.json` to the full
-no-rollout source-mining adapter without weakening M1947 gates.
+designs the artifact-provenanced `--anchor-fallback-geometry` application path
+for the full no-rollout source-mining adapter. M1952 must implement that path,
+preserve the original M1947 source-kind gates, and verify provenance fields
+show `64` calibrated anchor fallback uses split `32/32` by surface.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

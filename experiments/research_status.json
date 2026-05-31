@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1959,
+    "completed": 1960,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
+    "command_log": "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation"
+    "task_id": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.json",
-    "hypothesis": "The M1950 calibrated fallback artifact can be wired into the source-mining adapter through an explicit no-rollout rerun design that preserves M1947 gates.",
-    "id": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design",
-    "kind": "gate",
-    "notes": "Pending: design artifact-provenanced calibrated fallback application to full no-rollout source-mining rerun",
-    "priority": 19460,
+    "command": "see experiments/manifests/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.json",
+    "hypothesis": "Applying the M1950 calibrated fallback artifact to the full source-mining adapter will repair the anchor-neighborhood gate while preserving non-anchor support and guardrails.",
+    "id": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement artifact-provenanced calibrated fallback source-mining rerun",
+    "priority": 19470,
     "status": "pending",
-    "success_artifact": "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md"
+    "success_artifact": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json"
   },
-  "updated_at_utc": "20260531T094245Z"
+  "updated_at_utc": "20260531T094551Z"
 }

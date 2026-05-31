@@ -1,0 +1,181 @@
+{
+  "id": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_calibrated_source_mining"
+    ],
+    "parent_dataset": [
+      "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+      "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.json"
+    ],
+    "parent_objective": [
+      "implement calibrated fallback artifact input and rerun no-rollout offtrack-support source mining"
+    ],
+    "derived_from": [
+      "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design"
+    ],
+    "blocked_by": [
+      "M1951 requires artifact-provenanced calibrated fallback application before rerunning full source mining"
+    ],
+    "supersedes": [
+      "manual source-mining rerun with patched constants",
+      "rerunning M1947 without calibrated fallback artifact"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md",
+  "public_gates": [
+    "M1952 must implement --anchor-fallback-geometry support with tests",
+    "M1952 must run only no-rollout source mining",
+    "M1952 must preserve the original M1947 source-kind support gates",
+    "M1952 must write calibrated fallback provenance metrics",
+    "M1952 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not relax stable-AEB anchors to accept aes_feasible labels",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_source_mining_result",
+    "evidence_increment": "tests whether calibrated fallback repairs the full no-rollout source-mining gate",
+    "claim_scope": "source-mining result only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if calibrated rerun repeats anchor support failure",
+      "stop if calibrated fallback provenance is missing",
+      "stop if implementation requires reset or rollout"
+    ],
+    "fallback_plan": [
+      "route to result audit if calibrated rerun completes",
+      "route to synthesis if calibrated rerun repeats the same anchor failure",
+      "route to broader scenario redesign if calibrated fallback harms non-anchor support"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "ninth milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated offtrack-support source-mining implementation",
+    "admission_evidence": [
+      "M1951 defines exact artifact input path command output directory and source-kind gates"
+    ],
+    "blocked_shortcuts": [
+      "do not hard-code calibrated geometry without reading the artifact",
+      "do not execute reset rollout or measured policy actions",
+      "do not relax M1947 source-kind gates"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "tests/test_executable_v2_task_quality_offtrack_support_repair_source_mining.py",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/*",
+      "docs/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md",
+      "M1952 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "calibrated source-mining summary is present",
+      "source-kind gates are evaluated",
+      "guardrails remain zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; calibrated source mining does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1952."
+    ],
+    "temporal_evidence_window": "M1950 calibrated fallback artifact and M1951 design.",
+    "negative_result_policy": "If calibrated source mining fails, audit failure and synthesize before another narrow repair loop.",
+    "allowed_claims": [
+      "calibrated source-mining result",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns calibrated source-geometry artifact into a full source-mining gate result",
+    "paper_verdict_delta": "can unblock reset/materialization planning if full source-mining passes but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "calibrated source mining repeats anchor support failure",
+      "calibrated source mining harms non-anchor support below gate floors",
+      "the next action would be another geometry tweak rather than audit or synthesis"
+    ]
+  },
+  "hypothesis": "Applying the M1950 calibrated fallback artifact to the full source-mining adapter will repair the anchor-neighborhood gate while preserving non-anchor support and guardrails.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json exists",
+    "result_class is evaluated",
+    "calibrated_anchor_fallback_used_count equals 64",
+    "source-kind support gates are evaluated",
+    "guardrail violation count is zero"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "calibrated source-mining summary is missing",
+    "calibrated fallback provenance is missing",
+    "source-kind gate failure is not routed to audit",
+    "reset rollout ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_offtrack_support_repair_source_mining.py"
+    },
+    {
+      "name": "run-calibrated-source-mining",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_offtrack_support_repair_source_mining --repair-templates configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --anchor-fallback-geometry runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json --output-dir runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining --next-blocker m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_calibrated_source_mining"
+  ],
+  "baseline_artifacts": [
+    "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+    "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json",
+    "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+  ],
+  "decision_rule": "M1952 passes if calibrated source mining completes with provenance and guardrail zero; source-kind pass/fail is routed to M1953 audit.",
+  "next_blocker": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation"
+}
