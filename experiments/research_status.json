@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1995,
+    "completed": 1996,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json",
+    "command_log": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation"
+    "task_id": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.json",
-    "hypothesis": "The M1986 materialization preflight is clean enough to admit reset-validation command design after audit.",
-    "id": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+    "command": "see experiments/manifests/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.json",
+    "hypothesis": "The M1977-M1987 branch evidence is sufficient to choose whether to continue to reset validation without local-search drift.",
+    "id": "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1986 materialization result before reset validation command design",
-    "priority": 19820,
+    "notes": "Pending: synthesize M1977-M1987 outcome-support repair branch before reset validation",
+    "priority": 19830,
     "status": "pending",
-    "success_artifact": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md"
+    "success_artifact": "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T124524Z"
+  "updated_at_utc": "20260531T124820Z"
 }

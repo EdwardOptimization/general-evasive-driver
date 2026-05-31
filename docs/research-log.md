@@ -34551,3 +34551,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit materialization result before reset validation command design
 - follow-up manifest: `experiments/manifests/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.json`
 - next: `m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit`
+
+## M1987 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Materialization Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_materialization_audit_pass_route_to_branch_synthesis`
+- doc: `docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md`
+- audited summary: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json`
+- materialization rerun in M1987: `false`
+- reset/rollout/measured execution in M1987: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1986 is a clean no-reset materialization preflight pass with `80` specs, `960` workload rows, unsupported selected `0`, contract `0`, guardrail `0`
+- route: branch synthesis before reset-validation command design because the repaired outcome-support branch reached synthesis cadence
+- follow-up manifest: `experiments/manifests/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.json`
+- next: `m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis`

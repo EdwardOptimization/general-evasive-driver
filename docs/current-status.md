@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation
+m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit
+m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -235,7 +235,9 @@ execution are still blocked. M1986 implements and runs that preflight:
 `80` selected sources become `80` executable specs and `960` workload rows,
 with unsupported selected `0`, materialization failures `0`, duplicate ids `0`,
 profile artifacts present, contract violations `0`, and guardrail `0`. M1987
-must audit this before any reset validation command design.
+audits this as clean and technically admissible for reset validation, but routes
+first to branch synthesis because M1977-M1987 completes a full outcome-support
+repair sequence. M1988 must synthesize the branch before reset command design.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

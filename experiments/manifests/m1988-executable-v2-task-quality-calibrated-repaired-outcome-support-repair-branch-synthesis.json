@@ -1,0 +1,180 @@
+{
+  "id": "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_repair_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.md",
+      "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
+      "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md",
+      "docs/m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation.md",
+      "docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+      "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize repaired outcome-support repair branch and choose next route"
+    ],
+    "derived_from": [
+      "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run",
+      "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1977-M1987",
+      "M1987 admits reset validation but branch-level evidence must be synthesized first"
+    ],
+    "supersedes": [
+      "continuing directly to reset validation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
+  "public_gates": [
+    "M1988 must synthesize M1977-M1987 repaired outcome-support branch evidence",
+    "M1988 must separate source mining materialization and reset/readiness claims",
+    "M1988 must classify remaining unsupported evidence and local-search risk",
+    "M1988 must choose continue pivot stop or promote-to-next-branch",
+    "M1988 must keep reset rollout ranking paper and self-ID claims blocked unless supported"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun source mining",
+    "do not rerun materialization",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_repair_branch_synthesis",
+    "evidence_increment": "synthesizes the outcome-support localization source-mining and materialization branch after M1987",
+    "claim_scope": "branch synthesis only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary is incomplete",
+      "stop if supported and unsupported claims are not separated",
+      "stop if synthesis overclaims materialization as reset or measured evidence"
+    ],
+    "fallback_plan": [
+      "continue to reset validation command design if materialization evidence is clean",
+      "pivot to source repair if synthesis finds unsupported rows block reset validation",
+      "stop if task-quality repair has become local search without paper verdict delta"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M1977-M1987 repaired outcome-support repair branch cadence",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated repaired outcome-support repair branch synthesis",
+    "admission_evidence": [
+      "M1987 audits materialization as clean enough for reset validation but routes to synthesis first"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in synthesis",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
+      "M1988 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next route"
+    ],
+    "next_stage_criteria": [
+      "M1977-M1987 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "public overfit and local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1988."
+    ],
+    "temporal_evidence_window": "M1977-M1987 repaired outcome-support branch artifacts.",
+    "negative_result_policy": "If synthesis finds materialization not ready, route to repair instead of reset validation.",
+    "allowed_claims": [
+      "task-quality repaired outcome-support branch synthesis",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M1977-M1987 repair work into a next-branch decision",
+    "paper_verdict_delta": "decides whether the repaired outcome-support panel is ready for reset validation",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "The M1977-M1987 branch evidence is sufficient to choose whether to continue to reset validation without local-search drift.",
+  "success_criteria": [
+    "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md exists",
+    "evidence summary covers M1977-M1987",
+    "supported and unsupported claims are explicit",
+    "public gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "evidence summary is incomplete",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "reset rollout measured execution training replay or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_repair_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M1988 passes if it synthesizes branch evidence and chooses the next route without overclaiming.",
+  "next_blocker": "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis"
+}

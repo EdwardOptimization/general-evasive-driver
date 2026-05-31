@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M1987 audits M1986 materialization as clean and routes to branch synthesis before reset validation",
+  "failure_criteria": [
+    "audit document is missing",
+    "M1986 result is not summarized",
+    "next route is ambiguous",
+    "reset rollout ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun materialization",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T125210Z",
+  "hypothesis": "The M1986 materialization preflight is clean enough to admit reset-validation command design after audit.",
+  "lineage": {
+    "blocked_by": [
+      "M1986 materialization preflight has not yet been audited"
+    ],
+    "derived_from": [
+      "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_objective": [
+      "audit no-reset materialization result before reset-validation command design"
+    ],
+    "supersedes": [
+      "direct reset validation from M1986 artifacts without audit"
+    ]
+  },
+  "milestone": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+  "next_blocker": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_materialization_audit_pass_route_to_branch_synthesis",
+  "public_gates": [
+    "M1987 must not run reset rollout measured execution or training",
+    "M1987 must audit materialization counts contract and guardrails",
+    "M1987 must decide whether reset validation command design is admissible",
+    "M1987 must keep controller ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_materialization_audit_pass_route_to_branch_synthesis",
+    "milestone": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+    "reason": "M1987 audits M1986 materialization as clean and routes to branch synthesis before reset validation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md exists",
+    "M1986 materialization counts are summarized",
+    "contract and guardrail counts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
