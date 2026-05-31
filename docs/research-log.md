@@ -36081,3 +36081,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: reset_validation_ready true; ranking paper semantics finite-window-vs-GRU and level3 self-ID false
 - follow-up manifest: `experiments/manifests/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.json`
 - next: `m2065-paper-route-outcome-supported-decisive-reset-validation-command-design`
+
+## M2065 Paper-Route Outcome-Supported Decisive Reset-Validation Command Design
+
+- status: completed
+- decision: `outcome_supported_decisive_reset_validation_command_design_route_to_focused_validator`
+- doc: `docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md`
+- source specs: `runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json`
+- reset execution in M2065: `false`
+- rollout/measured execution in M2065: `false`
+- policy actions executed in M2065: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- validator decision: implement focused wrapper because the old controlled-routing-smoke wrapper expects old metadata and would misread M2063 schema
+- frozen target: `240` reset attempts, expected observation dim `72`, eval seed base `206600`
+- next command route: `autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight`
+- follow-up manifest: `experiments/manifests/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.json`
+- next: `m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run`

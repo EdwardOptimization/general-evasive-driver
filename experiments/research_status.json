@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2073,
+    "completed": 2074,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.md",
+    "command_log": "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit"
+    "task_id": "m2065-paper-route-outcome-supported-decisive-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.json",
-    "hypothesis": "A reset-only validation command can be designed for the M2063 materialized executable specs while preserving metadata and claim guards.",
-    "id": "m2065-paper-route-outcome-supported-decisive-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze reset-only validation command and validator compatibility for M2063 executable specs",
-    "priority": 20600,
+    "command": "see experiments/manifests/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.json",
+    "hypothesis": "A focused reset-only validator can reset all 240 M2063 executable specs with finite 72-dim human-view observations while preserving metadata and claim guards.",
+    "id": "m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused reset-only validator and run 240 reset attempts with obs dim 72",
+    "priority": 20610,
     "status": "pending",
-    "success_artifact": "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md"
+    "success_artifact": "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T204816Z"
+  "updated_at_utc": "20260531T205234Z"
 }

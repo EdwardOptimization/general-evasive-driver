@@ -1,0 +1,187 @@
+{
+  "id": "m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_reset_validation"
+    ],
+    "parent_dataset": [
+      "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json",
+      "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "implement and run focused reset-only validation for M2063 executable specs"
+    ],
+    "derived_from": [
+      "m2065-paper-route-outcome-supported-decisive-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "M2065 freezes a focused reset validator route because old wrappers would misread M2063 metadata"
+    ],
+    "supersedes": [
+      "using controlled-routing-smoke reset wrapper directly on M2063 schema"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.md",
+  "public_gates": [
+    "M2066 must implement a focused reset-only validator preserving M2063 metadata",
+    "M2066 must run exactly 240 reset attempts with expected observation dimension 72",
+    "M2066 must not execute policy actions rollout measured execution or ranking",
+    "M2066 must route to result audit whether pass or fail"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not repair and rerun inside the same milestone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_reset_validation",
+    "evidence_increment": "runs reset-only validation for the materialized candidate panel",
+    "claim_scope": "reset validity only; no rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset failures occur",
+      "stop if observation dimension or finite-observation checks fail",
+      "stop if metadata or contract guards fail",
+      "stop if policy actions or rollout are executed"
+    ],
+    "fallback_plan": [
+      "route to reset result audit if run completes",
+      "route to focused validator repair only after audit if schema handling fails",
+      "route to materialization repair if executable specs are not reset-valid"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2065 freezes exact reset-validation command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive reset validation",
+    "admission_evidence": [
+      "M2065 freezes exact focused reset-validation command"
+    ],
+    "blocked_shortcuts": [
+      "do not execute policy actions",
+      "do not run rollout or measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_reset_validation_preflight.py",
+      "tests/test_paper_route_outcome_supported_decisive_reset_validation_preflight.py",
+      "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/*",
+      "docs/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.md",
+      "M2066 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "reset summary exists",
+      "reset gates pass or fail closed",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2066 resets environments but does not run policy actions or history-necessity tests.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2066."
+    ],
+    "temporal_evidence_window": "M2063 materialization preflight and M2065 reset command design.",
+    "negative_result_policy": "If reset validation fails, audit the failure before repair and do not convert it into paper or ranking evidence.",
+    "allowed_claims": [
+      "outcome-supported decisive reset validation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "validates reset feasibility for the new materialized panel",
+    "paper_verdict_delta": "can admit measured smoke command design after audit but cannot decide paper verdict by itself",
+    "must_synthesize_if": [
+      "M2066 fails and the same reset failure repeats after one repair attempt",
+      "M2066 suggests measured smoke before reset result audit",
+      "M2066 loses metadata or claim-boundary evidence"
+    ]
+  },
+  "hypothesis": "A focused reset-only validator can reset all 240 M2063 executable specs with finite 72-dim human-view observations while preserving metadata and claim guards.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "reset_attempt_count is 240",
+    "reset_success_count is 240",
+    "reset_failure_count is 0",
+    "observation_dimension_failure_count is 0",
+    "observation_finite_count is 240",
+    "obstacle_initialized_count is 240",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started is true",
+    "environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "validator is missing",
+    "focused tests fail",
+    "summary artifact is missing",
+    "reset gates fail",
+    "policy actions rollout measured execution ranking or paper claims are performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_reset_validation_preflight.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_reset_validation_preflight --executable-task-specs runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json --output-dir runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight --eval-seed-base 206600 --target-spec-count 240 --expected-observation-dim 72 --next-blocker m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json",
+    "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md"
+  ],
+  "decision_rule": "M2066 passes if it runs focused reset-only validation and writes a clean reset artifact without overclaiming.",
+  "next_blocker": "m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit"
+}
