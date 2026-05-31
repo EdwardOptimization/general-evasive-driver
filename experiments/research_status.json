@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2091,
+    "completed": 2092,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation.md",
+    "command_log": "docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md",
     "returncode": 0,
     "run_dir": "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight",
     "status": "completed",
-    "task_id": "m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation"
+    "task_id": "m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.json",
-    "hypothesis": "M2082's six-row density-aware no-reset repair artifact is clean enough to admit a bounded fresh-seed reset-validation command design.",
-    "id": "m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit",
+    "command": "see experiments/manifests/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.json",
+    "hypothesis": "The M2082 density-aware repaired specs can be validated with a fresh-seed reset-only command before measured execution is considered.",
+    "id": "m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2082 density-aware repair artifact before fresh reset command design or stop",
-    "priority": 20780,
+    "notes": "Pending: freeze exact fresh-seed reset-only validation command over M2082 density-aware repaired specs",
+    "priority": 20790,
     "status": "pending",
-    "success_artifact": "docs/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.md"
+    "success_artifact": "docs/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T223938Z"
+  "updated_at_utc": "20260531T224531Z"
 }

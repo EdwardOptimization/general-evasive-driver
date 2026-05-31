@@ -36485,3 +36485,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: the six residual M2079 failures now have density-aware no-reset support, but reset validity remains untested
 - follow-up manifest: `experiments/manifests/m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit.json`
 - next: `m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit`
+
+## M2083 Paper-Route Outcome-Supported Decisive Density-Aware Obstacle-Filter Repair Result Audit
+
+- status: completed
+- decision: `density_aware_repair_audit_admit_fresh_seed_reset_command_design`
+- audited artifact: `runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/summary.json`
+- failure taxonomy: `none`
+- reset/rollout/measured execution in M2083: `false`
+- policy actions executed in M2083: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2082 is clean with `240` specs, `6` targeted repaired rows, `0` non-target spec changes, `6/6` density support pass, minimum accepted grid cells `90`, and guardrail `0`
+- bounds: distance window max `12.0`, half-width window max `0.7940476190476191`, threshold-score ceiling used `1.0`
+- route decision: admits M2084 fresh-seed reset-validation command design over M2082 density-aware repaired specs
+- fresh seed base selected for the command design: `209500`, outside M2079 eval seed and M2082 support seed panel
+- stop condition: if the following reset validation still fails scenario sampling, synthesize and stop, pivot, or reduce panel rather than continuing local obstacle-filter repair
+- follow-up manifest: `experiments/manifests/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.json`
+- next: `m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design`

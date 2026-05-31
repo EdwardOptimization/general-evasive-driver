@@ -16,21 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2082-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-preflight-implementation
+m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2083-paper-route-outcome-supported-decisive-density-aware-obstacle-filter-repair-result-audit
+m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design
 ```
 
-Immediate route: M2082 implements and runs the density-aware no-reset repair.
-It passes with `6/6` targeted rows, `0` non-target spec changes, minimum
-accepted grid cell count `90`, all `240` specs preserved, and
-contract/metadata/forbidden-key/profile/guardrail counts `0`. M2083 must audit
-this repair artifact before any fresh reset command design. Reset rerun,
-measured execution, ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2083 audits M2082's density-aware no-reset repair as clean:
+`6/6` targeted rows, `0` non-target spec changes, minimum accepted grid cell
+count `90`, all `240` specs preserved, and
+contract/metadata/forbidden-key/profile/guardrail counts `0`. M2084 must freeze
+the exact fresh-seed reset-only command over the M2082 density-aware repaired
+specs using seed base `209500`. Reset rerun, measured execution, ranking, paper
+claims, and self-ID claims remain blocked until that command is explicitly run
+and audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
