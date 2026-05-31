@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1955 designs an 80-source calibrated materialization subset from M1952 supported rows with quotas 32 anchor 24 success 8 offtrack 16 mitigation and explicit calibrated-anchor provenance checks",
+  "failure_criteria": [
+    "design document is missing",
+    "materialization quotas are ambiguous",
+    "design drops calibrated-anchor provenance checks",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T100438Z",
+  "hypothesis": "A calibrated materialization subset can be designed from M1952 source rows while preserving source-kind, role, surface, and calibrated-anchor provenance diversity.",
+  "lineage": {
+    "blocked_by": [
+      "M1954 promotes to calibrated materialization but reset/materialized execution needs exact subset design first"
+    ],
+    "derived_from": [
+      "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_source_materialization_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_source_rows.csv",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv"
+    ],
+    "parent_objective": [
+      "design calibrated source materialization subset after offtrack-support repair synthesis"
+    ],
+    "supersedes": [
+      "direct reset validation over all M1952 rows without materialization design"
+    ]
+  },
+  "milestone": "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
+  "next_blocker": "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_source_materialization_design_admit_selector_implementation",
+  "public_gates": [
+    "M1955 must design the calibrated source materialization subset target",
+    "M1955 must preserve source-kind role surface and calibrated-anchor provenance diversity",
+    "M1955 must specify selector inputs outputs and pass gates",
+    "M1955 must keep reset rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_source_materialization_design_admit_selector_implementation",
+    "milestone": "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
+    "reason": "M1955 designs an 80-source calibrated materialization subset from M1952 supported rows with quotas 32 anchor 24 success 8 offtrack 16 mitigation and explicit calibrated-anchor provenance checks",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md exists",
+    "materialization inputs outputs and pass gates are explicit",
+    "source-kind role surface and calibrated-anchor provenance quotas are explicit",
+    "next implementation route is explicit",
+    "no reset rollout ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

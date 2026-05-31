@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1963,
+    "completed": 1964,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+    "command_log": "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis"
+    "task_id": "m1955-executable-v2-task-quality-calibrated-source-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1955-executable-v2-task-quality-calibrated-source-materialization-design.json",
-    "hypothesis": "A calibrated materialization subset can be designed from M1952 source rows while preserving source-kind, role, surface, and calibrated-anchor provenance diversity.",
-    "id": "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design calibrated source materialization subset from M1952 rows before reset validation",
-    "priority": 19500,
+    "command": "see experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json",
+    "hypothesis": "The M1955 deterministic selector can create an 80-source calibrated materialization subset from M1952 supported source rows while preserving source-kind, role, surface, and calibrated-anchor provenance quotas.",
+    "id": "m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement deterministic selector and source-only subset artifacts from M1952 calibrated supported rows",
+    "priority": 19510,
     "status": "pending",
-    "success_artifact": "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md"
+    "success_artifact": "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json"
   },
-  "updated_at_utc": "20260531T095535Z"
+  "updated_at_utc": "20260531T100207Z"
 }

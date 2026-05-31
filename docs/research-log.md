@@ -33954,3 +33954,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: `medium`; next branch must preserve source-kind role surface and calibrated-anchor provenance diversity
 - follow-up manifest: `experiments/manifests/m1955-executable-v2-task-quality-calibrated-source-materialization-design.json`
 - next: `m1955-executable-v2-task-quality-calibrated-source-materialization-design`
+
+## M1955 Executable V2 Task-Quality Calibrated Source Materialization Design
+
+- status: completed
+- decision: `task_quality_calibrated_source_materialization_design_admit_selector_implementation`
+- doc: `docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- parent source rows: `runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_source_rows.csv`
+- reset/rollout/measured execution in M1955: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- source pool: M1952 has `130` supported sources and `5981` accepted cells with guardrail `0`
+- materialization target: `80` selected sources x `12` controller profiles = `960` planned workload cells
+- source-kind quotas: anchor-neighborhood `32`, success-stabilizer `24`, offtrack-boundary-relief `8`, mitigation-isolation-check `16`
+- calibrated anchor provenance: select `32` calibrated anchors split `16` post-friction-step and `16` steady-surface from the M1950 fallback geometry
+- success-stabilizer preservation: select `24` rows with overall surface split `12/12` post-friction/steady across stable-AEB, stable-AES-only, drift-required recovery, and unavoidable mitigation roles
+- offtrack and mitigation preservation: select `8` supported offtrack relief rows and all `16` supported mitigation-isolation rows
+- unsupported claims: reset validity, measured execution readiness, rollout success, ranking, paper-level benchmark evidence, policy improvement, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation.json`
+- next: `m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation`

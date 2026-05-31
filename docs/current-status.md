@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis
+m1955-executable-v2-task-quality-calibrated-source-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1955-executable-v2-task-quality-calibrated-source-materialization-design
+m1956-executable-v2-task-quality-calibrated-source-materialization-selector-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -51,10 +51,14 @@ support `40`, calibrated fallback uses `64` split `32/32`, and guardrail `0`.
 M1953 audits this as a clean calibrated source-mining pass: the M1947 anchor
 blocker is repaired and non-anchor support does not regress. M1954 synthesizes
 M1944-M1953 and promotes the route to
-`paper_route_task_quality_calibrated_materialization`. M1955 must now design a
-calibrated materialization subset from M1952 rows, preserving source-kind,
-role, surface, and calibrated-anchor provenance diversity before any reset or
-measured execution.
+`paper_route_task_quality_calibrated_materialization`. M1955 designs the
+calibrated materialization subset from M1952 rows: `80` selected sources x `12`
+controller profiles = `960` planned workload cells, with source-kind quotas
+anchor-neighborhood `32`, success-stabilizer `24`, offtrack-boundary-relief
+`8`, mitigation-isolation-check `16`, and calibrated anchor provenance split
+`16/16` post-friction-step/steady-surface. M1956 must now implement the
+deterministic selector and source-only subset artifacts before any reset,
+measured execution, ranking, paper-level claim, or level3 self-ID claim.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
