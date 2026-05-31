@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2082,
+    "completed": 2083,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md",
     "returncode": 0,
     "run_dir": "runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2073-paper-route-outcome-supported-decisive-repaired-reset-validation-implementation-and-run"
+    "task_id": "m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.json",
-    "hypothesis": "M2073 failed because M2070 repaired obstacle filters were seed-specific; a result audit can decide whether a seed-robust repair is justified.",
-    "id": "m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.json",
+    "hypothesis": "A bounded multi-seed obstacle-filter repair protocol can avoid the seed-specific feasibility overfit found in M2073 without weakening task semantics or claim guards.",
+    "id": "m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2073 seed-fragile scenario sampling failures before repair or rerun",
-    "priority": 20690,
+    "notes": "Pending: freeze multi-seed support criteria and bounded obstacle-filter repair route before implementation or reset rerun",
+    "priority": 20700,
     "status": "pending",
-    "success_artifact": "docs/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.md"
   },
-  "updated_at_utc": "20260531T214824Z"
+  "updated_at_utc": "20260531T215531Z"
 }

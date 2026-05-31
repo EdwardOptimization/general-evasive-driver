@@ -36277,3 +36277,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2070 repair improved reset success from `0/240` to `164/240`, but obstacle filters remain seed-fragile
 - follow-up manifest: `experiments/manifests/m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit.json`
 - next: `m2074-paper-route-outcome-supported-decisive-repaired-reset-validation-result-audit`
+
+## M2074 Paper-Route Outcome-Supported Decisive Repaired Reset Validation Result Audit
+
+- status: completed
+- decision: `route_to_seed_robust_obstacle_filter_repair_design`
+- audited artifact: `runs/m2073_paper_route_outcome_supported_decisive_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- operational subtype: `task_materialization_seed_overfit`
+- reset/rollout/measured execution in M2074: `false`
+- policy actions executed in M2074: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audited result: M2073 reset validation improved from M2066 `0/240` to `164/240` but still has `76/240` fresh-seed obstacle sampling failures
+- clean guard evidence: contract `0`, metadata `0`, forbidden-key `0`, guardrail `0`, warmup max-active-step failures `0`
+- failure distribution: T1 `17/48`, T2 `18/60`, T3 `23/60`, T4 `11/36`, T5 `7/36`; public_debug `50/144`, public_gate `26/96`
+- concentrated axes: late obstacle distance `45/80`, generous road width `45/80`, moderate curvature `45/80`, low initial speed `45/80`
+- interpretation: M2070 repaired to seed-specific exact obstacle windows; M2073 shows those windows are not robust across fresh reset RNG states
+- selected route: M2075 must design a bounded multi-seed obstacle-filter repair with explicit K-of-N support before any no-reset repair implementation or reset rerun
+- rejected: direct measured execution, panel reduction, another seed-only rerun, another exact single-seed repair, and any controller or paper interpretation
+- follow-up manifest: `experiments/manifests/m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design.json`
+- next: `m2075-paper-route-outcome-supported-decisive-seed-robust-obstacle-filter-repair-design`
