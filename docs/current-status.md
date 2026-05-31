@@ -16,25 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation
+m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit
 ```
 
 Current next task:
 
 ```text
-m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit
+m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
 ```
 
-Immediate route: M2094 materializes the public-gate-only core panel with `96`
-rows from M2091 reset-success public-gate rows and excludes `142` public-debug
-rows. The selector is no-reset and no-rollout, writes a `480`-cell planned
-sentinel workload, preserves env configs, and has metadata/contract/forbidden
-key/guardrail counts all `0`. The selected panel has 12 difficulty axes x `8`
-rows each and balanced dynamics counts of `24` per dynamics band. It remains a
-bounded smoke/research panel, not full task coverage or paper-level evidence.
-M2095 must audit this materialization and explicitly preserve the M2091
-reset-evidence boundary before any public-gate core measured-execution command
-design. Ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2095 audits M2094 as a clean public-gate-only core panel:
+`96` selected public-gate rows, `142` excluded public-debug rows, `480` planned
+sentinel workload rows, env_config changed `0`, and metadata/contract/forbidden
+key/guardrail counts all `0`. The audit explicitly preserves the evidence
+boundary: selected rows inherit M2091 reset-success evidence, while M2094/M2095
+do not create new reset evidence. M2096 must design the exact measured-execution
+command over the M2094 public-gate core panel without running rollout, ranking
+controller families, or making paper/self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

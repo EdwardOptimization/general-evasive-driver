@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2103,
+    "completed": 2104,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.md",
+    "command_log": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction",
+    "run_dir": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
     "status": "completed",
-    "task_id": "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation"
+    "task_id": "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.json",
-    "hypothesis": "M2094's 96-row public-gate panel artifact is clean enough to admit public-gate core measured-execution command design while preserving the M2091 reset-evidence boundary.",
-    "id": "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit",
+    "command": "see experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json",
+    "hypothesis": "An exact measured-execution route can be designed for the M2094 public-gate core workload while preserving metadata and claim boundaries.",
+    "id": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2094 public-gate core panel and decide whether measured-execution command design is admitted",
-    "priority": 20900,
+    "notes": "Pending: design public-gate core measured-execution command without running rollout or ranking",
+    "priority": 20910,
     "status": "pending",
-    "success_artifact": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md"
+    "success_artifact": "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T233659Z"
+  "updated_at_utc": "20260531T234152Z"
 }

@@ -36749,3 +36749,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrails: env_config changed `0`, metadata missing `0`, contract `0`, forbidden-key `0`, guardrail `0`
 - follow-up manifest: `experiments/manifests/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.json`
 - next: `m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit`
+
+## M2095 Paper-Route Outcome-Supported Decisive Public-Gate Core Panel Extraction Result Audit
+
+- status: completed
+- decision: `public_gate_core_panel_audit_admit_measured_execution_command_design`
+- audited artifact: `runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json`
+- reset/rollout/measured execution in M2095: `false`
+- policy actions executed in M2095: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2094 cleanly materialized `96` public-gate rows and `480` planned workload rows with public-debug included `0`
+- reset evidence boundary: selected rows inherit M2091 reset-success evidence; M2095 does not claim new reset validity
+- supported next route: bounded public-gate core measured-execution command design
+- blocked claims remain: full task-distribution coverage, controller-family ranking, paper-level evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json`
+- next: `m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design`
