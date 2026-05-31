@@ -33802,3 +33802,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gates: 160 input/source candidates, zero resolution failures, at least 64 supported sources, at least 24 public-gate supported sources, source-kind support floors, guardrail zero
 - follow-up manifest: `experiments/manifests/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.json`
 - next: `m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation`
+
+## M1947 Executable V2 Task-Quality Offtrack Support Repair Source-Mining Adapter Implementation
+
+- status: completed
+- decision: `task_quality_offtrack_support_repair_source_mining_incomplete_route_to_result_audit`
+- result class: `task_quality_offtrack_support_repair_source_mining_incomplete_or_fail`
+- doc: `docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_offtrack_support_repair_source_mining.py`
+- focused tests: `2 passed`
+- summary: `runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json`
+- reset/rollout/measured execution in M1947: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- clean counts: `160` input templates, `160` source candidates, `0` resolution failures, `1949` accepted cells, `66` supported sources, `40` public-gate supported sources, guardrail `0`
+- failed source-kind gate: anchor-neighborhood support `0/64` versus required `16`, while success-stabilizer `39`, offtrack-boundary-relief `11`, and mitigation-isolation `16` satisfy their floors
+- failure localization: slice-level stable-AEB anchor fallback geometry produces `aes_feasible`, so the stable-AEB source classifier rejects it with `label_role_mismatch`
+- follow-up manifest: `experiments/manifests/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.json`
+- next: `m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit`

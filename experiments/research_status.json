@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1955,
+    "completed": 1956,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+    "command_log": "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+    "run_dir": "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining",
     "status": "completed",
-    "task_id": "m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design"
+    "task_id": "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.json",
-    "hypothesis": "A focused adapter can source-mine the M1945 repair templates without environment interaction and produce support-quality evidence.",
-    "id": "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout source-mining adapter over 160 repair templates",
-    "priority": 19420,
+    "command": "see experiments/manifests/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.json",
+    "hypothesis": "M1947 failure can be localized to a specific repairable source-mining mapping issue without rerun.",
+    "id": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1947 source-kind failure and choose fallback-geometry repair template repair or broader scenario redesign",
+    "priority": 19430,
     "status": "pending",
-    "success_artifact": "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json"
+    "success_artifact": "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md"
   },
-  "updated_at_utc": "20260531T091927Z"
+  "updated_at_utc": "20260531T092645Z"
 }

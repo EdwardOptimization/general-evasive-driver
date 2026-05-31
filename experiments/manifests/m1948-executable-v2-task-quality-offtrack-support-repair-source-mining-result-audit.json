@@ -1,0 +1,162 @@
+{
+  "id": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_source_mining_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/source_kind_aggregate.csv",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "audit source-mining result and choose anchor/fallback repair or broader redesign"
+    ],
+    "derived_from": [
+      "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation"
+    ],
+    "blocked_by": [
+      "M1947 source-mining gate failed because anchor-neighborhood support was 0/64"
+    ],
+    "supersedes": [
+      "directly patching source-mining thresholds after a failed gate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+  "public_gates": [
+    "M1948 must audit M1947 without rerun or patching",
+    "M1948 must localize whether failure is fallback geometry template support or broader scenario failure",
+    "M1948 must choose a next route",
+    "M1948 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_source_mining_result_audit",
+    "evidence_increment": "audits failed source-kind support gate before any repair",
+    "claim_scope": "result audit only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if failure localization is ambiguous",
+      "stop if audit would patch thresholds",
+      "stop if audit would proceed to reset or measured execution"
+    ],
+    "fallback_plan": [
+      "route to fallback-geometry repair if anchor rows are the only failed source-kind",
+      "route to template repair if source-kind metadata is wrong",
+      "route to broader scenario redesign if multiple support kinds fail broadly"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fifth milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack support repair source-mining result audit",
+    "admission_evidence": [
+      "M1947 implemented the adapter and ran no-rollout source mining, but anchor-neighborhood support failed"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun with patched thresholds inside the audit",
+      "do not run environment interaction",
+      "do not rank controllers"
+    ],
+    "allowed_updates": [
+      "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+      "M1948 status queue scoreboard research log and review",
+      "one follow-up manifest for selected repair route"
+    ],
+    "next_stage_criteria": [
+      "failure type is localized",
+      "next repair or redesign route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1948."
+    ],
+    "temporal_evidence_window": "M1947 source-mining artifacts.",
+    "negative_result_policy": "If failure is localized to fallback geometry, repair mapping before another source-mining run; do not tune controllers.",
+    "allowed_claims": [
+      "offtrack support repair source-mining result audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns a failed source-kind gate into localized route decision",
+    "paper_verdict_delta": "can decide whether repair branch is salvageable by geometry mapping or needs redesign",
+    "must_synthesize_if": [
+      "failure cannot be localized",
+      "next action would tweak thresholds without audit",
+      "another source-mining run would repeat the same anchor failure"
+    ]
+  },
+  "hypothesis": "M1947 failure can be localized to a specific repairable source-mining mapping issue without rerun.",
+  "success_criteria": [
+    "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md exists",
+    "M1947 key counts and failed gate are audited",
+    "failure localization is explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "failure localization is ambiguous",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_source_mining_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+    "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json"
+  ],
+  "decision_rule": "M1948 passes if it audits M1947 and selects a repair/redesign route without overclaiming.",
+  "next_blocker": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit"
+}
