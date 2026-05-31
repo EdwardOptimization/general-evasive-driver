@@ -1,0 +1,172 @@
+{
+  "id": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.json"
+    ],
+    "parent_objective": [
+      "run the fixed task-quality repair-axis measured-wrapper execution"
+    ],
+    "derived_from": [
+      "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation"
+    ],
+    "blocked_by": [
+      "M1911 must provide the measured CLI mode before real execution"
+    ],
+    "supersedes": [
+      "manual or unregistered measured-wrapper execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.md",
+  "public_gates": [
+    "M1912 must run the exact M1910/M1911 measured-wrapper command",
+    "M1912 must produce 960 measured rollout rows, 576 import/postprocess rows, and 1536 combined panel rows",
+    "M1912 must preserve all guardrails and claim boundaries",
+    "M1912 must defer interpretation to a later result audit",
+    "M1912 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_execution",
+    "evidence_increment": "runs the fixed measured-wrapper public diagnostic panel and materializes artifacts for audit",
+    "claim_scope": "measured execution only; no training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if execution fails or produces incomplete artifacts",
+      "stop if target counts or guardrails fail",
+      "stop if interpretation or ranking would be claimed before audit"
+    ],
+    "fallback_plan": [
+      "route to failure audit if execution fails",
+      "route to wrapper repair if joins or target counts fail",
+      "route to result audit if execution passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1911 admits measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "task-quality repair-axis measured-wrapper execution",
+    "admission_evidence": [
+      "M1911 implemented measured CLI mode and focused tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/*",
+      "M1912 execution document",
+      "M1912 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit or repair"
+    ],
+    "next_stage_criteria": [
+      "summary target counts pass",
+      "guardrails pass",
+      "interpretation remains deferred to audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution materializes task-quality diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "Execution must preserve controller profile controls for later finite-window/GRU comparison."
+    ],
+    "temporal_evidence_window": "M1902-M1911 artifacts plus M1912 measured outputs.",
+    "negative_result_policy": "If execution fails or remains outcome dominated, route to result/failure audit rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured execution result",
+      "no training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces new measured rollout data for the task-quality repair-axis panel",
+    "paper_verdict_delta": "can materially update the task-quality/paper-route verdict after result audit",
+    "must_synthesize_if": [
+      "execution cannot run after CLI implementation",
+      "target counts fail in a way that requires more than one repair",
+      "result audit would need another local repair loop"
+    ]
+  },
+  "hypothesis": "The fixed measured-wrapper command can execute the 960 rollout rows and merge 576 import/postprocess rows into a 1536-row public diagnostic panel with clean guardrails.",
+  "success_criteria": [
+    "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json exists",
+    "summary result_class is task_quality_repair_axis_measured_wrapper_execution_pass",
+    "measured_rollout_row_count is 960",
+    "import_postprocess_row_count is 576",
+    "combined_panel_row_count is 1536",
+    "failure_count is 0",
+    "guardrail_violation_count is 0",
+    "controller-family ranking and paper claims remain blocked"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "execution command diverges from M1910/M1911",
+    "target counts fail",
+    "guardrail violations occur",
+    "interpretation or ranking is claimed before audit"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_support_first_task_quality_repair_axis_execution --task-quality-repair-axis-matrix runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv --source-episode-rows runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv --output-dir runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution --eval-seed-base 191200 --measured-execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1912_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json"
+  ],
+  "decision_rule": "M1912 passes if the exact command completes with target counts and clean guardrails while interpretation remains deferred.",
+  "next_blocker": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
+}

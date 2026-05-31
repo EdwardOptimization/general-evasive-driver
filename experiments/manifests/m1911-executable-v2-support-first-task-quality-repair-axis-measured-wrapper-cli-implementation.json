@@ -171,5 +171,5 @@
     "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md"
   ],
   "decision_rule": "M1911 passes if the measured CLI mode and mocked tests are added without running the real workload.",
-  "next_blocker": "m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation"
+  "next_blocker": "m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution"
 }

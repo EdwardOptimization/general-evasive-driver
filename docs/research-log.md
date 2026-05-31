@@ -33009,3 +33009,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: executable CLI availability real measured execution task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.json`
 - next: `m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation`
+
+## M1911 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper CLI Implementation
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_wrapper_cli_implementation_pass_admit_execution`
+- doc: `docs/m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation.md`
+- branch: `paper_route_repair_axis_measured_wrapper`
+- source: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py`
+- tests: `tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py`
+- focused tests: `8 passed`
+- real M1902 workload run: `false`
+- environment reset/rollout/measured execution in M1911: `false`
+- mocked measured CLI test: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implemented: `--measured-execution --base-measured-specs --device load_base_measured_specs apply_axis_geometry_delta_to_env_config build_measured_rollout_fn`
+- supported: measured CLI mode is implemented and real measured execution is admitted as the next milestone
+- unsupported: real measured execution success task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution.json`
+- next: `m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution`

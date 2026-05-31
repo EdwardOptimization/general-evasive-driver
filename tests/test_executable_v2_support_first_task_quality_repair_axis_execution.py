@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from autodrift.artifacts import read_json, write_csv_rows
+import autodrift.executable_v2_support_first_task_quality_repair_axis_execution as runner
 from autodrift.executable_v2_support_first_task_quality_repair_axis_execution import (
     IMPORT_ROW_KIND,
     POSTPROCESS_ROW_KIND,
@@ -226,3 +228,118 @@ def test_measured_prepare_execution_combines_mocked_rollout_with_imports(tmp_pat
     assert len(rollout_rows) == 1
     assert rollout_rows[0]["row_provenance"] == "measured_rollout_geometry_variant"
     assert (tmp_path / "repair_axis_variant_aggregate.csv").exists()
+
+
+def test_main_defaults_to_dry_run_cli(tmp_path) -> None:
+    matrix_path = tmp_path / "matrix.csv"
+    source_path = tmp_path / "source.csv"
+    output_dir = tmp_path / "out"
+    write_csv_rows(
+        matrix_path,
+        [
+            _matrix_row("r0", kind=ROLLOUT_ROW_KIND, variant="post_clearance_recovery_window_plus"),
+            _matrix_row("r1", kind=IMPORT_ROW_KIND),
+        ],
+    )
+    write_csv_rows(source_path, [_source_episode()])
+
+    rc = runner.main(
+        [
+            "--task-quality-repair-axis-matrix",
+            str(matrix_path),
+            "--source-episode-rows",
+            str(source_path),
+            "--output-dir",
+            str(output_dir),
+            "--eval-seed-base",
+            "4000",
+        ]
+    )
+
+    assert rc == 0
+    summary = read_json(output_dir / "summary.json")
+    assert summary["result_class"] == "task_quality_repair_axis_execution_wrapper_preflight_pass"
+    assert summary["environment_rollout_started"] is False
+    assert (output_dir / "planned_rollout_rows.csv").exists()
+
+
+def test_main_measured_execution_cli_uses_injected_mock_rollout(tmp_path, monkeypatch) -> None:
+    matrix_path = tmp_path / "matrix.csv"
+    source_path = tmp_path / "source.csv"
+    output_dir = tmp_path / "out"
+    write_csv_rows(
+        matrix_path,
+        [
+            _matrix_row("r0", kind=ROLLOUT_ROW_KIND, variant="post_clearance_recovery_window_plus"),
+            _matrix_row("r1", kind=IMPORT_ROW_KIND),
+        ],
+    )
+    write_csv_rows(source_path, [_source_episode()])
+
+    def fake_rollout(planned_row, eval_seed: int) -> dict[str, object]:
+        return {
+            "workload_id": planned_row["workload_id"],
+            "task_source_id": planned_row["task_source_id"],
+            "obstacle_clearance_pass": True,
+            "road_containment_pass": True,
+            "collision": False,
+            "collision_failure": False,
+            "min_clearance_margin": 0.5,
+            "max_off_track_overshoot": 0.0,
+            "termination_reason": "completed",
+            "outcome_bucket": "success",
+            "mock_eval_seed_seen": eval_seed,
+        }
+
+    monkeypatch.setattr(runner, "build_measured_rollout_fn", lambda **_kwargs: fake_rollout)
+
+    rc = runner.main(
+        [
+            "--task-quality-repair-axis-matrix",
+            str(matrix_path),
+            "--source-episode-rows",
+            str(source_path),
+            "--output-dir",
+            str(output_dir),
+            "--eval-seed-base",
+            "5000",
+            "--measured-execution",
+        ]
+    )
+
+    assert rc == 0
+    summary = read_json(output_dir / "summary.json")
+    assert summary["result_class"] == "task_quality_repair_axis_measured_wrapper_execution_pass"
+    assert summary["planned_rollout_row_count"] == 1
+    assert summary["measured_rollout_row_count"] == 1
+    assert summary["combined_panel_row_count"] == 2
+    assert summary["environment_rollout_started"] is True
+    assert summary["real_m1902_workload_executed"] is False
+    assert (output_dir / "rollout_episode_rows.csv").exists()
+    assert not (output_dir / "planned_rollout_rows.csv").exists()
+
+
+def test_axis_geometry_delta_application_is_explicit_and_non_oracle() -> None:
+    env_config = {
+        "max_steps": 800,
+        "track_width": 5.0,
+        "obstacle": {
+            "safety_margin": 0.3,
+            "distance_range": [12.0, 12.0],
+        },
+    }
+    updated = runner.apply_axis_geometry_delta_to_env_config(
+        env_config,
+        {
+            "max_steps_multiplier": 1.5,
+            "post_obstacle_track_width_multiplier": 1.35,
+            "obstacle_clearance_gap_delta_m": 0.25,
+            "obstacle_reaction_distance_delta_m": 5.0,
+        },
+    )
+
+    assert updated["max_steps"] == 1200
+    assert updated["track_width"] == 6.75
+    assert updated["obstacle"]["safety_margin"] == 0.55
+    assert updated["obstacle"]["distance_range"] == [17.0, 17.0]
+    assert env_config["max_steps"] == 800

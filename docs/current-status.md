@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design
+m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation
 ```
 
 Current next task:
 
 ```text
-m1911-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-cli-implementation
+m1912-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -193,6 +193,10 @@ that command contract and derived the target counts from M1906: `960` measured
 rollout rows, `576` import/postprocess rows, and `1536` combined panel rows.
 Because the module CLI is still dry-run-only, M1911 must now implement the
 explicit measured CLI mode with mocked tests before any real M1902 execution.
+M1911 implemented that CLI mode, base-spec binding, explicit geometry-delta
+mapping, and mocked tests (`8 passed`) without running the real workload. M1912
+must now run the exact measured-wrapper public diagnostic execution and defer
+interpretation to a result audit.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
