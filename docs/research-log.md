@@ -33193,3 +33193,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: high if this branch continues with more local fixed-source repair
 - follow-up manifest: `experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json`
 - next: `m1919-executable-v2-task-quality-scenario-redesign-plan`
+
+## M1919 Executable V2 Task-Quality Scenario Redesign Plan
+
+- status: completed
+- decision: `task_quality_scenario_redesign_plan_admit_source_mining_design`
+- doc: `docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md`
+- branch: `paper_route_task_quality_scenario_redesign`
+- governing plans read: `docs/self-id-go-no-go-paper-route-plan.md` and `docs/paper-route-finite-window-vs-gru-plan.md`
+- rerun/reset/rollout/measured execution in M1919: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: positive-support feasibility ladder Tier A-E, fresh-source policy, role-separated task-quality gates, and ranking block
+- positive-support gate: ranking remains blocked until joint clearance-containment support exists and the boundary is non-saturated
+- stop rules: synthesize if two waves still produce zero joint support, positives are source-dominated, task is trivialized, or another step only tweaks fixed sources
+- follow-up manifest: `experiments/manifests/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.json`
+- next: `m1920-executable-v2-task-quality-scenario-redesign-source-mining-design`

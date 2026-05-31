@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1919 defines feasibility ladder fresh-source policy positive-support gates and ranking block for the new task-quality scenario redesign branch",
+  "failure_criteria": [
+    "design document is missing",
+    "design repeats local repair-axis tweaking",
+    "design allows ranking before joint support",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T070702Z",
+  "hypothesis": "A broader executable-v2 task-quality scenario redesign can convert M1917's zero-joint/near-miss findings into a falsifiable next branch with ranking blocked until positive joint support exists.",
+  "lineage": {
+    "blocked_by": [
+      "M1918 stopped the local measured repair-axis branch because M1917 found zero joint clearance-containment outcomes"
+    ],
+    "derived_from": [
+      "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_plan"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+      "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+    ],
+    "parent_objective": [
+      "design a broader task-quality scenario branch after stopping the measured repair-axis branch"
+    ],
+    "supersedes": [
+      "another local measured repair-axis tweak on paper_route_repair_axis_measured_wrapper"
+    ]
+  },
+  "milestone": "m1919-executable-v2-task-quality-scenario-redesign-plan",
+  "next_blocker": "m1919-executable-v2-task-quality-scenario-redesign-plan",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_scenario_redesign_plan_admit_source_mining_design",
+  "public_gates": [
+    "M1919 must design a new task-quality scenario branch, not another local repair on the closed branch",
+    "M1919 must define positive-support feasibility, boundary/near-miss strata, fresh-source policy, and ranking-block gates",
+    "M1919 must keep reset rollout measured execution training replay PPO controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_scenario_redesign_plan_admit_source_mining_design",
+    "milestone": "m1919-executable-v2-task-quality-scenario-redesign-plan",
+    "reason": "M1919 defines feasibility ladder fresh-source policy positive-support gates and ranking block for the new task-quality scenario redesign branch",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md exists",
+    "positive-support feasibility criteria are defined",
+    "boundary and near-miss strata are defined",
+    "fresh-source and holdout policies are defined",
+    "ranking-block gates are defined",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

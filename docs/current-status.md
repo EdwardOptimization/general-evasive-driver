@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis
+m1919-executable-v2-task-quality-scenario-redesign-plan
 ```
 
 Current next task:
 
 ```text
-m1919-executable-v2-task-quality-scenario-redesign-plan
+m1920-executable-v2-task-quality-scenario-redesign-source-mining-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -226,7 +226,11 @@ local fixed-source repair loop. The next branch is
 scenario-quality plan with positive-support feasibility, boundary/near-miss
 strata, fresh-source policy, and ranking-block gates before any additional
 local repair, task-quality interpretation, controller-family ranking,
-paper-level claim, training, replay, PPO, or level3 self-ID claim.
+paper-level claim, training, replay, PPO, or level3 self-ID claim. M1919
+completed that design: the new branch requires a Tier A-E feasibility ladder,
+fresh source splits, role-separated metrics, and a positive-support gate before
+ranking. M1920 must now design the exact source-mining schema and acceptance
+gates for that feasibility ladder.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

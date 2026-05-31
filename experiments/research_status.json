@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1927,
+    "completed": 1928,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+    "command_log": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
     "returncode": 0,
-    "run_dir": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+    "run_dir": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
     "status": "completed",
-    "task_id": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis"
+    "task_id": "m1919-executable-v2-task-quality-scenario-redesign-plan"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json",
-    "hypothesis": "A broader executable-v2 task-quality scenario redesign can convert M1917's zero-joint/near-miss findings into a falsifiable next branch with ranking blocked until positive joint support exists.",
-    "id": "m1919-executable-v2-task-quality-scenario-redesign-plan",
+    "command": "see experiments/manifests/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.json",
+    "hypothesis": "The M1919 feasibility ladder can be converted into an executable source-mining design with positive-support gates and ranking blocked.",
+    "id": "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design",
     "kind": "gate",
-    "notes": "Pending: define positive-support feasibility ladder fresh-source policy and ranking-block gates for new branch",
-    "priority": 19140,
+    "notes": "Pending: design source-mining schema and acceptance gates for feasibility ladder",
+    "priority": 19150,
     "status": "pending",
-    "success_artifact": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md"
+    "success_artifact": "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md"
   },
-  "updated_at_utc": "20260531T070127Z"
+  "updated_at_utc": "20260531T070514Z"
 }
