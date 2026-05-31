@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1981,
+    "completed": 1982,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json",
+    "command_log": "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight"
+    "task_id": "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.json",
-    "hypothesis": "M1972 reset-validates the repaired 80-spec panel cleanly enough to admit measured execution design, while direct measured execution remains blocked.",
-    "id": "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit",
+    "command": "see experiments/manifests/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.json",
+    "hypothesis": "The repaired reset-valid calibrated panel can be given an exact measured execution command over M1969 repaired specs and workload without changing claim boundaries.",
+    "id": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit repaired reset pass before measured execution design",
-    "priority": 19680,
+    "notes": "Pending: freeze measured execution command over repaired specs and workload without running rollout",
+    "priority": 19690,
     "status": "pending",
-    "success_artifact": "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md"
+    "success_artifact": "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T112736Z"
+  "updated_at_utc": "20260531T112954Z"
 }

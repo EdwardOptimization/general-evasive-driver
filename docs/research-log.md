@@ -34305,3 +34305,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.json`
 - next: `m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit`
+
+## M1973 Executable V2 Task-Quality Calibrated Repaired Reset Validation Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_reset_validation_audit_admit_measured_execution_command_design`
+- doc: `docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md`
+- reset/rollout/measured execution in M1973: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1972 is clean reset-validity evidence with `80/80` reset success, finite observations `80`, observation-dimension failures `0`, obstacles initialized `80`, contract `0`, label actor input `0`, forbidden-key `0`, source-kind and role-surface quotas pass, guardrail `0`
+- supported claim: repaired 80-spec calibrated panel is reset-valid under the current simulator and strict human-view contract
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.json`
+- next: `m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design`

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight
+m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit
+m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -154,6 +154,10 @@ execution remain blocked. M1972 runs reset-only validation and passes:
 `0`, obstacles initialized `80`, contract `0`, label actor-input `0`,
 forbidden-key `0`, source-kind and role-surface quotas pass, and guardrail `0`.
 M1973 must audit this reset pass before measured execution design is admitted.
+M1973 audits it as clean reset-validity evidence for the repaired calibrated
+panel and admits repaired measured execution command design. M1974 must freeze
+a measured execution command over the M1969 repaired specs/workload; direct
+measured execution remains blocked until then.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

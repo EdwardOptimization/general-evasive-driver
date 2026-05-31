@@ -1,0 +1,165 @@
+{
+  "id": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze measured execution command over repaired reset-valid calibrated panel"
+    ],
+    "derived_from": [
+      "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "repaired measured execution command has not been frozen after reset validation"
+    ],
+    "supersedes": [
+      "rerunning stale M1966 measured command over unrepaired M1958 workload"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md",
+  "public_gates": [
+    "M1974 must freeze exact measured execution command over M1969 repaired specs and workload",
+    "M1974 must target 960 episodes 80 specs and 12 profiles",
+    "M1974 must keep ranking paper and level3 claims blocked",
+    "M1974 must not run measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_measured_execution_command",
+    "evidence_increment": "freezes measured execution command over repaired reset-valid panel",
+    "claim_scope": "command design only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if repaired spec or workload path is ambiguous",
+      "stop if command would use stale M1958 artifacts",
+      "stop if pass gates omit metadata preservation"
+    ],
+    "fallback_plan": [
+      "route to measured execution if command is exact",
+      "route back to reset audit if repaired artifact paths are ambiguous",
+      "synthesize if branch cadence is reached"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1973 reset audit admits measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired measured execution command design",
+    "admission_evidence": [
+      "M1973 audits repaired reset validation as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in command design",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md",
+      "M1974 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is frozen",
+      "target counts are explicit",
+      "pass/fail gates are explicit",
+      "real measured execution is admitted next"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1974."
+    ],
+    "temporal_evidence_window": "M1969 repaired workload and M1972/M1973 reset validation evidence.",
+    "negative_result_policy": "If command cannot be made exact, route back to reset audit before execution.",
+    "allowed_claims": [
+      "repaired measured execution command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "admits measured execution over repaired reset-valid artifacts",
+    "paper_verdict_delta": "can admit measured execution but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1974 cannot freeze an exact command",
+      "M1974 would be followed by another design-only step",
+      "branch cadence is reached"
+    ]
+  },
+  "hypothesis": "The repaired reset-valid calibrated panel can be given an exact measured execution command over M1969 repaired specs and workload without changing claim boundaries.",
+  "success_criteria": [
+    "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md exists",
+    "exact measured execution command is specified",
+    "target episode count is 960",
+    "target spec count is 80",
+    "target profile count is 12",
+    "no measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "command is ambiguous",
+    "stale M1958 artifacts are used",
+    "target counts are ambiguous",
+    "measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/planned_workload.csv",
+    "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md"
+  ],
+  "decision_rule": "M1974 passes if it freezes an exact measured execution command over repaired artifacts without execution or ranking.",
+  "next_blocker": "m1974-executable-v2-task-quality-calibrated-repaired-measured-execution-command-design"
+}
