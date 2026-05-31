@@ -32550,3 +32550,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.json`
 - next: `m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation`
+
+## M1893 Executable V2 Support-First Repaired Bounded-Smoke Runner Implementation
+
+- status: completed
+- decision: `support_first_repaired_bounded_smoke_runner_implementation_pass_admit_execution_command_design`
+- artifact: `docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md`
+- runner: `src/autodrift/executable_v2_support_first_repaired_bounded_smoke_execution.py`
+- tests: `tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py`
+- focused tests: `4 passed in 2.05s`
+- compileall: passed
+- rollout/import merge implemented: `true`
+- import source join check implemented: `true`
+- repaired aggregates implemented: `true`
+- resume behavior implemented: `true`
+- real rollout in M1893: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: repaired bounded-smoke wrapper infrastructure exists and is covered by focused monkeypatched tests
+- unsupported: real repaired bounded-smoke execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.json`
+- next: `m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design`

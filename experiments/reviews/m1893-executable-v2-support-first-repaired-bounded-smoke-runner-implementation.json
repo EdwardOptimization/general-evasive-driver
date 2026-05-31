@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M1893 implements repaired bounded-smoke wrapper with rollout/import merge provenance repaired aggregates resume behavior and focused tests 4 passed",
+  "failure_criteria": [
+    "implementation file is missing",
+    "tests are missing or fail",
+    "implementation runs real rollout as part of M1893",
+    "implementation changes actor inputs or tunes controller profiles",
+    "implementation drops import row provenance",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real environment rollout",
+    "do not run real measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T042006Z",
+  "hypothesis": "The M1891 repaired bounded-smoke execution protocol can be implemented as a wrapper with focused tests, without actor input changes or real rollout.",
+  "lineage": {
+    "blocked_by": [
+      "M1892 continues the branch and admits wrapper implementation"
+    ],
+    "derived_from": [
+      "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+      "m1892-executable-v2-support-first-measured-execution-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_runner_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json",
+      "experiments/manifests/m1892-executable-v2-support-first-measured-execution-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+      "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "implement repaired bounded-smoke execution wrapper without running real rollout"
+    ],
+    "supersedes": [
+      "direct repaired bounded-smoke execution with old support-first runner"
+    ]
+  },
+  "milestone": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation",
+  "next_blocker": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_repaired_bounded_smoke_runner_implementation_pass_admit_execution_command_design",
+  "public_gates": [
+    "M1893 must implement a repaired bounded-smoke execution wrapper",
+    "M1893 must load support_first_repaired_measured_executable_specs",
+    "M1893 must keep rollout and import row provenance distinct",
+    "M1893 must preserve repair metadata in output rows and aggregates",
+    "M1893 must use focused tests and must not run the real 576-rollout workload",
+    "M1893 must keep controller-family ranking blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_repaired_bounded_smoke_runner_implementation_pass_admit_execution_command_design",
+    "milestone": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation",
+    "reason": "M1893 implements repaired bounded-smoke wrapper with rollout/import merge provenance repaired aggregates resume behavior and focused tests 4 passed",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_repaired_bounded_smoke_execution.py exists",
+    "tests/test_executable_v2_support_first_repaired_bounded_smoke_execution.py exists",
+    "focused tests pass",
+    "wrapper supports 576 rollout rows and 384 import rows",
+    "wrapper preserves repair metadata and provenance",
+    "wrapper keeps controller-family ranking and paper claims blocked"
+  ],
+  "type": "infrastructure"
+}

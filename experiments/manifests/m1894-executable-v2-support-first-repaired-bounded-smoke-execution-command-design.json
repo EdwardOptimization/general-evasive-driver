@@ -1,0 +1,162 @@
+{
+  "id": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.json"
+    ],
+    "parent_objective": [
+      "register exact repaired bounded-smoke execution command before real rollout"
+    ],
+    "derived_from": [
+      "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation"
+    ],
+    "blocked_by": [
+      "M1893 implements the wrapper but real execution requires an exact command-design gate first"
+    ],
+    "supersedes": [
+      "direct repaired bounded-smoke execution without exact command design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+  "public_gates": [
+    "M1894 must register the exact repaired bounded-smoke execution command",
+    "M1894 must specify target counts for 576 rollout rows, 384 import rows, and 960 total panel rows",
+    "M1894 must specify post-execution pass/fail gates",
+    "M1894 must not run the real rollout",
+    "M1894 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_bounded_smoke_execution_command_design",
+    "evidence_increment": "registers the exact repaired bounded-smoke execution command after wrapper implementation",
+    "claim_scope": "execution command design only; no reset, rollout, measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if exact input paths or target counts are ambiguous",
+      "stop if wrapper command cannot preserve claim boundaries",
+      "stop if post-execution audit gates are incomplete"
+    ],
+    "fallback_plan": [
+      "route to wrapper repair if command cannot express required inputs",
+      "route to pass-gate design repair if audit gates are incomplete",
+      "route to execution if command design passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1893 implements wrapper and requires exact command design before real rollout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first repaired bounded-smoke execution command design",
+    "admission_evidence": [
+      "M1893 implements the wrapper and focused tests pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1894 command design document",
+      "M1894 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired bounded-smoke execution"
+    ],
+    "next_stage_criteria": [
+      "exact command is specified",
+      "target counts and pass gates are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test history necessity.",
+    "history_necessity_tests": [
+      "Command design must preserve all controller profiles for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1889-M1893 artifacts only.",
+    "negative_result_policy": "If command design is incomplete, route to wrapper/design repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired bounded-smoke execution command design",
+      "no reset, rollout, measured execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The repaired bounded-smoke execution can be pre-registered as an exact command with explicit target counts and audit gates, without running rollout or changing actor inputs.",
+  "success_criteria": [
+    "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md exists",
+    "command uses M1889 repaired specs workload and import rows plus M1880 source episode rows",
+    "command target counts are explicit",
+    "post-execution pass/fail gates are explicit",
+    "controller-family ranking and paper claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "target counts are ambiguous",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_bounded_smoke_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv",
+    "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1894 passes if it fixes the exact repaired bounded-smoke execution command and gates without running rollout or ranking.",
+  "next_blocker": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design"
+}

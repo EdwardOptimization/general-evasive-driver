@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1901,
+    "completed": 1902,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+    "command_log": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1892-executable-v2-support-first-measured-execution-branch-synthesis.md",
+    "run_dir": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md",
     "status": "completed",
-    "task_id": "m1892-executable-v2-support-first-measured-execution-branch-synthesis"
+    "task_id": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.json",
-    "hypothesis": "The M1891 repaired bounded-smoke execution protocol can be implemented as a wrapper with focused tests, without actor input changes or real rollout.",
-    "id": "m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement repaired bounded-smoke wrapper with focused tests before real rollout",
-    "priority": 18880,
+    "command": "see experiments/manifests/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.json",
+    "hypothesis": "The repaired bounded-smoke execution can be pre-registered as an exact command with explicit target counts and audit gates, without running rollout or changing actor inputs.",
+    "id": "m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design",
+    "kind": "gate",
+    "notes": "Pending: register exact repaired bounded-smoke execution command and pass gates before real rollout",
+    "priority": 18890,
     "status": "pending",
-    "success_artifact": "docs/m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation.md"
+    "success_artifact": "docs/m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T040914Z"
+  "updated_at_utc": "20260531T041723Z"
 }

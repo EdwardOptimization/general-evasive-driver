@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1892-executable-v2-support-first-measured-execution-branch-synthesis
+m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation
 ```
 
 Current next task:
 
 ```text
-m1893-executable-v2-support-first-repaired-bounded-smoke-runner-implementation
+m1894-executable-v2-support-first-repaired-bounded-smoke-execution-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -111,8 +111,13 @@ M1880 source episode rows after rollout, preserve repair metadata and row
 provenance, write repaired variant aggregates, and keep interpretation deferred
 to a post-execution audit. M1892 completed the required branch synthesis over
 M1882-M1891 and continues the support-first measured-execution branch to
-wrapper implementation. M1893 must now implement the repaired bounded-smoke
-runner wrapper with focused tests before any real rollout. Controller ranking,
+wrapper implementation. M1893 implemented that repaired bounded-smoke runner
+wrapper with focused tests: it separates rollout and import rows, joins
+imported rows to M1880 source episode metrics, preserves repair metadata and
+provenance, writes repaired aggregates, and supports resume for rollout rows.
+No real repaired rollout was run in M1893. M1894 must now register the exact
+repaired bounded-smoke execution command and pass gates before any real
+`576`-rollout plus `384`-import workload execution. Controller ranking,
 paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
