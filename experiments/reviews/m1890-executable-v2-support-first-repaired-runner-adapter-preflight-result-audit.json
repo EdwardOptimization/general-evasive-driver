@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1890 audits M1889 clean and admits repaired bounded-smoke execution design while ranking remains blocked",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit changes actor inputs or tunes controller profiles",
+    "audit routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T035826Z",
+  "hypothesis": "M1889 preflight is clean enough to admit repaired bounded-smoke execution design while keeping ranking blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M1889 preflight is adapter infrastructure only and needs audit before repaired measured execution design"
+    ],
+    "derived_from": [
+      "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repaired_runner_adapter_preflight_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+    ],
+    "parent_objective": [
+      "audit real-artifact no-rollout repaired adapter preflight before any measured execution design"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without preflight result audit"
+    ]
+  },
+  "milestone": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+  "next_blocker": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_repaired_adapter_preflight_audit_admit_bounded_smoke_execution_design",
+  "public_gates": [
+    "M1890 must audit M1889 summary and target counts",
+    "M1890 must decide whether repaired bounded-smoke execution design is admissible",
+    "M1890 must keep direct execution and ranking blocked unless a later exact execution design is registered",
+    "M1890 must not run reset rollout training replay PPO or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_repaired_adapter_preflight_audit_admit_bounded_smoke_execution_design",
+    "milestone": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+    "reason": "M1890 audits M1889 clean and admits repaired bounded-smoke execution design while ranking remains blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md exists",
+    "audit verifies M1889 result class and target counts",
+    "audit verifies guardrails",
+    "audit explicitly decides next route",
+    "audit keeps controller-family ranking and paper claims blocked"
+  ],
+  "type": "gate"
+}

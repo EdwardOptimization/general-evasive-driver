@@ -32466,3 +32466,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.json`
 - next: `m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit`
+
+## M1890 Executable V2 Support-First Repaired Runner Adapter Preflight Result Audit
+
+- status: completed
+- decision: `support_first_repaired_adapter_preflight_audit_admit_bounded_smoke_execution_design`
+- artifact: `docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md`
+- audited summary: `runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json`
+- audited result class: `support_first_repaired_runner_adapter_pass`
+- selected source spec count: `16`
+- role-surface count: `8`
+- controller profile count: `12`
+- executable spec count: `48`
+- rollout workload cell count: `576`
+- import row count: `384`
+- total panel row count: `960`
+- config failure count: `0`
+- missing import row count: `0`
+- duplicate spec/workload counts: `0 / 0`
+- bounded-smoke execution design admitted: `true`
+- direct execution admitted: `false`
+- reset/rollout in M1890: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: M1889 is count-complete and clean enough to design repaired bounded-smoke execution
+- unsupported: repaired measured execution controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json`
+- next: `m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design`

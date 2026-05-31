@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1898,
+    "completed": 1899,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1889-executable-v2-support-first-repaired-runner-adapter-preflight.md",
+    "command_log": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight",
+    "run_dir": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
     "status": "completed",
-    "task_id": "m1889-executable-v2-support-first-repaired-runner-adapter-preflight"
+    "task_id": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.json",
-    "hypothesis": "M1889 preflight is clean enough to admit repaired bounded-smoke execution design while keeping ranking blocked.",
-    "id": "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit",
+    "command": "see experiments/manifests/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.json",
+    "hypothesis": "A repaired bounded-smoke execution protocol can be designed from M1889 artifacts without actor input changes or ranking claims.",
+    "id": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1889 preflight target counts and decide repaired bounded-smoke execution design route",
-    "priority": 18850,
+    "notes": "Pending: design repaired bounded-smoke execution wrapper/protocol before any rollout",
+    "priority": 18860,
     "status": "pending",
-    "success_artifact": "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md"
+    "success_artifact": "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md"
   },
-  "updated_at_utc": "20260531T035316Z"
+  "updated_at_utc": "20260531T035628Z"
 }

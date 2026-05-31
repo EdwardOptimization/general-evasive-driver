@@ -1,0 +1,159 @@
+{
+  "id": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_bounded_smoke_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.md",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_executable_specs.json",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+      "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design repaired bounded-smoke measured execution wrapper/protocol before rollout"
+    ],
+    "derived_from": [
+      "m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M1889 preflight output uses repaired specs and import rows that need a repaired execution wrapper/protocol"
+    ],
+    "supersedes": [
+      "direct repaired measured execution with old support-first runner"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+  "public_gates": [
+    "M1891 must design repaired bounded-smoke execution without running it",
+    "M1891 must define how 576 rollout rows and 384 import rows are combined",
+    "M1891 must specify repaired aggregate outputs and post-execution audit gates",
+    "M1891 must keep controller-family ranking blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_repaired_bounded_smoke_execution_design",
+    "evidence_increment": "designs repaired bounded-smoke execution wrapper/protocol after clean adapter preflight audit",
+    "claim_scope": "execution design only; no reset, rollout, measured execution, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if repaired specs cannot be consumed without actor input changes",
+      "stop if import and rollout rows cannot be merged for post-execution audit",
+      "stop if exact pass/fail gates cannot be specified"
+    ],
+    "fallback_plan": [
+      "route to repaired runner implementation if design is clear",
+      "route to adapter repair if design finds missing metadata",
+      "route to branch synthesis if measured execution remains blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1890 admits repaired bounded-smoke execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first repaired bounded-smoke execution design",
+    "admission_evidence": [
+      "M1890 audits M1889 preflight as clean and count-complete"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured execution",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1891 design document",
+      "M1891 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired runner implementation or execution command design"
+    ],
+    "next_stage_criteria": [
+      "wrapper/protocol requirements are explicit",
+      "post-execution audit gates are explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design does not test history necessity.",
+    "history_necessity_tests": [
+      "Design must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1889 and M1890 artifacts only.",
+    "negative_result_policy": "If repaired execution cannot be designed cleanly, route to adapter repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repaired bounded-smoke execution design",
+      "no reset, rollout, measured execution, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A repaired bounded-smoke execution protocol can be designed from M1889 artifacts without actor input changes or ranking claims.",
+  "success_criteria": [
+    "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md exists",
+    "design specifies 576 rollout rows and 384 import rows",
+    "design specifies repaired runner or wrapper requirements",
+    "design specifies post-execution audit gates",
+    "design keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design changes actor inputs or tunes controller profiles",
+    "design routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_bounded_smoke_execution_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/summary.json",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_workload_matrix.csv",
+    "runs/m1889_executable_v2_support_first_repaired_runner_adapter_preflight/repaired_measured_import_rows.csv"
+  ],
+  "decision_rule": "M1891 passes if it designs a clear repaired bounded-smoke execution route without running rollout or ranking.",
+  "next_blocker": "m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design"
+}

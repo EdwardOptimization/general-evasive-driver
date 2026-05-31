@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1889-executable-v2-support-first-repaired-runner-adapter-preflight
+m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1890-executable-v2-support-first-repaired-runner-adapter-preflight-result-audit
+m1891-executable-v2-support-first-repaired-bounded-smoke-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -102,8 +102,11 @@ passed that preflight with the registered counts, config failures `0`, missing
 imports `0`, duplicate specs/workloads `0`, and guardrail `0`; it still did not
 run environment reset, rollout, measured execution, or ranking. M1890 must now
 audit the preflight result before any repaired bounded-smoke execution design.
-Controller ranking, paper-level claims, and level3 self-ID claims remain
-blocked.
+M1890 audited the preflight as count-complete and guardrail-clean, and admits a
+repaired bounded-smoke execution design; direct execution remains blocked
+because the old runner cannot consume repaired specs plus import rows without a
+wrapper/protocol. M1891 must now design that execution route. Controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
