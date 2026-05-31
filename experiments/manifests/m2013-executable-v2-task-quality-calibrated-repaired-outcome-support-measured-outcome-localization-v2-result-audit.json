@@ -1,0 +1,173 @@
+{
+  "id": "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/comparison_support_candidates.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/outcome_by_profile.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/outcome_by_repair_source_kind.csv",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun outcome localization v2 and choose next route"
+    ],
+    "derived_from": [
+      "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2"
+    ],
+    "blocked_by": [
+      "M2012 localizer passed and found one localizer-labeled comparison-ready candidate, but raw support remains sparse and claim_boundary wording is stale"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from a localizer label without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
+  "public_gates": [
+    "M2013 must audit M2012 localization without rerun",
+    "M2013 must separate a localizer-labeled comparison-ready candidate from audited comparison readiness",
+    "M2013 must audit the stale claim_boundary wording",
+    "M2013 must choose comparison design targeted repair scenario redesign or localizer text repair",
+    "M2013 must keep paper-level and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_audit",
+    "evidence_increment": "audits no-rerun localization v2 and chooses whether the new localizer-labeled comparison-ready slice is actionable",
+    "claim_scope": "result audit and route decision only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if localization facts are not summarized",
+      "stop if the comparison-ready label is treated as ranking evidence without audit",
+      "stop if stale claim_boundary wording is ignored",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to comparison design only if the candidate support is audit-admissible",
+      "route to targeted repair if offtrack/collision dominance still blocks comparison",
+      "route to localizer text repair if stale claim-boundary wording blocks clean paper-route artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2012 completed outcome localization v2",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured outcome localization v2 result audit",
+    "admission_evidence": [
+      "M2012 produced no-rerun localization artifacts and reproduced M2009 outcome counts exactly"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
+      "M2013 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2012 facts are summarized",
+      "comparison-ready candidate quality is audited",
+      "stale claim-boundary wording is classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; outcome localization audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2013."
+    ],
+    "temporal_evidence_window": "M2009 measured execution rows and M2012 localization artifacts.",
+    "negative_result_policy": "If the comparison-ready slice is not audit-admissible, do not rank; route to repair or redesign.",
+    "allowed_claims": [
+      "task-quality calibrated repaired measured outcome localization audit",
+      "no controller ranking paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2012 localization artifacts into a route decision",
+    "paper_verdict_delta": "can decide whether one localized support slice is enough for bounded comparison design or whether repair/redesign remains required",
+    "must_synthesize_if": [
+      "M2013 cannot choose a next route",
+      "M2013 would rank controllers directly",
+      "M2013 would start another repair loop without explaining why the new comparison-ready slice is insufficient"
+    ]
+  },
+  "hypothesis": "The M2012 localization result is sufficient to choose the next route without direct ranking or rerun.",
+  "success_criteria": [
+    "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md exists",
+    "M2012 facts are summarized",
+    "comparison-ready candidate quality is audited",
+    "claim_boundary stale wording is classified",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "localization facts are not summarized",
+    "comparison-ready label is overclaimed",
+    "claim_boundary stale wording is ignored",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json"
+  ],
+  "decision_rule": "M2013 passes if it audits M2012 localization and chooses a next route without overclaiming.",
+  "next_blocker": "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit"
+}

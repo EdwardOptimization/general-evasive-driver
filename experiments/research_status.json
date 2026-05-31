@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2020,
+    "completed": 2021,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md",
+    "command_log": "docs/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2",
     "status": "completed",
-    "task_id": "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design"
+    "task_id": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.json",
-    "hypothesis": "The no-rerun localization over M2009 will reproduce source outcomes and identify whether comparison-ready or repair-support slices exist.",
-    "id": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen no-rerun localization command over M2009 artifacts",
-    "priority": 20070,
+    "command": "see experiments/manifests/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.json",
+    "hypothesis": "The M2012 localization result is sufficient to choose the next route without direct ranking or rerun.",
+    "id": "m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit localization v2 candidate support and stale claim-boundary wording before route decision",
+    "priority": 20080,
     "status": "pending",
-    "success_artifact": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json"
+    "success_artifact": "docs/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.md"
   },
-  "updated_at_utc": "20260531T143844Z"
+  "updated_at_utc": "20260531T144121Z"
 }

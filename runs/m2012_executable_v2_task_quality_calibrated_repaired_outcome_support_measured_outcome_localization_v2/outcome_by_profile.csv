@@ -1,0 +1,13 @@
+profile_name,slice_kind,support_label,episode_count,success_count,collision_count,offtrack_outcome_count,offtrack_termination_count,success_rate,collision_rate,offtrack_outcome_rate,offtrack_termination_rate,clearance_margin_mean,return_mean,steps_mean,all_selected_metrics_finite,success_obstacle_pass,collision_failure,off_track_noncollision_noncompletion,termination_off_track,termination_obstacle_collision,termination_empty
+L0_current_masked,outcome_by_profile,comparison_ready_candidate_without_profile_diversity_check,80,9,22,49,49,0.1125,0.275,0.6125,0.6125,15.189543009779769,5.345950174083015,21.325,True,9,22,49,49,22,9
+L1_one_step,outcome_by_profile,comparison_ready_candidate_without_profile_diversity_check,80,9,21,50,50,0.1125,0.2625,0.625,0.625,15.06533665093185,6.230776600039876,21.7125,True,9,21,50,50,21,9
+L2_window_100,outcome_by_profile,no_support,80,0,22,58,58,0.0,0.275,0.725,0.725,16.478108108219434,-0.5521087238279234,18.4,True,0,22,58,58,22,0
+L2_window_100_current_tiled,outcome_by_profile,no_support,80,0,22,58,58,0.0,0.275,0.725,0.725,16.332365651565546,-0.6108242211265592,18.5125,True,0,22,58,58,22,0
+L2_window_13,outcome_by_profile,no_support,80,0,22,58,58,0.0,0.275,0.725,0.725,16.48055266580121,-0.5984653323545288,18.4,True,0,22,58,58,22,0
+L2_window_13_current_tiled,outcome_by_profile,no_support,80,0,23,57,59,0.0,0.2875,0.7125,0.7375,16.440764396444568,-0.29060157089158667,18.3625,True,0,23,57,59,21,0
+L2_window_25,outcome_by_profile,no_support,80,0,24,56,58,0.0,0.3,0.7,0.725,16.362957351444372,-0.650740946713561,18.55,True,0,24,56,58,22,0
+L2_window_25_current_tiled,outcome_by_profile,no_support,80,0,22,58,59,0.0,0.275,0.725,0.7375,16.576335794687406,-0.3258732972986096,18.2,True,0,22,58,59,21,0
+L2_window_50,outcome_by_profile,no_support,80,0,22,58,59,0.0,0.275,0.725,0.7375,16.452884616190893,-0.2803848724273467,18.45,True,0,22,58,59,21,0
+L2_window_50_current_tiled,outcome_by_profile,no_support,80,0,22,58,58,0.0,0.275,0.725,0.725,16.609849557128264,-0.3548267185261459,18.15,True,0,22,58,58,22,0
+L3_online_gru,outcome_by_profile,comparison_ready_candidate_without_profile_diversity_check,80,11,22,47,47,0.1375,0.275,0.5875,0.5875,15.153182762891186,8.737887029256367,20.95,True,11,22,47,47,22,11
+L3_reset_control_corrected,outcome_by_profile,comparison_ready_candidate_without_profile_diversity_check,80,11,21,48,48,0.1375,0.2625,0.6,0.6,15.116801162706574,8.712544444460788,21.05,True,11,21,48,48,21,11

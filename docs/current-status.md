@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design
+m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2
 ```
 
 Current next task:
 
 ```text
-m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2
+m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -55,9 +55,13 @@ success `40`, collision failure `265`, off-track noncollision noncompletion
 comparison-ready evidence, and pivots to
 `paper_route_task_quality_calibrated_repaired_outcome_support_v2_localization`.
 M2011 freezes a no-rerun outcome localization command over M2009 artifacts.
-M2012 must run only that postprocess command and audit-ready artifacts must be
-interpreted in M2013. Controller-family ranking, paper-level claims, and level3
-self-ID remain blocked.
+M2012 runs that postprocess command successfully: outcome counts match M2009,
+guardrails remain clean, and the localizer finds `1` comparison-ready-labeled
+candidate plus `2` support candidates. Overall support remains sparse
+(`40/960` success), all L2 profiles remain zero-success, and `claim_boundary.csv`
+has stale M1977/M1975 wording. M2013 must audit these facts before comparison
+design, repair, or paper-level interpretation. Controller-family ranking,
+paper-level claims, and level3 self-ID remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

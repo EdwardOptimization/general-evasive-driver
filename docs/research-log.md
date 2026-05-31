@@ -34997,3 +34997,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation boundary: M2012 may identify support slices but must not rank controller families or claim paper-level evidence
 - follow-up manifest: `experiments/manifests/m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2.json`
 - next: `m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2`
+
+## M2012 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Outcome Localization V2
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_pass_route_to_result_audit`
+- result class: `task_quality_calibrated_repaired_measured_outcome_localization_pass`
+- summary: `runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json`
+- source measured run: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`
+- environment reset/rollout in M2012: `false`
+- policy action execution in M2012: `false`
+- measured rollout in M2012: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- pass gates: result class pass, episode count `960`, outcome counts match source `true`, selected metrics finite `true`, required aggregates written `true`, guardrail violations `0`
+- source outcome counts: success `40`, collision failure `265`, off-track noncollision noncompletion `655`
+- localization: comparison-ready-labeled candidates `1`, support candidates `2`, success source rows `40`, offtrack dominance rows `103`, collision dominance rows `59`
+- diagnostic: L2 total success `0`, L2 zero-success diagnostic rows `88`, same-slice non-L2 success/L2-zero patterns `56`
+- caveat: `claim_boundary.csv` has stale M1977/M1975 wording although summary paths, guardrails, and aggregates point to M2009/M2012
+- follow-up manifest: `experiments/manifests/m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit.json`
+- next: `m2013-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-result-audit`

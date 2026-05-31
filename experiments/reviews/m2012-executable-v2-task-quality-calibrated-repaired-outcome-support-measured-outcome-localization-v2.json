@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M2012 localization pass 960 rows outcome counts match guardrail 0 comparison-ready-labeled candidates 1 support candidates 2 L2 success 0",
+  "failure_criteria": [
+    "summary.json is missing",
+    "source outcome counts are not reproduced",
+    "any localizer guardrail is violated",
+    "required aggregate files are missing",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T144309Z",
+  "hypothesis": "The no-rerun localization over M2009 will reproduce source outcomes and identify whether comparison-ready or repair-support slices exist.",
+  "lineage": {
+    "blocked_by": [
+      "M2011 froze the no-rerun localization command; result evidence is not yet generated"
+    ],
+    "derived_from": [
+      "m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2011-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2-design.md",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "run no-rerun outcome localization over completed M2009 measured execution artifacts"
+    ],
+    "supersedes": [
+      "manual interpretation of M2009 without localization artifacts"
+    ]
+  },
+  "milestone": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
+  "next_blocker": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_pass_route_to_result_audit",
+  "public_gates": [
+    "M2012 must run only the frozen no-rerun localization command",
+    "M2012 must not reset the environment or execute policy actions",
+    "M2012 must reproduce M2009 outcome counts exactly",
+    "M2012 must write required aggregate files",
+    "M2012 must route interpretation to M2013 result audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2_pass_route_to_result_audit",
+    "milestone": "m2012-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-outcome-localization-v2",
+    "reason": "M2012 localization pass 960 rows outcome counts match guardrail 0 comparison-ready-labeled candidates 1 support candidates 2 L2 success 0",
+    "reset_success": "",
+    "success_rate": "0.0416666667",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/summary.json exists",
+    "result_class is task_quality_calibrated_repaired_measured_outcome_localization_pass",
+    "episode_count is 960",
+    "outcome_counts_match_source_summary is true",
+    "guardrail_violation_count is 0",
+    "no measured execution ranking or paper-level claim is made"
+  ],
+  "type": "infrastructure"
+}
