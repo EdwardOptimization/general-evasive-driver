@@ -34142,3 +34142,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: exact real measured execution command design next; real 960-cell rollout and ranking remain blocked
 - follow-up manifest: `experiments/manifests/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.json`
 - next: `m1964-executable-v2-task-quality-calibrated-measured-execution-command-design`
+
+## M1964 Executable V2 Task-Quality Calibrated Measured Execution Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_measured_execution_command_design_admit_execution`
+- doc: `docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md`
+- branch: `paper_route_task_quality_calibrated_materialization`
+- rollout/measured execution in M1964: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_measured_runner --executable-task-specs runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json --workload runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv --output-dir runs/m1965_executable_v2_task_quality_calibrated_measured_execution --eval-seed-base 196500 --device cpu --target-episode-count 960 --target-spec-count 80 --target-profile-count 12 --next-blocker m1966-executable-v2-task-quality-calibrated-measured-execution-result-audit`
+- target: `960` episodes, `80` specs, `12` profiles
+- pass gates: zero failures, metric completeness `0`, source-kind and role-surface quotas pass, guardrail `0`, ranking/paper/self-ID claims false
+- workflow cadence: branch synthesis required before executing the frozen command
+- follow-up manifest: `experiments/manifests/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.json`
+- next: `m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis`

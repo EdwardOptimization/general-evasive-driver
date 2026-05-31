@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1972,
+    "completed": 1973,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1963-executable-v2-task-quality-calibrated-measured-runner-implementation.md",
+    "command_log": "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1963-executable-v2-task-quality-calibrated-measured-runner-implementation"
+    "task_id": "m1964-executable-v2-task-quality-calibrated-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.json",
-    "hypothesis": "The M1963 calibrated measured runner can be given an exact command for the M1958 960-cell workload while preserving claim boundaries.",
-    "id": "m1964-executable-v2-task-quality-calibrated-measured-execution-command-design",
+    "command": "see experiments/manifests/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.json",
+    "hypothesis": "M1955-M1964 produced enough calibrated materialization evidence to continue to measured execution without another design-only step.",
+    "id": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: freeze exact real measured execution command over M1958 planned workload using calibrated runner",
-    "priority": 19590,
+    "notes": "Pending: synthesize M1955-M1964 before executing the frozen calibrated measured command",
+    "priority": 19600,
     "status": "pending",
-    "success_artifact": "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md"
+    "success_artifact": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T104847Z"
+  "updated_at_utc": "20260531T105556Z"
 }

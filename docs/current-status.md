@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1963-executable-v2-task-quality-calibrated-measured-runner-implementation
+m1964-executable-v2-task-quality-calibrated-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m1964-executable-v2-task-quality-calibrated-measured-execution-command-design
+m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -102,7 +102,15 @@ ranking remain blocked. M1963 implements the calibrated measured runner with
 focused tests `3 passed`, preserving repair-source metadata and calibrated
 aggregates without running the real 960-cell workload. M1964 must now freeze
 the exact real measured execution command; ranking and paper-level claims remain
-blocked.
+blocked. M1964 freezes that command for M1965: `960` episodes, `80` specs,
+`12` profiles, CPU device, output
+`runs/m1965_executable_v2_task_quality_calibrated_measured_execution`, and
+strict pass gates for zero failures, metric completeness, source-kind and
+role-surface quota preservation, and guardrail `0`. The workflow synthesis
+cadence is now reached after M1955-M1964, so M1965 must first synthesize the
+calibrated materialization branch before measured execution. If the synthesis
+decision is `continue`, the frozen command may be executed in the following
+milestone; interpretation remains deferred to a result audit.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

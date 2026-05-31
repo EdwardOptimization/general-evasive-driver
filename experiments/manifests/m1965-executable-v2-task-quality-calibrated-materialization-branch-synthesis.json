@@ -1,0 +1,179 @@
+{
+  "id": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_materialization_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md",
+      "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json",
+      "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json",
+      "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1955-executable-v2-task-quality-calibrated-source-materialization-design.json",
+      "experiments/manifests/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M1955-M1964 calibrated materialization reset validation and measured-command evidence before execution"
+    ],
+    "derived_from": [
+      "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
+      "m1964-executable-v2-task-quality-calibrated-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1955-M1964 calibrated materialization branch"
+    ],
+    "supersedes": [
+      "continuing directly to measured execution without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+  "public_gates": [
+    "M1965 must synthesize M1955-M1964 calibrated materialization evidence",
+    "M1965 must separate source selection preflight reset validation and command-design evidence from measured execution evidence",
+    "M1965 must assess local-search and public-gate overfit risk",
+    "M1965 must decide whether to continue to the frozen measured execution command or pivot",
+    "M1965 must keep measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_materialization_branch_synthesis",
+    "evidence_increment": "synthesizes source materialization selector no-reset preflight reset validation measured-runner implementation and command design into an execution decision",
+    "claim_scope": "branch synthesis only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary is incomplete",
+      "stop if next branch decision is ambiguous",
+      "stop if synthesis overclaims reset or command evidence as measured execution evidence"
+    ],
+    "fallback_plan": [
+      "continue to the frozen calibrated measured execution command if source reset and command evidence are sufficient",
+      "route to materialization repair if selected source or metadata evidence is insufficient",
+      "pivot or stop if public diagnostic overfit risk invalidates execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M1955-M1964 calibrated materialization branch cadence",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated materialization branch synthesis",
+    "admission_evidence": [
+      "M1964 froze the exact calibrated measured execution command",
+      "workflow cadence requires synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in synthesis",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+      "M1965 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next route"
+    ],
+    "next_stage_criteria": [
+      "M1955-M1964 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "public overfit and local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1965."
+    ],
+    "temporal_evidence_window": "M1955-M1964 calibrated materialization branch artifacts.",
+    "negative_result_policy": "If synthesis finds execution unreadiness, route to repair or pivot before measured execution.",
+    "allowed_claims": [
+      "task-quality calibrated materialization branch synthesis",
+      "no measured controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns ten calibrated materialization milestones into an execution or pivot decision",
+    "paper_verdict_delta": "can decide whether the calibrated panel is ready for measured execution, but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "M1955-M1964 produced enough calibrated materialization evidence to continue to measured execution without another design-only step.",
+  "success_criteria": [
+    "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are separated",
+    "public-gate overfit and local-search risks are assessed",
+    "next branch decision is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis questions are not answered",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "reset rollout measured execution training replay or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_materialization_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1964-executable-v2-task-quality-calibrated-measured-execution-command-design.md",
+    "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/summary.json",
+    "runs/m1960_executable_v2_task_quality_calibrated_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M1965 passes if it writes a synthesis artifact with an explicit next branch decision and no execution or ranking.",
+  "next_blocker": "m1965-executable-v2-task-quality-calibrated-materialization-branch-synthesis"
+}
