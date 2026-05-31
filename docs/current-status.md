@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis
+m1930-executable-v2-task-quality-reset-execution-design
 ```
 
 Current next task:
 
 ```text
-m1930-executable-v2-task-quality-reset-execution-design
+m1931-executable-v2-task-quality-reset-validator-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -272,6 +272,11 @@ ranking, paper-level claim, or level3 self-ID claim. M1929 completed that
 synthesis and promoted the work to a new
 `paper_route_task_quality_reset_execution` branch. M1930 must now design a
 staged reset/materialized execution route over the M1928 executable panel.
+M1930 selected reset-only validation as the first execution stage, blocked
+one-step and measured rollout until reset success is established, and routes to
+M1931 focused reset-validator implementation over M1928
+`executable_task_specs` without running real reset execution in the
+implementation milestone.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

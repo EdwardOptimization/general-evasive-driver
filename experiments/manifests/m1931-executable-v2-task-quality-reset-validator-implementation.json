@@ -1,0 +1,172 @@
+{
+  "id": "m1931-executable-v2-task-quality-reset-validator-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_validator_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1930-executable-v2-task-quality-reset-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement a focused reset-only validator for M1928 executable_task_specs without running real reset execution"
+    ],
+    "derived_from": [
+      "m1930-executable-v2-task-quality-reset-execution-design"
+    ],
+    "blocked_by": [
+      "M1928 executable_task_specs need a direct reset validator before reset execution can be registered"
+    ],
+    "supersedes": [
+      "ad hoc conversion of M1928 executable_task_specs into historical executable_v2_panel_specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1931-executable-v2-task-quality-reset-validator-implementation.md",
+  "public_gates": [
+    "M1931 must add a focused reset validator helper and focused tests",
+    "M1931 must consume executable_task_specs-shaped payloads",
+    "M1931 must preserve reset-only guardrails",
+    "M1931 must not run the real M1928 reset workload"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real M1928 environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_validator_infrastructure",
+    "evidence_increment": "adds the helper needed to run reset-only validation over the M1928 executable task-quality panel",
+    "claim_scope": "infrastructure only; no real reset rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if executable_task_specs cannot be validated without schema translation through historical panel specs",
+      "stop if implementation would run real reset execution",
+      "stop if actor-input contract checks cannot be represented"
+    ],
+    "fallback_plan": [
+      "repair M1928 payload schema if required fields are missing",
+      "route to M1930 design revision if reset helper semantics are ambiguous",
+      "synthesize if the branch cannot safely enter reset validation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "second milestone of reset execution branch after M1930 design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "task-quality reset validator implementation",
+    "admission_evidence": [
+      "M1930 selected reset-only validation as the first execution stage"
+    ],
+    "blocked_shortcuts": [
+      "do not run real reset execution in M1931",
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_reset_validation_preflight.py",
+      "tests/test_executable_v2_task_quality_reset_validation_preflight.py",
+      "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
+      "M1931 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "helper writes reset rows failure rows contract rows aggregate rows and summary on synthetic inputs",
+      "real reset execution remains deferred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset validator infrastructure does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1931."
+    ],
+    "temporal_evidence_window": "M1928 executable panel and M1930 reset execution design.",
+    "negative_result_policy": "If focused tests expose schema or contract failures, document and repair the validator before reset execution.",
+    "allowed_claims": [
+      "task-quality reset validator infrastructure",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "enables the first real reset-validation data milestone for the redesigned task-quality panel",
+    "paper_verdict_delta": "does not change driver verdict by itself but is required before measured panel evidence",
+    "must_synthesize_if": [
+      "M1931 becomes another design-only milestone",
+      "M1931 requires multiple schema repair attempts",
+      "M1931 would run real reset execution before command design"
+    ]
+  },
+  "hypothesis": "A focused helper can validate M1928 executable_task_specs reset readiness on synthetic inputs while preserving reset-only guardrails.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_task_quality_reset_validation_preflight.py exists",
+    "tests/test_executable_v2_task_quality_reset_validation_preflight.py exists",
+    "focused tests pass",
+    "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md exists",
+    "real M1928 reset execution is not run"
+  ],
+  "failure_criteria": [
+    "helper is missing",
+    "focused tests fail",
+    "helper cannot consume executable_task_specs payloads",
+    "real M1928 reset execution is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_executable_v2_task_quality_reset_validation_preflight.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_reset_validation_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_reset_validation_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_validator_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M1931 passes if the focused reset validator and tests are implemented without running real reset execution or ranking.",
+  "next_blocker": "m1931-executable-v2-task-quality-reset-validator-implementation"
+}

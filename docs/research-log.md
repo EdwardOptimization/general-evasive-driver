@@ -33435,3 +33435,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: `medium`
 - follow-up manifest: `experiments/manifests/m1930-executable-v2-task-quality-reset-execution-design.json`
 - next: `m1930-executable-v2-task-quality-reset-execution-design`
+
+## M1930 Executable V2 Task-Quality Reset Execution Design
+
+- status: completed
+- decision: `task_quality_reset_execution_design_admit_reset_validator_implementation`
+- doc: `docs/m1930-executable-v2-task-quality-reset-execution-design.md`
+- branch: `paper_route_task_quality_reset_execution`
+- input specs: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
+- workload matrix: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv`
+- first execution stage: `reset_only_validation`
+- reset/rollout/measured execution in M1930: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- compatibility decision: existing reset helpers provide guardrail patterns but are not exact command targets for M1928 `executable_task_specs`
+- planned reset attempt count: `80`
+- planned later workload count after reset passes: `960`
+- pass-gate theme: reset success, finite observation, obstacle initialization, human-view contract, zero guardrail violations
+- follow-up manifest: `experiments/manifests/m1931-executable-v2-task-quality-reset-validator-implementation.json`
+- next: `m1931-executable-v2-task-quality-reset-validator-implementation`

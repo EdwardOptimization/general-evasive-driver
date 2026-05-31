@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1938,
+    "completed": 1939,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+    "command_log": "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+    "run_dir": "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
     "status": "completed",
-    "task_id": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis"
+    "task_id": "m1930-executable-v2-task-quality-reset-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1930-executable-v2-task-quality-reset-execution-design.json",
-    "hypothesis": "The M1928 executable panel can support a staged reset/materialized execution design without jumping to rollout ranking or paper claims.",
-    "id": "m1930-executable-v2-task-quality-reset-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design staged reset/materialized execution route over M1928 executable panel",
-    "priority": 19250,
+    "command": "see experiments/manifests/m1931-executable-v2-task-quality-reset-validator-implementation.json",
+    "hypothesis": "A focused helper can validate M1928 executable_task_specs reset readiness on synthetic inputs while preserving reset-only guardrails.",
+    "id": "m1931-executable-v2-task-quality-reset-validator-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused reset-only validator for M1928 executable_task_specs with synthetic tests and no real reset execution",
+    "priority": 19260,
     "status": "pending",
-    "success_artifact": "docs/m1930-executable-v2-task-quality-reset-execution-design.md"
+    "success_artifact": "docs/m1931-executable-v2-task-quality-reset-validator-implementation.md"
   },
-  "updated_at_utc": "20260531T075804Z"
+  "updated_at_utc": "20260531T080344Z"
 }
