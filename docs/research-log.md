@@ -33173,3 +33173,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json`
 - next: `m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis`
+
+## M1918 Executable V2 Support-First Task-Quality Repair-Axis Measured Branch Synthesis
+
+- status: completed
+- synthesis decision: `stop`
+- next branch decision: `pivot_to_paper_route_task_quality_scenario_redesign`
+- doc: `docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md`
+- branch synthesized: `paper_route_repair_axis_measured_wrapper`
+- evidence window: `M1909-M1917`
+- rerun/reset/rollout/measured execution in M1918: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: measured wrapper path is complete and M1912 sampling failure is repaired, but M1917 found `0` joint clearance-containment rows across `1536` localized rows
+- supported: measured-wrapper harness and no-rerun localization are valid; near-miss task-quality findings can guide a broader scenario branch
+- falsified/weakened: local repair-axis tweaks on the fixed M1902/M1895 source set are sufficient for controller comparison
+- public-gate overfit risk: high if this branch continues with more local fixed-source repair
+- follow-up manifest: `experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json`
+- next: `m1919-executable-v2-task-quality-scenario-redesign-plan`

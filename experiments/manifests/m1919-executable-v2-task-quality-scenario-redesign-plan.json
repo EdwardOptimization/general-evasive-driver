@@ -1,0 +1,164 @@
+{
+  "id": "m1919-executable-v2-task-quality-scenario-redesign-plan",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_plan"
+    ],
+    "parent_dataset": [
+      "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+      "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a broader task-quality scenario branch after stopping the measured repair-axis branch"
+    ],
+    "derived_from": [
+      "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1918 stopped the local measured repair-axis branch because M1917 found zero joint clearance-containment outcomes"
+    ],
+    "supersedes": [
+      "another local measured repair-axis tweak on paper_route_repair_axis_measured_wrapper"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+  "public_gates": [
+    "M1919 must design a new task-quality scenario branch, not another local repair on the closed branch",
+    "M1919 must define positive-support feasibility, boundary/near-miss strata, fresh-source policy, and ranking-block gates",
+    "M1919 must keep reset rollout measured execution training replay PPO controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_redesign_plan",
+    "evidence_increment": "starts a new broader scenario-design branch from M1918 synthesis",
+    "claim_scope": "design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design lacks positive-support feasibility criteria",
+      "stop if ranking would be allowed before joint clearance-containment support",
+      "stop if the design only repeats local repair-axis tweaks"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if a broader scenario design cannot be stated",
+      "route to source mining design if fresh-source policy is clear",
+      "route to feasibility-ladder materialization if design is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1918 stopped the previous branch and selected a new broader branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality scenario redesign plan",
+    "admission_evidence": [
+      "M1918 stopped the local measured repair-axis branch and selected a broader task-quality scenario redesign"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1919 design document",
+      "M1919 status queue scoreboard research log and review",
+      "one follow-up manifest for source mining or materialization design"
+    ],
+    "next_stage_criteria": [
+      "scenario redesign is explicit",
+      "positive-support gate is specified",
+      "next route is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; scenario redesign planning does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1919."
+    ],
+    "temporal_evidence_window": "M1917-M1918 public artifacts plus paper-route governing plans.",
+    "negative_result_policy": "Treat zero-joint local repair-axis results as scenario/task-quality design evidence, not as self-ID evidence.",
+    "allowed_claims": [
+      "task-quality scenario redesign plan",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from local repair-axis evidence to broader scenario-design planning",
+    "paper_verdict_delta": "can define the next paper-route evidence branch after M1918 synthesis",
+    "must_synthesize_if": [
+      "M1919 cannot define positive-support criteria",
+      "M1919 would reopen the closed measured-wrapper branch",
+      "M1919 cannot define an explicit next artifact"
+    ]
+  },
+  "hypothesis": "A broader executable-v2 task-quality scenario redesign can convert M1917's zero-joint/near-miss findings into a falsifiable next branch with ranking blocked until positive joint support exists.",
+  "success_criteria": [
+    "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md exists",
+    "positive-support feasibility criteria are defined",
+    "boundary and near-miss strata are defined",
+    "fresh-source and holdout policies are defined",
+    "ranking-block gates are defined",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design repeats local repair-axis tweaking",
+    "design allows ranking before joint support",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_plan"
+  ],
+  "baseline_artifacts": [
+    "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+    "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1919 passes if it defines a broader task-quality scenario branch and an explicit next route without rollout ranking or paper-level claims.",
+  "next_blocker": "m1919-executable-v2-task-quality-scenario-redesign-plan"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1926,
+    "completed": 1927,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization.md",
+    "command_log": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json",
+    "run_dir": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization"
+    "task_id": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.json",
-    "hypothesis": "M1909-M1917 contain enough evidence to stop the measured repair-axis branch and choose a broader next route rather than continuing local task-quality repair.",
-    "id": "m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis",
+    "command": "see experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json",
+    "hypothesis": "A broader executable-v2 task-quality scenario redesign can convert M1917's zero-joint/near-miss findings into a falsifiable next branch with ranking blocked until positive joint support exists.",
+    "id": "m1919-executable-v2-task-quality-scenario-redesign-plan",
     "kind": "gate",
-    "notes": "Pending: synthesize M1909-M1917 before more local repair",
-    "priority": 19130,
+    "notes": "Pending: define positive-support feasibility ladder fresh-source policy and ranking-block gates for new branch",
+    "priority": 19140,
     "status": "pending",
-    "success_artifact": "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md"
+    "success_artifact": "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md"
   },
-  "updated_at_utc": "20260531T065756Z"
+  "updated_at_utc": "20260531T070127Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1917-executable-v2-support-first-task-quality-repair-axis-measured-panel-outcome-localization
+m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis
+m1919-executable-v2-task-quality-scenario-redesign-plan
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -219,9 +219,14 @@ M1917 ran that no-rerun outcome localization and classified all `1536` rows:
 `containment_collision=261`, `collision_and_offtrack=18`, and `near_miss_rows=644`.
 The measured repair-axis branch now has useful scenario/task-quality findings
 but still no joint clearance-containment outcome and no controller-ranking
-surface. M1918 must synthesize M1909-M1917 before any additional local repair,
-task-quality interpretation, controller-family ranking, paper-level claim,
-training, replay, PPO, or level3 self-ID claim.
+surface. M1918 synthesized M1909-M1917 and stopped the
+`paper_route_repair_axis_measured_wrapper` branch rather than opening another
+local fixed-source repair loop. The next branch is
+`paper_route_task_quality_scenario_redesign`. M1919 must now define a broader
+scenario-quality plan with positive-support feasibility, boundary/near-miss
+strata, fresh-source policy, and ranking-block gates before any additional
+local repair, task-quality interpretation, controller-family ranking,
+paper-level claim, training, replay, PPO, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.
