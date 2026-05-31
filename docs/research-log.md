@@ -35065,3 +35065,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejection reasons: source label not comparison-ready, low episode count, low success count, high collision rate
 - follow-up manifest: `experiments/manifests/m2015-bounded-comparison-candidate-qualification-result-audit.json`
 - next: `m2015-bounded-comparison-candidate-qualification-result-audit`
+
+## M2015 Bounded Comparison Candidate Qualification Result Audit
+
+- status: completed
+- decision: `bounded_comparison_candidate_qualification_audit_route_to_bounded_diagnostic_comparison`
+- doc: `docs/m2015-bounded-comparison-candidate-qualification-result-audit.md`
+- audited summary: `runs/m2014_bounded_comparison_candidate_qualification/summary.json`
+- next branch: `paper_route_bounded_diagnostic_comparison`
+- reset/rollout/measured execution in M2015: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2014 is complete with 1 admitted candidate and 1 rejected candidate, guardrail violations `0`
+- admitted scope: `bounded_diagnostic_comparison_not_finite_window_vs_gru`
+- decision: route to M2016 no-rerun profile-level diagnostic table on the admitted stable-AES slice
+- follow-up manifest: `experiments/manifests/m2016-bounded-diagnostic-comparison-implementation-and-run.json`
+- next: `m2016-bounded-diagnostic-comparison-implementation-and-run`

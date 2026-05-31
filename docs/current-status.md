@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2014-bounded-comparison-candidate-qualification-implementation-and-run
+m2015-bounded-comparison-candidate-qualification-result-audit
 ```
 
 Current next task:
 
 ```text
-m2015-bounded-comparison-candidate-qualification-result-audit
+m2016-bounded-diagnostic-comparison-implementation-and-run
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -61,8 +61,8 @@ candidate plus `2` support candidates. M2013 audits the result as actionable
 but not ranking-ready. M2014 implements and runs bounded comparison candidate
 qualification: `1/2` candidates is admitted for bounded diagnostic comparison
 only, with `l2_success_present=false`, so finite-window-vs-GRU and paper-level
-claims remain blocked. M2015 must audit whether this bounded diagnostic scope
-is worth a controlled comparison design.
+claims remain blocked. M2015 audits the qualification and routes to M2016: a
+no-rerun bounded diagnostic profile comparison on the admitted stable-AES slice.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

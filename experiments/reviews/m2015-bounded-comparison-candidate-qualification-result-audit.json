@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2015 audits one admitted candidate as bounded diagnostic comparison only and routes to M2016 no-rerun profile table",
+  "failure_criteria": [
+    "audit document is missing",
+    "qualification facts are not summarized",
+    "admitted scope is overclaimed",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T150252Z",
+  "hypothesis": "The M2014 qualification result is sufficient to decide whether bounded diagnostic comparison design is warranted.",
+  "lineage": {
+    "blocked_by": [
+      "M2014 admitted one bounded diagnostic comparison candidate but not a finite-window-vs-GRU or paper-level route"
+    ],
+    "derived_from": [
+      "m2014-bounded-comparison-candidate-qualification-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_bounded_comparison_candidate_qualification_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2014-bounded-comparison-candidate-qualification-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+      "runs/m2014_bounded_comparison_candidate_qualification/summary.json",
+      "runs/m2014_bounded_comparison_candidate_qualification/candidate_qualification_rows.csv",
+      "runs/m2014_bounded_comparison_candidate_qualification/admitted_candidates.csv",
+      "runs/m2014_bounded_comparison_candidate_qualification/rejected_candidates.csv"
+    ],
+    "parent_objective": [
+      "audit bounded comparison candidate qualification result and choose next route"
+    ],
+    "supersedes": [
+      "direct bounded comparison design without auditing qualification scope"
+    ]
+  },
+  "milestone": "m2015-bounded-comparison-candidate-qualification-result-audit",
+  "next_blocker": "m2015-bounded-comparison-candidate-qualification-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "bounded_comparison_candidate_qualification_audit_route_to_bounded_diagnostic_comparison",
+  "public_gates": [
+    "M2015 must audit M2014 qualification without rerun",
+    "M2015 must separate bounded diagnostic comparison from ranking and paper-level comparison",
+    "M2015 must decide bounded comparison design, repair, redesign, or synthesis",
+    "M2015 must keep finite-window-vs-GRU and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "bounded_comparison_candidate_qualification_audit_route_to_bounded_diagnostic_comparison",
+    "milestone": "m2015-bounded-comparison-candidate-qualification-result-audit",
+    "reason": "M2015 audits one admitted candidate as bounded diagnostic comparison only and routes to M2016 no-rerun profile table",
+    "reset_success": "",
+    "success_rate": "0.0416666667",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md exists",
+    "M2014 facts are summarized",
+    "admitted candidate scope is audited",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

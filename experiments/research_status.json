@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2023,
+    "completed": 2024,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2014-bounded-comparison-candidate-qualification-implementation-and-run.md",
+    "command_log": "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2014_bounded_comparison_candidate_qualification",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2014-bounded-comparison-candidate-qualification-implementation-and-run"
+    "task_id": "m2015-bounded-comparison-candidate-qualification-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2015-bounded-comparison-candidate-qualification-result-audit.json",
-    "hypothesis": "The M2014 qualification result is sufficient to decide whether bounded diagnostic comparison design is warranted.",
-    "id": "m2015-bounded-comparison-candidate-qualification-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2014 qualification and decide bounded diagnostic comparison versus repair/redesign",
-    "priority": 20100,
+    "command": "see experiments/manifests/m2016-bounded-diagnostic-comparison-implementation-and-run.json",
+    "hypothesis": "A no-rerun bounded diagnostic comparison can summarize the admitted stable-AES slice without overclaiming broad ranking.",
+    "id": "m2016-bounded-diagnostic-comparison-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun bounded diagnostic comparison on the admitted M2014 slice",
+    "priority": 20110,
     "status": "pending",
-    "success_artifact": "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md"
+    "success_artifact": "runs/m2016_bounded_diagnostic_comparison/summary.json"
   },
-  "updated_at_utc": "20260531T145527Z"
+  "updated_at_utc": "20260531T150110Z"
 }

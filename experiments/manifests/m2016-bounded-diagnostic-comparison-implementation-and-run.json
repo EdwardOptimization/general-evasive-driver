@@ -1,0 +1,181 @@
+{
+  "id": "m2016-bounded-diagnostic-comparison-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_diagnostic_comparison"
+    ],
+    "parent_dataset": [
+      "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+      "runs/m2014_bounded_comparison_candidate_qualification/summary.json",
+      "runs/m2014_bounded_comparison_candidate_qualification/admitted_candidates.csv",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2015-bounded-comparison-candidate-qualification-result-audit.json"
+    ],
+    "parent_objective": [
+      "produce a no-rerun bounded diagnostic profile comparison on the admitted candidate slice"
+    ],
+    "derived_from": [
+      "m2015-bounded-comparison-candidate-qualification-result-audit"
+    ],
+    "blocked_by": [
+      "M2015 admits bounded diagnostic comparison but rejects broad ranking and finite-window-vs-GRU conclusions"
+    ],
+    "supersedes": [
+      "narrative-only interpretation of the admitted candidate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+  "public_gates": [
+    "M2016 must run only a no-rerun diagnostic postprocess",
+    "M2016 must read the admitted candidate from M2014 and M2009 episode rows",
+    "M2016 must not reset the environment or execute policy actions",
+    "M2016 must write profile-level and profile-group diagnostic tables",
+    "M2016 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bounded_diagnostic_comparison",
+    "evidence_axis": "Q_bounded_diagnostic_comparison",
+    "evidence_increment": "turns the admitted candidate into a concrete profile-level diagnostic table without new rollout",
+    "claim_scope": "bounded diagnostic comparison only; no ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if admitted candidate cannot be matched to episode rows",
+      "stop if diagnostic table omits profile/group outcomes",
+      "stop if output claims broad ranking",
+      "stop if no next audit route is registered"
+    ],
+    "fallback_plan": [
+      "route to M2017 audit if diagnostic table is generated",
+      "route to candidate-key schema repair if admitted key cannot be matched",
+      "route to synthesis if comparison remains singleton and another repair is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2015 routes to bounded diagnostic comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded diagnostic comparison postprocess",
+    "admission_evidence": [
+      "M2015 routes to bounded diagnostic comparison from one admitted candidate"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level or finite-window-vs-GRU conclusions"
+    ],
+    "allowed_updates": [
+      "src/autodrift/bounded_diagnostic_comparison.py",
+      "tests/test_bounded_diagnostic_comparison.py",
+      "runs/m2016_bounded_diagnostic_comparison",
+      "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+      "M2016 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "profile table is written",
+      "profile-group table is written",
+      "claim-boundary artifact is written",
+      "guardrail violations are zero",
+      "M2017 audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; bounded diagnostic comparison does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2016."
+    ],
+    "temporal_evidence_window": "M2009 episode rows for the M2014 admitted candidate slice.",
+    "negative_result_policy": "If the table is weak or singleton-limited, do not rank; route to repair/redesign/synthesis.",
+    "allowed_claims": [
+      "bounded diagnostic profile comparison on one admitted public slice",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "extracts the admitted candidate into a profile-level diagnostic table before any new repair",
+    "paper_verdict_delta": "can decide whether this single-slice evidence justifies broader comparison design or requires more task-quality support",
+    "must_synthesize_if": [
+      "the diagnostic comparison remains singleton-limited and another repair loop is proposed",
+      "the table is used to claim broad ranking",
+      "M2017 cannot choose a next route"
+    ]
+  },
+  "hypothesis": "A no-rerun bounded diagnostic comparison can summarize the admitted stable-AES slice without overclaiming broad ranking.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2016_bounded_diagnostic_comparison/summary.json exists",
+    "profile-level and profile-group CSV files exist",
+    "guardrail_violation_count is 0",
+    "no ranking paper finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "diagnostic comparison tool is missing",
+    "admitted candidate cannot be matched to episode rows",
+    "profile table is missing",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rerun bounded diagnostic comparison and run it on M2014 admitted candidate plus M2009 episode rows"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2016_bounded_diagnostic_comparison/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2016_bounded_diagnostic_comparison/profile_comparison.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_diagnostic_comparison"
+  ],
+  "baseline_artifacts": [
+    "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+    "runs/m2014_bounded_comparison_candidate_qualification/admitted_candidates.csv",
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+  ],
+  "decision_rule": "M2016 passes if it writes a bounded no-rerun diagnostic comparison with clean guardrails.",
+  "next_blocker": "m2016-bounded-diagnostic-comparison-implementation-and-run"
+}
