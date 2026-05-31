@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1871,
+    "completed": 1872,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1862-executable-v2-support-first-materialization-result-audit.md",
+    "command_log": "docs/m1863-executable-v2-support-first-reset-validation-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1862-executable-v2-support-first-materialization-result-audit"
+    "task_id": "m1863-executable-v2-support-first-reset-validation-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1863-executable-v2-support-first-reset-validation-design.json",
-    "hypothesis": "A reset-only validation design can verify whether the 180 support-first materialized specs are reset-ready before measured execution.",
-    "id": "m1863-executable-v2-support-first-reset-validation-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-only validation over materialized specs",
-    "priority": 18580,
+    "command": "see experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json",
+    "hypothesis": "A no-reset conversion adapter can transform support-first materialized specs into executable_v2_panel_specs-shaped reset-validation artifacts while preserving env_config role/surface coverage and claim boundaries.",
+    "id": "m1864-executable-v2-support-first-reset-validation-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-reset support-first reset-validation adapter",
+    "priority": 18590,
     "status": "pending",
-    "success_artifact": "docs/m1863-executable-v2-support-first-reset-validation-design.md"
+    "success_artifact": "docs/m1864-executable-v2-support-first-reset-validation-adapter-implementation.md"
   },
-  "updated_at_utc": "20260530T134244Z"
+  "updated_at_utc": "20260531T013531Z"
 }

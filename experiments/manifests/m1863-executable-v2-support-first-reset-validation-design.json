@@ -152,6 +152,62 @@
     "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
     "runs/m1861_executable_v2_support_first_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1863-executable-v2-support-first-reset-validation-design.md",
+    "decision": "support_first_reset_validation_design_admit_adapter_implementation",
+    "materialized_spec_count": 180,
+    "target_reset_payload_spec_count": 180,
+    "role_counts": {
+      "drift_required_recovery": 48,
+      "stable_aeb": 48,
+      "stable_aes_only": 48,
+      "unavoidable_mitigation": 36
+    },
+    "surface_counts": {
+      "post_friction_step": 84,
+      "steady_surface": 96
+    },
+    "profile_count": 8,
+    "target_role_surface_count": 8,
+    "speed_count": 5,
+    "mu_count": 6,
+    "unavoidable_shortage_flag": true,
+    "missing_direct_reset_fields": [
+      "v2_panel_spec_id",
+      "profile_config_path",
+      "v2_role_surface_id",
+      "role_panel_id",
+      "v2_primary_metric",
+      "v2_admissibility_gate",
+      "reset_ready_spec"
+    ],
+    "adapter_required_before_reset": true,
+    "direct_reset_execution_admitted": false,
+    "materialization_rerun": false,
+    "source_mining_rerun": false,
+    "adapter_implementation_run": false,
+    "project_artifact_conversion_run": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "reward_changed": false,
+    "dynamics_changed": false,
+    "termination_behavior_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "next_manifest": "experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json"
+  },
   "decision_rule": "M1863 passes if it designs reset-only validation without running reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1863-executable-v2-support-first-reset-validation-design"
+  "next_blocker": "m1864-executable-v2-support-first-reset-validation-adapter-implementation"
 }

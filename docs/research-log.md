@@ -31677,3 +31677,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1863-executable-v2-support-first-reset-validation-design.json`
 - next: `m1863-executable-v2-support-first-reset-validation-design`
+
+## M1863 Executable V2 Support-First Reset Validation Design
+
+- status: completed
+- decision: `support_first_reset_validation_design_admit_adapter_implementation`
+- artifact: `docs/m1863-executable-v2-support-first-reset-validation-design.md`
+- parent audit: `docs/m1862-executable-v2-support-first-materialization-result-audit.md`
+- materialized spec count: `180`
+- target reset payload spec count: `180`
+- role counts: `drift_required_recovery=48 stable_aeb=48 stable_aes_only=48 unavoidable_mitigation=36`
+- surface counts: `post_friction_step=84 steady_surface=96`
+- profile count: `8`
+- target role-surface count: `8`
+- speed count: `5`
+- mu count: `6`
+- unavoidable shortage flag: `true`
+- direct reset preflight admitted: `false`
+- adapter required before reset: `true`
+- materialization rerun: `false`
+- source mining rerun: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: reset-validation design adapter implementation route expected reset payload counts claim boundary
+- unsupported: adapter implementation result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1864-executable-v2-support-first-reset-validation-adapter-implementation.json`
+- next: `m1864-executable-v2-support-first-reset-validation-adapter-implementation`
