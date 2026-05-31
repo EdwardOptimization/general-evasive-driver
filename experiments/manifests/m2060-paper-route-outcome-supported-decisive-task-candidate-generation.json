@@ -1,0 +1,179 @@
+{
+  "id": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_candidate_generation"
+    ],
+    "parent_dataset": [
+      "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout candidate generator for outcome-supported decisive task distribution"
+    ],
+    "derived_from": [
+      "m2059-paper-route-outcome-supported-decisive-task-distribution-design"
+    ],
+    "blocked_by": [
+      "M2059 designs exact candidate quotas and support gates"
+    ],
+    "supersedes": [
+      "another repair-wave generator for M2048 routing-smoke panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md",
+  "public_gates": [
+    "M2060 must generate 240 no-rollout candidate sources",
+    "M2060 must preserve family and split quotas",
+    "M2060 must include difficulty-axis coverage metadata",
+    "M2060 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_candidate_generation",
+    "evidence_increment": "creates a no-rollout source candidate panel for later reset and outcome-support smoke validation",
+    "claim_scope": "candidate generation only; no reset rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if candidate quotas fail",
+      "stop if difficulty-axis coverage is missing",
+      "stop if forbidden actor-input keys appear",
+      "stop if generated rows are marked paper-valid"
+    ],
+    "fallback_plan": [
+      "repair candidate generator if quotas or metadata fail",
+      "route to design audit if task-family semantics are inconsistent",
+      "route to materialization/reset preflight only if candidate artifact passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2059 admits no-rollout candidate generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive task candidate generation",
+    "admission_evidence": [
+      "M2059 specifies 240 candidate quotas and outcome-support smoke gates"
+    ],
+    "blocked_shortcuts": [
+      "do not reset or rollout candidates in M2060",
+      "do not rank controller families",
+      "do not interpret candidate generation as paper evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_task_candidates.py",
+      "tests/test_paper_route_outcome_supported_decisive_task_candidates.py",
+      "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md",
+      "M2060 status queue scoreboard research log and review",
+      "one follow-up manifest for candidate generation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "candidate artifact exists",
+      "quota and guardrail checks pass",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2060 generates candidates and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2060."
+    ],
+    "temporal_evidence_window": "M2059 task-distribution design.",
+    "negative_result_policy": "If candidate generation cannot cover source-diverse outcome-supported families without forbidden shortcuts, return to design/synthesis.",
+    "allowed_claims": [
+      "outcome-supported decisive task candidate generation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new panel instead of repairing fixed public rows",
+    "paper_verdict_delta": "can admit reset/materialization preflight for a fairer comparison substrate",
+    "must_synthesize_if": [
+      "M2060 fails quotas after a repair attempt",
+      "M2060 adds another design-only milestone instead of an artifact",
+      "M2060 recreates M2048 public repair rows"
+    ]
+  },
+  "hypothesis": "A deterministic no-rollout generator can produce the 240-source outcome-supported decisive task candidate artifact specified by M2059 without weakening contract or claim boundaries.",
+  "success_criteria": [
+    "focused tests pass",
+    "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json exists",
+    "candidate_count is 240",
+    "family quotas are 48 60 60 36 36",
+    "split quotas are public_debug 144 public_gate 96 private_holdout 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "candidate generator is missing",
+    "focused tests fail",
+    "candidate artifact is missing",
+    "quotas or guardrails fail",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_task_candidates.py"
+    },
+    {
+      "name": "generate_candidates",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_task_candidates --output configs/paper_route_outcome_supported_decisive_task_candidates_v0.json --next-blocker m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_task_candidate_generation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md"
+  ],
+  "decision_rule": "M2060 passes if it writes a quota-complete guardrail-clean no-rollout candidate artifact and routes to audit.",
+  "next_blocker": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit"
+}

@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2059 designs 240-candidate outcome-supported decisive task distribution with family quotas 48/60/60/36/36 and smoke support gates before full comparison",
+  "failure_criteria": [
+    "design doc is missing",
+    "support gates are ambiguous",
+    "design repeats local public-panel repair",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T202200Z",
+  "hypothesis": "A new outcome-supported decisive task-distribution route can be designed to replace the offtrack-dominated routing-smoke panel as the next paper-route comparison substrate.",
+  "lineage": {
+    "blocked_by": [
+      "M2058 pivots away from local routing-smoke repair toward outcome-supported task distribution"
+    ],
+    "derived_from": [
+      "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_distribution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design an outcome-supported decisive task distribution before another controller-family comparison"
+    ],
+    "supersedes": [
+      "another repair wave on the same offtrack-dominated public routing-smoke panel"
+    ]
+  },
+  "milestone": "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
+  "next_blocker": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "outcome_supported_decisive_distribution_design_admit_no_rollout_candidate_generation",
+  "public_gates": [
+    "M2059 must design a new outcome-supported task-distribution route",
+    "M2059 must state role/family support gates before full comparison",
+    "M2059 must preserve actor input/output contract and smoke-proxy claim boundaries",
+    "M2059 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "outcome_supported_decisive_distribution_design_admit_no_rollout_candidate_generation",
+    "milestone": "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
+    "reason": "M2059 designs 240-candidate outcome-supported decisive task distribution with family quotas 48/60/60/36/36 and smoke support gates before full comparison",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md exists",
+    "task families and support gates are explicit",
+    "calibration-before-full-comparison route is explicit",
+    "actor contract and generated-row claim boundaries are preserved",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

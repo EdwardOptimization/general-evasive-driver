@@ -35953,3 +35953,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: pivot to `paper_route_outcome_supported_decisive_task_distribution`
 - follow-up manifest: `experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json`
 - next: `m2059-paper-route-outcome-supported-decisive-task-distribution-design`
+
+## M2059 Paper-Route Outcome-Supported Decisive Task Distribution Design
+
+- status: completed
+- decision: `outcome_supported_decisive_distribution_design_admit_no_rollout_candidate_generation`
+- doc: `docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md`
+- reset/rollout/measured execution in M2059: `false`
+- policy actions executed in M2059: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design: new 240-source outcome-supported decisive task candidate panel, not another M2048 repair
+- family quotas: T1 `48`, T2 `60`, T3 `60`, T4 `36`, T5 `36`
+- support gates before full comparison: global success `0.08..0.60`, offtrack <= `0.80`, collision <= `0.25`, family success/source/profile diversity gates, generated-proxy distribution guard
+- decision: admit M2060 no-rollout candidate generator implementation
+- follow-up manifest: `experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json`
+- next: `m2060-paper-route-outcome-supported-decisive-task-candidate-generation`

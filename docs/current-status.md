@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis
+m2059-paper-route-outcome-supported-decisive-task-distribution-design
 ```
 
 Current next task:
 
 ```text
-m2059-paper-route-outcome-supported-decisive-task-distribution-design
+m2060-paper-route-outcome-supported-decisive-task-candidate-generation
 ```
 
-Immediate route: M2058 synthesizes the repaired routing-smoke measured branch
-and pivots away from another local repair loop. The branch proved the panel can
-be materialized, reset, and executed end-to-end, but it also falsified the idea
-that the repaired routing-smoke panel is ranking-ready: outcome support remains
-sparse and offtrack-dominated. M2059 must design a new outcome-supported
-decisive task distribution before any full controller-family comparison.
+Immediate route: M2059 designs a new outcome-supported decisive task
+distribution to replace the offtrack-dominated routing-smoke repair loop. The
+next panel targets `240` no-rollout candidates across T1/T2/T3/T4/T5 quotas
+`48/60/60/36/36`, with smoke support gates before any full 12-profile
+comparison. M2060 must implement the no-rollout candidate generator; reset,
+rollout, ranking, paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

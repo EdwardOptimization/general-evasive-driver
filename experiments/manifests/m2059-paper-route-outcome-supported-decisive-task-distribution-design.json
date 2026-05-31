@@ -168,5 +168,5 @@
     "docs/paper-route-finite-window-vs-gru-plan.md"
   ],
   "decision_rule": "M2059 passes if it designs a bounded outcome-supported task distribution and selects a concrete no-rollout implementation route without overclaiming.",
-  "next_blocker": "m2060-selected-by-m2059-design"
+  "next_blocker": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation"
 }

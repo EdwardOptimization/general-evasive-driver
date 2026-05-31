@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2067,
+    "completed": 2068,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+    "command_log": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis"
+    "task_id": "m2059-paper-route-outcome-supported-decisive-task-distribution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2059-paper-route-outcome-supported-decisive-task-distribution-design.json",
-    "hypothesis": "A new outcome-supported decisive task-distribution route can be designed to replace the offtrack-dominated routing-smoke panel as the next paper-route comparison substrate.",
-    "id": "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
-    "kind": "gate",
-    "notes": "Pending: design new outcome-supported task distribution before full controller comparison",
-    "priority": 20540,
+    "command": "see experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json",
+    "hypothesis": "A deterministic no-rollout generator can produce the 240-source outcome-supported decisive task candidate artifact specified by M2059 without weakening contract or claim boundaries.",
+    "id": "m2060-paper-route-outcome-supported-decisive-task-candidate-generation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout 240-source candidate generator",
+    "priority": 20550,
     "status": "pending",
-    "success_artifact": "docs/m2059-paper-route-outcome-supported-decisive-task-distribution-design.md"
+    "success_artifact": "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json"
   },
-  "updated_at_utc": "20260531T201440Z"
+  "updated_at_utc": "20260531T201741Z"
 }
