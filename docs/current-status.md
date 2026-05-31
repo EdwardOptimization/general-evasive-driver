@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1925-executable-v2-task-quality-scenario-redesign-materialization-design
+m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation
+m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -252,9 +252,13 @@ M1925 completed the bounded materialization design: select `80` supported
 non-holdout sources as `4` sources for each of the `5 x 4` tier-role cells,
 with `2` steady and `2` post-friction sources per cell. The expected later
 workload is `960` planned cells if crossed with `12` controller profiles.
-M1926 must implement this source-only selector and subset artifact before any
-reset, rollout, measured execution, controller ranking, paper-level claim, or
-level3 self-ID claim.
+M1926 implemented this source-only selector and generated
+`configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json`:
+`80` selected sources, `67` public-gate and `13` public-debug, `0` holdout,
+exact tier-role balance, exact surface balance, and guardrail `0`. M1927 must
+now design the no-rollout command for converting this source subset into
+executable task specs and workload rows before any reset, rollout, measured
+execution, controller ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

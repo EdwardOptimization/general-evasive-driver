@@ -33332,3 +33332,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation boundary: design only; no reset, rollout, measured execution, controller ranking, paper-level result, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.json`
 - next: `m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation`
+
+## M1926 Executable V2 Task-Quality Scenario Redesign Materialization Implementation
+
+- status: completed
+- decision: `task_quality_scenario_materialization_selector_pass_route_to_command_design`
+- result class: `task_quality_scenario_materialization_selector_pass`
+- doc: `docs/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.md`
+- subset config: `configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json`
+- summary: `runs/m1926_executable_v2_task_quality_scenario_redesign_materialization_implementation/summary.json`
+- source: `src/autodrift/executable_v2_task_quality_scenario_redesign_materialization_selector.py`
+- tests: `tests/test_executable_v2_task_quality_scenario_redesign_materialization_selector.py`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M1926: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- input rows: `640`
+- eligible sources: `357`
+- selected sources: `80`
+- selected split counts: `public_gate=67 public_debug=13`
+- selected tier counts: `16` per tier
+- selected role counts: `20` per role
+- selected surface counts: `steady_surface=40 post_friction_step=40`
+- tier-role balance: `true`
+- surface balance: `true`
+- holdout selected: `0`
+- guardrail violations: `0`
+- follow-up manifest: `experiments/manifests/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.json`
+- next: `m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design`

@@ -1,0 +1,168 @@
+{
+  "id": "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_materialization_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.md",
+      "configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json",
+      "runs/m1926_executable_v2_task_quality_scenario_redesign_materialization_implementation/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "design exact no-rollout command to convert the 80-source subset into executable task specs and workload rows"
+    ],
+    "derived_from": [
+      "m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1926 created a source-only subset but not executable task specs or workload rows"
+    ],
+    "supersedes": [
+      "manual adaptation of historical controller-family materializers"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+  "public_gates": [
+    "M1927 must define exact no-rollout materialization command and target artifacts",
+    "M1927 must define target counts for executable specs and workload rows",
+    "M1927 must decide whether to adapt existing materializers or implement a focused new materializer",
+    "M1927 must keep reset rollout measured execution controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_executable_materialization_design",
+    "evidence_increment": "turns the source-only subset into a precise executable-materialization implementation route",
+    "claim_scope": "command/design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if no exact no-rollout materialization route exists",
+      "stop if target counts or artifacts are ambiguous",
+      "stop if command design would require using holdout sources",
+      "stop if ranking would be allowed before reset/measured gates"
+    ],
+    "fallback_plan": [
+      "route to focused materializer implementation if existing materializers do not fit",
+      "route to direct no-rollout materialization execution if an existing materializer fits exactly",
+      "route to branch synthesis if materialization semantics are underdefined"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1926 produced a passing 80-source subset",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality executable materialization command design",
+    "admission_evidence": [
+      "M1926 selected 80 balanced non-holdout sources with 960 expected workload cells and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset rollout measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not use holdout candidates"
+    ],
+    "allowed_updates": [
+      "M1927 command design document",
+      "M1927 status queue scoreboard research log and review",
+      "one follow-up manifest for materializer implementation execution or synthesis"
+    ],
+    "next_stage_criteria": [
+      "exact command route is explicit",
+      "target artifacts and counts are explicit",
+      "compatibility decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1927."
+    ],
+    "temporal_evidence_window": "M1926 source-only subset artifact.",
+    "negative_result_policy": "If no exact materialization route exists, record it as task-quality infrastructure evidence and design a focused materializer rather than forcing an old tool.",
+    "allowed_claims": [
+      "task-quality executable materialization command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares the first executable-materialization route for the redesigned task-quality panel",
+    "paper_verdict_delta": "can admit executable materialization but cannot change driver verdict by itself",
+    "must_synthesize_if": [
+      "M1927 cannot define exact materialization artifacts",
+      "M1927 finds existing materializers semantically incompatible and no focused implementation route",
+      "M1927 would allow ranking before reset/measured gates"
+    ]
+  },
+  "hypothesis": "The M1926 source-only subset can be routed into an exact no-rollout materialization command with explicit target artifacts and counts.",
+  "success_criteria": [
+    "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md exists",
+    "exact input subset artifact is named",
+    "exact output directory and artifacts are named",
+    "target executable spec and workload counts are explicit",
+    "compatibility decision for existing materializers is explicit",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "materialization command route is ambiguous",
+    "target counts are ambiguous",
+    "holdout candidates would be used",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_materialization_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.md",
+    "configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json"
+  ],
+  "decision_rule": "M1927 passes if it defines an exact no-rollout materialization route and explicit next step without execution or ranking.",
+  "next_blocker": "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design"
+}
