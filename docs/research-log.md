@@ -36126,3 +36126,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: focused validator and metadata preservation work, but the M2063 executable specs are not reset-valid as materialized
 - follow-up manifest: `experiments/manifests/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.json`
 - next: `m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit`
+
+## M2067 Paper-Route Outcome-Supported Decisive Reset Validation Result Audit
+
+- status: completed
+- decision: `outcome_supported_decisive_reset_audit_route_to_combined_materialization_repair_design`
+- audited artifact: `runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`
+- reset/rollout/measured execution in M2067: `false`
+- policy actions executed in M2067: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2066 failed before rollout due executable task validity, not driver behavior
+- reset attempts/success/failure: `240/0/240`
+- operational subtypes: disabled warmup-gate schema invalid `117`, obstacle-filter unsampleable `123`
+- family localization: T1 `48` warmup invalid, T2 `60` warmup invalid, T3 `60` obstacle sampling, T4 `36` obstacle sampling, T5 `9` warmup invalid and `27` obstacle sampling
+- route decision: combined no-rollout materialization repair design; single-axis repair and measured execution remain blocked
+- follow-up manifest: `experiments/manifests/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.json`
+- next: `m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2075,
+    "completed": 2076,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2066-paper-route-outcome-supported-decisive-reset-validation-implementation-and-run"
+    "task_id": "m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.json",
-    "hypothesis": "M2066 failed closed because the M2063 executable specs contain invalid warmup-gate configs and unsampleable obstacle filters, not because metadata, actor input contract, or guardrail checks failed.",
-    "id": "m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.json",
+    "hypothesis": "A combined no-rollout repair route can address both M2066 failure classes while preserving provenance, human-view contract, and generated smoke-proxy claim boundaries.",
+    "id": "m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2066 failure classes and choose materialization schema source-filter combined repair or synthesis",
-    "priority": 20620,
+    "notes": "Pending: design combined no-rollout repair for disabled warmup-gate schema normalization and obstacle source/filter feasibility",
+    "priority": 20630,
     "status": "pending",
-    "success_artifact": "docs/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md"
   },
-  "updated_at_utc": "20260531T210527Z"
+  "updated_at_utc": "20260531T211232Z"
 }

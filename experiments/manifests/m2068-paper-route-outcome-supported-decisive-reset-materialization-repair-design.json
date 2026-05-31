@@ -1,0 +1,170 @@
+{
+  "id": "m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_reset_materialization_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.md",
+      "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a combined no-rollout repair for invalid warmup-gate serialization and unsampleable obstacle filters"
+    ],
+    "derived_from": [
+      "m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2067 classifies M2066 as 117 disabled warmup-gate schema invalidities and 123 obstacle-filter sampling failures"
+    ],
+    "supersedes": [
+      "single-axis repair or measured execution after reset validation failure"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+  "public_gates": [
+    "M2068 must design both disabled warmup-gate schema normalization and obstacle source/filter feasibility repair",
+    "M2068 must preserve M2063/M2066 provenance and claim-boundary fields",
+    "M2068 must define exact allowed updates and pass/fail gates for a no-rollout repair implementation",
+    "M2068 must not edit code run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_reset_materialization_repair_design",
+    "evidence_increment": "designs the repair route required after M2066 reset validation failed before rollout",
+    "claim_scope": "repair design only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if one of the two M2067 failure classes is left without a repair axis",
+      "stop if repair would weaken human-view or paper-claim guards",
+      "stop if next implementation gates are not explicit",
+      "stop if design would rerun reset inside M2068"
+    ],
+    "fallback_plan": [
+      "route to synthesis if combined repair cannot be bounded without weakening claim guards",
+      "route to a smaller no-rollout source-filter audit if obstacle infeasibility cannot be repaired deterministically",
+      "route to implementation only if both repair axes and artifacts are explicit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2067 selects combined materialization repair after 0/240 reset success",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive reset materialization repair design",
+    "admission_evidence": [
+      "M2067 selects combined repair",
+      "M2066 warmup_gate max_active_steps failures 117",
+      "M2066 obstacle filter sampling failures 123",
+      "M2066 contract metadata forbidden-key and guardrail counts are all 0"
+    ],
+    "blocked_shortcuts": [
+      "do not implement repair in the design milestone",
+      "do not run reset or rollout in the design milestone",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+      "M2068 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout repair implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "both repair axes are specified",
+      "repair output artifacts are specified",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2068 designs task materialization repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2068."
+    ],
+    "temporal_evidence_window": "M2066 reset-validation artifacts and M2067 failure audit.",
+    "negative_result_policy": "Repair task validity before any measured execution; do not reinterpret reset failure as controller evidence.",
+    "allowed_claims": [
+      "outcome-supported decisive reset-materialization repair design",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs a bounded repair for the newly observed reset-validity blocker",
+    "paper_verdict_delta": "can admit a no-rollout repair implementation but cannot decide paper-route comparison",
+    "must_synthesize_if": [
+      "M2068 cannot bound both repair axes",
+      "M2068 proposes measured execution before reset-validity is restored",
+      "M2068 creates another design-only hop without implementation gates"
+    ]
+  },
+  "hypothesis": "A combined no-rollout repair route can address both M2066 failure classes while preserving provenance, human-view contract, and generated smoke-proxy claim boundaries.",
+  "success_criteria": [
+    "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md exists",
+    "disabled warmup-gate schema normalization is specified",
+    "obstacle source/filter feasibility repair is specified",
+    "repair implementation artifacts and gates are specified",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "one failure class lacks a repair route",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_reset_materialization_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.md",
+    "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2068 passes if it specifies a bounded combined repair and selects an implementation route without overclaiming.",
+  "next_blocker": "m2069-selected-by-m2068-design"
+}
