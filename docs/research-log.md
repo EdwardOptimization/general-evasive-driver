@@ -33934,3 +33934,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: branch synthesis required before reset/materialized execution because source-mining pass is not reset validity or measured comparison evidence
 - follow-up manifest: `experiments/manifests/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.json`
 - next: `m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis`
+
+## M1954 Executable V2 Task-Quality Offtrack Support Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- completed branch: `paper_route_task_quality_offtrack_support_repair`
+- next branch: `paper_route_task_quality_calibrated_materialization`
+- decision: `task_quality_offtrack_support_repair_branch_synthesis_promote_to_calibrated_materialization`
+- doc: `docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md`
+- reset/rollout/measured execution in M1954: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M1944-M1953 repaired the offtrack-support source-mining branch from M1947 incomplete anchor support `0/64` to M1952 calibrated source-mining pass with support `130`, accepted cells `5981`, anchor-neighborhood `64/64`, public-gate support `40`, and guardrail `0`
+- supported claims: calibrated no-rollout source support is repaired and artifact-provenanced; branch is ready for materialization/reset planning
+- unsupported claims: reset validity, measured execution readiness, controller ranking, paper-level result, and level3 self-ID remain blocked
+- public-gate overfit risk: `medium`; next branch must preserve source-kind role surface and calibrated-anchor provenance diversity
+- follow-up manifest: `experiments/manifests/m1955-executable-v2-task-quality-calibrated-source-materialization-design.json`
+- next: `m1955-executable-v2-task-quality-calibrated-source-materialization-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1962,
+    "completed": 1963,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md",
+    "command_log": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit"
+    "task_id": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.json",
-    "hypothesis": "M1944-M1953 materially repaired source support enough to promote from offtrack-support repair to a calibrated reset/materialized execution branch.",
-    "id": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis",
+    "command": "see experiments/manifests/m1955-executable-v2-task-quality-calibrated-source-materialization-design.json",
+    "hypothesis": "A calibrated materialization subset can be designed from M1952 source rows while preserving source-kind, role, surface, and calibrated-anchor provenance diversity.",
+    "id": "m1955-executable-v2-task-quality-calibrated-source-materialization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1944-M1953 and choose calibrated reset/materialized execution route or pivot",
-    "priority": 19490,
+    "notes": "Pending: design calibrated source materialization subset from M1952 rows before reset validation",
+    "priority": 19500,
     "status": "pending",
-    "success_artifact": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md"
+    "success_artifact": "docs/m1955-executable-v2-task-quality-calibrated-source-materialization-design.md"
   },
-  "updated_at_utc": "20260531T095312Z"
+  "updated_at_utc": "20260531T095535Z"
 }
