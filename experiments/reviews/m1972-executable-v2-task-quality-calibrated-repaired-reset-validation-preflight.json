@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M1972 repaired reset-only validation pass 80 attempts 80 successes 0 failures contract 0 forbidden-key 0 guardrail 0",
+  "failure_criteria": [
+    "summary is missing",
+    "reset_success_count is less than 80",
+    "any observation contract failure appears",
+    "guardrail violation appears",
+    "rollout measured execution or ranking is run"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T112903Z",
+  "hypothesis": "The repaired M1969 executable specs remain reset-valid under the focused calibrated reset validator after offtrack parent-tier normalization.",
+  "lineage": {
+    "blocked_by": [
+      "repaired executable specs have not been reset-validated"
+    ],
+    "derived_from": [
+      "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_reset_validation_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json"
+    ],
+    "parent_objective": [
+      "run reset-only validation over repaired executable specs"
+    ],
+    "supersedes": [
+      "claiming repaired measured execution readiness from no-reset artifacts alone"
+    ]
+  },
+  "milestone": "m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight",
+  "next_blocker": "m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_reset_validation_pass_route_to_audit",
+  "public_gates": [
+    "M1972 must run only the frozen repaired reset-validation command",
+    "M1972 must produce 80 reset rows or preserve failure rows",
+    "M1972 must keep rollout measured execution ranking paper and level3 claims blocked",
+    "M1972 must not run measured execution"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_reset_validation_pass_route_to_audit",
+    "milestone": "m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight",
+    "reason": "M1972 repaired reset-only validation pass 80 attempts 80 successes 0 failures contract 0 forbidden-key 0 guardrail 0",
+    "reset_success": "1.0000000000",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json exists",
+    "result_class is task_quality_calibrated_reset_validation_preflight_pass",
+    "reset_attempt_count equals 80",
+    "reset_success_count equals 80",
+    "reset_failure_count equals 0",
+    "observation_dimension_failure_count equals 0",
+    "contract_violation_count equals 0",
+    "guardrail_violation_count equals 0"
+  ],
+  "type": "infrastructure"
+}

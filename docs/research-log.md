@@ -34286,3 +34286,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight.json`
 - next: `m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight`
+
+## M1972 Executable V2 Task-Quality Calibrated Repaired Reset Validation Preflight
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_reset_validation_pass_route_to_audit`
+- doc: `docs/m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight.md`
+- run dir: `runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired`
+- environment reset in M1972: `true`
+- rollout/measured execution in M1972: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- reset result: `80` attempts, `80` successes, `0` failures
+- observation/contract checks: finite observations `80`, observation dimension failures `0`, obstacles initialized `80`, contract `0`, label actor input `0`, forbidden-key `0`, guardrail `0`
+- source preservation: source-kind and role-surface quotas pass
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.json`
+- next: `m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit`

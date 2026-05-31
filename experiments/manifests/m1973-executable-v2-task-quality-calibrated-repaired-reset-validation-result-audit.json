@@ -1,0 +1,161 @@
+{
+  "id": "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight.md",
+      "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json",
+      "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/reset_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit repaired reset-validation result before measured execution design"
+    ],
+    "derived_from": [
+      "m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight"
+    ],
+    "blocked_by": [
+      "repaired reset-validation result has not been audited"
+    ],
+    "supersedes": [
+      "running measured execution directly after reset validation without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
+  "public_gates": [
+    "M1973 must audit M1972 repaired reset-validation summary",
+    "M1973 must separate reset-validity evidence from measured execution evidence",
+    "M1973 must decide whether measured execution design is admitted",
+    "M1973 must not run measured execution ranking or paper-level claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_reset_result_audit",
+    "evidence_increment": "audits repaired reset-validity result and decides measured execution design route",
+    "claim_scope": "result audit only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if reset result is incomplete",
+      "stop if observation contract failures are present",
+      "stop if audit would skip measured execution command design"
+    ],
+    "fallback_plan": [
+      "route to measured execution command design if reset audit is clean",
+      "route to reset failure audit or repair if reset evidence is not clean",
+      "synthesize if branch cadence is reached"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1972 reset validation completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired reset-validation result audit",
+    "admission_evidence": [
+      "M1972 produced repaired reset-validation summary and reset rows"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in audit",
+      "do not claim controller ranking",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
+      "M1973 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution command design"
+    ],
+    "next_stage_criteria": [
+      "M1972 result is audited",
+      "supported and unsupported claims are explicit",
+      "measured execution design route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "reset result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1973."
+    ],
+    "temporal_evidence_window": "M1972 repaired reset-validation artifacts.",
+    "negative_result_policy": "If reset audit finds issues, route to repair before measured execution design.",
+    "allowed_claims": [
+      "repaired reset-validation result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "decides whether repaired panel can re-enter measured execution design",
+    "paper_verdict_delta": "can restore measured execution design readiness but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1973 cannot audit reset result",
+      "M1973 would need another audit before measured execution design",
+      "branch cadence is reached"
+    ]
+  },
+  "hypothesis": "M1972 reset-validates the repaired 80-spec panel cleanly enough to admit measured execution design, while direct measured execution remains blocked.",
+  "success_criteria": [
+    "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md exists",
+    "M1972 reset result is summarized",
+    "supported and unsupported claims are separated",
+    "measured execution design route is explicit",
+    "no measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "reset result remains ambiguous",
+    "measured execution is run during audit",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired/summary.json"
+  ],
+  "decision_rule": "M1973 passes if it audits M1972 as clean reset-validity evidence and selects measured execution command design without execution or ranking.",
+  "next_blocker": "m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit"
+}
