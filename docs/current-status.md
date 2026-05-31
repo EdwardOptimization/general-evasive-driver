@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1934-executable-v2-task-quality-reset-validation-result-audit
+m1935-executable-v2-task-quality-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m1935-executable-v2-task-quality-measured-execution-design
+m1936-executable-v2-task-quality-measured-runner-adapter-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -296,7 +296,11 @@ scenario admissibility evidence and admits measured execution design, not
 direct rollout or controller ranking. M1935 must now inspect runner
 compatibility for the `80 x 12 = 960` public diagnostic workload while
 preserving source/tier/role/surface metadata and keeping ranking/paper/self-ID
-claims blocked.
+claims blocked. M1935 found existing measured runners are not exact schema
+matches for the M1928 workload: the generic runner assumes legacy fields and
+the support-first/repair-axis runners expect older schemas. It therefore routes
+to M1936 focused measured-runner adapter implementation, with real 960-cell
+rollout still blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

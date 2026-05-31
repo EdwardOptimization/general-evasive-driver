@@ -33549,3 +33549,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: measured execution design, not direct rollout
 - follow-up manifest: `experiments/manifests/m1935-executable-v2-task-quality-measured-execution-design.json`
 - next: `m1935-executable-v2-task-quality-measured-execution-design`
+
+## M1935 Executable V2 Task-Quality Measured Execution Design
+
+- status: completed
+- decision: `task_quality_measured_execution_design_requires_focused_runner_adapter`
+- doc: `docs/m1935-executable-v2-task-quality-measured-execution-design.md`
+- reset gate: `runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json`
+- executable specs: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
+- workload matrix: `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv`
+- target workload cells: `960`
+- target specs: `80`
+- target profiles: `12`
+- rollout/measured execution in M1935: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- compatibility decision: existing measured runners are not exact schema matches for M1928 workload rows
+- generic runner issue: legacy `task_family`, `source_edge`, `window_tag`, `executable_source_family`, and `env_template_family` assumptions plus old aggregates
+- support-first runner issue: expects support-first measured schema rather than M1928 five-tier task-quality schema
+- repair-axis runner issue: expects repair-axis matrix/import-postprocess schema rather than fresh reset-valid source distribution
+- follow-up manifest: `experiments/manifests/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.json`
+- next: `m1936-executable-v2-task-quality-measured-runner-adapter-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1943,
+    "completed": 1944,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+    "command_log": "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+    "run_dir": "docs/m1935-executable-v2-task-quality-measured-execution-design.md",
     "status": "completed",
-    "task_id": "m1934-executable-v2-task-quality-reset-validation-result-audit"
+    "task_id": "m1935-executable-v2-task-quality-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1935-executable-v2-task-quality-measured-execution-design.json",
-    "hypothesis": "The reset-valid M1928 workload can be routed into a measured rollout protocol without losing metadata or jumping to ranking.",
-    "id": "m1935-executable-v2-task-quality-measured-execution-design",
-    "kind": "gate",
-    "notes": "Pending: inspect measured runner compatibility and design 960-row public diagnostic measured workload route without rollout ranking paper or self-ID claims",
-    "priority": 19300,
+    "command": "see experiments/manifests/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.json",
+    "hypothesis": "A focused measured runner adapter can preserve M1928 task-quality metadata and support synthetic execution tests without running real measured rollout.",
+    "id": "m1936-executable-v2-task-quality-measured-runner-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement metadata-preserving measured runner adapter with synthetic tests and no real 960-cell rollout",
+    "priority": 19310,
     "status": "pending",
-    "success_artifact": "docs/m1935-executable-v2-task-quality-measured-execution-design.md"
+    "success_artifact": "docs/m1936-executable-v2-task-quality-measured-runner-adapter-implementation.md"
   },
-  "updated_at_utc": "20260531T082213Z"
+  "updated_at_utc": "20260531T082606Z"
 }
