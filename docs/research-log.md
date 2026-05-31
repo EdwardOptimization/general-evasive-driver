@@ -35194,3 +35194,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: supports multi-slice bounded diagnostic comparison only; source-kind singleton remains, so broad ranking finite-window-vs-GRU paper-level and level3 self-ID claims remain blocked
 - follow-up manifest: `experiments/manifests/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.json`
 - next: `m2021-multi-slice-bounded-diagnostic-comparison-result-audit`
+
+## M2021 Multi-Slice Bounded Diagnostic Comparison Result Audit
+
+- status: completed
+- decision: `multi_slice_bounded_diagnostic_audit_route_to_controlled_comparison_panel_design`
+- doc: `docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md`
+- audited summary: `runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json`
+- governing plans: `docs/self-id-go-no-go-paper-route-plan.md`, `docs/paper-route-finite-window-vs-gru-plan.md`
+- reset/rollout/measured execution in M2021: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2020 is complete and useful as bounded diagnostic evidence: L3 `22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144` over six admitted public slices
+- boundary: source-kind singleton, no private holdout, no fair training-budget matrix, no wrong-history/history-necessity test
+- decision: route to M2022 fair L0/L1/L2/L3 controlled comparison panel design; do not run another public-slice extension or direct ranking
+- follow-up manifest: `experiments/manifests/m2022-paper-route-controlled-comparison-panel-design.json`
+- next: `m2022-paper-route-controlled-comparison-panel-design`

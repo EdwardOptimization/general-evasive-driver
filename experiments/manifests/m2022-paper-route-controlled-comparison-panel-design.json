@@ -1,0 +1,174 @@
+{
+  "id": "m2022-paper-route-controlled-comparison-panel-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_panel_design"
+    ],
+    "parent_dataset": [
+      "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/summary.json",
+      "runs/m2020_multi_slice_bounded_diagnostic_comparison/aggregate_profile_group_comparison.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a fair paper-route L0/L1/L2/L3 controlled comparison panel before any ranking or self-ID claim"
+    ],
+    "derived_from": [
+      "m2021-multi-slice-bounded-diagnostic-comparison-result-audit"
+    ],
+    "blocked_by": [
+      "M2021 routes from bounded public diagnostic evidence to controlled comparison design because source-kind singleton blocks direct ranking"
+    ],
+    "supersedes": [
+      "direct ranking from M2020 diagnostic tables"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2022-paper-route-controlled-comparison-panel-design.md",
+  "public_gates": [
+    "M2022 must design but not execute the controlled comparison panel",
+    "M2022 must use the paper-route governing plans as constraints",
+    "M2022 must define controller families L0 L1 L2 L3 and reset/truncated controls",
+    "M2022 must define source-rich task families and holdout rules",
+    "M2022 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_design",
+    "evidence_increment": "converts bounded M2020 diagnostic signal into an executable fair-comparison panel specification without running new experiments",
+    "claim_scope": "design artifact only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if the design allows controller ranking from M2020 public diagnostics",
+      "stop if controller families do not share the same deployable action and input contract",
+      "stop if source-rich task families or holdout discipline are omitted",
+      "stop if next execution route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to design repair if fairness or holdout requirements are incomplete",
+      "route to branch synthesis if the design cannot avoid local public-gate overfit",
+      "route to implementation only after the design artifact is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2021 routes bounded diagnostic evidence to controlled comparison design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "paper-route controlled comparison panel design",
+    "admission_evidence": [
+      "M2021 audits M2020 as bounded diagnostic evidence sufficient to justify fair-comparison design but not direct ranking"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+      "M2022 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation or design audit"
+    ],
+    "next_stage_criteria": [
+      "controller matrix is specified",
+      "task families are specified",
+      "fairness and holdout rules are specified",
+      "claim gates are specified",
+      "next implementation or audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2022 is design-only; it must explicitly plan current-frame and finite-window controls so future self-ID claims cannot be substituted by current-response evidence.",
+    "history_necessity_tests": [
+      "Design same-current different-older-history tests.",
+      "Design reset/truncated GRU controls.",
+      "Design wrong/delayed/mismatched history gates only for source-rich tasks."
+    ],
+    "temporal_evidence_window": "Design artifact for future experiments; no execution in M2022.",
+    "negative_result_policy": "The design must allow finite-window/current-response to win and must preserve negative or conditional self-ID as valid outcomes.",
+    "allowed_claims": [
+      "controlled comparison panel design",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a new controlled-comparison evidence type instead of extending public diagnostic slices",
+    "paper_verdict_delta": "can define the evidence required for engineering driver feedback history-conditioned control recurrent-belief advantage or self-ID rejection",
+    "must_synthesize_if": [
+      "M2022 cannot define an executable fair panel",
+      "M2022 proposes another no-rerun public diagnostic extension",
+      "M2022 omits source-rich task families or holdout discipline"
+    ]
+  },
+  "hypothesis": "A design-only milestone can convert M2021 bounded diagnostic evidence into a fair paper-route controlled comparison panel without overclaiming public diagnostics.",
+  "success_criteria": [
+    "docs/m2022-paper-route-controlled-comparison-panel-design.md exists",
+    "controller families L0 L1 L2 L3 and reset/truncated controls are specified",
+    "source-rich task families and holdout rules are specified",
+    "fairness requirements are explicit",
+    "claim gates and negative-result policy are explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "controller matrix is incomplete",
+    "source-rich task families or holdout rules are omitted",
+    "design allows unfair profile-specific tuning",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2022-paper-route-controlled-comparison-panel-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2022-paper-route-controlled-comparison-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_panel_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2021-multi-slice-bounded-diagnostic-comparison-result-audit.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2022 passes if it produces a controlled comparison panel design that preserves fairness, holdout discipline, and claim boundaries.",
+  "next_blocker": "m2022-paper-route-controlled-comparison-panel-design"
+}

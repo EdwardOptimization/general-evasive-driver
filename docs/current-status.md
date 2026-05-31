@@ -16,25 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2020-multi-slice-bounded-diagnostic-comparison-implementation-and-run
+m2021-multi-slice-bounded-diagnostic-comparison-result-audit
 ```
 
 Current next task:
 
 ```text
-m2021-multi-slice-bounded-diagnostic-comparison-result-audit
+m2022-paper-route-controlled-comparison-panel-design
 ```
 
-Immediate route: M2020 implemented and ran a no-rerun multi-slice bounded
-diagnostic comparison over the six M2018 admitted candidates and M2009 episode
-rows. The run passed with `candidate_count=6`, `matched_episode_count=216`,
-`guardrail_violation_count=0`, and aggregate profile-group success counts L3
-`22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144`. This broadens the M2016 singleton
-diagnostic table across roles, tiers, surfaces, and labels, but the evidence is
-still source-kind singleton and public-gate bounded. M2021 must audit the result
-before any controlled comparison, repair, synthesis, or paper-route claim. Broad
-ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain
-blocked.
+Immediate route: M2021 audits M2020 as a useful bounded diagnostic signal, not
+as ranking or paper-level evidence. M2020 was complete and guardrail-clean:
+`candidate_count=6`, `matched_episode_count=216`, aggregate profile-group
+success L3 `22/36`, L0 `9/18`, L1 `8/18`, L2 `0/144`. The signal is broad
+enough to justify a fair controlled-comparison design, but it is still
+source-kind singleton, public-gate bounded, and lacks private holdout,
+fair-budget training, wrong-history, or history-necessity tests. M2022 must
+design the paper-route L0/L1/L2/L3 controlled comparison panel with source-rich
+task families, holdout discipline, shared action/input contract, and explicit
+claim gates. Broad ranking, finite-window-vs-GRU, paper-level, and level3
+self-ID claims remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean
