@@ -31956,3 +31956,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1871-executable-v2-support-first-measured-execution-design.json`
 - next: `m1871-executable-v2-support-first-measured-execution-design`
+
+## M1871 Executable V2 Support-First Measured Execution Design
+
+- status: completed
+- decision: `support_first_measured_execution_design_requires_runner_adapter`
+- artifact: `docs/m1871-executable-v2-support-first-measured-execution-design.md`
+- parent reset payload: `runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json`
+- parent reset result: `runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json`
+- reset-validated spec count: `180`
+- role-surface count: `8`
+- known imbalance: `unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24`
+- existing metric-specific runner direct compatibility: `false`
+- compatibility blocker: `support-first profile_name is scenario/source metadata, not controller-family policy profile identity`
+- direct measured execution admitted: `false`
+- runner adapter design admitted: `true`
+- full diagnostic matrix candidate: `180 support-first specs x 12 controller-family profiles = 2160 episodes`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: support-first measured execution needs a runner adapter; scenario-profile metadata must be separated from controller policy profiles
+- unsupported: measured rollout success controller-family ranking paper-level result current-response versus finite-window versus GRU comparison level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json`
+- next: `m1872-executable-v2-support-first-measured-runner-adapter-design`

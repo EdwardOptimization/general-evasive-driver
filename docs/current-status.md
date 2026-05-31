@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1870-executable-v2-support-first-reset-validation-result-audit
+m1871-executable-v2-support-first-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m1871-executable-v2-support-first-measured-execution-design
+m1872-executable-v2-support-first-measured-runner-adapter-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -37,12 +37,16 @@ adapter execution over M1861 artifacts. M1866 ran only that adapter conversion
 and produced a clean 180-row reset payload. M1867 audits the result as clean
 and admits reset-validation execution design. M1868 fixes the exact reset-only
 validation command. M1869 ran reset-only validation over the converted 180-row
-payload with `180/180` reset success and zero sampling failures. M1870 must now
-audits this result as clean and admits measured-execution design while keeping
-ranking blocked by the known unavoidable post-friction imbalance. M1871 must
-now design the measured-execution route or runner adapter; policy action
-execution, measured execution, controller ranking, paper-level claims, and
-level3 self-ID claims remain blocked.
+payload with `180/180` reset success and zero sampling failures. M1870 audited
+this result as clean and admitted measured-execution design while keeping
+ranking blocked by the known unavoidable post-friction imbalance. M1871 found
+that direct measured execution is not valid because the support-first payload's
+`profile_name` is scenario/source metadata, not controller-family policy
+identity. M1872 must now design a support-first measured-runner adapter that
+separates scenario profile metadata from controller profiles, preserves
+role-wise diagnostics, and chooses a workload budget before any rollout. Policy
+action execution, measured execution, controller ranking, paper-level claims,
+and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

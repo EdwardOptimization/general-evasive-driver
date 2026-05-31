@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1879,
+    "completed": 1880,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md",
+    "command_log": "docs/m1871-executable-v2-support-first-measured-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1870-executable-v2-support-first-reset-validation-result-audit"
+    "task_id": "m1871-executable-v2-support-first-measured-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1871-executable-v2-support-first-measured-execution-design.json",
-    "hypothesis": "A measured-execution protocol can be designed over the reset-validated support-first payload while preserving role-wise diagnostics and blocking ranking claims.",
-    "id": "m1871-executable-v2-support-first-measured-execution-design",
+    "command": "see experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json",
+    "hypothesis": "A support-first measured-runner adapter can be designed by separating scenario-profile metadata from controller policy profiles while preserving role-wise diagnostics and blocking ranking claims.",
+    "id": "m1872-executable-v2-support-first-measured-runner-adapter-design",
     "kind": "gate",
-    "notes": "Pending: design measured execution or runner-adapter route over reset-validated support-first payload",
-    "priority": 18660,
+    "notes": "Pending: design support-first measured-runner adapter schema and workload budget before any rollout",
+    "priority": 18670,
     "status": "pending",
-    "success_artifact": "docs/m1871-executable-v2-support-first-measured-execution-design.md"
+    "success_artifact": "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md"
   },
-  "updated_at_utc": "20260531T020720Z"
+  "updated_at_utc": "20260531T021302Z"
 }

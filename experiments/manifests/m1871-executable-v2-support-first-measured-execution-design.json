@@ -157,6 +157,34 @@
     "runs/m1869_executable_v2_support_first_reset_validation_preflight/reset_stress_rows.csv",
     "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1871-executable-v2-support-first-measured-execution-design.md",
+    "decision": "support_first_measured_execution_design_requires_runner_adapter",
+    "direct_measured_execution_admitted": false,
+    "runner_adapter_design_admitted": true,
+    "existing_metric_specific_runner_directly_compatible": false,
+    "compatibility_blocker": "support-first profile_name is scenario/source metadata, not controller-family policy profile identity",
+    "reset_validated_spec_count": 180,
+    "role_surface_count": 8,
+    "known_imbalance": "unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24",
+    "full_diagnostic_matrix_candidate": "180 support-first specs x 12 controller-family profiles = 2160 episodes",
+    "ranking_blocked_by_default": true,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json"
+  },
   "decision_rule": "M1871 passes if it designs a measured-execution route or runner-adapter route without running rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1871-executable-v2-support-first-measured-execution-design"
+  "next_blocker": "m1872-executable-v2-support-first-measured-runner-adapter-design"
 }

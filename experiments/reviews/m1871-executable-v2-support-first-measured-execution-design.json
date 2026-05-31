@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1871 finds direct measured execution incompatible because support-first profile_name is scenario metadata not controller profile identity and routes to adapter design",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs rollout or policy actions",
+    "design hides support-first panel imbalance",
+    "design routes directly to controller ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T021828Z",
+  "hypothesis": "A measured-execution protocol can be designed over the reset-validated support-first payload while preserving role-wise diagnostics and blocking ranking claims.",
+  "lineage": {
+    "blocked_by": [
+      "M1870 admits measured-execution design but measured runner command and claim boundaries are not yet registered"
+    ],
+    "derived_from": [
+      "m1870-executable-v2-support-first-reset-validation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/reset_stress_rows.csv",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
+    ],
+    "parent_objective": [
+      "design measured execution over reset-validated support-first executable-v2 payload"
+    ],
+    "supersedes": [
+      "direct measured execution after reset audit",
+      "aggregate controller ranking from reset-only evidence"
+    ]
+  },
+  "milestone": "m1871-executable-v2-support-first-measured-execution-design",
+  "next_blocker": "m1872-executable-v2-support-first-measured-runner-adapter-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_measured_execution_design_requires_runner_adapter",
+  "public_gates": [
+    "M1871 must design measured execution without running rollout",
+    "M1871 must preserve the support-first role-surface imbalance explicitly",
+    "M1871 must define exact runner inputs output directory workload counts role-wise aggregates and claim boundaries",
+    "M1871 must keep training replay PPO promotion private holdout ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1871-executable-v2-support-first-measured-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_measured_execution_design_requires_runner_adapter",
+    "milestone": "m1871-executable-v2-support-first-measured-execution-design",
+    "reason": "M1871 finds direct measured execution incompatible because support-first profile_name is scenario metadata not controller profile identity and routes to adapter design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1871-executable-v2-support-first-measured-execution-design.md exists",
+    "design states exact runner route or runner-adapter need",
+    "design preserves role-surface imbalance explicitly",
+    "design blocks ranking paper-level and level3 self-ID claims",
+    "no measured rollout training replay PPO or ranking is run"
+  ],
+  "type": "gate"
+}
