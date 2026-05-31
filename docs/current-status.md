@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run
+m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit
+m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis
 ```
 
-Immediate route: M2056 runs the repaired measured-execution command and passes
-the execution gates: `2304/2304` episodes, failures `0`, specs `192/192`,
-profiles `12/12`, metadata missing `0`, metric completeness failures `0`, all
-quota gates pass, and guardrail `0`. Raw outcomes are success `45`, collision
-`14`, and offtrack noncollision noncompletion `2245`. M2057 must audit this
-distribution before localization, repair, candidate qualification, ranking, or
-paper/self-ID claims.
+Immediate route: M2057 audits M2056 as complete execution but not
+ranking-ready. The repaired panel still has sparse support and broad offtrack
+dominance: success `45/2304`, collision `14/2304`, offtrack `2245/2304`;
+L3 online GRU has `26/192` successes, L3 reset corrected `17/192`, L0/L1
+`1/192` each, and all L2/tiled controls `0`. Because this repeats the earlier
+routing-smoke offtrack-dominated blocker after a full repair path, M2058 must
+synthesize and pivot before another localization/repair loop.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

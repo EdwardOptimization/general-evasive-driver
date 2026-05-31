@@ -35912,3 +35912,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2057 result audit before localization, repair, candidate qualification, ranking, or paper/self-ID claims
 - follow-up manifest: `experiments/manifests/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.json`
 - next: `m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit`
+
+## M2057 Paper-Route Controlled Routing Smoke Task-Quality Repaired Measured Execution Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repaired_measured_audit_route_to_branch_synthesis`
+- failure taxonomy: `scenario_sampling_failure`
+- doc: `docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md`
+- audited summary: `runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json`
+- measured execution in M2057: `false`
+- rollout/policy actions in M2057: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- completeness audit: M2056 is complete 2304/2304 with failure 0 metric completeness 0 guardrail 0
+- outcome audit: success `45/2304`, collision `14/2304`, offtrack `2245/2304`; L3 online GRU `26/192`, L3 reset corrected `17/192`, L0/L1 `1/192` each, all L2/tiled controls `0`
+- decision: direct ranking/localization/repair are blocked; repeated broad offtrack dominance triggers branch synthesis before another local repair loop
+- follow-up manifest: `experiments/manifests/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.json`
+- next: `m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis`
