@@ -1,0 +1,7 @@
+claim,admissible,reason
+controlled_routing_smoke_task_quality_repair_materialization_preflight_completed,True,M2048 writes repaired no-reset materialization artifacts only
+reset_validation_ready,True,"requires repaired specs, workload, parent resolution, contract, and claim guards to pass"
+controller_family_ranking,False,M2048 does not execute or compare controller outcomes
+paper_valid_generated_task_semantics,False,generated repair rows remain smoke proxies until separately validated
+finite_window_vs_gru_conclusion,False,M2048 is materialization preflight only
+level3_self_identification,False,M2048 does not run history intervention outcome tests

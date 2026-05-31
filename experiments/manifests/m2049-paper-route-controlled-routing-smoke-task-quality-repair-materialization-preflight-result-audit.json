@@ -1,0 +1,168 @@
+{
+  "id": "m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_materialization_preflight_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv",
+      "docs/m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-reset repaired materialization before reset validation design"
+    ],
+    "derived_from": [
+      "m2048-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2048 materialization preflight requires audit before reset validation"
+    ],
+    "supersedes": [
+      "direct reset validation without materialization audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
+  "public_gates": [
+    "M2049 must audit M2048 result class and materialization guards",
+    "M2049 must check repaired specs workload quotas and claim boundaries",
+    "M2049 must decide whether reset-validation command design is admissible",
+    "M2049 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_materialization_preflight_result_audit",
+    "evidence_increment": "audits repaired no-reset materialization and chooses reset-validation route",
+    "claim_scope": "materialization audit only; no reset execution ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2048 result class is not pass",
+      "stop if repaired specs or workload quotas fail",
+      "stop if contract or claim guards fail",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if M2048 fails",
+      "route to reset-validation command design if M2048 passes",
+      "route to synthesis if reset route is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2048 writes repaired materialization artifacts and names M2049 as next blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair materialization preflight result audit",
+    "admission_evidence": [
+      "M2048 result_class controlled_routing_smoke_task_quality_repair_materialization_preflight_pass",
+      "M2048 repaired_spec_count 192",
+      "M2048 planned_workload_count 2304",
+      "M2048 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset during audit",
+      "do not rank controller families",
+      "do not claim repaired panel rollout validity"
+    ],
+    "allowed_updates": [
+      "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
+      "M2049 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design or repair"
+    ],
+    "next_stage_criteria": [
+      "M2048 materialization pass is audited",
+      "claim boundaries are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2049 audits materialization only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2049."
+    ],
+    "temporal_evidence_window": "M2048 no-reset materialization artifacts.",
+    "negative_result_policy": "If materialization audit fails, repair before reset or execution.",
+    "allowed_claims": [
+      "repaired no-reset materialization audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "audits concrete repaired panel before reset validation",
+    "paper_verdict_delta": "can decide whether repaired panel can enter reset validation",
+    "must_synthesize_if": [
+      "M2049 cannot choose reset-validation design or materialization repair",
+      "M2049 would route to another materialization tweak without new evidence"
+    ]
+  },
+  "hypothesis": "M2048 repaired materialization can be audited as clean enough to admit reset-validation command design.",
+  "success_criteria": [
+    "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md exists",
+    "M2048 result class and quotas are audited",
+    "contract and claim guards are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2048 artifacts are incomplete",
+    "guard results are not audited",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight artifacts and write M2049 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2049-paper-route-controlled-routing-smoke-task-quality-repair-materialization-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_materialization_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M2049 passes if it audits M2048 and selects reset-validation design or repair without overclaiming.",
+  "next_blocker": "m2050-selected-by-m2049-audit"
+}
