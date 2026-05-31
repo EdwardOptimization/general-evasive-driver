@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1994,
+    "completed": 1995,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md",
+    "command_log": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight",
     "status": "completed",
-    "task_id": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design"
+    "task_id": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json",
-    "hypothesis": "The M1985 bounded subset can be materialized into 80 executable specs and 960 planned workload rows with clean contract and guardrails.",
-    "id": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-reset materialization preflight for bounded outcome-support subset",
-    "priority": 19810,
+    "command": "see experiments/manifests/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.json",
+    "hypothesis": "The M1986 materialization preflight is clean enough to admit reset-validation command design after audit.",
+    "id": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1986 materialization result before reset validation command design",
+    "priority": 19820,
     "status": "pending",
-    "success_artifact": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json"
+    "success_artifact": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260531T123814Z"
+  "updated_at_utc": "20260531T124524Z"
 }

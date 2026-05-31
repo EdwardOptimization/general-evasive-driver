@@ -1,0 +1,165 @@
+{
+  "id": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-reset materialization result before reset-validation command design"
+    ],
+    "derived_from": [
+      "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M1986 materialization preflight has not yet been audited"
+    ],
+    "supersedes": [
+      "direct reset validation from M1986 artifacts without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+  "public_gates": [
+    "M1987 must not run reset rollout measured execution or training",
+    "M1987 must audit materialization counts contract and guardrails",
+    "M1987 must decide whether reset validation command design is admissible",
+    "M1987 must keep controller ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun materialization",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_materialization_audit",
+    "evidence_increment": "audits whether the M1986 executable-spec panel admits reset validation command design",
+    "claim_scope": "materialization result audit only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1986 did not pass materialization gates",
+      "stop if contract or guardrail counts are nonzero",
+      "stop if audit would run reset directly"
+    ],
+    "fallback_plan": [
+      "route to reset validation command design if materialization is clean",
+      "route to materialization repair if counts or contract fail",
+      "route to branch synthesis if repeated task-quality repair is needed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1986 produced materialization result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated repaired outcome-support materialization result audit",
+    "admission_evidence": [
+      "M1986 materialization preflight passed with 80 specs 960 workload rows and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not reset environments",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+      "M1987 status queue scoreboard research log and review",
+      "one follow-up manifest for reset command design or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M1986 summary is audited",
+      "materialization claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1987."
+    ],
+    "temporal_evidence_window": "M1986 materialization preflight result.",
+    "negative_result_policy": "If materialization is not clean, audit failure before reset validation or repair.",
+    "allowed_claims": [
+      "task-quality calibrated repaired outcome-support materialization audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns executable-spec materialization into a reset-validation or repair decision",
+    "paper_verdict_delta": "can admit reset validation command design but cannot rank controllers",
+    "must_synthesize_if": [
+      "M1987 cannot choose a next route",
+      "M1987 finds materialization contract violations",
+      "M1987 would use materialization as measured controller evidence"
+    ]
+  },
+  "hypothesis": "The M1986 materialization preflight is clean enough to admit reset-validation command design after audit.",
+  "success_criteria": [
+    "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md exists",
+    "M1986 materialization counts are summarized",
+    "contract and guardrail counts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1986 result is not summarized",
+    "next route is ambiguous",
+    "reset rollout ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M1987 passes if it audits M1986 materialization and chooses reset command design or repair without overclaiming.",
+  "next_blocker": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit"
+}

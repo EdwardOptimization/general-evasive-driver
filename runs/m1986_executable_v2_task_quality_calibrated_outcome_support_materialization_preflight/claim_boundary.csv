@@ -1,0 +1,7 @@
+claim,supported,reason
+outcome_support_materialization_preflight_artifact,True,M1986 creates no-reset executable specs and planned workload artifacts
+reset_validity,False,M1986 does not run environment reset
+measured_execution_success,False,M1986 does not run rollout or measured execution
+controller_family_ranking,False,M1986 writes a planned workload only
+paper_level_evidence,False,M1986 is a no-reset preflight milestone
+level3_self_identification,False,M1986 does not test history necessity

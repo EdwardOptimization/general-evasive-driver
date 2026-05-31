@@ -34531,3 +34531,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit no-reset materialization preflight implementation before reset validation or measured execution
 - follow-up manifest: `experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json`
 - next: `m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation`
+
+## M1986 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Materialization Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_materialization_preflight_pass_route_to_result_audit`
+- doc: `docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py`
+- focused tests: `3 passed`
+- summary: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json`
+- materialization preflight: `true`
+- reset/rollout/measured execution: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: no-reset materialization preflight pass with `80` selected sources, `80` executable specs, `12` profiles, `960` workload rows, unsupported selected `0`, materialization failures `0`, contract violations `0`, guardrail `0`
+- repair-axis selected quotas: offtrack-anchor `24`, offtrack-boundary `16`, success-support `20`, collision-mitigation `12`, mitigation-metric isolation `8`
+- route: audit materialization result before reset validation command design
+- follow-up manifest: `experiments/manifests/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.json`
+- next: `m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit`
