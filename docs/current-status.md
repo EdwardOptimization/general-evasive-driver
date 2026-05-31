@@ -16,25 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2023-paper-route-controlled-comparison-panel-preflight-implementation
+m2024-paper-route-controlled-comparison-panel-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m2024-paper-route-controlled-comparison-panel-preflight-result-audit
+m2025-paper-route-controlled-comparison-source-coverage-repair-design
 ```
 
-Immediate route: M2023 implements and runs the no-rollout controlled-comparison
-panel preflight. The artifacts are guardrail-clean and include `171` panel
-sources, `2052` workload cells, all `12` corrected controller profiles, and all
-`5` planned task families. The panel is not ready for routing smoke:
-`panel_ready_for_routing_smoke=false` because T1 active-safety has only `6`
-sources and source-kind share `1.0`, while T2/T3 exceed the max source-kind
-share target. T4/T5 pass the count and source-kind share thresholds. M2024 must
-audit whether to repair T1/T2/T3 source coverage, revise thresholds with
-justification, split a ready T4/T5 route, synthesize, or stop. Broad ranking,
-finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+Immediate route: M2024 audits the M2023 no-rollout panel preflight. The
+preflight is complete and guardrail-clean, but not routing-smoke-ready:
+T1 active-safety has only `6` sources and source-kind share `1.0`, T2
+same-current/different-older-history has max source-kind share `0.5833`, and T3
+active diagnostic warmup has share `0.3750`; T4/T5 pass the registered source
+count and source-kind share thresholds. M2024 rejects direct routing smoke,
+unjustified threshold revision, and premature T4/T5-only split. M2025 must
+design a no-rollout T1/T2/T3 source-coverage repair while preserving T4/T5.
+Broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims
+remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

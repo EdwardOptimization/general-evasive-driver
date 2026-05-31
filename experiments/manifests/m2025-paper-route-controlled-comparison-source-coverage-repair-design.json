@@ -1,0 +1,168 @@
+{
+  "id": "m2025-paper-route-controlled-comparison-source-coverage-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_source_coverage_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/source_coverage.csv",
+      "docs/m2022-paper-route-controlled-comparison-panel-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout source-coverage repair for T1/T2/T3 controlled-comparison panel gaps"
+    ],
+    "derived_from": [
+      "m2024-paper-route-controlled-comparison-panel-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M2024 rejects direct routing smoke because M2023 panel_ready_for_routing_smoke is false due T1/T2/T3 coverage gaps"
+    ],
+    "supersedes": [
+      "direct routing smoke from the unready M2023 panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+  "public_gates": [
+    "M2025 must design but not execute source-coverage repair",
+    "M2025 must target T1 source count/source-kind singleton and T2/T3 source-kind share gaps",
+    "M2025 must preserve T4/T5 passing coverage unless a change is explicitly justified",
+    "M2025 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_source_repair_design",
+    "evidence_increment": "designs how to repair the source-coverage gaps that block routing smoke",
+    "claim_scope": "design artifact only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repair design ignores T1/T2/T3 gaps",
+      "stop if repair design changes actor inputs or controller profiles",
+      "stop if repair design proposes direct routing smoke before preflight repair",
+      "stop if source repair would only overfit public rows without adding source diversity"
+    ],
+    "fallback_plan": [
+      "route to implementation if repair design is complete",
+      "route to threshold audit if no source repair can satisfy registered thresholds",
+      "route to synthesis if repair would become another local public-gate loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2024 routes M2023 source gaps to repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled comparison source-coverage repair design",
+    "admission_evidence": [
+      "M2024 localizes controlled panel readiness blocker to T1/T2/T3 source coverage gaps"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+      "M2025 status queue scoreboard research log and review",
+      "one follow-up manifest for repair implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "T1/T2/T3 repair rules are specified",
+      "candidate source artifacts are named",
+      "T4/T5 preservation rule is specified",
+      "implementation or synthesis route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2025 is source-repair design only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2025."
+    ],
+    "temporal_evidence_window": "M2023 source coverage artifacts and M2024 audit.",
+    "negative_result_policy": "If source repair cannot satisfy diversity thresholds, route to threshold audit or synthesis rather than execution.",
+    "allowed_claims": [
+      "controlled comparison source-coverage repair design",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "targets source coverage and diversity before any public routing smoke",
+    "paper_verdict_delta": "can unblock fair controlled comparison only if source repair design adds real task/source diversity",
+    "must_synthesize_if": [
+      "M2025 cannot identify source artifacts for repair",
+      "M2025 proposes direct execution despite unready coverage",
+      "M2025 would become another public-row top-up without source-diversity gain"
+    ]
+  },
+  "hypothesis": "A design-only source repair can specify how to fix T1/T2/T3 coverage gaps before any routing smoke.",
+  "success_criteria": [
+    "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md exists",
+    "T1/T2/T3 repair rules are specified",
+    "candidate source artifacts are named",
+    "T4/T5 preservation rule is specified",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "T1/T2/T3 gaps are ignored",
+    "candidate source artifacts are not named",
+    "repair would alter actor inputs or controller profiles",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_source_coverage_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
+    "runs/m2023_paper_route_controlled_comparison_panel_preflight/source_coverage.csv"
+  ],
+  "decision_rule": "M2025 passes if it designs a bounded no-rollout source repair with explicit artifacts and route.",
+  "next_blocker": "m2025-paper-route-controlled-comparison-source-coverage-repair-design"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2032,
+    "completed": 2033,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2023-paper-route-controlled-comparison-panel-preflight-implementation.md",
+    "command_log": "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2023-paper-route-controlled-comparison-panel-preflight-implementation"
+    "task_id": "m2024-paper-route-controlled-comparison-panel-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.json",
-    "hypothesis": "The M2023 preflight result is sufficient to choose whether source repair, threshold revision, split route, synthesis, or stop is needed before routing smoke.",
-    "id": "m2024-paper-route-controlled-comparison-panel-preflight-result-audit",
+    "command": "see experiments/manifests/m2025-paper-route-controlled-comparison-source-coverage-repair-design.json",
+    "hypothesis": "A design-only source repair can specify how to fix T1/T2/T3 coverage gaps before any routing smoke.",
+    "id": "m2025-paper-route-controlled-comparison-source-coverage-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2023 preflight source coverage gaps and choose repair revision split synthesis or stop before routing smoke",
-    "priority": 20190,
+    "notes": "Pending: design no-rollout source coverage repair for T1/T2/T3 before controlled panel routing smoke",
+    "priority": 20200,
     "status": "pending",
-    "success_artifact": "docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md"
+    "success_artifact": "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md"
   },
-  "updated_at_utc": "20260531T161846Z"
+  "updated_at_utc": "20260531T162602Z"
 }

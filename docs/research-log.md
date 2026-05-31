@@ -35253,3 +35253,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: preflight artifacts are clean but current panel is not routing-smoke-ready, so no execution or ranking is admitted
 - follow-up manifest: `experiments/manifests/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.json`
 - next: `m2024-paper-route-controlled-comparison-panel-preflight-result-audit`
+
+## M2024 Paper-Route Controlled Comparison Panel Preflight Result Audit
+
+- status: completed
+- decision: `controlled_comparison_panel_preflight_audit_route_to_source_coverage_repair_design`
+- doc: `docs/m2024-paper-route-controlled-comparison-panel-preflight-result-audit.md`
+- audited summary: `runs/m2023_paper_route_controlled_comparison_panel_preflight/summary.json`
+- reset/rollout/measured execution in M2024: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2023 artifacts are complete and guardrail-clean but not routing-smoke-ready
+- coverage blockers: T1 source count `6 < 12` and share `1.0`; T2 share `0.5833`; T3 share `0.3750`; T4/T5 pass thresholds
+- rejected routes: direct routing smoke, threshold revision without evidence, split T4/T5 smoke for now, branch stop, immediate synthesis
+- decision: route to M2025 no-rollout source-coverage repair design for T1/T2/T3 while preserving T4/T5
+- follow-up manifest: `experiments/manifests/m2025-paper-route-controlled-comparison-source-coverage-repair-design.json`
+- next: `m2025-paper-route-controlled-comparison-source-coverage-repair-design`
