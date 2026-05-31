@@ -31984,3 +31984,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured rollout success controller-family ranking paper-level result current-response versus finite-window versus GRU comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json`
 - next: `m1872-executable-v2-support-first-measured-runner-adapter-design`
+
+## M1872 Executable V2 Support-First Measured Runner Adapter Design
+
+- status: completed
+- decision: `support_first_measured_runner_adapter_design_admit_implementation`
+- artifact: `docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md`
+- parent design: `docs/m1871-executable-v2-support-first-measured-execution-design.md`
+- reset payload: `runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json`
+- controller profile source: `runs/m1674_controller_family_one_seed_public_pilot`
+- target support-first spec count: `180`
+- target controller profile count: `12`
+- target workload cell count: `2160`
+- budget choice: `full_public_diagnostic_matrix`
+- scenario/controller profile separation required: `true`
+- known imbalance: `unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24`
+- adapter implementation admitted: `true`
+- project materialization admitted: `false`
+- measured rollout admitted: `false`
+- environment reset started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: support-first measured-runner adapter schema fixed; full 2160-cell diagnostic budget fixed; implementation with focused tests admitted
+- unsupported: adapter execution result measured rollout controller ranking paper-level result profile comparison result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1873-executable-v2-support-first-measured-runner-adapter-implementation.json`
+- next: `m1873-executable-v2-support-first-measured-runner-adapter-implementation`

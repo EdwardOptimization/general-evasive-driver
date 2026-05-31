@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1880,
+    "completed": 1881,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1871-executable-v2-support-first-measured-execution-design.md",
+    "command_log": "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1871-executable-v2-support-first-measured-execution-design"
+    "task_id": "m1872-executable-v2-support-first-measured-runner-adapter-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json",
-    "hypothesis": "A support-first measured-runner adapter can be designed by separating scenario-profile metadata from controller policy profiles while preserving role-wise diagnostics and blocking ranking claims.",
-    "id": "m1872-executable-v2-support-first-measured-runner-adapter-design",
-    "kind": "gate",
-    "notes": "Pending: design support-first measured-runner adapter schema and workload budget before any rollout",
-    "priority": 18670,
+    "command": "see experiments/manifests/m1873-executable-v2-support-first-measured-runner-adapter-implementation.json",
+    "hypothesis": "A no-rollout adapter can be implemented to convert support-first executable-v2 specs into normalized measured specs and workload rows while enforcing scenario/controller profile separation.",
+    "id": "m1873-executable-v2-support-first-measured-runner-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout support-first measured-runner adapter and focused tests without project materialization or rollout",
+    "priority": 18680,
     "status": "pending",
-    "success_artifact": "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md"
+    "success_artifact": "docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md"
   },
-  "updated_at_utc": "20260531T021302Z"
+  "updated_at_utc": "20260531T022217Z"
 }

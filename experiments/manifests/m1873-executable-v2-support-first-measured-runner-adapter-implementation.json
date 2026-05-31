@@ -1,0 +1,178 @@
+{
+  "id": "m1873-executable-v2-support-first-measured-runner-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_runner_adapter_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json",
+      "runs/m1674_controller_family_one_seed_public_pilot"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1872-executable-v2-support-first-measured-runner-adapter-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout support-first measured-runner adapter"
+    ],
+    "derived_from": [
+      "m1872-executable-v2-support-first-measured-runner-adapter-design"
+    ],
+    "blocked_by": [
+      "M1872 defines adapter schema and admits implementation before materialization or rollout"
+    ],
+    "supersedes": [
+      "manual support-first workload matrix construction",
+      "direct measured rollout from support-first reset payload"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md",
+  "public_gates": [
+    "M1873 must implement the no-rollout adapter helper and focused tests",
+    "M1873 must not run project materialization, environment reset, policy action, or measured rollout",
+    "M1873 must preserve scenario_profile_name versus controller_profile_name separation",
+    "M1873 must enforce target counts and guardrails in test fixtures"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run support-first measured workload materialization over project artifacts",
+    "do not run environment reset",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification",
+    "do not treat support-first profile_name as a controller policy profile"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_measured_runner_adapter_implementation",
+    "evidence_increment": "implements the no-rollout adapter needed before support-first measured workload materialization",
+    "claim_scope": "adapter implementation only; no project materialization, rollout, training, replay, PPO, promotion, private holdout, ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if tests cannot prove profile semantic separation",
+      "stop if adapter cannot preserve the 180 x 12 workload contract in fixtures",
+      "stop if implementation would need to execute project rollout or change actor inputs"
+    ],
+    "fallback_plan": [
+      "route to schema repair if focused tests expose missing fields",
+      "route to runner compatibility audit if shared rollout helpers cannot consume the normalized matrix",
+      "route to adapter execution design if implementation passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1872 adapter design admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first measured-runner adapter implementation",
+    "admission_evidence": [
+      "M1872 fixes schema, budget, profile separation, and guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run project materialization",
+      "do not run environment reset",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "adapter module",
+      "focused adapter tests",
+      "M1873 implementation document",
+      "M1873 status queue scoreboard research log and review",
+      "one follow-up manifest for adapter execution design or schema repair"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "adapter writes normalized specs and workload rows from fixtures",
+      "profile semantic separation is enforced",
+      "no project materialization or rollout is run"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter implementation is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Implementation must preserve controller profile names for later current-response/finite-window/GRU comparisons."
+    ],
+    "temporal_evidence_window": "Fixture-only no-rollout adapter tests.",
+    "negative_result_policy": "If implementation fails schema checks, route to schema repair rather than weakening evidence standards.",
+    "allowed_claims": [
+      "support-first measured-runner adapter implementation",
+      "no project materialization, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "A no-rollout adapter can be implemented to convert support-first executable-v2 specs into normalized measured specs and workload rows while enforcing scenario/controller profile separation.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_measured_runner_adapter.py exists",
+    "tests/test_executable_v2_support_first_measured_runner_adapter.py exists",
+    "focused tests pass",
+    "implementation keeps project materialization rollout training replay PPO and ranking unrun",
+    "implementation preserves scenario_profile_name and controller_profile_name separation"
+  ],
+  "failure_criteria": [
+    "adapter module is missing",
+    "focused tests are missing or fail",
+    "implementation runs project materialization or rollout",
+    "implementation conflates support-first profile_name with controller policy profile_name",
+    "implementation changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "implement",
+      "command": "edit src/autodrift/executable_v2_support_first_measured_runner_adapter.py and tests/test_executable_v2_support_first_measured_runner_adapter.py"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_measured_runner_adapter.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_measured_runner_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_measured_runner_adapter.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1873-executable-v2-support-first-measured-runner-adapter-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_measured_runner_adapter_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md",
+    "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json",
+    "runs/m1674_controller_family_one_seed_public_pilot"
+  ],
+  "decision_rule": "M1873 passes if it implements the no-rollout adapter with focused tests while keeping project materialization, rollout, training, ranking, and paper-level claims blocked.",
+  "next_blocker": "m1873-executable-v2-support-first-measured-runner-adapter-implementation"
+}

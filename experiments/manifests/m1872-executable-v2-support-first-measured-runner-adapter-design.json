@@ -165,6 +165,36 @@
     "src/autodrift/metric_specific_bounded_panel_measured_execution.py",
     "src/autodrift/controller_family_full_rollout_execution.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1872-executable-v2-support-first-measured-runner-adapter-design.md",
+    "decision": "support_first_measured_runner_adapter_design_admit_implementation",
+    "adapter_implementation_admitted": true,
+    "project_materialization_admitted": false,
+    "measured_rollout_admitted": false,
+    "target_support_first_spec_count": 180,
+    "target_controller_profile_count": 12,
+    "target_workload_cell_count": 2160,
+    "budget_choice": "full_public_diagnostic_matrix",
+    "scenario_controller_profile_separation_required": true,
+    "known_imbalance": "unavoidable_mitigation::post_friction_step has 12 rows while most role-surfaces have 24",
+    "ranking_blocked_by_default": true,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1873-executable-v2-support-first-measured-runner-adapter-implementation.json"
+  },
   "decision_rule": "M1872 passes if it defines the adapter schema, workload budget, role-wise outputs, and claim boundaries without running rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1872-executable-v2-support-first-measured-runner-adapter-design"
+  "next_blocker": "m1873-executable-v2-support-first-measured-runner-adapter-implementation"
 }
