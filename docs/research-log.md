@@ -31779,3 +31779,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: adapter execution result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1866-executable-v2-support-first-reset-validation-adapter-execution.json`
 - next: `m1866-executable-v2-support-first-reset-validation-adapter-execution`
+
+## M1866 Executable V2 Support-First Reset Validation Adapter Execution
+
+- status: completed
+- decision: `support_first_reset_validation_adapter_execution_pass_route_to_result_audit`
+- artifact: `runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json`
+- docs artifact: `docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md`
+- result class: `executable_v2_support_first_reset_validation_adapter_pass`
+- input materialized spec count: `180`
+- targeted reset executable spec count: `180`
+- role count: `4`
+- surface count: `2`
+- role-surface count: `8`
+- profile count: `8`
+- reset ready spec count: `180`
+- reset validation required count: `180`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- measured execution admissible count: `0`
+- controller-family ranking admissible count: `0`
+- missing required field count: `0`
+- duplicate key count: `0`
+- role counts: `drift_required_recovery=48 stable_aeb=48 stable_aes_only=48 unavoidable_mitigation=36`
+- surface counts: `post_friction_step=84 steady_surface=96`
+- task label counts: `aeb_feasible=48 aes_feasible=48 drift_required=48 unavoidable=36`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: clean no-reset adapter conversion 180-row reset payload no label leakage no ranking admission
+- unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json`
+- next: `m1867-executable-v2-support-first-reset-validation-adapter-result-audit`

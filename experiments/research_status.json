@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1874,
+    "completed": 1875,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md",
+    "command_log": "docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1865-executable-v2-support-first-reset-validation-adapter-execution-design"
+    "task_id": "m1866-executable-v2-support-first-reset-validation-adapter-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1866-executable-v2-support-first-reset-validation-adapter-execution.json",
-    "hypothesis": "The M1864 adapter can convert M1861 support-first materialization artifacts into a 180-row executable_v2_panel_specs reset payload with clean guardrails.",
-    "id": "m1866-executable-v2-support-first-reset-validation-adapter-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run only no-reset support-first reset-validation adapter over M1861 artifacts",
-    "priority": 18610,
+    "command": "see experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json",
+    "hypothesis": "The clean M1866 no-reset adapter output is sufficient to admit a reset-validation execution design over the converted support-first payload.",
+    "id": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1866 converted reset payload before reset-validation execution design",
+    "priority": 18620,
     "status": "pending",
-    "success_artifact": "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json"
+    "success_artifact": "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md"
   },
-  "updated_at_utc": "20260531T015245Z"
+  "updated_at_utc": "20260531T015552Z"
 }

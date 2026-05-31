@@ -173,6 +173,60 @@
     "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
     "runs/m1861_executable_v2_support_first_materialization/summary.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json",
+    "docs_artifact": "docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
+    "decision": "support_first_reset_validation_adapter_execution_pass_route_to_result_audit",
+    "result_class": "executable_v2_support_first_reset_validation_adapter_pass",
+    "input_materialized_spec_count": 180,
+    "targeted_reset_executable_spec_count": 180,
+    "role_count": 4,
+    "surface_count": 2,
+    "role_surface_count": 8,
+    "profile_count": 8,
+    "reset_ready_spec_count": 180,
+    "reset_validation_required_count": 180,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "measured_execution_admissible_count": 0,
+    "controller_family_ranking_admissible_count": 0,
+    "missing_required_field_count": 0,
+    "duplicate_key_count": 0,
+    "role_counts": {
+      "drift_required_recovery": 48,
+      "stable_aeb": 48,
+      "stable_aes_only": 48,
+      "unavoidable_mitigation": 36
+    },
+    "surface_counts": {
+      "post_friction_step": 84,
+      "steady_surface": 96
+    },
+    "task_label_counts": {
+      "aeb_feasible": 48,
+      "aes_feasible": 48,
+      "drift_required": 48,
+      "unavoidable": 36
+    },
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "guardrail_violation_count": 0,
+    "support_first_reset_payload": "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json",
+    "next_manifest": "experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json"
+  },
   "decision_rule": "M1866 passes if the no-reset adapter writes a clean 180-row support-first reset payload without reset, rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1866-executable-v2-support-first-reset-validation-adapter-execution"
+  "next_blocker": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
 }

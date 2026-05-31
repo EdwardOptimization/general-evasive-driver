@@ -1,0 +1,161 @@
+{
+  "id": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_adapter_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1866-executable-v2-support-first-reset-validation-adapter-execution.json"
+    ],
+    "parent_objective": [
+      "audit no-reset support-first reset-validation adapter result before reset validation"
+    ],
+    "derived_from": [
+      "m1866-executable-v2-support-first-reset-validation-adapter-execution"
+    ],
+    "blocked_by": [
+      "M1866 adapter pass requires audit before reset-only validation is admitted"
+    ],
+    "supersedes": [
+      "direct reset validation without adapter result audit",
+      "manual interpretation of adapter summary"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md",
+  "public_gates": [
+    "M1867 must audit M1866 result_class counts diagnostics and guardrails before reset validation",
+    "M1867 must decide reset-validation design versus adapter/schema repair",
+    "M1867 must not run reset rollout measured rollout training replay PPO ranking paper-level or level3 claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_reset_validation",
+    "evidence_axis": "Q_support_first_reset_validation_adapter_result_audit",
+    "evidence_increment": "audits clean M1866 converted reset payload before reset-only validation",
+    "claim_scope": "adapter result audit only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1866 result_class is not pass",
+      "stop if any target count or guardrail is violated",
+      "stop if payload does not contain executable_v2_panel_specs",
+      "stop if reset validation would be admitted without explicit design"
+    ],
+    "fallback_plan": [
+      "route to reset-validation execution design if audit is clean",
+      "route to adapter repair if schema diagnostics fail",
+      "route to materialization repair if support-first artifacts are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1866 no-reset adapter execution completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first reset-validation adapter result audit",
+    "admission_evidence": [
+      "M1866 summary exists and reports adapter pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1867 audit document",
+      "M1867 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation execution design or adapter repair"
+    ],
+    "next_stage_criteria": [
+      "audit classifies M1866 result",
+      "route decision is explicit",
+      "reset remains unrun"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must keep converted profile controls available for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1866 adapter result only; no reset or rollout.",
+    "negative_result_policy": "If M1866 conversion is not clean, route to adapter/schema repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "support-first reset-validation adapter result audit",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The clean M1866 no-reset adapter output is sufficient to admit a reset-validation execution design over the converted support-first payload.",
+  "success_criteria": [
+    "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md exists",
+    "audit checks result_class counts diagnostics and guardrails",
+    "audit chooses reset-validation execution design or repair route",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores failed counts or guardrails",
+    "audit runs reset or rollout",
+    "audit routes directly to measured execution or ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_reset_validation_adapter_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
+    "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json",
+    "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
+  ],
+  "decision_rule": "M1867 passes if it audits M1866 and routes to reset-validation execution design or repair without running reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
+}
