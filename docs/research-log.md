@@ -31742,3 +31742,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: project artifact conversion result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.json`
 - next: `m1865-executable-v2-support-first-reset-validation-adapter-execution-design`
+
+## M1865 Executable V2 Support-First Reset Validation Adapter Execution Design
+
+- status: completed
+- decision: `support_first_reset_validation_adapter_execution_design_admit_run`
+- artifact: `docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md`
+- source implementation: `src/autodrift/executable_v2_support_first_reset_validation_adapter.py`
+- exact next output dir: `runs/m1866_executable_v2_support_first_reset_validation_adapter`
+- expected input materialized spec count: `180`
+- expected targeted reset executable spec count: `180`
+- expected role count: `4`
+- expected surface count: `2`
+- expected role-surface count: `8`
+- expected profile count: `8`
+- expected reset ready spec count: `180`
+- expected reset validation required count: `180`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected measured execution admissible count: `0`
+- expected controller-family ranking admissible count: `0`
+- expected missing required field count: `0`
+- expected duplicate key count: `0`
+- project artifact conversion run: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact no-reset adapter execution command input artifacts output directory target counts next blocker
+- unsupported: adapter execution result reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1866-executable-v2-support-first-reset-validation-adapter-execution.json`
+- next: `m1866-executable-v2-support-first-reset-validation-adapter-execution`

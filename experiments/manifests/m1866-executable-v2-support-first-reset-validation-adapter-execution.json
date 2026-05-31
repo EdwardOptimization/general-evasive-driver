@@ -1,0 +1,178 @@
+{
+  "id": "m1866-executable-v2-support-first-reset-validation-adapter-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_adapter_execution"
+    ],
+    "parent_dataset": [
+      "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md",
+      "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+      "runs/m1861_executable_v2_support_first_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.json"
+    ],
+    "parent_objective": [
+      "run no-reset support-first reset-validation adapter over M1861 artifacts"
+    ],
+    "derived_from": [
+      "m1865-executable-v2-support-first-reset-validation-adapter-execution-design"
+    ],
+    "blocked_by": [
+      "M1865 admits no-reset adapter execution but converted reset payload does not yet exist"
+    ],
+    "supersedes": [
+      "manual conversion to support-first reset payload",
+      "direct reset execution before converted executable_v2_panel_specs payload",
+      "measured execution before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1866-executable-v2-support-first-reset-validation-adapter-execution.md",
+  "public_gates": [
+    "M1866 must run only the no-reset adapter command pre-registered by M1865",
+    "M1866 must write support-first executable_v2_panel_specs artifacts with expected counts",
+    "M1866 must keep reset rollout measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_reset_validation",
+    "evidence_axis": "Q_support_first_reset_validation_adapter_execution",
+    "evidence_increment": "runs no-reset adapter over M1861 artifacts to create support-first reset payload",
+    "claim_scope": "adapter execution only; no reset, rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if adapter execution fails expected counts",
+      "stop if missing/duplicate diagnostics are nonzero",
+      "stop if label leakage or ranking admission appears",
+      "stop if reset or rollout is run"
+    ],
+    "fallback_plan": [
+      "route to adapter repair if conversion fails",
+      "route to materialization repair if source artifacts are insufficient",
+      "route to result audit if adapter execution passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1865 pre-registers exact adapter execution command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "support-first reset-validation adapter execution",
+    "admission_evidence": [
+      "M1865 exact command and target counts are registered"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1866 run artifacts",
+      "M1866 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "adapter execution summary exists",
+      "target counts match",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; adapter execution is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Execution must preserve all profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1861 artifacts and M1864 adapter only; no reset or rollout.",
+    "negative_result_policy": "If adapter execution fails, route to adapter or materialization repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "support-first reset-validation adapter execution result",
+      "no reset, rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The M1864 adapter can convert M1861 support-first materialization artifacts into a 180-row executable_v2_panel_specs reset payload with clean guardrails.",
+  "success_criteria": [
+    "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json exists",
+    "result_class is executable_v2_support_first_reset_validation_adapter_pass",
+    "targeted_reset_executable_spec_count equals 180",
+    "role_count equals 4",
+    "surface_count equals 2",
+    "role_surface_count equals 8",
+    "profile_count equals 8",
+    "reset_ready_spec_count equals 180",
+    "reset_validation_required_count equals 180",
+    "labels_enter_actor_input_count equals 0",
+    "ranking_admissible_by_default_count equals 0",
+    "measured_execution_admissible_count equals 0",
+    "controller_family_ranking_admissible_count equals 0",
+    "missing_required_field_count equals 0",
+    "duplicate_key_count equals 0",
+    "guardrail_violation_count equals 0",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "result_class is fail",
+    "target counts do not match",
+    "missing duplicate label leakage or ranking guardrails fail",
+    "execution runs reset rollout measured rollout training replay PPO or ranking"
+  ],
+  "commands": [
+    {
+      "name": "adapter_execution",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.executable_v2_support_first_reset_validation_adapter --support-first-materialized-specs runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json --output-dir runs/m1866_executable_v2_support_first_reset_validation_adapter --profile-config-path configs/paper_route_corrected_profiles/m1207_l0_current_masked.json --target-materialized-spec-count 180 --target-executable-spec-count 180 --target-profile-count 8 --target-role-count 4 --target-surface-count 2 --target-role-surface-count 8 --next-blocker m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_reset_validation_adapter_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m1865-executable-v2-support-first-reset-validation-adapter-execution-design.md",
+    "runs/m1861_executable_v2_support_first_materialization/support_first_materialized_executable_v2_panel_specs.json",
+    "runs/m1861_executable_v2_support_first_materialization/summary.json"
+  ],
+  "decision_rule": "M1866 passes if the no-reset adapter writes a clean 180-row support-first reset payload without reset, rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1866-executable-v2-support-first-reset-validation-adapter-execution"
+}
