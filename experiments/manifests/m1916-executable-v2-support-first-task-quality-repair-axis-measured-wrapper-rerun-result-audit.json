@@ -1,0 +1,171 @@
+{
+  "id": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_rerun_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/episode_rows.csv",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/repair_axis_variant_aggregate.csv",
+      "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/task_quality_axis_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.json"
+    ],
+    "parent_objective": [
+      "audit the complete M1915 measured task-quality repair-axis panel before interpretation"
+    ],
+    "derived_from": [
+      "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun"
+    ],
+    "blocked_by": [
+      "M1915 interpretation was explicitly deferred until result audit"
+    ],
+    "supersedes": [
+      "ranking or interpreting M1915 directly from execution output"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+  "public_gates": [
+    "M1916 must audit M1915 artifacts without rerunning rollout",
+    "M1916 must verify target counts and guardrails from M1915",
+    "M1916 must confirm that M1912 sampling failures are cleared",
+    "M1916 must inspect row balance across execution kind, task-quality axis, repair-axis variant, role surface, and controller profile",
+    "M1916 must decide whether the complete panel is interpretable for task-quality axis analysis",
+    "M1916 must keep controller-family ranking, paper-level claims, training, replay, PPO, and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_result_audit",
+    "evidence_increment": "converts the complete M1915 measured panel into an explicit audit decision",
+    "claim_scope": "result audit only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1915 artifacts are incomplete or unbalanced",
+      "stop if task-quality interpretation would require controller-family ranking",
+      "stop if another local repair loop would be proposed without synthesis"
+    ],
+    "fallback_plan": [
+      "route to task-quality aggregate analysis if the panel is complete and balanced",
+      "route to failure audit if M1915 artifacts reveal hidden incompleteness",
+      "route to branch synthesis if the result remains outcome dominated or requires another repair loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1915 produced the first complete measured repair-axis panel on this branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit complete measured-wrapper rerun result",
+    "admission_evidence": [
+      "M1915 completed 960 measured rollout rows, 576 import/postprocess rows, 1536 combined rows, zero failures, and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs",
+      "do not claim paper-level or level3 self-ID evidence"
+    ],
+    "allowed_updates": [
+      "M1916 result-audit document",
+      "M1916 status queue scoreboard research log and review",
+      "one follow-up manifest for task-quality analysis failure audit branch synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "M1915 completeness is audited",
+      "row balance and provenance are audited",
+      "next route is explicit",
+      "claim boundaries remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1916."
+    ],
+    "temporal_evidence_window": "M1915 public artifacts only.",
+    "negative_result_policy": "Treat any weak task-quality signal as scenario/task-quality evidence, not as controller ranking or self-ID evidence.",
+    "allowed_claims": [
+      "task-quality repair-axis measured-wrapper result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "audits the new complete measured repair-axis panel before any further branch expansion",
+    "paper_verdict_delta": "can decide whether this branch advances task-quality scenario evidence or needs synthesis before more repair",
+    "must_synthesize_if": [
+      "M1916 finds the panel complete but still not interpretable",
+      "M1916 would recommend another local repair before broader evidence",
+      "M1916 cannot separate task-quality axis signal from controller-family ranking"
+    ]
+  },
+  "hypothesis": "The complete M1915 panel is count-complete and guardrail-clean enough to admit a bounded task-quality result analysis while keeping controller-family ranking and paper-level claims blocked.",
+  "success_criteria": [
+    "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md exists",
+    "M1915 target counts and guardrails are verified",
+    "M1912 sampling failures are confirmed cleared",
+    "row balance and provenance are audited",
+    "next route is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1916 reruns measured execution",
+    "M1915 artifacts are incomplete or internally inconsistent",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made from the panel"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_rerun_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md",
+    "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
+    "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/episode_rows.csv"
+  ],
+  "decision_rule": "M1916 passes if it audits M1915 as complete or incomplete and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit"
+}

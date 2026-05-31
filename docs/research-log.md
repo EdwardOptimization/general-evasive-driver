@@ -33101,3 +33101,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: rerun pass task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.json`
 - next: `m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun`
+
+## M1915 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Execution Rerun
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_wrapper_execution_rerun_pass_route_to_result_audit`
+- result class: `task_quality_repair_axis_measured_wrapper_execution_pass`
+- doc: `docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md`
+- summary: `runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json`
+- return code: `0`
+- matrix rows: `1536`
+- planned rollout rows: `960`
+- measured rollout rows: `960`
+- import/postprocess rows: `576`
+- combined panel rows: `1536`
+- failure count: `0`
+- guardrail violation count: `0`
+- execution row kinds: `rollout_geometry_variant=960 import_existing_episode=192 postprocess_existing_episode=384`
+- repair-axis variants: `8` variants x `192` rows
+- task-quality axes: `baseline_and_semantics_retention=384 contained_collision_clearance_feasibility=384 post_clearance_containment_recovery=576 unavoidable_mitigation_semantics=192`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1914 repair clears the M1912 sampling failure in the registered measured rerun and produces a complete clean panel
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.json`
+- next: `m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit`

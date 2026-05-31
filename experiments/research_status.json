@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1923,
+    "completed": 1924,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+    "command_log": "docs/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.md",
     "returncode": 0,
-    "run_dir": "docs/m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair.md",
+    "run_dir": "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json",
     "status": "completed",
-    "task_id": "m1914-executable-v2-support-first-task-quality-repair-axis-geometry-delta-mapping-repair"
+    "task_id": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun.json",
-    "hypothesis": "After M1914, the repaired measured-wrapper command can execute all 960 rollout rows and merge 576 import/postprocess rows into a 1536-row panel with clean guardrails.",
-    "id": "m1915-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-execution-rerun",
+    "command": "see experiments/manifests/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.json",
+    "hypothesis": "The complete M1915 panel is count-complete and guardrail-clean enough to admit a bounded task-quality result analysis while keeping controller-family ranking and paper-level claims blocked.",
+    "id": "m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit",
     "kind": "gate",
-    "notes": "Pending: rerun measured-wrapper execution after geometry-delta mapping repair",
-    "priority": 19100,
+    "notes": "Pending: audit complete M1915 panel before task-quality interpretation or any ranking",
+    "priority": 19110,
     "status": "pending",
-    "success_artifact": "runs/m1915_executable_v2_support_first_task_quality_repair_axis_measured_wrapper_execution_rerun/summary.json"
+    "success_artifact": "docs/m1916-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-rerun-result-audit.md"
   },
-  "updated_at_utc": "20260531T063802Z"
+  "updated_at_utc": "20260531T064331Z"
 }
