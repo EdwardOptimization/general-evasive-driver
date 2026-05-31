@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit
+m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis
+m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -237,7 +237,15 @@ with unsupported selected `0`, materialization failures `0`, duplicate ids `0`,
 profile artifacts present, contract violations `0`, and guardrail `0`. M1987
 audits this as clean and technically admissible for reset validation, but routes
 first to branch synthesis because M1977-M1987 completes a full outcome-support
-repair sequence. M1988 must synthesize the branch before reset command design.
+repair sequence. M1988 synthesizes the branch and chooses `continue`:
+M1977/M1978 localized the prior panel as complete but not comparison-ready,
+M1983 found `184/192` supported source candidates and `8358` accepted cells,
+and M1986 materialized `80` supported sources into `960` workload rows with
+unsupported selected `0`, contract `0`, and guardrail `0`. Reset validity,
+measured rollout success, controller-family ranking, paper-level evidence,
+finite-window vs GRU, and level3 self-ID remain blocked. M1989 must freeze the
+exact reset-only validation command over the M1986 executable specs; it must
+not run reset.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1996,
+    "completed": 1997,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit.md",
+    "command_log": "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit"
+    "task_id": "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.json",
-    "hypothesis": "The M1977-M1987 branch evidence is sufficient to choose whether to continue to reset validation without local-search drift.",
-    "id": "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis",
+    "command": "see experiments/manifests/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.json",
+    "hypothesis": "The M1986 repaired outcome-support executable specs can be reset-validated with the focused calibrated reset validator using a frozen reset-only command.",
+    "id": "m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1977-M1987 outcome-support repair branch before reset validation",
-    "priority": 19830,
+    "notes": "Pending: freeze exact reset-only command over M1986 executable specs before reset execution",
+    "priority": 19840,
     "status": "pending",
-    "success_artifact": "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md"
+    "success_artifact": "docs/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260531T124820Z"
+  "updated_at_utc": "20260531T125356Z"
 }

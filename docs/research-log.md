@@ -34568,3 +34568,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: branch synthesis before reset-validation command design because the repaired outcome-support branch reached synthesis cadence
 - follow-up manifest: `experiments/manifests/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.json`
 - next: `m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis`
+
+## M1988 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `task_quality_calibrated_outcome_support_repair_branch_synthesis_continue_to_reset_validation_command_design`
+- doc: `docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md`
+- reset/rollout/measured execution in M1988: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M1977/M1978 localized the prior repaired calibrated panel as complete but not comparison-ready with `38/960` successes, `772/960` offtrack noncompletion, `0` comparison-ready candidates, and `0` L2 total success
+- repair summary: M1980 produced `192` no-rollout repair templates; M1983 found `184` supported sources and `8358` accepted cells; M1986 materialized `80` supported sources into `960` workload rows with unsupported selected `0`, contract `0`, and guardrail `0`
+- unsupported claims: reset validity, measured rollout success, controller-family ranking, finite-window vs GRU conclusion, policy improvement, paper-level evidence, and level3 self-ID remain blocked
+- route: continue to reset-validation command design only; no direct rollout or ranking
+- follow-up manifest: `experiments/manifests/m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design.json`
+- next: `m1989-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-command-design`
