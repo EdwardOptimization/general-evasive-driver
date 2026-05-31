@@ -35569,3 +35569,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: measured execution completeness only; no ranking, finite-window-vs-GRU, paper-level generated-task validity, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.json`
 - next: `m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit`
+
+## M2040 Paper-Route Controlled Routing Smoke Measured Execution Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_measured_execution_audit_route_to_no_rerun_outcome_localization`
+- doc: `docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md`
+- audited summary: `runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json`
+- measured execution in M2040: `false`
+- rollout/policy actions in M2040: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2039 execution complete and clean, episode `432/432`, failure `0`, metric completeness `0`, metadata missing `0`, guardrail `0`
+- outcome audit: success `20/432`, collision `13/432`, offtrack noncollision noncompletion `399/432`; L3 profiles each `8/36`, L1 `4/36`, all L2/L0 `0/36`
+- decision: not ranking-ready; route to no-rerun outcome localization before any ranking or paper comparison
+- follow-up manifest: `experiments/manifests/m2041-paper-route-controlled-routing-smoke-branch-synthesis.json`
+- next: `m2041-paper-route-controlled-routing-smoke-branch-synthesis`
+
+## M2041 Paper-Route Controlled Routing Smoke Branch Synthesis
+
+- status: completed
+- decision: `controlled_routing_smoke_synthesis_pivot_to_no_rerun_outcome_localization`
+- synthesis decision: `pivot`
+- doc: `docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md`
+- evidence window: M2031-M2040
+- reset/rollout/measured execution in M2041: `false`
+- policy actions executed in M2041: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- synthesis: M2033 materialized `36` specs and `432` workload cells with guardrail `0`; M2036 reset-validates `36/36` specs with contract/metadata/guardrail `0`; M2039 completes `432/432` measured rollout cells with failure `0` and guardrail `0`
+- blocker: M2039 outcome support is too sparse for ranking, success `20/432`, collision `13/432`, offtrack noncollision noncompletion `399/432`; L3 profiles each `8/36`, L1 `4/36`, L2/L0 `0/36`
+- decision: pivot to no-rerun outcome localization before any ranking, task repair, or paper comparison
+- follow-up manifest: `experiments/manifests/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.json`
+- next: `m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run`

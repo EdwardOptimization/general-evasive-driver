@@ -167,5 +167,5 @@
     "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/episode_rows.csv"
   ],
   "decision_rule": "M2040 passes if it audits M2039 completeness and chooses ranking design, localization, repair, or synthesis without overclaiming.",
-  "next_blocker": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit"
+  "next_blocker": "m2041-paper-route-controlled-routing-smoke-branch-synthesis"
 }

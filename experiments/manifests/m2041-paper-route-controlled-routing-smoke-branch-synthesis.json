@@ -1,0 +1,190 @@
+{
+  "id": "m2041-paper-route-controlled-routing-smoke-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2031-paper-route-controlled-routing-smoke-command-design.md",
+      "docs/m2032-paper-route-controlled-routing-smoke-materialization-adapter-design.md",
+      "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json",
+      "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+      "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2031-M2040 routing-smoke evidence before continuing into outcome localization"
+    ],
+    "derived_from": [
+      "m2031-paper-route-controlled-routing-smoke-command-design",
+      "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached for paper_route_controlled_routing_smoke",
+      "M2040 rejects direct ranking because M2039 outcomes are sparse and offtrack-dominated"
+    ],
+    "supersedes": [
+      "direct no-rerun outcome localization without branch synthesis",
+      "direct controller-family ranking from M2039 measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+  "public_gates": [
+    "M2041 must synthesize M2031-M2040 routing-smoke evidence",
+    "M2041 must separate materialization reset execution and ranking claims",
+    "M2041 must classify offtrack-dominated low outcome support",
+    "M2041 must choose continue pivot stop or promote-to-next-branch",
+    "M2041 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_routing_smoke_branch_synthesis",
+    "evidence_increment": "synthesizes M2031-M2040 materialization reset and measured-execution evidence after cadence",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if routing-smoke evidence summary is incomplete",
+      "stop if execution completeness is mixed with ranking readiness",
+      "stop if sparse successes are overclaimed as controller-family evidence",
+      "stop if the next route would continue narrow runner work without evidence delta"
+    ],
+    "fallback_plan": [
+      "pivot to no-rerun outcome localization if execution is complete but low-support",
+      "pivot to task-quality repair if localization finds broad offtrack dominance",
+      "pivot to bounded comparison qualification if localization finds supported slices",
+      "stop or redesign if measured artifacts are incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M2031-M2040 routing-smoke cadence and M2040 low-support audit",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke branch synthesis",
+    "admission_evidence": [
+      "M2033 materializes 36 sources and 432 workload rows with guardrail 0",
+      "M2036 reset-validates 36/36 executable specs with guardrail 0",
+      "M2039 executes 432/432 rollout cells with failure 0 and guardrail 0",
+      "M2040 rejects direct ranking due sparse success and offtrack dominance"
+    ],
+    "blocked_shortcuts": [
+      "do not edit code in synthesis",
+      "do not run localization before synthesis",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+      "M2041 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2031-M2040 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "failure taxonomy and public overfit risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2041 synthesizes routing-smoke process evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2041."
+    ],
+    "temporal_evidence_window": "M2031-M2040 routing-smoke artifacts.",
+    "negative_result_policy": "If measured execution is low-support or offtrack-dominated, route to localization/repair instead of ranking.",
+    "allowed_claims": [
+      "controlled routing-smoke branch synthesis",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2031-M2040 routing-smoke work into a next-branch decision",
+    "paper_verdict_delta": "decides whether the controlled routing-smoke panel should move to localization, repair, or comparison qualification",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone after cadence fired"
+    ]
+  },
+  "hypothesis": "M2031-M2040 evidence is sufficient to pivot from routing-smoke plumbing to no-rerun outcome localization without local-search drift.",
+  "success_criteria": [
+    "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md exists",
+    "evidence summary covers M2031-M2040",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy and public overfit risk are assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking paper or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "evidence summary omits materialization reset or measured execution",
+    "synthesis overclaims low-support outcomes as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md from M2031-M2040 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2033_paper_route_controlled_routing_smoke_materialization_preflight/summary.json",
+    "runs/m2036_paper_route_controlled_routing_smoke_reset_validation_preflight/summary.json",
+    "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+    "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md"
+  ],
+  "decision_rule": "M2041 passes if it synthesizes routing-smoke evidence and chooses a bounded next branch without overclaiming.",
+  "next_blocker": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run"
+}

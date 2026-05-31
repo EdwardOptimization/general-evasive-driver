@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2048,
+    "completed": 2050,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.md",
+    "command_log": "docs/m2041-paper-route-controlled-routing-smoke-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m2039_paper_route_controlled_routing_smoke_measured_execution",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run"
+    "task_id": "m2041-paper-route-controlled-routing-smoke-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.json",
-    "hypothesis": "M2039 measured execution artifacts are complete enough to audit comparison readiness and choose the next route without making ranking or paper claims.",
-    "id": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2039 complete measured execution and decide ranking readiness versus localization/repair",
-    "priority": 20350,
+    "command": "see experiments/manifests/m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run.json",
+    "hypothesis": "No-rerun localization can explain the sparse M2039 successes and choose a repair or comparison route without new rollout.",
+    "id": "m2042-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rerun outcome localization over M2039 artifacts; no rollout or ranking",
+    "priority": 20370,
     "status": "pending",
-    "success_artifact": "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md"
+    "success_artifact": "runs/m2042_paper_route_controlled_routing_smoke_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260531T184945Z"
+  "updated_at_utc": "20260531T190123Z"
 }

@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M2040 rejects direct ranking because M2039 success support is sparse 20/432 and offtrack dominated 399/432; routes to no-rerun localization",
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2039 artifacts are incomplete",
+    "raw outcomes are not quantified",
+    "audit makes ranking or paper claims prematurely",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families without first deciding comparison readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T185752Z",
+  "hypothesis": "M2039 measured execution artifacts are complete enough to audit comparison readiness and choose the next route without making ranking or paper claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2039 measured execution pass requires audit before interpretation"
+    ],
+    "derived_from": [
+      "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_measured_execution_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/episode_rows.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/outcome_aggregate.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/profile_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit controlled routing-smoke measured execution result before any ranking or repair"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from raw measured execution"
+    ]
+  },
+  "milestone": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit",
+  "next_blocker": "m2041-paper-route-controlled-routing-smoke-outcome-localization-implementation-and-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_measured_execution_audit_route_to_no_rerun_outcome_localization",
+  "public_gates": [
+    "M2040 must audit M2039 execution completeness metadata metrics and guardrails",
+    "M2040 must quantify raw outcomes and offtrack/collision dominance before any comparison",
+    "M2040 must decide ranking-ready versus outcome localization or task-quality repair",
+    "M2040 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_measured_execution_audit_route_to_no_rerun_outcome_localization",
+    "milestone": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit",
+    "reason": "M2040 rejects direct ranking because M2039 success support is sparse 20/432 and offtrack dominated 399/432; routes to no-rerun localization",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md exists",
+    "M2039 result_class is controlled_routing_smoke_measured_execution_pass",
+    "episode_count is 432 and failure_count is 0",
+    "metric_completeness_failure_count is 0",
+    "guardrail_violation_count is 0",
+    "raw outcome support is quantified",
+    "ranking readiness decision is explicit",
+    "next route is explicit"
+  ],
+  "type": "gate"
+}
