@@ -35128,3 +35128,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2018 no-rerun source-diverse diagnostic expansion mining over M2012/M2009 artifacts
 - follow-up manifest: `experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json`
 - next: `m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run`
+
+## M2018 Source-Diverse Diagnostic Expansion Mining Implementation And Run
+
+- status: completed
+- decision: `source_diverse_diagnostic_expansion_mining_pass_route_to_result_audit`
+- result class: `source_diverse_diagnostic_expansion_mining_pass`
+- implementation: `src/autodrift/source_diverse_diagnostic_expansion_mining.py`
+- focused tests: `3 passed`
+- compileall: `passed`
+- summary: `runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json`
+- source localization: `runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2`
+- source measured execution: `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`
+- environment reset/rollout in M2018: `false`
+- policy action execution in M2018: `false`
+- measured rollout in M2018: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: diagnostic rows `88`, episode rows `960`, candidates `7`, admitted `6`, admitted beyond M2016 singleton `5`, guardrail violations `0`
+- diversity: repair source kind `1`, roles `4`, tiers `3`, surfaces `2`, labels `4`, max candidate sources `5`
+- boundary: supports expansion beyond singleton but not full source-kind diversity, broad ranking, finite-window-vs-GRU, or level3 self-ID
+- follow-up manifest: `experiments/manifests/m2019-source-diverse-diagnostic-expansion-mining-result-audit.json`
+- next: `m2019-source-diverse-diagnostic-expansion-mining-result-audit`

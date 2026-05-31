@@ -1,0 +1,169 @@
+{
+  "id": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_diverse_diagnostic_expansion_mining_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/diagnostic_expansion_candidates.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/admitted_expansion_candidates.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/source_diversity_summary.csv",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun source-diverse diagnostic expansion mining and choose next route"
+    ],
+    "derived_from": [
+      "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2018 found multiple admitted candidates beyond the singleton but only one repair_source_kind"
+    ],
+    "supersedes": [
+      "direct broad comparison from M2018 without auditing diversity boundary"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+  "public_gates": [
+    "M2019 must audit M2018 without rerun",
+    "M2019 must separate role/tier/surface/label diversity from source-kind diversity",
+    "M2019 must choose multi-slice diagnostic comparison design, repair, redesign, synthesis, or stop",
+    "M2019 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_diagnostic_expansion",
+    "evidence_axis": "Q_source_diverse_diagnostic_expansion_audit",
+    "evidence_increment": "audits whether M2018 expansion is sufficient for multi-slice diagnostic comparison or still requires repair/redesign",
+    "claim_scope": "result audit and route decision only; no ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if expansion diversity is overclaimed",
+      "stop if no next route is chosen",
+      "stop if direct ranking is proposed from mining rows"
+    ],
+    "fallback_plan": [
+      "route to multi-slice bounded diagnostic comparison if diversity is sufficient for diagnostic scope",
+      "route to task-quality repair or scenario redesign if source-kind singleton blocks useful comparison",
+      "synthesize if branch remains narrow after mining"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2018 completed source-diverse diagnostic expansion mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse diagnostic expansion mining result audit",
+    "admission_evidence": [
+      "M2018 produced mining artifacts with six admitted diagnostic candidates and guardrail violation count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+      "M2019 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2018 facts are summarized",
+      "diversity boundary is explicit",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; expansion mining audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2019."
+    ],
+    "temporal_evidence_window": "M2018 no-rerun mining artifacts.",
+    "negative_result_policy": "If source-kind singleton blocks useful comparison, route to repair/redesign/synthesis rather than ranking.",
+    "allowed_claims": [
+      "source-diverse diagnostic expansion mining audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2018 mining artifacts into a route decision",
+    "paper_verdict_delta": "can decide whether current artifacts justify multi-slice diagnostic comparison or require new task-quality support",
+    "must_synthesize_if": [
+      "M2019 cannot choose a next route",
+      "M2019 would rank controllers directly",
+      "M2019 proposes another singleton local diagnostic"
+    ]
+  },
+  "hypothesis": "The M2018 mining result is sufficient to choose whether multi-slice diagnostic comparison is warranted.",
+  "success_criteria": [
+    "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md exists",
+    "M2018 facts are summarized",
+    "diversity boundary is explicit",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2018 facts are not summarized",
+    "diversity is overclaimed",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_diverse_diagnostic_expansion_mining_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+    "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json"
+  ],
+  "decision_rule": "M2019 passes if it audits M2018 and chooses a next route without overclaiming.",
+  "next_blocker": "m2019-source-diverse-diagnostic-expansion-mining-result-audit"
+}

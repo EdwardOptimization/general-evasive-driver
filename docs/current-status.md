@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2017-bounded-diagnostic-comparison-result-audit
+m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run
+m2019-source-diverse-diagnostic-expansion-mining-result-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -66,8 +66,13 @@ no-rerun bounded diagnostic profile comparison on the admitted stable-AES slice.
 M2016 produces that table: L3 is `10/10`, L0 is `4/5`, L1 is `3/5`, and L2 is
 `0/40` on the singleton public slice. M2017 must audit whether to expand source
 diversity or stop this as a singleton diagnostic; it routes to M2018 no-rerun
-source-diverse diagnostic expansion mining. No broad ranking or
-finite-window-vs-GRU conclusion is allowed yet.
+source-diverse diagnostic expansion mining. M2018 finds `7` L2-zero/non-L2
+success candidate slices, `6` admitted, and `5` admitted beyond the M2016
+singleton. The support is diverse across role/tier/surface/label but still
+source-kind singleton (`repair_source_kind_count=1`). M2019 must audit whether
+this supports multi-slice diagnostic comparison or requires task-quality
+repair/redesign. No broad ranking or finite-window-vs-GRU conclusion is allowed
+yet.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

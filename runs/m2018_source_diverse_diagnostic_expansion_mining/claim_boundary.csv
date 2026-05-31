@@ -1,0 +1,6 @@
+claim,admissible,reason
+source_diverse_diagnostic_expansion_mining_completed,True,M2018 reads existing M2012/M2009 artifacts and writes mining tables only
+source_diverse_expansion_exists,True,requires at least one admitted L2-zero/non-L2-success candidate beyond the M2016 singleton
+controller_family_ranking,False,"mining candidates are diagnostics, not a ranking experiment"
+finite_window_vs_gru_conclusion,False,mining does not provide fair source-diverse controlled comparison or holdout
+level3_self_identification,False,mining does not test wrong-history or history necessity

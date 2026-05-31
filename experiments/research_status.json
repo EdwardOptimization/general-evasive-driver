@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2026,
+    "completed": 2027,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
+    "command_log": "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2018_source_diverse_diagnostic_expansion_mining",
     "status": "completed",
-    "task_id": "m2017-bounded-diagnostic-comparison-result-audit"
+    "task_id": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json",
-    "hypothesis": "Existing M2012/M2009 artifacts may contain source-diverse diagnostic expansion candidates beyond the M2016 singleton.",
-    "id": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun source-diverse diagnostic expansion mining over M2012/M2009 artifacts",
-    "priority": 20130,
+    "command": "see experiments/manifests/m2019-source-diverse-diagnostic-expansion-mining-result-audit.json",
+    "hypothesis": "The M2018 mining result is sufficient to choose whether multi-slice diagnostic comparison is warranted.",
+    "id": "m2019-source-diverse-diagnostic-expansion-mining-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2018 expansion diversity boundary and choose multi-slice diagnostic comparison versus repair/redesign",
+    "priority": 20140,
     "status": "pending",
-    "success_artifact": "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json"
+    "success_artifact": "docs/m2019-source-diverse-diagnostic-expansion-mining-result-audit.md"
   },
-  "updated_at_utc": "20260531T151643Z"
+  "updated_at_utc": "20260531T152541Z"
 }
