@@ -35084,3 +35084,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2016 no-rerun profile-level diagnostic table on the admitted stable-AES slice
 - follow-up manifest: `experiments/manifests/m2016-bounded-diagnostic-comparison-implementation-and-run.json`
 - next: `m2016-bounded-diagnostic-comparison-implementation-and-run`
+
+## M2016 Bounded Diagnostic Comparison Implementation And Run
+
+- status: completed
+- decision: `bounded_diagnostic_comparison_pass_route_to_result_audit`
+- result class: `bounded_diagnostic_comparison_pass`
+- implementation: `src/autodrift/bounded_diagnostic_comparison.py`
+- focused tests: `2 passed`
+- compileall: `passed`
+- summary: `runs/m2016_bounded_diagnostic_comparison/summary.json`
+- selected candidate: `success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible`
+- environment reset/rollout in M2016: `false`
+- policy action execution in M2016: `false`
+- measured rollout in M2016: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: matched episodes `60`, profile rows `12`, profile groups `4`, guardrail violations `0`
+- bounded diagnostic table: L3 `10/10` success, L0 `4/5`, L1 `3/5`, L2 `0/40`
+- claim boundary: bounded diagnostic comparison completed; broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain forbidden
+- follow-up manifest: `experiments/manifests/m2017-bounded-diagnostic-comparison-result-audit.json`
+- next: `m2017-bounded-diagnostic-comparison-result-audit`

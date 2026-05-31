@@ -1,0 +1,6 @@
+claim,admissible,reason
+bounded_diagnostic_comparison_completed,True,M2016 reads existing M2009/M2014 artifacts and writes diagnostic tables only
+controller_family_ranking,False,"single admitted public slice is diagnostic, not a ranking experiment"
+finite_window_vs_gru_conclusion,False,M2014 admitted scope has l2_success_present=false and l2_total_success_count=0
+paper_level_benchmark_result,False,single-slice diagnostic table is not paper-level evidence
+level3_self_identification,False,bounded diagnostic comparison does not test wrong-history or history necessity

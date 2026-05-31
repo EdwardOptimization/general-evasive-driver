@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2015-bounded-comparison-candidate-qualification-result-audit
+m2016-bounded-diagnostic-comparison-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2016-bounded-diagnostic-comparison-implementation-and-run
+m2017-bounded-diagnostic-comparison-result-audit
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -63,6 +63,10 @@ qualification: `1/2` candidates is admitted for bounded diagnostic comparison
 only, with `l2_success_present=false`, so finite-window-vs-GRU and paper-level
 claims remain blocked. M2015 audits the qualification and routes to M2016: a
 no-rerun bounded diagnostic profile comparison on the admitted stable-AES slice.
+M2016 produces that table: L3 is `10/10`, L0 is `4/5`, L1 is `3/5`, and L2 is
+`0/40` on the singleton public slice. M2017 must audit whether to expand source
+diversity or stop this as a singleton diagnostic; no broad ranking or
+finite-window-vs-GRU conclusion is allowed yet.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

@@ -1,0 +1,5 @@
+candidate_key,profile_group,profile_count,episode_count,success_count,collision_count,offtrack_outcome_count,offtrack_termination_count,success_rate,collision_rate,offtrack_outcome_rate,offtrack_termination_rate,clearance_margin_mean,return_mean,steps_mean,action_rate_mean,high_sideslip_fraction_mean
+success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible,L0,1,5,4,1,0,0,0.8,0.2,0.0,0.0,2.287615029077591,23.065702958813112,30.0,0.002262529404833913,0.04666666666666667
+success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible,L1,1,5,3,0,2,2,0.6,0.0,0.4,0.4,2.1749593129667706,22.69798340752419,29.8,0.0023078313563019036,0.13666666666666666
+success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible,L2,8,40,0,1,39,40,0.0,0.025,0.975,1.0,2.578844438749957,4.020532975937417,24.7,0.00743544657016173,0.0
+success_stabilizer|stable_aes_only|tier_b_feasible_emergency|post_friction_step|aes_feasible,L3,2,10,10,0,0,0,1.0,0.0,0.0,0.0,2.225992069000993,33.95544698366475,29.7,0.0021823445335030557,0.38454476166934454

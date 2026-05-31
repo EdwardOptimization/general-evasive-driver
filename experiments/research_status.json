@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2024,
+    "completed": 2025,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2015-bounded-comparison-candidate-qualification-result-audit.md",
+    "command_log": "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2016_bounded_diagnostic_comparison",
     "status": "completed",
-    "task_id": "m2015-bounded-comparison-candidate-qualification-result-audit"
+    "task_id": "m2016-bounded-diagnostic-comparison-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2016-bounded-diagnostic-comparison-implementation-and-run.json",
-    "hypothesis": "A no-rerun bounded diagnostic comparison can summarize the admitted stable-AES slice without overclaiming broad ranking.",
-    "id": "m2016-bounded-diagnostic-comparison-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun bounded diagnostic comparison on the admitted M2014 slice",
-    "priority": 20110,
+    "command": "see experiments/manifests/m2017-bounded-diagnostic-comparison-result-audit.json",
+    "hypothesis": "The M2016 diagnostic table is sufficient to choose whether this branch should expand source diversity or stop as a singleton diagnostic.",
+    "id": "m2017-bounded-diagnostic-comparison-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2016 singleton diagnostic table and choose expansion/repair/synthesis route",
+    "priority": 20120,
     "status": "pending",
-    "success_artifact": "runs/m2016_bounded_diagnostic_comparison/summary.json"
+    "success_artifact": "docs/m2017-bounded-diagnostic-comparison-result-audit.md"
   },
-  "updated_at_utc": "20260531T150110Z"
+  "updated_at_utc": "20260531T150826Z"
 }

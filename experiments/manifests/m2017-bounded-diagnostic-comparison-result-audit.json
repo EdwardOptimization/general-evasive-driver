@@ -1,0 +1,166 @@
+{
+  "id": "m2017-bounded-diagnostic-comparison-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_diagnostic_comparison_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+      "runs/m2016_bounded_diagnostic_comparison/summary.json",
+      "runs/m2016_bounded_diagnostic_comparison/profile_comparison.csv",
+      "runs/m2016_bounded_diagnostic_comparison/profile_group_comparison.csv",
+      "runs/m2016_bounded_diagnostic_comparison/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2016-bounded-diagnostic-comparison-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit bounded diagnostic comparison result and choose next route"
+    ],
+    "derived_from": [
+      "m2016-bounded-diagnostic-comparison-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2016 produced a strong single-slice diagnostic table that cannot be overclaimed as ranking or finite-window-vs-GRU evidence"
+    ],
+    "supersedes": [
+      "direct broad conclusion from the M2016 singleton diagnostic table"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2017-bounded-diagnostic-comparison-result-audit.md",
+  "public_gates": [
+    "M2017 must audit M2016 without rerun",
+    "M2017 must separate singleton diagnostic signal from broad ranking or finite-window-vs-GRU conclusions",
+    "M2017 must decide expansion, repair, redesign, synthesis, or stop",
+    "M2017 must keep paper-level and level3 self-ID claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_bounded_diagnostic_comparison",
+    "evidence_axis": "Q_bounded_diagnostic_comparison_audit",
+    "evidence_increment": "audits the singleton bounded diagnostic comparison table and chooses whether to expand or stop",
+    "claim_scope": "result audit and route decision only; no broad ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if singleton diagnostic evidence is overclaimed",
+      "stop if next route is ambiguous",
+      "stop if another local repair is proposed without explaining why expansion is impossible"
+    ],
+    "fallback_plan": [
+      "route to source-diverse bounded comparison expansion if diagnostic signal is worth broadening",
+      "route to task-quality repair if support is too sparse",
+      "route to synthesis or stop if the branch remains singleton-limited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2016 completed bounded diagnostic comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded diagnostic comparison result audit",
+    "admission_evidence": [
+      "M2016 produced profile and profile-group diagnostic tables with guardrail violation count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
+      "M2017 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2016 facts are summarized",
+      "allowed and forbidden claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; diagnostic comparison audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2017."
+    ],
+    "temporal_evidence_window": "M2016 bounded diagnostic comparison artifacts.",
+    "negative_result_policy": "If singleton diagnostic evidence is insufficient, route to expansion/repair/synthesis rather than ranking.",
+    "allowed_claims": [
+      "bounded diagnostic comparison audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2016 diagnostic table into a route decision",
+    "paper_verdict_delta": "can decide whether to expand source diversity before any finite-window-vs-GRU or ranking claim",
+    "must_synthesize_if": [
+      "M2017 cannot choose a next route",
+      "M2017 would rank controllers directly",
+      "M2017 would propose another singleton local repair"
+    ]
+  },
+  "hypothesis": "The M2016 diagnostic table is sufficient to choose whether this branch should expand source diversity or stop as a singleton diagnostic.",
+  "success_criteria": [
+    "docs/m2017-bounded-diagnostic-comparison-result-audit.md exists",
+    "M2016 facts are summarized",
+    "allowed and forbidden claims are explicit",
+    "next route is explicit",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2016 facts are not summarized",
+    "singleton diagnostic evidence is overclaimed",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2017-bounded-diagnostic-comparison-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_diagnostic_comparison_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+    "runs/m2016_bounded_diagnostic_comparison/summary.json"
+  ],
+  "decision_rule": "M2017 passes if it audits M2016 and chooses a next route without overclaiming.",
+  "next_blocker": "m2017-bounded-diagnostic-comparison-result-audit"
+}
