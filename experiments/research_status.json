@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2009,
+    "completed": 2010,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md",
+    "command_log": "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation"
+    "task_id": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.json",
-    "hypothesis": "The M2000 implementation is clean enough to admit a measured execution command design while preserving claim boundaries.",
-    "id": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit",
+    "command": "see experiments/manifests/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.json",
+    "hypothesis": "A fresh measured execution rerun command can now be frozen over the M1986 artifacts after reset and measured-runner quota readiness repairs.",
+    "id": "m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design",
     "kind": "gate",
-    "notes": "Pending: audit focused measured-runner quota implementation before measured execution command design",
-    "priority": 19960,
+    "notes": "Pending: freeze exact 960-row measured execution rerun command in a fresh output directory",
+    "priority": 19970,
     "status": "pending",
-    "success_artifact": "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md"
+    "success_artifact": "docs/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.md"
   },
-  "updated_at_utc": "20260531T134419Z"
+  "updated_at_utc": "20260531T134742Z"
 }

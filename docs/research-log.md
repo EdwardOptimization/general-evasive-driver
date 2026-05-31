@@ -34799,3 +34799,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit focused implementation before measured execution command design or rerun
 - follow-up manifest: `experiments/manifests/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.json`
 - next: `m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit`
+
+## M2001 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured-Runner Quota Parameterization Implementation Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_measured_runner_quota_parameterization_audit_admit_measured_execution_command_design`
+- doc: `docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md`
+- real 960-row measured execution in M2001: `false`
+- environment rollout in M2001: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2000 cleanly computes measured-runner expected quotas from active workload rows by default, writes `quota_metadata_missing_rows.csv`, requires missing quota metadata count `0`, and focused tests passed `4`
+- route: admit measured execution rerun command design in a fresh output directory; interpretation remains deferred to result audit
+- follow-up manifest: `experiments/manifests/m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design.json`
+- next: `m2002-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-command-design`
