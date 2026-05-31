@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1976,
+    "completed": 1977,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+    "command_log": "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit"
+    "task_id": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.json",
-    "hypothesis": "Blank offtrack-boundary-relief parent_feasibility_tier_id values can be repaired by explicit metadata normalization without weakening runner validation or rerunning measured execution.",
-    "id": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout repair for blank offtrack-boundary-relief parent_feasibility_tier_id metadata before rerun",
-    "priority": 19630,
+    "command": "see experiments/manifests/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.json",
+    "hypothesis": "The calibrated materialization preflight can normalize blank offtrack-boundary-relief parent tiers to an explicit sentinel and rebuild no-reset artifacts with zero blank required metadata.",
+    "id": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement sentinel normalization and rerun no-reset materialization only",
+    "priority": 19640,
     "status": "pending",
-    "success_artifact": "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md"
+    "success_artifact": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json"
   },
-  "updated_at_utc": "20260531T110845Z"
+  "updated_at_utc": "20260531T111148Z"
 }

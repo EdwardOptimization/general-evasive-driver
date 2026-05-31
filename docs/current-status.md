@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit
+m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design
 ```
 
 Current next task:
 
 ```text
-m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design
+m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -128,7 +128,12 @@ metadata normalization gap: M1952 has `11` supported offtrack-boundary-relief
 sources with blank `parent_feasibility_tier_id`, M1956 selected `8`, and M1958
 propagated the blank values into executable specs and workload rows. The runner
 is not relaxed; M1968 must design an explicit no-rollout metadata normalization
-repair before any rerun.
+repair before any rerun. M1968 chooses the sentinel
+`tier_not_applicable_offtrack_boundary_relief`, applied only when
+`repair_source_kind == offtrack_boundary_relief` and the parent tier is blank.
+All other blank parent-tier cases remain fail-closed. M1969 may implement this
+normalization and rerun no-reset materialization only; reset and measured
+execution remain blocked until the repaired artifact is audited.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

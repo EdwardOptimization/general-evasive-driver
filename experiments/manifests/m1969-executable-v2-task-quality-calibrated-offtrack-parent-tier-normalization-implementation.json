@@ -1,0 +1,174 @@
+{
+  "id": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+      "configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.json"
+    ],
+    "parent_objective": [
+      "implement offtrack parent-tier sentinel normalization and rerun no-reset materialization"
+    ],
+    "derived_from": [
+      "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design"
+    ],
+    "blocked_by": [
+      "blank offtrack-boundary-relief parent_feasibility_tier_id values block calibrated measured execution"
+    ],
+    "supersedes": [
+      "leaving parent_feasibility_tier_id blank for offtrack-boundary-relief selected sources"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.md",
+  "public_gates": [
+    "M1969 must implement the explicit offtrack parent-tier sentinel without weakening runner validation",
+    "M1969 must run focused materialization preflight tests",
+    "M1969 must rerun no-reset materialization only",
+    "M1969 must produce 80 executable specs and 960 workload cells with zero blank parent_feasibility_tier_id",
+    "M1969 must not run reset measured execution ranking or paper-level claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_metadata_normalization_implementation",
+    "evidence_increment": "repairs blank offtrack parent-tier metadata and rebuilds no-reset materialization artifacts",
+    "claim_scope": "metadata repair and no-reset materialization only; no reset measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if focused tests fail",
+      "stop if repaired artifacts still contain blank parent_feasibility_tier_id",
+      "stop if guardrail violations appear"
+    ],
+    "fallback_plan": [
+      "route to result audit if repaired no-reset materialization passes",
+      "route to implementation audit if blank metadata remains",
+      "route back to source-schema repair if sentinel normalization is insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1968 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "offtrack parent-tier metadata normalization implementation",
+    "admission_evidence": [
+      "M1968 defines sentinel tier_not_applicable_offtrack_boundary_relief"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or measured execution",
+      "do not weaken runner validation",
+      "do not claim driver performance"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_calibrated_materialization_preflight.py",
+      "tests/test_executable_v2_task_quality_calibrated_materialization_preflight.py",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
+      "M1969 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "no-reset materialization pass",
+      "blank parent-tier count is zero",
+      "repaired artifact audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; metadata normalization implementation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1969."
+    ],
+    "temporal_evidence_window": "M1968 metadata normalization design.",
+    "negative_result_policy": "Keep this as infrastructure repair evidence, not driver-performance evidence.",
+    "allowed_claims": [
+      "calibrated metadata normalization implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "repairs the artifact blocker that prevented measured execution from starting",
+    "paper_verdict_delta": "can restore reset/materialized execution readiness but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "the same metadata failure repeats after M1969",
+      "M1969 cannot produce repaired no-reset artifacts",
+      "another design-only step would be needed before implementation"
+    ]
+  },
+  "hypothesis": "The calibrated materialization preflight can normalize blank offtrack-boundary-relief parent tiers to an explicit sentinel and rebuild no-reset artifacts with zero blank required metadata.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json exists",
+    "result_class is task_quality_calibrated_materialization_preflight_pass",
+    "executable_task_spec_count equals 80",
+    "planned_workload_cell_count equals 960",
+    "blank parent_feasibility_tier_id count is zero",
+    "guardrail_violation_count equals 0",
+    "no reset measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "repaired artifacts still contain blank parent_feasibility_tier_id",
+    "guardrail violation appears",
+    "reset rollout measured execution or ranking is run"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_materialization_preflight.py"
+    },
+    {
+      "name": "repaired_no_reset_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_materialization_preflight --subset-config configs/executable_v2_task_quality_calibrated_materialization_subset_v0.json --repair-accepted-cells runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_accepted_cells.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired --next-blocker m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+    "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/validation_failure_rows.csv"
+  ],
+  "decision_rule": "M1969 passes if focused tests and no-reset repaired materialization pass with zero blank required parent-tier metadata and no guardrail violations.",
+  "next_blocker": "m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation"
+}

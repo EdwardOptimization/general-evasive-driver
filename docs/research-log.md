@@ -34216,3 +34216,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.json`
 - next: `m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design`
+
+## M1968 Executable V2 Task-Quality Calibrated Offtrack Parent-Tier Normalization Design
+
+- status: completed
+- decision: `task_quality_calibrated_offtrack_parent_tier_normalization_design_admit_implementation`
+- doc: `docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md`
+- reset/rollout/measured execution in M1968: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- sentinel: `tier_not_applicable_offtrack_boundary_relief`
+- semantics: offtrack-boundary-relief repair-axis source with no original parent feasibility tier; normalized explicitly rather than left blank
+- allowed normalization: only blank `parent_feasibility_tier_id` when `repair_source_kind == offtrack_boundary_relief`
+- forbidden normalization: any other blank parent tier remains fail-closed
+- implementation route: update calibrated materialization preflight and focused tests; rerun no-reset materialization only
+- unsupported claims: measured rollout success, reset validation of repaired artifacts, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation.json`
+- next: `m1969-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-implementation`
