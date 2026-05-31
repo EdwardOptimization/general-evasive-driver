@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1876,
+    "completed": 1877,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md",
+    "command_log": "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
+    "task_id": "m1868-executable-v2-support-first-reset-validation-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1868-executable-v2-support-first-reset-validation-execution-design.json",
-    "hypothesis": "A fixed command can run reset-only validation over the converted 180-row support-first payload with explicit target counts and guardrails.",
-    "id": "m1868-executable-v2-support-first-reset-validation-execution-design",
-    "kind": "gate",
-    "notes": "Pending: pre-register exact reset-only validation over converted support-first payload",
-    "priority": 18630,
+    "command": "see experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json",
+    "hypothesis": "All 180 converted support-first executable v2 panel specs can reset successfully without rollout or label leakage.",
+    "id": "m1869-executable-v2-support-first-reset-validation-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run reset-only validation over 180 converted support-first specs",
+    "priority": 18640,
     "status": "pending",
-    "success_artifact": "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md"
+    "success_artifact": "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T015906Z"
+  "updated_at_utc": "20260531T020130Z"
 }

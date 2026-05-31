@@ -31858,3 +31858,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1868-executable-v2-support-first-reset-validation-execution-design.json`
 - next: `m1868-executable-v2-support-first-reset-validation-execution-design`
+
+## M1868 Executable V2 Support-First Reset Validation Execution Design
+
+- status: completed
+- decision: `support_first_reset_validation_execution_design_admit_preflight_run`
+- artifact: `docs/m1868-executable-v2-support-first-reset-validation-execution-design.md`
+- converted payload: `runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json`
+- exact next output dir: `runs/m1869_executable_v2_support_first_reset_validation_preflight`
+- eval seed base: `186900`
+- expected attempted spec count: `180`
+- expected profile count: `8`
+- expected role-surface count: `8`
+- expected reset ready spec count: `180`
+- expected labels enter actor input count: `0`
+- expected ranking admissible by default count: `0`
+- expected guardrail violation count: `0`
+- reset run in this milestone: `false`
+- environment reset started: `false`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: exact reset-only validation command output directory target counts next blocker
+- unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json`
+- next: `m1869-executable-v2-support-first-reset-validation-preflight`

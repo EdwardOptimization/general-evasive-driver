@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1868 fixes exact reset-only validation command over converted support-first payload and admits M1869 preflight",
+  "failure_criteria": [
+    "design document is missing",
+    "design runs reset or rollout",
+    "design omits target counts output directory or eval seed base",
+    "design routes directly to measured execution or ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T020313Z",
+  "hypothesis": "A fixed command can run reset-only validation over the converted 180-row support-first payload with explicit target counts and guardrails.",
+  "lineage": {
+    "blocked_by": [
+      "M1867 admits reset-validation execution design but reset validation command is not yet registered"
+    ],
+    "derived_from": [
+      "m1867-executable-v2-support-first-reset-validation-adapter-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_execution_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1867-executable-v2-support-first-reset-validation-adapter-result-audit.md",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/summary.json",
+      "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation over converted support-first executable-v2 payload"
+    ],
+    "supersedes": [
+      "direct reset validation without execution design",
+      "measured execution before reset validation",
+      "manual reset command"
+    ]
+  },
+  "milestone": "m1868-executable-v2-support-first-reset-validation-execution-design",
+  "next_blocker": "m1869-executable-v2-support-first-reset-validation-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_reset_validation_execution_design_admit_preflight_run",
+  "public_gates": [
+    "M1868 must design the exact reset-only validation command without running it",
+    "M1868 must pre-register converted payload path output directory eval seed base target counts and next blocker",
+    "M1868 must keep measured rollout training replay PPO promotion private holdout actor-input changes profile tuning ranking paper-level and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "support_first_reset_validation_execution_design_admit_preflight_run",
+    "milestone": "m1868-executable-v2-support-first-reset-validation-execution-design",
+    "reason": "M1868 fixes exact reset-only validation command over converted support-first payload and admits M1869 preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md exists",
+    "design lists exact command converted payload output directory eval seed base target counts and next blocker",
+    "design keeps measured execution and ranking blocked",
+    "next route is explicit",
+    "no reset rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
