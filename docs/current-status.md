@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design
+m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run
+m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit
 ```
 
-Immediate route: M2055 audits the focused measured runner as compatible with
-the M2048 repaired specs/workload and freezes the exact measured-execution
-command: `2304` workload rows, `192` specs, `12` profiles, eval seed base
-`205600`, CPU device, output
-`runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution`.
-M2056 may run only this frozen command. Interpretation, ranking, paper claims,
-and level3 self-ID claims remain blocked until the M2057 audit.
+Immediate route: M2056 runs the repaired measured-execution command and passes
+the execution gates: `2304/2304` episodes, failures `0`, specs `192/192`,
+profiles `12/12`, metadata missing `0`, metric completeness failures `0`, all
+quota gates pass, and guardrail `0`. Raw outcomes are success `45`, collision
+`14`, and offtrack noncollision noncompletion `2245`. M2057 must audit this
+distribution before localization, repair, candidate qualification, ranking, or
+paper/self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

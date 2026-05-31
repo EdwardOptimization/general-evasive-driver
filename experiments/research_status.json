@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2064,
+    "completed": 2065,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md",
+    "command_log": "docs/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution",
     "status": "completed",
-    "task_id": "m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design"
+    "task_id": "m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.json",
-    "hypothesis": "The existing focused controlled-routing-smoke measured runner can execute the 2304-row repaired workload while preserving metadata and guardrail boundaries.",
-    "id": "m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen 2304-row repaired measured execution command",
-    "priority": 20510,
+    "command": "see experiments/manifests/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.json",
+    "hypothesis": "M2056 repaired measured-execution artifacts can be audited to choose whether the repaired panel supports candidate qualification, localization, repair, or synthesis.",
+    "id": "m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2056 complete execution before localization repair or candidate qualification",
+    "priority": 20520,
     "status": "pending",
-    "success_artifact": "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json"
+    "success_artifact": "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260531T195904Z"
+  "updated_at_utc": "20260531T200610Z"
 }

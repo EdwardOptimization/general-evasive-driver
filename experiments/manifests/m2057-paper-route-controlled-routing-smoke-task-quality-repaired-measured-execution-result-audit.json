@@ -1,0 +1,171 @@
+{
+  "id": "m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repaired_measured_execution_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/episode_rows.csv",
+      "docs/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit repaired measured-execution outcome distribution before ranking or repair"
+    ],
+    "derived_from": [
+      "m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2056 measured execution must be audited before interpretation"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M2056 raw execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2057 must audit M2056 execution completeness and raw outcomes",
+    "M2057 must decide whether the artifact supports candidate qualification, localization, repair, or synthesis",
+    "M2057 must not rank controller families unless comparison support is explicitly justified",
+    "M2057 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked unless stronger evidence is registered"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution",
+    "evidence_axis": "Q_repaired_panel_measured_execution_result_audit",
+    "evidence_increment": "audits complete repaired measured-execution artifacts and chooses the next route",
+    "claim_scope": "result audit only; no new rollout training ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if execution completeness or metadata gates fail",
+      "stop if raw outcomes are overclaimed as paper-level comparison",
+      "stop if ranking support is not justified",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to no-rerun outcome localization if outcomes are sparse or dominated by one failure mode",
+      "route to candidate qualification if comparison-support slices are clear",
+      "route to task-quality repair if the panel is too hard or offtrack-biased",
+      "route to measured-runner repair only if execution artifacts are incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2056 produces complete repaired measured-execution artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repaired measured execution result audit",
+    "admission_evidence": [
+      "M2056 result_class controlled_routing_smoke_measured_execution_pass",
+      "M2056 episode_count 2304",
+      "M2056 failure_count 0",
+      "M2056 metric_completeness_failure_count 0",
+      "M2056 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run another rollout in M2057",
+      "do not rank controller families without outcome-support audit",
+      "do not interpret smoke-proxy rows as paper-valid generated tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md",
+      "M2057 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M2056 execution completeness is audited",
+      "raw outcome distribution is summarized",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2057 audits measured execution but does not run history-necessity interventions.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2057."
+    ],
+    "temporal_evidence_window": "M2056 repaired measured-execution artifacts.",
+    "negative_result_policy": "If outcomes are sparse or offtrack-dominated, route to localization or repair before ranking.",
+    "allowed_claims": [
+      "repaired measured-execution result audit",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2056 complete rollout artifacts into an audited next-route decision",
+    "paper_verdict_delta": "can determine whether repaired measured data is suitable for comparison, localization, or repair",
+    "must_synthesize_if": [
+      "M2057 cannot choose a route",
+      "M2057 would move to ranking without support criteria",
+      "M2057 finds the same offtrack-dominance failure as the previous routing smoke branch"
+    ]
+  },
+  "hypothesis": "M2056 repaired measured-execution artifacts can be audited to choose whether the repaired panel supports candidate qualification, localization, repair, or synthesis.",
+  "success_criteria": [
+    "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md exists",
+    "M2056 execution completeness and raw outcomes are audited",
+    "claim boundaries are explicit",
+    "next route is explicit",
+    "no new rollout measured execution training replay PPO paper-level or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2056 artifacts are incomplete",
+    "raw outcomes are overclaimed",
+    "next route is ambiguous",
+    "new rollout or ranking is performed without registration"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution artifacts and write M2057 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repaired_measured_execution_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+    "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M2057 passes if it audits M2056 and selects the next route without overclaiming.",
+  "next_blocker": "m2058-selected-by-m2057-audit"
+}

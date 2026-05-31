@@ -35890,3 +35890,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: M2056 may run only the frozen measured-execution command; interpretation and ranking remain blocked until M2057 audit
 - follow-up manifest: `experiments/manifests/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.json`
 - next: `m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run`
+
+## M2056 Paper-Route Controlled Routing Smoke Task-Quality Repaired Measured Execution Implementation And Run
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repaired_measured_execution_pass_route_to_result_audit`
+- result class: `controlled_routing_smoke_measured_execution_pass`
+- doc: `docs/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md`
+- summary: `runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json`
+- focused tests: `3 passed`
+- measured execution in M2056: `true`
+- rollout/policy actions in M2056: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- execution pass: episodes `2304/2304`, failures `0`, specs `192/192`, profiles `12/12`, metadata missing `0`, metric completeness failures `0`, all selected metrics finite, all quota gates pass, guardrail `0`
+- raw outcomes for audit: success `45`, collision `14`, offtrack noncollision noncompletion `2245`
+- profile raw successes: L0 `1/192`, L1 `1/192`, all L2 and tiled controls `0`, L3 online GRU `26/192`, L3 reset corrected `17/192`
+- decision: route to M2057 result audit before localization, repair, candidate qualification, ranking, or paper/self-ID claims
+- follow-up manifest: `experiments/manifests/m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit.json`
+- next: `m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit`

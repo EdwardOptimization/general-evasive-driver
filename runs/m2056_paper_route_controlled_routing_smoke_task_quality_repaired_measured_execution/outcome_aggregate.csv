@@ -1,0 +1,4 @@
+key,episode_count,success_rate,collision_rate,clearance_margin_mean,return_mean,steps_mean,all_selected_metrics_finite
+collision_failure,14,0.0,1.0,-0.07958113257942191,16.10141548726147,76.64285714285714,True
+off_track_noncollision_noncompletion,2245,0.0,0.0,17.050714817987586,19.799507548473148,77.60133630289532,True
+success_obstacle_pass,45,1.0,0.0,5.712353661454514,75.97158623478174,104.75555555555556,True
