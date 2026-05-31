@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design
+m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation
 ```
 
 Current next task:
 
 ```text
-m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation
+m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -264,7 +264,10 @@ repair: compute expected source-kind and role-surface counts from the active
 `executable_task_specs`, compare reset rows against those expected counts, and
 fail closed if required quota metadata is missing. M1993 must implement this
 focused validator repair and tests only; the real M1990 reset rerun remains
-blocked until the implementation is audited.
+blocked until the implementation is audited. M1993 implements the repair and
+focused tests pass `4`; no real M1990 reset rerun, rollout, measured execution,
+ranking, paper-level claim, or level3 self-ID claim is made. M1994 must audit
+the implementation before any repaired reset rerun command design.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

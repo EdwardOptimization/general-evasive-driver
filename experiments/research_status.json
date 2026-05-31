@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2001,
+    "completed": 2002,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design.md",
+    "command_log": "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1992-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-design"
+    "task_id": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_reset_validation_preflight.py",
-    "hypothesis": "Artifact-driven quota expectations will preserve reset-validator quota checking while accepting active panels with intentional repaired distributions.",
-    "id": "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused artifact-driven quota repair and tests without real reset rerun",
-    "priority": 19880,
+    "command": "see experiments/manifests/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.json",
+    "hypothesis": "M1993's focused implementation is clean enough to admit a repaired reset-validation rerun command design.",
+    "id": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit",
+    "kind": "gate",
+    "notes": "Pending: audit focused quota repair before repaired reset rerun command design",
+    "priority": 19890,
     "status": "pending",
-    "success_artifact": "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md"
+    "success_artifact": "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md"
   },
-  "updated_at_utc": "20260531T131003Z"
+  "updated_at_utc": "20260531T131404Z"
 }

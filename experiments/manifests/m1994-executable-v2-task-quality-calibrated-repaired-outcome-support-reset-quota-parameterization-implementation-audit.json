@@ -1,0 +1,161 @@
+{
+  "id": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_implementation_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py",
+      "tests/test_executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit focused reset quota parameterization implementation before real reset rerun"
+    ],
+    "derived_from": [
+      "m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation"
+    ],
+    "blocked_by": [
+      "implementation must be audited before rerunning M1990 semantics under repaired validator"
+    ],
+    "supersedes": [
+      "directly rerunning M1990 after implementation without audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md",
+  "public_gates": [
+    "M1994 must audit M1993 implementation and tests",
+    "M1994 must confirm real M1990 reset was not rerun in M1993",
+    "M1994 must decide whether repaired reset rerun command design is admissible",
+    "M1994 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_reset_quota_repair_audit",
+    "evidence_increment": "audits focused validator repair and decides whether repaired reset rerun is admissible",
+    "claim_scope": "implementation audit only; no reset rerun rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if focused tests did not pass",
+      "stop if real reset rerun happened in M1993",
+      "stop if implementation silently disables quota checks"
+    ],
+    "fallback_plan": [
+      "route to repaired reset rerun command design if implementation is clean",
+      "route back to focused implementation repair if tests or semantics are incomplete",
+      "synthesize if the quota repair repeats after rerun"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1993 completed focused implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset quota parameterization implementation audit",
+    "admission_evidence": [
+      "M1993 focused tests passed and no real reset rerun was performed"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun reset in audit",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md",
+      "M1994 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired reset rerun command design or implementation repair"
+    ],
+    "next_stage_criteria": [
+      "implementation and tests are audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; implementation audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1994."
+    ],
+    "temporal_evidence_window": "M1993 implementation and focused tests.",
+    "negative_result_policy": "If implementation is incomplete, repair tests before any real reset rerun.",
+    "allowed_claims": [
+      "reset-validator quota repair implementation audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "decides whether a focused validator repair is ready for real reset rerun",
+    "paper_verdict_delta": "can admit repaired reset rerun but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1994 cannot choose a next route",
+      "same quota mismatch repeats after repaired rerun",
+      "another implementation repair is needed"
+    ]
+  },
+  "hypothesis": "M1993's focused implementation is clean enough to admit a repaired reset-validation rerun command design.",
+  "success_criteria": [
+    "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md exists",
+    "M1993 code changes and tests are summarized",
+    "real reset rerun absence is explicit",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "test result is not summarized",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_reset_quota_parameterization_implementation_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py"
+  ],
+  "decision_rule": "M1994 passes if it audits M1993 and chooses a next route without rerun or overclaiming.",
+  "next_blocker": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit"
+}

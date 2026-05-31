@@ -34659,3 +34659,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: focused implementation and tests only; no real M1990 reset rerun until implementation is audited
 - follow-up manifest: `experiments/manifests/m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation.json`
 - next: `m1993-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation`
+
+## M1993 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Quota Parameterization Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_quota_parameterization_implementation_pass_route_to_audit`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_reset_validation_preflight.py`
+- focused tests: `4 passed`
+- real M1990 reset rerun in M1993: `false`
+- rollout/measured execution in M1993: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- change: reset validator now computes expected source-kind and role-surface counts from active `executable_task_specs`, compares reset rows against those expected counts, adds `expected_quota_source`, `expected_source_kind_counts`, `expected_role_surface_counts`, and `quota_metadata_missing_count`, and fails closed when required quota metadata is missing
+- route: audit focused implementation before any repaired real reset rerun
+- follow-up manifest: `experiments/manifests/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.json`
+- next: `m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit`

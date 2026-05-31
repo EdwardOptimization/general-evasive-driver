@@ -76,6 +76,20 @@ CONTRACT_FIELDNAMES = [
     "paper_holdout_candidate_false",
     "contract_violation_count",
 ]
+QUOTA_METADATA_FIELDS = (
+    "repair_source_kind",
+    "source_role_semantics",
+    "normalized_surface_variant",
+)
+QUOTA_METADATA_MISSING_FIELDNAMES = [
+    "task_source_id",
+    "candidate_source_id",
+    "repair_candidate_id",
+    "repair_source_kind",
+    "source_role_semantics",
+    "normalized_surface_variant",
+    "missing_quota_fields",
+]
 
 
 def _bool_value(value: Any, *, default: bool = False) -> bool:
@@ -114,6 +128,28 @@ def _aggregate_count_rows(rows: Iterable[Mapping[str, Any]], keys: tuple[str, ..
         item = {key: value for key, value in zip(keys, values)}
         item["reset_count"] = int(count)
         out.append(item)
+    return out
+
+
+def _quota_metadata_missing_rows(specs: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    for spec in specs:
+        missing_fields = [
+            field for field in QUOTA_METADATA_FIELDS if str(spec.get(field, "")).strip() == ""
+        ]
+        if missing_fields:
+            metadata = calibrated_metadata(spec)
+            out.append(
+                {
+                    "task_source_id": metadata["task_source_id"],
+                    "candidate_source_id": metadata["candidate_source_id"],
+                    "repair_candidate_id": metadata["repair_candidate_id"],
+                    "repair_source_kind": metadata["repair_source_kind"],
+                    "source_role_semantics": metadata["source_role_semantics"],
+                    "normalized_surface_variant": metadata["normalized_surface_variant"],
+                    "missing_quota_fields": ";".join(missing_fields),
+                }
+            )
     return out
 
 
@@ -276,8 +312,15 @@ def run_calibrated_reset_validation_preflight(
         reset_rows,
         ("repair_source_kind", "source_role_semantics", "normalized_surface_variant"),
     )
-    source_kind_quota_pass = source_kind_counts == EXPECTED_SOURCE_KIND_COUNTS
-    role_surface_quota_pass = role_surface_counts == EXPECTED_ROLE_SURFACE_COUNTS
+    expected_source_kind_counts = _count_by(specs, "repair_source_kind")
+    expected_role_surface_counts = _group_counts(
+        specs,
+        ("repair_source_kind", "source_role_semantics", "normalized_surface_variant"),
+    )
+    quota_metadata_missing_rows = _quota_metadata_missing_rows(specs)
+    quota_metadata_missing_count = len(quota_metadata_missing_rows)
+    source_kind_quota_pass = source_kind_counts == expected_source_kind_counts
+    role_surface_quota_pass = role_surface_counts == expected_role_surface_counts
     passes = (
         target_count_matches
         and len(reset_rows) == len(specs)
@@ -289,6 +332,7 @@ def run_calibrated_reset_validation_preflight(
         and contract_violation_count == 0
         and label_actor_input_violation_count == 0
         and not forbidden_key_hits
+        and quota_metadata_missing_count == 0
         and source_kind_quota_pass
         and role_surface_quota_pass
         and guardrail_violation_count == 0
@@ -311,6 +355,11 @@ def run_calibrated_reset_validation_preflight(
             reset_rows,
             ("repair_source_kind", "source_role_semantics", "normalized_surface_variant"),
         ),
+    )
+    write_csv_rows(
+        output / "quota_metadata_missing_rows.csv",
+        quota_metadata_missing_rows,
+        fieldnames=QUOTA_METADATA_MISSING_FIELDNAMES,
     )
     write_csv_rows(output / "claim_boundary.csv", claim_boundary_rows())
 
@@ -335,6 +384,10 @@ def run_calibrated_reset_validation_preflight(
         "label_actor_input_violation_count": int(label_actor_input_violation_count),
         "forbidden_key_violation_count": len(forbidden_key_hits),
         "forbidden_key_violations": forbidden_key_hits,
+        "expected_quota_source": "executable_task_specs",
+        "expected_source_kind_counts": expected_source_kind_counts,
+        "expected_role_surface_counts": expected_role_surface_counts,
+        "quota_metadata_missing_count": quota_metadata_missing_count,
         "source_kind_counts": source_kind_counts,
         "source_kind_quota_pass": source_kind_quota_pass,
         "role_surface_counts": role_surface_counts,
@@ -364,6 +417,7 @@ def run_calibrated_reset_validation_preflight(
             "contract_rows": str(output / "contract_rows.csv"),
             "reset_distribution_by_source_kind": str(output / "reset_distribution_by_source_kind.csv"),
             "reset_distribution_by_role_surface": str(output / "reset_distribution_by_role_surface.csv"),
+            "quota_metadata_missing_rows": str(output / "quota_metadata_missing_rows.csv"),
             "claim_boundary": str(output / "claim_boundary.csv"),
         },
         "next_blocker": next_blocker,
