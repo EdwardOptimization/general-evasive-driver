@@ -1,0 +1,182 @@
+{
+  "id": "m2026-paper-route-controlled-comparison-source-coverage-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_source_coverage_repair"
+    ],
+    "parent_dataset": [
+      "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+      "runs/m2023_paper_route_controlled_comparison_panel_preflight/panel_sources.csv",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_source_rows.csv",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_source_rows.csv",
+      "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2025-paper-route-controlled-comparison-source-coverage-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-rollout source-coverage repair preflight for T1/T2/T3 panel gaps"
+    ],
+    "derived_from": [
+      "m2025-paper-route-controlled-comparison-source-coverage-repair-design"
+    ],
+    "blocked_by": [
+      "M2025 admits source repair implementation before routing smoke"
+    ],
+    "supersedes": [
+      "direct routing smoke from M2023 unready panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.md",
+  "public_gates": [
+    "M2026 must not reset the environment or execute policy actions",
+    "M2026 must write repaired panel source and coverage artifacts",
+    "M2026 must report repair actions and before/after T1/T2/T3/T4/T5 coverage",
+    "M2026 must fail closed if clean source repair is impossible",
+    "M2026 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_source_repair",
+    "evidence_increment": "attempts no-rollout repair of source coverage gaps before any execution",
+    "claim_scope": "no-rollout source repair only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repair uses hidden/oracle actor inputs",
+      "stop if repair drops T4/T5 passing coverage without explicit audit",
+      "stop if repair claims routing-smoke readiness without coverage proof",
+      "stop if environment rollout or policy action occurs"
+    ],
+    "fallback_plan": [
+      "route to result audit if repair artifacts are generated",
+      "route to threshold/source-generation audit if clean repair is impossible",
+      "route to synthesis if source repair becomes another local loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2025 admits source coverage repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled comparison source-coverage repair implementation",
+    "admission_evidence": [
+      "M2025 defines no-rollout repair rules and candidate source artifacts"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_controlled_comparison_source_coverage_repair.py",
+      "tests/test_paper_route_controlled_comparison_source_coverage_repair.py",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair",
+      "docs/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.md",
+      "M2026 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "repaired panel sources exist",
+      "repaired source coverage exists",
+      "repair actions exist",
+      "claim boundary exists",
+      "guardrail violation count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2026 repairs source coverage only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2026."
+    ],
+    "temporal_evidence_window": "M2023 panel sources plus M2025 repair design.",
+    "negative_result_policy": "If repair is partial or fails closed, route to audit rather than execution.",
+    "allowed_claims": [
+      "controlled comparison source-coverage repair implementation",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "attempts to add source diversity before public routing smoke",
+    "paper_verdict_delta": "can determine whether the panel can become routing-smoke-ready from existing public artifacts",
+    "must_synthesize_if": [
+      "M2026 cannot improve T1/T2/T3 source coverage",
+      "M2026 repairs only by weakening thresholds",
+      "M2026 would need a second source repair loop without new artifacts"
+    ]
+  },
+  "hypothesis": "A no-rollout repair implementation can improve or fully fix T1/T2/T3 source coverage using existing public artifacts.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json exists",
+    "repaired panel source coverage and repair action artifacts exist",
+    "guardrail_violation_count is 0",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "repair tool is missing",
+    "repair artifacts are missing",
+    "repair changes actor inputs or controller profiles",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rollout controlled comparison source coverage repair and run it on existing public artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_source_coverage.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_source_coverage_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+    "runs/m2023_paper_route_controlled_comparison_panel_preflight/source_coverage.csv"
+  ],
+  "decision_rule": "M2026 passes if it writes clean source-repair artifacts and preserves claim boundaries.",
+  "next_blocker": "m2026-paper-route-controlled-comparison-source-coverage-repair-implementation"
+}

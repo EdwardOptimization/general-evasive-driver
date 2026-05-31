@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2024-paper-route-controlled-comparison-panel-preflight-result-audit
+m2025-paper-route-controlled-comparison-source-coverage-repair-design
 ```
 
 Current next task:
 
 ```text
-m2025-paper-route-controlled-comparison-source-coverage-repair-design
+m2026-paper-route-controlled-comparison-source-coverage-repair-implementation
 ```
 
-Immediate route: M2024 audits the M2023 no-rollout panel preflight. The
-preflight is complete and guardrail-clean, but not routing-smoke-ready:
-T1 active-safety has only `6` sources and source-kind share `1.0`, T2
-same-current/different-older-history has max source-kind share `0.5833`, and T3
-active diagnostic warmup has share `0.3750`; T4/T5 pass the registered source
-count and source-kind share thresholds. M2024 rejects direct routing smoke,
-unjustified threshold revision, and premature T4/T5-only split. M2025 must
-design a no-rollout T1/T2/T3 source-coverage repair while preserving T4/T5.
-Broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims
-remain blocked.
+Immediate route: M2025 designs the no-rollout source-coverage repair for the
+controlled-comparison panel. The repair targets T1 active-safety source
+count/source-kind singleton and T2/T3 source-kind share gaps while preserving
+T4/T5 passing coverage. Candidate source artifacts are M1983 outcome-support
+source rows, M1952 calibrated repair source rows, M2009 aggregate audit tables,
+M2018 admitted candidates, M1680 task-source specs, M1683 workload, and M2023
+panel sources. M2026 must implement and run this source repair as an artifact
+preflight only. Broad ranking, finite-window-vs-GRU, paper-level, and level3
+self-ID claims remain blocked.
 
 The current branch is repairing executable-v2 active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean

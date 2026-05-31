@@ -35272,3 +35272,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to M2025 no-rollout source-coverage repair design for T1/T2/T3 while preserving T4/T5
 - follow-up manifest: `experiments/manifests/m2025-paper-route-controlled-comparison-source-coverage-repair-design.json`
 - next: `m2025-paper-route-controlled-comparison-source-coverage-repair-design`
+
+## M2025 Paper-Route Controlled Comparison Source Coverage Repair Design
+
+- status: completed
+- decision: `controlled_comparison_source_coverage_repair_design_admit_no_rollout_implementation`
+- doc: `docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md`
+- reset/rollout/measured execution in M2025: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design target: repair T1 source count/source-kind singleton and T2/T3 source-kind share gaps before any routing smoke
+- candidate artifacts: M1983 outcome-support source rows, M1952 calibrated repair source rows, M2009 aggregate audit tables, M2018 admitted candidates, M1680 task-source specs, M1683 workload, M2023 panel sources
+- preservation rule: keep T4/T5 passing coverage unless a later implementation explicitly audits a deduplication need
+- boundary: design only; no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.json`
+- next: `m2026-paper-route-controlled-comparison-source-coverage-repair-implementation`
