@@ -1,0 +1,187 @@
+{
+  "id": "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_valid_core_fresh_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json",
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit two remaining reduced-panel fresh reset failures and synthesize the reduced-panel branch"
+    ],
+    "derived_from": [
+      "m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2091 reset validation failed 2/238 attempts under fresh reset seed base 210100"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "another local obstacle-filter repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2092 must audit M2091 reset counts and two-failure distribution",
+    "M2092 must synthesize the reduced-panel branch before measured execution",
+    "M2092 must not route to another local obstacle-filter repair",
+    "M2092 must decide public-gate-only panel distribution redesign or stop route",
+    "M2092 must not rerun reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_reset_valid_core_panel",
+    "evidence_axis": "Q_reset_valid_core_fresh_reset_failure_synthesis",
+    "evidence_increment": "audits the two remaining reset failures after reduced-panel fresh reset validation",
+    "claim_scope": "reset failure synthesis only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if next route is another local obstacle-filter repair",
+      "stop if audit would rerun reset or rollout",
+      "stop if generated rows are treated as paper-valid tasks",
+      "stop if branch evidence is not synthesized"
+    ],
+    "fallback_plan": [
+      "pivot to public-gate-only panel if all public-gate rows passed",
+      "pivot to scenario-distribution redesign if public-gate-only panel is too narrow",
+      "stop measured execution until a reset-valid panel exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2091 completes fresh reset validation for reduced panel and still fails scenario sampling",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "reset-valid core fresh reset validation result audit and branch synthesis",
+    "admission_evidence": [
+      "M2091 focused tests passed",
+      "M2091 reset_attempt_count 238",
+      "M2091 reset_success_count 236",
+      "M2091 reset_failure_count 2",
+      "M2091 contract metadata forbidden-key and guardrail counts are all 0",
+      "M2091 public-gate reset failures are 0"
+    ],
+    "blocked_shortcuts": [
+      "do not repair and rerun before audit",
+      "do not treat reset failure as driver failure",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
+      "M2092 status queue scoreboard research log and review",
+      "one follow-up manifest for public-gate-only panel, distribution redesign, or stop/pivot route"
+    ],
+    "next_stage_criteria": [
+      "M2091 fail reasons are classified",
+      "reduced-panel branch evidence is synthesized",
+      "public-gate-only option is explicitly accepted or rejected",
+      "next route is explicit and not another local obstacle-filter repair"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2092 audits reset failures only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2092."
+    ],
+    "temporal_evidence_window": "M2091 reset-validation artifacts.",
+    "negative_result_policy": "If reduced-panel reset failures persist, close the branch and pivot rather than weakening claim guards.",
+    "allowed_claims": [
+      "reset-valid core fresh reset-validation failure audit and branch synthesis",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the reduced-panel reset-validity evidence rather than continuing local repair",
+    "paper_verdict_delta": "can decide public-gate-only panel or distribution redesign before measured execution",
+    "must_synthesize_if": [
+      "M2092 attempts to route to another local obstacle-filter repair",
+      "M2092 cannot choose public-gate-only panel distribution redesign or stop route",
+      "M2092 treats generated rows as paper-valid measured-execution tasks"
+    ]
+  },
+  "hypothesis": "M2091's 2 remaining public-debug failures show the reduced 238-row panel is not fresh-seed stable, while the public-gate subset may be a viable reset-valid core.",
+  "success_criteria": [
+    "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md exists",
+    "M2091 reset counts and fail reasons are audited",
+    "reduced-panel branch evidence is synthesized",
+    "failure taxonomy is explicit",
+    "next route is explicit and is not another local obstacle-filter repair",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2091 failure reason is not classified",
+    "branch synthesis questions are not answered",
+    "next route is ambiguous",
+    "next route is another local obstacle-filter repair",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight artifacts and write M2092 result audit plus branch synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_valid_core_fresh_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json",
+    "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md"
+  ],
+  "decision_rule": "M2092 passes if it classifies M2091 failure, synthesizes the branch, and selects a pivot stop public-gate-only or distribution-redesign route without overclaiming.",
+  "next_blocker": "m2093-selected-by-m2092-synthesis"
+}

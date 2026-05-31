@@ -36658,3 +36658,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gate: M2091 needs `238/238` reset successes, finite observations `238`, obstacles initialized `238`, contract/metadata/forbidden-key/guardrail `0`, and no policy action or rollout
 - follow-up manifest: `experiments/manifests/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.json`
 - next: `m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run`
+
+## M2091 Paper-Route Outcome-Supported Decisive Reset-Valid Core Reset Validation Implementation and Run
+
+- status: completed
+- decision: `reset_valid_core_reset_validation_fail_route_to_result_audit`
+- run artifact: `runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M2091: reset-only `true`, rollout/measured `false`
+- policy actions executed in M2091: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_validation_preflight_fail`
+- reset attempts/success/failure: `238/236/2`
+- observation finite/obstacle initialized counts: `236/236`
+- failure class: `2` obstacle scenario sampling failures under fresh seed base `210100`
+- failing task IDs: `m2063-osd-osd_v0_0070_t2`, `m2063-osd-osd_v0_0129_t3`
+- failure slice: public-debug rows, late obstacle distance, generous road width, moderate curvature, mixed mu, low initial speed
+- contract/metadata/forbidden-key/guardrail counts: `0/0/0/0`
+- interpretation: reduced panel is still not fresh-seed stable; all `96` public-gate rows reset successfully
+- follow-up manifest: `experiments/manifests/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.json`
+- next: `m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit`
