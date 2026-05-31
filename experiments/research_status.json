@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2016,
+    "completed": 2017,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
+    "command_log": "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit"
+    "task_id": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.json",
-    "hypothesis": "A fresh measured execution rerun command can now be frozen after selection quota compatibility repair.",
-    "id": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze fresh measured execution rerun command after selection quota compatibility repair",
-    "priority": 20030,
+    "command": "see experiments/manifests/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.json",
+    "hypothesis": "The repaired outcome-support workload can now complete 960 measured execution rows after selection quota compatibility repair.",
+    "id": "m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2",
+    "kind": "infrastructure",
+    "notes": "Pending: run only frozen M2008 measured execution command; interpretation deferred to M2010 audit",
+    "priority": 20040,
     "status": "pending",
-    "success_artifact": "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md"
+    "success_artifact": "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/summary.json"
   },
-  "updated_at_utc": "20260531T140619Z"
+  "updated_at_utc": "20260531T140831Z"
 }

@@ -34921,3 +34921,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit fresh measured execution rerun command design in a new output directory
 - follow-up manifest: `experiments/manifests/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.json`
 - next: `m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design`
+
+## M2008 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Execution Rerun V2 Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design_admit_execution`
+- doc: `docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md`
+- executable specs: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json`
+- planned workload: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv`
+- measured execution in M2008: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- command: freeze M2009 measured execution rerun with output `runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat`, eval seed base `200900`, target episodes `960`, target specs `80`, target profiles `12`, CPU device, and workload-derived quota gates
+- route: M2009 may run only the frozen command; interpretation remains deferred to M2010 audit
+- follow-up manifest: `experiments/manifests/m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2.json`
+- next: `m2009-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2`

@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M2008 freezes exact M2009 fresh measured execution rerun command after selection quota compatibility repair",
+  "failure_criteria": [
+    "command document is missing",
+    "command is ambiguous",
+    "input or output artifacts are ambiguous",
+    "real measured execution is run in M2008",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T141031Z",
+  "hypothesis": "A fresh measured execution rerun command can now be frozen after selection quota compatibility repair.",
+  "lineage": {
+    "blocked_by": [
+      "real measured execution must be rerun in a fresh output directory after compatibility repair"
+    ],
+    "derived_from": [
+      "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_objective": [
+      "freeze fresh measured execution rerun command after selection quota compatibility repair"
+    ],
+    "supersedes": [
+      "rerunning into M2003 failure directory"
+    ]
+  },
+  "milestone": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
+  "next_blocker": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design_admit_execution",
+  "public_gates": [
+    "M2008 must freeze exact measured execution rerun command after compatibility repair",
+    "M2008 must use a fresh M2009 output directory",
+    "M2008 must not run real measured execution",
+    "M2008 must keep ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design_admit_execution",
+    "milestone": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
+    "reason": "M2008 freezes exact M2009 fresh measured execution rerun command after selection quota compatibility repair",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md exists",
+    "exact command is specified",
+    "input artifacts are fixed",
+    "output directory is fresh",
+    "pass gates are specified",
+    "no real measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
