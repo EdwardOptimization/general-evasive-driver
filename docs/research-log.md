@@ -34514,3 +34514,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit bounded materialization design from supported rows only; exclude unsupported rows and keep ranking/paper/self-ID blocked
 - follow-up manifest: `experiments/manifests/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.json`
 - next: `m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design`
+
+## M1985 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Materialization Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_materialization_design_admit_implementation`
+- doc: `docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md`
+- materialization execution in M1985: `false`
+- reset/rollout/measured execution in M1985: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: select `80` supported source rows from M1983 and plan `12` profiles per source for `960` workload rows; exclude unsupported rows; keep mitigation-metric isolation as diagnostic-only
+- repair-axis quotas: offtrack-anchor `24`, offtrack-boundary `16`, success-support `20`, collision-mitigation `12`, mitigation-metric isolation `8`
+- route: admit no-reset materialization preflight implementation before reset validation or measured execution
+- follow-up manifest: `experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json`
+- next: `m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation`

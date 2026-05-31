@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M1985 designs 80-source 960-workload no-reset materialization subset from M1983 supported rows with unsupported rows excluded",
+  "failure_criteria": [
+    "design document is missing",
+    "source quota design is ambiguous",
+    "unsupported row exclusion is missing",
+    "next route is ambiguous",
+    "materialization reset rollout ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun source mining",
+    "do not materialize executable specs",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T124028Z",
+  "hypothesis": "A bounded materialization subset can be designed from M1983 supported source rows while excluding unsupported rows and preserving claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M1984 admits materialization design but subset quotas and representative-cell rules are not designed yet"
+    ],
+    "derived_from": [
+      "m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_source_rows.csv",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_accepted_cells.csv"
+    ],
+    "parent_objective": [
+      "design bounded materialization subset from M1983 supported source rows"
+    ],
+    "supersedes": [
+      "materializing every M1983 accepted cell",
+      "direct reset validation from source-mining artifacts"
+    ]
+  },
+  "milestone": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design",
+  "next_blocker": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_materialization_design_admit_implementation",
+  "public_gates": [
+    "M1985 must design materialization without running materialization reset rollout or measured execution",
+    "M1985 must select only supported M1983 rows and exclude unsupported rows",
+    "M1985 must define source quotas representative-cell rules and output schema",
+    "M1985 must keep controller ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_materialization_design_admit_implementation",
+    "milestone": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design",
+    "reason": "M1985 designs 80-source 960-workload no-reset materialization subset from M1983 supported rows with unsupported rows excluded",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md exists",
+    "selected-source quota design is explicit",
+    "representative-cell rules are explicit",
+    "unsupported rows are excluded",
+    "next implementation manifest is created",
+    "no materialization reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

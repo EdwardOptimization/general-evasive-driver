@@ -1,0 +1,187 @@
+{
+  "id": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_source_rows.csv",
+      "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_accepted_cells.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-reset materialization preflight for the bounded outcome-support subset"
+    ],
+    "derived_from": [
+      "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design"
+    ],
+    "blocked_by": [
+      "M1985 admits materialization implementation but no executable specs have been produced"
+    ],
+    "supersedes": [
+      "manual materialization from M1983 accepted cells"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+  "public_gates": [
+    "M1986 must implement only no-reset materialization preflight",
+    "M1986 must select 80 supported source rows and produce 960 planned workload rows",
+    "M1986 must preserve human-view contract checks",
+    "M1986 must keep reset rollout measured execution ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun source mining",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_materialization",
+    "evidence_increment": "implements no-reset materialization preflight for the bounded M1985 subset",
+    "claim_scope": "materialization preflight only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if selected source quotas fail",
+      "stop if contract violations are nonzero",
+      "stop if materialization would require reset rollout or profile tuning"
+    ],
+    "fallback_plan": [
+      "route to materialization audit regardless of pass or fail",
+      "route to design repair if selected source quotas are impossible",
+      "route to branch synthesis if materialization repeats task-quality failure"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1985 admitted materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated repaired outcome-support materialization implementation",
+    "admission_evidence": [
+      "M1985 defines 80-source 960-workload materialization design and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not reset environments",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py",
+      "tests/test_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/*",
+      "docs/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.md",
+      "M1986 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "materialization command completes",
+      "80 executable specs and 960 workload rows exist",
+      "contract and guardrail counts are zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization preflight does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1986."
+    ],
+    "temporal_evidence_window": "M1985 materialization design.",
+    "negative_result_policy": "If materialization fails, audit before quota repair or reset validation.",
+    "allowed_claims": [
+      "task-quality calibrated repaired outcome-support materialization preflight",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates an executable-spec panel for later reset validation and measured execution",
+    "paper_verdict_delta": "can admit reset command design if materialization passes but cannot rank controllers",
+    "must_synthesize_if": [
+      "M1986 cannot materialize the 80-source subset",
+      "M1986 has nonzero contract violations",
+      "M1986 would proceed directly to measured execution"
+    ]
+  },
+  "hypothesis": "The M1985 bounded subset can be materialized into 80 executable specs and 960 planned workload rows with clean contract and guardrails.",
+  "success_criteria": [
+    "focused materialization tests pass",
+    "summary.json exists in the M1986 output directory",
+    "selected_source_count equals 80",
+    "executable_task_spec_count equals 80",
+    "planned_workload_rows equals 960",
+    "selected_unsupported_source_count equals 0",
+    "materialization_failure_count equals 0",
+    "contract_violation_count equals 0",
+    "repair-axis selected quotas match M1985",
+    "guardrail_violation_count equals 0"
+  ],
+  "failure_criteria": [
+    "materialization implementation is missing",
+    "summary or executable specs are missing",
+    "selected source count differs from 80",
+    "planned workload rows differ from 960",
+    "unsupported rows are selected",
+    "contract violations are nonzero",
+    "environment reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py"
+    },
+    {
+      "name": "materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_outcome_support_materialization_preflight --source-rows runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_source_rows.csv --accepted-cells runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/outcome_support_accepted_cells.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight --next-blocker m1987-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md",
+    "runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json"
+  ],
+  "decision_rule": "M1986 passes if it implements and runs no-reset materialization preflight with 80 clean executable specs and 960 planned workload rows.",
+  "next_blocker": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation"
+}

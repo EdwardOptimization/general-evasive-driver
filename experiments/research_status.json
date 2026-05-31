@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1993,
+    "completed": 1994,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md",
+    "command_log": "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit"
+    "task_id": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.json",
-    "hypothesis": "A bounded materialization subset can be designed from M1983 supported source rows while excluding unsupported rows and preserving claim boundaries.",
-    "id": "m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded materialization subset from M1983 supported source rows",
-    "priority": 19800,
+    "command": "see experiments/manifests/m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation.json",
+    "hypothesis": "The M1985 bounded subset can be materialized into 80 executable specs and 960 planned workload rows with clean contract and guardrails.",
+    "id": "m1986-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-reset materialization preflight for bounded outcome-support subset",
+    "priority": 19810,
     "status": "pending",
-    "success_artifact": "docs/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.md"
+    "success_artifact": "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T123515Z"
+  "updated_at_utc": "20260531T123814Z"
 }
