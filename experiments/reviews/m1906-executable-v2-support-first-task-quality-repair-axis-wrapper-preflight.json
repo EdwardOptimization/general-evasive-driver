@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1906 dry-runs the wrapper on the real M1902 matrix with 960 planned rollout rows 576 import-postprocess rows 1536 combined rows failure 0 and no rollout or ranking",
+  "failure_criteria": [
+    "preflight runs environment reset or rollout",
+    "summary artifact is missing",
+    "planned/import counts do not match M1904",
+    "source episode joins fail",
+    "metadata validation fails",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T054725Z",
+  "hypothesis": "The M1905 wrapper can dry-run the real M1902 repair-axis matrix with 960 planned rollout rows, 576 import/postprocess rows, and zero join or metadata failures.",
+  "lineage": {
+    "blocked_by": [
+      "M1905 focused tests passed but the real M1902 matrix has not been preflighted through the wrapper"
+    ],
+    "derived_from": [
+      "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_wrapper_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "run the no-rollout wrapper dry-run/preflight over the real M1902 matrix"
+    ],
+    "supersedes": [
+      "direct measured execution without wrapper preflight"
+    ]
+  },
+  "milestone": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight",
+  "next_blocker": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_repair_axis_wrapper_preflight_pass_route_to_result_audit",
+  "public_gates": [
+    "M1906 must run only the wrapper dry-run/preflight over the real M1902 matrix",
+    "M1906 must write summary planned rollout import/postprocess combined panel and aggregate artifacts",
+    "M1906 must not run environment reset rollout measured execution training replay PPO private holdout controller ranking paper claims or level3 self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_repair_axis_wrapper_preflight_pass_route_to_result_audit",
+    "milestone": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight",
+    "reason": "M1906 dry-runs the wrapper on the real M1902 matrix with 960 planned rollout rows 576 import-postprocess rows 1536 combined rows failure 0 and no rollout or ranking",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json exists",
+    "planned rollout row count is 960",
+    "import/postprocess row count is 576",
+    "combined panel row count is 1536",
+    "failure count is zero",
+    "guardrail claims remain false"
+  ],
+  "type": "infrastructure"
+}

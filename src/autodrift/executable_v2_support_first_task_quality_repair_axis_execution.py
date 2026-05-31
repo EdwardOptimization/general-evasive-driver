@@ -28,7 +28,7 @@ DEFAULT_TASK_QUALITY_REPAIR_AXIS_MATRIX = Path(
 )
 DEFAULT_SOURCE_EPISODE_ROWS = Path("runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv")
 DEFAULT_OUTPUT_DIR = Path("runs/m1905_executable_v2_support_first_task_quality_repair_axis_execution_preflight")
-DEFAULT_NEXT_BLOCKER = "m1906-executable-v2-support-first-task-quality-repair-axis-execution-command-design"
+DEFAULT_NEXT_BLOCKER = "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
 
 ROLLOUT_ROW_KIND = "rollout_geometry_variant"
 IMPORT_ROW_KIND = "import_existing_episode"

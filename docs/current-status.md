@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation
+m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight
 ```
 
 Current next task:
 
 ```text
-m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight
+m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -169,7 +169,11 @@ dry-run/preflight wrapper layer and focused tests (`3 passed`): row splitting,
 planned rollout metadata, import/postprocess joins, near-miss recomputation,
 and summary/aggregate writing are covered on synthetic rows. M1906 must now run
 only the no-rollout dry-run/preflight over the real M1902 matrix before any
-measured execution design or rollout.
+measured execution design or rollout. M1906 ran that preflight and passed:
+`960` planned rollout rows, `576` import/postprocess rows, `1536` combined rows,
+failure count `0`, no reset/rollout/measured execution, and ranking still
+blocked. M1907 must audit this preflight before any measured execution command
+design.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

@@ -173,5 +173,5 @@
     "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv"
   ],
   "decision_rule": "M1906 passes if the wrapper dry-run/preflight produces count-complete artifacts with zero failures and no rollout.",
-  "next_blocker": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight"
+  "next_blocker": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
 }

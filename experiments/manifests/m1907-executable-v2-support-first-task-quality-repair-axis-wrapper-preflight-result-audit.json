@@ -1,0 +1,162 @@
+{
+  "id": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_wrapper_preflight_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.md",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/planned_rollout_rows.csv",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/import_postprocess_episode_rows.csv",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.json"
+    ],
+    "parent_objective": [
+      "audit the wrapper preflight before measured execution command design"
+    ],
+    "derived_from": [
+      "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight"
+    ],
+    "blocked_by": [
+      "M1906 preflight must be audited before any measured execution command design"
+    ],
+    "supersedes": [
+      "direct measured execution after wrapper preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md",
+  "public_gates": [
+    "M1907 must audit M1906 count gates join failures output artifacts and guardrails",
+    "M1907 must decide whether to route to measured execution command design helper repair or synthesis",
+    "M1907 must not run environment reset rollout measured execution training replay PPO private holdout controller ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clearance_containment_task_quality_repair_axis",
+    "evidence_axis": "Q_task_quality_repair_axis_wrapper_preflight_result_audit",
+    "evidence_increment": "audits real-matrix wrapper preflight before any measured execution command design",
+    "claim_scope": "result audit only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1906 count or join gates fail",
+      "stop if preflight artifacts are incomplete",
+      "stop if measured execution command design would proceed without audit"
+    ],
+    "fallback_plan": [
+      "route to measured execution command design if preflight is clean",
+      "route to helper repair if preflight artifacts fail",
+      "route to branch synthesis if failure is structural"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1906 generated real-matrix wrapper preflight artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit wrapper preflight result",
+    "admission_evidence": [
+      "M1906 produced preflight artifacts with summary result pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1907 audit document",
+      "M1907 status queue scoreboard research log and review",
+      "one follow-up manifest for command design helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "preflight integrity is audited",
+      "next route is explicit",
+      "ranking remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; wrapper preflight audit does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1907."
+    ],
+    "temporal_evidence_window": "M1906 preflight artifacts only.",
+    "negative_result_policy": "If preflight audit fails, route to helper repair or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis wrapper preflight result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a real-matrix wrapper preflight artifact rather than another wrapper tweak",
+    "paper_verdict_delta": "can admit or block measured execution command design",
+    "must_synthesize_if": [
+      "M1906 preflight is structurally invalid",
+      "the next route would be another wrapper tweak without audit",
+      "preflight audit cannot preserve baseline provenance"
+    ]
+  },
+  "hypothesis": "M1906 preflight can be audited as clean enough to admit measured execution command design while keeping ranking blocked.",
+  "success_criteria": [
+    "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md exists",
+    "audit verifies M1906 count gates failure count artifacts and guardrails",
+    "audit chooses measured execution command design helper repair or synthesis",
+    "controller ranking and paper claims remain blocked unless a later design admits them"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset rollout measured execution training replay or PPO",
+    "audit ranks controller families from M1906 preflight",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_wrapper_preflight_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.md",
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json"
+  ],
+  "decision_rule": "M1907 passes if it audits M1906 and selects measured execution command design, helper repair, or synthesis without ranking.",
+  "next_blocker": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
+}
