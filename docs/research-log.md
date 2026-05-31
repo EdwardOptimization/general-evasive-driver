@@ -33723,3 +33723,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocker: off-track dominance remains the primary task-quality blocker; direct ranking remains blocked
 - follow-up manifest: `experiments/manifests/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.json`
 - next: `m1943-executable-v2-task-quality-measured-outcome-localization-result-audit`
+
+## M1943 Executable V2 Task-Quality Measured Outcome Localization Result Audit
+
+- status: completed
+- decision: `task_quality_measured_outcome_localization_audit_route_to_offtrack_support_repair`
+- doc: `docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md`
+- audited summary: `runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json`
+- completed branch segment: `paper_route_task_quality_measured_outcome_localization`
+- next branch: `paper_route_task_quality_offtrack_support_repair`
+- reset/rollout/measured execution in M1943: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1942 is complete and guardrail-clean but not comparison-ready
+- comparison readiness: `comparison_ready_candidate_count=0`, `comparison_support_candidate_count=2`
+- candidate-support slices: tier C stable AEB AEB-feasible post-friction-step and steady-surface, both with `5/24` success and `0.75` offtrack outcome rate
+- L2 interpretation: `0` L2 successes and `136` same-slice non-L2-success/L2-zero patterns remain diagnostic only, not a finite-window vs GRU conclusion
+- route: design off-track support repair before any new measured execution or ranking
+- follow-up manifest: `experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json`
+- next: `m1944-executable-v2-task-quality-offtrack-support-repair-design`

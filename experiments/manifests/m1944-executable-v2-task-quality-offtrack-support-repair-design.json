@@ -1,0 +1,164 @@
+{
+  "id": "m1944-executable-v2-task-quality-offtrack-support-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/comparison_support_candidates.csv",
+      "runs/m1942_executable_v2_task_quality_measured_outcome_localization/offtrack_dominance_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a task-quality offtrack-support repair branch before any new measured execution"
+    ],
+    "derived_from": [
+      "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M1943 rejected comparison design because M1942 found zero comparison-ready slices"
+    ],
+    "supersedes": [
+      "continuing localization without repair",
+      "direct controller ranking from M1938/M1942"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+  "public_gates": [
+    "M1944 must design off-track support repair without running environment interaction",
+    "M1944 must identify positive support anchors and off-track repair levers",
+    "M1944 must keep profile tuning and controller ranking blocked",
+    "M1944 must define next materialization or preflight pass gates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_repair_design",
+    "evidence_increment": "starts a new branch to repair off-track-dominated task support before comparison",
+    "claim_scope": "design only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if off-track repair levers are ambiguous",
+      "stop if design would tune controller profiles instead of task quality",
+      "stop if design would rank profiles from M1942 diagnostic slices"
+    ],
+    "fallback_plan": [
+      "route to support collection if direct off-track repair is not well defined",
+      "route to scenario redesign if candidate-support anchors are insufficient",
+      "route to branch synthesis if the repair plan becomes another local search loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1943 route decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality offtrack support repair design",
+    "admission_evidence": [
+      "M1943 routes away from ranking toward off-track support repair because M1942 has zero comparison-ready slices and off-track dominance"
+    ],
+    "blocked_shortcuts": [
+      "do not run new environment interaction",
+      "do not tune controller profiles",
+      "do not claim ranking or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+      "M1944 status queue scoreboard research log and review",
+      "one follow-up manifest for selected repair materialization or preflight"
+    ],
+    "next_stage_criteria": [
+      "positive support anchors are explicit",
+      "off-track repair levers are explicit",
+      "pass gates before new execution are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; task-quality repair design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1944."
+    ],
+    "temporal_evidence_window": "M1938 measured execution and M1942 localization artifacts.",
+    "negative_result_policy": "If off-track repair cannot be designed without profile tuning, route to broader scenario redesign.",
+    "allowed_claims": [
+      "task-quality offtrack support repair design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from localization to a new task-quality repair branch with explicit support anchors",
+    "paper_verdict_delta": "can define the task-quality conditions needed before any controller-family comparison is meaningful",
+    "must_synthesize_if": [
+      "M1944 cannot define off-track repair levers",
+      "M1944 would tune profiles or rank controllers",
+      "M1944 would start another narrow localization-only loop"
+    ]
+  },
+  "hypothesis": "A focused off-track support repair design can turn M1942 candidate-support diagnostics into a pre-registered task-quality repair route without ranking or profile tuning.",
+  "success_criteria": [
+    "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md exists",
+    "positive support anchors are listed",
+    "off-track repair levers are listed",
+    "next materialization or preflight route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "positive support anchors are ambiguous",
+    "repair levers are ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
+    "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1944 passes if it designs a non-ranking off-track support repair route with explicit anchors, levers, and pass gates.",
+  "next_blocker": "m1944-executable-v2-task-quality-offtrack-support-repair-design"
+}

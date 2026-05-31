@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1951,
+    "completed": 1952,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1942_executable_v2_task_quality_measured_outcome_localization/summary.json",
+    "command_log": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1942_executable_v2_task_quality_measured_outcome_localization",
+    "run_dir": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md",
     "status": "completed",
-    "task_id": "m1942-executable-v2-task-quality-measured-outcome-localization-implementation-and-run"
+    "task_id": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.json",
-    "hypothesis": "M1942 localization results are sufficient to choose the next route without direct ranking or rerun.",
-    "id": "m1943-executable-v2-task-quality-measured-outcome-localization-result-audit",
+    "command": "see experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json",
+    "hypothesis": "A focused off-track support repair design can turn M1942 candidate-support diagnostics into a pre-registered task-quality repair route without ranking or profile tuning.",
+    "id": "m1944-executable-v2-task-quality-offtrack-support-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M1942 localization result and route next work without ranking or overclaiming L2 diagnostic pattern",
-    "priority": 19380,
+    "notes": "Pending: design off-track support repair route using M1942 candidate-support anchors while keeping controller ranking blocked",
+    "priority": 19390,
     "status": "pending",
-    "success_artifact": "docs/m1943-executable-v2-task-quality-measured-outcome-localization-result-audit.md"
+    "success_artifact": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md"
   },
-  "updated_at_utc": "20260531T090153Z"
+  "updated_at_utc": "20260531T090654Z"
 }
