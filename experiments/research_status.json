@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1941,
+    "completed": 1942,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+    "command_log": "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m1932-executable-v2-task-quality-reset-validation-command-design.md",
+    "run_dir": "runs/m1933_executable_v2_task_quality_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m1932-executable-v2-task-quality-reset-validation-command-design"
+    "task_id": "m1933-executable-v2-task-quality-reset-validation-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1933-executable-v2-task-quality-reset-validation-preflight.json",
-    "hypothesis": "The M1928 80-spec redesigned public task-quality panel is reset-valid under the current simulator and strict human-view contract.",
-    "id": "m1933-executable-v2-task-quality-reset-validation-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen reset-only validation over 80 M1928 specs with no rollout ranking paper or self-ID claims",
-    "priority": 19280,
+    "command": "see experiments/manifests/m1934-executable-v2-task-quality-reset-validation-result-audit.json",
+    "hypothesis": "The M1933 reset pass is clean enough to admit measured rollout design while keeping ranking and paper claims blocked.",
+    "id": "m1934-executable-v2-task-quality-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1933 reset pass and decide whether measured rollout design is admissible without ranking paper or self-ID claims",
+    "priority": 19290,
     "status": "pending",
-    "success_artifact": "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T081405Z"
+  "updated_at_utc": "20260531T081735Z"
 }

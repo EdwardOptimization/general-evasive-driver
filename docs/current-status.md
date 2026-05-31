@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1932-executable-v2-task-quality-reset-validation-command-design
+m1933-executable-v2-task-quality-reset-validation-preflight
 ```
 
 Current next task:
 
 ```text
-m1933-executable-v2-task-quality-reset-validation-preflight
+m1934-executable-v2-task-quality-reset-validation-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -286,7 +286,12 @@ must run the reset-only validator over
 `runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json`
 with seed base `193300`, target spec count `80`, expected observation dim `72`,
 and output dir
-`runs/m1933_executable_v2_task_quality_reset_validation_preflight`.
+`runs/m1933_executable_v2_task_quality_reset_validation_preflight`. M1933 ran
+that reset-only validation and passed: `80/80` reset success, reset failures
+`0`, finite observations `80`, obstacle initialized `80`, contract violations
+`0`, forbidden-key violations `0`, guardrail `0`, and no rollout/action/measured
+execution/training/ranking/paper/self-ID claim. M1934 must now audit the reset
+pass before any measured rollout design.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

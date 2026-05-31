@@ -1,0 +1,162 @@
+{
+  "id": "m1934-executable-v2-task-quality-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/reset_rows.csv",
+      "runs/m1933_executable_v2_task_quality_reset_validation_preflight/contract_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1933-executable-v2-task-quality-reset-validation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit reset-only validation result before measured rollout design"
+    ],
+    "derived_from": [
+      "m1933-executable-v2-task-quality-reset-validation-preflight"
+    ],
+    "blocked_by": [
+      "M1933 reset pass needs claim-boundary audit before measured execution design"
+    ],
+    "supersedes": [
+      "jumping directly from reset pass to controller-family ranking"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+  "public_gates": [
+    "M1934 must audit M1933 counts and guardrails",
+    "M1934 must classify the reset pass as scenario admissibility only",
+    "M1934 must decide whether measured rollout design is admissible",
+    "M1934 must keep controller ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_result_audit",
+    "evidence_increment": "audits whether reset-only evidence admits measured rollout design",
+    "claim_scope": "result audit only; no rollout measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1933 did not actually meet pass gates",
+      "stop if claim boundary would be overstated",
+      "stop if measured rollout design would skip controller-profile workload protocol"
+    ],
+    "fallback_plan": [
+      "route to failure audit if any hidden reset or contract issue is found",
+      "route to measured execution design only if reset pass is clean",
+      "synthesize if branch becomes process-heavy without new measured data"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "fifth milestone of reset execution branch after M1930-M1933",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality reset validation result audit",
+    "admission_evidence": [
+      "M1933 reset validation preflight passed with 80/80 reset success and zero guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout measured execution training replay PPO",
+      "do not rank controller families",
+      "do not treat reset success as driver performance"
+    ],
+    "allowed_updates": [
+      "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+      "M1934 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution design or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M1933 pass gates are confirmed",
+      "claim boundary is explicit",
+      "next measured execution design route is explicit if admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset result audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1934."
+    ],
+    "temporal_evidence_window": "M1933 reset-only validation artifacts.",
+    "negative_result_policy": "If audit finds any hidden issue, block measured rollout design and route to failure audit or repair.",
+    "allowed_claims": [
+      "task-quality reset-validation result audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts reset execution data into an explicit next-branch decision",
+    "paper_verdict_delta": "can admit measured rollout design but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M1934 cannot decide whether measured rollout design is admitted",
+      "M1934 discovers reset evidence is incomplete",
+      "M1934 would overclaim reset-only evidence"
+    ]
+  },
+  "hypothesis": "The M1933 reset pass is clean enough to admit measured rollout design while keeping ranking and paper claims blocked.",
+  "success_criteria": [
+    "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md exists",
+    "M1933 pass gates are checked",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M1933 counts are not checked",
+    "claim boundary is ambiguous",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1934-executable-v2-task-quality-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M1934 passes if it audits M1933 as clean reset evidence and records the next route without overclaiming.",
+  "next_blocker": "m1934-executable-v2-task-quality-reset-validation-result-audit"
+}

@@ -33498,3 +33498,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_reset_validation_preflight --executable-task-specs runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json --output-dir runs/m1933_executable_v2_task_quality_reset_validation_preflight --eval-seed-base 193300 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1934-executable-v2-task-quality-reset-validation-result-audit`
 - follow-up manifest: `experiments/manifests/m1933-executable-v2-task-quality-reset-validation-preflight.json`
 - next: `m1933-executable-v2-task-quality-reset-validation-preflight`
+
+## M1933 Executable V2 Task-Quality Reset Validation Preflight
+
+- status: completed
+- decision: `task_quality_reset_validation_preflight_pass_route_to_result_audit`
+- doc: `docs/m1933-executable-v2-task-quality-reset-validation-preflight.md`
+- summary: `runs/m1933_executable_v2_task_quality_reset_validation_preflight/summary.json`
+- environment reset started: `true`
+- rollout/measured execution: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `task_quality_reset_validation_preflight_pass`
+- input executable specs: `80`
+- reset attempts: `80`
+- reset successes: `80`
+- reset failures: `0`
+- finite observations: `80`
+- observation dimension failures: `0`
+- obstacle initialized: `80`
+- contract violations: `0`
+- label actor input violations: `0`
+- private holdout count: `0`
+- forbidden key violations: `0`
+- guardrail violations: `0`
+- tier balance: `16` per tier across all `5` tiers
+- role balance: `20` per role across all `4` roles
+- surface balance: `steady_surface=40 post_friction_step=40`
+- sampled label balance: `20` each for `aeb_feasible`, `aes_feasible`, `drift_required`, `unavoidable`
+- follow-up manifest: `experiments/manifests/m1934-executable-v2-task-quality-reset-validation-result-audit.json`
+- next: `m1934-executable-v2-task-quality-reset-validation-result-audit`
