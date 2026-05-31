@@ -35870,3 +35870,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: promote from task-quality repair branch to measured-execution command design branch
 - follow-up manifest: `experiments/manifests/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.json`
 - next: `m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design`
+
+## M2055 Paper-Route Controlled Routing Smoke Task-Quality Repaired Measured Execution Command Design
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repaired_measured_command_design_route_to_existing_runner_execution`
+- doc: `docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md`
+- executable specs: `runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json`
+- planned workload: `runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv`
+- measured execution in M2055: `false`
+- rollout/policy actions in M2055: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- runner audit: existing `autodrift.paper_route_controlled_routing_smoke_measured_runner` accepts explicit specs/workload/counts and preserves controlled-routing-smoke metadata; M2048 workload has required schema
+- frozen command target: `2304` episodes, `192` specs, `12` profiles, eval seed base `205600`, output `runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution`
+- decision: M2056 may run only the frozen measured-execution command; interpretation and ranking remain blocked until M2057 audit
+- follow-up manifest: `experiments/manifests/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.json`
+- next: `m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2063,
+    "completed": 2064,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit.md",
+    "command_log": "docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2054-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-result-audit"
+    "task_id": "m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.json",
-    "hypothesis": "An exact measured-execution route can be designed for the M2048 repaired reset-valid controlled routing-smoke workload while preserving metadata and claim boundaries.",
-    "id": "m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: audit runner compatibility and freeze measured execution command for repaired 2304-row workload",
-    "priority": 20500,
+    "command": "see experiments/manifests/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.json",
+    "hypothesis": "The existing focused controlled-routing-smoke measured runner can execute the 2304-row repaired workload while preserving metadata and guardrail boundaries.",
+    "id": "m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen 2304-row repaired measured execution command",
+    "priority": 20510,
     "status": "pending",
-    "success_artifact": "docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md"
+    "success_artifact": "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260531T195534Z"
+  "updated_at_utc": "20260531T195904Z"
 }

@@ -1,0 +1,177 @@
+{
+  "id": "m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repaired_measured_execution"
+    ],
+    "parent_dataset": [
+      "docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json",
+      "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "run 2304-row measured execution for the repaired controlled routing-smoke workload"
+    ],
+    "derived_from": [
+      "m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "M2055 freezes exact measured-execution command and pass gates"
+    ],
+    "supersedes": [
+      "measured execution over unrepaired M2033 workload for the current branch"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md",
+  "public_gates": [
+    "M2056 must run exactly 2304 planned workload rows if validation passes",
+    "M2056 must preserve failures and not repair/rerun inside the milestone",
+    "M2056 must preserve repaired controlled-routing-smoke metadata",
+    "M2056 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution",
+    "evidence_axis": "Q_repaired_panel_measured_execution",
+    "evidence_increment": "produces measured rollout artifacts for the repaired reset-valid routing-smoke panel",
+    "claim_scope": "measured execution completeness only; no ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if validation fails before rollout",
+      "stop if measured execution has failures",
+      "stop if metadata or metric completeness gates fail",
+      "stop if guardrail violations are nonzero"
+    ],
+    "fallback_plan": [
+      "route to result audit if execution runs",
+      "route to focused runner repair if tests fail before real execution",
+      "route to workload metadata repair if validation fails before rollout"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2055 freezes repaired measured-execution route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repaired measured execution implementation and run",
+    "admission_evidence": [
+      "M2055 freezes exact command and pass gates over reset-valid 2304-row workload"
+    ],
+    "blocked_shortcuts": [
+      "do not rank controller families in M2056",
+      "do not interpret measured execution as paper-level evidence",
+      "do not repair/rerun failures inside the milestone"
+    ],
+    "allowed_updates": [
+      "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution",
+      "docs/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md",
+      "M2056 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary artifact exists",
+      "2304 workload rows are either completed or failure rows explain why not",
+      "guardrail violation count is zero",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2056 measures closed-loop rollout but does not test history necessity or wrong-history interventions.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2056."
+    ],
+    "temporal_evidence_window": "M2048 materialized workload and M2053 reset validation artifacts.",
+    "negative_result_policy": "If measured execution fails or is incomplete, route to result/failure audit; do not rank or repair within M2056.",
+    "allowed_claims": [
+      "repaired controlled routing-smoke measured execution completeness if all gates pass",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "runs measured closed-loop episodes for the repaired reset-valid routing-smoke panel",
+    "paper_verdict_delta": "can produce repaired comparison data but cannot rank controllers until audited",
+    "must_synthesize_if": [
+      "M2056 fails before rollout due a schema issue already identified in M2055",
+      "M2056 produces incomplete execution and the next route would be another runner repair",
+      "M2056 passes and the next step would move to ranking without audit"
+    ]
+  },
+  "hypothesis": "The existing focused controlled-routing-smoke measured runner can execute the 2304-row repaired workload while preserving metadata and guardrail boundaries.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json exists",
+    "result_class is controlled_routing_smoke_measured_execution_pass",
+    "episode_count is 2304",
+    "failure_count is 0",
+    "metric_completeness_failure_count is 0",
+    "guardrail_violation_count is 0",
+    "no controller ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "validation fails before rollout",
+    "measured execution is incomplete",
+    "metadata is dropped",
+    "ranking or paper claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_controlled_routing_smoke_measured_runner.py"
+    },
+    {
+      "name": "run_measured_execution",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_controlled_routing_smoke_measured_runner --executable-task-specs runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json --workload runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv --output-dir runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution --eval-seed-base 205600 --device cpu --target-episode-count 2304 --target-spec-count 192 --target-profile-count 12 --next-blocker m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2056_paper_route_controlled_routing_smoke_task_quality_repaired_measured_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2056-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repaired_measured_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m2055-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-command-design.md",
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/planned_workload.csv",
+    "runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M2056 passes if focused tests and exact 2304-row measured execution pass all metadata metric and guardrail gates, then routes to result audit.",
+  "next_blocker": "m2057-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-result-audit"
+}
