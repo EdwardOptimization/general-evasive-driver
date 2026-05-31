@@ -1,0 +1,156 @@
+{
+  "id": "m1879-executable-v2-support-first-measured-runner-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_measured_runner_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1878-executable-v2-support-first-measured-runner-implementation.md",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json"
+    ],
+    "parent_objective": [
+      "fix exact execution command for the support-first measured runner before real rollout"
+    ],
+    "derived_from": [
+      "m1878-executable-v2-support-first-measured-runner-implementation"
+    ],
+    "blocked_by": [
+      "M1878 implements the runner but does not run the real 2160-episode workload"
+    ],
+    "supersedes": [
+      "direct measured execution without the support-first runner wrapper"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1879-executable-v2-support-first-measured-runner-execution-command-design.md",
+  "public_gates": [
+    "M1879 must fix the exact runner command over M1875 artifacts",
+    "M1879 must define output directory, resume policy, eval seed base, and next blocker",
+    "M1879 must restate pass/fail counters for the later 2160-episode execution",
+    "M1879 must not run measured rollout or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_measured_runner_execution_command",
+    "evidence_increment": "fixes the exact support-first measured runner command and gates for a later public diagnostic rollout",
+    "claim_scope": "execution-command design only; no real measured rollout, training, replay, PPO, promotion, private holdout, ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the command would bypass the support-first runner wrapper",
+      "stop if required M1875 artifacts are missing or incompatible",
+      "stop if pass criteria would allow ranking or paper claims without audit"
+    ],
+    "fallback_plan": [
+      "route to runner repair if command preconditions fail",
+      "route to measured execution if the command design is clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1878 implements support-first measured runner wrapper",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first measured runner execution command design",
+    "admission_evidence": [
+      "M1878 focused tests pass for runner metadata preservation, aggregates, failure rows, and resume behavior"
+    ],
+    "blocked_shortcuts": [
+      "do not run real measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1879 execution command design document",
+      "M1879 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution or runner repair"
+    ],
+    "next_stage_criteria": [
+      "exact command is fixed",
+      "target output artifacts and pass criteria are restated",
+      "no real measured rollout is run"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution-command design is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Design must preserve controller profile identity for later current-response/finite-window/GRU comparisons."
+    ],
+    "temporal_evidence_window": "No rollout in command design.",
+    "negative_result_policy": "If the command cannot preserve support-first metadata, route to runner repair rather than weakening evidence standards.",
+    "allowed_claims": [
+      "support-first measured runner execution command design",
+      "no measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The exact support-first measured runner execution command can be designed over the M1875 workload and M1878 runner while preserving diagnostic-only claim boundaries.",
+  "success_criteria": [
+    "docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md exists",
+    "design states exact command output directory and next blocker",
+    "design restates pass criteria for 2160 episodes 180 specs 12 profiles 4 roles 8 role-surfaces",
+    "design blocks ranking paper-level and level3 self-ID claims",
+    "no measured rollout policy action training replay PPO or ranking is run"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design runs measured rollout or policy actions",
+    "design omits support-first metadata or role-surface aggregates",
+    "design routes directly to controller ranking",
+    "design changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_measured_runner_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1878-executable-v2-support-first-measured-runner-implementation.md",
+    "src/autodrift/executable_v2_support_first_measured_runner_execution.py",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
+    "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+  ],
+  "decision_rule": "M1879 passes if it fixes the exact support-first measured runner execution command and gates without running rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1879-executable-v2-support-first-measured-runner-execution-command-design"
+}

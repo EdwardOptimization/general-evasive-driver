@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1886,
+    "completed": 1887,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1877-executable-v2-support-first-measured-runner-execution-design.md",
+    "command_log": "docs/m1878-executable-v2-support-first-measured-runner-implementation.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1877-executable-v2-support-first-measured-runner-execution-design"
+    "task_id": "m1878-executable-v2-support-first-measured-runner-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json",
-    "hypothesis": "A support-first measured runner wrapper can be implemented by reusing shared one-cell rollout helpers while preserving support-first metadata and diagnostic-only gates.",
-    "id": "m1878-executable-v2-support-first-measured-runner-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement support-first measured runner wrapper and focused tests without real rollout",
-    "priority": 18730,
+    "command": "see experiments/manifests/m1879-executable-v2-support-first-measured-runner-execution-command-design.json",
+    "hypothesis": "The exact support-first measured runner execution command can be designed over the M1875 workload and M1878 runner while preserving diagnostic-only claim boundaries.",
+    "id": "m1879-executable-v2-support-first-measured-runner-execution-command-design",
+    "kind": "gate",
+    "notes": "Pending: fix exact 2160-episode support-first measured runner command and pass criteria before real rollout",
+    "priority": 18740,
     "status": "pending",
-    "success_artifact": "docs/m1878-executable-v2-support-first-measured-runner-implementation.md"
+    "success_artifact": "docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T024015Z"
+  "updated_at_utc": "20260531T025151Z"
 }

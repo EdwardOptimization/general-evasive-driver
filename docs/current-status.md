@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1877-executable-v2-support-first-measured-runner-execution-design
+m1878-executable-v2-support-first-measured-runner-implementation
 ```
 
 Current next task:
 
 ```text
-m1878-executable-v2-support-first-measured-runner-implementation
+m1879-executable-v2-support-first-measured-runner-execution-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -60,10 +60,13 @@ measured runner execution design, but not direct measured rollout. M1877 must
 now design the support-first measured runner route while preserving
 support-first metadata and role-wise diagnostics. M1877 concluded that a
 support-first measured runner wrapper is required before rollout because the
-generic runner would not preserve the new metadata and aggregates. M1878 must
-now implement that wrapper and focused tests without running the real
-2160-episode workload. Policy action execution, measured execution, controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+generic runner would not preserve the new metadata and aggregates. M1878
+implemented that wrapper and focused tests without running the real
+2160-episode workload; it preserves support-first metadata, role-surface
+aggregates, failure rows, and resumability. M1879 must now fix the exact
+2160-episode execution command and pass criteria before any policy-action
+rollout. Policy action execution, measured execution, controller ranking,
+paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

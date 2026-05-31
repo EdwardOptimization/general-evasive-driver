@@ -32159,3 +32159,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json`
 - next: `m1878-executable-v2-support-first-measured-runner-implementation`
+
+## M1878 Executable V2 Support-First Measured Runner Implementation
+
+- status: completed
+- decision: `support_first_measured_runner_implementation_pass_admit_execution_command_design`
+- artifact: `docs/m1878-executable-v2-support-first-measured-runner-implementation.md`
+- runner module: `src/autodrift/executable_v2_support_first_measured_runner_execution.py`
+- focused tests: `tests/test_executable_v2_support_first_measured_runner_execution.py`
+- focused test command: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_measured_runner_execution.py`
+- focused test result: `4 passed in 2.20s`
+- real measured rollout started: `false`
+- policy action executed in M1878: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: support-first measured runner wrapper metadata passthrough aggregates failure rows resumability focused tests
+- unsupported: real 2160-episode measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1879-executable-v2-support-first-measured-runner-execution-command-design.json`
+- next: `m1879-executable-v2-support-first-measured-runner-execution-command-design`
