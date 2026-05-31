@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1915,
+    "completed": 1916,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight.md",
+    "command_log": "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight",
+    "run_dir": "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md",
     "status": "completed",
-    "task_id": "m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight"
+    "task_id": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.json",
-    "hypothesis": "M1906 preflight can be audited as clean enough to admit measured execution command design while keeping ranking blocked.",
-    "id": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit",
+    "command": "see experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json",
+    "hypothesis": "M1901-M1907 contain enough clean task-quality repair-axis and wrapper-preflight evidence to promote into a measured-wrapper implementation branch.",
+    "id": "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M1906 wrapper preflight before measured execution command design",
-    "priority": 19020,
+    "notes": "Pending: synthesize repair-axis branch before any measured-wrapper implementation",
+    "priority": 19030,
     "status": "pending",
-    "success_artifact": "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md"
+    "success_artifact": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T054540Z"
+  "updated_at_utc": "20260531T054852Z"
 }

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1906-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight
+m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit
+m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -173,7 +173,12 @@ measured execution design or rollout. M1906 ran that preflight and passed:
 `960` planned rollout rows, `576` import/postprocess rows, `1536` combined rows,
 failure count `0`, no reset/rollout/measured execution, and ranking still
 blocked. M1907 must audit this preflight before any measured execution command
-design.
+design. M1907 audited the preflight as clean split/join/count evidence, but
+blocked direct command design because the current wrapper still produces
+planned rollout rows rather than executed rollout rows. The local-search guard
+also blocked opening another implementation milestone on the same branch. M1908
+must now synthesize M1901-M1907 and decide whether to promote into a measured
+wrapper implementation branch.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

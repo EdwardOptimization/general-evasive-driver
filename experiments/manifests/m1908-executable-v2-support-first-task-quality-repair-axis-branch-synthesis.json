@@ -1,0 +1,188 @@
+{
+  "id": "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+      "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+      "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+      "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+      "docs/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1901-executable-v2-support-first-task-quality-repair-axis-design.json",
+      "experiments/manifests/m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the task-quality repair-axis branch before continuing to measured-wrapper implementation"
+    ],
+    "derived_from": [
+      "m1901-executable-v2-support-first-task-quality-repair-axis-design",
+      "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "local_search_guard branch counter reached the non-evidence milestone limit after M1907"
+    ],
+    "supersedes": [
+      "direct measured-wrapper implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+  "public_gates": [
+    "M1908 must synthesize M1901-M1907 before any measured-wrapper implementation",
+    "M1908 must answer the required synthesis questions",
+    "M1908 must decide continue pivot stop or promote_to_next_branch",
+    "M1908 must keep reset rollout measured execution training replay PPO private holdout controller ranking paper claims and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clearance_containment_task_quality_repair_axis",
+    "evidence_axis": "Q_task_quality_repair_axis_branch_synthesis",
+    "evidence_increment": "synthesizes M1901-M1907 design materialization wrapper and preflight evidence before opening measured-wrapper work",
+    "claim_scope": "branch synthesis only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the branch has not produced enough evidence for measured-wrapper implementation",
+      "stop if the branch should pivot back to task-quality materialization repair",
+      "stop if measured execution would still be ambiguous"
+    ],
+    "fallback_plan": [
+      "promote to a measured-wrapper implementation branch if synthesis supports it",
+      "pivot to helper repair if metadata or preflight gaps remain",
+      "stop and require branch redesign if public-gate overfit risk is too high"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local_search_guard blocked another non-evidence milestone after M1907",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality repair-axis branch synthesis",
+    "admission_evidence": [
+      "M1901-M1907 produced a repair-axis design, materialized matrix, wrapper implementation, and real-matrix preflight"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1908 synthesis document",
+      "M1908 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "next branch decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis is task-quality and execution infrastructure.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1908."
+    ],
+    "temporal_evidence_window": "M1901-M1907 public artifacts only.",
+    "negative_result_policy": "If synthesis finds incomplete task-quality infrastructure, route to repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "task-quality repair-axis branch synthesis and continuation decision",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes accumulated branch evidence instead of opening another implementation milestone",
+    "paper_verdict_delta": "can decide whether measured-wrapper implementation is justified as a new branch",
+    "must_synthesize_if": [
+      "this milestone cannot answer the synthesis questions",
+      "next branch decision is ambiguous",
+      "public-gate overfit risk cannot be assessed"
+    ]
+  },
+  "hypothesis": "M1901-M1907 contain enough clean task-quality repair-axis and wrapper-preflight evidence to promote into a measured-wrapper implementation branch.",
+  "success_criteria": [
+    "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md exists",
+    "synthesis answers all required questions",
+    "synthesis chooses continue pivot stop or promote_to_next_branch",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis omits required questions",
+    "synthesis runs reset rollout measured execution training replay or PPO",
+    "synthesis changes actor inputs or tunes controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json"
+  ],
+  "decision_rule": "M1908 passes if it synthesizes M1901-M1907 and selects a next route without running reset rollout ranking or paper-level claims.",
+  "next_blocker": "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis"
+}
