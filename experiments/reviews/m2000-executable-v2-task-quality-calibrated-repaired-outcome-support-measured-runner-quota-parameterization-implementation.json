@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M2000 implements workload-derived measured-runner expected quotas missing metadata fail-closed artifact and focused tests pass 4 without real measured execution",
+  "failure_criteria": [
+    "focused tests fail",
+    "quota checks are silently disabled",
+    "missing quota metadata passes",
+    "real measured execution rollout ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout except focused fake-rollout unit tests",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T134701Z",
+  "hypothesis": "Artifact-driven quota expectations from active workload rows will preserve measured-runner quota checking while accepting active panels with intentional repaired distributions.",
+  "lineage": {
+    "blocked_by": [
+      "calibrated measured runner hard-codes old source-kind and role-surface quota expectations"
+    ],
+    "derived_from": [
+      "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design",
+      "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_parameterization_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+      "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "tests"
+    ],
+    "parent_objective": [
+      "implement artifact-driven quota expectations for calibrated measured runner"
+    ],
+    "supersedes": [
+      "direct M1986 measured execution with stale measured-runner quota expectations"
+    ]
+  },
+  "milestone": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation",
+  "next_blocker": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_measured_runner_quota_parameterization_implementation_pass_route_to_audit",
+  "public_gates": [
+    "M2000 must implement artifact-driven measured-runner quota expectations from active workload rows",
+    "M2000 must add focused tests for non-legacy workload quota distributions",
+    "M2000 must preserve fail-closed behavior for missing quota metadata",
+    "M2000 must not run the real 960-row measured execution"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_measured_runner_quota_parameterization_implementation_pass_route_to_audit",
+    "milestone": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation",
+    "reason": "M2000 implements workload-derived measured-runner expected quotas missing metadata fail-closed artifact and focused tests pass 4 without real measured execution",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "measured runner computes expected source-kind counts from workload rows by default",
+    "measured runner computes expected role-surface counts from workload rows by default",
+    "summary includes expected quota source and expected counts",
+    "missing quota metadata fails closed",
+    "focused tests pass",
+    "no real 960-row measured execution is performed"
+  ],
+  "type": "infrastructure"
+}

@@ -55,6 +55,19 @@ EXPECTED_ROLE_SURFACE_COUNTS = {
     "success_stabilizer|unavoidable_mitigation|post_friction_step": 12,
     "success_stabilizer|unavoidable_mitigation|steady_surface": 36,
 }
+QUOTA_METADATA_FIELDS = (
+    "repair_source_kind",
+    "source_role_semantics",
+    "normalized_surface_variant",
+)
+QUOTA_METADATA_MISSING_FIELDNAMES = [
+    "row_index",
+    "workload_id",
+    "task_source_id",
+    "profile_name",
+    "missing_quota_fields",
+    *QUOTA_METADATA_FIELDS,
+]
 SUMMARY_SELECTED_METRICS = (
     "success",
     "collision",
@@ -137,6 +150,35 @@ def _group_counts(rows: Iterable[Mapping[str, Any]], keys: tuple[str, ...]) -> d
     for row in rows:
         counts["|".join(str(row.get(key, "")) for key in keys)] += 1
     return dict(sorted(counts.items()))
+
+
+def quota_metadata_missing_rows(rows: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    missing_rows: list[dict[str, Any]] = []
+    for index, row in enumerate(rows):
+        missing_fields = [field for field in QUOTA_METADATA_FIELDS if not str(row.get(field, "")).strip()]
+        if not missing_fields:
+            continue
+        missing_rows.append(
+            {
+                "row_index": int(index),
+                "workload_id": str(row.get("workload_id", "")),
+                "task_source_id": str(row.get("task_source_id", "")),
+                "profile_name": str(row.get("profile_name", "")),
+                "missing_quota_fields": ",".join(missing_fields),
+                **{field: str(row.get(field, "")) for field in QUOTA_METADATA_FIELDS},
+            }
+        )
+    return missing_rows
+
+
+def expected_quota_counts_from_workload(
+    workload_rows: list[Mapping[str, Any]],
+) -> tuple[dict[str, int], dict[str, int], list[dict[str, Any]]]:
+    return (
+        _count_by(workload_rows, "repair_source_kind"),
+        _group_counts(workload_rows, QUOTA_METADATA_FIELDS),
+        quota_metadata_missing_rows(workload_rows),
+    )
 
 
 def _spec_metadata(spec: Mapping[str, Any]) -> dict[str, Any]:
@@ -392,7 +434,7 @@ def claim_boundary_rows() -> list[dict[str, Any]]:
 
 def _matches_expected_counts(actual: dict[str, int], expected: Mapping[str, int] | None) -> bool:
     if expected is None:
-        return True
+        return False
     return actual == dict(sorted((str(key), int(value)) for key, value in expected.items()))
 
 
@@ -402,8 +444,10 @@ def finalize_outputs(
     target_episode_count: int,
     target_spec_count: int = TARGET_SPEC_COUNT,
     target_profile_count: int = TARGET_PROFILE_COUNT,
-    expected_source_kind_counts: Mapping[str, int] | None = EXPECTED_SOURCE_KIND_COUNTS,
-    expected_role_surface_counts: Mapping[str, int] | None = EXPECTED_ROLE_SURFACE_COUNTS,
+    expected_source_kind_counts: Mapping[str, int] | None = None,
+    expected_role_surface_counts: Mapping[str, int] | None = None,
+    expected_quota_source: str = "unspecified",
+    quota_metadata_missing_rows_: Iterable[Mapping[str, Any]] | None = None,
     next_blocker: str,
 ) -> dict[str, Any]:
     episode_rows = [dict(row) for row in read_csv_rows(output_dir / "episode_rows.csv")]
@@ -427,6 +471,7 @@ def finalize_outputs(
         "failure_rows": str(output_dir / "failure_rows.csv"),
         "validation_failure_rows": str(output_dir / "validation_failure_rows.csv"),
         "metric_completeness_failures": str(output_dir / "metric_completeness_failures.csv"),
+        "quota_metadata_missing_rows": str(output_dir / "quota_metadata_missing_rows.csv"),
         "claim_boundary": str(output_dir / "claim_boundary.csv"),
         "run_state": str(output_dir / "run_state.json"),
     }
@@ -440,6 +485,12 @@ def finalize_outputs(
     role_surface_path = output_dir / "role_surface_aggregate.csv"
     write_csv_rows(role_surface_path, aggregate_role_surface_rows(episode_rows))
     artifacts["role_surface_aggregate"] = str(role_surface_path)
+    quota_missing_rows = [dict(row) for row in (quota_metadata_missing_rows_ or [])]
+    write_csv_rows(
+        output_dir / "quota_metadata_missing_rows.csv",
+        quota_missing_rows,
+        fieldnames=QUOTA_METADATA_MISSING_FIELDNAMES,
+    )
     write_csv_rows(output_dir / "metric_completeness_failures.csv", metric_failures)
     write_csv_rows(output_dir / "claim_boundary.csv", claim_boundary_rows())
 
@@ -454,11 +505,13 @@ def finalize_outputs(
     )
     source_kind_quota_pass = _matches_expected_counts(source_kind_counts, expected_source_kind_counts)
     role_surface_quota_pass = _matches_expected_counts(role_surface_counts, expected_role_surface_counts)
+    quota_metadata_missing_count = len(quota_missing_rows)
     passes = (
         len(episode_rows) == int(target_episode_count)
         and len(failure_rows) == 0
         and spec_count == int(target_spec_count)
         and profile_count == int(target_profile_count)
+        and quota_metadata_missing_count == 0
         and source_kind_quota_pass
         and role_surface_quota_pass
         and not metric_failures
@@ -479,6 +532,14 @@ def finalize_outputs(
         "target_spec_count": int(target_spec_count),
         "profile_count": profile_count,
         "target_profile_count": int(target_profile_count),
+        "expected_quota_source": str(expected_quota_source),
+        "expected_source_kind_counts": dict(
+            sorted((str(key), int(value)) for key, value in (expected_source_kind_counts or {}).items())
+        ),
+        "expected_role_surface_counts": dict(
+            sorted((str(key), int(value)) for key, value in (expected_role_surface_counts or {}).items())
+        ),
+        "quota_metadata_missing_count": quota_metadata_missing_count,
         "source_kind_counts": source_kind_counts,
         "source_kind_quota_pass": source_kind_quota_pass,
         "role_surface_counts": role_surface_counts,
@@ -530,8 +591,8 @@ def run_calibrated_task_quality_measured_execution(
     target_episode_count: int | None = TARGET_EPISODE_COUNT,
     target_spec_count: int = TARGET_SPEC_COUNT,
     target_profile_count: int = TARGET_PROFILE_COUNT,
-    expected_source_kind_counts: Mapping[str, int] | None = EXPECTED_SOURCE_KIND_COUNTS,
-    expected_role_surface_counts: Mapping[str, int] | None = EXPECTED_ROLE_SURFACE_COUNTS,
+    expected_source_kind_counts: Mapping[str, int] | None = None,
+    expected_role_surface_counts: Mapping[str, int] | None = None,
     next_blocker: str = "m1966-executable-v2-task-quality-calibrated-measured-execution-result-audit",
     rollout_fn: RolloutFunction | None = None,
 ) -> dict[str, Any]:
@@ -539,6 +600,14 @@ def run_calibrated_task_quality_measured_execution(
     output.mkdir(parents=True, exist_ok=True)
     executable_specs = load_executable_task_specs(executable_task_specs_path)
     workload_rows = load_workload_rows(workload_path)
+    computed_source_counts, computed_role_counts, quota_missing_rows = expected_quota_counts_from_workload(workload_rows)
+    expected_quota_source = "explicit"
+    if expected_source_kind_counts is None or expected_role_surface_counts is None:
+        if expected_source_kind_counts is None:
+            expected_source_kind_counts = computed_source_counts
+        if expected_role_surface_counts is None:
+            expected_role_surface_counts = computed_role_counts
+        expected_quota_source = "workload"
     spec_by_id = {str(spec["task_source_id"]): spec for spec in executable_specs}
     validation_failures = validation_failure_rows(executable_specs=executable_specs, workload_rows=workload_rows)
     if validation_failures:
@@ -551,6 +620,8 @@ def run_calibrated_task_quality_measured_execution(
             target_profile_count=int(target_profile_count),
             expected_source_kind_counts=expected_source_kind_counts,
             expected_role_surface_counts=expected_role_surface_counts,
+            expected_quota_source=expected_quota_source,
+            quota_metadata_missing_rows_=quota_missing_rows,
             next_blocker=next_blocker,
         )
     write_csv_rows(output / "validation_failure_rows.csv", [])
@@ -621,6 +692,8 @@ def run_calibrated_task_quality_measured_execution(
         target_profile_count=int(target_profile_count),
         expected_source_kind_counts=expected_source_kind_counts,
         expected_role_surface_counts=expected_role_surface_counts,
+        expected_quota_source=expected_quota_source,
+        quota_metadata_missing_rows_=quota_missing_rows,
         next_blocker=next_blocker,
     )
 

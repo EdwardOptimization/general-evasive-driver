@@ -126,11 +126,6 @@ def _fake_rollout(workload_row, executable_spec, eval_seed):
 
 def test_calibrated_measured_runner_preserves_metadata_and_aggregates(tmp_path: Path) -> None:
     specs_path, workload_path = _write_inputs(tmp_path)
-    expected_kind = {"offtrack_boundary_relief": 2, "success_stabilizer": 2}
-    expected_role_surface = {
-        "offtrack_boundary_relief|stable_aes_only|relief_surface_unspecified": 2,
-        "success_stabilizer|stable_aes_only|steady_surface": 2,
-    }
 
     summary = runner.run_calibrated_task_quality_measured_execution(
         output_dir=tmp_path / "out",
@@ -140,14 +135,19 @@ def test_calibrated_measured_runner_preserves_metadata_and_aggregates(tmp_path: 
         target_episode_count=4,
         target_spec_count=2,
         target_profile_count=2,
-        expected_source_kind_counts=expected_kind,
-        expected_role_surface_counts=expected_role_surface,
         rollout_fn=_fake_rollout,
     )
 
     assert summary["result_class"] == "task_quality_calibrated_measured_execution_pass"
     assert summary["episode_count"] == 4
     assert summary["failure_count"] == 0
+    assert summary["expected_quota_source"] == "workload"
+    assert summary["expected_source_kind_counts"] == {"offtrack_boundary_relief": 2, "success_stabilizer": 2}
+    assert summary["expected_role_surface_counts"] == {
+        "offtrack_boundary_relief|stable_aes_only|relief_surface_unspecified": 2,
+        "success_stabilizer|stable_aes_only|steady_surface": 2,
+    }
+    assert summary["quota_metadata_missing_count"] == 0
     assert summary["source_kind_quota_pass"] is True
     assert summary["role_surface_quota_pass"] is True
     assert summary["metric_completeness_failure_count"] == 0
@@ -159,6 +159,7 @@ def test_calibrated_measured_runner_preserves_metadata_and_aggregates(tmp_path: 
     assert "representative_cell_rule" in episode_rows
     assert (tmp_path / "out" / "source_kind_aggregate.csv").exists()
     assert (tmp_path / "out" / "role_surface_aggregate.csv").exists()
+    assert (tmp_path / "out" / "quota_metadata_missing_rows.csv").exists()
     assert (tmp_path / "out" / "claim_boundary.csv").exists()
 
 
@@ -172,8 +173,6 @@ def test_calibrated_measured_runner_preserves_rollout_failures(tmp_path: Path) -
         target_episode_count=4,
         target_spec_count=2,
         target_profile_count=2,
-        expected_source_kind_counts=None,
-        expected_role_surface_counts=None,
         rollout_fn=_fake_rollout,
     )
 
@@ -184,6 +183,8 @@ def test_calibrated_measured_runner_preserves_rollout_failures(tmp_path: Path) -
     assert "synthetic rollout failure" in failure_rows
     assert "offtrack_boundary_relief" in failure_rows
     summary_json = read_json(tmp_path / "out" / "summary.json")
+    assert summary_json["expected_quota_source"] == "workload"
+    assert summary_json["quota_metadata_missing_count"] == 0
     assert summary_json["paper_level_claim_made"] is False
     assert summary_json["level3_self_id_claim_made"] is False
 
@@ -201,12 +202,44 @@ def test_calibrated_measured_runner_fails_closed_on_schema_mismatch(tmp_path: Pa
         workload_path=workload_path,
         eval_seed_base=123,
         target_episode_count=1,
-        expected_source_kind_counts=None,
-        expected_role_surface_counts=None,
         rollout_fn=_fake_rollout,
     )
 
     assert summary["result_class"] == "task_quality_calibrated_measured_execution_incomplete_or_fail"
     assert summary["episode_count"] == 0
+    assert summary["expected_quota_source"] == "workload"
+    assert summary["expected_source_kind_counts"] == {"success_stabilizer": 1}
+    assert summary["quota_metadata_missing_count"] == 0
     validation_failures = (tmp_path / "out" / "validation_failure_rows.csv").read_text(encoding="utf-8")
     assert "missing_executable_spec" in validation_failures
+
+
+def test_calibrated_measured_runner_fails_closed_on_missing_quota_metadata(tmp_path: Path) -> None:
+    specs_path = tmp_path / "specs.json"
+    workload_path = tmp_path / "workload.csv"
+    write_json(specs_path, {"executable_task_specs": [_spec("task_a")]})
+    row = _workload("task_a", "L0_current_masked")
+    row["normalized_surface_variant"] = ""
+    write_csv_rows(workload_path, [row])
+
+    summary = runner.run_calibrated_task_quality_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=123,
+        target_episode_count=1,
+        target_spec_count=1,
+        target_profile_count=1,
+        rollout_fn=_fake_rollout,
+    )
+
+    assert summary["result_class"] == "task_quality_calibrated_measured_execution_incomplete_or_fail"
+    assert summary["episode_count"] == 0
+    assert summary["expected_quota_source"] == "workload"
+    assert summary["quota_metadata_missing_count"] == 1
+    assert summary["source_kind_quota_pass"] is False
+    assert summary["role_surface_quota_pass"] is False
+    missing_rows = (tmp_path / "out" / "quota_metadata_missing_rows.csv").read_text(encoding="utf-8")
+    assert "normalized_surface_variant" in missing_rows
+    validation_failures = (tmp_path / "out" / "validation_failure_rows.csv").read_text(encoding="utf-8")
+    assert "missing_workload_field" in validation_failures

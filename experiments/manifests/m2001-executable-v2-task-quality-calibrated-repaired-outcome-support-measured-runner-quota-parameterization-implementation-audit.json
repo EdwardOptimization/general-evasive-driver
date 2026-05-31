@@ -1,0 +1,164 @@
+{
+  "id": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_parameterization_implementation_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit focused measured-runner workload-derived quota implementation"
+    ],
+    "derived_from": [
+      "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation"
+    ],
+    "blocked_by": [
+      "real measured execution remains blocked until focused implementation is audited"
+    ],
+    "supersedes": [
+      "direct measured execution command design immediately after code change"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md",
+  "public_gates": [
+    "M2001 must audit that M2000 computes expected quotas from workload rows by default",
+    "M2001 must audit fail-closed missing quota metadata behavior",
+    "M2001 must decide whether measured execution command design is admitted",
+    "M2001 must not run real measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_repair_audit",
+    "evidence_increment": "audits focused measured-runner quota repair before command-designing real measured execution",
+    "claim_scope": "implementation audit only; no real measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if implementation audit finds silent quota bypass",
+      "stop if focused test evidence is incomplete",
+      "stop if measured execution command design would overclaim implementation tests"
+    ],
+    "fallback_plan": [
+      "route to command design if audit is clean",
+      "route to focused repair if audit finds missing fail-closed behavior",
+      "synthesize if quota repair loops repeat"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2000 implementation passes focused tests",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured-runner quota implementation audit",
+    "admission_evidence": [
+      "M2000 focused implementation and tests passed"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md",
+      "M2001 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution command design or focused repair"
+    ],
+    "next_stage_criteria": [
+      "M2000 code and tests are audited",
+      "next route is explicit",
+      "real measured execution remains blocked until a command-design milestone"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; implementation audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2001."
+    ],
+    "temporal_evidence_window": "M2000 focused code and test evidence.",
+    "negative_result_policy": "If audit finds a gap, route to focused repair rather than measured execution.",
+    "allowed_claims": [
+      "measured-runner quota repair audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "decides whether measured-runner quota repair is ready for command design",
+    "paper_verdict_delta": "can unblock measured execution command design but cannot establish driver performance",
+    "must_synthesize_if": [
+      "audit finds another quota mismatch",
+      "audit routes to another design-only milestone",
+      "same quota failure repeats after command design"
+    ]
+  },
+  "hypothesis": "The M2000 implementation is clean enough to admit a measured execution command design while preserving claim boundaries.",
+  "success_criteria": [
+    "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md exists",
+    "audit covers workload-derived expected quotas",
+    "audit covers missing metadata fail-closed behavior",
+    "next route is explicit",
+    "no real measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit does not cover quota source",
+    "audit does not cover fail-closed behavior",
+    "next route is ambiguous",
+    "real measured execution or ranking claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_parameterization_implementation_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md",
+    "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+    "tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+  ],
+  "decision_rule": "M2001 passes if it audits M2000 cleanly and chooses the next route without overclaiming.",
+  "next_blocker": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit"
+}

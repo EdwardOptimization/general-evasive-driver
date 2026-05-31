@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2008,
+    "completed": 2009,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md",
+    "command_log": "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis"
+    "task_id": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.json",
-    "hypothesis": "Artifact-driven quota expectations from active workload rows will preserve measured-runner quota checking while accepting active panels with intentional repaired distributions.",
-    "id": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused measured-runner artifact-driven quota repair and tests; no real measured execution",
-    "priority": 19950,
+    "command": "see experiments/manifests/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.json",
+    "hypothesis": "The M2000 implementation is clean enough to admit a measured execution command design while preserving claim boundaries.",
+    "id": "m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit",
+    "kind": "gate",
+    "notes": "Pending: audit focused measured-runner quota implementation before measured execution command design",
+    "priority": 19960,
     "status": "pending",
-    "success_artifact": "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md"
+    "success_artifact": "docs/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.md"
   },
-  "updated_at_utc": "20260531T133847Z"
+  "updated_at_utc": "20260531T134419Z"
 }

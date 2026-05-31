@@ -34781,3 +34781,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: continue to focused M2000 measured-runner quota implementation and tests only; real 960-row measured execution remains blocked until implementation audit
 - follow-up manifest: `experiments/manifests/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.json`
 - next: `m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation`
+
+## M2000 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured-Runner Quota Parameterization Implementation
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_measured_runner_quota_parameterization_implementation_pass_route_to_audit`
+- doc: `docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py`
+- focused tests: `4 passed`
+- real 960-row measured execution in M2000: `false`
+- environment rollout in M2000: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- change: calibrated measured runner now computes default expected source-kind and role-surface quota counts from active workload rows, writes expected quota summary fields and `quota_metadata_missing_rows.csv`, and fails closed when required quota metadata is missing
+- route: audit focused implementation before measured execution command design or rerun
+- follow-up manifest: `experiments/manifests/m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit.json`
+- next: `m2001-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation-audit`
