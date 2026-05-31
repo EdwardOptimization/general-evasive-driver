@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2016-bounded-diagnostic-comparison-implementation-and-run
+m2017-bounded-diagnostic-comparison-result-audit
 ```
 
 Current next task:
 
 ```text
-m2017-bounded-diagnostic-comparison-result-audit
+m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
@@ -65,7 +65,8 @@ claims remain blocked. M2015 audits the qualification and routes to M2016: a
 no-rerun bounded diagnostic profile comparison on the admitted stable-AES slice.
 M2016 produces that table: L3 is `10/10`, L0 is `4/5`, L1 is `3/5`, and L2 is
 `0/40` on the singleton public slice. M2017 must audit whether to expand source
-diversity or stop this as a singleton diagnostic; no broad ranking or
+diversity or stop this as a singleton diagnostic; it routes to M2018 no-rerun
+source-diverse diagnostic expansion mining. No broad ranking or
 finite-window-vs-GRU conclusion is allowed yet.
 
 The current branch is repairing executable-v2 active-safety task quality before

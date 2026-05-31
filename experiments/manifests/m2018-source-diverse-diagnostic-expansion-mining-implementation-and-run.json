@@ -1,0 +1,178 @@
+{
+  "id": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_diverse_diagnostic_expansion_mining"
+    ],
+    "parent_dataset": [
+      "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
+      "runs/m2016_bounded_diagnostic_comparison/summary.json",
+      "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/l2_zero_success_diagnostic.csv",
+      "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2017-bounded-diagnostic-comparison-result-audit.json"
+    ],
+    "parent_objective": [
+      "mine existing artifacts for source-diverse diagnostic expansion before broad comparison or repair"
+    ],
+    "derived_from": [
+      "m2017-bounded-diagnostic-comparison-result-audit"
+    ],
+    "blocked_by": [
+      "M2016 signal is strong but singleton-limited"
+    ],
+    "supersedes": [
+      "direct broad comparison design from one public slice"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+  "public_gates": [
+    "M2018 must run only a no-rerun mining postprocess",
+    "M2018 must read M2012/M2009 artifacts and not execute policy actions",
+    "M2018 must write source-diversity diagnostics and candidate rows",
+    "M2018 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_source_diverse_diagnostic_expansion",
+    "evidence_axis": "Q_source_diverse_diagnostic_expansion",
+    "evidence_increment": "checks whether the M2016 singleton diagnostic pattern has source-diverse support in existing artifacts",
+    "claim_scope": "source-diversity mining only; no ranking paper finite-window-vs-GRU or level3 self-ID claim",
+    "stop_condition": [
+      "stop if mining requires new rollout",
+      "stop if no source-diverse candidate rows are found and another singleton repair is proposed",
+      "stop if output claims ranking or finite-window-vs-GRU"
+    ],
+    "fallback_plan": [
+      "route to expansion audit if mining completes",
+      "route to task-quality repair or scenario redesign if no source-diverse support exists",
+      "synthesize if expansion remains singleton-limited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2017 routes to source-diverse diagnostic expansion mining",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-diverse diagnostic expansion mining",
+    "admission_evidence": [
+      "M2017 finds M2016 diagnostic signal worth broadening but not yet conclusive"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/source_diverse_diagnostic_expansion_mining.py",
+      "tests/test_source_diverse_diagnostic_expansion_mining.py",
+      "runs/m2018_source_diverse_diagnostic_expansion_mining",
+      "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+      "M2018 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "mining summary is written",
+      "candidate rows are written",
+      "source-diversity summary is written",
+      "guardrail violations are zero",
+      "M2019 audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; expansion mining does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2018."
+    ],
+    "temporal_evidence_window": "M2012/M2009 no-rerun artifacts.",
+    "negative_result_policy": "If no source-diverse support exists, do not rank; route to repair/redesign/synthesis.",
+    "allowed_claims": [
+      "source-diverse diagnostic expansion mining",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "tests whether a strong singleton diagnostic has broader source-diverse support before new repair",
+    "paper_verdict_delta": "can decide whether current artifacts justify broader comparison design or require new task-quality support",
+    "must_synthesize_if": [
+      "mining finds no source-diverse candidates",
+      "mining finds only the M2016 singleton",
+      "M2019 cannot choose a next route"
+    ]
+  },
+  "hypothesis": "Existing M2012/M2009 artifacts may contain source-diverse diagnostic expansion candidates beyond the M2016 singleton.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json exists",
+    "candidate rows and source-diversity summary are written",
+    "guardrail_violation_count is 0",
+    "no ranking paper finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "mining tool is missing",
+    "mining output is missing",
+    "guardrail violation occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "implement focused no-rerun source-diverse diagnostic expansion mining and run it on M2012/M2009 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2018_source_diverse_diagnostic_expansion_mining/diagnostic_expansion_candidates.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_diverse_diagnostic_expansion_mining"
+  ],
+  "baseline_artifacts": [
+    "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
+    "runs/m2012_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_outcome_localization_v2/l2_zero_success_diagnostic.csv",
+    "runs/m2009_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_selection_quota_compat/episode_rows.csv"
+  ],
+  "decision_rule": "M2018 passes if it writes no-rerun expansion mining artifacts with clean guardrails.",
+  "next_blocker": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run"
+}

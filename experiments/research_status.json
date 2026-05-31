@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2025,
+    "completed": 2026,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2016-bounded-diagnostic-comparison-implementation-and-run.md",
+    "command_log": "docs/m2017-bounded-diagnostic-comparison-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2016_bounded_diagnostic_comparison",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2016-bounded-diagnostic-comparison-implementation-and-run"
+    "task_id": "m2017-bounded-diagnostic-comparison-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2017-bounded-diagnostic-comparison-result-audit.json",
-    "hypothesis": "The M2016 diagnostic table is sufficient to choose whether this branch should expand source diversity or stop as a singleton diagnostic.",
-    "id": "m2017-bounded-diagnostic-comparison-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2016 singleton diagnostic table and choose expansion/repair/synthesis route",
-    "priority": 20120,
+    "command": "see experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json",
+    "hypothesis": "Existing M2012/M2009 artifacts may contain source-diverse diagnostic expansion candidates beyond the M2016 singleton.",
+    "id": "m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun source-diverse diagnostic expansion mining over M2012/M2009 artifacts",
+    "priority": 20130,
     "status": "pending",
-    "success_artifact": "docs/m2017-bounded-diagnostic-comparison-result-audit.md"
+    "success_artifact": "runs/m2018_source_diverse_diagnostic_expansion_mining/summary.json"
   },
-  "updated_at_utc": "20260531T150826Z"
+  "updated_at_utc": "20260531T151643Z"
 }

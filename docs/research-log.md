@@ -35108,3 +35108,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: bounded diagnostic comparison completed; broad ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain forbidden
 - follow-up manifest: `experiments/manifests/m2017-bounded-diagnostic-comparison-result-audit.json`
 - next: `m2017-bounded-diagnostic-comparison-result-audit`
+
+## M2017 Bounded Diagnostic Comparison Result Audit
+
+- status: completed
+- decision: `bounded_diagnostic_comparison_audit_route_to_source_diverse_expansion_mining`
+- doc: `docs/m2017-bounded-diagnostic-comparison-result-audit.md`
+- audited summary: `runs/m2016_bounded_diagnostic_comparison/summary.json`
+- next branch: `paper_route_source_diverse_diagnostic_expansion`
+- reset/rollout/measured execution in M2017: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit: M2016 singleton stable-AES diagnostic table is strong but non-conclusive
+- allowed interpretation: one admitted public slice shows L3 `10/10`, L0 `4/5`, L1 `3/5`, L2 `0/40`
+- rejected interpretation: broad controller ranking or finite-window-vs-GRU conclusion
+- decision: route to M2018 no-rerun source-diverse diagnostic expansion mining over M2012/M2009 artifacts
+- follow-up manifest: `experiments/manifests/m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run.json`
+- next: `m2018-source-diverse-diagnostic-expansion-mining-implementation-and-run`
