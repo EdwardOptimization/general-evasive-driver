@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2104,
+    "completed": 2105,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+    "command_log": "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+    "run_dir": "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit"
+    "task_id": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json",
-    "hypothesis": "An exact measured-execution route can be designed for the M2094 public-gate core workload while preserving metadata and claim boundaries.",
-    "id": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
+    "command": "see experiments/manifests/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.json",
+    "hypothesis": "The measured-runner compatibility gap can be repaired by no-rollout metadata enrichment derived from existing M2094 specs, without changing env configs, filters, or validation standards.",
+    "id": "m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design",
     "kind": "gate",
-    "notes": "Pending: design public-gate core measured-execution command without running rollout or ranking",
-    "priority": 20910,
+    "notes": "Pending: design no-rollout metadata compatibility repair for public-gate core measured runner",
+    "priority": 20920,
     "status": "pending",
-    "success_artifact": "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md"
+    "success_artifact": "docs/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md"
   },
-  "updated_at_utc": "20260531T234152Z"
+  "updated_at_utc": "20260531T234631Z"
 }

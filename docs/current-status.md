@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit
+m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
+m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design
 ```
 
-Immediate route: M2095 audits M2094 as a clean public-gate-only core panel:
-`96` selected public-gate rows, `142` excluded public-debug rows, `480` planned
-sentinel workload rows, env_config changed `0`, and metadata/contract/forbidden
-key/guardrail counts all `0`. The audit explicitly preserves the evidence
-boundary: selected rows inherit M2091 reset-success evidence, while M2094/M2095
-do not create new reset evidence. M2096 must design the exact measured-execution
-command over the M2094 public-gate core panel without running rollout, ranking
-controller families, or making paper/self-ID claims.
+Immediate route: M2096 audits the existing controlled-routing-smoke measured
+runner against the M2094 public-gate core panel and finds a metadata
+compatibility blocker before rollout. The public-gate core has `96` specs and a
+`480`-row planned sentinel workload, but the existing measured runner requires
+`panel_source_id` on specs and `proxy_template_family` / `generated_source_row`
+on workload rows. These fields are derivable from existing M2094 spec metadata,
+so M2097 must design a no-rollout metadata compatibility repair without
+mutating env configs, changing filters, weakening runner validation, running
+measured execution, ranking controller families, or making paper/self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

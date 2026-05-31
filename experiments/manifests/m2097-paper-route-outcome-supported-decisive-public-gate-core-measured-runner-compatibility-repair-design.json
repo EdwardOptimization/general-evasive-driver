@@ -1,0 +1,172 @@
+{
+  "id": "m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_runner_compatibility_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_executable_task_specs.json",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_planned_sentinel_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout metadata compatibility repair for the public-gate core measured runner"
+    ],
+    "derived_from": [
+      "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "M2096 found missing spec field panel_source_id and missing workload fields proxy_template_family/generated_source_row"
+    ],
+    "supersedes": [
+      "direct measured execution with schema-incomplete workload",
+      "weakening measured runner validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md",
+  "public_gates": [
+    "M2097 must freeze exact metadata mappings for measured-runner compatibility",
+    "M2097 must not edit env configs or scenario filters",
+    "M2097 must not run reset rollout measured execution or policy actions",
+    "M2097 must not weaken runner validation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change env configs",
+    "do not change obstacle filters",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_runner_metadata_compatibility",
+    "evidence_increment": "freezes a bounded metadata repair so measured execution can be attempted without weakening validation",
+    "claim_scope": "metadata compatibility repair design only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if required fields cannot be derived from existing M2094 metadata",
+      "stop if repair would mutate env_config or scenario filters",
+      "stop if repair would weaken runner validation",
+      "stop if next step would execute rollout before repaired artifacts are audited"
+    ],
+    "fallback_plan": [
+      "route to dedicated measured-runner adapter design if metadata cannot be repaired in artifacts",
+      "route to public-gate panel materialization redesign if required metadata is absent from specs",
+      "do not run measured execution until compatibility artifacts pass no-rollout validation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2096 localizes measured runner incompatibility to metadata fields",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured runner compatibility repair design",
+    "admission_evidence": [
+      "M2096 identified missing spec field panel_source_id",
+      "M2096 identified missing workload fields proxy_template_family and generated_source_row",
+      "M2096 did not run rollout or policy actions"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M2097",
+      "do not weaken runner validation",
+      "do not change public-gate panel semantics"
+    ],
+    "allowed_updates": [
+      "docs/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md",
+      "M2097 status queue scoreboard research log and review",
+      "one follow-up manifest for compatibility repair implementation or runner-adapter design"
+    ],
+    "next_stage_criteria": [
+      "exact repair mappings are specified",
+      "guardrails and pass/fail gates are explicit",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2097 designs metadata compatibility only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2097."
+    ],
+    "temporal_evidence_window": "M2094 materialization and M2096 compatibility audit.",
+    "negative_result_policy": "If required metadata cannot be derived, route to runner adapter or panel materialization redesign rather than weakening validation.",
+    "allowed_claims": [
+      "metadata compatibility repair design",
+      "no measured execution, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "removes a schema blocker before producing measured closed-loop data",
+    "paper_verdict_delta": "can admit no-rollout compatibility repair implementation but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "M2097 cannot derive fields from existing metadata",
+      "M2097 would require env_config or filter mutation",
+      "another metadata bridge is required after implementation"
+    ]
+  },
+  "hypothesis": "The measured-runner compatibility gap can be repaired by no-rollout metadata enrichment derived from existing M2094 specs, without changing env configs, filters, or validation standards.",
+  "success_criteria": [
+    "docs/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md exists",
+    "exact mappings for panel_source_id proxy_template_family generated_source_row are specified",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "metadata mappings are ambiguous",
+    "repair would mutate env configs or scenario filters",
+    "repair would weaken measured runner validation",
+    "reset rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_runner_compatibility_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+    "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_executable_task_specs.json",
+    "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_planned_sentinel_workload.csv"
+  ],
+  "decision_rule": "M2097 passes if it freezes a no-rollout metadata repair route or cleanly routes to a dedicated runner adapter without running rollout or weakening validation.",
+  "next_blocker": "m2098-selected-by-m2097-design"
+}

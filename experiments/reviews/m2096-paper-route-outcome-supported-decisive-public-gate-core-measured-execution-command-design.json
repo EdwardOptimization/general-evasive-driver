@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2096 finds existing measured runner not directly compatible because spec panel_source_id and workload proxy_template_family/generated_source_row are missing; routes to no-rollout metadata compatibility repair design",
+  "failure_criteria": [
+    "design document is missing",
+    "measured command is ambiguous",
+    "target counts are ambiguous",
+    "metadata preservation is not specified",
+    "measured execution ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T234743Z",
+  "hypothesis": "An exact measured-execution route can be designed for the M2094 public-gate core workload while preserving metadata and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2095 must audit M2094 materialization before command design"
+    ],
+    "derived_from": [
+      "m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_command_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2095-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-result-audit.md",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_executable_task_specs.json",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/public_gate_core_planned_sentinel_workload.csv",
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "design measured execution route for the M2094 public-gate core panel"
+    ],
+    "supersedes": [
+      "direct measured execution without command design",
+      "another public-debug obstacle-filter repair"
+    ]
+  },
+  "milestone": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
+  "next_blocker": "m2097-selected-by-m2096-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_gate_core_measured_command_design_route_to_metadata_compatibility_repair",
+  "public_gates": [
+    "M2096 must audit measured-runner compatibility with M2094 public-gate specs and workload",
+    "M2096 must freeze target episode count 480 spec count 96 profile count 5",
+    "M2096 must not run measured execution or policy actions",
+    "M2096 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "public_gate_core_measured_command_design_route_to_metadata_compatibility_repair",
+    "milestone": "m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
+    "reason": "M2096 finds existing measured runner not directly compatible because spec panel_source_id and workload proxy_template_family/generated_source_row are missing; routes to no-rollout metadata compatibility repair design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md exists",
+    "measured runner compatibility is audited",
+    "target episode count is 480",
+    "target spec count is 96",
+    "target profile count is 5",
+    "next implementation or repair route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

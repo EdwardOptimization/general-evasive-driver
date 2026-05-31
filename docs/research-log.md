@@ -36768,3 +36768,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked claims remain: full task-distribution coverage, controller-family ranking, paper-level evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json`
 - next: `m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design`
+
+## M2096 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Command Design
+
+- status: completed
+- decision: `public_gate_core_measured_command_design_route_to_metadata_compatibility_repair`
+- manifest: `experiments/manifests/m2096-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json`
+- measured execution in M2096: `false`
+- rollout/policy actions in M2096: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- target design scope: public-gate core `96` specs x `5` sentinel profiles = `480` planned workload rows
+- compatibility audit: existing controlled-routing-smoke measured runner is not directly compatible
+- missing required spec field: `panel_source_id`
+- missing required workload fields: `proxy_template_family`, `generated_source_row`
+- failure taxonomy: `metadata_compatibility_gap`
+- next route: no-rollout metadata compatibility repair design; do not weaken measured runner validation and do not mutate env configs or filters
+- follow-up manifest: `experiments/manifests/m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design.json`
+- next: `m2097-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-design`
