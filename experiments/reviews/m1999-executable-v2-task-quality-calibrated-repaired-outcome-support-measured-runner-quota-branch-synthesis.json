@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M1999 synthesizes M1989-M1998 reset/quota branch and continues to focused measured-runner quota implementation with measured execution ranking paper self-ID blocked",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "evidence summary is incomplete",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "code reset rollout measured execution training replay or PPO is run"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T134056Z",
+  "hypothesis": "The M1989-M1998 branch evidence is sufficient to choose whether to continue to measured-runner quota implementation without local-search drift.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1989-M1998",
+      "M1998 admits a measured-runner quota implementation but branch-level evidence must be synthesized first"
+    ],
+    "derived_from": [
+      "m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis",
+      "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_runner_quota_branch_synthesis"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1988-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-branch-synthesis.md",
+      "docs/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.md",
+      "docs/m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit.md",
+      "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv",
+      "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize repaired outcome-support reset/quota branch and choose whether to continue to measured-runner implementation"
+    ],
+    "supersedes": [
+      "continuing directly to measured-runner quota implementation without branch synthesis"
+    ]
+  },
+  "milestone": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis",
+  "next_blocker": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_outcome_support_reset_and_measured_runner_quota_branch_synthesis_continue_to_focused_implementation",
+  "public_gates": [
+    "M1999 must synthesize M1989-M1998 reset validation and quota-repair evidence",
+    "M1999 must separate reset-validity, measured-runner-readiness, measured-execution, and ranking claims",
+    "M1999 must classify stale-quota metric-artifact risk and local-search risk",
+    "M1999 must choose continue pivot stop or promote-to-next-branch",
+    "M1999 must keep real measured execution ranking paper and self-ID claims blocked unless supported"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_outcome_support_reset_and_measured_runner_quota_branch_synthesis_continue_to_focused_implementation",
+    "milestone": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis",
+    "reason": "M1999 synthesizes M1989-M1998 reset/quota branch and continues to focused measured-runner quota implementation with measured execution ranking paper self-ID blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md exists",
+    "evidence summary covers M1989-M1998",
+    "supported and unsupported claims are explicit",
+    "public gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

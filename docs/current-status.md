@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design
+m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis
+m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation
 ```
 
 Immediate route: M1998 designs the measured-runner equivalent of the M1993
 reset-validator quota repair. Expected source-kind and role-surface quotas must
 come from the active `planned_workload.csv`, and missing quota metadata must
-fail closed. The branch has reached workflow synthesis cadence, so M1999 must
-synthesize M1989-M1998 before any focused implementation/tests. Real 960-row
+fail closed. M1999 synthesizes M1989-M1998 and chooses `continue`: M2000 may
+implement the focused measured-runner quota repair and tests only. Real 960-row
 measured execution, controller-family ranking, paper-level claims, and level3
 self-ID remain blocked.
 

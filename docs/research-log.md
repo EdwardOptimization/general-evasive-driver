@@ -34762,3 +34762,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: M1989-M1998 has reached workflow synthesis cadence, so route to required M1999 branch synthesis before focused implementation; real 960-row measured execution remains blocked
 - follow-up manifest: `experiments/manifests/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.json`
 - next: `m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis`
+
+## M1999 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured-Runner Quota Branch Synthesis
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_reset_and_measured_runner_quota_branch_synthesis_continue_to_focused_implementation`
+- synthesis decision: `continue`
+- doc: `docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md`
+- code edited in M1999: `false`
+- reset rerun in M1999: `false`
+- rollout/measured execution in M1999: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M1989-M1998 repaired stale reset quota expectations, restored clean `80/80` reset-validation evidence for the M1986 panel, identified analogous measured-runner stale quota risk, and designed workload-derived measured-runner quota expectations
+- public overfit risk: low for policy proof rows because no policy/training changed; medium process risk if quota repair keeps expanding without measured data
+- route: continue to focused M2000 measured-runner quota implementation and tests only; real 960-row measured execution remains blocked until implementation audit
+- follow-up manifest: `experiments/manifests/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.json`
+- next: `m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation`

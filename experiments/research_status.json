@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2007,
+    "completed": 2008,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design.md",
+    "command_log": "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1998-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-design"
+    "task_id": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.json",
-    "hypothesis": "The M1989-M1998 branch evidence is sufficient to choose whether to continue to measured-runner quota implementation without local-search drift.",
-    "id": "m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: required synthesis after M1989-M1998 before focused measured-runner quota implementation",
-    "priority": 19940,
+    "command": "see experiments/manifests/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.json",
+    "hypothesis": "Artifact-driven quota expectations from active workload rows will preserve measured-runner quota checking while accepting active panels with intentional repaired distributions.",
+    "id": "m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused measured-runner artifact-driven quota repair and tests; no real measured execution",
+    "priority": 19950,
     "status": "pending",
-    "success_artifact": "docs/m1999-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-branch-synthesis.md"
+    "success_artifact": "docs/m2000-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-runner-quota-parameterization-implementation.md"
   },
-  "updated_at_utc": "20260531T133314Z"
+  "updated_at_utc": "20260531T133847Z"
 }
