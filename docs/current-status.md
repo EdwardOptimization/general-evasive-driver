@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit
+m1904-executable-v2-support-first-task-quality-repair-axis-execution-design
 ```
 
 Current next task:
 
 ```text
-m1904-executable-v2-support-first-task-quality-repair-axis-execution-design
+m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -159,8 +159,12 @@ variants, `16` source specs, `12` controller profiles, `192`
 M1903 audited the matrix as clean and execution-design-ready, but direct
 execution remains blocked because the matrix has `960` geometry rollout rows
 and `576` import/postprocess rows that require a dedicated wrapper/protocol.
-M1904 must now design that wrapper before any reset, rollout, measured
-execution, controller ranking, paper-level claim, or level3 self-ID claim.
+M1904 designed that protocol: run only `rollout_geometry_variant` rows, import
+or postprocess the baseline/semantics rows from M1895, preserve all axis
+metadata and source provenance, and defer interpretation to a post-execution
+audit. M1905 must now implement the wrapper and focused tests without running
+the real M1902 workload, reset, rollout, measured execution, controller
+ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

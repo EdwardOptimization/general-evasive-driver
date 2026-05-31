@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1912,
+    "completed": 1913,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+    "command_log": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+    "run_dir": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
     "status": "completed",
-    "task_id": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit"
+    "task_id": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json",
-    "hypothesis": "A precise execution design can run only the M1902 geometry rows while importing/postprocessing the baseline and semantics rows into one auditable 1536-row panel.",
-    "id": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design wrapper protocol for M1902 repair-axis execution without running rollout",
-    "priority": 18990,
+    "command": "see experiments/manifests/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.json",
+    "hypothesis": "The task-quality repair-axis execution wrapper can be implemented and tested without running the real M1902 workload.",
+    "id": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement wrapper infrastructure and focused tests; no real M1902 execution",
+    "priority": 19000,
     "status": "pending",
-    "success_artifact": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md"
+    "success_artifact": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md"
   },
-  "updated_at_utc": "20260531T053159Z"
+  "updated_at_utc": "20260531T053501Z"
 }

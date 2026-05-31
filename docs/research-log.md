@@ -32856,3 +32856,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json`
 - next: `m1904-executable-v2-support-first-task-quality-repair-axis-execution-design`
+
+## M1904 Executable V2 Support-First Task-Quality Repair-Axis Execution Design
+
+- status: completed
+- decision: `task_quality_repair_axis_execution_design_admit_wrapper_implementation`
+- doc: `docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md`
+- parent audit: `docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md`
+- matrix: `runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv`
+- designed rollout rows: `960`
+- designed import/postprocess rows: `576`
+- designed combined panel rows: `1536`
+- required wrapper source: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py`
+- required wrapper tests: `tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py`
+- environment reset/rollout/measured execution in M1904: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1902 matrix needs and admits a dedicated execution wrapper implementation
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.json`
+- next: `m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation`

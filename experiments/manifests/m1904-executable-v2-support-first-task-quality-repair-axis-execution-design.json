@@ -160,5 +160,5 @@
     "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json"
   ],
   "decision_rule": "M1904 passes if it defines the execution wrapper protocol and keeps rollout/ranking blocked.",
-  "next_blocker": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
+  "next_blocker": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation"
 }

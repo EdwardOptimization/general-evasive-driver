@@ -1,0 +1,174 @@
+{
+  "id": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_wrapper_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement the wrapper required to execute the M1902 repair-axis matrix in a later milestone"
+    ],
+    "derived_from": [
+      "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
+    ],
+    "blocked_by": [
+      "M1904 requires a dedicated wrapper before any real execution"
+    ],
+    "supersedes": [
+      "direct use of the old repaired bounded-smoke runner"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+  "public_gates": [
+    "M1905 must implement wrapper loaders splitters import/postprocess joins and aggregate helpers",
+    "M1905 must include focused tests for row splitting metadata preservation and import/postprocess joins",
+    "M1905 must not run the real M1902 matrix environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clearance_containment_task_quality_repair_axis",
+    "evidence_axis": "Q_task_quality_repair_axis_wrapper_implementation",
+    "evidence_increment": "implements the execution wrapper infrastructure selected by M1904 without running the real workload",
+    "claim_scope": "infrastructure only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the wrapper cannot preserve axis metadata",
+      "stop if import/postprocess joins cannot be validated in focused tests",
+      "stop if implementation would require actor input or controller profile changes"
+    ],
+    "fallback_plan": [
+      "route to helper repair if focused tests expose metadata gaps",
+      "route to execution command design if wrapper tests pass",
+      "route to branch synthesis if wrapper scope becomes ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1904 admits wrapper implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement task-quality repair-axis execution wrapper",
+    "admission_evidence": [
+      "M1904 defines wrapper protocol and pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run real M1902 workload",
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "wrapper source file",
+      "focused tests",
+      "M1905 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for execution command design helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "wrapper code exists",
+      "focused tests pass",
+      "real execution remains deferred to a later command-design milestone"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; wrapper implementation does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1905."
+    ],
+    "temporal_evidence_window": "M1902-M1904 artifacts only.",
+    "negative_result_policy": "If wrapper implementation cannot preserve metadata, route to helper repair or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis wrapper implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates the execution infrastructure needed for the new repair-axis panel",
+    "paper_verdict_delta": "can admit a later measured execution command if wrapper tests pass",
+    "must_synthesize_if": [
+      "M1905 cannot preserve axis metadata in tests",
+      "the next route would be another implementation milestone without command design",
+      "wrapper implementation would erase baseline provenance"
+    ]
+  },
+  "hypothesis": "The task-quality repair-axis execution wrapper can be implemented and tested without running the real M1902 workload.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py exists",
+    "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py exists",
+    "focused tests pass",
+    "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md exists",
+    "real M1902 execution remains deferred"
+  ],
+  "failure_criteria": [
+    "wrapper source or tests are missing",
+    "focused tests fail",
+    "implementation runs the real M1902 workload",
+    "implementation changes actor inputs or controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_wrapper_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json"
+  ],
+  "decision_rule": "M1905 passes if wrapper infrastructure and focused tests are added without running the real workload.",
+  "next_blocker": "m1905-executable-v2-support-first-task-quality-repair-axis-wrapper-implementation"
+}
