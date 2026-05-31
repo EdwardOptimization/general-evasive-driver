@@ -178,5 +178,5 @@
     "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json"
   ],
   "decision_rule": "M1899 passes if it implements and runs no-rollout conflict localization over M1895 rows with complete artifacts and no ranking shortcuts.",
-  "next_blocker": "m1899-executable-v2-support-first-clearance-containment-conflict-localization"
+  "next_blocker": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit"
 }

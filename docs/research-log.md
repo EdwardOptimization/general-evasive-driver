@@ -32710,3 +32710,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: conflict localization result repaired task-quality conclusion controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1899-executable-v2-support-first-clearance-containment-conflict-localization.json`
 - next: `m1899-executable-v2-support-first-clearance-containment-conflict-localization`
+
+## M1899 Executable V2 Support-First Clearance-Containment Conflict Localization
+
+- status: completed
+- decision: `clearance_containment_conflict_localization_pass_route_to_result_audit`
+- doc: `docs/m1899-executable-v2-support-first-clearance-containment-conflict-localization.md`
+- summary: `runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json`
+- helper: `src/autodrift/executable_v2_support_first_clearance_containment_conflict_localization.py`
+- focused tests: `2 passed`
+- result class: `clearance_containment_conflict_localization_pass`
+- episode count: `960 / 960`
+- all rows classified once: `true`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- joint clearance/containment rows: `0`
+- clearance-only offtrack rows: `784`
+- containment-collision rows: `169`
+- collision-and-offtrack rows: `7`
+- other non-success rows: `0`
+- near-miss row count: `429`
+- near containment after clearance: `292`
+- near clearance with containment: `112`
+- late offtrack after clearance: `59`
+- recommended next route: `route_to_task_quality_repair_axis_design`
+- environment reset/rollout/measured execution in M1899: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: no-rollout artifact-backed localization of the M1895 clearance/containment conflict
+- unsupported: repair-axis conclusion before M1900 audit controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.json`
+- next: `m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit`

@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1907,
+    "completed": 1908,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md",
+    "command_log": "docs/m1899-executable-v2-support-first-clearance-containment-conflict-localization.md",
     "returncode": 0,
+    "run_dir": "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization",
     "status": "completed",
-    "task_id": "m1898-executable-v2-support-first-clearance-containment-conflict-localization-design"
+    "task_id": "m1899-executable-v2-support-first-clearance-containment-conflict-localization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1899-executable-v2-support-first-clearance-containment-conflict-localization.json",
-    "hypothesis": "A dedicated no-rollout conflict localizer can produce source and slice evidence for the M1895 clearance/containment conflict without ranking controller families.",
-    "id": "m1899-executable-v2-support-first-clearance-containment-conflict-localization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout conflict localizer over M1895 episode rows",
-    "priority": 18940,
+    "command": "see experiments/manifests/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.json",
+    "hypothesis": "M1899 conflict localization can be audited to choose a targeted task-quality repair-axis design instead of controller ranking.",
+    "id": "m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1899 conflict localization before repair-axis design or synthesis",
+    "priority": 18950,
     "status": "pending",
-    "success_artifact": "runs/m1899_executable_v2_support_first_clearance_containment_conflict_localization/summary.json"
+    "success_artifact": "docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md"
   },
-  "updated_at_utc": "20260531T045745Z"
+  "updated_at_utc": "20260531T050635Z"
 }
