@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2038-paper-route-controlled-routing-smoke-measured-execution-command-design
+m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run
+m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit
 ```
 
-Immediate route: M2038 designs the measured-execution route for the reset-valid
-M2033 `432`-row workload. Existing measured runners are not clean enough: the
-old routing-smoke runner is hard-coded to 4 hooks / 48 episodes, and the
-calibrated task-quality runner expects repair metadata that M2033 does not use.
-M2039 must implement a focused measured runner and execute only the frozen
-432-row workload while preserving `panel_task_family`, `source_kind`,
-`proxy_template_family`, `generated_source_row`, and related provenance.
-Controller ranking, finite-window-vs-GRU, paper-level generated-task validity,
-and level3 self-ID claims remain blocked until execution is audited.
+Immediate route: M2039 implements the focused measured runner and completes the
+frozen M2033 `432`-row workload: episodes `432/432`, failures `0`, metric
+completeness failures `0`, metadata missing `0`, all family/source-kind/proxy
+quotas pass, and guardrail `0`. Raw outcomes are low-support and offtrack-heavy:
+success `20`, collision `13`, offtrack noncollision noncompletion `399`.
+M2040 must audit comparison readiness before any ranking or repair. Controller
+ranking, finite-window-vs-GRU, paper-level generated-task validity, and level3
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

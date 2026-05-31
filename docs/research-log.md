@@ -35548,3 +35548,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: M2038 is command design only; no measured execution result, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json`
 - next: `m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run`
+
+## M2039 Paper-Route Controlled Routing Smoke Measured Execution Implementation and Run
+
+- status: completed
+- decision: `controlled_routing_smoke_measured_execution_pass_route_to_result_audit`
+- result class: `controlled_routing_smoke_measured_execution_pass`
+- implementation: `src/autodrift/paper_route_controlled_routing_smoke_measured_runner.py`
+- focused tests: `3 passed`
+- summary: `runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json`
+- measured execution in M2039: `true`
+- rollout/policy actions in M2039: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- completeness: episode count `432/432`, failure `0`, specs `36`, profiles `12`, metadata missing `0`, metric completeness failures `0`, family/source-kind/proxy/generated quotas pass, guardrail `0`
+- raw outcome snapshot: success `20`, collision `13`, offtrack noncollision noncompletion `399`, success rate `0.046296`, collision rate `0.030093`, clearance margin mean `10.530665`
+- boundary: measured execution completeness only; no ranking, finite-window-vs-GRU, paper-level generated-task validity, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.json`
+- next: `m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit`

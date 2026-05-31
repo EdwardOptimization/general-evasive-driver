@@ -1,0 +1,171 @@
+{
+  "id": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_measured_execution_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/episode_rows.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/outcome_aggregate.csv",
+      "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit controlled routing-smoke measured execution result before any ranking or repair"
+    ],
+    "derived_from": [
+      "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2039 measured execution pass requires audit before interpretation"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from raw measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2040 must audit M2039 execution completeness metadata metrics and guardrails",
+    "M2040 must quantify raw outcomes and offtrack/collision dominance before any comparison",
+    "M2040 must decide ranking-ready versus outcome localization or task-quality repair",
+    "M2040 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families without first deciding comparison readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke",
+    "evidence_axis": "Q_fair_controller_matrix_measured_execution_result_audit",
+    "evidence_increment": "audits whether measured execution data is comparison-ready or needs localization/repair",
+    "claim_scope": "result audit only; no new rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2039 execution is incomplete",
+      "stop if metric or metadata gates failed",
+      "stop if outcomes are too low-support for ranking",
+      "stop if claim boundary admits paper or self-ID claims"
+    ],
+    "fallback_plan": [
+      "route to outcome localization if execution is complete but low-support",
+      "route to runner repair if execution artifacts are incomplete",
+      "route to ranking design only if outcome support is adequate",
+      "route to branch synthesis if measured execution exposes a broader route decision"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2039 writes measured execution artifacts and names M2040 as next blocker",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke measured execution result audit",
+    "admission_evidence": [
+      "M2039 measured execution completed 432 episodes with failure 0 and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout during audit",
+      "do not rank before comparison readiness is decided",
+      "do not interpret smoke execution as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md",
+      "M2040 status queue scoreboard research log and review",
+      "one follow-up manifest for outcome localization, ranking design, task-quality repair, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2039 execution completeness is audited",
+      "raw outcome support is quantified",
+      "ranking readiness decision is explicit",
+      "follow-up route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2040 audits measured rollout only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2040."
+    ],
+    "temporal_evidence_window": "M2039 measured execution artifacts.",
+    "negative_result_policy": "If outcomes are low-support or offtrack-dominated, route to localization/repair instead of ranking.",
+    "allowed_claims": [
+      "controlled routing-smoke measured execution result audit",
+      "no paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits first complete controlled routing-smoke measured execution",
+    "paper_verdict_delta": "can decide whether this controlled panel supports comparison or needs repair/localization",
+    "must_synthesize_if": [
+      "M2040 finds complete execution but low-support outcomes",
+      "M2040 cannot choose between localization and repair",
+      "M2040 would require another narrow runner/adapter milestone"
+    ]
+  },
+  "hypothesis": "M2039 measured execution artifacts are complete enough to audit comparison readiness and choose the next route without making ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md exists",
+    "M2039 result_class is controlled_routing_smoke_measured_execution_pass",
+    "episode_count is 432 and failure_count is 0",
+    "metric_completeness_failure_count is 0",
+    "guardrail_violation_count is 0",
+    "raw outcome support is quantified",
+    "ranking readiness decision is explicit",
+    "next route is explicit"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2039 artifacts are incomplete",
+    "raw outcomes are not quantified",
+    "audit makes ranking or paper claims prematurely",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2039_paper_route_controlled_routing_smoke_measured_execution artifacts and write M2040 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_measured_execution_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json",
+    "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M2040 passes if it audits M2039 completeness and chooses ranking design, localization, repair, or synthesis without overclaiming.",
+  "next_blocker": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2047,
+    "completed": 2048,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2038-paper-route-controlled-routing-smoke-measured-execution-command-design.md",
+    "command_log": "docs/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2039_paper_route_controlled_routing_smoke_measured_execution",
     "status": "completed",
-    "task_id": "m2038-paper-route-controlled-routing-smoke-measured-execution-command-design"
+    "task_id": "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run.json",
-    "hypothesis": "A focused controlled-routing-smoke measured runner can execute the 432-row M2033 workload while preserving metadata and guardrail boundaries.",
-    "id": "m2039-paper-route-controlled-routing-smoke-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused measured runner and run exact 432-row workload; no ranking or paper claims",
-    "priority": 20340,
+    "command": "see experiments/manifests/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.json",
+    "hypothesis": "M2039 measured execution artifacts are complete enough to audit comparison readiness and choose the next route without making ranking or paper claims.",
+    "id": "m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2039 complete measured execution and decide ranking readiness versus localization/repair",
+    "priority": 20350,
     "status": "pending",
-    "success_artifact": "runs/m2039_paper_route_controlled_routing_smoke_measured_execution/summary.json"
+    "success_artifact": "docs/m2040-paper-route-controlled-routing-smoke-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260531T184050Z"
+  "updated_at_utc": "20260531T184945Z"
 }
