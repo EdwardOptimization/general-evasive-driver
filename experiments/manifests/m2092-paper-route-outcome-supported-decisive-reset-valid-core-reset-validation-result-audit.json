@@ -183,5 +183,5 @@
     "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md"
   ],
   "decision_rule": "M2092 passes if it classifies M2091 failure, synthesizes the branch, and selects a pivot stop public-gate-only or distribution-redesign route without overclaiming.",
-  "next_blocker": "m2093-selected-by-m2092-synthesis"
+  "next_blocker": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design"
 }

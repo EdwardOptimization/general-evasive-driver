@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2100,
+    "completed": 2101,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md",
     "returncode": 0,
     "run_dir": "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run"
+    "task_id": "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.json",
-    "hypothesis": "M2091's 2 remaining public-debug failures show the reduced 238-row panel is not fresh-seed stable, while the public-gate subset may be a viable reset-valid core.",
-    "id": "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.json",
+    "hypothesis": "A public-gate-only core panel can be defined from M2091 reset-success rows, preserving all 96 public-gate rows without further obstacle-filter repair.",
+    "id": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design",
     "kind": "gate",
-    "notes": "Pending: audit M2091 236/238 reset result and synthesize reduced-panel branch",
-    "priority": 20870,
+    "notes": "Pending: design public-gate-only core panel extraction after M2092 pivots away from reduced-panel public-debug rows",
+    "priority": 20880,
     "status": "pending",
-    "success_artifact": "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md"
   },
-  "updated_at_utc": "20260531T231829Z"
+  "updated_at_utc": "20260531T232141Z"
 }

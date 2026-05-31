@@ -36683,3 +36683,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: reduced panel is still not fresh-seed stable; all `96` public-gate rows reset successfully
 - follow-up manifest: `experiments/manifests/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.json`
 - next: `m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit`
+
+## M2092 Paper-Route Outcome-Supported Decisive Reset-Valid Core Reset Validation Result Audit and Synthesis
+
+- status: completed
+- decision: `pivot_to_public_gate_core_panel_extraction_design`
+- synthesis decision: `pivot`
+- audited artifact: `runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- reset/rollout/measured execution in M2092: `false`
+- policy actions executed in M2092: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2085 full panel `238/240`; M2091 reduced panel `236/238`; public-gate rows `96/96` reset-success in both
+- supported claim: public-gate subset is the only currently demonstrated reset-stable core
+- falsified claim: preserving broad public-debug generated coverage is near-term compatible with fresh reset-stable measured execution
+- failure subtype: public-debug generated-row reset-sampling fragility
+- overfit risk: medium; public-gate-only remains a bounded smoke/research panel, not paper-valid task semantics
+- next branch decision: pivot to M2093 public-gate-only core panel extraction design
+- follow-up manifest: `experiments/manifests/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.json`
+- next: `m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design`

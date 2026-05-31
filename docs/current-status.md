@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2091-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-implementation-and-run
+m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit
+m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design
 ```
 
-Immediate route: M2091 ran the fresh reduced-panel reset validation and failed
-closed at `236/238`, with two public-debug scenario-sampling failures.
-Contract, metadata, forbidden-key, and guardrail counts remained `0`, and all
-`96` public-gate rows reset successfully. M2092 must audit and synthesize this
-branch before any measured execution, deciding whether to pivot to a
-public-gate-only panel or redesign the scenario distribution. Ranking, paper
-claims, and self-ID claims remain blocked.
+Immediate route: M2092 synthesizes the reduced-panel branch: the 238-row panel
+is not fresh-seed stable (`236/238`), but all `96` public-gate rows reset
+successfully in both M2085 and M2091. The project pivots to M2093, a
+public-gate-only core panel extraction design. Public-debug generated rows are
+excluded from the near-term measured panel until the scenario distribution is
+redesigned. Ranking, paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,173 @@
+{
+  "id": "m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_panel_extraction_design"
+    ],
+    "parent_dataset": [
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv",
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a public-gate-only core panel after reduced-panel fresh reset failure"
+    ],
+    "derived_from": [
+      "m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2091 reduced-panel fresh reset validation failed while public-gate rows all passed"
+    ],
+    "supersedes": [
+      "another obstacle-filter repair",
+      "direct measured execution on 238-row reduced panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
+  "public_gates": [
+    "M2093 must design a public-gate-only extraction route using M2091 reset-success rows",
+    "M2093 must include exactly 96 public-gate rows",
+    "M2093 must not change filters or rerun reset",
+    "M2093 must block measured execution until extraction materialization is implemented and audited"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_panel",
+    "evidence_axis": "Q_public_gate_core_panel_extraction_design",
+    "evidence_increment": "starts the post-pivot branch by designing a reset-stable public-gate-only panel",
+    "claim_scope": "panel-extraction design only; no reset rerun rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design would include public-debug failures",
+      "stop if design would mutate filters",
+      "stop if design would run measured execution before materialization audit",
+      "stop if design treats public-gate rows as paper-valid"
+    ],
+    "fallback_plan": [
+      "route to public-gate panel extraction implementation if design is clean",
+      "route to distribution redesign if public-gate-only panel is too narrow",
+      "do not repair filters"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2092 pivots away from reduced-panel reset-validation branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core panel extraction design",
+    "admission_evidence": [
+      "M2092 closes the reduced-panel branch",
+      "M2091 public-gate reset failures 0",
+      "M2091 public-debug reset failures 2"
+    ],
+    "blocked_shortcuts": [
+      "do not repair filters",
+      "do not run reset in design",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
+      "M2093 status queue scoreboard research log and review",
+      "one follow-up manifest for public-gate panel extraction implementation"
+    ],
+    "next_stage_criteria": [
+      "public-gate inclusion rule is explicit",
+      "claim boundary is explicit",
+      "coverage loss is documented",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2093 designs a task panel and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2093."
+    ],
+    "temporal_evidence_window": "M2091 reset-success and reset-failure artifacts.",
+    "negative_result_policy": "If public-gate panel is too narrow, pivot to distribution redesign rather than weakening claim guards.",
+    "allowed_claims": [
+      "public-gate core panel extraction design",
+      "no reset rerun, rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes branch from reduced-panel repair/validation to public-gate-only panel definition",
+    "paper_verdict_delta": "can define a reset-stable measured-execution smoke panel after materialization and audit",
+    "must_synthesize_if": [
+      "M2093 routes back to local obstacle-filter repair",
+      "M2093 includes public-debug reset failures",
+      "M2093 proposes measured execution before materialization audit"
+    ]
+  },
+  "hypothesis": "A public-gate-only core panel can be defined from M2091 reset-success rows, preserving all 96 public-gate rows without further obstacle-filter repair.",
+  "success_criteria": [
+    "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md exists",
+    "public-gate inclusion rule is explicit",
+    "target panel size is 96",
+    "coverage loss is documented",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "inclusion rule is ambiguous",
+    "coverage loss is not documented",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write public-gate-only core panel extraction design from M2092 synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2093-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_panel_extraction_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv",
+    "docs/m2092-paper-route-outcome-supported-decisive-reset-valid-core-reset-validation-result-audit.md"
+  ],
+  "decision_rule": "M2093 passes if it designs a public-gate-only panel route without filter repair, reset rerun, or overclaiming.",
+  "next_blocker": "m2094-selected-by-m2093-design"
+}
