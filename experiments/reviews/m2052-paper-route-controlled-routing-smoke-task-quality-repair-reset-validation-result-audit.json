@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M2052 classifies M2051 as metric artifact generated-proxy paper_claim case-normalization mismatch with 192 reset successes and routes to validator normalization repair",
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2051 failure reason is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T195044Z",
+  "hypothesis": "M2051 failed closed because of generated-proxy aggregate key normalization, not because reset, metadata, contract, or guardrail checks failed.",
+  "lineage": {
+    "blocked_by": [
+      "M2051 result_class failed despite 192 reset successes"
+    ],
+    "derived_from": [
+      "m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validation_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json",
+      "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/reset_rows.csv",
+      "docs/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.md"
+    ],
+    "parent_objective": [
+      "audit reset-validation fail class before repair or rerun"
+    ],
+    "supersedes": [
+      "direct rerun or validator repair without failure audit"
+    ]
+  },
+  "milestone": "m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit",
+  "next_blocker": "m2053-selected-by-m2052-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "controlled_routing_smoke_task_quality_repair_reset_audit_route_to_generated_proxy_key_normalization_repair",
+  "public_gates": [
+    "M2052 must audit M2051 reset counts and fail reason",
+    "M2052 must distinguish real reset/contract failure from metric artifact",
+    "M2052 must choose validator normalization repair, acceptance rule, or materialization repair",
+    "M2052 must not rerun reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "controlled_routing_smoke_task_quality_repair_reset_audit_route_to_generated_proxy_key_normalization_repair",
+    "milestone": "m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit",
+    "reason": "M2052 classifies M2051 as metric artifact generated-proxy paper_claim case-normalization mismatch with 192 reset successes and routes to validator normalization repair",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md exists",
+    "M2051 reset counts and fail reason are audited",
+    "failure taxonomy is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

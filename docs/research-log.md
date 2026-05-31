@@ -35808,3 +35808,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: fail closed and route to result audit before validator normalization repair or rerun
 - follow-up manifest: `experiments/manifests/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.json`
 - next: `m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit`
+
+## M2052 Paper-Route Controlled Routing Smoke Task-Quality Repair Reset Validation Result Audit
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_reset_audit_route_to_generated_proxy_key_normalization_repair`
+- doc: `docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md`
+- audited summary: `runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json`
+- failure taxonomy: `metric_artifact`
+- reset/rollout/measured execution in M2052: `false`
+- policy actions executed in M2052: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- reset audit: M2051 reset attempts `192`, successes `192`, failures `0`, finite observations `192`, observation-dimension failures `0`, obstacles initialized `192`, contract `0`, metadata missing `0`, forbidden keys `0`, guardrail `0`
+- fail classification: only `generated_proxy_quota_pass=false`; expected keys use `paper_claim=False` while observed reset keys use `paper_claim=false`, with counts matching after case normalization
+- decision: route to focused validator key-normalization repair and rerun; materialization/scenario repair and direct ranking remain blocked
+- follow-up manifest: `experiments/manifests/m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair.json`
+- next: `m2053-paper-route-controlled-routing-smoke-task-quality-repair-reset-validator-normalization-repair`
