@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1983-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-implementation
+m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit
 ```
 
 Current next task:
 
 ```text
-m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit
+m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -221,7 +221,11 @@ Repair-axis support is offtrack-anchor `64/64`, offtrack-boundary `32/32`,
 success-support `43/48`, collision-mitigation `29/32`, and mitigation-metric
 isolation `16/16`. M1984 must audit this result and classify the `8`
 unsupported rows before any materialization, reset validation, measured
-execution, or ranking.
+execution, or ranking. M1984 audits the result as sufficient for bounded
+materialization design: support floors pass, unsupported rows are localized to
+five success-support label-role mismatches plus three collision-mitigation
+rows, and the first materialization subset should use supported rows only.
+M1985 must design that bounded subset before implementation.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

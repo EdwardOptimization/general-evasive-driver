@@ -34496,3 +34496,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: audit source-mining result before materialization design or source repair
 - follow-up manifest: `experiments/manifests/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.json`
 - next: `m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit`
+
+## M1984 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Source-Mining Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_source_mining_audit_admit_materialization_design`
+- doc: `docs/m1984-executable-v2-task-quality-calibrated-repaired-outcome-support-source-mining-result-audit.md`
+- audited summary: `runs/m1983_executable_v2_task_quality_calibrated_outcome_support_source_mining/summary.json`
+- source-mining rerun in M1984: `false`
+- reset/rollout/measured execution in M1984: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1983 is a clean no-rollout source-mining pass with `184` supported sources, `8` unsupported rows, source-support floors passed, and guardrail `0`
+- unsupported row classification: success-support label-role mismatch `5`, collision-mitigation label-role mismatch `1`, collision-mitigation friction-timing-only `2`
+- route: admit bounded materialization design from supported rows only; exclude unsupported rows and keep ranking/paper/self-ID blocked
+- follow-up manifest: `experiments/manifests/m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design.json`
+- next: `m1985-executable-v2-task-quality-calibrated-repaired-outcome-support-materialization-design`
