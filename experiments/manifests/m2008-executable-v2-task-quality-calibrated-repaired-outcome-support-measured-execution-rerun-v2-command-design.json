@@ -1,0 +1,165 @@
+{
+  "id": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+      "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.json"
+    ],
+    "parent_objective": [
+      "freeze fresh measured execution rerun command after selection quota compatibility repair"
+    ],
+    "derived_from": [
+      "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit"
+    ],
+    "blocked_by": [
+      "real measured execution must be rerun in a fresh output directory after compatibility repair"
+    ],
+    "supersedes": [
+      "rerunning into M2003 failure directory"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md",
+  "public_gates": [
+    "M2008 must freeze exact measured execution rerun command after compatibility repair",
+    "M2008 must use a fresh M2009 output directory",
+    "M2008 must not run real measured execution",
+    "M2008 must keep ranking paper and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design",
+    "evidence_increment": "freezes exact measured execution rerun command after selection quota compatibility repair",
+    "claim_scope": "command design only; no real measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1986 artifact paths are unavailable",
+      "stop if command would overwrite M2003 failure artifacts",
+      "stop if command omits target episode/spec/profile gates"
+    ],
+    "fallback_plan": [
+      "route back to artifact audit if M1986 paths are missing",
+      "run only the frozen command in the next execution milestone if design is complete",
+      "audit result after execution before ranking or interpretation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2007 audit admits fresh measured execution rerun command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured execution rerun v2 command design",
+    "admission_evidence": [
+      "M2007 audits selection quota compatibility implementation as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in command design",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md",
+      "M2008 status queue scoreboard research log and review",
+      "one follow-up manifest for frozen measured execution rerun v2"
+    ],
+    "next_stage_criteria": [
+      "command is exact and copyable",
+      "fresh output directory is fixed",
+      "pass gates are fixed",
+      "interpretation is deferred to result audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2008."
+    ],
+    "temporal_evidence_window": "M1986 artifacts plus M2007 implementation audit.",
+    "negative_result_policy": "If the command cannot be frozen cleanly, route to artifact audit rather than running a partial workload.",
+    "allowed_claims": [
+      "measured execution rerun command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns compatibility repair into a fresh measured execution rerun route",
+    "paper_verdict_delta": "can produce measured execution evidence in the next milestone but cannot by itself establish performance",
+    "must_synthesize_if": [
+      "command design cannot identify exact artifacts",
+      "another design-only milestone is proposed before execution",
+      "the measured execution rerun fails before rollout again"
+    ]
+  },
+  "hypothesis": "A fresh measured execution rerun command can now be frozen after selection quota compatibility repair.",
+  "success_criteria": [
+    "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md exists",
+    "exact command is specified",
+    "input artifacts are fixed",
+    "output directory is fresh",
+    "pass gates are specified",
+    "no real measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "command document is missing",
+    "command is ambiguous",
+    "input or output artifacts are ambiguous",
+    "real measured execution is run in M2008",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_v2_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json",
+    "runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/planned_workload.csv"
+  ],
+  "decision_rule": "M2008 passes if it freezes a precise fresh measured execution rerun command without running it or overclaiming.",
+  "next_blocker": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design"
+}

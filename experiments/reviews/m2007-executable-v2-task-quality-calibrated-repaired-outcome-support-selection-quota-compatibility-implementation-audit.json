@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M2007 audits M2006 as clean focused compatibility implementation and admits fresh measured execution rerun command design",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit does not cover fallback behavior",
+    "audit does not cover fail-closed behavior",
+    "next route is ambiguous",
+    "real measured execution or ranking claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T140800Z",
+  "hypothesis": "The M2006 implementation is clean enough to admit measured execution rerun command design while preserving claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "real measured execution remains blocked until compatibility implementation is audited"
+    ],
+    "derived_from": [
+      "m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_selection_quota_compatibility_implementation_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md",
+      "src/autodrift/executable_v2_task_quality_calibrated_measured_runner.py",
+      "tests/test_executable_v2_task_quality_calibrated_measured_runner.py"
+    ],
+    "parent_objective": [
+      "audit focused selection quota compatibility implementation"
+    ],
+    "supersedes": [
+      "rerunning measured execution immediately after compatibility code change"
+    ]
+  },
+  "milestone": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit",
+  "next_blocker": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_selection_quota_compatibility_audit_admit_measured_execution_rerun_command_design",
+  "public_gates": [
+    "M2007 must audit repair_axis fallback and missing provenance fail-closed behavior",
+    "M2007 must decide whether measured execution rerun command design is admitted",
+    "M2007 must not run real measured execution",
+    "M2007 must keep ranking paper and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_selection_quota_compatibility_audit_admit_measured_execution_rerun_command_design",
+    "milestone": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit",
+    "reason": "M2007 audits M2006 as clean focused compatibility implementation and admits fresh measured execution rerun command design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md exists",
+    "audit covers repair_axis fallback",
+    "audit covers missing provenance fail-closed behavior",
+    "next route is explicit",
+    "no real measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

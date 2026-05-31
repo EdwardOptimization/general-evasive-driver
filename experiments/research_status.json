@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2015,
+    "completed": 2016,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation.md",
+    "command_log": "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2006-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation"
+    "task_id": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.json",
-    "hypothesis": "The M2006 implementation is clean enough to admit measured execution rerun command design while preserving claim boundaries.",
-    "id": "m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit",
+    "command": "see experiments/manifests/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.json",
+    "hypothesis": "A fresh measured execution rerun command can now be frozen after selection quota compatibility repair.",
+    "id": "m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design",
     "kind": "gate",
-    "notes": "Pending: audit focused selection quota compatibility implementation before measured execution rerun command design",
-    "priority": 20020,
+    "notes": "Pending: freeze fresh measured execution rerun command after selection quota compatibility repair",
+    "priority": 20030,
     "status": "pending",
-    "success_artifact": "docs/m2007-executable-v2-task-quality-calibrated-repaired-outcome-support-selection-quota-compatibility-implementation-audit.md"
+    "success_artifact": "docs/m2008-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-v2-command-design.md"
   },
-  "updated_at_utc": "20260531T140349Z"
+  "updated_at_utc": "20260531T140619Z"
 }
