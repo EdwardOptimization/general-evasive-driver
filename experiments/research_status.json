@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1933,
+    "completed": 1934,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit.md",
+    "command_log": "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/summary.json",
+    "run_dir": "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md",
     "status": "completed",
-    "task_id": "m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit"
+    "task_id": "m1925-executable-v2-task-quality-scenario-redesign-materialization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.json",
-    "hypothesis": "M1924 support is sufficient to define a bounded non-holdout materialization subset with 4 supported sources per feasibility-tier and role cell.",
-    "id": "m1925-executable-v2-task-quality-scenario-redesign-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded non-holdout materialization subset from audited support",
-    "priority": 19200,
+    "command": "see experiments/manifests/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.json",
+    "hypothesis": "The M1925 deterministic selector can create an 80-source balanced non-holdout subset from M1924 supported sources.",
+    "id": "m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement deterministic source-only selector and balanced subset artifact",
+    "priority": 19210,
     "status": "pending",
-    "success_artifact": "docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md"
+    "success_artifact": "configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json"
   },
-  "updated_at_utc": "20260531T072544Z"
+  "updated_at_utc": "20260531T073148Z"
 }

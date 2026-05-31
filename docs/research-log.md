@@ -33310,3 +33310,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - gates: `tier_a_b_positive_support_pass=true tier_c_d_near_miss_support_pass=true split_support_pass=true`
 - follow-up manifest: `experiments/manifests/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.json`
 - next: `m1925-executable-v2-task-quality-scenario-redesign-materialization-design`
+
+## M1925 Executable V2 Task-Quality Scenario Redesign Materialization Design
+
+- status: completed
+- decision: `task_quality_scenario_materialization_design_admit_implementation`
+- doc: `docs/m1925-executable-v2-task-quality-scenario-redesign-materialization-design.md`
+- source support table: `runs/m1924_executable_v2_task_quality_scenario_redesign_source_mining_result_audit/joined_source_support.csv`
+- source-mining execution in M1925: `false`
+- reset/rollout/measured execution in M1925: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- target source count: `80`
+- target balance: `5 tiers x 4 roles x 4 sources`
+- target surface balance: `2 steady_surface + 2 post_friction_step per tier-role cell`
+- expected later controller-profile count: `12`
+- expected later planned workload cells: `960`
+- holdout use: `false`
+- interpretation boundary: design only; no reset, rollout, measured execution, controller ranking, paper-level result, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.json`
+- next: `m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation`

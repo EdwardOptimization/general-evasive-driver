@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1924-executable-v2-task-quality-scenario-redesign-source-mining-result-audit
+m1925-executable-v2-task-quality-scenario-redesign-materialization-design
 ```
 
 Current next task:
 
 ```text
-m1925-executable-v2-task-quality-scenario-redesign-materialization-design
+m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -248,7 +248,11 @@ any materialization, rollout, controller ranking, paper-level claim, or level3
 self-ID claim. M1924 completed that audit: all `640` rows joined, Tier A/B
 positive-support gates passed, Tier C/D near-miss support passed, public
 debug/gate split support passed, and holdout support is present but unused.
-M1925 must now design a bounded non-holdout materialization subset before any
+M1925 completed the bounded materialization design: select `80` supported
+non-holdout sources as `4` sources for each of the `5 x 4` tier-role cells,
+with `2` steady and `2` post-friction sources per cell. The expected later
+workload is `960` planned cells if crossed with `12` controller profiles.
+M1926 must implement this source-only selector and subset artifact before any
 reset, rollout, measured execution, controller ranking, paper-level claim, or
 level3 self-ID claim.
 
