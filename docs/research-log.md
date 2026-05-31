@@ -33362,3 +33362,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail violations: `0`
 - follow-up manifest: `experiments/manifests/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.json`
 - next: `m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design`
+
+## M1927 Executable V2 Task-Quality Scenario Redesign Materialization Command Design
+
+- status: completed
+- decision: `task_quality_scenario_materialization_command_design_route_to_focused_materializer`
+- doc: `docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md`
+- subset config: `configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json`
+- template source: `configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json`
+- accepted cells: `runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/support_first_accepted_cells.csv`
+- reset/rollout/measured execution in M1927: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- compatibility decision: historical materializers are not exact schema matches
+- required implementation route: focused no-rollout materializer
+- target executable specs: `80`
+- target selected accepted cells: `80`
+- target workload cells: `960`
+- target profile count: `12`
+- representative accepted-cell rule: tier-aware deterministic selection from M1923 accepted cells
+- follow-up manifest: `experiments/manifests/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.json`
+- next: `m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation`

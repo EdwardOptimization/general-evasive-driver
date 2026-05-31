@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1935,
+    "completed": 1936,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation.md",
+    "command_log": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
     "returncode": 0,
-    "run_dir": "runs/m1926_executable_v2_task_quality_scenario_redesign_materialization_implementation/summary.json",
+    "run_dir": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
     "status": "completed",
-    "task_id": "m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation"
+    "task_id": "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.json",
-    "hypothesis": "The M1926 source-only subset can be routed into an exact no-rollout materialization command with explicit target artifacts and counts.",
-    "id": "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design",
-    "kind": "gate",
-    "notes": "Pending: design exact no-rollout materialization command and target artifacts",
-    "priority": 19220,
+    "command": "see experiments/manifests/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.json",
+    "hypothesis": "The focused materializer can convert the 80-source M1926 subset into 80 executable specs and 960 workload rows without rollout or contract violations.",
+    "id": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused no-rollout materializer for 80 executable specs and 960 workload rows",
+    "priority": 19230,
     "status": "pending",
-    "success_artifact": "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md"
+    "success_artifact": "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260531T073842Z"
+  "updated_at_utc": "20260531T074316Z"
 }

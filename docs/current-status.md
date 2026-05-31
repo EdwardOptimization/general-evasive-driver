@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1926-executable-v2-task-quality-scenario-redesign-materialization-implementation
+m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design
 ```
 
 Current next task:
 
 ```text
-m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design
+m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -259,6 +259,10 @@ exact tier-role balance, exact surface balance, and guardrail `0`. M1927 must
 now design the no-rollout command for converting this source subset into
 executable task specs and workload rows before any reset, rollout, measured
 execution, controller ranking, paper-level claim, or level3 self-ID claim.
+M1927 completed that command design and found that historical materializers are
+not exact schema matches; M1928 must implement a focused no-rollout materializer
+that joins the subset, original template, and accepted-cell artifact to produce
+`80` executable specs and `960` workload rows.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

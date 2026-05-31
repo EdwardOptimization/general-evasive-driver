@@ -1,0 +1,181 @@
+{
+  "id": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_materialization_preflight_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+      "configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json",
+      "configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json",
+      "runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/support_first_accepted_cells.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.json"
+    ],
+    "parent_objective": [
+      "implement focused no-rollout materializer for task-quality scenario-redesign subset"
+    ],
+    "derived_from": [
+      "m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design"
+    ],
+    "blocked_by": [
+      "M1927 shows historical materializers are not exact schema matches"
+    ],
+    "supersedes": [
+      "forcing M1926 source rows through historical materialization schemas"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.md",
+  "public_gates": [
+    "M1928 must implement a focused no-rollout materializer for the M1926 subset",
+    "M1928 must join selected sources to full template metadata and accepted cells",
+    "M1928 must produce 80 executable specs and 960 workload rows",
+    "M1928 must assert human-view env contract and block forbidden keys",
+    "M1928 must keep reset rollout measured execution controller ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_scenario_redesign",
+    "evidence_axis": "Q_task_quality_scenario_executable_materialization_preflight",
+    "evidence_increment": "creates no-rollout executable specs and workload rows for the first redesigned task-quality panel",
+    "claim_scope": "no-rollout executable materialization only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if selected sources cannot join to full template metadata",
+      "stop if any selected source has no representative accepted cell",
+      "stop if human-view env contract fails",
+      "stop if target counts fail"
+    ],
+    "fallback_plan": [
+      "route to result audit if materialization preflight passes",
+      "route to focused implementation repair if join or contract errors are localized",
+      "route to branch synthesis if the subset cannot become executable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1927 admitted focused materializer implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "task-quality executable materialization preflight implementation",
+    "admission_evidence": [
+      "M1927 defines exact command, inputs, target artifacts, and representative accepted-cell rule"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset rollout measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not use holdout candidates"
+    ],
+    "allowed_updates": [
+      "M1928 materializer source file",
+      "M1928 focused tests",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/*",
+      "M1928 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit failure audit or synthesis"
+    ],
+    "next_stage_criteria": [
+      "executable_spec_count is 80",
+      "workload_cell_count is 960",
+      "contract and forbidden-key checks pass",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; no-rollout materialization does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1928."
+    ],
+    "temporal_evidence_window": "M1926 subset plus M1923 accepted-cell source mining artifacts.",
+    "negative_result_policy": "If materialization fails, record the join or contract blocker and repair/synthesize before controller comparison.",
+    "allowed_claims": [
+      "task-quality no-rollout executable materialization preflight",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts source subset into executable task/workload panel artifacts",
+    "paper_verdict_delta": "can admit reset/materialization result audit but cannot change driver verdict by itself",
+    "must_synthesize_if": [
+      "M1928 cannot join selected sources to accepted cells",
+      "M1928 cannot produce contract-clean env configs",
+      "M1928 would allow ranking before reset/measured gates"
+    ]
+  },
+  "hypothesis": "The focused materializer can convert the 80-source M1926 subset into 80 executable specs and 960 workload rows without rollout or contract violations.",
+  "success_criteria": [
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json exists",
+    "executable_spec_count is 80",
+    "selected_accepted_cell_count is 80",
+    "workload_cell_count is 960",
+    "profile_count is 12",
+    "unmappable_source_count is 0",
+    "contract_violation_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "focused tests pass",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "target counts fail",
+    "selected sources cannot join to template or accepted cells",
+    "contract violations occur",
+    "forbidden key violations occur",
+    "reset rollout measured execution training replay or PPO is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_scenario_redesign_materialization_preflight.py"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_scenario_redesign_materialization_preflight --subset-config configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json --template configs/executable_v2_task_quality_scenario_redesign_candidates_v0.json --accepted-cells runs/m1923_executable_v2_task_quality_scenario_redesign_source_mining_execution/support_first_accepted_cells.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight --next-blocker m1929-executable-v2-task-quality-scenario-redesign-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_scenario_redesign_materialization_preflight_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1927-executable-v2-task-quality-scenario-redesign-materialization-command-design.md",
+    "configs/executable_v2_task_quality_scenario_redesign_materialization_subset_v0.json"
+  ],
+  "decision_rule": "M1928 passes if it creates contract-clean no-rollout executable specs and workload rows with exact counts and no ranking.",
+  "next_blocker": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation"
+}
