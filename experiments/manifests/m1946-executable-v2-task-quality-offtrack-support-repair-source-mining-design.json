@@ -1,0 +1,161 @@
+{
+  "id": "m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_source_mining_design"
+    ],
+    "parent_dataset": [
+      "docs/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.json"
+    ],
+    "parent_objective": [
+      "design source-mining/preflight over offtrack-support repair templates"
+    ],
+    "derived_from": [
+      "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation"
+    ],
+    "blocked_by": [
+      "repair templates exist but have not been source-mined or reset-validated"
+    ],
+    "supersedes": [
+      "direct measured execution from repair templates without source-mining design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+  "public_gates": [
+    "M1946 must design source-mining/preflight without running environment interaction",
+    "M1946 must define how repair deltas map to source-quality candidates",
+    "M1946 must define support gates before reset or measured execution",
+    "M1946 must keep profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_source_mining_design",
+    "evidence_increment": "moves from template artifact to a source-mining/preflight design",
+    "claim_scope": "design only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if repair deltas cannot be mapped to source-quality candidates",
+      "stop if source-mining gates would allow ranking before support is repaired",
+      "stop if design would tune controller profiles"
+    ],
+    "fallback_plan": [
+      "route to template audit if M1945 artifact is insufficient",
+      "route to scenario redesign if repair deltas cannot map cleanly",
+      "route to source-mining implementation only if gates are explicit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "third milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack support repair source-mining design",
+    "admission_evidence": [
+      "M1945 produced deterministic 160-row repair templates with exact counts and clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment interaction",
+      "do not tune controller profiles",
+      "do not rank controllers"
+    ],
+    "allowed_updates": [
+      "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+      "M1946 status queue scoreboard research log and review",
+      "one follow-up manifest for source-mining implementation or command design"
+    ],
+    "next_stage_criteria": [
+      "repair delta mapping is explicit",
+      "source-mining output schema is explicit",
+      "support gates before reset or measured execution are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; source-mining design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1946."
+    ],
+    "temporal_evidence_window": "M1945 repair template artifact.",
+    "negative_result_policy": "If source-mining cannot define support gates, route back to scenario redesign rather than measured execution.",
+    "allowed_claims": [
+      "offtrack support repair source-mining design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "defines how the new repair candidate panel will be tested for source support before execution",
+    "paper_verdict_delta": "can admit or block source-mining implementation before any measured comparison",
+    "must_synthesize_if": [
+      "M1946 cannot define source-quality gates",
+      "M1946 would proceed to measured execution without reset/source support",
+      "M1946 would rank profiles"
+    ]
+  },
+  "hypothesis": "A source-mining/preflight design can turn the M1945 templates into support-quality evidence without measured execution or ranking.",
+  "success_criteria": [
+    "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md exists",
+    "repair delta mapping is explicit",
+    "source-mining output schema is explicit",
+    "pass/fail gates before reset or measured execution are explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "repair delta mapping is ambiguous",
+    "source-mining gates are ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_source_mining_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md",
+    "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+  ],
+  "decision_rule": "M1946 passes if it defines source-mining/preflight schema and gates before any reset or measured execution.",
+  "next_blocker": "m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design"
+}

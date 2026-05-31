@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1953,
+    "completed": 1954,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+    "command_log": "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
     "returncode": 0,
-    "run_dir": "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+    "run_dir": "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
     "status": "completed",
-    "task_id": "m1944-executable-v2-task-quality-offtrack-support-repair-design"
+    "task_id": "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.json",
-    "hypothesis": "A deterministic no-rollout template generator can materialize the M1944 offtrack-support repair plan with exact counts and guardrails.",
-    "id": "m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement deterministic 160-row offtrack-support repair template generator with focused tests and no environment interaction",
-    "priority": 19400,
+    "command": "see experiments/manifests/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.json",
+    "hypothesis": "A source-mining/preflight design can turn the M1945 templates into support-quality evidence without measured execution or ranking.",
+    "id": "m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design",
+    "kind": "gate",
+    "notes": "Pending: design source-mining/preflight schema and support gates for the 160-row repair candidate template artifact",
+    "priority": 19410,
     "status": "pending",
-    "success_artifact": "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+    "success_artifact": "docs/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.md"
   },
-  "updated_at_utc": "20260531T091043Z"
+  "updated_at_utc": "20260531T091620Z"
 }

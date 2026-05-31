@@ -33763,3 +33763,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gates: exact source-kind and split counts, guardrail zero, no labels entering actor input, no ranking admissible by default
 - follow-up manifest: `experiments/manifests/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.json`
 - next: `m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation`
+
+## M1945 Executable V2 Task-Quality Offtrack Support Repair Template Implementation
+
+- status: completed
+- decision: `task_quality_offtrack_support_repair_templates_pass_admit_source_mining_design`
+- result class: `task_quality_offtrack_support_repair_templates_pass`
+- doc: `docs/m1945-executable-v2-task-quality-offtrack-support-repair-template-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_offtrack_support_repair_templates.py`
+- focused tests: `2 passed`
+- config artifact: `configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json`
+- reset/rollout/measured execution in M1945: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- template counts: `160` candidates, with `64` anchor-neighborhood, `48` success-stabilizer, `32` offtrack-boundary-relief, and `16` mitigation-isolation rows
+- split counts: `96` public-debug and `64` public-gate rows, `0` holdout rows
+- guardrails: labels entering actor input `0`, ranking-admissible-by-default `0`, profile-specific tuning `0`, guardrail violation `0`
+- follow-up manifest: `experiments/manifests/m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design.json`
+- next: `m1946-executable-v2-task-quality-offtrack-support-repair-source-mining-design`
