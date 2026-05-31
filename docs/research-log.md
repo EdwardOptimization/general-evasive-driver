@@ -34354,3 +34354,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: complete metadata-preserving public diagnostic execution, but still low-support and offtrack-dominated; ranking, paper-level comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.json`
 - next: `m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis`
+
+## M1976 Executable V2 Task-Quality Calibrated Repaired Measured Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- decision: `task_quality_calibrated_repaired_measured_execution_synthesis_pivot_to_calibrated_outcome_localization`
+- doc: `docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md`
+- completed branch segment: `paper_route_task_quality_calibrated_materialization`
+- next branch: `paper_route_task_quality_calibrated_repaired_outcome_localization`
+- reset/rollout/measured execution in M1976: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1966 metadata failure was localized and repaired; M1975 proves repaired 960-row measured execution completeness with clean metrics and guardrails
+- active blocker: raw outcomes remain low-support and offtrack-dominated with success `38/960`, collision failure `150/960`, offtrack noncompletion `772/960`
+- next route: implement and run a no-rerun calibrated repair-aware outcome localizer over M1975 artifacts; do not rank or rerun
+- follow-up manifest: `experiments/manifests/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.json`
+- next: `m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run`

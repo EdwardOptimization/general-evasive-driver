@@ -1,0 +1,189 @@
+{
+  "id": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_localization"
+    ],
+    "parent_dataset": [
+      "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+      "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json",
+      "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/episode_rows.csv",
+      "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/source_kind_aggregate.csv",
+      "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/outcome_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rerun outcome localization for the calibrated repaired M1975 measured artifacts"
+    ],
+    "derived_from": [
+      "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis"
+    ],
+    "blocked_by": [
+      "M1976 pivoted to calibrated repaired outcome localization because M1975 is complete but low-support/offtrack-dominated"
+    ],
+    "supersedes": [
+      "direct controller ranking from low-support M1975 outcomes",
+      "blind reuse of the older M1942 localizer without calibrated repair schema mapping"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.md",
+  "public_gates": [
+    "M1977 must run only no-rerun CSV/JSON localization over M1975 artifacts",
+    "M1977 must explicitly map parent_feasibility_tier_id and normalized_surface_variant instead of assuming old M1938 schema names",
+    "M1977 must preserve repair_source_kind selection_quota_name and base_geometry_source dimensions",
+    "M1977 must reproduce M1975 outcome counts exactly",
+    "M1977 must keep ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_localization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_localization",
+    "evidence_increment": "adds no-rerun outcome localization evidence over the repaired calibrated measured artifacts",
+    "claim_scope": "diagnostic localization only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if M1975 outcome counts are not reproduced",
+      "stop if calibrated repair schema fields are missing or ambiguous",
+      "stop if localization output would be interpreted as controller ranking"
+    ],
+    "fallback_plan": [
+      "route to failure audit if the localizer cannot preserve schema",
+      "route to result audit if localization passes",
+      "route to task-quality repair only after localization identifies the blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1976 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "calibrated repaired measured outcome localization implementation and run",
+    "admission_evidence": [
+      "M1976 pivoted to no-rerun outcome localization",
+      "M1975 measured artifacts are complete but low-support/offtrack-dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py",
+      "tests/test_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+      "M1977 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "localizer reproduces M1975 outcome counts exactly",
+      "required aggregate files are written",
+      "guardrail count is zero",
+      "no reset rollout measured execution ranking or paper-level claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; no-rerun outcome localization does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1977."
+    ],
+    "temporal_evidence_window": "M1975 measured execution artifacts and M1976 synthesis.",
+    "negative_result_policy": "If localization finds no comparison-ready slice, route to task-quality repair or scenario redesign before ranking.",
+    "allowed_claims": [
+      "task-quality calibrated repaired measured outcome localization",
+      "no controller ranking paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns complete M1975 measured artifacts into calibrated repair-aware localization tables",
+    "paper_verdict_delta": "can decide whether the repaired public diagnostic panel supports comparison or requires task-quality repair",
+    "must_synthesize_if": [
+      "M1977 cannot preserve calibrated repair schema",
+      "M1977 would require rerun before no-rerun analysis",
+      "M1977 would rank controllers directly"
+    ]
+  },
+  "hypothesis": "A calibrated repair-aware no-rerun localizer can determine whether M1975 outcomes support comparison, repair, or scenario redesign.",
+  "success_criteria": [
+    "focused tests for calibrated repaired localization pass",
+    "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json exists",
+    "result_class is task_quality_calibrated_repaired_measured_outcome_localization_pass",
+    "episode_count equals 960",
+    "outcome_counts_match_source_summary is true",
+    "required aggregate files are written",
+    "guardrail_violation_count equals 0",
+    "environment_reset_started environment_rollout_started policy_action_executed and measured_rollout_started are false",
+    "controller ranking paper-level and level3 claims are false"
+  ],
+  "failure_criteria": [
+    "localizer cannot parse M1975 schema",
+    "outcome counts differ from M1975 summary",
+    "required aggregate files are missing",
+    "guardrail violation appears",
+    "new reset rollout measured execution training replay PPO ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py"
+    },
+    {
+      "name": "localization",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_repaired_measured_outcome_localization --summary runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json --episode-rows runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/episode_rows.csv --output-dir runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization --target-episode-count 960 --target-profile-count 12 --target-source-kind-count 4 --target-role-count 4 --target-normalized-surface-count 3 --target-sampled-label-count 4 --next-blocker m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_localization"
+  ],
+  "baseline_artifacts": [
+    "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+    "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json",
+    "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/episode_rows.csv"
+  ],
+  "decision_rule": "M1977 passes if it implements and runs a no-rerun calibrated repair-aware localizer with exact source outcome reproduction and no guardrail violations.",
+  "next_blocker": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run"
+}

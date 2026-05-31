@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1975-executable-v2-task-quality-calibrated-repaired-measured-execution
+m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis
 ```
 
 Current next task:
 
 ```text
-m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis
+m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -169,7 +169,15 @@ or ranking/paper/self-ID claim. Raw outcomes remain low-support and
 offtrack-dominated: success `38`, collision failure `150`, offtrack
 noncollision noncompletion `772`. M1976 must synthesize M1966-M1975 before any
 additional local repair or rerun; execution completeness is now proven, but
-controller-family ranking and paper-level comparison remain blocked.
+controller-family ranking and paper-level comparison remain blocked. M1976
+synthesizes the branch and pivots to
+`paper_route_task_quality_calibrated_repaired_outcome_localization`: M1966's
+metadata normalization blocker is resolved, M1975 proves complete repaired
+measured execution, but the low-support offtrack-dominated outcome distribution
+still blocks ranking. M1977 must implement and run a no-rerun calibrated
+repair-aware outcome localizer over M1975 artifacts, explicitly preserving
+`parent_feasibility_tier_id`, `normalized_surface_variant`,
+`repair_source_kind`, `selection_quota_name`, and `base_geometry_source`.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1984,
+    "completed": 1985,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired/summary.json",
+    "command_log": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1975_executable_v2_task_quality_calibrated_measured_execution_repaired",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1975-executable-v2-task-quality-calibrated-repaired-measured-execution"
+    "task_id": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.json",
-    "hypothesis": "The M1966-M1975 branch evidence is sufficient to choose a next branch without continuing local search.",
-    "id": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize repaired measured execution branch; separate execution completeness from comparison readiness and choose next branch",
-    "priority": 19710,
+    "command": "see experiments/manifests/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.json",
+    "hypothesis": "A calibrated repair-aware no-rerun localizer can determine whether M1975 outcomes support comparison, repair, or scenario redesign.",
+    "id": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun calibrated repaired outcome localization over M1975 artifacts",
+    "priority": 19720,
     "status": "pending",
-    "success_artifact": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md"
+    "success_artifact": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260531T113957Z"
+  "updated_at_utc": "20260531T114608Z"
 }
