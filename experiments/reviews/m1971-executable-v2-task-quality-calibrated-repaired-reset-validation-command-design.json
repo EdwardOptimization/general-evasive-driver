@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1971 freezes exact reset-only command over repaired executable specs with target 80 obs dim 72 and no rollout",
+  "failure_criteria": [
+    "design document is missing",
+    "command is ambiguous",
+    "stale M1958 executable specs are used",
+    "reset rollout measured execution or ranking is run",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T112632Z",
+  "hypothesis": "The repaired M1969 executable specs can be reset-validated with the focused calibrated reset validator using a frozen reset-only command.",
+  "lineage": {
+    "blocked_by": [
+      "repaired executable specs have not been reset-validated"
+    ],
+    "derived_from": [
+      "m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_reset_validation_command_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit.md",
+      "runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json"
+    ],
+    "parent_objective": [
+      "freeze reset-only command over repaired executable specs"
+    ],
+    "supersedes": [
+      "reusing old M1960 reset-validation artifacts after repaired materialization"
+    ]
+  },
+  "milestone": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design",
+  "next_blocker": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_repaired_reset_command_design_admit_execution",
+  "public_gates": [
+    "M1971 must freeze exact reset-only command over M1969 repaired executable specs",
+    "M1971 must target 80 specs and observation dimension 72",
+    "M1971 must keep rollout measured execution ranking paper and level3 claims blocked",
+    "M1971 must not run reset"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_repaired_reset_command_design_admit_execution",
+    "milestone": "m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design",
+    "reason": "M1971 freezes exact reset-only command over repaired executable specs with target 80 obs dim 72 and no rollout",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md exists",
+    "exact reset-only command is specified",
+    "target reset/spec count is 80",
+    "expected observation dimension is 72",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

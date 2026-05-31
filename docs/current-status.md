@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1970-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-result-audit
+m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design
+m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -144,7 +144,12 @@ evidence: `parent_feasibility_tier_blank_spec_count=0`,
 `parent_feasibility_tier_blank_workload_count=0`, normalized sentinel counts
 `8` specs / `96` workload cells, source-kind and role-surface quotas pass, and
 guardrail `0`. M1971 must now freeze a reset-only validation command over the
-repaired executable specs; measured execution remains blocked.
+repaired executable specs; measured execution remains blocked. M1971 freezes
+that command for M1972 over
+`runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json`
+with eval seed base `197200`, target `80` specs, and expected observation
+dimension `72`. M1972 may run reset-only validation; rollout and measured
+execution remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

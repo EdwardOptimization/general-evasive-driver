@@ -34269,3 +34269,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: reset validity of repaired artifacts, measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.json`
 - next: `m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design`
+
+## M1971 Executable V2 Task-Quality Calibrated Repaired Reset Validation Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_reset_command_design_admit_execution`
+- doc: `docs/m1971-executable-v2-task-quality-calibrated-repaired-reset-validation-command-design.md`
+- reset execution in M1971: `false`
+- rollout/measured execution in M1971: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: `PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1969_executable_v2_task_quality_calibrated_materialization_preflight_repaired/executable_task_specs.json --output-dir runs/m1972_executable_v2_task_quality_calibrated_reset_validation_preflight_repaired --eval-seed-base 197200 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1973-executable-v2-task-quality-calibrated-repaired-reset-validation-result-audit`
+- pass gates: `80/80` reset success, finite obs `80`, observation dim failures `0`, obstacles initialized `80`, contract `0`, label actor input `0`, forbidden-key `0`, source-kind and role-surface quotas pass, guardrail `0`
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight.json`
+- next: `m1972-executable-v2-task-quality-calibrated-repaired-reset-validation-preflight`
