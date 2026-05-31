@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2078,
+    "completed": 2079,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+    "command_log": "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight",
     "status": "completed",
-    "task_id": "m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis"
+    "task_id": "m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.json",
-    "hypothesis": "The combined no-reset repair preflight can produce 240 warmup-schema-valid and scenario-filter-feasible repaired specs while preserving provenance and claim guards.",
-    "id": "m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-reset combined repair preflight and write repaired warmup-valid scenario-filter-feasible specs",
-    "priority": 20650,
+    "command": "see experiments/manifests/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.json",
+    "hypothesis": "The M2070 repaired materialization artifact is clean enough to admit reset-validation command design while preserving claim guards.",
+    "id": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2070 repair artifact before reset-validation command design",
+    "priority": 20660,
     "status": "pending",
-    "success_artifact": "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json"
+    "success_artifact": "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md"
   },
-  "updated_at_utc": "20260531T211717Z"
+  "updated_at_utc": "20260531T213727Z"
 }

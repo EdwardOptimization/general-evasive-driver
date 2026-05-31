@@ -1,0 +1,169 @@
+{
+  "id": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_reset_materialization_repair_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json",
+      "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/repaired_executable_task_specs.json",
+      "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-reset repair preflight before reset-validation command design"
+    ],
+    "derived_from": [
+      "m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2070 produced repaired specs that require audit before reset validation"
+    ],
+    "supersedes": [
+      "direct reset validation of unaudited repaired specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
+  "public_gates": [
+    "M2071 must audit M2070 repair counts and claim guards",
+    "M2071 must decide whether repaired specs are admissible for reset-validation command design",
+    "M2071 must not run reset rollout measured execution or ranking",
+    "M2071 must keep generated smoke-proxy rows non-paper-valid"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_reset_materialization_repair_result_audit",
+    "evidence_increment": "audits the repaired no-reset materialization artifact before reset validation",
+    "claim_scope": "repair result audit only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repair summary is missing",
+      "stop if warmup or scenario feasibility gates failed",
+      "stop if claim guards or provenance are not preserved",
+      "stop if audit would run reset or rollout"
+    ],
+    "fallback_plan": [
+      "route to reset-validation command design if repaired artifact is clean",
+      "route to repair-result failure audit if repaired artifact is incomplete",
+      "route to synthesis if no bounded reset-validity route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2070 produced repaired no-reset materialization artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive reset materialization repair result audit",
+    "admission_evidence": [
+      "M2070 result_class outcome_supported_decisive_reset_materialization_repair_preflight_pass",
+      "M2070 repaired_executable_spec_count 240",
+      "M2070 zero_step_warmup_gate_invalid_count_after 0",
+      "M2070 scenario_filter_infeasible_after_count 0",
+      "M2070 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not reset repaired specs in M2071",
+      "do not rank controller families",
+      "do not interpret repair as paper evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
+      "M2071 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design or repair audit"
+    ],
+    "next_stage_criteria": [
+      "repair result audited",
+      "claim boundaries audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2071 audits task repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2071."
+    ],
+    "temporal_evidence_window": "M2070 repaired materialization artifact.",
+    "negative_result_policy": "If the repair is not clean enough for reset validation, repair or synthesize rather than weakening claim guards.",
+    "allowed_claims": [
+      "outcome-supported decisive repair result audit",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits repaired task-validity artifact before reset validation",
+    "paper_verdict_delta": "can admit reset-validation command design but cannot decide paper-route comparison",
+    "must_synthesize_if": [
+      "M2071 routes to another repair without classifying a new blocker",
+      "M2071 weakens claim guards to admit reset validation",
+      "M2071 treats no-reset repair as measured evidence"
+    ]
+  },
+  "hypothesis": "The M2070 repaired materialization artifact is clean enough to admit reset-validation command design while preserving claim guards.",
+  "success_criteria": [
+    "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md exists",
+    "M2070 repair counts and guards are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2070 repair result is not audited",
+    "next route is ambiguous",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_reset_materialization_repair_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json",
+    "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md"
+  ],
+  "decision_rule": "M2071 passes if it audits M2070 as clean and selects a bounded next route without overclaiming.",
+  "next_blocker": "m2072-selected-by-m2071-audit"
+}

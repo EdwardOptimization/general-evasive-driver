@@ -125,6 +125,8 @@ scenario_filter_feasible_before
 scenario_filter_feasible_after
 scenario_filter_candidate_label
 scenario_filter_candidate_score
+original_obstacle_max_threshold_score
+repaired_obstacle_max_threshold_score
 ```
 
 The repair may broaden or retarget smoke-proxy geometry, but it must not:

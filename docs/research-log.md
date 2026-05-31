@@ -36187,3 +36187,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next decision: continue only to M2070 no-reset combined repair implementation, followed by M2071 audit before reset rerun
 - follow-up manifest: `experiments/manifests/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.json`
 - next: `m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation`
+
+## M2070 Paper-Route Outcome-Supported Decisive Reset Materialization Repair Preflight Implementation
+
+- status: completed
+- decision: `outcome_supported_decisive_reset_materialization_repair_preflight_pass_route_to_result_audit`
+- run artifact: `runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M2070: `false`
+- policy actions executed in M2070: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_materialization_repair_preflight_pass`
+- repaired specs/workload/profiles: `240/1200/5`
+- warmup invalid after repair: `0`
+- scenario filter feasible/infeasible after repair: `240/0`
+- warmup gate repairs: `123`
+- obstacle filter repairs: `240`, including `15` threshold-score relaxations to `1.0`
+- family/split/difficulty gates: `true/true/true`
+- contract/metadata/forbidden-key/profile-missing/guardrail counts: `0/0/0/0/0`
+- interpretation: repaired no-reset materialization is clean enough for audit, but reset validation and measured execution remain blocked
+- follow-up manifest: `experiments/manifests/m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit.json`
+- next: `m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit`

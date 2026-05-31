@@ -1,0 +1,7 @@
+claim,admissible,reason
+outcome_supported_decisive_repaired_materialization_preflight,True,repaired materialization is admissible only if no-reset repair gates pass
+reset_validity,False,reset validity requires a later reset-validation rerun
+measured_controller_performance,False,policy actions and measured rollout remain blocked
+controller_family_ranking,False,"repair preflight is task-quality infrastructure, not controller comparison"
+paper_valid_generated_task_semantics,False,generated rows remain smoke proxies until later task-semantics validation
+level3_self_identification,False,repair preflight does not test history necessity
