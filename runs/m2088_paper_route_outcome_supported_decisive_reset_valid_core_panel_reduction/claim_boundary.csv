@@ -1,0 +1,7 @@
+claim,admissible,reason
+reset_valid_core_panel_materialization,True,admissible only if the no-reset reduction preserves public-gate rows and claim guards
+fresh_reset_validity,False,the reduced panel reuses M2085 reset evidence and does not rerun reset
+measured_controller_performance,False,policy actions and measured rollout remain blocked
+controller_family_ranking,False,"panel reduction is task-quality infrastructure, not controller comparison"
+paper_valid_generated_task_semantics,False,generated rows remain smoke proxies until later task-semantics validation
+level3_self_identification,False,panel reduction does not test history necessity

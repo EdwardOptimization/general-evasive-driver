@@ -36596,3 +36596,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - M2088 pass gate: materialize reduced specs and workload with env_config changed `0`, metadata/contract/forbidden-key/guardrail `0`, and no reset or rollout
 - follow-up manifest: `experiments/manifests/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.json`
 - next: `m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation`
+
+## M2088 Paper-Route Outcome-Supported Decisive Reset-Valid Core Panel Reduction Implementation
+
+- status: completed
+- decision: `reset_valid_core_panel_reduction_pass_route_to_result_audit`
+- run artifact: `runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json`
+- focused tests: `1 passed`
+- reset/rollout/measured execution in M2088: `false`
+- policy actions executed in M2088: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_valid_core_panel_reduction_pass`
+- counts: input specs `240`, reset rows `240`, reduced specs `238`, excluded specs `2`, planned sentinel workload `1190`
+- public-gate preservation: total `96`, preserved `96`, excluded `0`; public-debug excluded `2`
+- guard evidence: env_config changed `0`, contract `0`, metadata `0`, forbidden-key `0`, profile missing `0`, guardrail `0`
+- coverage loss: family loss `2`, axis loss `2`, dynamics loss `2`, source-kind loss `2`
+- interpretation: M2088 materializes the reduced core but does not establish fresh reset validity beyond the M2085 evidence
+- follow-up manifest: `experiments/manifests/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.json`
+- next: `m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit`

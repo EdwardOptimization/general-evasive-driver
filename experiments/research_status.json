@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2096,
+    "completed": 2097,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
+    "command_log": "docs/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design.md",
+    "run_dir": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction",
     "status": "completed",
-    "task_id": "m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design"
+    "task_id": "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation.json",
-    "hypothesis": "A no-reset selector can materialize a 238-row reset-valid core panel from M2085 reset-success rows while preserving all public-gate rows and metadata.",
-    "id": "m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-reset selector for 238-row reset-valid core panel",
-    "priority": 20830,
+    "command": "see experiments/manifests/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.json",
+    "hypothesis": "M2088's 238-row reduced panel artifact is clean enough to admit a fresh reduced-panel reset-validation command design.",
+    "id": "m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2088 reduced panel before reduced-panel reset command design or distribution redesign",
+    "priority": 20840,
     "status": "pending",
-    "success_artifact": "runs/m2088_paper_route_outcome_supported_decisive_reset_valid_core_panel_reduction/summary.json"
+    "success_artifact": "docs/m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit.md"
   },
-  "updated_at_utc": "20260531T230156Z"
+  "updated_at_utc": "20260531T230906Z"
 }

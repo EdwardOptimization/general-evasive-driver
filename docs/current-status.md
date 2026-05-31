@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2087-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-design
+m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation
 ```
 
 Current next task:
 
 ```text
-m2088-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-implementation
+m2089-paper-route-outcome-supported-decisive-reset-valid-core-panel-reduction-result-audit
 ```
 
-Immediate route: M2087 designs a reset-valid core panel by including only
-M2085 reset-success rows. The reduced panel has `238` rows, preserves all `96`
-public-gate rows, and excludes the two public-debug reset-failure rows without
-changing filters or rerunning reset. M2088 must implement and run a no-reset
-selector that materializes this reduced panel and preserves metadata/contract
-guards. Measured execution, ranking, paper claims, and self-ID claims remain
-blocked until the reduced panel is materialized and audited.
+Immediate route: M2088 implements and runs the no-reset selector. It
+materializes a `238`-row reduced core, preserves all `96` public-gate rows,
+excludes the two public-debug reset failures, writes `1190` planned sentinel
+workload rows, and keeps env_config/metadata/contract/guardrail counts clean.
+M2089 must audit this artifact and explicitly handle the limitation that the
+reduced panel is reset-valid under M2085 evidence, not yet under a fresh
+reduced-panel reset run. Measured execution, ranking, paper claims, and self-ID
+claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
