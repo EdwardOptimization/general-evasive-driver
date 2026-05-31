@@ -1,0 +1,92 @@
+# m1879-executable-v2-support-first-measured-runner-execution-command-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260531T030101Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: support_first_measured_runner_execution_command_design_admit_measured_execution
+- Decision reason: M1879 fixes exact M1880 2160-episode support-first measured runner command and gates without running rollout
+
+## Hypothesis
+
+The exact support-first measured runner execution command can be designed over the M1875 workload and M1878 runner while preserving diagnostic-only claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_support_first_measured_runner_execution_command_design
+- parent_dataset: docs/m1878-executable-v2-support-first-measured-runner-implementation.md, runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json, runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv
+- parent_config: experiments/manifests/m1878-executable-v2-support-first-measured-runner-implementation.json
+- parent_objective: fix exact execution command for the support-first measured runner before real rollout
+- derived_from: m1878-executable-v2-support-first-measured-runner-implementation
+- blocked_by: M1878 implements the runner but does not run the real 2160-episode workload
+- supersedes: direct measured execution without the support-first runner wrapper
+- invalidates: None
+
+## Success Criteria
+
+- docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md exists
+- design states exact command output directory and next blocker
+- design restates pass criteria for 2160 episodes 180 specs 12 profiles 4 roles 8 role-surfaces
+- design blocks ranking paper-level and level3 self-ID claims
+- no measured rollout policy action training replay PPO or ranking is run
+
+## Failure Criteria
+
+- design document is missing
+- design runs measured rollout or policy actions
+- design omits support-first metadata or role-surface aggregates
+- design routes directly to controller ranking
+- design changes actor inputs reward dynamics or termination behavior
+
+## Evidence Gates
+
+- M1879 must fix the exact runner command over M1875 artifacts
+- M1879 must define output directory, resume policy, eval seed base, and next blocker
+- M1879 must restate pass/fail counters for the later 2160-episode execution
+- M1879 must not run measured rollout or rank controller families
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run real measured rollout
+- do not execute policy actions
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change reward
+- do not change dynamics
+- do not change termination behavior
+- do not tune profiles
+- do not rank controller families
+- do not claim paper-level evidence
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m1879-executable-v2-support-first-measured-runner-execution-command-design
+- type: gate
+- checkpoint: docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: support_first_measured_runner_execution_command_design_admit_measured_execution
+- reason: M1879 fixes exact M1880 2160-episode support-first measured runner command and gates without running rollout
+
+## Next Blocker
+
+m1880-executable-v2-support-first-measured-runner-execution

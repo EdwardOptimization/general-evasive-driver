@@ -151,6 +151,30 @@
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_executable_specs.json",
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md",
+    "decision": "support_first_measured_runner_execution_command_design_admit_measured_execution",
+    "execution_command_target": "runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json",
+    "target_episode_count": 2160,
+    "target_controller_profile_count": 12,
+    "target_support_first_spec_count": 180,
+    "target_role_panel_count": 4,
+    "target_role_surface_count": 8,
+    "real_measured_rollout_started": false,
+    "policy_action_executed": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1880-executable-v2-support-first-measured-runner-execution.json"
+  },
   "decision_rule": "M1879 passes if it fixes the exact support-first measured runner execution command and gates without running rollout, ranking, or paper-level claims.",
-  "next_blocker": "m1879-executable-v2-support-first-measured-runner-execution-command-design"
+  "next_blocker": "m1880-executable-v2-support-first-measured-runner-execution"
 }

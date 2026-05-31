@@ -32180,3 +32180,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: real 2160-episode measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1879-executable-v2-support-first-measured-runner-execution-command-design.json`
 - next: `m1879-executable-v2-support-first-measured-runner-execution-command-design`
+
+## M1879 Executable V2 Support-First Measured Runner Execution Command Design
+
+- status: completed
+- decision: `support_first_measured_runner_execution_command_design_admit_measured_execution`
+- artifact: `docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md`
+- exact execution command target: `runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json`
+- target episode count: `2160`
+- target support-first spec count: `180`
+- target controller profile count: `12`
+- target role count: `4`
+- target role-surface count: `8`
+- real measured rollout started: `false`
+- policy action executed in M1879: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: exact support-first measured execution command fixed M1880 pass criteria pre-registered
+- unsupported: measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1880-executable-v2-support-first-measured-runner-execution.json`
+- next: `m1880-executable-v2-support-first-measured-runner-execution`
