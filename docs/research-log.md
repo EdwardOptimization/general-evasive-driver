@@ -34692,3 +34692,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: admit repaired reset-validation rerun command design in a fresh output directory so M1990 fail artifacts remain intact
 - follow-up manifest: `experiments/manifests/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.json`
 - next: `m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design`
+
+## M1995 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Reset Validation Rerun Command Design
+
+- status: completed
+- decision: `task_quality_calibrated_outcome_support_repaired_reset_rerun_command_design_admit_execution`
+- doc: `docs/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.md`
+- executable specs: `runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json`
+- reset execution in M1995: `false`
+- rollout/measured execution in M1995: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- command: freeze M1996 repaired reset-only validation with output `runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired`, eval seed base `199600`, target specs `80`, expected observation dim `72`, preserving M1990 fail artifacts
+- route: M1996 may run only the frozen repaired reset-only command; interpretation deferred to M1997 audit
+- follow-up manifest: `experiments/manifests/m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun.json`
+- next: `m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun`

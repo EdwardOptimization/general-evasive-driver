@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2003,
+    "completed": 2004,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit.md",
+    "command_log": "docs/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit"
+    "task_id": "m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.json",
-    "hypothesis": "A repaired reset-only command can rerun the M1990 semantics in a fresh output directory using the artifact-driven quota validator.",
-    "id": "m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze repaired reset-only rerun command in fresh output directory",
-    "priority": 19900,
+    "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_calibrated_reset_validation_preflight --executable-task-specs runs/m1986_executable_v2_task_quality_calibrated_outcome_support_materialization_preflight/executable_task_specs.json --output-dir runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired --eval-seed-base 199600 --target-spec-count 80 --expected-observation-dim 72 --next-blocker m1997-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-result-audit",
+    "hypothesis": "The repaired artifact-driven quota validator restores a clean reset-validation pass for the M1986 repaired outcome-support executable specs.",
+    "id": "m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun",
+    "kind": "infrastructure",
+    "notes": "Pending: rerun only repaired reset-only validator over M1986 executable specs",
+    "priority": 19910,
     "status": "pending",
-    "success_artifact": "docs/m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design.md"
+    "success_artifact": "runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired/summary.json"
   },
-  "updated_at_utc": "20260531T131654Z"
+  "updated_at_utc": "20260531T132027Z"
 }

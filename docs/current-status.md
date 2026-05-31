@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1994-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-quota-parameterization-implementation-audit
+m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design
 ```
 
 Current next task:
 
 ```text
-m1995-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun-command-design
+m1996-executable-v2-task-quality-calibrated-repaired-outcome-support-reset-validation-rerun
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -270,7 +270,12 @@ ranking, paper-level claim, or level3 self-ID claim is made. M1994 must audit
 the implementation before any repaired reset rerun command design. M1994 audits
 M1993 as clean focused infrastructure repair and admits repaired reset rerun
 command design. M1995 must freeze the rerun command in a fresh output directory
-so the M1990 fail artifacts remain unchanged; it must not run reset.
+so the M1990 fail artifacts remain unchanged; it must not run reset. M1995
+freezes the M1996 repaired reset-only command using output
+`runs/m1996_executable_v2_task_quality_calibrated_repaired_outcome_support_reset_validation_preflight_repaired`,
+eval seed base `199600`, target specs `80`, and expected observation dim `72`.
+M1996 may now run only that reset-only command; rollout, measured execution,
+ranking, paper-level evidence, and level3 self-ID remain blocked.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
