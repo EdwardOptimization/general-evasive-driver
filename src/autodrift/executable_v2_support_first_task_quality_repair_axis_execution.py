@@ -13,7 +13,7 @@ from collections import Counter
 import csv
 import json
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any, Callable, Iterable, Mapping
 
 from autodrift.artifacts import utc_timestamp, write_csv_rows, write_json
 from autodrift.executable_v2_support_first_clearance_containment_conflict_localization import (
@@ -29,11 +29,15 @@ DEFAULT_TASK_QUALITY_REPAIR_AXIS_MATRIX = Path(
 DEFAULT_SOURCE_EPISODE_ROWS = Path("runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv")
 DEFAULT_OUTPUT_DIR = Path("runs/m1905_executable_v2_support_first_task_quality_repair_axis_execution_preflight")
 DEFAULT_NEXT_BLOCKER = "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
+DEFAULT_MEASURED_NEXT_BLOCKER = (
+    "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design"
+)
 
 ROLLOUT_ROW_KIND = "rollout_geometry_variant"
 IMPORT_ROW_KIND = "import_existing_episode"
 POSTPROCESS_ROW_KIND = "postprocess_existing_episode"
 IMPORT_POSTPROCESS_ROW_KINDS = (IMPORT_ROW_KIND, POSTPROCESS_ROW_KIND)
+RolloutFunction = Callable[[Mapping[str, Any], int], Mapping[str, Any]]
 
 FORBIDDEN_GUARDRAILS = (
     "training_started",
@@ -130,6 +134,21 @@ def _count_by(rows: Iterable[Mapping[str, Any]], key: str) -> dict[str, int]:
     return dict(sorted(Counter(str(row.get(key, "")) for row in rows).items()))
 
 
+def _claim_boundary_flags() -> dict[str, bool]:
+    return {
+        "training_started": False,
+        "replay_started": False,
+        "ppo_used": False,
+        "promoted": False,
+        "private_holdout_used": False,
+        "actor_input_contract_changed": False,
+        "profile_specific_tuning": False,
+        "controller_family_ranking_claim_made": False,
+        "paper_level_claim_made": False,
+        "level3_self_id_claim_made": False,
+    }
+
+
 def split_axis_matrix_rows(rows: list[Mapping[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rollout_rows: list[dict[str, Any]] = []
     import_postprocess_rows: list[dict[str, Any]] = []
@@ -209,16 +228,7 @@ def planned_rollout_rows(
                 "environment_rollout_started": False,
                 "measured_rollout_started": False,
                 "policy_action_executed": False,
-                "training_started": False,
-                "replay_started": False,
-                "ppo_used": False,
-                "promoted": False,
-                "private_holdout_used": False,
-                "actor_input_contract_changed": False,
-                "profile_specific_tuning": False,
-                "controller_family_ranking_claim_made": False,
-                "paper_level_claim_made": False,
-                "level3_self_id_claim_made": False,
+                **_claim_boundary_flags(),
                 "diagnostic_only_no_ranking_claim": True,
             }
         )
@@ -259,16 +269,7 @@ def import_postprocess_episode_rows(
                 "environment_rollout_started": False,
                 "measured_rollout_started": False,
                 "policy_action_executed": False,
-                "training_started": False,
-                "replay_started": False,
-                "ppo_used": False,
-                "promoted": False,
-                "private_holdout_used": False,
-                "actor_input_contract_changed": False,
-                "profile_specific_tuning": False,
-                "controller_family_ranking_claim_made": False,
-                "paper_level_claim_made": False,
-                "level3_self_id_claim_made": False,
+                **_claim_boundary_flags(),
                 "diagnostic_only_no_ranking_claim": True,
             }
         )
@@ -279,6 +280,65 @@ def import_postprocess_episode_rows(
         output["any_near_miss"] = any(flags.values())
         imported_rows.append(output)
     return imported_rows, failures
+
+
+def measured_rollout_episode_rows(
+    rollout_matrix_rows: list[Mapping[str, Any]],
+    *,
+    rollout_fn: RolloutFunction,
+    eval_seed_base: int = 190900,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    planned_rows, planning_failures = planned_rollout_rows(rollout_matrix_rows, eval_seed_base=eval_seed_base)
+    measured_rows: list[dict[str, Any]] = []
+    failures: list[dict[str, Any]] = list(planning_failures)
+    for planned in planned_rows:
+        row_id = str(planned.get("task_quality_repair_axis_row_id", ""))
+        eval_seed = int(planned["eval_seed"])
+        try:
+            measured = dict(rollout_fn(planned, eval_seed))
+        except Exception as exc:  # noqa: BLE001 - wrapper must persist row-level failures.
+            failure = {field: planned.get(field, "") for field in REQUIRED_AXIS_METADATA_FIELDS}
+            failure.update(
+                {
+                    "workload_id": str(planned.get("workload_id", row_id)),
+                    "task_source_id": str(planned.get("task_source_id", "")),
+                    "eval_seed": eval_seed,
+                    "row_provenance": "measured_rollout_geometry_variant",
+                    "environment_rollout_started": True,
+                    "measured_rollout_started": True,
+                    "policy_action_executed": False,
+                    "error_type": type(exc).__name__,
+                    "error_message": str(exc),
+                    **_claim_boundary_flags(),
+                    "diagnostic_only_no_ranking_claim": True,
+                }
+            )
+            failures.append(failure)
+            continue
+
+        output = dict(measured)
+        for field in AXIS_METADATA_FIELDS_TO_OVERLAY:
+            output[field] = planned.get(field, "")
+        output.update(
+            {
+                "workload_id": str(planned.get("workload_id", row_id)),
+                "task_source_id": str(planned.get("task_source_id", "")),
+                "row_provenance": "measured_rollout_geometry_variant",
+                "eval_seed": eval_seed,
+                "environment_rollout_started": True,
+                "measured_rollout_started": True,
+                "policy_action_executed": True,
+                **_claim_boundary_flags(),
+                "diagnostic_only_no_ranking_claim": True,
+            }
+        )
+        output["postprocess_primary_conflict_class"] = classify_primary_conflict(output)
+        flags = near_miss_flags(output)
+        for key, value in flags.items():
+            output[key] = value
+        output["any_near_miss"] = any(flags.values())
+        measured_rows.append(output)
+    return measured_rows, failures
 
 
 def aggregate_count_rows(rows: list[Mapping[str, Any]], group_keys: tuple[str, ...]) -> list[dict[str, Any]]:
@@ -345,11 +405,68 @@ def dry_run_prepare_execution(
         "paper_level_claim_made": False,
         "level3_self_id_claim_made": False,
         "ranking_blocked": True,
-        "next_blocker": DEFAULT_NEXT_BLOCKER,
+        "next_blocker": DEFAULT_MEASURED_NEXT_BLOCKER,
     }
     return {
         "summary": summary,
         "planned_rollout_rows": planned_rows,
+        "import_postprocess_rows": imported_rows,
+        "combined_rows": combined_rows,
+        "failure_rows": failures,
+        "task_quality_axis_aggregate": aggregate_count_rows(combined_rows, ("task_quality_axis_id",)),
+        "repair_axis_variant_aggregate": aggregate_count_rows(combined_rows, ("repair_axis_variant_id",)),
+        "execution_row_kind_aggregate": aggregate_count_rows(combined_rows, ("execution_row_kind",)),
+    }
+
+
+def measured_prepare_execution(
+    *,
+    matrix_rows: list[Mapping[str, Any]],
+    source_episode_rows: list[Mapping[str, Any]],
+    rollout_fn: RolloutFunction,
+    eval_seed_base: int = 190900,
+) -> dict[str, Any]:
+    rows = [dict(row) for row in matrix_rows]
+    rollout_rows, import_rows = split_axis_matrix_rows(rows)
+    validation_rows = validation_failures(rows)
+    measured_rows, rollout_failures = measured_rollout_episode_rows(
+        rollout_rows,
+        rollout_fn=rollout_fn,
+        eval_seed_base=eval_seed_base,
+    )
+    imported_rows, import_failures = import_postprocess_episode_rows(import_rows, source_episode_rows)
+    combined_rows = measured_rows + imported_rows
+    failures = validation_rows + rollout_failures + import_failures
+    summary = {
+        "result_class": "task_quality_repair_axis_measured_wrapper_mock_pass"
+        if not failures
+        else "task_quality_repair_axis_measured_wrapper_mock_needs_repair",
+        "generated_at_utc": utc_timestamp(),
+        "matrix_row_count": len(rows),
+        "planned_rollout_row_count": len(rollout_rows),
+        "measured_rollout_row_count": len(measured_rows),
+        "import_postprocess_row_count": len(imported_rows),
+        "combined_panel_row_count": len(combined_rows),
+        "failure_count": len(failures),
+        "controller_profile_count": _unique_count(rows, "controller_profile_name"),
+        "source_spec_count": _unique_count(rows, "support_first_v2_panel_spec_id"),
+        "role_surface_count": _unique_count(rows, "v2_role_surface_id"),
+        "repair_axis_variant_count": _unique_count(rows, "repair_axis_variant_id"),
+        "execution_row_kind_counts": _count_by(rows, "execution_row_kind"),
+        "task_quality_axis_counts": _count_by(rows, "task_quality_axis_id"),
+        "repair_axis_variant_counts": _count_by(rows, "repair_axis_variant_id"),
+        "environment_reset_started": False,
+        "environment_rollout_started": bool(rollout_rows),
+        "measured_rollout_started": bool(rollout_rows),
+        "policy_action_executed": bool(measured_rows),
+        **_claim_boundary_flags(),
+        "ranking_blocked": True,
+        "real_m1902_workload_executed": False,
+        "next_blocker": DEFAULT_NEXT_BLOCKER,
+    }
+    return {
+        "summary": summary,
+        "rollout_episode_rows": measured_rows,
         "import_postprocess_rows": imported_rows,
         "combined_rows": combined_rows,
         "failure_rows": failures,
@@ -364,6 +481,19 @@ def write_dry_run_artifacts(result: Mapping[str, Any], output_dir: Path | str) -
     output.mkdir(parents=True, exist_ok=True)
     write_json(output / "summary.json", result["summary"])
     write_csv_rows(output / "planned_rollout_rows.csv", list(result["planned_rollout_rows"]))
+    write_csv_rows(output / "import_postprocess_episode_rows.csv", list(result["import_postprocess_rows"]))
+    write_csv_rows(output / "episode_rows.csv", list(result["combined_rows"]))
+    write_csv_rows(output / "failure_rows.csv", list(result["failure_rows"]))
+    write_csv_rows(output / "task_quality_axis_aggregate.csv", list(result["task_quality_axis_aggregate"]))
+    write_csv_rows(output / "repair_axis_variant_aggregate.csv", list(result["repair_axis_variant_aggregate"]))
+    write_csv_rows(output / "execution_row_kind_aggregate.csv", list(result["execution_row_kind_aggregate"]))
+
+
+def write_measured_artifacts(result: Mapping[str, Any], output_dir: Path | str) -> None:
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    write_json(output / "summary.json", result["summary"])
+    write_csv_rows(output / "rollout_episode_rows.csv", list(result["rollout_episode_rows"]))
     write_csv_rows(output / "import_postprocess_episode_rows.csv", list(result["import_postprocess_rows"]))
     write_csv_rows(output / "episode_rows.csv", list(result["combined_rows"]))
     write_csv_rows(output / "failure_rows.csv", list(result["failure_rows"]))

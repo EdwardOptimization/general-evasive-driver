@@ -6,8 +6,12 @@ from autodrift.executable_v2_support_first_task_quality_repair_axis_execution im
     ROLLOUT_ROW_KIND,
     dry_run_prepare_execution,
     import_postprocess_episode_rows,
+    measured_prepare_execution,
+    measured_rollout_episode_rows,
     planned_rollout_rows,
+    read_csv_rows,
     split_axis_matrix_rows,
+    write_measured_artifacts,
 )
 
 
@@ -129,3 +133,94 @@ def test_dry_run_prepare_execution_summarizes_wrapper_contract() -> None:
     assert summary["failure_count"] == 0
     assert summary["environment_rollout_started"] is False
     assert summary["controller_family_ranking_claim_made"] is False
+
+
+def test_measured_rollout_episode_rows_uses_mocked_rollout_and_preserves_axis_metadata() -> None:
+    rows = [_matrix_row("r0", kind=ROLLOUT_ROW_KIND, variant="post_clearance_recovery_window_plus")]
+
+    def fake_rollout(planned_row, eval_seed: int) -> dict[str, object]:
+        return {
+            "workload_id": "should_be_overlaid",
+            "task_source_id": "should_be_overlaid",
+            "obstacle_clearance_pass": True,
+            "road_containment_pass": True,
+            "collision": False,
+            "collision_failure": False,
+            "min_clearance_margin": 0.2,
+            "max_off_track_overshoot": 0.0,
+            "termination_reason": "completed",
+            "outcome_bucket": "success",
+            "mock_eval_seed_seen": eval_seed,
+            "mock_workload_seen": planned_row["workload_id"],
+        }
+
+    measured, failures = measured_rollout_episode_rows(rows, rollout_fn=fake_rollout, eval_seed_base=2000)
+
+    assert not failures
+    assert len(measured) == 1
+    row = measured[0]
+    assert row["workload_id"].endswith("post_clearance_recovery_window_plus")
+    assert row["task_source_id"].endswith("post_clearance_recovery_window_plus")
+    assert row["task_quality_repair_axis_row_id"] == "r0"
+    assert row["execution_row_kind"] == ROLLOUT_ROW_KIND
+    assert row["row_provenance"] == "measured_rollout_geometry_variant"
+    assert row["eval_seed"] == 2000
+    assert row["mock_eval_seed_seen"] == 2000
+    assert row["environment_rollout_started"] is True
+    assert row["measured_rollout_started"] is True
+    assert row["policy_action_executed"] is True
+    assert row["controller_family_ranking_claim_made"] is False
+    assert row["paper_level_claim_made"] is False
+    assert row["level3_self_id_claim_made"] is False
+
+
+def test_measured_prepare_execution_combines_mocked_rollout_with_imports(tmp_path) -> None:
+    matrix_rows = [
+        _matrix_row("r0", kind=ROLLOUT_ROW_KIND, variant="post_clearance_recovery_window_plus"),
+        _matrix_row("r1", kind=IMPORT_ROW_KIND),
+        _matrix_row("r2", kind=POSTPROCESS_ROW_KIND, variant="role_semantics_only"),
+    ]
+
+    def fake_rollout(planned_row, eval_seed: int) -> dict[str, object]:
+        return {
+            "workload_id": planned_row["workload_id"],
+            "task_source_id": planned_row["task_source_id"],
+            "obstacle_clearance_pass": True,
+            "road_containment_pass": True,
+            "collision": False,
+            "collision_failure": False,
+            "min_clearance_margin": 0.3,
+            "max_off_track_overshoot": 0.0,
+            "termination_reason": "completed",
+            "outcome_bucket": "success",
+            "eval_seed_from_mock": eval_seed,
+        }
+
+    result = measured_prepare_execution(
+        matrix_rows=matrix_rows,
+        source_episode_rows=[_source_episode()],
+        rollout_fn=fake_rollout,
+        eval_seed_base=3000,
+    )
+    summary = result["summary"]
+
+    assert summary["result_class"] == "task_quality_repair_axis_measured_wrapper_mock_pass"
+    assert summary["matrix_row_count"] == 3
+    assert summary["planned_rollout_row_count"] == 1
+    assert summary["measured_rollout_row_count"] == 1
+    assert summary["import_postprocess_row_count"] == 2
+    assert summary["combined_panel_row_count"] == 3
+    assert summary["failure_count"] == 0
+    assert summary["environment_rollout_started"] is True
+    assert summary["real_m1902_workload_executed"] is False
+    assert summary["controller_family_ranking_claim_made"] is False
+    assert summary["paper_level_claim_made"] is False
+    assert summary["level3_self_id_claim_made"] is False
+
+    write_measured_artifacts(result, tmp_path)
+    panel_rows = read_csv_rows(tmp_path / "episode_rows.csv")
+    rollout_rows = read_csv_rows(tmp_path / "rollout_episode_rows.csv")
+    assert len(panel_rows) == 3
+    assert len(rollout_rows) == 1
+    assert rollout_rows[0]["row_provenance"] == "measured_rollout_geometry_variant"
+    assert (tmp_path / "repair_axis_variant_aggregate.csv").exists()

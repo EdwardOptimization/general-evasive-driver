@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis
+m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation
 ```
 
 Current next task:
 
 ```text
-m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation
+m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -182,7 +182,13 @@ workflow evidence only, and promoted the work into a new measured-wrapper
 implementation branch. M1909 must now add measured rollout extension points and
 mocked tests without running the real M1902 workload, reset, rollout, measured
 execution, training, PPO, controller ranking, paper-level claim, or level3
-self-ID claim.
+self-ID claim. M1909 added those measured-wrapper extension points
+(`measured_rollout_episode_rows`, `measured_prepare_execution`, and
+`write_measured_artifacts`) and focused mocked tests passed (`5 passed`), with
+real M1902 execution still deferred. M1910 must now register the exact measured
+execution command, output directory, target counts, pass/fail gates, and claim
+boundaries without running reset, rollout, measured execution, training, PPO,
+controller ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

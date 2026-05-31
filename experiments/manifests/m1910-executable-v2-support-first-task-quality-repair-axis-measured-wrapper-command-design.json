@@ -1,0 +1,167 @@
+{
+  "id": "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/planned_rollout_rows.csv",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/import_postprocess_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json"
+    ],
+    "parent_objective": [
+      "design the exact real-artifact measured-wrapper execution command after mocked extension points passed"
+    ],
+    "derived_from": [
+      "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation"
+    ],
+    "blocked_by": [
+      "real M1902 measured execution still needs a registered command and pass gates"
+    ],
+    "supersedes": [
+      "unregistered direct measured-wrapper execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
+  "public_gates": [
+    "M1910 must register the exact measured-wrapper command without running it",
+    "M1910 must specify target counts for rollout import combined failure and guardrail rows",
+    "M1910 must preserve M1909 claim boundaries and actor input contract",
+    "M1910 must not run environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_command_design",
+    "evidence_increment": "registers exact command and gates for the measured-wrapper execution after M1909 mocked extension tests",
+    "claim_scope": "command design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if target counts cannot be derived from M1906 preflight artifacts",
+      "stop if the command would require actor input or controller profile changes",
+      "stop if pass gates would allow ranking before result audit"
+    ],
+    "fallback_plan": [
+      "route to helper repair if command inputs are incomplete",
+      "route to measured execution only if command and pass gates are exact",
+      "route to branch synthesis if command design exposes ambiguous scope"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new measured-wrapper branch requires synthesis by cadence or local-search guard",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "register exact measured-wrapper execution command and pass gates",
+    "admission_evidence": [
+      "M1909 added measured rollout extension points with mocked tests passing"
+    ],
+    "blocked_shortcuts": [
+      "do not run real M1902 workload",
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1910 command-design document",
+      "M1910 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "exact command is documented",
+      "target counts and output directory are fixed",
+      "pass and failure gates are pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; command design does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1910."
+    ],
+    "temporal_evidence_window": "M1906-M1909 artifacts only.",
+    "negative_result_policy": "If command design cannot keep ranking blocked, route to helper repair instead of weakening claim standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured-wrapper command design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M1909 measured-wrapper infrastructure into an exact executable command plan",
+    "paper_verdict_delta": "can admit a later measured execution milestone but cannot change the paper verdict by itself",
+    "must_synthesize_if": [
+      "target counts or pass gates cannot be fixed",
+      "the command requires scope beyond measured-wrapper execution",
+      "another design-only milestone would be needed before execution"
+    ]
+  },
+  "hypothesis": "M1909's measured wrapper extension points are sufficient to register an exact no-surprise measured execution command and pass gates for a later milestone.",
+  "success_criteria": [
+    "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md exists",
+    "the exact command output directory and target counts are fixed",
+    "pass and failure gates are pre-registered",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "command design document is missing",
+    "target counts or output directory are ambiguous",
+    "pass gates allow ranking before result audit",
+    "M1910 runs reset rollout measured execution training replay or PPO",
+    "M1910 changes actor inputs or controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "command-design",
+      "command": "write docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json"
+  ],
+  "decision_rule": "M1910 passes if it fixes the measured-wrapper execution command and gates without running it.",
+  "next_blocker": "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design"
+}

@@ -32966,3 +32966,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: `medium`
 - follow-up manifest: `experiments/manifests/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json`
 - next: `m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation`
+
+## M1909 Executable V2 Support-First Task-Quality Repair-Axis Measured Wrapper Implementation
+
+- status: completed
+- decision: `task_quality_repair_axis_measured_wrapper_implementation_pass_admit_command_design`
+- doc: `docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md`
+- branch: `paper_route_repair_axis_measured_wrapper`
+- source: `src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py`
+- tests: `tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py`
+- focused tests: `5 passed`
+- real M1902 workload run: `false`
+- environment reset/rollout/measured execution in M1909: `false`
+- mocked rollout helper used in tests: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implemented: `measured_rollout_episode_rows measured_prepare_execution write_measured_artifacts`
+- supported: measured wrapper extension points and mocked metadata-preservation tests are in place
+- unsupported: real measured execution task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.json`
+- next: `m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design`

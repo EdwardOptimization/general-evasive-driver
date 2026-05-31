@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1917,
+    "completed": 1918,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+    "command_log": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+    "run_dir": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
     "status": "completed",
-    "task_id": "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis"
+    "task_id": "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json",
-    "hypothesis": "The validated dry-run wrapper can be extended with measured rollout extension points and mocked tests without running the real M1902 workload.",
-    "id": "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement measured wrapper extension points with mocked tests only",
-    "priority": 19040,
+    "command": "see experiments/manifests/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.json",
+    "hypothesis": "M1909's measured wrapper extension points are sufficient to register an exact no-surprise measured execution command and pass gates for a later milestone.",
+    "id": "m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design",
+    "kind": "gate",
+    "notes": "Pending: design exact measured-wrapper execution command and gates without running it",
+    "priority": 19050,
     "status": "pending",
-    "success_artifact": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md"
+    "success_artifact": "docs/m1910-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-command-design.md"
   },
-  "updated_at_utc": "20260531T060400Z"
+  "updated_at_utc": "20260531T061004Z"
 }
