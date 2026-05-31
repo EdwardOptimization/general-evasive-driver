@@ -33640,3 +33640,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - termination reasons: `obstacle_collision=90 off_track=830 empty_or_none=40`
 - follow-up manifest: `experiments/manifests/m1939-executable-v2-task-quality-measured-execution-result-audit.json`
 - next: `m1939-executable-v2-task-quality-measured-execution-result-audit`
+
+## M1939 Executable V2 Task-Quality Measured Execution Result Audit
+
+- status: completed
+- decision: `task_quality_measured_execution_audit_blocks_ranking_routes_to_branch_synthesis`
+- doc: `docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md`
+- audited summary: `runs/m1938_executable_v2_task_quality_measured_execution/summary.json`
+- reset/rollout/measured execution in M1939: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- completeness audit: M1938 pass gates are clean
+- raw outcome support: `success_obstacle_pass=40/960 collision_failure=105/960 off_track_noncollision_noncompletion=815/960`
+- profile-level signal: `L1_one_step=15.00%`, `L0_current_masked=12.50%`, `L3_online_gru=11.25%`, `L3_reset_control_corrected=11.25%`, all L2 profiles `0.00%`
+- blocker: `outcome_support_low_offtrack_dominated`
+- ranking decision: blocked
+- synthesis decision: required by M1930-M1939 cadence
+- follow-up manifest: `experiments/manifests/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.json`
+- next: `m1940-executable-v2-task-quality-reset-execution-branch-synthesis`

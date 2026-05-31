@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1938-executable-v2-task-quality-measured-execution
+m1939-executable-v2-task-quality-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m1939-executable-v2-task-quality-measured-execution-result-audit
+m1940-executable-v2-task-quality-reset-execution-branch-synthesis
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -314,7 +314,11 @@ failures `0`, metric-completeness failures `0`, guardrail `0`, `80` specs,
 `12` profiles, `5` tiers, `4` roles, and `2` surfaces. Raw outcomes are not yet
 interpreted: `40` success-obstacle-pass, `105` collision failures, and `815`
 off-track noncollision noncompletion rows. M1939 must audit outcome support
-before any controller ranking, repair, or paper-level claim.
+before any controller ranking, repair, or paper-level claim. M1939 audited the
+run as complete public diagnostic measured evidence but blocked ranking because
+success support is low and off-track dominated. Since the branch has reached
+the M1930-M1939 synthesis cadence, M1940 must synthesize this branch before any
+local repair, comparison, or rerun.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

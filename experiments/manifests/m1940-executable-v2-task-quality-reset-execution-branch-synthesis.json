@@ -1,0 +1,169 @@
+{
+  "id": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_execution_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1939-executable-v2-task-quality-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1930-M1939 reset/materialized execution branch and choose next branch"
+    ],
+    "derived_from": [
+      "m1939-executable-v2-task-quality-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence fired after M1930-M1939"
+    ],
+    "supersedes": [
+      "continuing local outcome repair without branch-level synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+  "public_gates": [
+    "M1940 must synthesize M1930-M1939 evidence",
+    "M1940 must separate infrastructure evidence from driver-performance evidence",
+    "M1940 must decide next branch route",
+    "M1940 must keep paper and level3 claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_execution_branch_synthesis",
+    "evidence_increment": "summarizes reset validation, measured execution infrastructure, and raw outcome support for next-branch decision",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary is incomplete",
+      "stop if next branch decision is ambiguous",
+      "stop if synthesis overclaims low-support public diagnostic outcomes"
+    ],
+    "fallback_plan": [
+      "pivot to no-rerun outcome localization if raw outcome support is low",
+      "pivot to measured comparison only if synthesis finds support sufficient",
+      "stop/pivot to task-quality repair if off-track dominance remains the primary blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M1930-M1939 branch cadence",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality reset execution branch synthesis",
+    "admission_evidence": [
+      "M1939 audited M1938 as complete but low-support/off-track-dominated and routes to synthesis"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout in synthesis",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+      "M1940 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next branch"
+    ],
+    "next_stage_criteria": [
+      "M1930-M1939 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1940."
+    ],
+    "temporal_evidence_window": "M1930-M1939 reset/materialized execution branch artifacts.",
+    "negative_result_policy": "If outcome support remains weak, route to localization or task-quality repair before ranking.",
+    "allowed_claims": [
+      "workflow and task-quality branch synthesis",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns ten reset/materialized execution milestones into a next-branch decision",
+    "paper_verdict_delta": "decides whether this public diagnostic route is ready for comparison, localization, repair, or pivot",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "The M1930-M1939 branch evidence is sufficient to choose a next branch without continuing local search.",
+  "success_criteria": [
+    "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md exists",
+    "evidence summary covers M1930-M1939",
+    "supported and unsupported claims are explicit",
+    "public gate overfit risk is assessed",
+    "next branch decision is explicit"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "evidence summary is incomplete",
+    "next branch decision is ambiguous",
+    "paper-level or level3 claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_execution_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+    "runs/m1938_executable_v2_task_quality_measured_execution/summary.json"
+  ],
+  "decision_rule": "M1940 passes if it synthesizes branch evidence and chooses the next branch without overclaiming.",
+  "next_blocker": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis"
+}
