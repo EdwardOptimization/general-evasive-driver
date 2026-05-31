@@ -1,27 +1,27 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1877,
+    "completed": 1878,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md",
+    "command_log": "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
     "returncode": 0,
     "status": "completed",
-    "task_id": "m1868-executable-v2-support-first-reset-validation-execution-design"
+    "task_id": "m1869-executable-v2-support-first-reset-validation-preflight"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json",
-    "hypothesis": "All 180 converted support-first executable v2 panel specs can reset successfully without rollout or label leakage.",
-    "id": "m1869-executable-v2-support-first-reset-validation-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run reset-only validation over 180 converted support-first specs",
-    "priority": 18640,
+    "command": "see experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json",
+    "hypothesis": "The clean M1869 reset-only validation result is sufficient to admit measured execution design over the support-first payload.",
+    "id": "m1870-executable-v2-support-first-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1869 reset result before measured execution design",
+    "priority": 18650,
     "status": "pending",
-    "success_artifact": "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T020130Z"
+  "updated_at_utc": "20260531T020411Z"
 }

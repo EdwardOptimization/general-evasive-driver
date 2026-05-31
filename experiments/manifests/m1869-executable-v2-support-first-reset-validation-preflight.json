@@ -160,6 +160,56 @@
     "docs/m1868-executable-v2-support-first-reset-validation-execution-design.md",
     "runs/m1866_executable_v2_support_first_reset_validation_adapter/support_first_reset_executable_v2_panel_specs.json"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json",
+    "docs_artifact": "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
+    "decision": "support_first_reset_validation_preflight_pass_route_to_result_audit",
+    "result_class": "executable_v2_reset_feasibility_preflight_pass",
+    "attempted_spec_count": 180,
+    "target_attempted_spec_count": 180,
+    "reset_success_count": 180,
+    "sampling_failure_count": 0,
+    "profile_count": 8,
+    "target_profile_count": 8,
+    "role_surface_count": 8,
+    "target_role_surface_count": 8,
+    "reset_ready_spec_count": 180,
+    "labels_enter_actor_input_count": 0,
+    "ranking_admissible_by_default_count": 0,
+    "metadata_join_incomplete_count": 0,
+    "guardrail_violation_count": 0,
+    "role_surface_counts": {
+      "drift_required_recovery::post_friction_step": 24,
+      "drift_required_recovery::steady_surface": 24,
+      "stable_aeb::post_friction_step": 24,
+      "stable_aeb::steady_surface": 24,
+      "stable_aes_only::post_friction_step": 24,
+      "stable_aes_only::steady_surface": 24,
+      "unavoidable_mitigation::post_friction_step": 12,
+      "unavoidable_mitigation::steady_surface": 24
+    },
+    "sampled_label_counts": {
+      "aeb_feasible": 48,
+      "aes_feasible": 48,
+      "drift_required": 48,
+      "unavoidable": 36
+    },
+    "environment_reset_started": true,
+    "policy_action_executed": false,
+    "measured_rollout_started": false,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json"
+  },
   "decision_rule": "M1869 passes if all 180 converted support-first executable v2 specs reset without rollout, ranking, label leakage, or guardrail violations.",
-  "next_blocker": "m1869-executable-v2-support-first-reset-validation-preflight"
+  "next_blocker": "m1870-executable-v2-support-first-reset-validation-result-audit"
 }

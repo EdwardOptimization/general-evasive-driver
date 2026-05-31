@@ -31889,3 +31889,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: reset feasibility measured execution ranking paper-level result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json`
 - next: `m1869-executable-v2-support-first-reset-validation-preflight`
+
+## M1869 Executable V2 Support-First Reset Validation Preflight
+
+- status: completed
+- decision: `support_first_reset_validation_preflight_pass_route_to_result_audit`
+- artifact: `runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json`
+- docs artifact: `docs/m1869-executable-v2-support-first-reset-validation-preflight.md`
+- result class: `executable_v2_reset_feasibility_preflight_pass`
+- attempted spec count: `180`
+- target attempted spec count: `180`
+- reset success count: `180`
+- sampling failure count: `0`
+- profile count: `8`
+- target profile count: `8`
+- role-surface count: `8`
+- target role-surface count: `8`
+- reset ready spec count: `180`
+- labels enter actor input count: `0`
+- ranking admissible by default count: `0`
+- metadata join incomplete count: `0`
+- guardrail violation count: `0`
+- role-surface counts: `drift_required_recovery::post_friction_step=24 drift_required_recovery::steady_surface=24 stable_aeb::post_friction_step=24 stable_aeb::steady_surface=24 stable_aes_only::post_friction_step=24 stable_aes_only::steady_surface=24 unavoidable_mitigation::post_friction_step=12 unavoidable_mitigation::steady_surface=24`
+- sampled label counts: `aeb_feasible=48 aes_feasible=48 drift_required=48 unavoidable=36`
+- environment reset started: `true`
+- policy action executed: `false`
+- measured rollout started: `false`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: reset-only validation passed no sampling failures no label leakage no ranking admission
+- unsupported: measured execution ranking paper-level result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1870-executable-v2-support-first-reset-validation-result-audit.json`
+- next: `m1870-executable-v2-support-first-reset-validation-result-audit`

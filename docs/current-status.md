@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1868-executable-v2-support-first-reset-validation-execution-design
+m1869-executable-v2-support-first-reset-validation-preflight
 ```
 
 Current next task:
 
 ```text
-m1869-executable-v2-support-first-reset-validation-preflight
+m1870-executable-v2-support-first-reset-validation-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -36,10 +36,11 @@ converting those support-first specs into reset-validation
 adapter execution over M1861 artifacts. M1866 ran only that adapter conversion
 and produced a clean 180-row reset payload. M1867 audits the result as clean
 and admits reset-validation execution design. M1868 fixes the exact reset-only
-validation command. M1869 must now run reset-only validation over the converted
-180-row payload; rollout, policy action execution, measured execution,
-controller ranking, paper-level claims, and level3 self-ID claims remain
-blocked.
+validation command. M1869 ran reset-only validation over the converted 180-row
+payload with `180/180` reset success and zero sampling failures. M1870 must now
+audit this result before measured execution design; rollout, policy action
+execution, measured execution, controller ranking, paper-level claims, and
+level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

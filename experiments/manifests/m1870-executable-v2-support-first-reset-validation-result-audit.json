@@ -1,0 +1,161 @@
+{
+  "id": "m1870-executable-v2-support-first-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_first_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/reset_stress_rows.csv",
+      "runs/m1869_executable_v2_support_first_reset_validation_preflight/sampling_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1869-executable-v2-support-first-reset-validation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit support-first reset-validation result before measured execution design"
+    ],
+    "derived_from": [
+      "m1869-executable-v2-support-first-reset-validation-preflight"
+    ],
+    "blocked_by": [
+      "M1869 reset-only validation pass requires audit before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution after reset preflight",
+      "manual interpretation of reset preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1870-executable-v2-support-first-reset-validation-result-audit.md",
+  "public_gates": [
+    "M1870 must audit M1869 reset result counts label distribution sampling failures and guardrails",
+    "M1870 must decide measured execution design versus task-quality/source-balance repair",
+    "M1870 must not run measured rollout training replay PPO ranking paper-level or level3 claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not run measured rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change reward",
+    "do not change dynamics",
+    "do not change termination behavior",
+    "do not tune profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_reset_validation",
+    "evidence_axis": "Q_support_first_reset_validation_result_audit",
+    "evidence_increment": "audits clean reset-only support before measured execution design",
+    "claim_scope": "reset-validation result audit only; no rollout, measured rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if M1869 result_class is not pass",
+      "stop if any reset sampling failures exist",
+      "stop if label leakage or ranking admission exists",
+      "stop if measured execution would be admitted without explicit design"
+    ],
+    "fallback_plan": [
+      "route to measured execution design if reset result is clean and imbalance is acceptable",
+      "route to task-quality/source-balance repair if reset result is clean but panel balance is unacceptable",
+      "route to reset sampler repair if sampling failures exist"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1869 reset-only validation completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "support-first reset-validation result audit",
+    "admission_evidence": [
+      "M1869 summary exists and reports reset preflight pass"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment rollout",
+      "do not execute policy actions",
+      "do not run measured rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1870 audit document",
+      "M1870 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution design or repair"
+    ],
+    "next_stage_criteria": [
+      "audit classifies M1869 result",
+      "route decision is explicit",
+      "measured execution remains unrun"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset-validation result audit is task-quality infrastructure.",
+    "history_necessity_tests": [
+      "Audit must preserve profile controls for later history-necessity evidence."
+    ],
+    "temporal_evidence_window": "M1869 reset rows only; no rollout.",
+    "negative_result_policy": "If reset validation is not clean, route to repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "support-first reset-validation result audit",
+      "no rollout, measured rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "The clean M1869 reset-only validation result is sufficient to admit measured execution design over the support-first payload.",
+  "success_criteria": [
+    "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md exists",
+    "audit checks result_class counts sampling failures label distribution and guardrails",
+    "audit chooses measured execution design or repair route",
+    "no rollout measured rollout training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit ignores failed counts or guardrails",
+    "audit runs rollout or measured rollout",
+    "audit routes directly to controller ranking",
+    "audit changes actor inputs reward dynamics or termination behavior"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1870-executable-v2-support-first-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1870-executable-v2-support-first-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_first_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1869-executable-v2-support-first-reset-validation-preflight.md",
+    "runs/m1869_executable_v2_support_first_reset_validation_preflight/summary.json",
+    "runs/m1869_executable_v2_support_first_reset_validation_preflight/reset_stress_rows.csv",
+    "runs/m1869_executable_v2_support_first_reset_validation_preflight/sampling_failure_rows.csv"
+  ],
+  "decision_rule": "M1870 passes if it audits M1869 and routes to measured execution design or repair without running rollout, ranking, or paper-level claims.",
+  "next_blocker": "m1870-executable-v2-support-first-reset-validation-result-audit"
+}
