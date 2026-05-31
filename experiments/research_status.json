@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1948,
+    "completed": 1949,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+    "command_log": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+    "run_dir": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1939-executable-v2-task-quality-measured-execution-result-audit"
+    "task_id": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.json",
-    "hypothesis": "The M1930-M1939 branch evidence is sufficient to choose a next branch without continuing local search.",
-    "id": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis",
+    "command": "see experiments/manifests/m1941-executable-v2-task-quality-measured-outcome-localization-design.json",
+    "hypothesis": "A bounded no-rerun localization design can determine whether M1938 outcomes support comparison, repair, or scenario redesign.",
+    "id": "m1941-executable-v2-task-quality-measured-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1930-M1939 evidence and choose next branch without local search or overclaiming",
-    "priority": 19350,
+    "notes": "Pending: design bounded no-rerun localization over M1938 artifacts before comparison repair or scenario redesign",
+    "priority": 19360,
     "status": "pending",
-    "success_artifact": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md"
+    "success_artifact": "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260531T084333Z"
+  "updated_at_utc": "20260531T084721Z"
 }

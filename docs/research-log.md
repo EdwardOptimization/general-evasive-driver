@@ -33660,3 +33660,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - synthesis decision: required by M1930-M1939 cadence
 - follow-up manifest: `experiments/manifests/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.json`
 - next: `m1940-executable-v2-task-quality-reset-execution-branch-synthesis`
+
+## M1940 Executable V2 Task-Quality Reset Execution Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- decision: `task_quality_reset_execution_branch_synthesis_pivot_to_outcome_localization`
+- doc: `docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md`
+- completed branch: `paper_route_task_quality_reset_execution`
+- next branch: `paper_route_task_quality_measured_outcome_localization`
+- reset/rollout/measured execution in M1940: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M1930-M1939 produced clean reset validation, measured-runner infrastructure, complete 960-row measured artifacts, and a documented low-support/off-track outcome blocker
+- supported claims: reset-valid M1928 panel; complete public diagnostic measured artifacts; nonzero success support
+- falsified claim: direct controller ranking readiness for this branch
+- blocker: `outcome_support_low_offtrack_dominated`
+- public gate overfit risk: `medium_high`
+- follow-up manifest: `experiments/manifests/m1941-executable-v2-task-quality-measured-outcome-localization-design.json`
+- next: `m1941-executable-v2-task-quality-measured-outcome-localization-design`

@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1940 synthesizes M1930-M1939 and pivots to no-rerun measured outcome localization because complete measured data remains low-support offtrack-dominated",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "evidence summary is incomplete",
+    "next branch decision is ambiguous",
+    "paper-level or level3 claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T084911Z",
+  "hypothesis": "The M1930-M1939 branch evidence is sufficient to choose a next branch without continuing local search.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence fired after M1930-M1939"
+    ],
+    "derived_from": [
+      "m1939-executable-v2-task-quality-measured-execution-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_execution_synthesis"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1939-executable-v2-task-quality-measured-execution-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m1939-executable-v2-task-quality-measured-execution-result-audit.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "synthesize M1930-M1939 reset/materialized execution branch and choose next branch"
+    ],
+    "supersedes": [
+      "continuing local outcome repair without branch-level synthesis"
+    ]
+  },
+  "milestone": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis",
+  "next_blocker": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_reset_execution_branch_synthesis_pivot_to_outcome_localization",
+  "public_gates": [
+    "M1940 must synthesize M1930-M1939 evidence",
+    "M1940 must separate infrastructure evidence from driver-performance evidence",
+    "M1940 must decide next branch route",
+    "M1940 must keep paper and level3 claims blocked unless evidence supports them"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_reset_execution_branch_synthesis_pivot_to_outcome_localization",
+    "milestone": "m1940-executable-v2-task-quality-reset-execution-branch-synthesis",
+    "reason": "M1940 synthesizes M1930-M1939 and pivots to no-rerun measured outcome localization because complete measured data remains low-support offtrack-dominated",
+    "reset_success": "0.0416666667",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md exists",
+    "evidence summary covers M1930-M1939",
+    "supported and unsupported claims are explicit",
+    "public gate overfit risk is assessed",
+    "next branch decision is explicit"
+  ],
+  "type": "gate"
+}

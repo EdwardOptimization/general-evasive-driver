@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1939-executable-v2-task-quality-measured-execution-result-audit
+m1940-executable-v2-task-quality-reset-execution-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1940-executable-v2-task-quality-reset-execution-branch-synthesis
+m1941-executable-v2-task-quality-measured-outcome-localization-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -318,7 +318,11 @@ before any controller ranking, repair, or paper-level claim. M1939 audited the
 run as complete public diagnostic measured evidence but blocked ranking because
 success support is low and off-track dominated. Since the branch has reached
 the M1930-M1939 synthesis cadence, M1940 must synthesize this branch before any
-local repair, comparison, or rerun.
+local repair, comparison, or rerun. M1940 completed that synthesis and pivoted
+to a new branch: `paper_route_task_quality_measured_outcome_localization`.
+M1941 must now design a no-rerun localization pass over M1938 artifacts to
+identify whether the low-support/off-track-dominated outcome surface supports
+comparison, task-quality repair, or scenario redesign.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

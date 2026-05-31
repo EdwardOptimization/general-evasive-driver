@@ -1,0 +1,164 @@
+{
+  "id": "m1941-executable-v2-task-quality-measured-outcome-localization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_measured_outcome_localization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+      "runs/m1938_executable_v2_task_quality_measured_execution/summary.json",
+      "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/profile_aggregate.csv",
+      "runs/m1938_executable_v2_task_quality_measured_execution/tier_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design no-rerun outcome localization over M1938 measured artifacts"
+    ],
+    "derived_from": [
+      "m1940-executable-v2-task-quality-reset-execution-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1940 pivoted to outcome localization before ranking or repair"
+    ],
+    "supersedes": [
+      "direct controller ranking from low-support M1938 outcomes"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+  "public_gates": [
+    "M1941 must design a no-rerun localization pass over M1938 artifacts",
+    "M1941 must define output slices and target questions",
+    "M1941 must keep ranking paper and level3 claims blocked",
+    "M1941 must not run new measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_measured_outcome_localization",
+    "evidence_axis": "Q_task_quality_measured_outcome_localization_design",
+    "evidence_increment": "starts a new branch to localize low-support off-track-dominated measured outcomes without rerun",
+    "claim_scope": "design only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if localization questions are ambiguous",
+      "stop if localization would require rerun before no-rerun artifact analysis",
+      "stop if ranking would be inferred from low-support slices"
+    ],
+    "fallback_plan": [
+      "route to no-rerun localization implementation if design is clear",
+      "route to branch synthesis if localization cannot be made bounded",
+      "route to task-quality repair design only after localization identifies a dominant blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1940 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality measured outcome localization design",
+    "admission_evidence": [
+      "M1940 pivoted to no-rerun outcome localization because M1938 was complete but low-support/off-track-dominated"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+      "M1941 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rerun localization implementation"
+    ],
+    "next_stage_criteria": [
+      "localization questions are explicit",
+      "input artifacts are explicit",
+      "output artifacts and pass/fail gates are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; outcome localization design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1941."
+    ],
+    "temporal_evidence_window": "M1938 measured execution artifacts and M1940 synthesis.",
+    "negative_result_policy": "If localization finds no comparison-ready slice, route to task-quality repair or scenario redesign before ranking.",
+    "allowed_claims": [
+      "task-quality measured outcome localization design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns complete measured artifacts into a bounded no-rerun localization plan",
+    "paper_verdict_delta": "can decide whether the public diagnostic panel supports comparison or requires task-quality repair",
+    "must_synthesize_if": [
+      "M1941 cannot define bounded localization",
+      "M1941 would rank controllers directly",
+      "M1941 would request rerun before no-rerun artifact analysis"
+    ]
+  },
+  "hypothesis": "A bounded no-rerun localization design can determine whether M1938 outcomes support comparison, repair, or scenario redesign.",
+  "success_criteria": [
+    "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md exists",
+    "input artifacts are named",
+    "localization slices and questions are explicit",
+    "next implementation manifest is created",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "localization questions are ambiguous",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1941-executable-v2-task-quality-measured-outcome-localization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_measured_outcome_localization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1940-executable-v2-task-quality-reset-execution-branch-synthesis.md",
+    "runs/m1938_executable_v2_task_quality_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1941 passes if it defines a bounded no-rerun localization route and next manifest without overclaiming.",
+  "next_blocker": "m1941-executable-v2-task-quality-measured-outcome-localization-design"
+}
