@@ -160,6 +160,44 @@
     "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv",
     "src/autodrift/executable_v2_support_first_measured_runner_execution.py"
   ],
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json",
+    "doc": "docs/m1880-executable-v2-support-first-measured-runner-execution.md",
+    "decision": "support_first_measured_runner_execution_pass_route_to_result_audit",
+    "result_class": "executable_v2_support_first_measured_runner_execution_pass",
+    "episode_count": 2160,
+    "target_episode_count": 2160,
+    "failure_count": 0,
+    "controller_profile_count": 12,
+    "support_first_spec_count": 180,
+    "role_panel_count": 4,
+    "role_surface_count": 8,
+    "profile_alias_mismatch_count": 0,
+    "all_selected_metrics_finite": true,
+    "metric_completeness_passed": true,
+    "metric_completeness_failure_count": 0,
+    "guardrail_violation_count": 0,
+    "outcome_counts": {
+      "collision_failure": 480,
+      "off_track_noncollision_noncompletion": 1680,
+      "success_obstacle_pass": 0
+    },
+    "environment_rollout_started": true,
+    "measured_rollout_started": true,
+    "policy_action_executed": true,
+    "training_started": false,
+    "replay_started": false,
+    "ppo_used": false,
+    "promoted": false,
+    "private_holdout_used": false,
+    "actor_input_contract_changed": false,
+    "profile_specific_tuning": false,
+    "controller_family_ranking_claim_made": false,
+    "paper_level_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m1881-executable-v2-support-first-measured-runner-result-audit.json"
+  },
   "decision_rule": "M1880 passes if it executes the fixed support-first measured workload completely while keeping all no-training no-ranking and no-paper-claim guardrails intact.",
-  "next_blocker": "m1880-executable-v2-support-first-measured-runner-execution"
+  "next_blocker": "m1881-executable-v2-support-first-measured-runner-result-audit"
 }

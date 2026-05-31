@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1879-executable-v2-support-first-measured-runner-execution-command-design
+m1880-executable-v2-support-first-measured-runner-execution
 ```
 
 Current next task:
 
 ```text
-m1880-executable-v2-support-first-measured-runner-execution
+m1881-executable-v2-support-first-measured-runner-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -65,9 +65,13 @@ implemented that wrapper and focused tests without running the real
 2160-episode workload; it preserves support-first metadata, role-surface
 aggregates, failure rows, and resumability. M1879 fixed the exact M1880
 2160-episode execution command and pass criteria without running rollout.
-M1880 must now run the fixed support-first public diagnostic measured workload
-and defer interpretation to audit. Controller ranking, paper-level claims, and
-level3 self-ID claims remain blocked.
+M1880 ran the fixed support-first public diagnostic measured workload:
+`2160/2160` episodes, `0` failures, complete metrics, clean guardrails, and no
+ranking/paper/self-ID claim. Raw outcomes were dominated by off-track and
+collision (`success_obstacle_pass=0`, `collision_failure=480`,
+`off_track_noncollision_noncompletion=1680`), so M1881 must audit the result
+before any localization, repair, synthesis, or later ranking route. Controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

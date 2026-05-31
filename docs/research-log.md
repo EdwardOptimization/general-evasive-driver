@@ -32203,3 +32203,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: measured rollout result controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1880-executable-v2-support-first-measured-runner-execution.json`
 - next: `m1880-executable-v2-support-first-measured-runner-execution`
+
+## M1880 Executable V2 Support-First Measured Runner Execution
+
+- status: completed
+- decision: `support_first_measured_runner_execution_pass_route_to_result_audit`
+- summary: `runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json`
+- doc: `docs/m1880-executable-v2-support-first-measured-runner-execution.md`
+- episode count: `2160 / 2160`
+- failure count: `0`
+- controller profile count: `12 / 12`
+- support-first spec count: `180 / 180`
+- role count: `4 / 4`
+- role-surface count: `8 / 8`
+- profile alias mismatch count: `0`
+- all selected metrics finite: `true`
+- metric completeness passed: `true`
+- metric completeness failure count: `0`
+- guardrail violation count: `0`
+- outcome counts: `success_obstacle_pass=0`, `collision_failure=480`, `off_track_noncollision_noncompletion=1680`
+- environment rollout started: `true`
+- policy action executed: `true`
+- training/replay/PPO: `false`
+- actor input contract changed: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: fixed 2160-cell support-first public diagnostic workload executed completely with clean artifacts
+- unsupported: controller-family ranking paper-level benchmark result profile comparison level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1881-executable-v2-support-first-measured-runner-result-audit.json`
+- next: `m1881-executable-v2-support-first-measured-runner-result-audit`

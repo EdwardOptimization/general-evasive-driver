@@ -1,27 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1888,
+    "completed": 1889,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1879-executable-v2-support-first-measured-runner-execution-command-design.md",
+    "command_log": "docs/m1880-executable-v2-support-first-measured-runner-execution.md",
     "returncode": 0,
+    "run_dir": "runs/m1880_executable_v2_support_first_measured_runner_execution",
     "status": "completed",
-    "task_id": "m1879-executable-v2-support-first-measured-runner-execution-command-design"
+    "task_id": "m1880-executable-v2-support-first-measured-runner-execution"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1880-executable-v2-support-first-measured-runner-execution.json",
-    "hypothesis": "The M1878 runner can execute the fixed M1875 2160-cell support-first measured workload and write complete diagnostic artifacts.",
-    "id": "m1880-executable-v2-support-first-measured-runner-execution",
+    "command": "see experiments/manifests/m1881-executable-v2-support-first-measured-runner-result-audit.json",
+    "hypothesis": "M1880 can be audited as a complete support-first measured execution before interpretation.",
+    "id": "m1881-executable-v2-support-first-measured-runner-result-audit",
     "kind": "gate",
-    "notes": "Pending: run fixed 2160-episode support-first public diagnostic measured workload and defer interpretation to audit",
-    "priority": 18750,
+    "notes": "Pending: audit M1880 outcome distribution and choose localization repair synthesis or later ranking route without rerun",
+    "priority": 18760,
     "status": "pending",
-    "success_artifact": "runs/m1880_executable_v2_support_first_measured_runner_execution/summary.json"
+    "success_artifact": "docs/m1881-executable-v2-support-first-measured-runner-result-audit.md"
   },
-  "updated_at_utc": "20260531T030013Z"
+  "updated_at_utc": "20260531T030421Z"
 }
