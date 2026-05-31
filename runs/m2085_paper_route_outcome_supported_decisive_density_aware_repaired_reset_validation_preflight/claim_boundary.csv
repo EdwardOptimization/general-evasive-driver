@@ -1,0 +1,7 @@
+claim,admissible,reason
+outcome_supported_decisive_reset_validity,False,reset validity is admissible only if all reset gates pass
+measured_controller_performance,False,policy actions and measured rollout remain blocked until reset validation is audited
+controller_family_ranking,False,"reset validation is a scenario admissibility gate, not a controller comparison"
+paper_valid_generated_task_semantics,False,generated rows remain smoke proxies until later task-semantics validation
+finite_window_vs_gru_conclusion,False,reset validation does not compare controller-family outcomes
+level3_self_identification,False,reset validation does not test history necessity or wrong-history interventions

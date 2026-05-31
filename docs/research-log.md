@@ -36527,3 +36527,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - stop rule: if M2085 still fails scenario sampling, M2086 must synthesize and stop, pivot, or reduce the panel rather than continuing local obstacle-filter repair
 - follow-up manifest: `experiments/manifests/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.json`
 - next: `m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run`
+
+## M2085 Paper-Route Outcome-Supported Decisive Density-Aware Repaired Reset Validation Implementation and Run
+
+- status: completed
+- decision: `density_aware_repaired_reset_validation_fail_route_to_synthesis_audit`
+- run artifact: `runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json`
+- failure taxonomy: `scenario_sampling_failure`, `seed_fragility`
+- focused tests: `2 passed`
+- reset/rollout/measured execution in M2085: reset-only `true`, rollout/measured `false`
+- policy actions executed in M2085: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result class: `outcome_supported_decisive_reset_validation_preflight_fail`
+- reset attempts/success/failure: `240/238/2`
+- observation finite/obstacle initialized counts: `238/238`
+- failure class: `2` obstacle scenario sampling failures under fresh seed base `209500`
+- failing task IDs: `m2063-osd-osd_v0_0002_t1`, `m2063-osd-osd_v0_0049_t2`
+- failure slice: late obstacle distance, generous road width, moderate curvature, low mu, low initial speed
+- contract/metadata/forbidden-key/guardrail counts: `0/0/0/0`
+- interpretation: density-aware repair improves reset success from M2079 `234/240` to `238/240`, but M2084 stop rule prevents another local obstacle-filter repair
+- follow-up manifest: `experiments/manifests/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.json`
+- next: `m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit`

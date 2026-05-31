@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design
+m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run
+m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit
 ```
 
-Immediate route: M2084 freezes the exact fresh-seed reset-only command over the
-M2082 density-aware repaired specs using seed base `209500`, target `240`, and
-expected observation dimension `72`. M2085 may run only that command and must
-route pass or fail to M2086 audit. If M2085 still fails scenario sampling,
-M2086 must synthesize and stop, pivot, or reduce the panel rather than
-continuing local obstacle-filter repair. Measured execution, ranking, paper
-claims, and self-ID claims remain blocked until reset validation is run and
-audited.
+Immediate route: M2085 ran the frozen reset-only command and failed closed at
+`238/240` reset success with `2` scenario-sampling failures. Contract,
+metadata, forbidden-key, and guardrail counts remained `0`, and no policy
+action or rollout was executed. M2086 must audit this result and synthesize the
+local repair branch. Because M2084 made this rerun decisive, M2086 may not
+route to another local obstacle-filter repair; it must stop, pivot, or reduce
+the panel before any measured execution. Ranking, paper claims, and self-ID
+claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,187 @@
+{
+  "id": "m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_density_aware_repaired_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json",
+      "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "docs/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit two remaining fresh-seed reset failures and synthesize the local repair branch"
+    ],
+    "derived_from": [
+      "m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2085 reset validation failed 2/240 attempts under fresh reset seed base 209500"
+    ],
+    "supersedes": [
+      "direct measured execution",
+      "another local obstacle-filter repair after M2084 stop rule"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2086 must audit M2085 reset counts and two-failure distribution",
+    "M2086 must synthesize the M2059-M2085 local repair branch",
+    "M2086 must not route to another local obstacle-filter repair",
+    "M2086 must choose stop pivot panel reduction or new distribution work before measured execution",
+    "M2086 must not rerun reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_density_aware_repaired_reset_failure_synthesis",
+    "evidence_increment": "audits the two remaining reset failures after the decisive density-aware reset rerun and closes the local repair loop",
+    "claim_scope": "reset failure synthesis only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if next route is another local obstacle-filter repair",
+      "stop if audit would rerun reset or rollout",
+      "stop if generated rows are treated as paper-valid tasks",
+      "stop if branch evidence is not synthesized"
+    ],
+    "fallback_plan": [
+      "pivot to panel reduction design if preserving 240 specs is no longer justified",
+      "pivot to a redesigned scenario distribution if the generated rows are too fragile for reset-validity claims",
+      "stop measured execution until a reset-valid panel exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2085 completes the decisive density-aware fresh-seed reset validation and still fails scenario sampling",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "density-aware repaired reset validation result audit and branch synthesis",
+    "admission_evidence": [
+      "M2085 focused tests passed",
+      "M2085 reset_attempt_count 240",
+      "M2085 reset_success_count 238",
+      "M2085 reset_failure_count 2",
+      "M2085 contract metadata forbidden-key and guardrail counts are all 0",
+      "M2084 stop rule forbids another local obstacle-filter repair after this reset failure"
+    ],
+    "blocked_shortcuts": [
+      "do not repair and rerun before synthesis",
+      "do not treat reset failure as driver failure",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md",
+      "M2086 status queue scoreboard research log and review",
+      "one follow-up manifest for panel reduction, redesigned distribution, or stop/pivot route"
+    ],
+    "next_stage_criteria": [
+      "M2085 fail reasons are classified",
+      "M2059-M2085 branch evidence is synthesized",
+      "local repair loop is closed",
+      "next route is explicit and not another local obstacle-filter repair"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2086 audits reset failures only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2086."
+    ],
+    "temporal_evidence_window": "M2085 reset-validation artifacts.",
+    "negative_result_policy": "If reset failures persist after the decisive density-aware rerun, close the local repair loop and pivot rather than weakening claim guards.",
+    "allowed_claims": [
+      "density-aware repaired reset-validation failure audit and branch synthesis",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 3,
+    "evidence_expansion": "synthesizes the reset-validity evidence after a decisive fresh-seed rerun rather than continuing local repair",
+    "paper_verdict_delta": "can decide whether to reduce the panel or redesign the distribution before measured execution",
+    "must_synthesize_if": [
+      "M2086 attempts to route to another local obstacle-filter repair",
+      "M2086 cannot choose panel reduction redesign or stop route",
+      "M2086 treats generated rows as paper-valid measured-execution tasks"
+    ]
+  },
+  "hypothesis": "M2085's 2 remaining failures show the bounded local repair loop has reached its stop condition; M2086 must synthesize the branch and pivot rather than continuing obstacle-filter repair.",
+  "success_criteria": [
+    "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md exists",
+    "M2085 reset counts and fail reasons are audited",
+    "M2059-M2085 branch evidence is synthesized",
+    "failure taxonomy is explicit",
+    "next route is explicit and is not another local obstacle-filter repair",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2085 failure reason is not classified",
+    "branch synthesis questions are not answered",
+    "next route is ambiguous",
+    "next route is another local obstacle-filter repair",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight artifacts and write M2086 result audit plus branch synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_density_aware_repaired_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json",
+    "docs/m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run.md"
+  ],
+  "decision_rule": "M2086 passes if it classifies the M2085 fail reason, synthesizes the branch, and selects a pivot stop panel-reduction or distribution-redesign route without overclaiming.",
+  "next_blocker": "m2087-selected-by-m2086-synthesis"
+}

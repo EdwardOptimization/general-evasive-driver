@@ -1,0 +1,103 @@
+{
+  "decision_reason": "M2085 focused tests 2 passed and reset-only run failed closed 238/240 success 2 scenario sampling failures contract 0 metadata 0 guardrail 0 no policy actions",
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "reset gates fail",
+    "policy actions rollout measured execution ranking or paper claims are performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks",
+    "do not repair and rerun inside the same milestone"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T225713Z",
+  "hypothesis": "The M2082 density-aware repaired 240-spec panel can reset successfully with finite 72-dim human-view observations under fresh eval seed base 209500.",
+  "lineage": {
+    "blocked_by": [
+      "M2084 freezes exact fresh-seed reset-validation command"
+    ],
+    "derived_from": [
+      "m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_density_aware_repaired_reset_validation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2082_paper_route_outcome_supported_decisive_density_aware_obstacle_filter_repair_preflight/density_aware_repaired_executable_task_specs.json",
+      "docs/m2084-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-command-design.md"
+    ],
+    "parent_objective": [
+      "run fresh-seed reset-only validation for M2082 density-aware repaired specs"
+    ],
+    "supersedes": [
+      "reset validation on M2076 seed-robust repaired specs",
+      "direct measured execution"
+    ]
+  },
+  "milestone": "m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run",
+  "next_blocker": "m2086-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "density_aware_repaired_reset_validation_fail_route_to_synthesis_audit",
+  "public_gates": [
+    "M2085 must run the frozen M2084 reset-only command",
+    "M2085 must run exactly 240 reset attempts with expected observation dimension 72",
+    "M2085 must not execute policy actions rollout measured execution training replay PPO ranking or promotion",
+    "M2085 must route to result audit whether pass or fail"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "density_aware_repaired_reset_validation_fail_route_to_synthesis_audit",
+    "milestone": "m2085-paper-route-outcome-supported-decisive-density-aware-repaired-reset-validation-implementation-and-run",
+    "reason": "M2085 focused tests 2 passed and reset-only run failed closed 238/240 success 2 scenario sampling failures contract 0 metadata 0 guardrail 0 no policy actions",
+    "reset_success": "0.991667",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2085_paper_route_outcome_supported_decisive_density_aware_repaired_reset_validation_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "reset_attempt_count is 240",
+    "reset_success_count is 240",
+    "reset_failure_count is 0",
+    "observation_dimension_failure_count is 0",
+    "observation_finite_count is 240",
+    "obstacle_initialized_count is 240",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started is true",
+    "environment_rollout_started policy_action_executed measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}
