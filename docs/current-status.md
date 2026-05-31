@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1896-local-search-guard-harness-implementation
+m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit
+m1898-executable-v2-support-first-clearance-containment-conflict-localization-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -127,10 +127,14 @@ declare actual progress type, process overhead, local-search risk, repeat/repair
 counts, evidence expansion, paper verdict delta, and synthesis triggers. The
 validator now blocks high-risk local search or repeated same-failure/same-gate
 repair without workflow synthesis, and also blocks more than five consecutive
-non-evidence milestones on one branch. The M1895 result audit is now M1897, and
-must decide whether the repaired smoke outcome is remaining diffuse task-quality
-dominance, a semantics issue, or a route to further localization. Controller
-ranking, paper-level claims, and level3 self-ID claims remain blocked.
+non-evidence milestones on one branch. M1897 audited M1895 as execution-clean
+but not ranking-interpretable: all `960` rows are unsuccessful, and the outcome
+surface is a clearance/containment conflict. `784` rows clear the obstacle but
+leave the road, `169` rows stay road-contained but collide, `7` collide and
+leave the road, and `0` rows satisfy both obstacle clearance and road
+containment. The next task is M1898: design a no-rollout localization pass for
+that conflict before any controller ranking, task-quality repair execution,
+training, PPO, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

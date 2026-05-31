@@ -32662,3 +32662,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: any driver-performance, controller-ranking, paper-level, or level3 self-ID evidence change
 - follow-up manifest: `experiments/manifests/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json`
 - next: `m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit`
+
+## M1897 Executable V2 Support-First Repaired Bounded-Smoke Execution Result Audit
+
+- status: completed
+- decision: `support_first_repaired_smoke_audit_blocks_ranking_routes_to_clearance_containment_localization`
+- doc: `docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md`
+- audited summary: `runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json`
+- execution integrity: `pass`
+- total panel rows: `960 / 960`
+- rollout/import rows: `576 / 384`
+- failure/import failure count: `0 / 0`
+- metric completeness passed: `true`
+- guardrail violation count: `0`
+- success rows: `0 / 960`
+- obstacle-clearance-only offtrack rows: `784`
+- containment-but-collision rows: `169`
+- collision-and-offtrack rows: `7`
+- rows satisfying both obstacle clearance and road containment: `0`
+- environment reset/rollout/measured execution in M1897: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1895 is execution-clean diagnostic evidence and exposes a disjoint clearance/containment task-quality conflict
+- unsupported: repaired task-quality conclusion controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.json`
+- next: `m1898-executable-v2-support-first-clearance-containment-conflict-localization-design`

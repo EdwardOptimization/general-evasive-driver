@@ -1,0 +1,166 @@
+{
+  "id": "m1898-executable-v2-support-first-clearance-containment-conflict-localization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_clearance_containment_conflict_localization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/summary.json",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/repair_variant_aggregate.csv",
+      "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/role_surface_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a no-rollout localization pass for the M1895 clearance/containment conflict before any ranking or repair execution"
+    ],
+    "derived_from": [
+      "m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M1895 has zero rows satisfying both obstacle clearance and road containment"
+    ],
+    "supersedes": [
+      "direct repaired smoke controller-family ranking"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md",
+  "public_gates": [
+    "M1898 must design no-rollout conflict localization over M1895 artifacts",
+    "M1898 must define clearance-only containment-collision collision-offtrack and near-miss slice outputs",
+    "M1898 must choose whether to reuse or extend existing localization tooling",
+    "M1898 must keep controller ranking repair execution training PPO private holdout and actor-input changes blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_clearance_containment_conflict_localization_design",
+    "evidence_increment": "designs a no-rollout localization step for the disjoint obstacle-clearance and road-containment failure surface found in M1897",
+    "claim_scope": "localization design only; no new reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design cannot produce explicit clearance-only and containment-collision slices",
+      "stop if the next step would require ranking before task quality is localized",
+      "stop if the design would change actor inputs or tune controller profiles"
+    ],
+    "fallback_plan": [
+      "reuse executable_v2_support_first_outcome_localization if it covers the conflict slices",
+      "otherwise implement a dedicated no-rollout conflict localization helper",
+      "if conflict localization remains diffuse, route to branch synthesis before another repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1897 found zero overlap between obstacle clearance and road containment",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rollout clearance-containment conflict localization",
+    "admission_evidence": [
+      "M1897 audited M1895 as execution-complete but not ranking-interpretable",
+      "M1895 rows split into clearance-only offtrack and containment collision outcomes"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1898 design document",
+      "M1898 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout localization implementation or execution"
+    ],
+    "next_stage_criteria": [
+      "localization outputs and pass/fail gates are defined",
+      "implementation route is selected",
+      "next no-rollout command or helper is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; task-quality conflict localization design does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1898."
+    ],
+    "temporal_evidence_window": "M1895 measured outputs only.",
+    "negative_result_policy": "If localization remains diffuse, route to workflow synthesis or task-design repair rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "clearance-containment localization design",
+      "no driver performance ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "designs a localization step for the new clearance/containment conflict finding but does not produce new data yet",
+    "paper_verdict_delta": "can determine whether the support-first branch needs a new repair axis or synthesis before controller comparison",
+    "must_synthesize_if": [
+      "M1898 cannot define source-diverse conflict slices",
+      "M1899 would be another design-only milestone without a no-rollout artifact",
+      "the same zero-success clearance/containment conflict persists after localization"
+    ]
+  },
+  "hypothesis": "A no-rollout clearance-containment conflict localization design can turn the M1895 zero-success repaired smoke result into actionable task-quality slices before any controller ranking.",
+  "success_criteria": [
+    "docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md exists",
+    "design defines exact conflict classes and required output artifacts",
+    "design states whether to reuse or extend existing localization tooling",
+    "design selects a follow-up implementation or execution manifest",
+    "ranking, rollout, training, PPO, private holdout, actor-input changes, paper claims, and level3 self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design does not distinguish clearance-only from containment-collision failures",
+    "design admits ranking before localization",
+    "design requires new rollout before a no-rollout localization pass",
+    "next route remains ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1898-executable-v2-support-first-clearance-containment-conflict-localization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_clearance_containment_conflict_localization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1897-executable-v2-support-first-repaired-bounded-smoke-execution-result-audit.md",
+    "runs/m1895_executable_v2_support_first_repaired_bounded_smoke_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M1898 passes if it defines an exact no-rollout conflict localization route and keeps ranking and repair execution blocked.",
+  "next_blocker": "m1898-executable-v2-support-first-clearance-containment-conflict-localization-design"
+}
