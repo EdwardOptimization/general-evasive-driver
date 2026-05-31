@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis
+m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run
+m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -178,6 +178,13 @@ still blocks ranking. M1977 must implement and run a no-rerun calibrated
 repair-aware outcome localizer over M1975 artifacts, explicitly preserving
 `parent_feasibility_tier_id`, `normalized_surface_variant`,
 `repair_source_kind`, `selection_quota_name`, and `base_geometry_source`.
+M1977 implements that localizer, focused tests pass `3 passed`, and no-rerun
+localization passes with exact M1975 outcome reproduction, missing schema
+fields `[]`, aggregate files written, guardrail `0`, comparison-ready
+candidates `0`, comparison-support candidates `1`, success rows `38`, offtrack
+dominance rows `125`, collision dominance rows `46`, and L2 total success `0`.
+M1978 must audit the localization result before any task-quality repair,
+scenario redesign, comparison design, or rerun.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

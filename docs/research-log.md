@@ -34373,3 +34373,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: implement and run a no-rerun calibrated repair-aware outcome localizer over M1975 artifacts; do not rank or rerun
 - follow-up manifest: `experiments/manifests/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.json`
 - next: `m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run`
+
+## M1977 Executable V2 Task-Quality Calibrated Repaired Measured Outcome Localization Implementation And Run
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_measured_outcome_localization_pass_route_to_result_audit`
+- doc: `docs/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.md`
+- implementation: `src/autodrift/executable_v2_task_quality_calibrated_repaired_measured_outcome_localization.py`
+- focused tests: `3 passed`
+- summary: `runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json`
+- reset/rollout/measured execution in M1977: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: no-rerun localization pass with `960` rows, exact outcome reproduction, missing schema fields `[]`, aggregate files written, guardrail `0`
+- localization: comparison-ready candidates `0`, comparison-support candidates `1`, success rows `38`, offtrack dominance rows `125`, collision dominance rows `46`, L2 total success `0`
+- interpretation: calibrated repaired panel still cannot support ranking; one candidate-support slice is collision-dominated and needs audit
+- follow-up manifest: `experiments/manifests/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.json`
+- next: `m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit`

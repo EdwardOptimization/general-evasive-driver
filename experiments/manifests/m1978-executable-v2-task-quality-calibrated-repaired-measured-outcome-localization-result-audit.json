@@ -1,0 +1,163 @@
+{
+  "id": "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_localization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.md",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/comparison_support_candidates.csv",
+      "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/outcome_by_repair_source_kind.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit calibrated repaired outcome localization result and choose next branch"
+    ],
+    "derived_from": [
+      "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M1977 localizer passed but found zero comparison-ready slices"
+    ],
+    "supersedes": [
+      "direct controller ranking from localized but low-support public diagnostic slices"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M1978 must audit M1977 localization without rerun",
+    "M1978 must separate localization success from comparison readiness",
+    "M1978 must decide the next branch route",
+    "M1978 must keep ranking paper and level3 claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_localization",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_localization_audit",
+    "evidence_increment": "audits no-rerun calibrated outcome localization and chooses whether to repair redesign or compare",
+    "claim_scope": "result audit only; no rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if localization facts are not summarized",
+      "stop if next route is ambiguous",
+      "stop if audit overclaims diagnostic public slices as ranking evidence"
+    ],
+    "fallback_plan": [
+      "route to task-quality repair if offtrack/collision dominance remains the blocker",
+      "route to scenario redesign if localization shows diffuse no-support",
+      "route to comparison design only if comparison-ready support exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1977 completed calibrated repaired outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated repaired outcome localization result audit",
+    "admission_evidence": [
+      "M1977 produced calibrated repair-aware localization artifacts and reproduced M1975 outcome counts exactly"
+    ],
+    "blocked_shortcuts": [
+      "do not run new rollout",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
+      "M1978 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next route"
+    ],
+    "next_stage_criteria": [
+      "M1977 facts are summarized",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; outcome localization audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1978."
+    ],
+    "temporal_evidence_window": "M1975 measured execution and M1977 localization artifacts.",
+    "negative_result_policy": "If no comparison-ready slice exists, do not rank; route to repair or redesign.",
+    "allowed_claims": [
+      "task-quality calibrated repaired measured outcome localization audit",
+      "no controller ranking paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M1977 localization artifacts into a route decision",
+    "paper_verdict_delta": "can decide whether the public diagnostic panel needs repair redesign support collection or comparison design",
+    "must_synthesize_if": [
+      "M1978 cannot choose a next route",
+      "M1978 would rank controllers directly",
+      "M1978 would request rerun before auditing localization"
+    ]
+  },
+  "hypothesis": "The M1977 localization result is sufficient to choose the next route without direct ranking or rerun.",
+  "success_criteria": [
+    "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md exists",
+    "M1977 facts are summarized",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "localization facts are not summarized",
+    "next route is ambiguous",
+    "rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_localization_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.md",
+    "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M1978 passes if it audits M1977 localization and chooses a next route without overclaiming.",
+  "next_blocker": "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit"
+}

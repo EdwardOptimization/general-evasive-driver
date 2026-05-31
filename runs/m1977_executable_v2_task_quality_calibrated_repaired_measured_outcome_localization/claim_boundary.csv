@@ -1,0 +1,6 @@
+claim,admissible,reason
+no_rerun_calibrated_repaired_outcome_localization_completed,True,M1977 reads existing M1975 artifacts and writes diagnostic aggregates only
+controller_family_ranking,False,low-support public diagnostic localization is not a ranking experiment
+finite_window_vs_gru_conclusion,False,profile patterns require a later controlled comparison
+paper_level_benchmark_result,False,single public diagnostic panel is not paper-level evidence
+level3_self_identification,False,outcome localization does not test wrong-history or history necessity

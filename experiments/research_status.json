@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1985,
+    "completed": 1986,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis.md",
+    "command_log": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization",
     "status": "completed",
-    "task_id": "m1976-executable-v2-task-quality-calibrated-repaired-measured-execution-result-synthesis"
+    "task_id": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run.json",
-    "hypothesis": "A calibrated repair-aware no-rerun localizer can determine whether M1975 outcomes support comparison, repair, or scenario redesign.",
-    "id": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun calibrated repaired outcome localization over M1975 artifacts",
-    "priority": 19720,
+    "command": "see experiments/manifests/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.json",
+    "hypothesis": "The M1977 localization result is sufficient to choose the next route without direct ranking or rerun.",
+    "id": "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit calibrated repaired outcome localization and choose next route; ranking remains blocked",
+    "priority": 19730,
     "status": "pending",
-    "success_artifact": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json"
+    "success_artifact": "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md"
   },
-  "updated_at_utc": "20260531T114608Z"
+  "updated_at_utc": "20260531T115655Z"
 }
