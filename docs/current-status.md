@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation
+m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis
+m1930-executable-v2-task-quality-reset-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -268,7 +268,10 @@ rows, `12` profiles, contract violations `0`, forbidden-key violations `0`,
 and guardrail `0`. The workflow synthesis cadence has now fired, so M1929 must
 synthesize the whole M1919-M1928 task-quality scenario redesign branch before
 any further result audit, reset, rollout, measured execution, controller
-ranking, paper-level claim, or level3 self-ID claim.
+ranking, paper-level claim, or level3 self-ID claim. M1929 completed that
+synthesis and promoted the work to a new
+`paper_route_task_quality_reset_execution` branch. M1930 must now design a
+staged reset/materialized execution route over the M1928 executable panel.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

@@ -1,0 +1,166 @@
+{
+  "id": "m1930-executable-v2-task-quality-reset-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_reset_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design the reset/materialized execution route for the M1928 executable task-quality panel"
+    ],
+    "derived_from": [
+      "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1929 promoted to the reset execution branch but no reset/materialized execution command is designed"
+    ],
+    "supersedes": [
+      "running reset or rollout directly from M1928 artifacts without a staged execution design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1930-executable-v2-task-quality-reset-execution-design.md",
+  "public_gates": [
+    "M1930 must design exact reset/materialized execution commands and target artifacts",
+    "M1930 must define whether the first execution is reset-only, one-step smoke, or measured rollout",
+    "M1930 must define target counts and failure taxonomy",
+    "M1930 must keep controller-family ranking paper claims and level3 self-ID blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_reset_execution",
+    "evidence_axis": "Q_task_quality_reset_execution_design",
+    "evidence_increment": "starts the reset/materialized execution branch by defining staged commands and gates",
+    "claim_scope": "design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if reset/materialized execution command route is ambiguous",
+      "stop if target counts or artifacts are ambiguous",
+      "stop if first execution would jump directly to controller ranking"
+    ],
+    "fallback_plan": [
+      "route to reset-only implementation if design is clear",
+      "route to materialization repair if execution inputs are underdefined",
+      "route to branch synthesis if a staged execution route cannot be made safe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M1929 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality reset/materialized execution design",
+    "admission_evidence": [
+      "M1929 promoted to reset execution branch after M1928 produced 80 executable specs and 960 workload rows"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset rollout measured execution in design milestone",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not use holdout candidates"
+    ],
+    "allowed_updates": [
+      "M1930 execution design document",
+      "M1930 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-only implementation or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "execution stage is explicit",
+      "target counts and artifacts are explicit",
+      "failure taxonomy is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1930."
+    ],
+    "temporal_evidence_window": "M1928 executable panel and M1929 synthesis.",
+    "negative_result_policy": "If a reset/materialized execution route cannot be made explicit, record the blocker and repair/synthesize before controller comparison.",
+    "allowed_claims": [
+      "task-quality reset/materialized execution design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares transition from no-rollout materialization to reset/materialized execution validation",
+    "paper_verdict_delta": "can admit reset execution infrastructure but cannot change driver verdict by itself",
+    "must_synthesize_if": [
+      "M1930 cannot define exact execution commands",
+      "M1930 would skip reset validation and jump to ranking",
+      "M1930 would use holdout candidates"
+    ]
+  },
+  "hypothesis": "The M1928 executable panel can support a staged reset/materialized execution design without jumping to rollout ranking or paper claims.",
+  "success_criteria": [
+    "docs/m1930-executable-v2-task-quality-reset-execution-design.md exists",
+    "exact input specs and workload artifacts are named",
+    "first execution stage is specified",
+    "target counts and failure taxonomy are explicit",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "execution stage is ambiguous",
+    "target counts are ambiguous",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1930-executable-v2-task-quality-reset-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1930-executable-v2-task-quality-reset-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_reset_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
+    "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/executable_task_specs.json"
+  ],
+  "decision_rule": "M1930 passes if it defines a staged reset/materialized execution route and explicit next step without running execution or ranking.",
+  "next_blocker": "m1930-executable-v2-task-quality-reset-execution-design"
+}

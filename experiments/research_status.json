@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1937,
+    "completed": 1938,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation.md",
+    "command_log": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m1928_executable_v2_task_quality_scenario_redesign_materialization_preflight/summary.json",
+    "run_dir": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m1928-executable-v2-task-quality-scenario-redesign-materialization-preflight-implementation"
+    "task_id": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.json",
-    "hypothesis": "M1919-M1928 materially expanded task-quality scenario evidence enough to promote from scenario redesign/materialization to a reset/materialized execution branch.",
-    "id": "m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis",
+    "command": "see experiments/manifests/m1930-executable-v2-task-quality-reset-execution-design.json",
+    "hypothesis": "The M1928 executable panel can support a staged reset/materialized execution design without jumping to rollout ranking or paper claims.",
+    "id": "m1930-executable-v2-task-quality-reset-execution-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M1919-M1928 before any further result audit execution design or controller comparison",
-    "priority": 19240,
+    "notes": "Pending: design staged reset/materialized execution route over M1928 executable panel",
+    "priority": 19250,
     "status": "pending",
-    "success_artifact": "docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md"
+    "success_artifact": "docs/m1930-executable-v2-task-quality-reset-execution-design.md"
   },
-  "updated_at_utc": "20260531T075107Z"
+  "updated_at_utc": "20260531T075804Z"
 }

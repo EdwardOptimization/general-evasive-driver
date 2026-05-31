@@ -33414,3 +33414,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - accepted-cell rule counts: `positive_support_max_threshold=32 boundary_min_threshold=32 mitigation_closest_largest_obstacle=16`
 - follow-up manifest: `experiments/manifests/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.json`
 - next: `m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis`
+
+## M1929 Executable V2 Task-Quality Scenario Redesign Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `task_quality_scenario_redesign_branch_synthesis_promote_to_reset_execution_branch`
+- doc: `docs/m1929-executable-v2-task-quality-scenario-redesign-branch-synthesis.md`
+- completed branch: `paper_route_task_quality_scenario_redesign`
+- next branch: `paper_route_task_quality_reset_execution`
+- reset/rollout/measured execution in M1929: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M1919-M1928 created fresh 640-row source distribution, 399 supported sources, balanced 80-source non-holdout subset, 80 executable specs, and 960 workload rows
+- supported claims: scenario/task-quality infrastructure and executable panel readiness only
+- unsupported claims: reset success, rollout success, controller ranking, policy improvement, paper-level benchmark evidence, level3 self-ID evidence
+- failure taxonomy: original branch blocker was zero joint support; current branch has no technical failure and one workflow-cadence synthesis trigger
+- public-gate overfit risk: `medium`
+- follow-up manifest: `experiments/manifests/m1930-executable-v2-task-quality-reset-execution-design.json`
+- next: `m1930-executable-v2-task-quality-reset-execution-design`
