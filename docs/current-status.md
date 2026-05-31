@@ -16,16 +16,33 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1940-executable-v2-task-quality-reset-execution-branch-synthesis
+m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design
 ```
 
 Current next task:
 
 ```text
-m1941-executable-v2-task-quality-measured-outcome-localization-design
+m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation
 ```
 
-The current branch is building reliable executable-v2 active-safety scenario
+The current branch is repairing executable-v2 active-safety task quality before
+any controller-family ranking or paper-level comparison. M1938 produced a clean
+960-episode measured execution, but raw outcomes remained low-support and
+offtrack-dominated. M1942 localized the result without rerun and found `0`
+comparison-ready slices, `2` candidate-support slices, and `0` L2 successes.
+M1943 routed to offtrack-support repair. M1945 generated a deterministic
+160-row no-rollout repair template set. M1947 mapped those templates through
+source mining with `0` resolution failures, `1949` accepted cells, `66`
+supported sources, and `40` public-gate supported sources, but failed because
+anchor-neighborhood support was `0/64`. M1948 audits that failure as localized
+to stable-AEB anchor fallback geometry: the fallback classifies as
+`aes_feasible` while the stable-AEB anchors require `aeb_feasible`. M1949
+designs the no-rollout label-preserving calibration step: M1950 must find
+calibrated stable-AEB fallback geometry for both `post_friction_step` and
+`steady_surface`, with selected center labels `aeb_feasible`, at least `32`
+supported anchor rows total, at least `16` per surface, and guardrail `0`.
+
+Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861
 materialized `180` support-first candidate specs from `90` supported sources
 across stable AEB, stable AES-only, drift-required recovery, and unavoidable

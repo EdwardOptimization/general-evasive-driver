@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1948 localizes M1947 failure to stable-AEB anchor fallback geometry classified as aes_feasible while broad source support and non-anchor support remain healthy; route to label-preserving calibration",
+  "failure_criteria": [
+    "audit document is missing",
+    "failure localization is ambiguous",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T093356Z",
+  "hypothesis": "M1947 failure can be localized to a specific repairable source-mining mapping issue without rerun.",
+  "lineage": {
+    "blocked_by": [
+      "M1947 source-mining gate failed because anchor-neighborhood support was 0/64"
+    ],
+    "derived_from": [
+      "m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_source_mining_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1947-executable-v2-task-quality-offtrack-support-repair-source-mining-adapter-implementation.md",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/source_kind_aggregate.csv",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv"
+    ],
+    "parent_objective": [
+      "audit source-mining result and choose anchor/fallback repair or broader redesign"
+    ],
+    "supersedes": [
+      "directly patching source-mining thresholds after a failed gate"
+    ]
+  },
+  "milestone": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit",
+  "next_blocker": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_offtrack_support_repair_source_mining_audit_route_to_anchor_fallback_geometry_calibration",
+  "public_gates": [
+    "M1948 must audit M1947 without rerun or patching",
+    "M1948 must localize whether failure is fallback geometry template support or broader scenario failure",
+    "M1948 must choose a next route",
+    "M1948 must keep ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_offtrack_support_repair_source_mining_audit_route_to_anchor_fallback_geometry_calibration",
+    "milestone": "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit",
+    "reason": "M1948 localizes M1947 failure to stable-AEB anchor fallback geometry classified as aes_feasible while broad source support and non-anchor support remain healthy; route to label-preserving calibration",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md exists",
+    "M1947 key counts and failed gate are audited",
+    "failure localization is explicit",
+    "next route is explicit",
+    "no rerun ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

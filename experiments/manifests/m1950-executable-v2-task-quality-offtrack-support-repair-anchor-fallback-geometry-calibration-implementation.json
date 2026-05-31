@@ -1,0 +1,189 @@
+{
+  "id": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_anchor_fallback_geometry_calibration"
+    ],
+    "parent_dataset": [
+      "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/source_kind_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rollout stable-AEB anchor fallback geometry calibration"
+    ],
+    "derived_from": [
+      "m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design"
+    ],
+    "blocked_by": [
+      "M1949 requires a calibration artifact before source-mining can be rerun with repaired fallback geometry"
+    ],
+    "supersedes": [
+      "manual fallback geometry tuning",
+      "rerunning M1947 with the same stale fallback defaults"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md",
+  "public_gates": [
+    "M1950 must implement the calibration tool and focused tests",
+    "M1950 must run only no-rollout classifier/source-mining calibration",
+    "M1950 must write selected fallback geometry and calibration summary artifacts",
+    "M1950 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not relax stable-AEB anchors to accept aes_feasible labels",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_anchor_fallback_geometry_calibration_artifact",
+    "evidence_increment": "creates a label-preserving calibrated fallback artifact for stable-AEB anchor rows",
+    "claim_scope": "calibration artifact only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if calibration cannot find label-correct stable-AEB fallback geometry",
+      "stop if implementation needs reset or rollout",
+      "stop if selected fallback relaxes label semantics"
+    ],
+    "fallback_plan": [
+      "route to source-mining adapter application if calibration passes",
+      "route to branch synthesis if calibration cannot satisfy label-correct support floors",
+      "route to broader scenario redesign if both surfaces lack stable-AEB support"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "seventh milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable-AEB anchor fallback geometry calibration implementation",
+    "admission_evidence": [
+      "M1949 defines exact inputs outputs and pass gates for no-rollout fallback calibration"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun full source mining before calibration passes",
+      "do not execute reset rollout or measured policy actions",
+      "do not relax stable-AEB labels"
+    ],
+    "allowed_updates": [
+      "src/autodrift/executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py",
+      "tests/test_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py",
+      "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/*",
+      "docs/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md",
+      "M1950 status queue scoreboard research log and review",
+      "one follow-up manifest for calibrated source-mining application or synthesis"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "calibration summary result_class is pass",
+      "selected fallback geometry artifact is present",
+      "guardrails remain zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; fallback geometry calibration does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1950."
+    ],
+    "temporal_evidence_window": "M1947 blocked rows and M1949 calibration design.",
+    "negative_result_policy": "If calibration fails, classify as scenario sampling failure and synthesize rather than weakening labels.",
+    "allowed_claims": [
+      "offtrack support repair fallback-geometry calibration artifact",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces a calibrated source-geometry artifact rather than another threshold-only repair",
+    "paper_verdict_delta": "can unblock a calibrated no-rollout source-mining rerun but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "calibration cannot find label-correct stable-AEB fallback geometry",
+      "calibration implementation would rerun measured execution",
+      "another anchor support failure repeats after applying calibrated fallback"
+    ]
+  },
+  "hypothesis": "A focused no-rollout calibration tool can find stable-AEB anchor fallback geometry whose classifier support is label-correct for both surface variants.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json exists",
+    "selected_anchor_fallback_geometry.json exists",
+    "selected surfaces include post_friction_step and steady_surface",
+    "selected center labels are aeb_feasible",
+    "selected supported-anchor count floors pass",
+    "guardrail violation count is zero"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "calibration summary is missing",
+    "selected fallback geometry is missing or label-incorrect",
+    "support floors fail",
+    "reset rollout ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py"
+    },
+    {
+      "name": "run-calibration",
+      "command": "PYTHONPATH=src python -m autodrift.executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration --repair-templates configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json --blocked-rows runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv --output-dir runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration --next-blocker m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_anchor_fallback_geometry_calibration"
+  ],
+  "baseline_artifacts": [
+    "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+    "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+    "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv"
+  ],
+  "decision_rule": "M1950 passes if it creates a no-rollout label-correct calibrated stable-AEB anchor fallback artifact with guardrail zero.",
+  "next_blocker": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation"
+}

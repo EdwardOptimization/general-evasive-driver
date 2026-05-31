@@ -1,0 +1,166 @@
+{
+  "id": "m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_anchor_fallback_geometry_calibration_design"
+    ],
+    "parent_dataset": [
+      "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rollout stable-AEB anchor fallback geometry calibration before rerunning source mining"
+    ],
+    "derived_from": [
+      "m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit"
+    ],
+    "blocked_by": [
+      "M1947 anchor-neighborhood support was 0/64 because stable-AEB fallback geometry classified as aes_feasible"
+    ],
+    "supersedes": [
+      "rerunning source mining with the same stable-AEB anchor fallback defaults",
+      "relaxing stable-AEB source labels to accept aes_feasible rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+  "public_gates": [
+    "M1949 must design a no-rollout calibration step for stable-AEB anchor fallback geometry",
+    "M1949 must preserve source-kind label semantics rather than relaxing labels",
+    "M1949 must specify calibration inputs outputs and pass gates",
+    "M1949 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not relax stable-AEB anchors to accept aes_feasible labels",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_anchor_fallback_geometry_calibration_design",
+    "evidence_increment": "turns localized stable-AEB anchor fallback failure into a bounded no-rollout calibration plan",
+    "claim_scope": "design only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if the design would relax source labels instead of fixing geometry",
+      "stop if the design requires environment reset or rollout",
+      "stop if the branch reaches synthesis cadence before implementation"
+    ],
+    "fallback_plan": [
+      "if fallback calibration cannot define label-correct stable-AEB geometry, synthesize and pivot to broader scenario redesign",
+      "if calibration is design-complete, route to a focused no-rollout calibration implementation",
+      "if support remains anchor-only fragile after implementation, synthesize before another repair wave"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "sixth milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "stable-AEB anchor fallback geometry calibration design",
+    "admission_evidence": [
+      "M1948 localized M1947 failure to stable-AEB anchor fallback geometry classified as aes_feasible"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun source mining with stale fallback geometry",
+      "do not relax the stable-AEB label gate",
+      "do not execute reset rollout or measured policy actions"
+    ],
+    "allowed_updates": [
+      "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+      "M1949 status queue scoreboard research log and review",
+      "one follow-up manifest for calibration implementation"
+    ],
+    "next_stage_criteria": [
+      "calibration command is exact",
+      "calibration artifacts and pass gates are explicit",
+      "source-mining rerun remains deferred until calibration implementation passes"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; fallback geometry calibration design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1949."
+    ],
+    "temporal_evidence_window": "M1947 source-mining artifacts and M1948 audit.",
+    "negative_result_policy": "If geometry calibration cannot identify label-correct stable-AEB fallback cells, route to branch synthesis rather than weakening labels.",
+    "allowed_claims": [
+      "offtrack support repair fallback-geometry calibration design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "constrains the next repair to label-correct source geometry instead of threshold tuning",
+    "paper_verdict_delta": "can admit a focused calibration implementation but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "calibration would require label relaxation",
+      "calibration design cannot preserve no-rollout guardrails",
+      "another anchor support failure repeats after implementation"
+    ]
+  },
+  "hypothesis": "A bounded no-rollout calibration design can repair the stale stable-AEB anchor fallback geometry while preserving source label semantics.",
+  "success_criteria": [
+    "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md exists",
+    "calibration inputs outputs and pass gates are explicit",
+    "design preserves stable-AEB label semantics",
+    "source-mining rerun remains deferred",
+    "no reset rollout ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "calibration route relaxes stable-AEB labels",
+    "calibration route requires reset or rollout",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_anchor_fallback_geometry_calibration_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+    "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json"
+  ],
+  "decision_rule": "M1949 passes if it defines a no-rollout label-preserving calibration route for the stable-AEB anchor fallback geometry.",
+  "next_blocker": "m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design"
+}

@@ -33822,3 +33822,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - failure localization: slice-level stable-AEB anchor fallback geometry produces `aes_feasible`, so the stable-AEB source classifier rejects it with `label_role_mismatch`
 - follow-up manifest: `experiments/manifests/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.json`
 - next: `m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit`
+
+## M1948 Executable V2 Task-Quality Offtrack Support Repair Source-Mining Result Audit
+
+- status: completed
+- decision: `task_quality_offtrack_support_repair_source_mining_audit_route_to_anchor_fallback_geometry_calibration`
+- doc: `docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md`
+- audited source: `runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/summary.json`
+- reset/rollout/measured execution in M1948: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- M1947 clean counts: `160` templates, `160` source candidates, `0` resolution failures, `1949` accepted cells, `66` supported sources, `40` public-gate supported sources, guardrail `0`
+- failure localization: only anchor-neighborhood failed, with `0/64` support; success-stabilizer `39/48`, offtrack-boundary-relief `11/32`, and mitigation-isolation `16/16` met their floors
+- root cause: slice-level stable-AEB anchor fallback geometry classified as `aes_feasible`, while stable-AEB anchors require `aeb_feasible`
+- route: design a no-rollout label-preserving stable-AEB anchor fallback geometry calibration before another source-mining run
+- follow-up manifest: `experiments/manifests/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.json`
+- next: `m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design`
+
+## M1949 Executable V2 Task-Quality Offtrack Support Repair Anchor Fallback Geometry Calibration Design
+
+- status: completed
+- decision: `task_quality_anchor_fallback_geometry_calibration_design_admit_implementation`
+- doc: `docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md`
+- branch: `paper_route_task_quality_offtrack_support_repair`
+- reset/rollout/measured execution in M1949: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- target: stable-AEB anchor fallback geometry for `tier_c_boundary_near_miss / stable_aeb / aeb_feasible`
+- design route: use existing no-rollout source classifier primitives to scan bounded base obstacle distance and half-width grids while preserving template speed, mu, source role, and label semantics
+- required selected surfaces: `post_friction_step` and `steady_surface`
+- key pass gates for M1950: `64` input anchor templates, `64` blocked anchor rows, `2` selected surfaces, selected center labels all `aeb_feasible`, total selected supported anchors at least `32`, at least `16` supported anchors per surface, guardrail `0`
+- follow-up manifest: `experiments/manifests/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.json`
+- next: `m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation`
