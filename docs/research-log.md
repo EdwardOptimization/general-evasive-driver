@@ -33858,3 +33858,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - key pass gates for M1950: `64` input anchor templates, `64` blocked anchor rows, `2` selected surfaces, selected center labels all `aeb_feasible`, total selected supported anchors at least `32`, at least `16` supported anchors per surface, guardrail `0`
 - follow-up manifest: `experiments/manifests/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.json`
 - next: `m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation`
+
+## M1950 Executable V2 Task-Quality Offtrack Support Repair Anchor Fallback Geometry Calibration Implementation
+
+- status: completed
+- decision: `task_quality_anchor_fallback_geometry_calibration_pass_route_to_calibrated_source_mining_application_design`
+- result class: `task_quality_anchor_fallback_geometry_calibration_pass`
+- doc: `docs/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md`
+- implementation: `src/autodrift/executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration.py`
+- focused tests: `2 passed`
+- summary: `runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json`
+- reset/rollout/measured execution in M1950: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- calibration result: `64` input anchor templates, `64` blocked anchor rows, `144` fallback candidates, `2` selected surfaces, `64/64` selected supported anchor rows, `4032` accepted cells, guardrail `0`
+- selected fallback: both `post_friction_step` and `steady_surface` use speed `18.0`, mu `0.40`, obstacle distance `52.0`, obstacle half-width `0.75`, center label `aeb_feasible`
+- route: design calibrated fallback application to the full no-rollout source-mining adapter before any reset or measured execution
+- follow-up manifest: `experiments/manifests/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.json`
+- next: `m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design`

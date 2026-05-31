@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design
+m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation
 ```
 
 Current next task:
 
 ```text
-m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation
+m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -37,10 +37,13 @@ supported sources, and `40` public-gate supported sources, but failed because
 anchor-neighborhood support was `0/64`. M1948 audits that failure as localized
 to stable-AEB anchor fallback geometry: the fallback classifies as
 `aes_feasible` while the stable-AEB anchors require `aeb_feasible`. M1949
-designs the no-rollout label-preserving calibration step: M1950 must find
-calibrated stable-AEB fallback geometry for both `post_friction_step` and
-`steady_surface`, with selected center labels `aeb_feasible`, at least `32`
-supported anchor rows total, at least `16` per surface, and guardrail `0`.
+designs the no-rollout label-preserving calibration step. M1950 implements and
+runs that calibration: both `post_friction_step` and `steady_surface` select
+speed `18.0`, mu `0.40`, obstacle distance `52.0`, and obstacle half-width
+`0.75`; selected center labels are `aeb_feasible`, selected support is `64/64`
+anchor rows with `4032` accepted cells, and guardrail is `0`. M1951 must now
+design how to apply `selected_anchor_fallback_geometry.json` to the full
+no-rollout source-mining adapter without weakening M1947 gates.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

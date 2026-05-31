@@ -1,0 +1,168 @@
+{
+  "id": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_calibrated_source_mining_application_design"
+    ],
+    "parent_dataset": [
+      "docs/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md",
+      "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
+      "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "design calibrated fallback application to the full offtrack-support repair source-mining adapter"
+    ],
+    "derived_from": [
+      "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation"
+    ],
+    "blocked_by": [
+      "M1950 produced calibrated stable-AEB fallback geometry, but the full M1947 source-mining adapter does not yet consume it"
+    ],
+    "supersedes": [
+      "manual patching of source-mining fallback constants without a design",
+      "rerunning M1947 with stale fallback geometry"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+  "public_gates": [
+    "M1951 must design how the source-mining adapter consumes selected_anchor_fallback_geometry.json",
+    "M1951 must preserve M1947 source-kind support gates",
+    "M1951 must specify exact command outputs and pass/fail routing for the calibrated no-rollout rerun",
+    "M1951 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not relax stable-AEB anchors to accept aes_feasible labels",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_source_mining_application_design",
+    "evidence_increment": "turns the calibrated fallback artifact into an exact full source-mining application plan",
+    "claim_scope": "design only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if design would hard-code untracked geometry instead of reading the calibration artifact",
+      "stop if design weakens M1947 source-kind gates",
+      "stop if design requires environment reset or rollout"
+    ],
+    "fallback_plan": [
+      "route to calibrated adapter implementation if design is exact",
+      "route to branch synthesis if calibrated fallback cannot be applied without weakening gates",
+      "route to broader scenario redesign if applying the calibrated fallback would invalidate non-anchor support"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "eighth milestone in offtrack support repair branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "calibrated source-mining application design",
+    "admission_evidence": [
+      "M1950 passed calibration with 64/64 selected supported anchors and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not manually edit source-mining constants without an artifact input path",
+      "do not rerun measured execution",
+      "do not relax source-kind gates"
+    ],
+    "allowed_updates": [
+      "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+      "M1951 status queue scoreboard research log and review",
+      "one follow-up manifest for calibrated source-mining implementation"
+    ],
+    "next_stage_criteria": [
+      "artifact input path is explicit",
+      "calibrated source-mining output directory is explicit",
+      "original M1947 source-kind gates are preserved",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; calibrated source-mining application design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1951."
+    ],
+    "temporal_evidence_window": "M1950 calibration artifacts.",
+    "negative_result_policy": "If the calibrated rerun design cannot preserve gates, synthesize rather than weakening label or source-kind contracts.",
+    "allowed_claims": [
+      "calibrated source-mining application design",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "connects a passing calibration artifact to a full source-mining rerun plan",
+    "paper_verdict_delta": "can admit calibrated source-mining implementation but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "calibrated application would require weakening M1947 gates",
+      "calibrated application design would skip artifact provenance",
+      "calibrated rerun later repeats the same anchor support failure"
+    ]
+  },
+  "hypothesis": "The M1950 calibrated fallback artifact can be wired into the source-mining adapter through an explicit no-rollout rerun design that preserves M1947 gates.",
+  "success_criteria": [
+    "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md exists",
+    "design specifies calibrated fallback artifact input and output directory",
+    "design preserves original M1947 source-kind support gates",
+    "next implementation route is explicit",
+    "no reset rollout ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design hard-codes calibrated geometry without artifact provenance",
+    "design weakens source-kind or label gates",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_calibrated_source_mining_application_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md",
+    "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
+    "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/selected_anchor_fallback_geometry.json"
+  ],
+  "decision_rule": "M1951 passes if it defines an artifact-provenanced calibrated source-mining application route that preserves M1947 gates.",
+  "next_blocker": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design"
+}

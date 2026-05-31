@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1958,
+    "completed": 1959,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+    "command_log": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration",
     "status": "completed",
-    "task_id": "m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design"
+    "task_id": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.json",
-    "hypothesis": "A focused no-rollout calibration tool can find stable-AEB anchor fallback geometry whose classifier support is label-correct for both surface variants.",
-    "id": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout label-correct stable-AEB anchor fallback geometry calibration",
-    "priority": 19450,
+    "command": "see experiments/manifests/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.json",
+    "hypothesis": "The M1950 calibrated fallback artifact can be wired into the source-mining adapter through an explicit no-rollout rerun design that preserves M1947 gates.",
+    "id": "m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design",
+    "kind": "gate",
+    "notes": "Pending: design artifact-provenanced calibrated fallback application to full no-rollout source-mining rerun",
+    "priority": 19460,
     "status": "pending",
-    "success_artifact": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json"
+    "success_artifact": "docs/m1951-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-application-design.md"
   },
-  "updated_at_utc": "20260531T093814Z"
+  "updated_at_utc": "20260531T094245Z"
 }

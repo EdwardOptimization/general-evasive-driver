@@ -1,0 +1,95 @@
+{
+  "decision_reason": "M1950 calibration pass selects label-correct stable-AEB fallback geometry at distance 52 half-width 0.75 for both surfaces with 64/64 supported anchors 4032 accepted cells and guardrail 0",
+  "failure_criteria": [
+    "focused tests fail",
+    "calibration summary is missing",
+    "selected fallback geometry is missing or label-incorrect",
+    "support floors fail",
+    "reset rollout ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not relax stable-AEB anchors to accept aes_feasible labels",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T094440Z",
+  "hypothesis": "A focused no-rollout calibration tool can find stable-AEB anchor fallback geometry whose classifier support is label-correct for both surface variants.",
+  "lineage": {
+    "blocked_by": [
+      "M1949 requires a calibration artifact before source-mining can be rerun with repaired fallback geometry"
+    ],
+    "derived_from": [
+      "m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_anchor_fallback_geometry_calibration"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1949-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-design.md",
+      "configs/executable_v2_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/repair_blocked_rows.csv",
+      "runs/m1947_executable_v2_task_quality_offtrack_support_repair_source_mining/source_kind_aggregate.csv"
+    ],
+    "parent_objective": [
+      "implement and run no-rollout stable-AEB anchor fallback geometry calibration"
+    ],
+    "supersedes": [
+      "manual fallback geometry tuning",
+      "rerunning M1947 with the same stale fallback defaults"
+    ]
+  },
+  "milestone": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation",
+  "next_blocker": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_anchor_fallback_geometry_calibration_pass_route_to_calibrated_source_mining_application_design",
+  "public_gates": [
+    "M1950 must implement the calibration tool and focused tests",
+    "M1950 must run only no-rollout classifier/source-mining calibration",
+    "M1950 must write selected fallback geometry and calibration summary artifacts",
+    "M1950 must keep reset rollout measured execution profile tuning ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_anchor_fallback_geometry_calibration_pass_route_to_calibrated_source_mining_application_design",
+    "milestone": "m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation",
+    "reason": "M1950 calibration pass selects label-correct stable-AEB fallback geometry at distance 52 half-width 0.75 for both surfaces with 64/64 supported anchors 4032 accepted cells and guardrail 0",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m1950_executable_v2_task_quality_offtrack_support_repair_anchor_fallback_geometry_calibration/summary.json exists",
+    "selected_anchor_fallback_geometry.json exists",
+    "selected surfaces include post_friction_step and steady_surface",
+    "selected center labels are aeb_feasible",
+    "selected supported-anchor count floors pass",
+    "guardrail violation count is zero"
+  ],
+  "type": "infrastructure"
+}
