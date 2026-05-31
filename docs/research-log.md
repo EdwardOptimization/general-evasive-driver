@@ -35766,3 +35766,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: admit reset-validation command design for the repaired 192-spec panel; direct reset, measured execution, ranking, paper-level claim, and self-ID claim remain blocked
 - follow-up manifest: `experiments/manifests/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.json`
 - next: `m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design`
+
+## M2050 Paper-Route Controlled Routing Smoke Task-Quality Repair Reset Validation Command Design
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_reset_command_design_route_to_existing_validator_run`
+- doc: `docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md`
+- input specs: `runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json`
+- reset execution in M2050: `false`
+- rollout/measured execution in M2050: `false`
+- policy actions executed in M2050: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- validator decision: reuse `autodrift.paper_route_controlled_routing_smoke_reset_validation_preflight` because M2048 preserves required controlled-routing-smoke metadata
+- frozen command target: `192` specs, eval seed base `205100`, expected observation dimension `72`, output `runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight`
+- decision: M2051 may run only the frozen reset-only command; measured execution, ranking, paper-level claim, and self-ID claim remain blocked
+- follow-up manifest: `experiments/manifests/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.json`
+- next: `m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run`
