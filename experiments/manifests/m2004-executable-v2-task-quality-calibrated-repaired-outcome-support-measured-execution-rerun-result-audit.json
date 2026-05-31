@@ -1,0 +1,163 @@
+{
+  "id": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md",
+      "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json",
+      "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/validation_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.json"
+    ],
+    "parent_objective": [
+      "audit measured execution rerun validation failure before repair or rerun"
+    ],
+    "derived_from": [
+      "m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun"
+    ],
+    "blocked_by": [
+      "M2003 failed closed before rollout because M1986 artifacts lack selection_quota_name"
+    ],
+    "supersedes": [
+      "repairing or rerunning measured execution without failure audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+  "public_gates": [
+    "M2004 must audit M2003 validation failure source",
+    "M2004 must separate validation/schema failure from policy outcome failure",
+    "M2004 must choose repair rerun stop or synthesis route",
+    "M2004 must not run real measured execution"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run real measured execution",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_repaired_outcome_support_repair",
+    "evidence_axis": "Q_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_failure_audit",
+    "evidence_increment": "audits measured execution rerun validation failure after workload-derived quota repair",
+    "claim_scope": "result audit only; no repair rerun ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if validation failure cannot be localized",
+      "stop if audit would treat zero-row validation failure as policy result",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to artifact normalization design if selection_quota_name is a missing compatibility field",
+      "route to runner schema repair if field should not be required",
+      "synthesize if validation artifacts show another broad local-search loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2003 fails closed before rollout",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured execution rerun failure audit",
+    "admission_evidence": [
+      "M2003 summary and validation_failure_rows artifacts exist"
+    ],
+    "blocked_shortcuts": [
+      "do not repair before audit",
+      "do not rerun measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+      "M2004 status queue scoreboard research log and review",
+      "one follow-up manifest for repair design synthesis or stop"
+    ],
+    "next_stage_criteria": [
+      "failure source is classified",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; zero-row validation failure does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2004."
+    ],
+    "temporal_evidence_window": "M2003 zero-row measured execution failure artifacts.",
+    "negative_result_policy": "Classify zero-row validation failure as infrastructure/schema failure, not driver failure.",
+    "allowed_claims": [
+      "measured execution validation failure audit",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "localizes the next measured-runner readiness blocker after quota repair",
+    "paper_verdict_delta": "prevents misclassifying a zero-row validation failure as driver performance evidence",
+    "must_synthesize_if": [
+      "audit routes to another quota-only repair loop",
+      "selection_quota_name compatibility cannot be resolved cleanly",
+      "another measured execution rerun fails before rollout after repair"
+    ]
+  },
+  "hypothesis": "M2003 failed closed from a local schema/readiness issue rather than driver behavior or quota repair failure.",
+  "success_criteria": [
+    "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md exists",
+    "validation failure is classified",
+    "zero-row result is not treated as policy outcome",
+    "next route is explicit",
+    "no repair rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "failure source is ambiguous",
+    "zero-row validation failure is interpreted as policy result",
+    "next route is ambiguous",
+    "repair rerun ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json",
+    "runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/validation_failure_rows.csv"
+  ],
+  "decision_rule": "M2004 passes if it audits the M2003 zero-row validation failure and chooses a bounded next route without overclaiming.",
+  "next_blocker": "m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit"
+}

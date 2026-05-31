@@ -34832,3 +34832,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: M2003 may run only the frozen command; interpretation remains deferred to M2004 audit
 - follow-up manifest: `experiments/manifests/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.json`
 - next: `m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun`
+
+## M2003 Executable V2 Task-Quality Calibrated Repaired Outcome-Support Measured Execution Rerun
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_support_measured_execution_rerun_validation_fail_route_to_audit`
+- doc: `docs/m2003-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun.md`
+- summary: `runs/m2003_executable_v2_task_quality_calibrated_repaired_outcome_support_measured_execution_rerun/summary.json`
+- measured execution command used: frozen M2002 command
+- environment rollout started: `false`
+- measured rollout started: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: fail-closed before rollout with `episode_count=0`, `failure_count=0`, `guardrail_violation_count=0`, `expected_quota_source=workload`, `quota_metadata_missing_count=0`, and validation failures `1040`
+- validation blocker: `selection_quota_name` missing from `80` executable specs and `960` workload rows
+- route: audit zero-row validation failure before repair, rerun, ranking, or interpretation
+- follow-up manifest: `experiments/manifests/m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit.json`
+- next: `m2004-executable-v2-task-quality-calibrated-repaired-outcome-support-measured-execution-rerun-result-audit`
