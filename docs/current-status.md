@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit
+m1901-executable-v2-support-first-task-quality-repair-axis-design
 ```
 
 Current next task:
 
 ```text
-m1901-executable-v2-support-first-task-quality-repair-axis-design
+m1902-executable-v2-support-first-task-quality-repair-axis-materialization
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -144,9 +144,17 @@ near-miss rows `429`, guardrail `0`, and recommended next route
 valid and actionable: controller ranking remains blocked because joint
 clearance/containment is still `0`, but the `429` near-miss rows and
 role-surface split justify a targeted task-quality repair-axis design. M1901
-must now define that baseline-preserving no-rollout repair-axis matrix before
-any materialization, measured execution, controller ranking, training, PPO,
-paper-level claim, or level3 self-ID claim.
+defined that design as an eight-variant baseline-preserving repair-axis matrix:
+`original_retained`, `role_semantics_only`,
+`post_clearance_recovery_window_plus`,
+`post_obstacle_containment_corridor_plus`,
+`post_clearance_recovery_corridor_combo`, `contained_clearance_gap_plus`,
+`contained_reaction_distance_plus`, and `mitigation_scored_semantics`. The axes
+separate baseline retention, post-clearance containment/recovery,
+contained-collision clearance feasibility, and unavoidable mitigation semantics.
+M1902 must now implement and run only the no-rollout materialization of this
+matrix before any reset, rollout, measured execution, controller ranking,
+training, PPO, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

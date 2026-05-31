@@ -32774,3 +32774,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence task-quality repair success
 - follow-up manifest: `experiments/manifests/m1901-executable-v2-support-first-task-quality-repair-axis-design.json`
 - next: `m1901-executable-v2-support-first-task-quality-repair-axis-design`
+
+## M1901 Executable V2 Support-First Task-Quality Repair-Axis Design
+
+- status: completed
+- decision: `task_quality_repair_axis_design_admit_no_rollout_materialization`
+- doc: `docs/m1901-executable-v2-support-first-task-quality-repair-axis-design.md`
+- parent audit: `docs/m1900-executable-v2-support-first-clearance-containment-conflict-localization-result-audit.md`
+- selected route: baseline-preserving no-rollout repair-axis materialization
+- source spec count for next matrix: `16`
+- controller profile count for next matrix: `12`
+- repair-axis variant count: `8`
+- expected next matrix rows: `1536`
+- repair axes: `baseline_and_semantics_retention post_clearance_containment_recovery contained_collision_clearance_feasibility unavoidable_mitigation_semantics`
+- required variants: `original_retained role_semantics_only post_clearance_recovery_window_plus post_obstacle_containment_corridor_plus post_clearance_recovery_corridor_combo contained_clearance_gap_plus contained_reaction_distance_plus mitigation_scored_semantics`
+- environment reset/rollout/measured execution in M1901: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1899/M1900 conflicts can be separated into targeted repair axes before materialization
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.json`
+- next: `m1902-executable-v2-support-first-task-quality-repair-axis-materialization`
