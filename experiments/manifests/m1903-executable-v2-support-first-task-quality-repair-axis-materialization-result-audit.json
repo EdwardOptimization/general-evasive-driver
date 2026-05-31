@@ -158,5 +158,5 @@
     "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json"
   ],
   "decision_rule": "M1903 passes if it audits M1902 and selects execution design, helper repair, or synthesis without ranking.",
-  "next_blocker": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit"
+  "next_blocker": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
 }

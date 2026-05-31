@@ -1,0 +1,164 @@
+{
+  "id": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_execution_design"
+    ],
+    "parent_dataset": [
+      "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_spec.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/role_surface_axis_target_map.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design the execution wrapper/protocol for the M1902 repair-axis matrix before rollout"
+    ],
+    "derived_from": [
+      "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M1902 has mixed rollout/import/postprocess row kinds that require an explicit execution protocol"
+    ],
+    "supersedes": [
+      "direct use of the old repaired bounded-smoke runner on the M1902 matrix"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+  "public_gates": [
+    "M1904 must design the repair-axis execution wrapper without running rollout",
+    "M1904 must preserve axis metadata and source provenance for rollout and import/postprocess rows",
+    "M1904 must define pass gates for 960 geometry rollout rows plus 576 import/postprocess rows",
+    "M1904 must keep controller ranking training PPO private holdout paper claims and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_clearance_containment_task_quality_repair_axis",
+    "evidence_axis": "Q_task_quality_repair_axis_execution_design",
+    "evidence_increment": "designs the execution protocol required to evaluate the M1902 repair-axis matrix",
+    "claim_scope": "execution design only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if the design cannot preserve all axis metadata",
+      "stop if the design cannot separate rollout rows from import/postprocess rows",
+      "stop if the design would admit controller ranking before execution audit"
+    ],
+    "fallback_plan": [
+      "route to wrapper implementation if the design is precise",
+      "route to materialization helper repair if required metadata is missing",
+      "route to branch synthesis if execution design would be ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1903 admits execution design for the repair-axis matrix",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design task-quality repair-axis execution protocol",
+    "admission_evidence": [
+      "M1903 audited M1902 as count-complete and guardrail-clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "M1904 execution design document",
+      "M1904 status queue scoreboard research log and review",
+      "one follow-up manifest for wrapper implementation helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "wrapper inputs outputs and pass gates are specified",
+      "rollout/import/postprocess row handling is explicit",
+      "next route is wrapper implementation or explicit fallback"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; execution design does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1904."
+    ],
+    "temporal_evidence_window": "M1902 and M1903 artifacts only.",
+    "negative_result_policy": "If execution design cannot preserve task-quality axes, route to helper repair or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis execution design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the new M1902 panel into an executable protocol rather than repeating materialization",
+    "paper_verdict_delta": "can admit or block the next measured diagnostic execution",
+    "must_synthesize_if": [
+      "M1904 cannot define a precise execution wrapper",
+      "the next route would be another design-only step without implementation",
+      "the execution design would erase axis metadata or baseline provenance"
+    ]
+  },
+  "hypothesis": "A precise execution design can run only the M1902 geometry rows while importing/postprocessing the baseline and semantics rows into one auditable 1536-row panel.",
+  "success_criteria": [
+    "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md exists",
+    "design specifies 960 rollout geometry rows and 576 import/postprocess rows",
+    "design specifies required wrapper inputs outputs metadata preservation and pass gates",
+    "next route is wrapper implementation or explicit helper repair/synthesis"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design admits direct execution or ranking without wrapper protocol",
+    "design omits axis metadata or source provenance preservation",
+    "design changes actor inputs or tunes controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_execution_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+    "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json"
+  ],
+  "decision_rule": "M1904 passes if it defines the execution wrapper protocol and keeps rollout/ranking blocked.",
+  "next_blocker": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design"
+}

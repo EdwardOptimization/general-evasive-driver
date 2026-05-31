@@ -1,0 +1,88 @@
+{
+  "decision_reason": "M1903 audits M1902 as clean and execution-design-ready: 960 geometry rollout rows plus 576 import/postprocess rows require a wrapper before any execution or ranking",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset rollout measured execution training replay or PPO",
+    "audit ranks controller families from M1902 materialization",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T053339Z",
+  "hypothesis": "M1902 materialization can be audited as a clean baseline-preserving repair-axis panel ready for execution design.",
+  "lineage": {
+    "blocked_by": [
+      "M1902 materialization must be audited before execution design or synthesis"
+    ],
+    "derived_from": [
+      "m1902-executable-v2-support-first-task-quality-repair-axis-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_materialization_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.json"
+    ],
+    "parent_dataset": [
+      "docs/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.md",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_matrix.csv",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/task_quality_repair_axis_spec.json",
+      "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/role_surface_axis_target_map.csv"
+    ],
+    "parent_objective": [
+      "audit the no-rollout task-quality repair-axis materialization before any execution design"
+    ],
+    "supersedes": [
+      "direct execution from a newly materialized repair-axis matrix"
+    ]
+  },
+  "milestone": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit",
+  "next_blocker": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_repair_axis_materialization_audit_admit_execution_design",
+  "public_gates": [
+    "M1903 must audit M1902 count gates variant coverage target map and guardrails",
+    "M1903 must decide whether to route to execution design helper repair or branch synthesis",
+    "M1903 must not run environment reset rollout measured execution training replay PPO private holdout controller ranking paper claims or level3 self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_repair_axis_materialization_audit_admit_execution_design",
+    "milestone": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit",
+    "reason": "M1903 audits M1902 as clean and execution-design-ready: 960 geometry rollout rows plus 576 import/postprocess rows require a wrapper before any execution or ranking",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md exists",
+    "audit verifies M1902 count gates variant coverage target map and guardrails",
+    "audit chooses execution design helper repair or synthesis",
+    "controller ranking and paper claims remain blocked unless a later design admits them"
+  ],
+  "type": "gate"
+}

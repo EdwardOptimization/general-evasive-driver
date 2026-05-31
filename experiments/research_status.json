@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1911,
+    "completed": 1912,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1902-executable-v2-support-first-task-quality-repair-axis-materialization.md",
+    "command_log": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization",
+    "run_dir": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m1902-executable-v2-support-first-task-quality-repair-axis-materialization"
+    "task_id": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.json",
-    "hypothesis": "M1902 materialization can be audited as a clean baseline-preserving repair-axis panel ready for execution design.",
-    "id": "m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit",
+    "command": "see experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json",
+    "hypothesis": "A precise execution design can run only the M1902 geometry rows while importing/postprocessing the baseline and semantics rows into one auditable 1536-row panel.",
+    "id": "m1904-executable-v2-support-first-task-quality-repair-axis-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M1902 repair-axis materialization before execution design or synthesis",
-    "priority": 18980,
+    "notes": "Pending: design wrapper protocol for M1902 repair-axis execution without running rollout",
+    "priority": 18990,
     "status": "pending",
-    "success_artifact": "docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md"
+    "success_artifact": "docs/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.md"
   },
-  "updated_at_utc": "20260531T052829Z"
+  "updated_at_utc": "20260531T053159Z"
 }

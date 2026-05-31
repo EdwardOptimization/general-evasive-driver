@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1902-executable-v2-support-first-task-quality-repair-axis-materialization
+m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit
+m1904-executable-v2-support-first-task-quality-repair-axis-execution-design
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -156,8 +156,11 @@ M1902 implemented and ran the no-rollout materializer: `1536` matrix rows, `8`
 variants, `16` source specs, `12` controller profiles, `192`
 `original_retained` rows, all role surfaces represented, duplicate axis keys
 `0`, guardrail `0`, and no reset/rollout/measured execution/training/PPO.
-M1903 must now audit the materialized matrix before any execution design,
-controller ranking, paper-level claim, or level3 self-ID claim.
+M1903 audited the matrix as clean and execution-design-ready, but direct
+execution remains blocked because the matrix has `960` geometry rollout rows
+and `576` import/postprocess rows that require a dedicated wrapper/protocol.
+M1904 must now design that wrapper before any reset, rollout, measured
+execution, controller ranking, paper-level claim, or level3 self-ID claim.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

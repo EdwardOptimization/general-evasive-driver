@@ -32828,3 +32828,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.json`
 - next: `m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit`
+
+## M1903 Executable V2 Support-First Task-Quality Repair-Axis Materialization Result Audit
+
+- status: completed
+- decision: `task_quality_repair_axis_materialization_audit_admit_execution_design`
+- doc: `docs/m1903-executable-v2-support-first-task-quality-repair-axis-materialization-result-audit.md`
+- audited summary: `runs/m1902_executable_v2_support_first_task_quality_repair_axis_materialization/summary.json`
+- materialization result class: `task_quality_repair_axis_materialization_pass`
+- repair-axis matrix rows: `1536 / 1536`
+- source specs: `16`
+- controller profiles: `12`
+- role surfaces: `8`
+- repair-axis variants: `8`
+- original retained rows: `192`
+- duplicate axis keys: `0`
+- guardrail violation count: `0`
+- geometry rollout rows requiring later execution wrapper: `960`
+- import/postprocess rows requiring provenance join: `576`
+- selected route: `task_quality_repair_axis_execution_design`
+- environment reset/rollout/measured execution in M1903: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1902 matrix is clean enough for execution design
+- unsupported: task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1904-executable-v2-support-first-task-quality-repair-axis-execution-design.json`
+- next: `m1904-executable-v2-support-first-task-quality-repair-axis-execution-design`
