@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2034,
+    "completed": 2035,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2025-paper-route-controlled-comparison-source-coverage-repair-design.md",
+    "command_log": "docs/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2026_paper_route_controlled_comparison_source_coverage_repair",
     "status": "completed",
-    "task_id": "m2025-paper-route-controlled-comparison-source-coverage-repair-design"
+    "task_id": "m2026-paper-route-controlled-comparison-source-coverage-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.json",
-    "hypothesis": "A no-rollout repair implementation can improve or fully fix T1/T2/T3 source coverage using existing public artifacts.",
-    "id": "m2026-paper-route-controlled-comparison-source-coverage-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout source coverage repair over existing public artifacts",
-    "priority": 20210,
+    "command": "see experiments/manifests/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.json",
+    "hypothesis": "The partial M2026 repair can be audited into a single next route without running execution or weakening source thresholds.",
+    "id": "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit and synthesize M2026 partial repair before any routing smoke; T2/T3 source-kind share remain unready and local-search cadence fired",
+    "priority": 20220,
     "status": "pending",
-    "success_artifact": "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json"
+    "success_artifact": "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md"
   },
-  "updated_at_utc": "20260531T163352Z"
+  "updated_at_utc": "20260531T165156Z"
 }

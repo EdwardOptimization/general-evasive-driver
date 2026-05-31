@@ -1,0 +1,7 @@
+claim,admissible,reason
+controlled_comparison_source_coverage_repair_completed,True,M2026 writes no-rollout repaired source coverage and repair action artifacts
+panel_ready_for_routing_smoke,False,requires all five task families to pass source count and source-kind share thresholds
+controller_family_ranking,False,M2026 does not execute the panel or use private holdout
+finite_window_vs_gru_conclusion,False,M2026 is source-coverage repair only and does not compare outcomes
+paper_level_benchmark_result,False,M2026 only repairs public preflight artifacts
+level3_self_identification,False,M2026 does not run wrong/delayed/mismatched history outcome tests

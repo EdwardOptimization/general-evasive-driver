@@ -1,0 +1,178 @@
+{
+  "id": "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_comparison_source_coverage_repair_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_source_coverage.csv",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/coverage_comparison.csv",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repair_actions.csv",
+      "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the partial source-coverage repair result before any routing smoke"
+    ],
+    "derived_from": [
+      "m2026-paper-route-controlled-comparison-source-coverage-repair-implementation"
+    ],
+    "blocked_by": [
+      "M2026 result_class is controlled_comparison_source_coverage_repair_partial",
+      "T2/T3 remain source-kind-share unready"
+    ],
+    "supersedes": [
+      "direct routing smoke after partial source repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+  "public_gates": [
+    "M2027 must audit and synthesize M2026 artifacts without rerun",
+    "M2027 must state whether T2/T3 require new source generation or threshold/source-kind semantics audit",
+    "M2027 must not admit routing smoke unless readiness is supported by M2026 artifacts",
+    "M2027 must choose continue pivot stop or promote-to-next-branch because the local-search cadence fired",
+    "M2027 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_l0_l1_l2_l3_comparison_design",
+    "evidence_axis": "Q_fair_controller_matrix_source_repair",
+    "evidence_increment": "audits partial source repair and synthesizes the source-coverage repair branch after local-search cadence",
+    "claim_scope": "process synthesis only; no driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if the audit would admit execution despite panel_ready_for_routing_smoke=false",
+      "stop if the audit weakens source-diversity thresholds without a semantics argument",
+      "stop if the audit routes to another repair loop without new source evidence"
+    ],
+    "fallback_plan": [
+      "route to T2/T3 same-family source-generation design if current artifacts are insufficient",
+      "route to threshold/source-kind semantics audit if the current threshold is mismatched to family semantics",
+      "route to branch synthesis if repair loops have become local search"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2026 partial repair leaves T2/T3 unready and the branch exceeds the non-evidence cadence",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled comparison source-coverage repair result audit and branch synthesis",
+    "admission_evidence": [
+      "M2026 writes clean partial source repair artifacts with guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run execution from partial panel readiness",
+      "do not rank controller families",
+      "do not claim finite-window-vs-GRU or paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+      "M2027 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2027 audits M2026 result_class",
+      "M2027 classifies T2/T3 unresolved source-kind-share blockers",
+      "M2027 selects a single next route",
+      "M2027 preserves claim boundaries"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2027 audits source coverage only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2027."
+    ],
+    "temporal_evidence_window": "M2026 no-rollout source repair artifacts.",
+    "negative_result_policy": "If T2/T3 remain unresolved, route to source generation, threshold semantics audit, or synthesis rather than execution.",
+    "allowed_claims": [
+      "controlled comparison source-coverage repair audit",
+      "no controller ranking paper-level finite-window-vs-GRU or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2022-M2026 controlled-panel source coverage work into a next-branch decision",
+    "paper_verdict_delta": "can determine whether the paper-route controlled comparison needs new T2/T3 source generation before execution",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone after the local-search cadence fired"
+    ]
+  },
+  "hypothesis": "The partial M2026 repair can be audited into a single next route without running execution or weakening source thresholds.",
+  "success_criteria": [
+    "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md exists",
+    "M2027 identifies whether T2/T3 need new source generation threshold/source-kind semantics audit split routing or stop",
+    "M2027 answers the required synthesis questions",
+    "guardrail and claim boundaries remain intact",
+    "no rerun ranking finite-window-vs-GRU paper-level or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit admits routing smoke despite panel_ready_for_routing_smoke=false",
+    "audit weakens thresholds without a source-kind semantics argument",
+    "audit starts another local repair loop without new source evidence",
+    "synthesis questions are missing or the next branch decision is ambiguous",
+    "environment rollout or policy action execution occurs",
+    "ranking or finite-window-vs-GRU claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md as a result audit and branch synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_comparison_source_coverage_repair_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json",
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/repaired_source_coverage.csv",
+    "runs/m2026_paper_route_controlled_comparison_source_coverage_repair/coverage_comparison.csv"
+  ],
+  "decision_rule": "M2027 passes if it audits M2026 cleanly and chooses a single non-execution next route for unresolved T2/T3 coverage.",
+  "next_blocker": "m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit"
+}

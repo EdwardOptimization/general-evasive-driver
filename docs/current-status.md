@@ -16,26 +16,29 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2025-paper-route-controlled-comparison-source-coverage-repair-design
+m2026-paper-route-controlled-comparison-source-coverage-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m2026-paper-route-controlled-comparison-source-coverage-repair-implementation
+m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit
 ```
 
-Immediate route: M2025 designs the no-rollout source-coverage repair for the
-controlled-comparison panel. The repair targets T1 active-safety source
-count/source-kind singleton and T2/T3 source-kind share gaps while preserving
-T4/T5 passing coverage. Candidate source artifacts are M1983 outcome-support
-source rows, M1952 calibrated repair source rows, M2009 aggregate audit tables,
-M2018 admitted candidates, M1680 task-source specs, M1683 workload, and M2023
-panel sources. M2026 must implement and run this source repair as an artifact
-preflight only. Broad ranking, finite-window-vs-GRU, paper-level, and level3
-self-ID claims remain blocked.
+Immediate route: M2026 implemented the no-rollout source-coverage repair over
+existing public artifacts. It added `12` clean T1 sources, repaired T1 from
+source count `6` and source-kind share `1.0` to source count `18` and share
+`0.3333`, and preserved T4/T5 readiness. The result is partial:
+`panel_ready_for_routing_smoke=false` because T2 and T3 still fail the
+source-kind share gate (`0.5833` and `0.3750`). M2027 must audit this partial
+repair and synthesize the branch before any execution because the local-search
+cadence has fired. It must choose between T2/T3 source generation,
+threshold/source-kind semantics audit, split-panel routing, or stop. Broad
+ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain
+blocked.
 
-The current branch is repairing executable-v2 active-safety task quality before
+Historical route context follows. Earlier, the branch repaired executable-v2
+active-safety task quality before
 any controller-family ranking or paper-level comparison. M1938 produced a clean
 960-episode measured execution, but raw outcomes remained low-support and
 offtrack-dominated. M1942 localized the result without rerun and found `0`

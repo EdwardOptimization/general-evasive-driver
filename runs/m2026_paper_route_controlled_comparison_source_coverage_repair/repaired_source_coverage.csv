@@ -1,0 +1,6 @@
+panel_task_family,source_count,source_kind_count,max_single_source_kind_share,min_clean_sources_target,target_clean_sources_target,min_clean_sources_pass,target_clean_sources_pass,source_kind_share_pass
+T1_reactive_active_safety,18,4,0.3333333333333333,12,24,True,False,True
+T2_same_current_different_older_history,36,4,0.5833333333333334,12,24,True,True,False
+T3_active_diagnostic_warmup,24,4,0.375,12,24,True,True,False
+T4_variable_diagnostic_delay,33,4,0.2727272727272727,12,24,True,True,True
+T5_source_rich_extreme_dynamics,72,8,0.2916666666666667,12,24,True,True,True

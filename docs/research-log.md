@@ -35290,3 +35290,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - boundary: design only; no execution, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2026-paper-route-controlled-comparison-source-coverage-repair-implementation.json`
 - next: `m2026-paper-route-controlled-comparison-source-coverage-repair-implementation`
+
+## M2026 Paper-Route Controlled Comparison Source Coverage Repair Implementation
+
+- status: completed
+- decision: `controlled_comparison_source_coverage_repair_partial_route_to_result_audit`
+- result class: `controlled_comparison_source_coverage_repair_partial`
+- implementation: `src/autodrift/paper_route_controlled_comparison_source_coverage_repair.py`
+- focused tests: `1 passed`
+- compileall: `passed`
+- summary: `runs/m2026_paper_route_controlled_comparison_source_coverage_repair/summary.json`
+- reset/rollout/measured execution in M2026: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: base sources `171`, repaired sources `183`, added sources `12`, guardrail violations `0`, panel ready for routing smoke `false`
+- coverage: T1 repaired from count `6` / share `1.0` to count `18` / share `0.3333`; T2 remains share `0.5833`; T3 remains share `0.3750`; T4/T5 remain ready
+- unresolved actions: T2/T3 have `unresolved_no_clean_topup_in_current_artifacts`
+- boundary: no execution or ranking is admitted; partial repair must be audited before source generation, threshold semantics, split routing, synthesis, or stop
+- follow-up manifest: `experiments/manifests/m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit.json`
+- next: `m2027-paper-route-controlled-comparison-source-coverage-repair-result-audit`
