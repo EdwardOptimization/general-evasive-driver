@@ -32947,3 +32947,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: direct measured execution command design task-quality repair success controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.json`
 - next: `m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis`
+
+## M1908 Executable V2 Support-First Task-Quality Repair-Axis Branch Synthesis
+
+- status: completed
+- decision: `task_quality_repair_axis_branch_synthesis_promote_to_measured_wrapper_branch`
+- doc: `docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md`
+- synthesized branch: `paper_route_clearance_containment_task_quality_repair_axis`
+- next branch: `paper_route_repair_axis_measured_wrapper`
+- evidence window: `M1901-M1907`
+- reset/rollout/measured execution in M1908: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: M1901-M1907 produced enough clean task-quality repair-axis design materialization wrapper implementation and no-rollout preflight evidence to justify a measured-wrapper implementation branch
+- unsupported: controller-family ranking task-quality repair success policy improvement claim paper-level benchmark result level3 self-ID evidence
+- public-gate overfit risk: `medium`
+- follow-up manifest: `experiments/manifests/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json`
+- next: `m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation`

@@ -1,0 +1,175 @@
+{
+  "id": "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_repair_axis_measured_wrapper_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/planned_rollout_rows.csv",
+      "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/import_postprocess_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "extend the validated dry-run wrapper into a measured execution wrapper without running the real M1902 workload"
+    ],
+    "derived_from": [
+      "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M1908 promotes the repair-axis work into a measured-wrapper implementation branch"
+    ],
+    "supersedes": [
+      "direct measured execution command design from dry-run wrapper"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+  "public_gates": [
+    "M1909 must implement measured rollout extension points for geometry rows",
+    "M1909 must preserve import/postprocess merge logic and axis metadata",
+    "M1909 must include focused tests with mocked rollout helpers",
+    "M1909 must not run the real M1902 workload environment reset rollout measured execution training replay PPO private holdout ranking paper claims or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not run the real M1902 workload",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_repair_axis_measured_wrapper",
+    "evidence_axis": "Q_task_quality_repair_axis_measured_wrapper_implementation",
+    "evidence_increment": "starts the measured-wrapper implementation branch after M1908 synthesis promoted the repair-axis branch",
+    "claim_scope": "infrastructure only; no reset rollout measured execution training replay PPO promotion private holdout controller ranking paper-level or level3 claim",
+    "stop_condition": [
+      "stop if measured extension points cannot preserve axis metadata",
+      "stop if mocked rollout tests cannot preserve row counts and provenance",
+      "stop if implementation requires actor input or controller profile changes"
+    ],
+    "fallback_plan": [
+      "route to helper repair if focused tests expose metadata gaps",
+      "route to command design if measured wrapper tests pass",
+      "route to branch synthesis if measured wrapper scope becomes ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch starts after M1908 promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement measured execution extension for task-quality repair-axis wrapper",
+    "admission_evidence": [
+      "M1908 synthesized M1901-M1907 and promoted to a measured-wrapper implementation branch"
+    ],
+    "blocked_shortcuts": [
+      "do not run real M1902 workload",
+      "do not run rollout or measured execution",
+      "do not train or run PPO",
+      "do not rank controller families",
+      "do not change actor inputs"
+    ],
+    "allowed_updates": [
+      "wrapper source modifications",
+      "focused mocked-rollout tests",
+      "M1909 documentation status queue scoreboard research log and review",
+      "one follow-up manifest for execution command design helper repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "measured wrapper extension exists",
+      "focused mocked tests pass",
+      "real execution remains deferred to a later command-design/execution milestone"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; measured wrapper implementation does not test driver history use.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1909."
+    ],
+    "temporal_evidence_window": "M1906-M1908 artifacts only.",
+    "negative_result_policy": "If measured wrapper implementation cannot preserve metadata, route to helper repair or synthesis instead of weakening self-ID standards.",
+    "allowed_claims": [
+      "task-quality repair-axis measured wrapper implementation",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new branch after synthesis and implements measured execution capability for the validated repair-axis panel",
+    "paper_verdict_delta": "can admit a later measured execution command if mocked tests pass",
+    "must_synthesize_if": [
+      "M1909 cannot preserve axis metadata in mocked rollout tests",
+      "the next route would be another wrapper tweak without command design",
+      "measured wrapper implementation would erase baseline provenance"
+    ]
+  },
+  "hypothesis": "The validated dry-run wrapper can be extended with measured rollout extension points and mocked tests without running the real M1902 workload.",
+  "success_criteria": [
+    "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py includes measured execution extension points",
+    "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py includes mocked measured wrapper tests",
+    "focused tests pass",
+    "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md exists",
+    "real M1902 execution remains deferred"
+  ],
+  "failure_criteria": [
+    "measured wrapper extension is missing",
+    "focused tests fail",
+    "implementation runs the real M1902 workload",
+    "implementation changes actor inputs or controller profiles",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_executable_v2_support_first_task_quality_repair_axis_execution.py",
+      "type": "py"
+    },
+    {
+      "path": "docs/m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_repair_axis_measured_wrapper_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.md",
+    "runs/m1906_executable_v2_support_first_task_quality_repair_axis_wrapper_preflight/summary.json"
+  ],
+  "decision_rule": "M1909 passes if measured wrapper extension points and mocked tests are added without running the real workload.",
+  "next_blocker": "m1909-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation"
+}
