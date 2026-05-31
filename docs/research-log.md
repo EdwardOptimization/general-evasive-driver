@@ -33211,3 +33211,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - stop rules: synthesize if two waves still produce zero joint support, positives are source-dominated, task is trivialized, or another step only tweaks fixed sources
 - follow-up manifest: `experiments/manifests/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.json`
 - next: `m1920-executable-v2-task-quality-scenario-redesign-source-mining-design`
+
+## M1920 Executable V2 Task-Quality Scenario Redesign Source-Mining Design
+
+- status: completed
+- decision: `task_quality_scenario_source_mining_design_admit_template_implementation`
+- doc: `docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md`
+- branch: `paper_route_task_quality_scenario_redesign`
+- existing helper reviewed: `src/autodrift/executable_v2_support_first_source_mining.py`
+- rerun/reset/rollout/measured execution in M1920: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- schema: support-first-compatible candidate fields plus scenario-quality fields for tier split support mode road/obstacle profiles and ranking blocks
+- first-wave target: `640` candidate rows = `5` tiers x `4` roles x `2` surfaces x `4` speeds x `4` mu buckets
+- gates: positive support required before ranking; Tier A/B joint support and Tier C/D near-miss support required in later source-mining execution
+- follow-up manifest: `experiments/manifests/m1921-executable-v2-task-quality-scenario-redesign-template-implementation.json`
+- next: `m1921-executable-v2-task-quality-scenario-redesign-template-implementation`

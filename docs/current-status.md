@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1919-executable-v2-task-quality-scenario-redesign-plan
+m1920-executable-v2-task-quality-scenario-redesign-source-mining-design
 ```
 
 Current next task:
 
 ```text
-m1920-executable-v2-task-quality-scenario-redesign-source-mining-design
+m1921-executable-v2-task-quality-scenario-redesign-template-implementation
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -229,8 +229,13 @@ local repair, task-quality interpretation, controller-family ranking,
 paper-level claim, training, replay, PPO, or level3 self-ID claim. M1919
 completed that design: the new branch requires a Tier A-E feasibility ladder,
 fresh source splits, role-separated metrics, and a positive-support gate before
-ranking. M1920 must now design the exact source-mining schema and acceptance
-gates for that feasibility ladder.
+ranking. M1920 designed the exact source-mining schema and acceptance gates:
+the first wave targets `640` candidate rows across `5` feasibility tiers, `4`
+roles, `2` surfaces, `4` speed buckets, and `4` mu buckets, with labels and
+ranking blocked from actor input. M1921 must now implement the deterministic
+candidate-template generator and focused tests without running source mining,
+reset, rollout, measured execution, training, replay, PPO, controller ranking,
+paper-level claims, or level3 self-ID claims.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

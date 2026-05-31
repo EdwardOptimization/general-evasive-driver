@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M1920 defines source-mining schema and 640-row first-wave candidate template gates for the task-quality scenario redesign branch",
+  "failure_criteria": [
+    "design document is missing",
+    "source-mining schema is ambiguous",
+    "acceptance gates do not require positive support",
+    "next route is ambiguous",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T071008Z",
+  "hypothesis": "The M1919 feasibility ladder can be converted into an executable source-mining design with positive-support gates and ranking blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M1919 requires fresh source mining before materialization or controller comparison"
+    ],
+    "derived_from": [
+      "m1919-executable-v2-task-quality-scenario-redesign-plan"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_scenario_redesign_source_mining_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1919-executable-v2-task-quality-scenario-redesign-plan.json"
+    ],
+    "parent_dataset": [
+      "docs/m1919-executable-v2-task-quality-scenario-redesign-plan.md",
+      "docs/m1918-executable-v2-support-first-task-quality-repair-axis-measured-branch-synthesis.md",
+      "runs/m1917_executable_v2_support_first_task_quality_repair_axis_measured_panel_outcome_localization/summary.json"
+    ],
+    "parent_objective": [
+      "design source mining for the new task-quality scenario redesign branch"
+    ],
+    "supersedes": [
+      "direct materialization without source-mining gates"
+    ]
+  },
+  "milestone": "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design",
+  "next_blocker": "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_scenario_source_mining_design_admit_template_implementation",
+  "public_gates": [
+    "M1920 must define the exact source-mining artifact schema and acceptance gates",
+    "M1920 must preserve the M1919 feasibility ladder and ranking block",
+    "M1920 must not run reset rollout measured execution training replay PPO controller ranking paper claims or level3 self-ID"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_scenario_source_mining_design_admit_template_implementation",
+    "milestone": "m1920-executable-v2-task-quality-scenario-redesign-source-mining-design",
+    "reason": "M1920 defines source-mining schema and 640-row first-wave candidate template gates for the task-quality scenario redesign branch",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1920-executable-v2-task-quality-scenario-redesign-source-mining-design.md exists",
+    "source-mining schema is defined",
+    "acceptance gates are defined",
+    "fresh-source split and holdout rules are defined",
+    "next manifest is explicit",
+    "no reset rollout measured execution training replay PPO ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}
