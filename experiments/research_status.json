@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2059,
+    "completed": 2060,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design.md",
+    "command_log": "docs/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design"
+    "task_id": "m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.json",
-    "hypothesis": "The existing focused controlled-routing-smoke reset validator can reset all 192 M2048 repaired executable specs with finite 72-dim observations while preserving metadata and claim boundaries.",
-    "id": "m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen reset-only command over repaired 192-spec panel",
-    "priority": 20460,
+    "command": "see experiments/manifests/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.json",
+    "hypothesis": "M2051 failed closed because of generated-proxy aggregate key normalization, not because reset, metadata, contract, or guardrail checks failed.",
+    "id": "m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2051 fail class before validator repair or rerun",
+    "priority": 20470,
     "status": "pending",
-    "success_artifact": "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260531T194223Z"
+  "updated_at_utc": "20260531T194623Z"
 }

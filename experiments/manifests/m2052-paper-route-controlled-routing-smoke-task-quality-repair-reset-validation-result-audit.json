@@ -1,0 +1,168 @@
+{
+  "id": "m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json",
+      "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/reset_rows.csv",
+      "docs/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit reset-validation fail class before repair or rerun"
+    ],
+    "derived_from": [
+      "m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2051 result_class failed despite 192 reset successes"
+    ],
+    "supersedes": [
+      "direct rerun or validator repair without failure audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2052 must audit M2051 reset counts and fail reason",
+    "M2052 must distinguish real reset/contract failure from metric artifact",
+    "M2052 must choose validator normalization repair, acceptance rule, or materialization repair",
+    "M2052 must not rerun reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_controlled_routing_smoke_task_quality_repair",
+    "evidence_axis": "Q_task_quality_repair_reset_validation_result_audit",
+    "evidence_increment": "audits the repaired-panel reset-validation failure and chooses the next route",
+    "claim_scope": "reset failure audit only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2051 reset failures are nonzero",
+      "stop if contract metadata or guardrail failures are nonzero",
+      "stop if fail class cannot be localized",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to validator key-normalization repair if fail is metric artifact",
+      "route to materialization repair if metadata values are invalid",
+      "route to scenario repair only if reset or contract actually fails",
+      "route to synthesis if this is another adapter-only loop without evidence gain"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2051 completes reset validation with fail result class",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "controlled routing-smoke task-quality repair reset validation result audit",
+    "admission_evidence": [
+      "M2051 reset_success_count 192",
+      "M2051 reset_failure_count 0",
+      "M2051 result_class controlled_routing_smoke_reset_validation_preflight_fail",
+      "M2051 generated_proxy_quota_pass false"
+    ],
+    "blocked_shortcuts": [
+      "do not repair and rerun before audit",
+      "do not treat fail result as reset-valid pass",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md",
+      "M2052 status queue scoreboard research log and review",
+      "one follow-up manifest for validator repair, materialization repair, or route decision"
+    ],
+    "next_stage_criteria": [
+      "M2051 fail reason is classified",
+      "reset/contract evidence is separated from aggregate metric artifact",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2052 audits reset validation only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2052."
+    ],
+    "temporal_evidence_window": "M2051 reset-validation artifacts.",
+    "negative_result_policy": "If the fail is a metric artifact, repair validator normalization before rerun; if reset/contract failed, route to materialization or scenario repair.",
+    "allowed_claims": [
+      "reset-validation failure audit",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "separates reset success evidence from validator aggregate-key failure",
+    "paper_verdict_delta": "can decide whether the repaired panel requires validator normalization before reset-validity is accepted",
+    "must_synthesize_if": [
+      "M2052 cannot choose validator repair or materialization repair",
+      "M2052 would route to another design-only milestone without a repair or accepted rule",
+      "M2052 discovers actual reset or actor-contract failure"
+    ]
+  },
+  "hypothesis": "M2051 failed closed because of generated-proxy aggregate key normalization, not because reset, metadata, contract, or guardrail checks failed.",
+  "success_criteria": [
+    "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md exists",
+    "M2051 reset counts and fail reason are audited",
+    "failure taxonomy is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2051 failure reason is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight artifacts and write M2052 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_controlled_routing_smoke_task_quality_repair_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2052 passes if it classifies the M2051 fail reason and selects a repair or acceptance route without overclaiming.",
+  "next_blocker": "m2053-selected-by-m2052-audit"
+}

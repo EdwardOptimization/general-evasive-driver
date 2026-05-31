@@ -35786,3 +35786,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: M2051 may run only the frozen reset-only command; measured execution, ranking, paper-level claim, and self-ID claim remain blocked
 - follow-up manifest: `experiments/manifests/m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run.json`
 - next: `m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run`
+
+## M2051 Paper-Route Controlled Routing Smoke Task-Quality Repair Reset Validation Implementation And Run
+
+- status: completed
+- decision: `controlled_routing_smoke_task_quality_repair_reset_validation_fail_route_to_result_audit`
+- result class: `controlled_routing_smoke_reset_validation_preflight_fail`
+- summary: `runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight/summary.json`
+- focused tests: `1 passed`
+- reset execution in M2051: `true`
+- rollout/measured execution in M2051: `false`
+- policy actions executed in M2051: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- reset evidence: reset attempts `192`, reset success `192`, reset failures `0`, finite observations `192`, observation-dimension failures `0`, obstacles initialized `192`
+- guards: contract violations `0`, metadata missing `0`, forbidden key violations `0`, family/source-kind/proxy-template quotas pass, guardrail `0`
+- failure localization: `generated_proxy_quota_pass=false` because expected aggregate keys use `paper_claim=False` while reset rows normalize to `paper_claim=false`; counts match exactly after case normalization
+- decision: fail closed and route to result audit before validator normalization repair or rerun
+- follow-up manifest: `experiments/manifests/m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit.json`
+- next: `m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit`

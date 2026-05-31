@@ -16,23 +16,25 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2050-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-command-design
+m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2051-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-implementation-and-run
+m2052-paper-route-controlled-routing-smoke-task-quality-repair-reset-validation-result-audit
 ```
 
-Immediate route: M2050 freezes the exact reset-only command for the M2048
-repaired routing-smoke panel. It reuses the existing focused validator with
-input `runs/m2048_paper_route_controlled_routing_smoke_task_quality_repair_materialization_preflight/executable_task_specs.json`,
-target `192` specs, eval seed base `205100`, expected observation dimension
-`72`, and output
-`runs/m2051_paper_route_controlled_routing_smoke_task_quality_repair_reset_validation_preflight`.
-M2051 may run only this reset-only command. Measured execution, ranking, paper
-claims, and level3 self-ID claims remain blocked.
+Immediate route: M2051 runs the frozen reset-only command over the M2048
+repaired routing-smoke panel. The reset path itself is clean: `192/192` reset
+success, reset failures `0`, finite observations `192`, observation-dimension
+failures `0`, contract violations `0`, metadata missing `0`, forbidden-key
+violations `0`, and guardrail `0`. The run still fails closed because
+`generated_proxy_quota_pass=false`: expected aggregate keys use
+`paper_claim=False`, while reset rows normalize to `paper_claim=false`. M2052
+must audit this fail class before validator normalization repair or rerun.
+Measured execution, ranking, paper claims, and level3 self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
