@@ -36060,3 +36060,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - materialization failures/profile missing/contract violations/guardrail: `0/0/0/0`
 - follow-up manifest: `experiments/manifests/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.json`
 - next: `m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit`
+
+## M2064 Paper-Route Outcome-Supported Decisive Materialization Preflight Result Audit
+
+- status: completed
+- decision: `outcome_supported_decisive_materialization_audit_admit_reset_validation_command_design`
+- failure taxonomy: `none`
+- doc: `docs/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.md`
+- audited artifact: `runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2064: `false`
+- policy actions executed in M2064: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2063 materialization is count-complete and guardrail-clean
+- counts: executable specs `240/240`, sentinel workload rows `1200/1200`, sentinel profiles `5/5`
+- blocker counts: materialization failures `0`, duplicate task IDs `0`, duplicate workload IDs `0`, contract violations `0`, forbidden-key violations `0`, guardrail `0`
+- claim boundary: reset_validation_ready true; ranking paper semantics finite-window-vs-GRU and level3 self-ID false
+- follow-up manifest: `experiments/manifests/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.json`
+- next: `m2065-paper-route-outcome-supported-decisive-reset-validation-command-design`

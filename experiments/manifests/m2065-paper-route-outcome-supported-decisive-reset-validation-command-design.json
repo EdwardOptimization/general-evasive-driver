@@ -1,0 +1,167 @@
+{
+  "id": "m2065-paper-route-outcome-supported-decisive-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json",
+      "docs/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation command for M2063 executable specs"
+    ],
+    "derived_from": [
+      "m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M2064 admits reset-validation command design after clean materialization audit"
+    ],
+    "supersedes": [
+      "direct reset execution without frozen command and validator compatibility"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md",
+  "public_gates": [
+    "M2065 must freeze an exact reset-only validation command for M2063 executable specs",
+    "M2065 must state target spec count obs dim claim guards and output dir",
+    "M2065 must decide whether existing reset validator is compatible or whether a focused validator is needed",
+    "M2065 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_reset_validation_command_design",
+    "evidence_increment": "freezes the reset-only validation command route for the materialized candidate panel",
+    "claim_scope": "reset-validation command design only; no reset rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if validator compatibility is ambiguous",
+      "stop if reset validation would execute in M2065",
+      "stop if claim guards or actor contract are weakened",
+      "stop if output artifacts are underspecified"
+    ],
+    "fallback_plan": [
+      "route to focused validator implementation if existing validators cannot preserve M2063 metadata",
+      "route to reset-validation implementation-and-run if command is exact",
+      "route to materialization repair if executable specs are not reset-validatable"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2064 admits reset-validation command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive reset-validation command design",
+    "admission_evidence": [
+      "M2064 audits M2063 materialization as count-complete guardrail-clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2065",
+      "do not execute policy actions",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md",
+      "M2065 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation implementation-and-run or focused validator implementation"
+    ],
+    "next_stage_criteria": [
+      "exact reset-validation command is frozen",
+      "validator compatibility decision is explicit",
+      "output dir and target counts are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2065 designs reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2065."
+    ],
+    "temporal_evidence_window": "M2063 materialization preflight and M2064 audit.",
+    "negative_result_policy": "If reset validation cannot preserve metadata and claim guards, build a focused validator rather than weakening evidence standards.",
+    "allowed_claims": [
+      "outcome-supported decisive reset-validation command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares reset validation for a new materialized panel",
+    "paper_verdict_delta": "can admit reset-validation execution but cannot decide paper verdict by itself",
+    "must_synthesize_if": [
+      "M2065 cannot freeze an exact command",
+      "M2065 adds another design-only milestone without implementation route",
+      "M2065 skips reset validation before measured smoke"
+    ]
+  },
+  "hypothesis": "A reset-only validation command can be designed for the M2063 materialized executable specs while preserving metadata and claim guards.",
+  "success_criteria": [
+    "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md exists",
+    "exact reset-validation command is explicit",
+    "target spec count obs dim output dir and next route are explicit",
+    "validator compatibility decision is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "command is ambiguous",
+    "validator compatibility is ambiguous",
+    "next route is ambiguous",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2065-paper-route-outcome-supported-decisive-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/summary.json",
+    "docs/m2064-paper-route-outcome-supported-decisive-materialization-preflight-result-audit.md"
+  ],
+  "decision_rule": "M2065 passes if it freezes a bounded reset-validation implementation route without overclaiming.",
+  "next_blocker": "m2066-selected-by-m2065-design"
+}

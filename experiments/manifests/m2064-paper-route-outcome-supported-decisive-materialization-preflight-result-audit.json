@@ -160,5 +160,5 @@
     "docs/m2063-paper-route-outcome-supported-decisive-materialization-preflight-implementation.md"
   ],
   "decision_rule": "M2064 passes if it audits M2063 as clean and selects a bounded next route without overclaiming.",
-  "next_blocker": "m2065-selected-by-m2064-audit"
+  "next_blocker": "m2065-paper-route-outcome-supported-decisive-reset-validation-command-design"
 }
