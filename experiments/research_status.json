@@ -15,7 +15,7 @@
     "task_id": "m1907-executable-v2-support-first-task-quality-repair-axis-wrapper-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-measured-wrapper-implementation.json",
+    "command": "see experiments/manifests/m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis.json",
     "hypothesis": "M1901-M1907 contain enough clean task-quality repair-axis and wrapper-preflight evidence to promote into a measured-wrapper implementation branch.",
     "id": "m1908-executable-v2-support-first-task-quality-repair-axis-branch-synthesis",
     "kind": "gate",
