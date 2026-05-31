@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1986,
+    "completed": 1987,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json",
+    "command_log": "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run"
+    "task_id": "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.json",
-    "hypothesis": "The M1977 localization result is sufficient to choose the next route without direct ranking or rerun.",
-    "id": "m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit",
+    "command": "see experiments/manifests/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.json",
+    "hypothesis": "A focused outcome-support repair design can turn M1977 diagnostics into a pre-registered task-quality repair route without ranking or profile tuning.",
+    "id": "m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit calibrated repaired outcome localization and choose next route; ranking remains blocked",
-    "priority": 19730,
+    "notes": "Pending: design calibrated repaired outcome-support repair branch before new materialization or rerun",
+    "priority": 19740,
     "status": "pending",
-    "success_artifact": "docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md"
+    "success_artifact": "docs/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.md"
   },
-  "updated_at_utc": "20260531T115655Z"
+  "updated_at_utc": "20260531T120204Z"
 }

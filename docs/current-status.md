@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1977-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-implementation-and-run
+m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit
 ```
 
 Current next task:
 
 ```text
-m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit
+m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -184,7 +184,14 @@ fields `[]`, aggregate files written, guardrail `0`, comparison-ready
 candidates `0`, comparison-support candidates `1`, success rows `38`, offtrack
 dominance rows `125`, collision dominance rows `46`, and L2 total success `0`.
 M1978 must audit the localization result before any task-quality repair,
-scenario redesign, comparison design, or rerun.
+scenario redesign, comparison design, or rerun. M1978 audits M1977 as complete
+and guardrail-clean but not comparison-ready. It routes to
+`paper_route_task_quality_calibrated_repaired_outcome_support_repair` because
+the active blocker is `outcome_support_low_offtrack_and_collision_dominated`:
+anchor-neighborhood and offtrack-boundary-relief remain zero-success
+offtrack-only blocks, while mitigation isolation is collision-heavy. M1979 must
+design that repair branch before any new materialization, reset validation,
+measured execution, or ranking.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

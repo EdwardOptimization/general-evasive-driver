@@ -34392,3 +34392,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: calibrated repaired panel still cannot support ranking; one candidate-support slice is collision-dominated and needs audit
 - follow-up manifest: `experiments/manifests/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.json`
 - next: `m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit`
+
+## M1978 Executable V2 Task-Quality Calibrated Repaired Measured Outcome Localization Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_repaired_outcome_localization_audit_route_to_outcome_support_repair`
+- doc: `docs/m1978-executable-v2-task-quality-calibrated-repaired-measured-outcome-localization-result-audit.md`
+- audited summary: `runs/m1977_executable_v2_task_quality_calibrated_repaired_measured_outcome_localization/summary.json`
+- next branch: `paper_route_task_quality_calibrated_repaired_outcome_support_repair`
+- reset/rollout/measured execution in M1978: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1977 is complete and guardrail-clean but not comparison-ready; comparison-ready candidates `0`, candidate-support `1`
+- blocker: `outcome_support_low_offtrack_and_collision_dominated`; offtrack-only zero-success blocks include anchor-neighborhood `384/384` offtrack and offtrack-boundary-relief `96/96` offtrack, while mitigation isolation is collision-heavy
+- route: design calibrated repaired outcome-support repair before any new materialization reset validation measured execution or ranking
+- follow-up manifest: `experiments/manifests/m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design.json`
+- next: `m1979-executable-v2-task-quality-calibrated-repaired-outcome-support-repair-design`
