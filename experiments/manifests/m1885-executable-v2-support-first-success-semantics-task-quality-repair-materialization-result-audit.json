@@ -1,0 +1,158 @@
+{
+  "id": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_success_semantics_task_quality_repair_materialization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.md",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+      "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout repair materialization before any repaired measured execution design"
+    ],
+    "derived_from": [
+      "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization"
+    ],
+    "blocked_by": [
+      "M1884 repair matrix is infrastructure only and needs audit before execution design"
+    ],
+    "supersedes": [
+      "direct repaired measured execution without materialization audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+  "public_gates": [
+    "M1885 must audit M1884 summary and repair matrix completeness",
+    "M1885 must verify original baseline retention",
+    "M1885 must verify role-aware success semantics are metric metadata only",
+    "M1885 must decide whether repaired measured execution design is admissible",
+    "M1885 must not run reset rollout training replay PPO or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_executable_v2_support_first_measured_execution",
+    "evidence_axis": "Q_support_first_success_semantics_task_quality_repair_materialization_audit",
+    "evidence_increment": "audits whether the no-rollout repair matrix is valid enough to admit repaired measured execution design",
+    "claim_scope": "process audit only; no reset, rollout, training, replay, PPO, promotion, private holdout, controller ranking, paper-level or level3 claim",
+    "stop_condition": [
+      "stop if original baseline retention is incomplete",
+      "stop if role semantics enter actor input",
+      "stop if controller profile preservation is ambiguous",
+      "stop if repaired execution would still be uninterpretable"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if matrix completeness fails",
+      "route to semantics-only audit if geometry variants are not execution-ready",
+      "route to branch synthesis if support-first measured execution remains blocked"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1884 materialization completed and requires audit before any repaired execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-rollout support-first success-semantics/task-quality repair materialization",
+    "admission_evidence": [
+      "M1884 emits a 10800-row repair matrix and role semantics spec with clean guardrails"
+    ],
+    "blocked_shortcuts": [
+      "do not run environment reset",
+      "do not run environment rollout",
+      "do not train",
+      "do not run replay",
+      "do not run PPO",
+      "do not use private holdout",
+      "do not promote",
+      "do not change actor inputs",
+      "do not tune profiles",
+      "do not claim controller ranking or level3 self-identification"
+    ],
+    "allowed_updates": [
+      "M1885 audit document",
+      "M1885 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired measured execution design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "M1884 summary passes audit",
+      "execution-readiness decision is explicit",
+      "claim boundary remains enforced"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; materialization audit does not test history necessity.",
+    "history_necessity_tests": [
+      "Audit must preserve controller profile controls for later current-response finite-window GRU comparison."
+    ],
+    "temporal_evidence_window": "M1884 artifacts only.",
+    "negative_result_policy": "If materialization is insufficient, route to repair rather than weakening self-ID claim standards.",
+    "allowed_claims": [
+      "support-first repair materialization audit",
+      "no reset, rollout, training, replay, PPO, private-holdout, promotion, paper-level result or level3 self-identification claim"
+    ]
+  },
+  "hypothesis": "M1884 materialization is complete enough to admit a repaired measured execution design while keeping ranking blocked until post-execution audit.",
+  "success_criteria": [
+    "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md exists",
+    "audit verifies M1884 result_class and guardrails",
+    "audit verifies original baseline retention and profile preservation",
+    "audit explicitly decides next route",
+    "audit keeps controller-family ranking and paper claims blocked"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit runs reset or rollout",
+    "audit changes actor inputs or tunes controller profiles",
+    "audit routes directly to ranking",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_success_semantics_task_quality_repair_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/repair_variant_matrix.csv",
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/role_semantics_spec.json"
+  ],
+  "decision_rule": "M1885 passes if it audits M1884 as complete and chooses a clean next route without ranking or paper-level claims.",
+  "next_blocker": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit"
+}

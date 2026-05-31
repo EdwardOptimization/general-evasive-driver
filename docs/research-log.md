@@ -32302,3 +32302,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported: controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json`
 - next: `m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization`
+
+## M1884 Executable V2 Support-First Success Semantics Task-Quality Repair Materialization
+
+- status: completed
+- decision: `support_first_success_semantics_task_quality_repair_materialization_pass_route_to_result_audit`
+- summary: `runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json`
+- doc: `docs/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.md`
+- result class: `support_first_success_semantics_task_quality_repair_materialization_pass`
+- workload rows: `2160 / 2160`
+- repair variants: `5 / 5`
+- repair matrix rows: `10800 / 10800`
+- original baseline rows: `2160`
+- original baseline retained: `true`
+- controller profile count: `12`
+- role panel count: `4`
+- role-surface count: `8`
+- support-first spec count: `180`
+- profile alias mismatch count: `0`
+- duplicate repair key count: `0`
+- role semantics complete: `true`
+- reset/rollout in M1884: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- guardrail violation count: `0`
+- supported: baseline-preserving no-rollout repair matrix and role semantics spec exist
+- unsupported: repaired measured result controller-family ranking policy improvement claim paper-level benchmark result level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json`
+- next: `m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit`

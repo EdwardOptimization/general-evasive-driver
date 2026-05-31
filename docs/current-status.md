@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1883-executable-v2-support-first-success-semantics-task-quality-repair-design
+m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization
 ```
 
 Current next task:
 
 ```text
-m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization
+m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit
 ```
 
 The current branch is building reliable executable-v2 active-safety scenario
@@ -78,8 +78,12 @@ not a controller-specific signal. M1883 designed the no-training repair route:
 preserve the original baseline, add role-aware success semantics, separate
 road-boundary geometry from obstacle task quality, and keep controller ranking
 blocked. M1884 must now implement and run no-rollout repair materialization
-before any measured rerun or ranking. Controller ranking, paper-level claims,
-and level3 self-ID claims remain blocked.
+before any measured rerun or ranking. M1884 completed that no-rollout
+materialization: `2160` workload cells, `5` repair variants, `10800` repair
+matrix rows, original baseline retained, all `12` controller profiles
+preserved, and guardrail `0`. M1885 must now audit whether this materialization
+is execution-ready before any repaired measured run or ranking. Controller
+ranking, paper-level claims, and level3 self-ID claims remain blocked.
 
 Older retained narrative below is historical context from prior branches, not
 the current blocker.

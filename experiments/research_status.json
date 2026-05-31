@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1892,
+    "completed": 1893,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+    "command_log": "docs/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.md",
     "returncode": 0,
-    "run_dir": "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+    "run_dir": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization",
     "status": "completed",
-    "task_id": "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
+    "task_id": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization.json",
-    "hypothesis": "A no-rollout repair materializer can preserve the original support-first baseline while adding role-aware success semantics and task-quality variants needed before controller-family ranking.",
-    "id": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout repair materialization with original semantics and geometry variants before any measured ranking",
-    "priority": 18790,
+    "command": "see experiments/manifests/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.json",
+    "hypothesis": "M1884 materialization is complete enough to admit a repaired measured execution design while keeping ranking blocked until post-execution audit.",
+    "id": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M1884 materialization completeness original baseline retention role semantics and next execution-readiness route",
+    "priority": 18800,
     "status": "pending",
-    "success_artifact": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json"
+    "success_artifact": "docs/m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260531T032409Z"
+  "updated_at_utc": "20260531T033258Z"
 }

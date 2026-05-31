@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M1884 materializes 10800 no-rollout repair rows across 5 variants with original baseline retained and ranking blocked",
+  "failure_criteria": [
+    "materialization runs reset or rollout",
+    "actor inputs are changed",
+    "controller profiles are tuned or dropped",
+    "original baseline variant is missing",
+    "role-aware semantics are not represented",
+    "next route is ambiguous"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260531T033509Z",
+  "hypothesis": "A no-rollout repair materializer can preserve the original support-first baseline while adding role-aware success semantics and task-quality variants needed before controller-family ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M1880/M1882 are not interpretable for controller-family ranking until success semantics and task-quality variants are materialized"
+    ],
+    "derived_from": [
+      "m1883-executable-v2-support-first-success-semantics-task-quality-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_success_semantics_task_quality_repair_materialization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m1883-executable-v2-support-first-success-semantics-task-quality-repair-design.md",
+      "runs/m1882_executable_v2_support_first_outcome_localization/summary.json",
+      "runs/m1882_executable_v2_support_first_outcome_localization/dominant_slices.csv",
+      "runs/m1880_executable_v2_support_first_measured_runner_execution/episode_rows.csv",
+      "runs/m1875_executable_v2_support_first_measured_runner_adapter_preflight/support_first_measured_workload_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize a no-rollout baseline-preserving success-semantics and task-quality repair matrix"
+    ],
+    "supersedes": [
+      "direct measured ranking from M1880/M1882"
+    ]
+  },
+  "milestone": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
+  "next_blocker": "m1885-executable-v2-support-first-success-semantics-task-quality-repair-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "support_first_success_semantics_task_quality_repair_materialization_pass_route_to_result_audit",
+  "public_gates": [
+    "M1884 must materialize a no-rollout repair matrix",
+    "M1884 must preserve the original baseline variant",
+    "M1884 must include role-aware success semantics metadata",
+    "M1884 must preserve controller profile identity without tuning profiles",
+    "M1884 must not run reset rollout training replay PPO or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "support_first_success_semantics_task_quality_repair_materialization_pass_route_to_result_audit",
+    "milestone": "m1884-executable-v2-support-first-success-semantics-task-quality-repair-materialization",
+    "reason": "M1884 materializes 10800 no-rollout repair rows across 5 variants with original baseline retained and ranking blocked",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m1884_executable_v2_support_first_success_semantics_task_quality_repair_materialization/summary.json exists",
+    "repair_variant_matrix.csv exists",
+    "role_semantics_spec.json exists",
+    "original baseline variant is present for every repair source",
+    "all controller profiles remain represented without profile tuning",
+    "guardrail violation count is zero"
+  ],
+  "type": "infrastructure"
+}
