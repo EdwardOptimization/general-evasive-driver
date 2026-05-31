@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1975,
+    "completed": 1976,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/summary.json",
+    "command_log": "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1966_executable_v2_task_quality_calibrated_measured_execution",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1966-executable-v2-task-quality-calibrated-measured-execution"
+    "task_id": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.json",
-    "hypothesis": "M1966 failed closed before rollout because required metadata is missing from the offtrack-boundary-relief workload slice, and the failure can be classified before repair or rerun.",
-    "id": "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit",
+    "command": "see experiments/manifests/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.json",
+    "hypothesis": "Blank offtrack-boundary-relief parent_feasibility_tier_id values can be repaired by explicit metadata normalization without weakening runner validation or rerunning measured execution.",
+    "id": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design",
     "kind": "gate",
-    "notes": "Pending: audit M1966 pre-rollout metadata validation failure before repair or rerun",
-    "priority": 19620,
+    "notes": "Pending: design no-rollout repair for blank offtrack-boundary-relief parent_feasibility_tier_id metadata before rerun",
+    "priority": 19630,
     "status": "pending",
-    "success_artifact": "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md"
+    "success_artifact": "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md"
   },
-  "updated_at_utc": "20260531T110240Z"
+  "updated_at_utc": "20260531T110845Z"
 }

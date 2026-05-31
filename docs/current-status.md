@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1966-executable-v2-task-quality-calibrated-measured-execution
+m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit
+m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -123,8 +123,12 @@ runs that command and fails closed before rollout: `episode_count=0`,
 `guardrail_violation_count=0`. The immediate validation failure is
 `missing_spec_field=parent_feasibility_tier_id` for the offtrack-boundary-relief
 workload slice: `8` unique task sources, corresponding to `96` profile
-workload cells. M1967 must audit this metadata/schema gap before any repair or
-rerun.
+workload cells. M1967 audits this as an offtrack-boundary-relief parent-tier
+metadata normalization gap: M1952 has `11` supported offtrack-boundary-relief
+sources with blank `parent_feasibility_tier_id`, M1956 selected `8`, and M1958
+propagated the blank values into executable specs and workload rows. The runner
+is not relaxed; M1968 must design an explicit no-rollout metadata normalization
+repair before any rerun.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

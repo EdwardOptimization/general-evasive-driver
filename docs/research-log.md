@@ -34199,3 +34199,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
 - follow-up manifest: `experiments/manifests/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.json`
 - next: `m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit`
+
+## M1967 Executable V2 Task-Quality Calibrated Measured Execution Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_measured_execution_audit_route_to_offtrack_parent_tier_metadata_normalization`
+- doc: `docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md`
+- reset/rollout/measured execution in M1967: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audited result: M1966 failed closed before rollout with `episode_count=0`, `environment_rollout_started=false`, `measured_rollout_started=false`, and guardrail `0`
+- classification: offtrack-boundary-relief parent-tier metadata normalization gap; nearest existing taxonomy `scenario_sampling_failure`
+- localization: M1952 has `11` supported offtrack-boundary-relief rows with blank `parent_feasibility_tier_id`; M1956 selected `8`; M1958 produced `8` executable specs and `96` planned workload cells with blank values; M1966 runner correctly rejected them
+- unsupported claims: measured rollout success, controller ranking, paper-level benchmark evidence, policy improvement, finite-window-vs-GRU comparison, and level3 self-ID remain blocked
+- follow-up manifest: `experiments/manifests/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.json`
+- next: `m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design`

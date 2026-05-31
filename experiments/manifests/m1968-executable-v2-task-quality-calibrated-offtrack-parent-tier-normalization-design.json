@@ -1,0 +1,168 @@
+{
+  "id": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_design"
+    ],
+    "parent_dataset": [
+      "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/repair_source_rows.csv",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/executable_task_specs.json",
+      "runs/m1958_executable_v2_task_quality_calibrated_materialization_preflight/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design explicit metadata normalization for blank offtrack-boundary-relief parent_feasibility_tier_id values"
+    ],
+    "derived_from": [
+      "m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M1966 measured execution failed before rollout because offtrack-boundary-relief metadata contained blank parent_feasibility_tier_id values"
+    ],
+    "supersedes": [
+      "weakening calibrated measured runner validation",
+      "rerunning measured execution before metadata normalization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+  "public_gates": [
+    "M1968 must design a no-rollout metadata normalization repair",
+    "M1968 must keep runner validation strict for non-empty parent_feasibility_tier_id",
+    "M1968 must choose explicit sentinel semantics for offtrack-boundary-relief rows",
+    "M1968 must define validation gates for repaired materialization before measured rerun",
+    "M1968 must not repair rerun rank or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_calibrated_materialization",
+    "evidence_axis": "Q_task_quality_calibrated_metadata_normalization_design",
+    "evidence_increment": "designs a strict metadata repair route for the M1966 pre-rollout failure",
+    "claim_scope": "metadata repair design only; no measured execution ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if sentinel semantics would hide missing provenance",
+      "stop if repair would require weakening runner validation",
+      "stop if repair would skip no-rollout materialization validation"
+    ],
+    "fallback_plan": [
+      "route to focused implementation if sentinel semantics are explicit",
+      "route to source-schema audit if offtrack rows need upstream regeneration",
+      "route to taxonomy update if existing failure labels remain too coarse"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M1967 localized M1966 failure to blank offtrack parent-tier metadata",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack parent-tier metadata normalization design",
+    "admission_evidence": [
+      "M1967 localized blank parent_feasibility_tier_id to offtrack-boundary-relief rows"
+    ],
+    "blocked_shortcuts": [
+      "do not patch and rerun before design",
+      "do not weaken runner validation",
+      "do not interpret pre-rollout metadata failure as driver performance"
+    ],
+    "allowed_updates": [
+      "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+      "M1968 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation"
+    ],
+    "next_stage_criteria": [
+      "sentinel semantics are explicit",
+      "implementation files and focused tests are named",
+      "no-rollout rebuild and validation gates are specified",
+      "measured execution remains blocked until repaired artifacts pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; metadata normalization design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1968."
+    ],
+    "temporal_evidence_window": "M1966 and M1967 metadata failure evidence.",
+    "negative_result_policy": "Keep this as infrastructure repair evidence, not driver-performance evidence.",
+    "allowed_claims": [
+      "calibrated metadata normalization design",
+      "no controller ranking, paper-level result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "unblocks a strict metadata repair route before measured execution can rerun",
+    "paper_verdict_delta": "can restore measured execution readiness but cannot establish driver performance by itself",
+    "must_synthesize_if": [
+      "M1968 cannot define explicit sentinel semantics",
+      "M1968 would be followed by another design-only step",
+      "the same metadata failure repeats after implementation"
+    ]
+  },
+  "hypothesis": "Blank offtrack-boundary-relief parent_feasibility_tier_id values can be repaired by explicit metadata normalization without weakening runner validation or rerunning measured execution.",
+  "success_criteria": [
+    "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md exists",
+    "sentinel value and semantics are explicit",
+    "runner validation remains strict",
+    "implementation route and focused tests are specified",
+    "repaired no-rollout materialization and reset-validation gates are specified",
+    "no measured execution rerun ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "sentinel semantics are ambiguous",
+    "design weakens metadata validation",
+    "design skips repaired materialization validation",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_calibrated_offtrack_parent_tier_normalization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m1967-executable-v2-task-quality-calibrated-measured-execution-result-audit.md",
+    "runs/m1966_executable_v2_task_quality_calibrated_measured_execution/validation_failure_rows.csv"
+  ],
+  "decision_rule": "M1968 passes if it defines an explicit no-rollout metadata normalization repair route without weakening validation or rerunning measured execution.",
+  "next_blocker": "m1968-executable-v2-task-quality-calibrated-offtrack-parent-tier-normalization-design"
+}
