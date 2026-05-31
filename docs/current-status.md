@@ -16,24 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit
+m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis
 ```
 
 Current next task:
 
 ```text
-m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design
+m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation
 ```
 
-Immediate route: M2067 audits the M2066 reset failure as a task-validity
-blocker before rollout, not controller evidence. The two operational subtypes
-are `117` disabled warmup-gate schema invalidities and `123` obstacle-filter
-sampling failures. Single-axis repair is rejected because both classes are
-large and structurally distinct. M2068 must design a combined no-rollout
-materialization repair: normalize disabled warmup-gate configs while preserving
-`enabled=false`, and repair obstacle source/filter feasibility while preserving
-provenance and `paper_validity_claim=false`. Rollout, measured execution,
-policy actions, ranking, paper claims, and self-ID claims remain blocked.
+Immediate route: M2069 synthesizes M2059-M2068 and continues only to the
+bounded no-reset combined repair. M2070 may implement the repair preflight and
+write repaired specs/workload artifacts. It must make the 240 specs
+warmup-schema-valid and scenario-filter-feasible before any reset-validation
+rerun. Environment reset, rollout, policy actions, measured execution, ranking,
+paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

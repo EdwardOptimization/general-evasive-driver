@@ -1,0 +1,193 @@
+{
+  "id": "m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_reset_materialization_repair_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+      "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+      "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json",
+      "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement and run no-reset combined repair preflight for warmup-gate schema and obstacle filter feasibility after branch synthesis"
+    ],
+    "derived_from": [
+      "m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design",
+      "m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis"
+    ],
+    "blocked_by": [
+      "M2069 synthesis continues the branch only through bounded no-reset repair"
+    ],
+    "supersedes": [
+      "direct reset rerun on M2063 specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md",
+  "public_gates": [
+    "M2070 must implement the combined no-reset repair preflight",
+    "M2070 must output 240 repaired executable specs and 1200 planned sentinel workload rows",
+    "M2070 must make all repaired specs warmup-schema-valid and scenario-filter-feasible before reset",
+    "M2070 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_reset_materialization_repair_preflight",
+    "evidence_increment": "repairs executable task validity before reset validation rerun",
+    "claim_scope": "no-reset repair preflight only; no rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if repaired spec count is not 240",
+      "stop if warmup schema invalidity remains",
+      "stop if obstacle filter infeasibility remains",
+      "stop if any reset rollout or policy action is run"
+    ],
+    "fallback_plan": [
+      "route to result audit if repair pass or fail is produced",
+      "route to synthesis if combined repair cannot produce reset-feasible specs",
+      "do not weaken actor-input or paper-claim guards"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2069 synthesis continues to bounded no-reset repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive reset materialization repair preflight",
+    "admission_evidence": [
+      "M2068 freezes exact combined repair design and command route",
+      "M2069 synthesis decision is continue"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or rollout",
+      "do not execute policy actions",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_reset_materialization_repair_preflight.py",
+      "tests/test_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight.py",
+      "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/*",
+      "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md",
+      "M2070 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "repair summary exists",
+      "repair pass/fail gates are explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2070 repairs task materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2070."
+    ],
+    "temporal_evidence_window": "M2063 specs, M2066 reset failures, M2068 repair design, and M2069 synthesis.",
+    "negative_result_policy": "If repair fails, audit failure before any additional repair or reset rerun.",
+    "allowed_claims": [
+      "outcome-supported decisive reset-materialization repair preflight",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "implements a bounded repair preflight for the reset-validity blocker after synthesis",
+    "paper_verdict_delta": "can admit a repair result audit and later reset-validation rerun if no-reset repair passes",
+    "must_synthesize_if": [
+      "M2070 fails the same reset-materialization validity class without a clear audit route",
+      "M2070 routes directly to measured execution",
+      "M2070 changes actor inputs or paper-claim guards"
+    ]
+  },
+  "hypothesis": "The combined no-reset repair preflight can produce 240 warmup-schema-valid and scenario-filter-feasible repaired specs while preserving provenance and claim guards.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json exists",
+    "input_executable_spec_count is 240",
+    "repaired_executable_spec_count is 240",
+    "planned_sentinel_workload_count is 1200",
+    "zero_step_warmup_gate_invalid_count_after is 0",
+    "scenario_filter_feasible_after_count is 240",
+    "scenario_filter_infeasible_after_count is 0",
+    "contract_violation_count is 0",
+    "forbidden_key_violation_count is 0",
+    "metadata_missing_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started policy_action_executed environment_rollout_started measured_rollout_started training_started replay_started ppo_used are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "repair tool is missing",
+    "focused tests fail",
+    "summary artifact is missing",
+    "repaired specs are not warmup-schema-valid",
+    "repaired specs are not scenario-filter-feasible",
+    "reset or rollout is run"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight.py"
+    },
+    {
+      "name": "repair_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_reset_materialization_repair_preflight --executable-task-specs runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json --reset-failure-rows runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv --profile-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight --next-blocker m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2070_paper_route_outcome_supported_decisive_reset_materialization_repair_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_reset_materialization_repair_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+    "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+    "runs/m2063_paper_route_outcome_supported_decisive_materialization_preflight/executable_task_specs.json",
+    "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2070 passes if it writes a no-reset repaired materialization artifact that is warmup-schema-valid and scenario-filter-feasible without overclaiming.",
+  "next_blocker": "m2071-paper-route-outcome-supported-decisive-reset-materialization-repair-result-audit"
+}

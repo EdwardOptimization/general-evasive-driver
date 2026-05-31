@@ -62,7 +62,7 @@
   "workflow_synthesis": {
     "branch": "paper_route_outcome_supported_decisive_task_distribution",
     "evidence_axis": "Q_outcome_supported_reset_materialization_repair_design",
-    "evidence_increment": "designs the repair route required after M2066 reset validation failed before rollout",
+    "evidence_increment": "designs the repair route required after M2066 reset validation failed before rollout and routes through mandatory synthesis",
     "claim_scope": "repair design only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
     "stop_condition": [
       "stop if one of the two M2067 failure classes is left without a repair axis",
@@ -73,7 +73,7 @@
     "fallback_plan": [
       "route to synthesis if combined repair cannot be bounded without weakening claim guards",
       "route to a smaller no-rollout source-filter audit if obstacle infeasibility cannot be repaired deterministically",
-      "route to implementation only if both repair axes and artifacts are explicit"
+      "route to synthesis if cadence requires it before implementation"
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2067 selects combined materialization repair after 0/240 reset success",
@@ -128,7 +128,7 @@
     "must_synthesize_if": [
       "M2068 cannot bound both repair axes",
       "M2068 proposes measured execution before reset-validity is restored",
-      "M2068 creates another design-only hop without implementation gates"
+    "M2068 skips mandatory branch synthesis before implementation"
     ]
   },
   "hypothesis": "A combined no-rollout repair route can address both M2066 failure classes while preserving provenance, human-view contract, and generated smoke-proxy claim boundaries.",
@@ -165,6 +165,6 @@
     "docs/m2067-paper-route-outcome-supported-decisive-reset-validation-result-audit.md",
     "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/reset_failure_rows.csv"
   ],
-  "decision_rule": "M2068 passes if it specifies a bounded combined repair and selects an implementation route without overclaiming.",
-  "next_blocker": "m2069-selected-by-m2068-design"
+  "decision_rule": "M2068 passes if it specifies a bounded combined repair and routes through mandatory synthesis before implementation without overclaiming.",
+  "next_blocker": "m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis"
 }

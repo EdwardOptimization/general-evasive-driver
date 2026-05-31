@@ -54,16 +54,19 @@ ValueError warmup_gate max_active_steps must be positive: 117
 The warmup-gate error is a materialization schema issue inside the executable
 env config, not an actor-input or metadata-contract violation.
 
-Examples show disabled warmup gates serialized as:
+Examples show zero-duration warmup gates serialized as invalid configs:
 
 ```text
-warmup_gate.enabled: false
+warmup_gate.enabled: false or true
 warmup_gate.max_active_steps: 0
 ```
 
-`WarmupGateConfig` validates `max_active_steps` as positive even when the gate is
-disabled. Therefore disabled warmup-gate specs must either omit invalid override
-values or serialize a positive default while preserving `enabled=false`.
+`WarmupGateConfig` validates `max_active_steps` as positive regardless of
+whether the gate is enabled. Therefore repaired specs must never serialize
+`max_active_steps <= 0`. If `warmup_mode == none`, the repair should preserve a
+disabled gate with positive default validated fields. If `warmup_mode != none`,
+the repair should enforce a positive active duration floor instead of emitting a
+zero-step active gate.
 
 The obstacle-filter sampling error is a source/filter feasibility issue. It
 appears across all active diagnostic and delayed/terminal families:
@@ -110,7 +113,7 @@ scenario_sampling_failure
 Operational subtypes:
 
 ```text
-disabled_warmup_gate_schema_invalid: 117
+zero_step_warmup_gate_schema_invalid: 117
 obstacle_filter_unsampleable: 123
 ```
 
@@ -158,8 +161,8 @@ M2068 should design a no-rollout repair route with two explicit repair axes:
 
 ```text
 1. disabled warmup-gate schema normalization:
-   preserve enabled=false but ensure max_active_steps and other validated fields
-   remain valid positive defaults.
+   preserve warmup_mode semantics but ensure max_active_steps and other
+   validated fields remain valid positive defaults.
 
 2. obstacle source/filter feasibility repair:
    retarget or broaden generated smoke-proxy obstacle filters only enough to

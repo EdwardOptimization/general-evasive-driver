@@ -1,0 +1,179 @@
+{
+  "id": "m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_distribution_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2058-paper-route-controlled-routing-smoke-task-quality-repaired-measured-execution-synthesis.md",
+      "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+      "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the outcome-supported decisive task-distribution branch before implementation continues"
+    ],
+    "derived_from": [
+      "m2059-paper-route-outcome-supported-decisive-task-distribution-design",
+      "m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2059-M2068"
+    ],
+    "supersedes": [
+      "direct M2069 repair implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+  "public_gates": [
+    "M2069 must synthesize M2059-M2068 branch evidence",
+    "M2069 must answer synthesis questions and choose continue pivot stop or promote-to-next-branch",
+    "M2069 must separate task-validity repair from controller-family or paper evidence",
+    "M2069 must not edit code run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_task_distribution_synthesis",
+    "evidence_increment": "synthesizes candidate generation materialization reset failure and repair design into a next-branch decision",
+    "claim_scope": "branch synthesis only; no reset rollout driver performance mechanism ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary omits reset failure",
+      "stop if branch continues without acknowledging generated smoke-proxy status",
+      "stop if next route is ambiguous",
+      "stop if synthesis overclaims task-validity repair as paper evidence"
+    ],
+    "fallback_plan": [
+      "continue to no-reset combined repair only if reset-validity blocker is bounded",
+      "pivot if generated smoke-proxy task validity is not salvageable",
+      "stop measured-comparison route if task validity cannot be restored"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2059-M2068 reaches branch synthesis cadence",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive task-distribution branch synthesis",
+    "admission_evidence": [
+      "M2060 generated 240 candidates",
+      "M2063 materialized 240 specs",
+      "M2066 reset validation failed 0/240",
+      "M2068 designed a bounded combined repair route"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or rollout in synthesis",
+      "do not rank controller families",
+      "do not implement repair before synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+      "M2069 status queue scoreboard research log and review",
+      "one follow-up manifest for the selected next route"
+    ],
+    "next_stage_criteria": [
+      "synthesis questions are answered",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2069 synthesizes task-distribution evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2069."
+    ],
+    "temporal_evidence_window": "M2059-M2068 outcome-supported decisive task-distribution branch.",
+    "negative_result_policy": "Continue only as task-validity repair; do not treat generated smoke-proxy reset repair as controller or paper evidence.",
+    "allowed_claims": [
+      "outcome-supported decisive task-distribution branch synthesis",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the reset-validity blocker into a branch-level continue/pivot decision",
+    "paper_verdict_delta": "can decide whether to continue the outcome-supported decisive task-distribution branch through repair",
+    "must_synthesize_if": [
+      "always; this is the required cadence synthesis after M2068"
+    ]
+  },
+  "hypothesis": "M2059-M2068 evidence supports continuing the branch only through a bounded no-reset combined repair before reset validation rerun.",
+  "success_criteria": [
+    "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md exists",
+    "evidence summary covers M2059-M2068",
+    "supported and unsupported claims are explicit",
+    "failure taxonomy and public overfit risk are assessed",
+    "next branch decision is explicit",
+    "no code reset rollout measured execution training replay PPO ranking paper or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "evidence summary omits reset-validity failure or repair design",
+    "synthesis overclaims generated smoke-proxy rows as paper evidence",
+    "next route is ambiguous",
+    "new reset or rollout is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md from M2059-M2068 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_task_distribution_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md",
+    "runs/m2066_paper_route_outcome_supported_decisive_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2069 passes if it synthesizes branch evidence and chooses a bounded next route without overclaiming.",
+  "next_blocker": "m2070-selected-by-m2069-synthesis"
+}

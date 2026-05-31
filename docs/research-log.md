@@ -36147,3 +36147,43 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: combined no-rollout materialization repair design; single-axis repair and measured execution remain blocked
 - follow-up manifest: `experiments/manifests/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.json`
 - next: `m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design`
+
+## M2068 Paper-Route Outcome-Supported Decisive Reset Materialization Repair Design
+
+- status: completed
+- decision: `outcome_supported_decisive_reset_materialization_repair_design_admit_no_reset_implementation`
+- doc: `docs/m2068-paper-route-outcome-supported-decisive-reset-materialization-repair-design.md`
+- reset/rollout/measured execution in M2068: `false`
+- policy actions executed in M2068: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design axis 1: normalize zero-step warmup gates; `warmup_mode == none` disables gate with positive defaults, active modes use a positive duration floor
+- design axis 2: deterministic no-reset scenario-filter feasibility scan and bounded obstacle distance/half-width retargeting for unsampleable smoke-proxy specs
+- M2070 target artifacts after mandatory synthesis: `240` repaired specs, `1200` planned sentinel workload rows, warmup invalid after repair `0`, scenario-filter infeasible after repair `0`, guardrail `0`
+- follow-up manifest: `experiments/manifests/m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis.json`
+- next: `m2069-paper-route-outcome-supported-decisive-task-distribution-synthesis`
+
+## M2069 Paper-Route Outcome-Supported Decisive Task Distribution Synthesis
+
+- status: completed
+- decision: `outcome_supported_decisive_task_distribution_synthesis_continue_to_bounded_repair`
+- synthesis decision: `continue`
+- synthesis window: `M2059-M2068`
+- primary failure taxonomy: `scenario_sampling_failure`
+- reset/rollout/measured execution in M2069: `false`
+- policy actions executed in M2069: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2060 generated 240 candidates, M2063 materialized 240 specs, M2066 reset validation failed 0/240, M2068 designed a bounded combined repair
+- supported claim: the branch is not ready for measured execution but has a bounded task-validity repair route
+- falsified claim: no-reset materialization success alone is enough to admit measured execution
+- public overfit/local-search risk: medium; generated smoke_proxy rows and pre-rollout reset failure must not become paper evidence
+- next decision: continue only to M2070 no-reset combined repair implementation, followed by M2071 audit before reset rerun
+- follow-up manifest: `experiments/manifests/m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation.json`
+- next: `m2070-paper-route-outcome-supported-decisive-reset-materialization-repair-preflight-implementation`
