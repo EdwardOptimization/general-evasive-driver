@@ -1,0 +1,90 @@
+{
+  "decision_reason": "M1953 audits M1952 as clean calibrated source-mining pass: M1947 anchor 0/64 to M1952 anchor 64/64 non-anchor support unchanged guardrail 0 route to branch synthesis",
+  "failure_criteria": [
+    "audit document is missing",
+    "source-kind counts are not audited",
+    "next route skips required synthesis cadence",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T095457Z",
+  "hypothesis": "M1952 can be audited as a clean calibrated source-mining pass that repairs M1947's anchor blocker and should route to branch synthesis before execution.",
+  "lineage": {
+    "blocked_by": [
+      "M1952 result needs route decision before reset/materialized execution"
+    ],
+    "derived_from": [
+      "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_calibrated_source_mining_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/source_kind_aggregate.csv",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/split_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit calibrated source-mining pass and choose synthesis/materialization route"
+    ],
+    "supersedes": [
+      "direct reset or measured execution immediately after source-mining pass"
+    ]
+  },
+  "milestone": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit",
+  "next_blocker": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "task_quality_calibrated_source_mining_audit_route_to_branch_synthesis",
+  "public_gates": [
+    "M1953 must audit M1952 without rerun",
+    "M1953 must compare M1947 and M1952 key support counts",
+    "M1953 must choose next route and respect synthesis cadence",
+    "M1953 must keep reset rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "task_quality_calibrated_source_mining_audit_route_to_branch_synthesis",
+    "milestone": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit",
+    "reason": "M1953 audits M1952 as clean calibrated source-mining pass: M1947 anchor 0/64 to M1952 anchor 64/64 non-anchor support unchanged guardrail 0 route to branch synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md exists",
+    "M1952 source-kind support counts are audited",
+    "M1947 to M1952 changes are summarized",
+    "next route is explicit and respects synthesis cadence",
+    "no reset rollout ranking or paper-level claim is made"
+  ],
+  "type": "gate"
+}

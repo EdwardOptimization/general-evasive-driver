@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation
+m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit
 ```
 
 Current next task:
 
 ```text
-m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit
+m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis
 ```
 
 The current branch is repairing executable-v2 active-safety task quality before
@@ -48,8 +48,10 @@ calibrated source-mining run passes: support `130`, accepted cells `5981`,
 anchor-neighborhood `64/64`, success-stabilizer `39/48`,
 offtrack-boundary-relief `11/32`, mitigation-isolation `16/16`, public-gate
 support `40`, calibrated fallback uses `64` split `32/32`, and guardrail `0`.
-M1953 must audit this result and route to branch synthesis before any reset or
-measured execution.
+M1953 audits this as a clean calibrated source-mining pass: the M1947 anchor
+blocker is repaired and non-anchor support does not regress. M1954 must now
+synthesize M1944-M1953 and choose whether to promote to a calibrated
+reset/materialized execution branch before any reset or measured execution.
 
 Historical context: the branch was previously building reliable executable-v2 active-safety scenario
 panels before any measured controller comparison or training. M1861

@@ -33917,3 +33917,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: result audit next; because the branch is at synthesis cadence, route to branch synthesis before reset/materialized execution
 - follow-up manifest: `experiments/manifests/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.json`
 - next: `m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit`
+
+## M1953 Executable V2 Task-Quality Offtrack Support Repair Calibrated Source-Mining Result Audit
+
+- status: completed
+- decision: `task_quality_calibrated_source_mining_audit_route_to_branch_synthesis`
+- doc: `docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md`
+- audited source: `runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json`
+- reset/rollout/measured execution in M1953: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M1952 is a clean calibrated no-rollout source-mining pass with `160` candidates, `0` resolution failures, `5981` accepted cells, `130` supported sources, `40` public-gate supported sources, guardrail `0`
+- localized repair confirmed: M1947 anchor support `0/64` became M1952 anchor support `64/64`; success-stabilizer `39/48`, offtrack-boundary-relief `11/32`, and mitigation-isolation `16/16` did not regress
+- route: branch synthesis required before reset/materialized execution because source-mining pass is not reset validity or measured comparison evidence
+- follow-up manifest: `experiments/manifests/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.json`
+- next: `m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis`

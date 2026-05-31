@@ -1,0 +1,178 @@
+{
+  "id": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_offtrack_support_repair_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m1944-executable-v2-task-quality-offtrack-support-repair-design.md",
+      "docs/m1948-executable-v2-task-quality-offtrack-support-repair-source-mining-result-audit.md",
+      "docs/m1950-executable-v2-task-quality-offtrack-support-repair-anchor-fallback-geometry-calibration-implementation.md",
+      "docs/m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation.md",
+      "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md",
+      "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m1944-executable-v2-task-quality-offtrack-support-repair-design.json",
+      "experiments/manifests/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M1944-M1953 offtrack-support repair evidence and choose next branch"
+    ],
+    "derived_from": [
+      "m1944-executable-v2-task-quality-offtrack-support-repair-design",
+      "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M1944-M1953 offtrack-support repair branch"
+    ],
+    "supersedes": [
+      "continuing directly to reset or measured execution without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+  "public_gates": [
+    "M1954 must synthesize M1944-M1953 evidence",
+    "M1954 must separate source-mining evidence from reset/measured execution evidence",
+    "M1954 must assess public-gate overfit and local-search risk",
+    "M1954 must choose next branch route",
+    "M1954 must keep reset rollout measured execution ranking paper and level3 claims blocked unless evidence supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_task_quality_offtrack_support_repair",
+    "evidence_axis": "Q_task_quality_offtrack_support_repair_branch_synthesis",
+    "evidence_increment": "synthesizes the repair template source-mining audit calibration and calibrated source-mining pass into a next-branch decision",
+    "claim_scope": "branch synthesis only; no reset rollout ranking paper-level or level3 self-ID claim",
+    "stop_condition": [
+      "stop if evidence summary is incomplete",
+      "stop if next branch decision is ambiguous",
+      "stop if synthesis overclaims source-mining as execution evidence"
+    ],
+    "fallback_plan": [
+      "promote to a calibrated reset/materialized execution branch if source-mining pass is sufficient",
+      "continue source repair only if synthesis finds hidden source coverage gaps",
+      "pivot or stop if source-mining pass is insufficient for execution planning"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "required after M1944-M1953 offtrack-support repair branch cadence",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack-support repair branch synthesis",
+    "admission_evidence": [
+      "M1953 audited M1952 as a clean calibrated source-mining pass and routes to synthesis"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or measured rollout in synthesis",
+      "do not rank controller families",
+      "do not claim paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+      "M1954 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next branch"
+    ],
+    "next_stage_criteria": [
+      "M1944-M1953 evidence is summarized",
+      "supported and unsupported claims are explicit",
+      "public overfit risk is assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; branch synthesis does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M1954."
+    ],
+    "temporal_evidence_window": "M1944-M1953 offtrack-support repair branch artifacts.",
+    "negative_result_policy": "If synthesis finds source-mining overfit or execution unreadiness, route to redesign before reset or ranking.",
+    "allowed_claims": [
+      "task-quality offtrack-support repair branch synthesis",
+      "no paper-level result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns ten offtrack-support repair milestones into a next-branch decision",
+    "paper_verdict_delta": "can decide whether calibrated source-mining is ready for reset/materialized execution planning",
+    "must_synthesize_if": [
+      "always; this is the required synthesis milestone"
+    ]
+  },
+  "hypothesis": "M1944-M1953 materially repaired source support enough to promote from offtrack-support repair to a calibrated reset/materialized execution branch.",
+  "success_criteria": [
+    "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md exists",
+    "synthesis questions are answered",
+    "supported and unsupported claims are separated",
+    "public-gate overfit risk is assessed",
+    "next branch decision is explicit",
+    "no reset rollout measured execution ranking or paper-level claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis questions are not answered",
+    "next branch decision is ambiguous",
+    "controller ranking or paper-level claims are made",
+    "reset rollout measured execution training replay or PPO is run"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_offtrack_support_repair_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md",
+    "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json"
+  ],
+  "decision_rule": "M1954 passes if it writes a synthesis artifact with an explicit next branch decision and no execution or ranking.",
+  "next_blocker": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis"
+}

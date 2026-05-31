@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 1961,
+    "completed": 1962,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining/summary.json",
+    "command_log": "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m1952_executable_v2_task_quality_offtrack_support_repair_calibrated_source_mining",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m1952-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-implementation"
+    "task_id": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.json",
-    "hypothesis": "M1952 can be audited as a clean calibrated source-mining pass that repairs M1947's anchor blocker and should route to branch synthesis before execution.",
-    "id": "m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit",
+    "command": "see experiments/manifests/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.json",
+    "hypothesis": "M1944-M1953 materially repaired source support enough to promote from offtrack-support repair to a calibrated reset/materialized execution branch.",
+    "id": "m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit calibrated source-mining pass and route to branch synthesis before execution",
-    "priority": 19480,
+    "notes": "Pending: synthesize M1944-M1953 and choose calibrated reset/materialized execution route or pivot",
+    "priority": 19490,
     "status": "pending",
-    "success_artifact": "docs/m1953-executable-v2-task-quality-offtrack-support-repair-calibrated-source-mining-result-audit.md"
+    "success_artifact": "docs/m1954-executable-v2-task-quality-offtrack-support-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260531T095006Z"
+  "updated_at_utc": "20260531T095312Z"
 }
