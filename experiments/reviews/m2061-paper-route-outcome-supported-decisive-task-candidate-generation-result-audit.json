@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M2061 audits M2060 artifact as quota-complete guardrail-clean source-kind count 6 per family max share 0.1667 and admits materialization/reset-validation design",
+  "failure_criteria": [
+    "audit doc is missing",
+    "quota or guardrail evidence is not audited",
+    "next route is ambiguous",
+    "new reset rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260531T203308Z",
+  "hypothesis": "The M2060 no-rollout candidate artifact is quota-complete guardrail-clean and admissible for reset/materialization design.",
+  "lineage": {
+    "blocked_by": [
+      "M2060 generated a new candidate artifact that requires claim-boundary and quota audit before reset/materialization"
+    ],
+    "derived_from": [
+      "m2060-paper-route-outcome-supported-decisive-task-candidate-generation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_task_candidate_generation_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.json"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md"
+    ],
+    "parent_objective": [
+      "audit no-rollout outcome-supported decisive task candidate artifact before reset or materialization"
+    ],
+    "supersedes": [
+      "direct reset or measured execution of unaudited generated candidates"
+    ]
+  },
+  "milestone": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit",
+  "next_blocker": "m2062-paper-route-outcome-supported-decisive-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "outcome_supported_decisive_candidate_artifact_audit_admit_materialization_design",
+  "public_gates": [
+    "M2061 must audit M2060 candidate_count family quotas split quotas and difficulty-axis coverage",
+    "M2061 must audit claim guards and actor-input forbidden-key count",
+    "M2061 must decide whether reset/materialization design is admissible",
+    "M2061 must not run reset rollout measured execution or ranking"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "outcome_supported_decisive_candidate_artifact_audit_admit_materialization_design",
+    "milestone": "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit",
+    "reason": "M2061 audits M2060 artifact as quota-complete guardrail-clean source-kind count 6 per family max share 0.1667 and admits materialization/reset-validation design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md exists",
+    "M2060 candidate_count family quotas split quotas and difficulty-axis coverage are audited",
+    "M2060 guardrail_violation_count actor_input_forbidden_key_count and paper_validity_claim_true_count are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

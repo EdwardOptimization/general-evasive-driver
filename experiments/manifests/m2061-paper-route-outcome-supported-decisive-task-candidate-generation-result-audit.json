@@ -161,5 +161,5 @@
     "docs/m2060-paper-route-outcome-supported-decisive-task-candidate-generation.md"
   ],
   "decision_rule": "M2061 passes if it audits the M2060 candidate artifact as clean and selects a bounded next route without overclaiming.",
-  "next_blocker": "m2062-selected-by-m2061-audit"
+  "next_blocker": "m2062-paper-route-outcome-supported-decisive-materialization-design"
 }

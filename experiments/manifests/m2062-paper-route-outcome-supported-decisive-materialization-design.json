@@ -1,0 +1,168 @@
+{
+  "id": "m2062-paper-route-outcome-supported-decisive-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_supported_decisive_materialization_design"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+      "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design materialization and reset-validation route for outcome-supported decisive candidates"
+    ],
+    "derived_from": [
+      "m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit"
+    ],
+    "blocked_by": [
+      "M2061 admits materialization design but blocks direct reset or rollout of unaudited adapter outputs"
+    ],
+    "supersedes": [
+      "direct measured execution of candidate rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2062-paper-route-outcome-supported-decisive-materialization-design.md",
+  "public_gates": [
+    "M2062 must design candidate-to-executable-spec materialization preserving M2060 provenance",
+    "M2062 must define reset validation before rollout or measured execution",
+    "M2062 must preserve smoke_proxy and paper_validity_claim=false semantics",
+    "M2062 must not run reset rollout measured execution or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_task_distribution",
+    "evidence_axis": "Q_outcome_supported_materialization_design",
+    "evidence_increment": "designs a provenance-preserving materialization/reset-validation route for the new candidate panel",
+    "claim_scope": "materialization design only; no reset rollout ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if the design cannot preserve candidate provenance",
+      "stop if the design weakens smoke_proxy or paper_validity_claim semantics",
+      "stop if reset validation is skipped before rollout",
+      "stop if profile-specific tuning enters the workload"
+    ],
+    "fallback_plan": [
+      "route to candidate artifact repair if required fields are missing",
+      "route to materialization implementation if design is exact",
+      "route to synthesis if materialization would require weakening claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2061 admits materialization design after a clean candidate artifact audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome-supported decisive materialization design",
+    "admission_evidence": [
+      "M2061 audits M2060 candidate artifact as quota-complete guardrail-clean"
+    ],
+    "blocked_shortcuts": [
+      "do not reset or rollout candidates in M2062",
+      "do not rank controller families",
+      "do not interpret materialization design as paper evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md",
+      "M2062 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization implementation or design repair"
+    ],
+    "next_stage_criteria": [
+      "materialization output schema is explicit",
+      "sentinel workload and reset-validation route are explicit",
+      "claim guards and provenance requirements are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2062 designs materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2062."
+    ],
+    "temporal_evidence_window": "M2060 candidate artifact and M2061 audit.",
+    "negative_result_policy": "If materialization cannot preserve provenance and claim guards, repair the artifact/schema instead of weakening self-ID evidence standards.",
+    "allowed_claims": [
+      "outcome-supported decisive materialization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares reset/materialization for a new candidate panel",
+    "paper_verdict_delta": "can admit materialization implementation but cannot decide paper verdict by itself",
+    "must_synthesize_if": [
+      "M2062 routes to another design-only milestone without implementation path",
+      "M2062 repeats M2032/M2048 materialization without preserving M2060 provenance",
+      "M2062 skips reset validation before measured smoke"
+    ]
+  },
+  "hypothesis": "A provenance-preserving materialization and reset-validation route can be designed for the M2060 outcome-supported decisive candidate artifact.",
+  "success_criteria": [
+    "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md exists",
+    "candidate-to-executable-spec schema is explicit",
+    "sentinel-profile workload and reset-validation sequence are explicit",
+    "claim guards and provenance requirements are explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "materialization schema is ambiguous",
+    "reset-validation route is ambiguous",
+    "next route is ambiguous",
+    "new reset rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2062-paper-route-outcome-supported-decisive-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_supported_decisive_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_task_candidates_v0.json",
+    "docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md"
+  ],
+  "decision_rule": "M2062 passes if it freezes a bounded provenance-preserving materialization/reset-validation implementation route without overclaiming.",
+  "next_blocker": "m2063-selected-by-m2062-design"
+}

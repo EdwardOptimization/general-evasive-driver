@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2060-paper-route-outcome-supported-decisive-task-candidate-generation
+m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit
+m2062-paper-route-outcome-supported-decisive-materialization-design
 ```
 
-Immediate route: M2060 implements the no-rollout outcome-supported decisive task
-candidate generator and writes `configs/paper_route_outcome_supported_decisive_task_candidates_v0.json`.
-The artifact has `240` candidates, T1/T2/T3/T4/T5 quotas `48/60/60/36/36`,
-split `public_debug/public_gate/private_holdout = 144/96/0`,
-difficulty-axis coverage pass, actor-input forbidden-key count `0`, and
-guardrail `0`. M2061 must audit the artifact before any reset/materialization
-design; reset, rollout, ranking, paper claims, and self-ID claims remain
-blocked.
+Immediate route: M2061 audits the M2060 no-rollout outcome-supported decisive
+candidate artifact as quota-complete and guardrail-clean: `240` candidates,
+T1/T2/T3/T4/T5 quotas `48/60/60/36/36`, split `144/96/0`, all configured
+difficulty axes covered per family, source-kind count `6` per family, max
+single-source-kind share `0.1667`, actor-input forbidden-key count `0`, and
+guardrail `0`. M2062 must design the provenance-preserving materialization and
+reset-validation route before any reset, rollout, ranking, paper claim, or
+self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

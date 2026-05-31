@@ -35996,3 +35996,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail violation count: `0`
 - follow-up manifest: `experiments/manifests/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.json`
 - next: `m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit`
+
+## M2061 Paper-Route Outcome-Supported Decisive Task Candidate Generation Result Audit
+
+- status: completed
+- decision: `outcome_supported_decisive_candidate_artifact_audit_admit_materialization_design`
+- failure taxonomy: `none`
+- doc: `docs/m2061-paper-route-outcome-supported-decisive-task-candidate-generation-result-audit.md`
+- audited artifact: `configs/paper_route_outcome_supported_decisive_task_candidates_v0.json`
+- reset/rollout/measured execution in M2061: `false`
+- policy actions executed in M2061: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2060 candidate artifact is quota-complete guardrail-clean and keeps generated rows as smoke_proxy with paper_validity_claim false
+- source diversity: each family has source_kind_count `6` and max_single_source_kind_share `0.1667`
+- decision: admit provenance-preserving materialization/reset-validation design before any reset or measured smoke
+- follow-up manifest: `experiments/manifests/m2062-paper-route-outcome-supported-decisive-materialization-design.json`
+- next: `m2062-paper-route-outcome-supported-decisive-materialization-design`
