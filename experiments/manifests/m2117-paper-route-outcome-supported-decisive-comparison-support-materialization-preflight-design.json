@@ -1,0 +1,176 @@
+{
+  "id": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_materialization_design"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded no-rollout materialization preflight for comparison-support candidates"
+    ],
+    "derived_from": [
+      "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit"
+    ],
+    "blocked_by": [
+      "M2116 candidate audit must admit materialization preflight design before implementation"
+    ],
+    "supersedes": [
+      "direct measured execution from generated candidates",
+      "direct profile ranking from candidate rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
+  "public_gates": [
+    "M2117 must freeze candidate-to-executable-spec mapping before implementation",
+    "M2117 must preserve M2115 claim guards in planned artifacts",
+    "M2117 must define reset-free validation checks for materialized artifacts",
+    "M2117 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_materialization_preflight_design",
+    "evidence_increment": "freezes the reset-free materialization preflight protocol for the audited candidate panel",
+    "claim_scope": "materialization design only; no reset validity rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization requires profile-specific tuning",
+      "stop if materialization would drop candidate intent or claim-guard metadata",
+      "stop if design cannot define reset-free validation checks",
+      "stop if design routes directly to ranking"
+    ],
+    "fallback_plan": [
+      "route to materialization preflight implementation if design is bounded and claim-safe",
+      "route to design repair if candidate-to-spec mapping is underspecified",
+      "route to branch synthesis if materialization collapses to the previously failed public-gate panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2116 audits the generated comparison-support candidate artifact as clean",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support materialization preflight design",
+    "admission_evidence": [
+      "M2116 audited candidate_count 240",
+      "M2116 audited four intent groups of 60",
+      "M2116 audited paper_validity_claim_true_count 0",
+      "M2116 audited profile_specific_tuning_true_count 0",
+      "M2116 audited actor_input_forbidden_key_count 0",
+      "M2116 audited guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not materialize before design",
+      "do not run reset or rollout",
+      "do not rank",
+      "do not treat candidate rows as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
+      "M2117 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization preflight implementation"
+    ],
+    "next_stage_criteria": [
+      "candidate-to-spec mapping is explicit",
+      "output artifact paths are explicit",
+      "reset-free validation checks are explicit",
+      "claim boundary is explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2117 designs materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2117."
+    ],
+    "temporal_evidence_window": "M2115 candidate artifact and M2116 audit.",
+    "negative_result_policy": "If materialization design cannot preserve claim guards, repair design before implementation.",
+    "allowed_claims": [
+      "comparison-support materialization preflight design",
+      "no reset validity, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves the new support-targeted candidate panel toward executable artifact preflight without repairing fixed public rows",
+    "paper_verdict_delta": "can prepare a materialized support-seeking panel but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2117 cannot specify materialization without dropping candidate metadata",
+      "M2117 routes directly to measured comparison",
+      "M2117 reintroduces same-panel local repair"
+    ]
+  },
+  "hypothesis": "A bounded materialization preflight can be designed to convert M2115 candidates into executable specs and workload rows while preserving claim guards and without running the environment.",
+  "success_criteria": [
+    "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md exists",
+    "candidate-to-spec mapping is explicit",
+    "planned output artifacts are explicit",
+    "reset-free validation checks are explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "candidate-to-spec mapping is ambiguous",
+    "planned artifacts drop claim guards or candidate intent",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write M2117 materialization preflight design from M2115 candidate artifact and M2116 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+    "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md"
+  ],
+  "decision_rule": "M2117 passes if it freezes a bounded reset-free materialization preflight design with claim-safe metadata preservation.",
+  "next_blocker": "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation"
+}

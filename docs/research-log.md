@@ -37207,3 +37207,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: generated rows are candidate scenarios only, not reset-valid, measured, comparison-ready, paper-valid, finite-window-vs-GRU, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.json`
 - next: `m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit`
+
+## M2116 Paper-Route Outcome-Supported Decisive Comparison-Support Candidate Generation Result Audit
+
+- status: completed
+- decision: `comparison_support_candidate_generation_audit_admit_materialization_preflight_design`
+- manifest: `experiments/manifests/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.json`
+- audited artifact: `configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json`
+- reset/rollout/measured execution in M2116: `false`
+- policy actions executed in M2116: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: clean candidate artifact admitted to bounded materialization preflight design
+- candidate_count: `240`
+- quota_pass: `true`
+- source_family count: `4`
+- source_kind count: `24`
+- dynamics_band count: `4`
+- obstacle_timing_band count: `3`
+- road_width_band count: `3`
+- initial_speed_band count: `3`
+- duplicate_candidate_id_count: `0`
+- paper_validity_claim_true_count: `0`
+- profile_specific_tuning_true_count: `0`
+- actor_input_forbidden_key_count: `0`
+- guardrail_violation_count: `0`
+- conclusion boundary: candidates remain not reset-valid, not measured executable, not comparison-ready, and not paper-valid
+- follow-up manifest: `experiments/manifests/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.json`
+- next: `m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design`
