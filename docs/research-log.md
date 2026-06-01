@@ -127,6 +127,16 @@ Last updated: 2026-06-01
 - remaining unsupported capability rows: `6` future nonblocking fault items, not current execution blockers.
 - decision: route to M2282 scenario task-family reset-validation design. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
+
+## 20260601T193506Z m2282-scenario-task-family-reset-validation-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md`
+- result: freezes a focused 72-spec reset-validation command, output artifacts, contract checks, label consistency checks, and lateral-offset numeric/bucket checks before any measured execution.
+- design note: the frozen reset-validation implementation must enforce the M2279/M2280 sign convention (`positive -> frame-left`, `negative -> frame-right`) and fail closed if current config bucket labels disagree with sampled offsets.
+- decision: route to M2283 scenario/task-quality branch synthesis before reset-validation implementation because workflow cadence is reached. Reset, policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

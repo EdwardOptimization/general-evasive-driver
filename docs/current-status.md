@@ -16,19 +16,19 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit
+m2282-paper-route-current-sim-scenario-task-family-reset-validation-design
 ```
 
 Current next task:
 
 ```text
-m2282-paper-route-current-sim-scenario-task-family-reset-validation-design
+m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis
 ```
 
-Immediate route: M2281 audits M2280 as complete and guardrail clean. M2280
-implements `obstacle.lateral_offset_range`, preserves the centerline default,
-keeps P0 observation shape at `72`, and reruns the role-family materializer. The
-M2277 lateral-offset execution blockers are now cleared:
+Immediate route: M2282 freezes a focused reset-only validation design for
+`configs/paper_route_current_sim_scenario_task_family_v0.json`. M2281 audited
+M2280 as complete and guardrail clean, with the M2277 lateral-offset execution
+blockers cleared:
 
 ```text
 unsupported_execution_blocker_count: 0
@@ -36,10 +36,12 @@ execution_admissible_without_instrumentation: true
 primary_route: scenario_task_family_result_audit_route_to_reset_validation_design
 ```
 
-Active interpretation: M2282 must design reset-only validation over
-`configs/paper_route_current_sim_scenario_task_family_v0.json` before any
-environment reset, policy action, measured rollout, training, ranking,
-finite-window vs GRU verdict, paper-level claim, or level3 self-ID claim.
+Active interpretation: workflow cadence is reached, so M2283 must synthesize
+M2273-M2282 before reset-validation implementation. The frozen reset-validation
+route must fail closed on reset, actor-contract, label, or lateral-offset bucket
+mismatch. Environment reset, policy actions, measured rollout, training,
+ranking, finite-window vs GRU verdict, paper-level claim, and level3 self-ID
+claim remain blocked in M2283.
 
 ## Actor Contract
 

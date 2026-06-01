@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2282 freezes focused reset-validation command artifacts label and lateral sign gates and routes to cadence synthesis before implementation no reset/rollout/training claims",
+  "failure_criteria": [
+    "M2282 runs environment reset instead of design-only planning",
+    "M2282 omits actor-contract or role-label separation checks",
+    "M2282 routes directly to policy actions rollout training or ranking",
+    "M2282 ranks profiles or selects a winner",
+    "M2282 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not execute policy actions",
+    "do not run measured rollout",
+    "do not run training",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T194048Z",
+  "hypothesis": "A reset-only validation design can verify the refreshed scenario task-family pack before any rollout, policy action, training, or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2281 routes from cleared lateral-offset blockers to reset-validation design"
+    ],
+    "derived_from": [
+      "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
+      "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+      "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation for the refreshed role-family scenario pack"
+    ],
+    "supersedes": [
+      "direct rollout before scenario task-family reset validation"
+    ]
+  },
+  "milestone": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
+  "next_blocker": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_reset_validation_design_route_to_branch_synthesis_before_implementation",
+  "public_gates": [
+    "M2282 must design reset-only validation over configs/paper_route_current_sim_scenario_task_family_v0.json",
+    "M2282 must preserve the P0 human-view actor contract and role-label separation",
+    "M2282 must define reset-validation artifacts and acceptance criteria before implementation",
+    "M2282 must not run environment reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_reset_validation_design_route_to_branch_synthesis_before_implementation",
+    "milestone": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
+    "reason": "M2282 freezes focused reset-validation command artifacts label and lateral sign gates and routes to cadence synthesis before implementation no reset/rollout/training claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md exists",
+    "the reset-validation command and input config are specified",
+    "per-spec reset checks are specified",
+    "actor observation shape and contract checks are specified",
+    "sampled label and lateral-offset bucket consistency checks are specified",
+    "reset-validation output artifacts and acceptance thresholds are specified",
+    "a non-ranking follow-up route is selected"
+  ],
+  "type": "gate"
+}

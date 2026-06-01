@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2289,
+    "completed": 2290,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit",
+    "task_id": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md"
+    "command_log": "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md"
   },
   "next_task": {
-    "id": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
+    "id": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
     "kind": "gate",
-    "priority": 22770,
+    "priority": 22780,
     "status": "pending",
-    "hypothesis": "A reset-only validation design can verify the refreshed scenario task-family pack before any rollout, policy action, training, or ranking.",
-    "command": "manual reset-validation design artifact",
-    "success_artifact": "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md",
-    "notes": "Pending: freeze reset-validation command artifacts acceptance criteria and implementation route; no reset rollout training ranking or paper claims"
+    "hypothesis": "Synthesizing M2273-M2282 will identify whether the scenario/task-quality redesign should continue to reset validation or pivot to schema repair.",
+    "command": "manual synthesis artifact over M2273-M2282 scenario/task-quality redesign evidence",
+    "success_artifact": "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md",
+    "notes": "Pending: cadence synthesis before reset-validation implementation; handle lateral sign-gate risk and choose continue/pivot/stop; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T192917Z"
+  "updated_at_utc": "20260601T193506Z"
 }

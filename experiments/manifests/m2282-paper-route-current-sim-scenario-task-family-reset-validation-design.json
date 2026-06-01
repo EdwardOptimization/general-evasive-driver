@@ -70,6 +70,7 @@
     ],
     "fallback_plan": [
       "route to reset-validation implementation if design is complete",
+      "route to branch synthesis first if workflow cadence is reached",
       "route to materialization repair if config fields are insufficient for validation",
       "route to branch synthesis if reset-validation design exposes broader scenario-schema inconsistency"
     ],
@@ -103,7 +104,7 @@
       "reset-validation runner inputs are frozen",
       "reset-validation output artifacts are specified",
       "per-spec reset and actor-contract checks are specified",
-      "next implementation route is selected"
+      "next non-ranking route is selected"
     ]
   },
   "self_id_evidence_discipline": {
@@ -141,7 +142,7 @@
     "actor observation shape and contract checks are specified",
     "sampled label and lateral-offset bucket consistency checks are specified",
     "reset-validation output artifacts and acceptance thresholds are specified",
-    "a non-ranking implementation route is selected"
+    "a non-ranking follow-up route is selected"
   ],
   "failure_criteria": [
     "M2282 runs environment reset instead of design-only planning",
@@ -170,6 +171,6 @@
     "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
     "configs/paper_route_current_sim_scenario_task_family_v0.json"
   ],
-  "decision_rule": "M2282 passes if it freezes reset-validation checks, artifacts, and thresholds and selects a non-ranking implementation route.",
-  "next_blocker": "m2283-paper-route-current-sim-scenario-task-family-reset-validation-implementation"
+  "decision_rule": "M2282 passes if it freezes reset-validation checks, artifacts, and thresholds and selects a non-ranking follow-up route.",
+  "next_blocker": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis"
 }
