@@ -41112,3 +41112,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.json`
 - next: `m2292-paper-route-current-sim-scenario-task-family-measured-execution-design`
+
+## M2292 Paper-Route Current-Sim Scenario Task-Family Measured Execution Design
+
+- status: completed
+- decision: `current_sim_scenario_task_family_measured_execution_design_admit_focused_runner`
+- manifest: `experiments/manifests/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.json`
+- design artifact: `docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md`
+- design decision: implement focused runner over `scenario_specs` using M2262 selected checkpoints
+- panel: 72 scenario specs x 15 selected checkpoints = 1080 episodes
+- checkpoint source: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv`
+- reset execution in M2292: `false`
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.json`
+- next: `m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation`

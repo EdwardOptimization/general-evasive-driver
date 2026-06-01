@@ -1,0 +1,181 @@
+{
+  "id": "m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement and run focused measured execution over 72 reset-valid scenario specs and 15 selected checkpoints"
+    ],
+    "derived_from": [
+      "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design"
+    ],
+    "blocked_by": [
+      "M2292 freezes the 1080-episode measured execution command and claim boundary"
+    ],
+    "supersedes": [
+      "direct ranking over reset-valid scenario pack",
+      "manual measured execution without a frozen panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.md",
+  "public_gates": [
+    "M2293 must run only the frozen M2292 command",
+    "M2293 must use configs/paper_route_current_sim_scenario_task_family_v0.json",
+    "M2293 must use M2262 selected_checkpoint_rows.csv and config root",
+    "M2293 must target 1080 episodes, 72 scenario specs, and 15 selected checkpoints",
+    "M2293 must not rank controller families, select a winner, promote a checkpoint, or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not change actor inputs",
+    "do not change profile configs",
+    "do not change scenario specs",
+    "do not change selected checkpoint rows",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_measured_execution",
+    "evidence_increment": "runs the first 1080-episode measured execution panel over the reset-valid six-role scenario pack",
+    "claim_scope": "measured execution completeness only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if runner validation fails before rollout",
+      "stop if target counts or metadata completeness fail",
+      "stop if measured execution output tries to rank profiles",
+      "stop if scenario_specs cannot be consumed without changing actor inputs"
+    ],
+    "fallback_plan": [
+      "route to result audit regardless of pass/fail",
+      "route to runner repair only after audit classifies the failure",
+      "route to synthesis if execution reveals broader scenario-quality issues"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2292 command design admits measured execution run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run scenario task-family measured execution without training or ranking",
+    "admission_evidence": [
+      "M2290 reset validation passes with 72/72 successes",
+      "M2291 accepts reset-validity and routes to measured execution design",
+      "M2292 freezes the runner, checkpoint source, budget, and claim boundary"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no ranking",
+      "no paper-level claims",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_measured_execution.py",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/*",
+      "docs/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.md",
+      "M2293 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "episode/failure counts are recorded",
+      "guardrail violation count is recorded",
+      "next blocker is result audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2293 measures controller outcomes but does not run history-necessity interventions.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2293."
+    ],
+    "temporal_evidence_window": "M2290 reset-valid scenario pack and M2293 measured execution outputs.",
+    "negative_result_policy": "M2293 outcomes must be audited before any comparison or self-ID interpretation.",
+    "allowed_claims": [
+      "measured execution completeness or failure",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces real current-sim measured rollout data over the explicit role-family scenario pack",
+    "paper_verdict_delta": "can admit result audit and later comparison protocol if complete, but cannot directly decide ranking",
+    "must_synthesize_if": [
+      "M2293 does not produce closed-loop data",
+      "M2293 fails before any rollout",
+      "M2293 attempts ranking instead of execution"
+    ]
+  },
+  "hypothesis": "The frozen M2292 measured execution command can run the 1080-episode scenario task-family panel without validation failures or claim-boundary violations.",
+  "success_criteria": [
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json exists",
+    "episode_count equals 1080",
+    "scenario_spec_count equals 72",
+    "selected_checkpoint_count equals 15",
+    "failure_count equals 0",
+    "metadata_missing_count equals 0",
+    "metric_completeness_failure_count equals 0",
+    "guardrail_violation_count equals 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "validation fails before rollout",
+    "episode_count is not 1080",
+    "failure_count is greater than 0",
+    "metadata or metric completeness failures occur",
+    "guardrail violations occur",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_measured_execution --config configs/paper_route_current_sim_scenario_task_family_v0.json --selected-rows runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv --config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --output-dir runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution --eval-seed-base 229300 --target-scenario-spec-count 72 --target-selected-checkpoint-count 15 --target-episode-count 1080 --device cpu --next-blocker m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_evaluation_run_uses_m2262_selected_checkpoints"
+  ],
+  "baseline_artifacts": [
+    "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json",
+    "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2293 passes if the frozen 1080-episode measured execution completes with zero failures and zero guardrail violations; pass/fail still routes to result audit before interpretation.",
+  "next_blocker": "m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit"
+}

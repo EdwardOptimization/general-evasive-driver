@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2299,
+    "completed": 2300,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+    "task_id": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md"
+    "command_log": "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md"
   },
   "next_task": {
-    "id": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
-    "kind": "gate",
-    "priority": 22870,
+    "id": "m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation",
+    "kind": "infrastructure",
+    "priority": 22880,
     "status": "pending",
-    "hypothesis": "A focused measured execution design can use the reset-valid scenario task-family pack without changing actor inputs or making ranking claims.",
-    "command": "manual measured execution design artifact",
-    "success_artifact": "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
-    "notes": "Pending: design scenario task-family measured execution panel and implementation route; no reset rollout training ranking or paper claims"
+    "hypothesis": "The frozen M2292 measured execution command can run the 1080-episode scenario task-family panel without validation failures or claim-boundary violations.",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_measured_execution --config configs/paper_route_current_sim_scenario_task_family_v0.json --selected-rows runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv --config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --output-dir runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution --eval-seed-base 229300 --target-scenario-spec-count 72 --target-selected-checkpoint-count 15 --target-episode-count 1080 --device cpu --next-blocker m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit",
+    "success_artifact": "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+    "notes": "Pending: implement focused measured runner and run frozen 1080-episode panel; no training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T202754Z"
+  "updated_at_utc": "20260601T203118Z"
 }
