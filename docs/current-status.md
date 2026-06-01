@@ -22,7 +22,7 @@ m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-gu
 Current next task:
 
 ```text
-m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis
+m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -119,9 +119,16 @@ completeness:
   guardrail_violation_count: 0
 ```
 
-The local-search guard blocks another design-only milestone, so M2300 must first
-synthesize M2294-M2299 and decide whether to continue to guarded repair design,
-pivot to fresh evidence, or stop.
+M2300 completes that synthesis and continues to guarded repair design:
+
+```text
+synthesis_decision: continue
+decision: continue_to_guarded_repair_design_with_new_evidence_pressure
+```
+
+M2301 must design the guarded repair route before any repair/training. It must
+freeze allowed repair knobs, target improvement gates, collision guardrails, and
+the next implementation route.
 
 Training, replay, PPO, promotion, ranking, winner selection, finite-window vs
 GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.

@@ -1,0 +1,186 @@
+{
+  "id": "m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_gate"
+    ],
+    "parent_dataset": [
+      "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/offtrack_target_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/collision_guardrail_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design guarded repair route using M2298 offtrack targets and collision guardrails"
+    ],
+    "derived_from": [
+      "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2300 synthesis continues to guarded repair design and requires new measurable evidence quickly"
+    ],
+    "supersedes": [
+      "direct broad reward repair before synthesis",
+      "profile-specific repair target selection"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+  "public_gates": [
+    "M2301 must not run reset or rollout",
+    "M2301 must not train or run PPO",
+    "M2301 must preserve P0 actor input contract",
+    "M2301 must use M2298 offtrack targets as repair objectives",
+    "M2301 must use M2298 collision guardrails as non-regression constraints",
+    "M2301 must freeze a non-ranking implementation route for the next milestone",
+    "M2301 must not rank profiles, select a winner, or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not use profile_name or profile_seed as repair targets",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_design",
+    "evidence_increment": "turns accepted target/guardrail synthesis into a bounded repair design with explicit acceptance gates",
+    "claim_scope": "design only; no rollout training ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2298 repair_gate_spec is missing",
+      "stop if no repair route can reduce offtrack without collision guardrail risk",
+      "stop if the design needs profile-axis targets",
+      "stop if the next milestone would be another process-only step instead of implementation or data"
+    ],
+    "fallback_plan": [
+      "route to scenario-task reshaping if repair gates are contradictory",
+      "route to artifact-only target refinement if target slices are too broad",
+      "route to implementation manifest if a guarded repair route is clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2300 synthesis continued to guarded repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design guarded repair route without executing it",
+    "admission_evidence": [
+      "M2300 synthesis decision is continue",
+      "M2298 offtrack_target_slice_count is 20",
+      "M2298 collision_guardrail_slice_count is 11",
+      "M2298 profile_target_slice_count and profile_guardrail_slice_count are zero"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+      "M2301 status queue scoreboard research log and review",
+      "one follow-up implementation manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "guarded repair route is accepted or rejected",
+      "allowed repair knobs are frozen",
+      "target and guardrail acceptance gates are frozen",
+      "next non-ranking implementation route is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2301 designs task-performance repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2301."
+    ],
+    "temporal_evidence_window": "M2298-M2300 target/guardrail artifacts and synthesis.",
+    "negative_result_policy": "Treat guarded repair design as task-performance infrastructure, not self-ID evidence.",
+    "allowed_claims": [
+      "guarded repair design",
+      "target and guardrail gate specification",
+      "non-ranking implementation route selection"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "defines how future repair evidence must be judged against target/guardrail slices",
+    "paper_verdict_delta": "can admit a bounded repair implementation but cannot improve the verdict by itself",
+    "must_synthesize_if": [
+      "M2301 cannot define a clean implementation route",
+      "M2301 only restates M2298 gates without an actionable repair design",
+      "M2301 proposes profile-specific tuning"
+    ]
+  },
+  "hypothesis": "A guarded repair design can convert M2298 offtrack targets and collision guardrails into a bounded non-ranking repair route without changing actor inputs or scenario specs.",
+  "success_criteria": [
+    "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md exists",
+    "M2301 freezes offtrack target improvement gates from M2298",
+    "M2301 freezes collision guardrail non-regression gates from M2298",
+    "M2301 names allowed repair knobs and blocked shortcuts",
+    "M2301 pre-registers one non-ranking follow-up implementation route"
+  ],
+  "failure_criteria": [
+    "M2301 runs reset or rollout",
+    "M2301 trains or runs PPO",
+    "M2301 changes actor inputs or scenario specs",
+    "M2301 uses profile_name/profile_seed as repair targets",
+    "M2301 ranks profiles or selects a winner",
+    "M2301 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2301 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design over M2298 target/guardrail artifacts and repair_gate_spec.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_gate"
+  ],
+  "baseline_artifacts": [
+    "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
+  ],
+  "decision_rule": "M2301 passes if it freezes a bounded guarded repair implementation route without training or ranking.",
+  "next_blocker": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-implementation"
+}

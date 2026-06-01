@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2307,
+    "completed": 2308,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+    "task_id": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md"
+    "command_log": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+    "id": "m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design",
     "kind": "gate",
-    "priority": 22950,
+    "priority": 22960,
     "status": "pending",
-    "hypothesis": "Synthesizing M2294-M2299 will decide whether guarded repair design is still justified or whether the branch should pivot before another design-only milestone.",
-    "command": "write docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md from M2294-M2299 artifacts",
-    "success_artifact": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
-    "notes": "Pending: answer synthesis questions and decide continue pivot stop before any guarded repair design; no reset rollout training ranking or paper claims"
+    "hypothesis": "A guarded repair design can convert M2298 offtrack targets and collision guardrails into a bounded non-ranking repair route without changing actor inputs or scenario specs.",
+    "command": "manual design over M2298 target/guardrail artifacts and repair_gate_spec.json",
+    "success_artifact": "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+    "notes": "Pending: freeze allowed repair knobs target improvement gates collision guardrails and next implementation route; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T211626Z"
+  "updated_at_utc": "20260601T212344Z"
 }

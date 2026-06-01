@@ -41311,3 +41311,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
 - next: `m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis`
+
+## M2300 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Branch Synthesis
+
+- status: completed
+- synthesis_decision: `continue`
+- decision: `continue_to_guarded_repair_design_with_new_evidence_pressure`
+- manifest: `experiments/manifests/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
+- synthesis doc: `docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md`
+- evidence window: `M2294-M2299`
+- supported claim: scenario/task-quality evidence only
+- unsupported claim: finite-window vs GRU or level3 self-ID evidence
+- offtrack target slices carried forward: `20`
+- collision guardrail slices carried forward: `11`
+- profile target/guardrail slices carried forward: `0`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.json`
+- next: `m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design`
