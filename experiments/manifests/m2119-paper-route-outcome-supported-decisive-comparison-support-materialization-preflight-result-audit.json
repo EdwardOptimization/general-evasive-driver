@@ -1,0 +1,170 @@
+{
+  "id": "m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_materialization_preflight_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+      "docs/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the reset-free comparison-support materialization preflight result"
+    ],
+    "derived_from": [
+      "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2118 materialization preflight result must be audited before reset-validation command design"
+    ],
+    "supersedes": [
+      "direct reset validation without materialization audit",
+      "direct profile ranking from materialized rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
+  "public_gates": [
+    "M2119 must audit M2118 materialization counts metadata guards and claim boundary",
+    "M2119 must decide whether reset-validation command design is admitted",
+    "M2119 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim reset validity",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_materialization_preflight_audit",
+    "evidence_increment": "audits the reset-free executable-spec and workload artifacts before reset validation",
+    "claim_scope": "materialization preflight audit only; no reset validity rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization counts miss target",
+      "stop if claim guards or actor contract fail",
+      "stop if audit cannot decide reset-validation design readiness",
+      "stop if audit routes directly to measured comparison"
+    ],
+    "fallback_plan": [
+      "route to reset-validation command design if artifact is clean",
+      "route to materializer repair if metadata or counts fail",
+      "route to branch synthesis if materialized panel collapses to previous zero-support panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2118 writes reset-free materialization preflight artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support materialization result audit",
+    "admission_evidence": [
+      "M2118 result_class comparison_support_materialization_preflight_pass",
+      "M2118 executable_spec_count 240",
+      "M2118 workload_row_count 1200",
+      "M2118 profile_count 5",
+      "M2118 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in audit",
+      "do not rank",
+      "do not treat materialized rows as reset-valid or paper-valid"
+    ],
+    "allowed_updates": [
+      "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
+      "M2119 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design or materializer repair"
+    ],
+    "next_stage_criteria": [
+      "materialization artifact is audited",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2119 audits materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2119."
+    ],
+    "temporal_evidence_window": "M2118 materialization artifact.",
+    "negative_result_policy": "If materialization guards fail, repair materialization before reset validation; do not run partial rows as comparison evidence.",
+    "allowed_claims": [
+      "comparison-support materialization result audit",
+      "no reset validity, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a newly materialized support-targeted scenario panel",
+    "paper_verdict_delta": "can admit reset-validation command design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2119 finds the materialized panel duplicates the failed public-gate panel",
+      "M2119 cannot decide reset-validation readiness",
+      "M2119 routes directly to measured comparison"
+    ]
+  },
+  "hypothesis": "M2118 produced a clean reset-free materialization preflight artifact that can be admitted to reset-validation command design.",
+  "success_criteria": [
+    "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md exists",
+    "M2118 artifact is audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "materialization result is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json and write M2119 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_materialization_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+    "docs/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.md"
+  ],
+  "decision_rule": "M2119 passes if it audits materialization preflight and selects a bounded next route without execution or ranking.",
+  "next_blocker": "m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design"
+}

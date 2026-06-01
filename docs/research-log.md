@@ -37262,3 +37262,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: materialization design only; no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.json`
 - next: `m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation`
+
+## M2118 Paper-Route Outcome-Supported Decisive Comparison-Support Materialization Preflight Implementation
+
+- status: completed
+- decision: `comparison_support_materialization_preflight_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.json`
+- run artifact: `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2118: `false`
+- policy actions executed in M2118: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `comparison_support_materialization_preflight_pass`
+- candidate_count: `240`
+- executable_spec_count: `240`
+- workload_row_count: `1200`
+- profile_count: `5`
+- materialization_failure_count: `0`
+- missing_profile_artifact_count: `0`
+- contract_violation_count: `0`
+- forbidden_key_violation_count: `0`
+- paper_validity_claim_true_count: `0`
+- profile_specific_tuning_true_count: `0`
+- guardrail_violation_count: `0`
+- proxy_template_family counts: t4_actuator_delay_response `20`, t4_staged_warmup_capability `110`, t5_boundary_axis_retarget `80`, t5_near_boundary_warmup `30`
+- conclusion boundary: preflight creates artifacts only; no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- follow-up manifest: `experiments/manifests/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.json`
+- next: `m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit`
