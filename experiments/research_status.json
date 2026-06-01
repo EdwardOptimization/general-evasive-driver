@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2213,
+    "completed": 2214,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+    "command_log": "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+    "run_dir": "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
     "status": "completed",
-    "task_id": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit"
+    "task_id": "m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design"
   },
   "next_task": {
-    "command": "write docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
-    "hypothesis": "The M2204 failure can be repaired by changing repeat-mode activation in the measured runner so checkpoint_materialization_mode alone is accepted for non-repeat workloads while partial repeat identity metadata still fails closed.",
-    "id": "m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design repeat metadata activation repair before implementation or rerun",
-    "priority": 22010,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py",
+    "hypothesis": "The measured runner can be repaired so checkpoint_materialization_mode alone does not activate repeat mode while repeat identity metadata still preserves M2181 fail-closed behavior.",
+    "id": "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement repeat metadata activation repair and focused tests without measured-execution rerun",
+    "priority": 22020,
     "status": "pending",
-    "success_artifact": "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md"
+    "success_artifact": "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md"
   },
-  "updated_at_utc": "20260601T110623Z"
+  "updated_at_utc": "20260601T110913Z"
 }

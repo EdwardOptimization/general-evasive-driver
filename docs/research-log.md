@@ -39353,3 +39353,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - selected route: measured-runner repeat activation repair design
 - follow-up manifest: `experiments/manifests/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.json`
 - next: `m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design`
+
+## M2206 Paper-Route Current-Sim Measured-Runner Repeat-Metadata Activation Repair Design
+
+- status: completed
+- decision: `current_sim_measured_runner_repeat_metadata_activation_repair_design_admit_implementation`
+- manifest: `experiments/manifests/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.json`
+- design artifact: `docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md`
+- repeat activation fields: `training_repeat_id`, `training_seed_group`, `profile_training_seed`, `profile_checkpoint_source_profile`, `base_workload_id`
+- checkpoint provenance field: `checkpoint_materialization_mode`
+- design rule: `checkpoint_materialization_mode` alone does not activate repeat mode
+- partial repeat identity metadata: fail closed
+- implementation: `false`
+- measured execution: `false`
+- policy action executed: `false`
+- result: admit focused runner implementation and tests
+- follow-up manifest: `experiments/manifests/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.json`
+- next: `m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation`

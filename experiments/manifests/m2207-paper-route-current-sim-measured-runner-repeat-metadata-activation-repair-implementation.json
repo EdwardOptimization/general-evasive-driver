@@ -1,0 +1,166 @@
+{
+  "id": "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_metadata_runner_repair"
+    ],
+    "parent_dataset": [
+      "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
+      "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement focused measured-runner repeat activation compatibility repair"
+    ],
+    "derived_from": [
+      "m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design"
+    ],
+    "blocked_by": [
+      "M2206 design must freeze activation semantics before code changes"
+    ],
+    "supersedes": [
+      "rerunning M2204 without repairing runner validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+  "public_gates": [
+    "M2207 must implement repeat activation by identity fields only",
+    "M2207 must preserve checkpoint_materialization_mode as non-repeat provenance",
+    "M2207 must keep partial repeat identity metadata fail-closed",
+    "M2207 must add focused test coverage",
+    "M2207 must not rerun measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not add fake repeat IDs to non-repeat workload rows",
+    "do not remove checkpoint_materialization_mode provenance",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_runner_repeat_metadata_activation_repair_implementation",
+    "evidence_increment": "implements focused measured-runner compatibility repair for non-repeat workloads carrying checkpoint_materialization_mode",
+    "claim_scope": "implementation and focused tests only; no measured execution rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation weakens repeat metadata preservation",
+      "stop if focused tests cannot preserve non-repeat and repeat behavior",
+      "stop if implementation would require fake repeat IDs",
+      "stop if measured execution rerun is attempted in this milestone"
+    ],
+    "fallback_plan": [
+      "route to result audit if implementation passes",
+      "route back to design if tests reveal semantic ambiguity",
+      "route to synthesis if repeated metadata validation failures continue"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2206 design admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement measured-runner metadata activation repair",
+    "admission_evidence": [
+      "M2206 defines repeat identity activation semantics",
+      "M2181 requires non-repeat compatibility and partial-repeat fail-closed behavior"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution rerun",
+      "no policy action execution",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+      "M2207 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "runner compatibility semantics are documented",
+      "rerun remains separately gated"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; implementation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2207."
+    ],
+    "temporal_evidence_window": "M2204-M2206 metadata validation evidence.",
+    "negative_result_policy": "If focused tests fail, audit as metadata repair failure before rerun.",
+    "allowed_claims": [
+      "metadata validation repair implementation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "repairs the measured-runner validation path needed to produce closed-loop data",
+    "paper_verdict_delta": "can admit a measured-execution rerun after audit but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2207 cannot preserve both non-repeat and repeat semantics",
+      "M2207 would need workload fake repeat IDs",
+      "the same metadata failure repeats after implementation"
+    ]
+  },
+  "hypothesis": "The measured runner can be repaired so checkpoint_materialization_mode alone does not activate repeat mode while repeat identity metadata still preserves M2181 fail-closed behavior.",
+  "success_criteria": [
+    "runner code uses repeat identity fields for activation",
+    "focused tests pass for non-repeat checkpoint provenance, complete repeat metadata, partial repeat metadata, and missing checkpoints",
+    "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md exists",
+    "no measured execution rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "partial repeat metadata no longer fails closed",
+    "checkpoint_materialization_mode is removed from output schema",
+    "measured execution is rerun"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_metadata_runner_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
+    "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+  ],
+  "decision_rule": "M2207 passes if the runner repair and focused tests preserve non-repeat compatibility and repeat fail-closed semantics without rerun.",
+  "next_blocker": "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation"
+}
