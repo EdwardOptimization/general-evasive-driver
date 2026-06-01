@@ -38914,3 +38914,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to no-rerun seed-diversity and combined-outcome audit design before comparison
 - follow-up manifest: `experiments/manifests/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.json`
 - next: `m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design`
+
+## M2186 Paper-Route Current-Sim Repeat Seed-Diversity and Combined-Outcome Audit Design
+
+- status: completed
+- decision: `current_sim_repeat_seed_diversity_combined_outcome_audit_design_admit_implementation`
+- manifest: `experiments/manifests/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.json`
+- design artifact: `docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md`
+- audit scope: no-rerun M2174 + M2184 combined outcome support and repeat seed diversity
+- expected combined panel: `960` episodes, `3` repeat groups, `320` episodes per repeat, `40` specs, `8` profiles
+- readiness blockers to check: low support/offtrack dominance and repeat aggregate equality
+- training: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to no-rerun audit implementation
+- follow-up manifest: `experiments/manifests/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.json`
+- next: `m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run`

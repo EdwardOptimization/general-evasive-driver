@@ -16,24 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2185-paper-route-current-sim-repeat-measured-execution-result-audit
+m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design
 ```
 
 Current next task:
 
 ```text
-m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design
+m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run
 ```
 
-Immediate route: M2185 audits M2184 as complete execution and metadata-clean
-repeat data, but not comparison-ready. M2184 has `640` episodes, `0` failures,
-metadata-missing `0`, metric-completeness failures `0`, and guardrail `0`, but
-raw outcomes remain low-support/offtrack-dominated: `100` success, `36`
-collision, `504` offtrack. The two new repeat groups also have identical
-repeat-level aggregates. M2186 must design a no-rerun seed-diversity and
-combined-outcome audit before any comparison. Controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked until later
-audited evidence supports them.
+Immediate route: M2186 freezes a no-rerun seed-diversity and combined-outcome
+audit over M2174 + M2184. The expected combined panel is `960` episodes across
+`3` repeat groups, `320` episodes per repeat, `40` specs, and `8` profiles.
+M2187 may implement and run that no-rerun audit only. New rollout, controller
+ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
+blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
