@@ -42,7 +42,7 @@ def test_materialized_specs_use_correct_role_mapping_and_contract() -> None:
         "right_offset",
     }
     assert len({row["hidden_dynamics_bucket"] for row in specs if row["scenario_family_id"] == "R5"}) >= 4
-    assert any(row["capability"] == "emergency_obstacle_lateral_offset" for row in unsupported_rows)
+    assert not any(row["capability"] == "emergency_obstacle_lateral_offset" for row in unsupported_rows)
     assert all(row["silently_approximated"] is False for row in unsupported_rows)
 
 
@@ -75,8 +75,9 @@ def test_run_config_materialization_writes_no_reset_artifacts(tmp_path: Path) ->
     assert summary["guardrail_flags"]["environment_rollout_started"] is False
     assert summary["guardrail_flags"]["training_started"] is False
     assert summary["guardrail_violation_count"] == 0
-    assert summary["unsupported_execution_blocker_count"] > 0
-    assert summary["primary_route"] == "scenario_task_family_result_audit_route_to_instrumentation_repair"
+    assert summary["unsupported_execution_blocker_count"] == 0
+    assert summary["execution_admissible_without_instrumentation"] is True
+    assert summary["primary_route"] == "scenario_task_family_result_audit_route_to_reset_validation_design"
     assert config_output.exists()
     assert (output_dir / "summary.json").exists()
     assert (output_dir / "scenario_family_specs.csv").exists()

@@ -57,6 +57,7 @@ class ObstacleTaskConfig:
     enabled: bool = False
     distance_range: tuple[float, float] = (16.0, 55.0)
     half_width_range: tuple[float, float] = (0.45, 1.15)
+    lateral_offset_range: tuple[float, float] = (0.0, 0.0)
     ego_half_width: float = 0.90
     safety_margin: float = 0.30
     brake_mu_fraction: float = 0.90
@@ -83,6 +84,8 @@ class ObstacleTaskConfig:
     dense_clearance_margin_reward_window: float = 8.0
 
     def __post_init__(self) -> None:
+        if self.lateral_offset_range[1] < self.lateral_offset_range[0]:
+            raise ValueError("lateral_offset_range must be ordered")
         if self.clearance_margin_reward_clip <= 0.0:
             raise ValueError("clearance_margin_reward_clip must be positive")
         if self.dense_clearance_margin_reward_clip <= 0.0:
@@ -457,6 +460,7 @@ class AutoDriftEnv(gym.Env):
         allowed_labels = set(self.config.obstacle.allowed_labels)
         for _ in range(max(1, self.config.obstacle.max_sample_attempts)):
             obstacle_distance = float(self.rng.uniform(*self.config.obstacle.distance_range))
+            obstacle_lateral_offset = float(self.rng.uniform(*self.config.obstacle.lateral_offset_range))
             obstacle_half_width = float(self.rng.uniform(*self.config.obstacle.half_width_range))
             scenario = classify_obstacle_scenario(
                 speed=self.speed_ref,
@@ -490,7 +494,8 @@ class AutoDriftEnv(gym.Env):
         if accepted_friction_step_at is not None:
             self.friction_step_at = accepted_friction_step_at
         self.obstacle_scenario = scenario
-        self.obstacle_position = position + frame.tangent * obstacle_distance
+        normal_left = np.array([-frame.tangent[1], frame.tangent[0]], dtype=np.float64)
+        self.obstacle_position = position + frame.tangent * obstacle_distance + normal_left * obstacle_lateral_offset
         self._update_obstacle_status(frame)
 
     def _reset_warmup_gate(self, position: np.ndarray, frame: PathFrame) -> None:

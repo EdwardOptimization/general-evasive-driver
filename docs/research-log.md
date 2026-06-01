@@ -108,6 +108,15 @@ Last updated: 2026-06-01
 - result: freezes `obstacle.lateral_offset_range` semantics, default `(0.0, 0.0)` compatibility, frame-normal placement, info/observation effects, materializer updates, and reset-only implementation tests.
 - decision: admit M2280 implementation. M2280 may run reset-only instrumentation tests, but policy actions, measured rollout, training, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
 
+
+## 20260601T192406Z m2280-obstacle-lateral-offset-instrumentation-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json`
+- result: implements `obstacle.lateral_offset_range`, reset-only focused tests pass (`6 passed`), P0 observation shape remains `72`, and materializer refresh passes with unsupported execution blockers reduced from `38` to `0`.
+- decision: route to M2281 result audit before reset-validation design. No policy actions, measured rollout, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
+
 ## Current Best
 
 - checkpoint:

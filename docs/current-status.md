@@ -16,25 +16,29 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design
+m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation
 ```
 
 Current next task:
 
 ```text
-m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation
+m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit
 ```
 
-Immediate route: M2279 freezes the lateral-offset instrumentation design.
-M2280 should add a backward-compatible `obstacle.lateral_offset_range` field,
-preserve centerline default behavior, keep actor observation dimensions
-unchanged, run reset-only instrumentation tests, and rerun materialization until
-M2277's `38` lateral-offset execution blockers drop to `0`.
+Immediate route: M2280 implements `obstacle.lateral_offset_range`, preserves the
+centerline default, keeps P0 observation shape at `72`, and reruns the
+role-family materializer. The M2277 lateral-offset execution blockers are now
+cleared:
 
-Active interpretation: M2280 may run focused reset-only tests because it is
-simulator instrumentation. It must not execute policy actions, measured rollout,
-training, ranking, finite-window vs GRU verdict, paper-level claim, or level3
-self-ID claim.
+```text
+unsupported_execution_blocker_count: 0
+execution_admissible_without_instrumentation: true
+primary_route: scenario_task_family_result_audit_route_to_reset_validation_design
+```
+
+Active interpretation: M2281 must audit this before any reset-validation design.
+Policy actions, measured rollout, training, ranking, finite-window vs GRU
+verdict, paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

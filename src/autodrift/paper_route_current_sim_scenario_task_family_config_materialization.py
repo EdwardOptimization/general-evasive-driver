@@ -300,6 +300,7 @@ def _env_config_for_spec(
     timing_bucket: str,
     hidden_bucket: str,
     recovery_bucket: str,
+    lateral_offset_m: float,
 ) -> dict[str, Any]:
     timing = TIMING_BUCKETS[timing_bucket]
     hidden = HIDDEN_DYNAMICS[hidden_bucket]
@@ -313,6 +314,7 @@ def _env_config_for_spec(
         {
             "distance_range": timing["distance_range"],
             "half_width_range": _range_around(float(family["half_width_m"]), 0.05),
+            "lateral_offset_range": (float(lateral_offset_m), float(lateral_offset_m)),
             "allowed_labels": tuple(str(label) for label in family["allowed_labels"]),
             "require_aeb_infeasible": bool(family.get("require_aeb_infeasible", False)),
             "finish_on_pass": bool(family["finish_on_pass"]),
@@ -377,6 +379,7 @@ def materialize_scenario_specs() -> tuple[list[dict[str, Any]], list[dict[str, A
                 timing_bucket=timing_bucket,
                 hidden_bucket=hidden_bucket,
                 recovery_bucket=recovery_bucket,
+                lateral_offset_m=lateral_offset,
             )
             scenario_spec_id = f"m2277_{role_id.lower()}_{index:02d}"
             violation_messages: list[str] = []
@@ -384,18 +387,6 @@ def materialize_scenario_specs() -> tuple[list[dict[str, Any]], list[dict[str, A
                 assert_p0_actor_contract(env_config)
             except Exception as exc:  # noqa: BLE001 - materializer records all contract failures.
                 violation_messages.append(str(exc))
-            if lateral_bucket != "centerline":
-                unsupported_rows.append(
-                    {
-                        "scenario_spec_id": scenario_spec_id,
-                        "capability": "emergency_obstacle_lateral_offset",
-                        "support_status": "unsupported_current_obstacle_task_config",
-                        "requested_value": lateral_bucket,
-                        "silently_approximated": False,
-                        "blocks_execution": True,
-                        "recommended_next_route": "add obstacle.lateral_offset_range instrumentation before reset/rollout",
-                    }
-                )
             mu_range = tuple(float(v) for v in hidden.get("mu_range", HIDDEN_DYNAMICS["nominal"]["mu_range"]))
             brake_range = tuple(
                 float(v) for v in hidden.get("brake_scale_range", HIDDEN_DYNAMICS["nominal"]["brake_scale_range"])
@@ -484,8 +475,8 @@ def materialize_scenario_specs() -> tuple[list[dict[str, Any]], list[dict[str, A
                 "ranking_admissible": False,
                 "paper_level_claim_made": False,
                 "level3_self_id_claim_made": False,
-                "env_config_supported": lateral_bucket == "centerline",
-                "execution_blocked_by_unsupported_capability": lateral_bucket != "centerline",
+                "env_config_supported": True,
+                "execution_blocked_by_unsupported_capability": False,
                 "contract_violation_count": len(violation_messages),
                 "env_config": env_config,
             }
@@ -617,26 +608,31 @@ def role_family_support_target_rows() -> list[dict[str, Any]]:
 
 
 def claim_boundary_rows(unsupported_execution_blocker_count: int) -> list[dict[str, Any]]:
+    execution_admissible = unsupported_execution_blocker_count == 0
     return [
         {
             "claim": "scenario_task_family_config_pack_materialized",
             "admissible": True,
-            "reason": "M2277 writes no-reset scenario specs, metadata schema, and config matrix",
+            "reason": "materializer writes no-reset scenario specs, metadata schema, and config matrix",
         },
         {
             "claim": "execution_admissible_without_instrumentation",
-            "admissible": unsupported_execution_blocker_count == 0,
-            "reason": "blocked while emergency obstacle lateral offsets are unsupported",
+            "admissible": execution_admissible,
+            "reason": (
+                "no materialized execution blockers remain"
+                if execution_admissible
+                else "blocked while emergency obstacle lateral offsets are unsupported"
+            ),
         },
         {
             "claim": "reset_or_rollout_result",
             "admissible": False,
-            "reason": "M2277 does not reset or roll out the environment",
+            "reason": "materialization does not reset or roll out the environment",
         },
         {
             "claim": "controller_family_ranking",
             "admissible": False,
-            "reason": "M2277 is materialization infrastructure, not measured comparison",
+            "reason": "materialization is infrastructure, not measured comparison",
         },
         {
             "claim": "paper_level_evidence",

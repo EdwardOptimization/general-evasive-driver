@@ -1,0 +1,171 @@
+{
+  "id": "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun"
+    ],
+    "parent_dataset": [
+      "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+      "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+      "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/claim_boundary.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2280 obstacle lateral-offset instrumentation and materialization refresh"
+    ],
+    "derived_from": [
+      "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation"
+    ],
+    "blocked_by": [
+      "M2280 clears lateral-offset execution blockers and routes to result audit"
+    ],
+    "supersedes": [
+      "reset-validation design before M2280 result audit",
+      "lateral-offset materialization blocker"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
+  "public_gates": [
+    "M2281 must audit M2280 reset-only tests and materialization refresh",
+    "M2281 must verify unsupported_execution_blocker_count == 0",
+    "M2281 must choose reset-validation design or implementation repair without running rollout or training",
+    "M2281 must not run policy actions measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute policy actions",
+    "do not run measured rollout",
+    "do not run training",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_obstacle_lateral_offset_instrumentation_result_audit",
+    "evidence_increment": "audits whether simulator instrumentation cleared the scenario-axis blocker",
+    "claim_scope": "result audit only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2280 artifacts are incomplete",
+      "stop if execution blockers remain",
+      "stop if actor contract changed",
+      "stop if audit routes directly to training or ranking"
+    ],
+    "fallback_plan": [
+      "route to reset-validation design if blockers are cleared",
+      "route to implementation repair if blockers remain",
+      "route to materialization repair if config refresh is inconsistent"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2280 completed implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2280 instrumentation and decide next non-ranking route",
+    "admission_evidence": [
+      "M2280 focused tests pass",
+      "M2280 materialization summary exists",
+      "M2280 unsupported_execution_blocker_count is expected to be 0"
+    ],
+    "blocked_shortcuts": [
+      "no policy actions",
+      "no measured rollout",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
+      "M2281 status queue scoreboard research log and review",
+      "one follow-up manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "implementation result is audited",
+      "blocker count is accepted or rejected",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2281 audits scenario instrumentation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2281; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2280 instrumentation and materialization artifacts.",
+    "negative_result_policy": "Instrumentation success only affects scenario readiness, not self-ID evidence.",
+    "allowed_claims": [
+      "obstacle lateral-offset instrumentation result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits simulator support for a missing scenario axis",
+    "paper_verdict_delta": "can admit reset-validation design for the role-supported scenario pack",
+    "must_synthesize_if": [
+      "M2281 cannot choose a route",
+      "M2281 finds blockers remain but no repair path",
+      "M2281 would route directly to training or ranking"
+    ]
+  },
+  "hypothesis": "M2280 cleared the lateral-offset execution blockers and should admit reset-validation design before rollout/training.",
+  "success_criteria": [
+    "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md exists",
+    "M2280 focused test and materialization results are audited",
+    "unsupported_execution_blocker_count == 0 is accepted or rejected",
+    "a non-ranking follow-up route is selected",
+    "guardrails remain false for policy actions rollout training ranking paper-level and level3 self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2280 artifacts are missing",
+    "M2281 ignores remaining blockers or actor-contract changes",
+    "M2281 executes policy actions measured rollout training replay PPO or private holdout",
+    "M2281 ranks profiles or selects a winner",
+    "M2281 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json and M2280 docs"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun"
+  ],
+  "baseline_artifacts": [
+    "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+    "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md"
+  ],
+  "decision_rule": "M2281 passes if it audits M2280 and selects a non-ranking follow-up route.",
+  "next_blocker": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design"
+}
