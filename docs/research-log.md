@@ -37510,3 +37510,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - ranking readiness: blocked until localization identifies comparison-ready or candidate-support slices
 - follow-up manifest: `experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json`
 - next: `m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design`
+
+## M2127 Paper-Route Outcome-Supported Decisive Comparison-Support Outcome Localization Design
+
+- status: completed
+- decision: `comparison_support_outcome_localization_design_route_to_no_rerun_implementation`
+- manifest: `experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json`
+- design artifact: `docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md`
+- reset/rollout/measured execution in M2127: `false`
+- policy actions executed in M2127: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: old public-gate localizer has reusable grouping logic but incompatible schema, so M2128 must implement a comparison-support-specific no-rerun localizer
+- source artifacts: M2125 `summary.json` and `episode_rows.csv`
+- required outcome reproduction: success `188`, collision `144`, off-track non-completion `868`
+- comparison-ready criteria: episode `>=24`, success `>=6`, success_profile_count `>=3`, success_source_count `>=3`, collision_rate `<0.30`, offtrack_outcome_rate `<0.70`
+- conclusion boundary: localization design only; no localization result, comparison-ready support, controller ranking, finite-window-vs-GRU conclusion, paper-level result, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json`
+- next: `m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation`

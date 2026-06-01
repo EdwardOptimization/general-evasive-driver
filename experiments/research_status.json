@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2135,
+    "completed": 2136,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
+    "command_log": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
+    "run_dir": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md",
     "status": "completed",
-    "task_id": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit"
+    "task_id": "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json",
-    "hypothesis": "A no-rerun outcome localization design can classify the M2125 artifact and decide the next route before any controller-family comparison.",
-    "id": "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun outcome localization over M2125 artifacts with comparison-ready criteria and no ranking",
-    "priority": 21220,
+    "command": "see experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json",
+    "hypothesis": "A comparison-support no-rerun localizer can reproduce M2125 outcome counts and identify whether comparison-ready or candidate-support slices exist before any ranking.",
+    "id": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run comparison-support-specific no-rerun outcome localization over M2125 artifacts",
+    "priority": 21230,
     "status": "pending",
-    "success_artifact": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md"
+    "success_artifact": "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260601T025358Z"
+  "updated_at_utc": "20260601T025954Z"
 }
