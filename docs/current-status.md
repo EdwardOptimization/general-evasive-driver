@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design
+m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation
+m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -239,7 +239,17 @@ evaluate exactly the `15` M2250 selected checkpoints, `32` episodes each, using
 the M2250 config root and output directory
 `runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization`.
 M2253 may now run that diagnostic localization; it remains non-ranking and
-must compare against M2244 only as repair-route evidence.
+must compare against M2244 only as repair-route evidence. M2253 completes that
+localization cleanly with `480` episode rows and guardrail `0`, but the result
+is negative for the repair: global success/offtrack/collision is `269/118/93`
+versus M2244's `277/110/93`. Mean return is higher, but offtrack is worse and
+collision is unchanged, so the reward extension improved scalar return without
+repairing the actual offtrack outcome mode. M2254 must audit this as
+return-improved but outcome-worse before choosing stronger repair, pivot, or
+branch synthesis. M2254 completes that synthesis and pivots: the bounded
+road-margin/offtrack scalar reward branch is now closed as outcome-worse, and
+the next branch is a no-rerun offtrack failure-slice diagnosis over existing
+M2244/M2253 episode rows before any further repair or ranking.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

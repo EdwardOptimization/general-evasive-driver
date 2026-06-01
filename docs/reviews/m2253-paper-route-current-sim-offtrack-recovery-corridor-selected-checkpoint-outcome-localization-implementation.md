@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T163552Z
+- Generated at UTC: 20260601T165130Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2253 pending run M2250 selected-checkpoint outcome localization no ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_pass_route_to_branch_synthesis
+- Decision reason: M2253 pass 480 rows success/offtrack/collision 269/118/93 offtrack still dominant no ranking claims
 
 ## Hypothesis
 
@@ -86,15 +86,15 @@ Episode-level outcome localization over M2250 selected checkpoints can identify 
 - milestone: m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation
 - type: infrastructure
 - checkpoint: runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json
-- success_rate: None
+- success_rate: 0.5604166666666667
 - termination_rate: None
 - clearance_margin_mean: None
 - reset_success: None
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2253 pending run M2250 selected-checkpoint outcome localization no ranking claims
+- decision: current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_pass_route_to_branch_synthesis
+- reason: M2253 pass 480 rows success/offtrack/collision 269/118/93 offtrack still dominant no ranking claims
 
 ## Next Blocker
 

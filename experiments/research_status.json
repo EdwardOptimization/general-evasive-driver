@@ -1,28 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2260,
+    "completed": 2262,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+    "command_log": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+    "run_dir": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design"
+    "synthesis_decision": "pivot",
+    "task_id": "m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_selected_checkpoint_outcome_localization --selected-rows runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv --config-root runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/configs --output-dir runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization --next-blocker m2254-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-result-audit --device cpu",
-    "hypothesis": "Episode-level outcome localization over M2250 selected checkpoints can identify whether the reward repair changed the offtrack-dominated failure mode.",
-    "id": "m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: run 15 M2250 selected checkpoints x32 episodes and classify outcome route no ranking claims",
-    "priority": 22480,
+    "command": "manual design of no-rerun offtrack failure-slice diagnosis",
+    "hypothesis": "A no-rerun failure-slice diagnosis design can identify why the bounded reward repair worsened offtrack outcomes before any further training.",
+    "id": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design",
+    "kind": "gate",
+    "notes": "Pending: design no-rerun diagnosis over M2244 and M2253 episode rows before further repair or ranking",
+    "priority": 22500,
     "status": "pending",
-    "success_artifact": "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json"
+    "success_artifact": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md"
   },
-  "updated_at_utc": "20260601T163310Z"
+  "updated_at_utc": "20260601T164004Z"
 }

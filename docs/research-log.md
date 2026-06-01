@@ -40490,3 +40490,56 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.json`
 - next: `m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation`
+
+## M2253 Paper-Route Current-Sim Offtrack/Recovery/Corridor Selected-Checkpoint Outcome Localization Implementation
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_pass_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.json`
+- result artifact: `runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json`
+- selected checkpoint source: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv`
+- result class: `current_sim_selected_checkpoint_outcome_localization_pass`
+- selected checkpoints: `15`
+- episode rows: `480`
+- profile-seed groups complete: `true`
+- missing input count: `0`
+- guardrail violation count: `0`
+- global success/offtrack/collision/max-step: `269/118/93/0`
+- global success rate: `0.56042`
+- global offtrack rate: `0.24583`
+- global collision rate: `0.19375`
+- M2244 baseline success/offtrack/collision/max-step: `277/110/93/0`
+- outcome delta vs M2244: success `-8`, offtrack `+8`, collision `0`
+- mean return delta vs M2244: `+14.37612`
+- dominant failure mode: `offtrack_dominated_failure`
+- primary classification: `return_improved_but_offtrack_repair_failed`
+- primary repair route emitted: `offtrack_recovery_reward_and_corridor_repair_design`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.json`
+- next: `m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis`
+
+## M2254 Paper-Route Current-Sim Offtrack/Recovery/Corridor Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- manifest: `experiments/manifests/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.json`
+- synthesis artifact: `docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md`
+- synthesis window: `M2246-M2253`
+- primary result: return improved but offtrack outcome worsened
+- M2244 baseline success/offtrack/collision/max-step: `277/110/93/0`
+- M2253 repaired success/offtrack/collision/max-step: `269/118/93/0`
+- mean return delta vs M2244: `+14.37612`
+- supported: scalar return improvement can diverge from outcome repair
+- falsified: bounded road-margin/offtrack scalar reward repaired the offtrack blocker
+- primary failure taxonomy: `objective_overfit`
+- public-gate overfit risk: `high`
+- next branch decision: pivot to `paper_route_current_sim_offtrack_failure_slice_diagnosis`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.json`
+- next: `m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design`

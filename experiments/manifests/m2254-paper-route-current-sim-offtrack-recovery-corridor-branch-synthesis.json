@@ -1,0 +1,206 @@
+{
+  "id": "m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "training_instability",
+    "seed_fragility",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+      "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+      "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
+      "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json",
+      "docs/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M2246-M2253 offtrack/recovery/corridor repair branch before further local reward repair"
+    ],
+    "derived_from": [
+      "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
+      "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
+      "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+      "m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "M2253 shows M2250 reward repair improved return but worsened offtrack outcome",
+      "local-search guard requires synthesis before another similar repair"
+    ],
+    "supersedes": [
+      "ordinary M2253 result audit as the next step",
+      "another identical reward-extension training run",
+      "return-only repair success interpretation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+  "public_gates": [
+    "M2254 must synthesize M2246-M2253",
+    "M2254 must separate scalar return improvement from outcome repair",
+    "M2254 must classify public-gate overfit and local-search risk",
+    "M2254 must decide continue pivot stop or promote_to_next_branch",
+    "M2254 must not run reset rollout measured execution training replay PPO or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_branch_synthesis",
+    "evidence_increment": "synthesizes reward repair materialization training and outcome localization into a pivot decision",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis treats return improvement as outcome repair",
+      "stop if next route continues blind reward tweaking",
+      "stop if public-gate overfit risk is ignored",
+      "stop if branch ignores repeated offtrack-dominated outcome"
+    ],
+    "fallback_plan": [
+      "pivot to offtrack failure-slice diagnosis if scalar repair fails outcome",
+      "pivot to collision/clearance guardrail repair if collision dominates",
+      "stop current-sim repair branch if no actionable slice remains",
+      "continue only if a new branch creates evidence beyond process overhead"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local_search_guard reached high risk and M2253 showed outcome-worse reward repair",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize offtrack/recovery/corridor repair branch",
+    "admission_evidence": [
+      "M2250 trained 15 repaired runs with selected_beats_final_count 15",
+      "M2253 completed 480 repaired selected-checkpoint episodes",
+      "M2253 global success/offtrack/collision is 269/118/93",
+      "M2244 baseline global success/offtrack/collision is 277/110/93"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout in synthesis",
+      "no measured execution in synthesis",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+      "M2254 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "supported and falsified claims are explicit",
+      "public overfit/local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2254 synthesizes outcome repair evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2254."
+    ],
+    "temporal_evidence_window": "M2246-M2253 branch artifacts.",
+    "negative_result_policy": "Record outcome-worse reward repair and pivot without weakening paper or self-ID standards.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "turns complete reward repair training and outcome localization into a pivot rather than another reward tweak",
+    "paper_verdict_delta": "decides that the bounded reward repair does not support comparison and must pivot to failure-slice diagnosis",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "M2246-M2253 evidence can be synthesized into a clear branch decision that avoids return-only reward overfit.",
+  "success_criteria": [
+    "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "return improvement is separated from outcome repair",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "M2253 return improvement is overclaimed as outcome repair",
+    "next route is another similar reward tweak without slice diagnosis",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md from M2246-M2253 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+    "docs/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.md"
+  ],
+  "decision_rule": "M2254 passes if it synthesizes M2246-M2253 and pivots to a new failure-slice diagnosis branch without overclaiming.",
+  "next_blocker": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design"
+}
