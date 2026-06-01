@@ -1,0 +1,169 @@
+{
+  "id": "m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+      "docs/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit the comparison-support reset-validation result before measured-execution command design"
+    ],
+    "derived_from": [
+      "m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2121 reset-validation result must be audited before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution without reset-validation audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2122 must audit M2121 reset counts metadata guards and claim boundary",
+    "M2122 must decide whether measured-execution command design is admitted",
+    "M2122 must not run rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim measured performance",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_reset_validation_audit",
+    "evidence_increment": "audits reset-only admissibility for the materialized support-targeted panel",
+    "claim_scope": "reset-validation audit only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if reset validation fails",
+      "stop if metadata or contract checks fail",
+      "stop if audit cannot decide measured-execution design readiness",
+      "stop if audit routes directly to comparison"
+    ],
+    "fallback_plan": [
+      "route to measured-execution command design if reset validation is clean",
+      "route to reset-validator repair if schema or metadata checks fail",
+      "route to scenario repair or synthesis if reset failures dominate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2121 writes reset-validation artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support reset-validation result audit",
+    "admission_evidence": [
+      "M2121 result_class comparison_support_reset_validation_preflight_pass",
+      "M2121 reset_success_count 240",
+      "M2121 reset_failure_count 0",
+      "M2121 observation_dimension_failure_count 0",
+      "M2121 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in audit",
+      "do not rank",
+      "do not treat reset validation as policy behavior evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
+      "M2122 status queue scoreboard research log and review",
+      "one follow-up manifest for measured-execution command design or reset repair"
+    ],
+    "next_stage_criteria": [
+      "reset-validation artifact is audited",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2122 audits reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2122."
+    ],
+    "temporal_evidence_window": "M2121 reset-validation artifact.",
+    "negative_result_policy": "If reset validation fails, repair or redesign before any measured execution.",
+    "allowed_claims": [
+      "comparison-support reset-validation audit",
+      "no rollout, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits reset-validity of the new support-targeted panel",
+    "paper_verdict_delta": "can admit measured-execution command design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2122 cannot decide measured-execution readiness",
+      "M2122 routes directly to comparison without measured localization",
+      "M2122 reintroduces fixed public-gate panel repair"
+    ]
+  },
+  "hypothesis": "M2121 produced a clean reset-validation artifact that can be admitted to measured-execution command design.",
+  "success_criteria": [
+    "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md exists",
+    "M2121 artifact is audited",
+    "next route is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "reset-validation result is not classified",
+    "next route is ambiguous",
+    "new rollout or policy action is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json and write M2122 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+    "docs/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.md"
+  ],
+  "decision_rule": "M2122 passes if it audits reset validation and selects a bounded next route without rollout or ranking.",
+  "next_blocker": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design"
+}

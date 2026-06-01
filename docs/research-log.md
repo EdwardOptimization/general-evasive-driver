@@ -37346,3 +37346,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: command design only; no reset validity, rollout, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.json`
 - next: `m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run`
+
+## M2121 Paper-Route Outcome-Supported Decisive Comparison-Support Reset Validation Implementation And Run
+
+- status: completed
+- decision: `comparison_support_reset_validation_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.json`
+- run artifact: `runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json`
+- environment reset in M2121: `true`
+- rollout/measured execution in M2121: `false`
+- policy actions executed in M2121: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `2 passed`
+- result_class: `comparison_support_reset_validation_preflight_pass`
+- input_executable_spec_count: `240`
+- reset_attempt_count: `240`
+- reset_success_count: `240`
+- reset_failure_count: `0`
+- observation_finite_count: `240`
+- observation_dimension_failure_count: `0`
+- obstacle_initialized_count: `240`
+- contract_violation_count: `0`
+- metadata_missing_count: `0`
+- forbidden_key_violation_count: `0`
+- intent_quota_pass: `true`
+- source_kind_quota_pass: `true`
+- proxy_template_quota_pass: `true`
+- generated_proxy_quota_pass: `true`
+- guardrail_violation_count: `0`
+- conclusion boundary: reset validity evidence only; no rollout behavior, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- follow-up manifest: `experiments/manifests/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.json`
+- next: `m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit`
