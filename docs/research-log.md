@@ -41553,3 +41553,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.json`
 - next: `m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation`
+
+## M2309 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Target/Guardrail Slice Diagnosis Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_guarded_repair_slice_diagnosis_pass`
+- manifest: `experiments/manifests/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.json`
+- implementation doc: `docs/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.md`
+- summary: `runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis.py`
+- input_episode_count_baseline: `1080`
+- input_episode_count_candidate: `1080`
+- slice_delta_row_count: `31`
+- offtrack_target_slice_count: `20`
+- collision_guardrail_slice_count: `11`
+- repair_gate_pass: `false`
+- global_offtrack_delta: `+1`
+- global_collision_delta: `+9`
+- offtrack target nonincrease/increase: `9/20` / `11/20`
+- collision guardrail nonincrease/increase: `4/11` / `7/11`
+- guardrail_violation_count: `0`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.json`
+- next: `m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit`

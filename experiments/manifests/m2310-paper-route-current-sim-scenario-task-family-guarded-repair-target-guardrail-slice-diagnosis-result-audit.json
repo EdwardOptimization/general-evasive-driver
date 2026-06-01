@@ -1,0 +1,181 @@
+{
+  "id": "m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_diagnosis"
+    ],
+    "parent_dataset": [
+      "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
+      "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/slice_delta_rows.csv",
+      "docs/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.md",
+      "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.json"
+    ],
+    "parent_objective": [
+      "audit guarded-v2 target/guardrail slice diagnosis and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation"
+    ],
+    "blocked_by": [
+      "M2309 materializes repair_gate_pass false with global offtrack +1 collision +9 target increases 11/20 and guardrail increases 7/11"
+    ],
+    "supersedes": [
+      "another guarded-v2 scalar repair run before synthesis",
+      "profile ranking from failed repair-gate slices",
+      "interpreting selected checkpoint training metrics as repair evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+  "public_gates": [
+    "M2310 must audit M2309 completeness and repair_gate_pass",
+    "M2310 must record global offtrack and collision policy results",
+    "M2310 must record target and guardrail slice pass/fail counts",
+    "M2310 must select a concrete non-ranking next route, preferably synthesis if broad failure is confirmed",
+    "M2310 must not run training reset rollout measured execution replay PPO or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_target_guardrail_slice_diagnosis_result_audit",
+    "evidence_increment": "audits durable guarded-v2 repair-gate failure evidence and chooses whether to synthesize or pivot",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2309 artifacts are incomplete",
+      "stop if repair_gate_pass false is ignored",
+      "stop if the next route would be another scalar training tweak without synthesis",
+      "stop if audit would rank profiles from failed repair evidence"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if broad target/guardrail failure is accepted",
+      "route to bounded design only if a specific non-local-search blocker is identified",
+      "route to artifact repair if slice diagnosis has a schema defect"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2309 materialized durable target/guardrail failure evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2309 target/guardrail slice diagnosis and choose next route",
+    "admission_evidence": [
+      "M2309 result_class is current_sim_scenario_task_family_guarded_repair_slice_diagnosis_pass",
+      "M2309 slice_delta_row_count is 31",
+      "M2309 repair_gate_pass is false",
+      "M2309 global_offtrack_delta is +1 and global_collision_delta is +9",
+      "M2309 target/guardrail increase counts are 11/20 and 7/11"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+      "M2310 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2309 completeness and repair gate result are audited",
+      "target/guardrail failure counts are recorded",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2310 audits scenario-task repair failure and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2310; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2309 target/guardrail slice diagnosis artifacts.",
+    "negative_result_policy": "If guarded-v2 repair fails broadly, route to synthesis or pivot without lowering self-ID standards.",
+    "allowed_claims": [
+      "guarded-v2 target/guardrail slice diagnosis result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "turns durable target/guardrail slice evidence into a branch decision",
+    "paper_verdict_delta": "can close the guarded-v2 repair attempt as negative and force synthesis before more local search",
+    "must_synthesize_if": [
+      "M2310 confirms broad guarded-v2 repair failure",
+      "M2310 would recommend another scalar reward tweak",
+      "M2310 cannot identify a non-local-search route"
+    ]
+  },
+  "hypothesis": "M2309 provides enough durable target/guardrail evidence to decide whether the guarded-v2 repair branch should synthesize, pivot, or enter a bounded non-local repair route.",
+  "success_criteria": [
+    "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md exists",
+    "M2309 result_class is current_sim_scenario_task_family_guarded_repair_slice_diagnosis_pass",
+    "slice_delta_row_count is 31",
+    "repair_gate_pass is audited",
+    "global offtrack/collision deltas are audited",
+    "target/guardrail increase counts are audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2309 artifacts are missing",
+    "M2310 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2310 ranks profiles or selects a winner",
+    "M2310 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2310 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json and slice_delta_rows.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_diagnosis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
+    "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/slice_delta_rows.csv"
+  ],
+  "decision_rule": "M2310 passes if it audits M2309 and selects a non-ranking follow-up route before any further repair.",
+  "next_blocker": "m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2316,
+    "completed": 2317,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
+    "task_id": "m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md"
+    "run_dir": "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis",
+    "command_log": "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json"
   },
   "next_task": {
-    "id": "m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation",
-    "kind": "infrastructure",
-    "priority": 23040,
+    "id": "m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit",
+    "kind": "gate",
+    "priority": 23050,
     "status": "pending",
-    "hypothesis": "A durable artifact-only slice diagnosis can materialize the M2298 offtrack target and collision guardrail deltas for M2307 versus M2293 without rerunning policy episodes.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis --baseline-episode-rows runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv --candidate-episode-rows runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/episode_rows.csv --repair-gate-spec runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json --output-dir runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis --next-blocker m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit",
-    "success_artifact": "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
-    "notes": "Pending: implement/run artifact-only M2298 target/guardrail slice delta diagnosis over M2293 vs M2307 rows no rerun/ranking claims"
+    "hypothesis": "M2309 provides enough durable target/guardrail evidence to decide whether the guarded-v2 repair branch should synthesize, pivot, or enter a bounded non-local repair route.",
+    "command": "manual artifact audit of runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json and slice_delta_rows.csv",
+    "success_artifact": "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+    "notes": "Pending: audit M2309 repair_gate_pass false global deltas +1/+9 target increases 11/20 guardrail increases 7/11 and choose non-ranking route"
   },
-  "updated_at_utc": "20260601T221736Z"
+  "updated_at_utc": "20260601T222423Z"
 }
