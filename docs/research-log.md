@@ -37602,3 +37602,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: qualification design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.json`
 - next: `m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation`
+
+## M2131 Paper-Route Outcome-Supported Decisive Comparison-Support Candidate Qualification Implementation
+
+- status: completed
+- decision: `comparison_support_candidate_qualification_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.json`
+- doc: `docs/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md`
+- run artifact: `runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json`
+- focused tests: `3 passed`
+- reset/rollout/measured execution in M2131: `false`
+- policy actions executed in M2131: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result_class: `comparison_support_candidate_qualification_pass`
+- source candidate counts: ready `15`, support `37`, support-file rows `52`
+- qualified/diagnostic candidates: `15` / `37`
+- qualified axis coverage: `true`; source_kind `6`, intent `3`, target_support_tier `1`
+- rejection reasons: not_comparison_ready `37`, insufficient_profile_coverage `23`, offtrack_rate_too_high `22`, insufficient_source_coverage `12`, insufficient_success_count `8`
+- guardrail_violation_count: `0`
+- conclusion boundary: qualification artifact only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json`
+- next: `m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2139,
+    "completed": 2140,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md",
+    "command_log": "docs/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md",
+    "run_dir": "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification",
     "status": "completed",
-    "task_id": "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design"
+    "task_id": "m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.json",
-    "hypothesis": "A no-rerun qualifier can turn M2128 localized support into a bounded set of qualified candidate slices while preserving claim boundaries.",
-    "id": "m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun qualification over M2128 support artifacts without ranking",
-    "priority": 21260,
+    "command": "see experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json",
+    "hypothesis": "M2131 qualification produced enough qualified candidates to admit controlled comparison-panel design, but not direct ranking or paper claims.",
+    "id": "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2131 qualification before comparison-panel design or synthesis",
+    "priority": 21270,
     "status": "pending",
-    "success_artifact": "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json"
+    "success_artifact": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md"
   },
-  "updated_at_utc": "20260601T032800Z"
+  "updated_at_utc": "20260601T033100Z"
 }
