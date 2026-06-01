@@ -41777,3 +41777,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.json`
 - next: `m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation`
+
+## M2318 Paper-Route Current-Sim Scenario Task-Family Role Success Semantics Repair Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_role_success_semantics_repair_pass`
+- manifest: `experiments/manifests/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.json`
+- implementation doc: `docs/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.md`
+- summary: `runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json`
+- helper: `src/autodrift/paper_route_current_sim_scenario_task_family_role_success_semantics.py`
+- rescore runner: `src/autodrift/paper_route_current_sim_scenario_task_family_role_success_semantics_repair.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_role_success_semantics.py`
+- input/rescored episode count: `1080/1080`
+- baseline support labels clear/mixed/blocked/metric: `12/26/21/13`
+- repaired support labels clear/mixed/blocked/metric: `24/26/21/1`
+- support_clear_delta / metric_conflict_delta: `12/-12`
+- R0 support_clear / metric_conflict: `12/0`
+- R0 safe_stop_success / AEB role_success: `62/60`
+- non_r0_safe_stop_success_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/policy action in M2318: `false`
+- training/replay/PPO in M2318: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.json`
+- next: `m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis`

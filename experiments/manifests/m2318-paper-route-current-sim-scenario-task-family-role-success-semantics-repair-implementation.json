@@ -153,7 +153,7 @@
     "R0 support_clear count is 12 under repaired semantics",
     "R0 metric_conflict count is 0 under repaired semantics",
     "guardrail_violation_count is 0",
-    "a follow-up result-audit manifest is selected"
+    "a follow-up branch-synthesis manifest is selected"
   ],
   "failure_criteria": [
     "M2318 starts new training reset rollout measured execution replay PPO or private holdout",
@@ -169,7 +169,7 @@
     },
     {
       "name": "rescore",
-      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics_repair --config configs/paper_route_current_sim_scenario_task_family_v0.json --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --output-dir runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair --target-episode-count 1080 --target-scenario-spec-count 72 --next-blocker m2319-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-result-audit"
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics_repair --config configs/paper_route_current_sim_scenario_task_family_v0.json --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --output-dir runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair --target-episode-count 1080 --target-scenario-spec-count 72 --next-blocker m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis"
     }
   ],
   "required_artifacts": [
@@ -190,5 +190,5 @@
     "configs/paper_route_current_sim_scenario_task_family_v0.json"
   ],
   "decision_rule": "M2318 passes if bounded R0 safe-stop success semantics are implemented and artifact-only rescore converts R0 to support_clear without guardrail violations.",
-  "next_blocker": "m2319-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-result-audit"
+  "next_blocker": "m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis"
 }

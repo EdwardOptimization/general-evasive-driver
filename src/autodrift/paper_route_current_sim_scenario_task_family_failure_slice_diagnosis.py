@@ -11,6 +11,11 @@ from typing import Any, Iterable, Mapping, Sequence
 import numpy as np
 
 from autodrift.artifacts import read_json, utc_timestamp, write_csv_rows, write_json
+from autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics import (
+    is_collision as role_is_collision,
+    is_offtrack as role_is_offtrack,
+    role_success,
+)
 
 
 DEFAULT_SUMMARY = Path("runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json")
@@ -128,21 +133,15 @@ def _min(values: Sequence[Any]) -> float | None:
 
 
 def _is_success(row: Mapping[str, Any]) -> bool:
-    if "success" in row:
-        return _bool(row.get("success"))
-    return str(row.get("outcome_bucket", "")) == "success_obstacle_pass" or (
-        _bool(row.get("obstacle_completed")) and not _bool(row.get("collision"))
-    )
+    return role_success(row)
 
 
 def _is_collision(row: Mapping[str, Any]) -> bool:
-    return str(row.get("outcome_bucket", "")) == "collision_failure" or _bool(row.get("collision"))
+    return role_is_collision(row)
 
 
 def _is_offtrack(row: Mapping[str, Any]) -> bool:
-    return str(row.get("outcome_bucket", "")) == "off_track_noncollision_noncompletion" or str(
-        row.get("termination_reason", "")
-    ) == "off_track"
+    return role_is_offtrack(row)
 
 
 def _is_max_step(row: Mapping[str, Any]) -> bool:

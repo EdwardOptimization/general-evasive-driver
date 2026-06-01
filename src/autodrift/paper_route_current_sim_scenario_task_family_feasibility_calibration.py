@@ -15,6 +15,13 @@ from autodrift.config import build_env_config
 from autodrift.controller_family_full_rollout_execution import write_run_state
 from autodrift.env import AutoDriftEnv
 from autodrift.evaluate import run_episode_with_policy
+from autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics import (
+    annotate_role_success,
+    bool_value as role_bool_value,
+    is_collision as role_is_collision,
+    is_offtrack as role_is_offtrack,
+    role_success,
+)
 from autodrift.policies import make_policy
 
 
@@ -94,6 +101,10 @@ EPISODE_FIELDNAMES = [
     "steps",
     "terminated",
     "truncated",
+    "raw_success",
+    "role_success",
+    "role_success_reason",
+    "role_success_outcome_bucket",
     "success",
     "collision",
     "obstacle_completed",
@@ -248,9 +259,7 @@ def _min(values: Iterable[Any]) -> float | None:
 
 
 def _episode_success(row: Mapping[str, Any]) -> bool:
-    if "success" in row:
-        return _bool(row.get("success"))
-    return _bool(row.get("obstacle_completed")) and not _bool(row.get("collision"))
+    return role_success(row)
 
 
 def _failure_counts(rows: Sequence[Mapping[str, Any]]) -> dict[str, int]:
@@ -260,9 +269,9 @@ def _failure_counts(rows: Sequence[Mapping[str, Any]]) -> dict[str, int]:
         termination_reason = str(row.get("termination_reason", ""))
         if bucket == "success_obstacle_pass" or _episode_success(row):
             counts["success"] += 1
-        elif bucket == "collision_failure" or _bool(row.get("collision")):
+        elif bucket == "collision_failure" or role_is_collision(row):
             counts["collision"] += 1
-        elif bucket == "off_track_noncollision_noncompletion" or termination_reason == "off_track":
+        elif bucket == "off_track_noncollision_noncompletion" or role_is_offtrack(row):
             counts["offtrack"] += 1
         elif bucket == "max_steps_noncompletion" or _bool(row.get("truncated")):
             counts["max_step_noncompletion"] += 1
@@ -487,10 +496,15 @@ def support_episode_row(
     row.update(_workload_metadata(workload_row))
     row.update(_scenario_metadata(scenario_spec))
     row.update(support_policy_metadata(support_policy_name))
+    success_annotation = annotate_role_success(row)
     row.update(
         {
             "eval_seed": int(eval_seed),
-            "success": _episode_success(row),
+            "raw_success": success_annotation["raw_success"],
+            "role_success": success_annotation["role_success"],
+            "role_success_reason": success_annotation["role_success_reason"],
+            "role_success_outcome_bucket": success_annotation["role_success_outcome_bucket"],
+            "success": success_annotation["success"],
             "reset_sampled_obstacle_label": reset_label,
             "sampled_label_matches_spec": reset_label == spec_label,
             "environment_rollout_started": True,
@@ -769,8 +783,8 @@ def finalize_outputs(
     scenario_spec_count = len({str(row.get("scenario_spec_id", "")) for row in episode_rows})
     support_policy_count = len({str(row.get("support_policy_name", "")) for row in episode_rows})
     seed_repeat_count = len({str(row.get("seed_repeat_index", "")) for row in episode_rows})
-    ranking_admissible_count = sum(_bool(row.get("ranking_admissible"), default=False) for row in episode_rows)
-    winner_selected_count = sum(_bool(row.get("winner_selected"), default=False) for row in episode_rows)
+    ranking_admissible_count = sum(role_bool_value(row.get("ranking_admissible"), default=False) for row in episode_rows)
+    winner_selected_count = sum(role_bool_value(row.get("winner_selected"), default=False) for row in episode_rows)
     passes = (
         len(episode_rows) == int(target_episode_count)
         and len(failure_rows) == 0

@@ -21,6 +21,12 @@ from autodrift.controller_family_full_rollout_execution import (
 from autodrift.controller_profile_runtime import profile_runtime_summary, wrap_env_with_profile_mask
 from autodrift.env import AutoDriftEnv
 from autodrift.evaluate import ActorPolicy, run_episode_with_policy
+from autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics import (
+    annotate_role_success,
+    is_collision as role_is_collision,
+    is_offtrack as role_is_offtrack,
+    role_success,
+)
 
 
 DEFAULT_CONFIG = Path("configs/paper_route_current_sim_scenario_task_family_v0.json")
@@ -100,6 +106,10 @@ EPISODE_FIELDNAMES = [
     "steps",
     "terminated",
     "truncated",
+    "raw_success",
+    "role_success",
+    "role_success_reason",
+    "role_success_outcome_bucket",
     "success",
     "collision",
     "obstacle_completed",
@@ -205,9 +215,7 @@ def _finite(value: Any) -> bool:
 
 
 def _episode_success(row: Mapping[str, Any]) -> bool:
-    if "success" in row:
-        return _bool(row.get("success"))
-    return _bool(row.get("obstacle_completed")) and not _bool(row.get("collision"))
+    return role_success(row)
 
 
 def _metric_value(row: Mapping[str, Any], metric: str) -> float:
@@ -436,9 +444,9 @@ def _failure_counts(rows: Sequence[Mapping[str, Any]]) -> dict[str, int]:
         termination_reason = str(row.get("termination_reason", ""))
         if bucket == "success_obstacle_pass" or _episode_success(row):
             counts["success"] += 1
-        elif bucket == "collision_failure" or _bool(row.get("collision")):
+        elif bucket == "collision_failure" or role_is_collision(row):
             counts["collision"] += 1
-        elif bucket == "off_track_noncollision_noncompletion" or termination_reason == "off_track":
+        elif bucket == "off_track_noncollision_noncompletion" or role_is_offtrack(row):
             counts["offtrack"] += 1
         elif bucket == "max_steps_noncompletion" or _bool(row.get("truncated")):
             counts["max_step_noncompletion"] += 1
@@ -564,10 +572,15 @@ def measured_episode_row(
     reset_label = str(row.get("obstacle_label", row.get("sampled_obstacle_label", "")))
     spec_label = str(scenario_spec.get("sampled_obstacle_label", ""))
     row.update(metadata)
+    success_annotation = annotate_role_success(row)
     row.update(
         {
             "eval_seed": int(eval_seed),
-            "success": _episode_success(row),
+            "raw_success": success_annotation["raw_success"],
+            "role_success": success_annotation["role_success"],
+            "role_success_reason": success_annotation["role_success_reason"],
+            "role_success_outcome_bucket": success_annotation["role_success_outcome_bucket"],
+            "success": success_annotation["success"],
             "reset_sampled_obstacle_label": reset_label,
             "sampled_label_matches_spec": reset_label == spec_label,
             "scenario_task_family_measured_execution": True,

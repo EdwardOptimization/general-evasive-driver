@@ -1,0 +1,208 @@
+{
+  "id": "m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+      "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+      "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
+      "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize feasibility-calibration branch after role-success semantics repair"
+    ],
+    "derived_from": [
+      "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design",
+      "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
+      "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
+      "m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation"
+    ],
+    "blocked_by": [
+      "local-search guard requires synthesis after feasibility-calibration branch reached non-evidence milestone limit",
+      "M2318 repaired R0 metric semantics but R2-R5 residual support structure remains"
+    ],
+    "supersedes": [
+      "ordinary result audit after M2318 without branch synthesis",
+      "direct training or ranking from repaired support labels",
+      "another metric-semantics micro-audit before branch-level decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
+  "public_gates": [
+    "M2319 must answer the standard synthesis questions",
+    "M2319 must audit whether M2318 accepts the R0 safe-stop semantics repair",
+    "M2319 must classify remaining R2-R5 support structure",
+    "M2319 must decide continue pivot stop or promote_to_next_branch",
+    "M2319 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim R2-R5 support solved"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_feasibility_calibration_branch_synthesis_after_metric_repair",
+    "evidence_increment": "synthesizes support-policy calibration, metric-semantics diagnosis, and bounded role-success repair before choosing the next branch",
+    "claim_scope": "branch synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis ignores residual R2-R5 support-blocked rows",
+      "stop if synthesis routes directly to training or ranking",
+      "stop if synthesis treats R0 repair as driver performance evidence"
+    ],
+    "fallback_plan": [
+      "continue to residual support audit/design if R0 repair is accepted and R2-R5 remain structured",
+      "pivot to scenario role redesign if residual support structure means the current pack is not a fair target",
+      "stop for user review if no non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local-search guard requires synthesis after M2318 role-success semantics repair",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize feasibility-calibration branch after role-success semantics repair",
+    "admission_evidence": [
+      "M2313 completed 1080 support-policy diagnostic episodes",
+      "M2315 separated safe-stop metric conflicts from residual support-blocked rows",
+      "M2318 repaired R0 support labels to support_clear 12/12",
+      "M2318 reports residual R2-R5 support-blocked/mixed structure remains"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
+      "M2319 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis decision is one of continue pivot stop promote_to_next_branch",
+      "supported and falsified claims are explicit",
+      "next route is selected without experiment execution"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2319 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2319; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2312-M2318 feasibility-calibration artifacts.",
+    "negative_result_policy": "If residual support remains weak, redesign task support before interpreting driver failure or self-ID evidence.",
+    "allowed_claims": [
+      "feasibility-calibration branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates support-policy panel, safe-stop metric diagnosis, and role-success repair before a new branch decision",
+    "paper_verdict_delta": "can accept R0 repair and decide whether residual support needs task redesign before current-sim comparison",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2312-M2318 will show that R0 metric semantics are repaired and the next non-ranking route should focus on residual R2-R5 support structure.",
+  "success_criteria": [
+    "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis accepts or rejects M2318 R0 repair",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2319 omits a required synthesis question",
+    "M2319 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2319 ranks profiles or selects a winner",
+    "M2319 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2319 treats residual R2-R5 support rows as solved without evidence"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md from M2312-M2318 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json",
+    "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/role_support_summary_rescored.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+    "docs/current-status.md",
+    "experiments/research_status.json"
+  ],
+  "decision_rule": "M2319 passes if it writes the required synthesis and selects a non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2319_synthesis"
+}
