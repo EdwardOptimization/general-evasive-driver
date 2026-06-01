@@ -1,0 +1,161 @@
+{
+  "id": "m2176-paper-route-current-sim-training-seed-repeat-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/profile_aggregate.csv",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/task_family_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design multi-training-seed repeat to test whether M2174 profile differences are stable"
+    ],
+    "derived_from": [
+      "m2175-paper-route-current-sim-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2175 classifies M2174 as one-seed smoke evidence and not ranking-ready"
+    ],
+    "supersedes": [
+      "direct controller ranking from M2174 one-seed aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+  "public_gates": [
+    "M2176 must freeze a multi-training-seed repeat design",
+    "M2176 must preserve the same 40 specs and 8 profile definitions",
+    "M2176 must keep L3_reset_control as same-seed alias to L3_online_gru",
+    "M2176 must not train, rerun measured execution, rank profiles, or claim paper evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not rerun measured execution",
+    "do not change actor inputs",
+    "do not change profile definitions",
+    "do not use profile-specific tuning",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_training_seed_repeat_design",
+    "evidence_increment": "turns one-seed measured execution into a controlled repeat plan",
+    "claim_scope": "repeat design only; no training measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repeat seeds or budgets are ambiguous",
+      "stop if repeat changes task specs or profile definitions",
+      "stop if reset-control alias policy is not same-seed",
+      "stop if design enables ranking without audited repeat results"
+    ],
+    "fallback_plan": [
+      "route to repeat materialization implementation if design is complete",
+      "route to synthesis if repeat scope is too large for current branch",
+      "route to task-quality repair design if repeat would not address offtrack dominance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2175 audit routes to training-seed repeat design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design controlled repeat protocol for training seed reliability",
+    "admission_evidence": [
+      "M2175 audits M2174 as complete but one-seed and offtrack-dominated",
+      "M2174 produces nontrivial profile-dependent behavior but not paper-grade comparison"
+    ],
+    "blocked_shortcuts": [
+      "no training in design",
+      "no measured execution in design",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+      "M2176 status queue scoreboard research log and review",
+      "one follow-up manifest for repeat materialization implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "repeat seed set is explicit",
+      "training budget policy is explicit",
+      "workload/eval seed reuse policy is explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2176 designs reliability repeats and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2176."
+    ],
+    "temporal_evidence_window": "M2174 measured execution and M2175 audit.",
+    "negative_result_policy": "If repeats are unstable, classify seed fragility instead of ranking profiles.",
+    "allowed_claims": [
+      "training-seed repeat design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds reliability axis by planning repeat seeds rather than optimizing the observed one-seed result",
+    "paper_verdict_delta": "can admit repeat-data generation but cannot decide final comparison",
+    "must_synthesize_if": [
+      "M2176 cannot define repeat seeds and budgets",
+      "M2176 would rank profiles from M2174 alone",
+      "M2176 expands into unrelated task redesign"
+    ]
+  },
+  "hypothesis": "A controlled repeat design can test whether M2174 profile differences survive training-seed variation without changing tasks, inputs, or profiles.",
+  "success_criteria": [
+    "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md exists",
+    "repeat seed set is explicit",
+    "training budget and profile alias policy are explicit",
+    "evaluation workload and eval seed reuse policy are explicit",
+    "no training rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "repeat seeds are ambiguous",
+    "profile definitions or actor inputs change",
+    "reset-control alias policy is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2176-paper-route-current-sim-training-seed-repeat-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2176 passes if it freezes a repeat protocol that can test training-seed reliability before any ranking or paper claim.",
+  "next_blocker": "m2176-paper-route-current-sim-training-seed-repeat-design"
+}

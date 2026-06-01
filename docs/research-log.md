@@ -38664,3 +38664,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: complete measured execution evidence exists, but raw outcomes require audit before comparison or repair routing
 - follow-up manifest: `experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json`
 - next: `m2175-paper-route-current-sim-measured-execution-result-audit`
+
+## M2175 Paper-Route Current-Sim Measured Execution Result Audit
+
+- status: completed
+- decision: `current_sim_measured_execution_audit_route_to_training_seed_repeat_design`
+- manifest: `experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json`
+- audit artifact: `docs/m2175-paper-route-current-sim-measured-execution-result-audit.md`
+- audited summary: `runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json`
+- rerun: `false`
+- execution completeness: `320` episodes, `0` failures, `40` specs, `8` profiles, guardrail `0`
+- raw outcomes: `63` success, `20` collision, `237` offtrack noncompletion
+- active limitation: one training seed per trainable profile and smoke-scale checkpoints
+- secondary limitation: offtrack-dominated outcome distribution
+- training/replay/PPO in audit: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to controlled training-seed repeat design before ranking or paper comparison
+- follow-up manifest: `experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json`
+- next: `m2176-paper-route-current-sim-training-seed-repeat-design`

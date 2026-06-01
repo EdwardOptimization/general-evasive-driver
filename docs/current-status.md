@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2174-paper-route-current-sim-measured-execution-implementation-and-run
+m2175-paper-route-current-sim-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2175-paper-route-current-sim-measured-execution-result-audit
+m2176-paper-route-current-sim-training-seed-repeat-design
 ```
 
-Immediate route: M2174 completes the 320-cell current-sim measured execution:
-`320` episodes, `0` failures, `40` specs, `8` profiles, metric completeness
-failures `0`, quota pass, and guardrail `0`. Raw outcomes are
-offtrack-dominated (`63` success, `20` collision, `237` offtrack
-noncompletion), so M2175 must audit the result before any comparison or repair
-route. Controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked until later audited evidence supports them.
+Immediate route: M2175 audits M2174 as clean execution-completeness evidence
+but not ranking-ready evidence. The run has `320` episodes and `0` failures,
+but it is one training seed per trainable profile and offtrack-dominated (`63`
+success, `20` collision, `237` offtrack noncompletion). M2176 must design a
+controlled training-seed repeat before any controller comparison. Controller
+ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
+blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

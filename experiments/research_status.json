@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2182,
+    "completed": 2183,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+    "command_log": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution",
+    "run_dir": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2174-paper-route-current-sim-measured-execution-implementation-and-run"
+    "task_id": "m2175-paper-route-current-sim-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json",
-    "hypothesis": "The M2174 measured execution can be audited into a clear next route without overclaiming raw aggregate profile differences.",
-    "id": "m2175-paper-route-current-sim-measured-execution-result-audit",
+    "command": "see experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json",
+    "hypothesis": "A controlled repeat design can test whether M2174 profile differences survive training-seed variation without changing tasks, inputs, or profiles.",
+    "id": "m2176-paper-route-current-sim-training-seed-repeat-design",
     "kind": "gate",
-    "notes": "Pending: audit current-sim measured execution result",
-    "priority": 21700,
+    "notes": "Pending: design training-seed repeat protocol",
+    "priority": 21710,
     "status": "pending",
-    "success_artifact": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md"
+    "success_artifact": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md"
   },
-  "updated_at_utc": "20260601T082313Z"
+  "updated_at_utc": "20260601T082744Z"
 }

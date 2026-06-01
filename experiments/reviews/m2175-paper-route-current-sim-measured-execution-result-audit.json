@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M2175 audits M2174 as complete measured execution but one-seed smoke and offtrack dominated routes to training-seed repeat design no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "audit document is missing",
+    "M2174 result is not audited",
+    "raw aggregate values are turned into profile ranking",
+    "outcome support blocker is ignored",
+    "rerun or training starts"
+  ],
+  "failure_types": [],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not rerun measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T082926Z",
+  "hypothesis": "The M2174 measured execution can be audited into a clear next route without overclaiming raw aggregate profile differences.",
+  "lineage": {
+    "blocked_by": [
+      "M2174 measured execution must be audited before comparison design or repair"
+    ],
+    "derived_from": [
+      "m2174-paper-route-current-sim-measured-execution-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_audit_uses_existing_m2174_outputs"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2174-paper-route-current-sim-measured-execution-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/profile_aggregate.csv",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/history_representation_aggregate.csv"
+    ],
+    "parent_objective": [
+      "audit current-sim measured execution completeness and raw outcome distribution before interpretation"
+    ],
+    "supersedes": [
+      "direct profile ranking from raw aggregates"
+    ]
+  },
+  "milestone": "m2175-paper-route-current-sim-measured-execution-result-audit",
+  "next_blocker": "m2175-paper-route-current-sim-measured-execution-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_measured_execution_audit_route_to_training_seed_repeat_design",
+  "public_gates": [
+    "M2175 must audit M2174 summary and aggregates without rerun",
+    "M2175 must classify execution completeness and raw outcome support",
+    "M2175 must decide next route without ranking controller families",
+    "M2175 must not claim paper-level evidence or finite-window vs GRU verdict"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_measured_execution_audit_route_to_training_seed_repeat_design",
+    "milestone": "m2175-paper-route-current-sim-measured-execution-result-audit",
+    "reason": "M2175 audits M2174 as complete measured execution but one-seed smoke and offtrack dominated routes to training-seed repeat design no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "0.196875",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md exists",
+    "M2174 completeness gates are audited",
+    "raw outcome support is classified",
+    "next route is explicit",
+    "no rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}
