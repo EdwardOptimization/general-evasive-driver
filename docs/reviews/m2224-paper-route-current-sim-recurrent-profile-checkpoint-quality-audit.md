@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T124900Z
+- Generated at UTC: 20260601T125600Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2224 pending no-rerun per-profile checkpoint-quality and failure-metric join audit no ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_recurrent_profile_checkpoint_quality_audit_pass_route_to_result_audit
+- Decision reason: M2224 no-rerun quality audit pass L3 online/reset success 0/0 share weak 1024-step checkpoint eval termination 0.6 final train termination 1.0 L2_window_25 success 360 matched-budget training needed true ranking_admissible 0 guardrail 0 no FW-vs-GRU verdict
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ Existing checkpoint train/eval artifacts can explain whether L3 zero-success is 
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2224 pending no-rerun per-profile checkpoint-quality and failure-metric join audit no ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_recurrent_profile_checkpoint_quality_audit_pass_route_to_result_audit
+- reason: M2224 no-rerun quality audit pass L3 online/reset success 0/0 share weak 1024-step checkpoint eval termination 0.6 final train termination 1.0 L2_window_25 success 360 matched-budget training needed true ranking_admissible 0 guardrail 0 no FW-vs-GRU verdict
 
 ## Next Blocker
 

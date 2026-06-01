@@ -39753,3 +39753,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: profile/provenance/alias/hidden-reset routing is structurally clean; route to checkpoint-quality/training-lineage audit because L3 checkpoint is smoke-scale and weak
 - follow-up manifest: `experiments/manifests/m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit.json`
 - next: `m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit`
+
+## M2224 Paper-Route Current-Sim Recurrent Profile Checkpoint Quality Audit
+
+- status: completed
+- decision: `current_sim_recurrent_profile_checkpoint_quality_audit_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit.json`
+- run artifact: `runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_recurrent_profile_checkpoint_quality_audit.py`
+- focused tests: `1 passed`
+- profile_count: `8`
+- join_row_count: `8`
+- l3_online_total_train_steps: `1024`
+- l3_online_eval_termination_rate: `0.6`
+- l3_online_final_train_termination_rate: `1.0`
+- l3_online_weak_eval_flag: `true`
+- l3_online_weak_train_flag: `true`
+- l3_online_diagnostic_success_count: `0`
+- l3_reset_checkpoint_source_profile_name: `L3_online_gru`
+- l3_reset_aliases_online_checkpoint: `true`
+- l3_reset_diagnostic_success_count: `0`
+- l2_window_25_diagnostic_success_count: `360`
+- l3_weak_checkpoint_plausible: `true`
+- matched_budget_training_needed: `true`
+- ranking_admissible_count: `0`
+- winner_selected: `false`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: L3 online/reset share a weak smoke-scale checkpoint; route to result audit before matched-budget training design
+- follow-up manifest: `experiments/manifests/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.json`
+- next: `m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit`

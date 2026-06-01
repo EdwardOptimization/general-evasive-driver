@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2231,
+    "completed": 2232,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
+    "command_log": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
+    "run_dir": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit",
     "status": "completed",
-    "task_id": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit"
+    "task_id": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_recurrent_profile_checkpoint_quality_audit --checkpoint-materialization-dir runs/m2171_paper_route_current_sim_checkpoint_profile_materialization --failure-metrics runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_failure_metric_summary.csv --output-dir runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit",
-    "hypothesis": "Existing checkpoint train/eval artifacts can explain whether L3 zero-success is driven by weak smoke checkpoint quality before any rerun or ranking.",
-    "id": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rerun checkpoint-quality/failure-metric audit for recurrent-profile blocker",
-    "priority": 22190,
+    "command": "write docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
+    "hypothesis": "M2224 checkpoint-quality artifacts can be audited into a matched-budget training or stop decision without rerun or ranking.",
+    "id": "m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2224 weak L3 checkpoint evidence and route to matched-budget training design or other bounded next step",
+    "priority": 22200,
     "status": "pending",
-    "success_artifact": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json"
+    "success_artifact": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md"
   },
-  "updated_at_utc": "20260601T124629Z"
+  "updated_at_utc": "20260601T125359Z"
 }

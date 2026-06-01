@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2223-paper-route-current-sim-recurrent-profile-artifact-audit
+m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit
 ```
 
 Current next task:
 
 ```text
-m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit
+m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -60,9 +60,14 @@ runtime routing structurally clean: `L3_reset_control` intentionally aliases
 `human_view_online_gru`, obs dim `72`, and recurrent. The remaining blocker is
 checkpoint quality/training lineage: the L3 checkpoint is smoke-scale
 (`1024` steps) with eval termination rate `0.6` and final train termination
-rate `1.0`. M2224 must now aggregate per-profile checkpoint-quality and
-failure-metric evidence before any training design, rerun, ranking, paper
-claims, finite-window vs GRU verdict, or self-ID claim.
+rate `1.0`. M2224 aggregates per-profile checkpoint-quality and failure-metric
+evidence: `8` profiles joined, `L3_online_gru` and `L3_reset_control` success
+`0/0`, reset aliases the online checkpoint, `L3_online_gru` weak eval/train
+flags are true, `L2_window_25` diagnostic success count is `360`,
+`matched_budget_training_needed=true`, `ranking_admissible_count=0`, and
+guardrail `0`. M2225 must audit this result before any matched-budget training
+design, rerun, ranking, paper claims, finite-window vs GRU verdict, or self-ID
+claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

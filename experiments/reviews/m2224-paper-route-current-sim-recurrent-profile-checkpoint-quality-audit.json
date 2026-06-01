@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2224 pending no-rerun per-profile checkpoint-quality and failure-metric join audit no ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2224 no-rerun quality audit pass L3 online/reset success 0/0 share weak 1024-step checkpoint eval termination 0.6 final train termination 1.0 L2_window_25 success 360 matched-budget training needed true ranking_admissible 0 guardrail 0 no FW-vs-GRU verdict",
   "failure_criteria": [
     "summary is missing",
     "per-profile quality table is missing",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T124900Z",
+  "generated_at_utc": "20260601T125600Z",
   "hypothesis": "Existing checkpoint train/eval artifacts can explain whether L3 zero-success is driven by weak smoke checkpoint quality before any rerun or ranking.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit",
   "next_blocker": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_recurrent_profile_checkpoint_quality_audit_pass_route_to_result_audit",
   "public_gates": [
     "M2224 must use only existing checkpoint/profile/training/eval/failure artifacts",
     "M2224 must write per-profile checkpoint-quality and failure-metric summary artifacts",
@@ -75,9 +75,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_recurrent_profile_checkpoint_quality_audit_pass_route_to_result_audit",
     "milestone": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit",
-    "reason": "M2224 pending no-rerun per-profile checkpoint-quality and failure-metric join audit no ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2224 no-rerun quality audit pass L3 online/reset success 0/0 share weak 1024-step checkpoint eval termination 0.6 final train termination 1.0 L2_window_25 success 360 matched-budget training needed true ranking_admissible 0 guardrail 0 no FW-vs-GRU verdict",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
