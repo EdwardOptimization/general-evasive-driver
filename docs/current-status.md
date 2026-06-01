@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design
+m2180-paper-route-current-sim-repeat-readiness-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2180-paper-route-current-sim-repeat-readiness-branch-synthesis
+m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation
 ```
 
-Immediate route: M2179 designs the repeat metadata extension for the measured
-runner. The fields are optional for non-repeat workloads, but when present they
-must be complete and preserved: `training_repeat_id`, seed group, profile seed,
-checkpoint source, materialization mode, and base workload id. The workflow
-synthesis cadence is now reached, so M2180 must synthesize the repeat-readiness
-branch before any runner implementation continues. Real repeat measured
-execution, controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked until later audited evidence supports them.
+Immediate route: M2180 synthesizes M2175-M2179 and chooses `continue`. The
+branch has complete one-seed measured execution, two additional repeat seed
+groups materialized, and one narrow active blocker: preserve repeat metadata in
+the measured runner before repeat rollout. M2181 may implement that focused
+runner metadata patch and tests only. Real repeat measured execution,
+controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
+claims remain blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

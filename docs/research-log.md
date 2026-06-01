@@ -38779,3 +38779,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to required branch synthesis before focused measured-runner metadata extension implementation
 - follow-up manifest: `experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json`
 - next: `m2180-paper-route-current-sim-repeat-readiness-branch-synthesis`
+
+## M2180 Paper-Route Current-Sim Repeat-Readiness Branch Synthesis
+
+- status: completed
+- decision: `current_sim_repeat_readiness_synthesis_continue_to_metadata_extension_implementation`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json`
+- synthesis artifact: `docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md`
+- synthesis window: `M2175-M2179`
+- implementation in M2180: `false`
+- measured execution in M2180: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported: original 320-cell measured execution completes, two new repeat groups are materialized, and the remaining blocker is runner metadata preservation
+- still unsupported: profile ranking, paper-level comparison, finite-window vs GRU verdict, and level3 self-ID
+- next branch decision: continue to focused metadata extension implementation
+- follow-up manifest: `experiments/manifests/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.json`
+- next: `m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2187,
+    "completed": 2188,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
+    "command_log": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
+    "run_dir": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design"
+    "task_id": "m2180-paper-route-current-sim-repeat-readiness-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json",
-    "hypothesis": "The current-sim repeat-readiness branch can be synthesized into a clear continue/pivot/stop decision before further implementation.",
-    "id": "m2180-paper-route-current-sim-repeat-readiness-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: required branch synthesis before metadata implementation",
-    "priority": 21750,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py",
+    "hypothesis": "A narrow measured-runner patch can preserve repeat metadata while keeping non-repeat workloads compatible and measured execution blocked.",
+    "id": "m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement repeat metadata-preserving runner patch",
+    "priority": 21760,
     "status": "pending",
-    "success_artifact": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md"
+    "success_artifact": "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md"
   },
-  "updated_at_utc": "20260601T084918Z"
+  "updated_at_utc": "20260601T085638Z"
 }
