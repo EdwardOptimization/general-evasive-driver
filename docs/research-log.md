@@ -38737,3 +38737,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: repeat materialization ready for audit before repeat measured execution command design
 - follow-up manifest: `experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json`
 - next: `m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit`
+
+## M2178 Paper-Route Current-Sim Training-Seed Repeat Materialization Result Audit
+
+- status: completed
+- decision: `current_sim_repeat_materialization_audit_route_to_metadata_preserving_runner_design`
+- manifest: `experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json`
+- audit artifact: `docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md`
+- audited summary: `runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json`
+- repeat materialization result: clean
+- new workload rows/checkpoint paths existing: `640/640`
+- reset-control trained count: `0`
+- guardrail violation count: `0`
+- measured execution in audit: `false`
+- active blocker: measured runner does not preserve `training_repeat_id` and related repeat metadata as first-class episode/failure columns
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to repeat metadata-preserving runner design before repeat measured execution command design
+- follow-up manifest: `experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json`
+- next: `m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design`

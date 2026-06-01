@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2185,
+    "completed": 2186,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
+    "command_log": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization",
+    "run_dir": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run"
+    "task_id": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json",
-    "hypothesis": "The M2177 repeat materialized panel is clean enough to admit repeat measured execution command design while keeping ranking blocked.",
-    "id": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit",
+    "command": "see experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json",
+    "hypothesis": "A narrow measured-runner metadata extension can preserve repeat fields as first-class episode/failure metadata before repeat rollout.",
+    "id": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design",
     "kind": "gate",
-    "notes": "Pending: audit repeat materialization result",
-    "priority": 21730,
+    "notes": "Pending: design repeat metadata-preserving measured runner extension",
+    "priority": 21740,
     "status": "pending",
-    "success_artifact": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md"
+    "success_artifact": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md"
   },
-  "updated_at_utc": "20260601T084051Z"
+  "updated_at_utc": "20260601T084524Z"
 }

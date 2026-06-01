@@ -1,0 +1,156 @@
+{
+  "id": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv",
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured-runner metadata extension before repeat measured execution"
+    ],
+    "derived_from": [
+      "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2178 identifies repeat metadata preservation gap in measured runner"
+    ],
+    "supersedes": [
+      "repeat measured execution relying on workload_id parsing"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
+  "public_gates": [
+    "M2179 must design a metadata-preserving measured-runner extension",
+    "M2179 must enumerate repeat metadata fields",
+    "M2179 must define focused fake-rollout tests",
+    "M2179 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_metadata_preservation_design",
+    "evidence_increment": "designs the runner metadata repair required before repeat measured execution",
+    "claim_scope": "runner metadata design only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repeat metadata fields are not explicit",
+      "stop if design changes task/profile semantics",
+      "stop if design would run measured execution",
+      "stop if validation must rely only on workload_id parsing"
+    ],
+    "fallback_plan": [
+      "route to metadata extension implementation if design is complete",
+      "route to repeat materialization repair if field names are inconsistent",
+      "route to synthesis if metadata repair expands beyond runner boundary"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2178 audit routes to metadata-preserving runner design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design repeat metadata preservation in measured runner",
+    "admission_evidence": [
+      "M2178 audits repeat materialization as clean",
+      "M2178 identifies measured-runner metadata gap"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in design",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
+      "M2179 status queue scoreboard research log and review",
+      "one follow-up manifest for metadata extension implementation"
+    ],
+    "next_stage_criteria": [
+      "repeat metadata fields are explicit",
+      "implementation scope is explicit",
+      "focused tests are explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2179 designs metadata preservation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2179."
+    ],
+    "temporal_evidence_window": "M2177 repeat materialized workloads.",
+    "negative_result_policy": "If metadata cannot be preserved, do not run repeat measured execution until the audit path is fixed.",
+    "allowed_claims": [
+      "runner metadata extension design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "keeps repeat reliability evidence auditable by preserving repeat metadata before rollout",
+    "paper_verdict_delta": "can admit metadata implementation but cannot decide comparison",
+    "must_synthesize_if": [
+      "M2179 cannot define metadata fields",
+      "M2179 requires changing repeat materialization semantics",
+      "M2179 would run measured execution"
+    ]
+  },
+  "hypothesis": "A narrow measured-runner metadata extension can preserve repeat fields as first-class episode/failure metadata before repeat rollout.",
+  "success_criteria": [
+    "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md exists",
+    "repeat metadata fields are listed",
+    "implementation and focused test scope are listed",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "repeat metadata fields are ambiguous",
+    "design relies only on workload_id parsing",
+    "measured execution starts",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+    "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py"
+  ],
+  "decision_rule": "M2179 passes if it freezes the measured-runner metadata extension required for repeat rollout auditing.",
+  "next_blocker": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design"
+}
