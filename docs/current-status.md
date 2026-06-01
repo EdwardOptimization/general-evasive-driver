@@ -290,6 +290,13 @@ localization can test the M2258 acceptance slices: `mid_offtrack_delta`,
 completes that design: M2265 must evaluate exactly the `15` M2262 selected
 checkpoints for `32` episodes each, compare against M2244 base and M2253 generic
 repair only as route evidence, and keep ranking/paper/self-ID claims blocked.
+M2265 runs that localization cleanly with `480` episode rows and guardrail `0`.
+Global outcome is `278/110/92/0` for success/offtrack/collision/max-step: much
+better than M2253 generic repair (`269/118/93/0`) and slightly better than
+M2244 base on success/collision, but offtrack is exactly back to `110`, not
+below the strict M2258 target. The current route is therefore not another
+training run; M2266 must audit whether to run no-rerun slice diagnosis for
+midcourse/mild offtrack or synthesize the branch.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

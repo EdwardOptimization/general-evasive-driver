@@ -1,0 +1,184 @@
+{
+  "id": "m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/outcome_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "docs/m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit targeted containment selected-checkpoint outcome localization and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "M2265 localizes global outcomes but not M2258 slice metrics"
+    ],
+    "supersedes": [
+      "claiming success from aggregate return or termination movement",
+      "another training run before slice diagnosis",
+      "controller ranking from diagnostic outcome localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M2266 must audit M2265 completeness and guardrails",
+    "M2266 must compare M2265 against M2244 and M2253 only as repair-route evidence",
+    "M2266 must check M2258 aggregate acceptance criteria and identify missing slice metrics",
+    "M2266 must select no-rerun slice diagnosis synthesis repair redesign or stop",
+    "M2266 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_outcome_localization_result_audit",
+    "evidence_increment": "audits whether targeted containment outcome localization supports repair or requires slice diagnosis",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2265 artifacts are incomplete",
+      "stop if audit claims repair success without midcourse/mild slice metrics",
+      "stop if audit recommends another training run before slice diagnosis"
+    ],
+    "fallback_plan": [
+      "route to no-rerun slice diagnosis if global outcome is inconclusive",
+      "route to branch synthesis if aggregate and slice evidence are non-supportive",
+      "route to task/reward redesign if collision/offtrack tradeoff is clear"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2265 completed targeted selected-checkpoint outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2265 selected-checkpoint outcome localization and choose next route",
+    "admission_evidence": [
+      "M2265 result_class is current_sim_selected_checkpoint_outcome_localization_pass",
+      "M2265 episode_row_count is 480",
+      "M2265 selected_checkpoint_count is 15",
+      "M2265 global success/offtrack/collision is 278/110/92",
+      "M2265 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
+      "M2266 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2265 completeness and guardrails are audited",
+      "M2265 aggregate outcome deltas are classified",
+      "missing or available slice metrics are identified",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2266 audits outcome localization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2266; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2265 selected checkpoint episode rows.",
+    "negative_result_policy": "If targeted repair fails aggregate or slice metrics, route to synthesis or redesign; do not lower self-ID standards.",
+    "allowed_claims": [
+      "selected-checkpoint outcome-localization result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns 480-episode localization into a route decision before further repair search",
+    "paper_verdict_delta": "can decide whether targeted containment is supported globally or needs slice diagnosis/synthesis",
+    "must_synthesize_if": [
+      "M2266 cannot select a route",
+      "M2266 would recommend another training run without slice evidence",
+      "M2266 would claim repair success from aggregate counts alone"
+    ]
+  },
+  "hypothesis": "M2265 provides enough outcome-localization evidence to decide whether targeted containment should proceed to no-rerun slice diagnosis, synthesis, or redesign.",
+  "success_criteria": [
+    "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md exists",
+    "M2265 result_class is current_sim_selected_checkpoint_outcome_localization_pass",
+    "M2265 episode_row_count is 480",
+    "M2265 selected_checkpoint_count is 15",
+    "M2265 global success/offtrack/collision is audited",
+    "guardrails remain false for training ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2265 artifacts are missing",
+    "M2265 aggregate outcome is ignored",
+    "M2266 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2266 ranks profiles or selects a winner",
+    "M2266 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json and outcome aggregates"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/outcome_aggregate.csv",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2266 passes if it audits M2265 outcome evidence and selects a non-ranking follow-up route.",
+  "next_blocker": "m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit"
+}

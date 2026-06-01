@@ -40763,3 +40763,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation.json`
 - next: `m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation`
+
+## M2265 Paper-Route Current-Sim Midcourse Corridor-Containment Selected-Checkpoint Outcome Localization Implementation
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation.json`
+- result artifact: `runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json`
+- result class: `current_sim_selected_checkpoint_outcome_localization_pass`
+- selected checkpoint count: `15`
+- episode rows: `480`
+- profile seed groups complete: `true`
+- global success/offtrack/collision/max-step: `278/110/92/0`
+- delta vs M2244: `+1/0/-1/0`
+- delta vs M2253: `+9/-8/-1/0`
+- primary repair route: `offtrack_recovery_reward_and_corridor_repair_design`
+- guardrail violation count: `0`
+- ranking admissible count: `0`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.json`
+- next: `m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit`
