@@ -40624,3 +40624,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.json`
 - next: `m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization`
+
+## M2259 Paper-Route Current-Sim Midcourse Corridor-Containment Config Materialization
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_config_materialization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.json`
+- result artifact: `runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json`
+- result class: `current_sim_midcourse_corridor_containment_config_materialization_pass`
+- materialized configs: `15`
+- training matrix rows: `15`
+- profile/seed set matched: `true/true`
+- budget signature count: `1`
+- target value mismatch count: `0`
+- contract violation count: `0`
+- track_width_widened count: `0`
+- guardrail violation count: `0`
+- training started: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.json`
+- next: `m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit`

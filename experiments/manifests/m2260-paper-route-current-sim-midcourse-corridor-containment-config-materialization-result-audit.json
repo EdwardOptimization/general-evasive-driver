@@ -1,0 +1,183 @@
+{
+  "id": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_dataset": [
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv",
+      "docs/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.json"
+    ],
+    "parent_objective": [
+      "audit targeted midcourse corridor-containment config materialization before any training execution design"
+    ],
+    "derived_from": [
+      "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization"
+    ],
+    "blocked_by": [
+      "M2259 materialization must be audited before execution design"
+    ],
+    "supersedes": [
+      "direct training without materialization audit",
+      "return-only acceptance route",
+      "profile-specific tuning"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+  "public_gates": [
+    "M2260 must audit M2259 result_class and artifact completeness",
+    "M2260 must verify 15 configs and 15 matrix rows with one budget signature",
+    "M2260 must verify target repair values match M2258",
+    "M2260 must verify actor contract and track_width guardrails are clean",
+    "M2260 must select training-execution design, materialization repair, synthesis, or stop",
+    "M2260 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_config_audit",
+    "evidence_increment": "audits whether the targeted config matrix is execution-admissible without expanding claims",
+    "claim_scope": "config materialization audit only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2259 result_class failed",
+      "stop if target values mismatch M2258",
+      "stop if contract or track_width guardrails fail",
+      "stop if materialization started training or rollout"
+    ],
+    "fallback_plan": [
+      "route to training-execution design if materialization is clean",
+      "route to materialization repair if artifacts or values are wrong",
+      "route to synthesis or stop if execution is not defensible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2259 completed targeted containment config materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2259 targeted containment config materialization",
+    "admission_evidence": [
+      "M2259 summary exists",
+      "M2259 training matrix exists",
+      "M2259 claim boundary exists"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+      "M2260 status queue scoreboard research log and review",
+      "one follow-up execution-design repair synthesis or stop manifest"
+    ],
+    "next_stage_criteria": [
+      "M2259 completeness and guardrails are audited",
+      "target repair values are verified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2260 audits config artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2260; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2259 config artifacts.",
+    "negative_result_policy": "If materialization is flawed, repair configs rather than lowering paper/self-ID standards.",
+    "allowed_claims": [
+      "config materialization audit result",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "decides whether targeted containment configs can advance to execution design",
+    "paper_verdict_delta": "can admit a clean controlled training execution route or stop before another reward loop",
+    "must_synthesize_if": [
+      "M2260 cannot route cleanly after materialization",
+      "M2260 discovers target values differ from M2258",
+      "M2260 discovers contract or geometry shortcuts"
+    ]
+  },
+  "hypothesis": "M2259 produced a complete targeted containment config panel that is clean enough to admit a controlled training execution design.",
+  "success_criteria": [
+    "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md exists",
+    "M2259 result_class is current_sim_midcourse_corridor_containment_config_materialization_pass",
+    "materialized_config_count and training_matrix_row_count are 15",
+    "target_value_mismatch_count is 0",
+    "contract_violation_count is 0",
+    "track_width_widened_count is 0",
+    "guardrail_violation_count is 0",
+    "a follow-up route design repair synthesis or stop decision is selected"
+  ],
+  "failure_criteria": [
+    "M2259 artifacts are missing",
+    "M2259 result_class is not pass",
+    "target values differ from M2258",
+    "actor input contract changes",
+    "track_width widens",
+    "M2260 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2260 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json and training_matrix.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_checkpoint"
+  ],
+  "baseline_artifacts": [
+    "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+    "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv"
+  ],
+  "decision_rule": "M2260 passes if it audits M2259 as a complete clean targeted materialization and selects the next non-ranking route.",
+  "next_blocker": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit"
+}

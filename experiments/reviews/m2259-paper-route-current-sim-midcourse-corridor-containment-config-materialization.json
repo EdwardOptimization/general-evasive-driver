@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2259 pending targeted containment config materialization no ranking claims",
+  "decision_reason": "M2259 pass 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims",
   "failure_criteria": [
     "config count is not 15",
     "training matrix row count is not 15",
@@ -34,7 +34,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260601T171420Z",
+  "generated_at_utc": "20260601T172852Z",
   "hypothesis": "The M2258 targeted containment repair can be materialized into a matched 15-config panel without actor-contract or geometry shortcuts.",
   "lineage": {
     "blocked_by": [
@@ -68,7 +68,7 @@
   "milestone": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization",
   "next_blocker": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_midcourse_corridor_containment_config_materialization_pass_route_to_result_audit",
   "public_gates": [
     "M2259 must materialize exactly 15 configs for 5 profiles x 3 seeds",
     "M2259 must keep actor observation contract unchanged and track_width unchanged",
@@ -79,9 +79,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_midcourse_corridor_containment_config_materialization_pass_route_to_result_audit",
     "milestone": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization",
-    "reason": "M2259 pending targeted containment config materialization no ranking claims",
+    "reason": "M2259 pass 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T171420Z
+- Generated at UTC: 20260601T172852Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: pending
-- Decision reason: M2259 pending targeted containment config materialization no ranking claims
+- Promotion decision: current_sim_midcourse_corridor_containment_config_materialization_pass_route_to_result_audit
+- Decision reason: M2259 pass 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims
 
 ## Hypothesis
 
@@ -94,8 +94,8 @@ The M2258 targeted containment repair can be materialized into a matched 15-conf
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2259 pending targeted containment config materialization no ranking claims
+- decision: current_sim_midcourse_corridor_containment_config_materialization_pass_route_to_result_audit
+- reason: M2259 pass 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims
 
 ## Next Blocker
 

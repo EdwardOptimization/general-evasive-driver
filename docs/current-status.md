@@ -264,8 +264,13 @@ and keeping ranking/paper/FW-vs-GRU/self-ID claims blocked. M2258 completes
 that design: materialize a matched 15-config matrix with earlier/denser
 road-margin containment (`road_margin_warning_fraction=0.50`,
 `road_margin_cost_scale=2.6`, `track_cost_scale=3.0`) while preserving
-`track_width=8.5`, actor inputs, and collision/clearance guardrails. M2259 may
-now materialize configs only; no training or rollout is admitted yet.
+`track_width=8.5`, actor inputs, and collision/clearance guardrails. M2259
+materializes that matched `15`-config matrix cleanly: `15` training matrix rows,
+one budget signature, target mismatch `0`, contract violation `0`,
+`track_width_widened=0`, and guardrail violation `0`. No training, rollout,
+ranking, finite-window-vs-GRU verdict, paper-level claim, or level3
+self-identification claim is admitted. M2260 is the next blocker: audit M2259
+before any training-execution design.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
