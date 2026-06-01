@@ -16,29 +16,27 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2276-paper-route-current-sim-scenario-task-family-generation-design
+m2277-paper-route-current-sim-scenario-task-family-config-materialization
 ```
 
 Current next task:
 
 ```text
-m2277-paper-route-current-sim-scenario-task-family-config-materialization
+m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit
 ```
 
-Immediate route: M2276 freezes a role-supported current-sim scenario-generation
-design and admits only no-reset materialization next. It also corrects the role
-semantics that M2274 treated provisionally: `aeb_feasible` maps to
-`R0_stable_avoidable`, while `aes_feasible` maps to
-`R1_aeb_infeasible_stable_aes`. The old support audit remains useful for
-diagnosing incomplete benchmark support, but M2277 must not propagate the old
-`aes_feasible -> R0` mapping.
+Immediate route: M2277 materialized a no-reset v0 scenario task-family config
+pack with `6` roles and `72` specs. Metadata is complete, corrected role mapping
+is used, labels do not enter actor input, actor contract violations are `0`, and
+ranking-admissible rows are `0`. The pack is not execution-admissible yet:
+`38` desired left/right emergency obstacle lateral-offset rows are explicit
+unsupported execution blockers because the current emergency obstacle task is
+centerline-only.
 
-Active interpretation: M2277 must materialize a v0 scenario task-family config
-pack with explicit role labels, obstacle timing/lateral-offset metadata,
-recovery-window metadata, hidden-dynamics robustness bundles, unsupported
-capability rows, and claim boundaries. No reset, rollout, measured execution,
-training, ranking, finite-window vs GRU verdict, paper-level claim, or level3
-self-ID claim is admitted yet.
+Active interpretation: M2278 must audit M2277 and almost certainly route to
+obstacle lateral-offset instrumentation repair before any reset, rollout,
+measured execution, training, ranking, finite-window vs GRU verdict, paper-level
+claim, or level3 self-ID claim is admitted.
 
 ## Actor Contract
 

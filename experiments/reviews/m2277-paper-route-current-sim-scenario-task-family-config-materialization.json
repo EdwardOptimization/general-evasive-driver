@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2277 materializes 6 roles 72 specs with metadata missing 0 actor violations 0 ranking rows 0 guardrail 0 unsupported execution blockers 38 route to result audit no reset/rollout/training claims",
+  "failure_criteria": [
+    "M2277 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2277 ranks profiles or selects a winner",
+    "M2277 uses role labels hidden dynamics TTC or oracle feasibility as deployable actor inputs",
+    "M2277 silently approximates unsupported simulator capabilities",
+    "M2277 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not silently approximate unsupported fault modes"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T191101Z",
+  "hypothesis": "The M2276 role-family design can be materialized as a no-reset current-sim scenario config pack with explicit metadata and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2276 requires role-family config materialization before reset rollout training or ranking"
+    ],
+    "derived_from": [
+      "m2276-paper-route-current-sim-scenario-task-family-generation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_materialization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2276-paper-route-current-sim-scenario-task-family-generation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+      "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md",
+      "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/support_gap_report.csv"
+    ],
+    "parent_objective": [
+      "materialize no-rollout role-supported current-sim scenario task-family config pack"
+    ],
+    "supersedes": [
+      "scenario execution before role-family materialization",
+      "controller ranking from incomplete role support",
+      "silent lateral-offset approximation"
+    ]
+  },
+  "milestone": "m2277-paper-route-current-sim-scenario-task-family-config-materialization",
+  "next_blocker": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_config_materialization_pass_route_to_result_audit",
+  "public_gates": [
+    "M2277 must materialize a no-reset scenario task-family v0 config pack",
+    "M2277 must use corrected role mapping: aeb_feasible->R0 and aes_feasible->R1",
+    "M2277 must emit required metadata schema and claim-boundary artifacts",
+    "M2277 must report unsupported simulator capabilities instead of silently approximating them",
+    "M2277 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_config_materialization_pass_route_to_result_audit",
+    "milestone": "m2277-paper-route-current-sim-scenario-task-family-config-materialization",
+    "reason": "M2277 materializes 6 roles 72 specs with metadata missing 0 actor violations 0 ranking rows 0 guardrail 0 unsupported execution blockers 38 route to result audit no reset/rollout/training claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "configs/paper_route_current_sim_scenario_task_family_v0.json exists",
+    "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json exists",
+    "scenario_family_count == 6",
+    "scenario_spec_count >= 72",
+    "metadata_missing_required_field_count == 0",
+    "labels_enter_actor_input_count == 0",
+    "actor_contract_violation_count == 0",
+    "ranking_admissible_count == 0",
+    "claim_boundary blocks reset rollout training ranking paper-level and level3 self-ID claims"
+  ],
+  "type": "infrastructure"
+}

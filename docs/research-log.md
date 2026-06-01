@@ -80,6 +80,16 @@ Last updated: 2026-06-01
 - semantic correction: M2277 must use `aeb_feasible -> R0_stable_avoidable` and `aes_feasible -> R1_aeb_infeasible_stable_aes`; the M2274 provisional `aes_feasible -> R0` support mapping must not propagate.
 - decision: admit M2277 no-reset config materialization only. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
+
+## 20260601T190847Z m2277-scenario-task-family-config-materialization
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json`
+- result: materialization pass with `6` role families, `72` specs, min `12` specs per role, metadata missing `0`, duplicate spec ids `0`, labels entering actor input `0`, actor contract violations `0`, ranking-admissible rows `0`, and guardrail violations `0`.
+- key evidence: timing buckets are balanced (`24/24/24`); lateral metadata has `34` centerline, `19` left-offset, and `19` right-offset specs; unsupported execution blockers are `38` because current emergency obstacle placement is centerline-only.
+- decision: route to M2278 result audit. Likely next branch is obstacle lateral-offset instrumentation repair before reset/rollout; no training/ranking/paper/self-ID claims.
+
 ## Current Best
 
 - checkpoint:
