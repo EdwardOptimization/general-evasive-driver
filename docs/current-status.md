@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis
+m2147-paper-route-current-sim-controlled-comparison-benchmark-design
 ```
 
 Current next task:
 
 ```text
-m2147-paper-route-current-sim-controlled-comparison-benchmark-design
+m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation
 ```
 
-Immediate route: M2146 synthesizes M2136-M2145 and pivots away from the
-generated-proxy comparison-support branch. That branch is successful scaffolding:
-it produced a clean denominator-backed diagnostic artifact, but it remains
-generated-proxy-only and cannot support ranking, paper, finite-window vs GRU, or
-self-ID claims. The reset-control diagnostic is a mechanism warning:
-`L3_reset_control_corrected` is descriptively stronger than `L3_online_gru` on
-M2144 success and offtrack rate. M2147 must design a current-simulator
-controlled comparison benchmark around the fair L0/L1/L2/L3 matrix before any
-new measured execution or interpretation.
+Immediate route: M2147 designs the current-simulator controlled comparison
+benchmark branch. The first benchmark pack must preserve the deployable actor
+contract and compare `L0_current_masked`, `L1_one_step`, L2 windows
+`13/25/50/100`, `L3_online_gru`, and `L3_reset_control_corrected` over T1-T5
+task families. M2148 must materialize this into a no-rollout benchmark spec
+preflight and profile matrix before any reset validation, measured execution,
+ranking, paper claim, finite-window vs GRU verdict, or self-ID interpretation.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

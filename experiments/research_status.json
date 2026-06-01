@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2155,
+    "completed": 2156,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+    "command_log": "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+    "run_dir": "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
     "status": "completed",
-    "task_id": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis"
+    "task_id": "m2147-paper-route-current-sim-controlled-comparison-benchmark-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.json",
-    "hypothesis": "A current-simulator controlled comparison benchmark can be designed around the paper-route L0/L1/L2/L3 matrix and decisive task families.",
-    "id": "m2147-paper-route-current-sim-controlled-comparison-benchmark-design",
-    "kind": "gate",
-    "notes": "Pending: design current-sim controlled comparison benchmark after M2146 pivot",
-    "priority": 21420,
+    "command": "see experiments/manifests/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.json",
+    "hypothesis": "The M2147 current-sim benchmark design can be materialized into a no-rollout spec preflight with explicit profile matrix, task families, metric support, and claim boundaries.",
+    "id": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-rollout current-sim benchmark spec preflight",
+    "priority": 21430,
     "status": "pending",
-    "success_artifact": "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md"
+    "success_artifact": "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T045956Z"
+  "updated_at_utc": "20260601T050442Z"
 }

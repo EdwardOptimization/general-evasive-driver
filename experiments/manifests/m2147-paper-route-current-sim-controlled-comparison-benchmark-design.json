@@ -102,7 +102,7 @@
     "allowed_updates": [
       "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
       "M2147 status queue scoreboard research log and review",
-      "one follow-up manifest for benchmark-spec preflight or materialization design"
+      "one follow-up manifest for benchmark-spec preflight implementation"
     ],
     "next_stage_criteria": [
       "controller-family matrix is specified",
@@ -174,5 +174,5 @@
     "docs/paper-route-finite-window-vs-gru-plan.md"
   ],
   "decision_rule": "M2147 passes if it freezes a benchmark design route with fair controller-family controls and explicit next preflight without execution or ranking.",
-  "next_blocker": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-design"
+  "next_blocker": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation"
 }
