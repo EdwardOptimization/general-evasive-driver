@@ -1,0 +1,179 @@
+{
+  "id": "m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_design"
+    ],
+    "parent_dataset": [
+      "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rerun slice diagnosis for targeted containment localization"
+    ],
+    "derived_from": [
+      "m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M2266 finds aggregate M2265 result inconclusive without M2258 slice metrics"
+    ],
+    "supersedes": [
+      "another training run before slice diagnosis",
+      "aggregate-only repair interpretation",
+      "ranking outcome-localization profiles"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md",
+  "public_gates": [
+    "M2267 must design a no-rerun diagnosis over existing M2244 M2253 and M2265 episode rows",
+    "M2267 must make M2244 vs M2265 the primary comparison",
+    "M2267 must include M2253 as a generic-repair reference",
+    "M2267 must include mid_offtrack mild_overshoot clearance-risk and profile-seed axes",
+    "M2267 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_failure_slice_diagnosis_design",
+    "evidence_increment": "turns aggregate M2265 localization into a no-rerun slice diagnosis design",
+    "claim_scope": "design only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if required episode rows are missing",
+      "stop if design omits mid_offtrack or mild_overshoot axes",
+      "stop if design would claim repair success from aggregate outcome alone"
+    ],
+    "fallback_plan": [
+      "route to no-rerun implementation if all panels are complete",
+      "route to artifact repair if episode rows are incomplete",
+      "route to branch synthesis if slice diagnosis cannot answer the repair question"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2266 routes aggregate outcome audit to slice diagnosis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rerun M2244/M2265/M2253 failure-slice diagnosis",
+    "admission_evidence": [
+      "M2265 episode_row_count is 480",
+      "M2244 episode rows exist",
+      "M2253 episode rows exist",
+      "M2266 blocks aggregate-only repair success claim"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md",
+      "M2267 status queue scoreboard research log and review",
+      "one follow-up implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "input panels are fixed",
+      "slice axes are fixed",
+      "route rules are fixed",
+      "follow-up implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2267 designs outcome-slice analysis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2267; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2244/M2253/M2265 public episode rows.",
+    "negative_result_policy": "If slice diagnosis shows no support, synthesize or redesign current-sim route rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "failure-slice diagnosis design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "adds slice-level route evidence rather than another local reward/training search",
+    "paper_verdict_delta": "can decide whether targeted containment repair actually fixes the M2256 failure slice",
+    "must_synthesize_if": [
+      "M2267 cannot define a bounded slice diagnosis",
+      "M2267 would recommend another training run before slice evidence",
+      "M2267 would claim success from aggregate M2265 counts alone"
+    ]
+  },
+  "hypothesis": "A no-rerun slice diagnosis can determine whether M2265 restored the M2256 midcourse/mild offtrack failure slices or only improved aggregate counts.",
+  "success_criteria": [
+    "docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md exists",
+    "design fixes M2244 M2265 and M2253 episode inputs",
+    "design makes M2244 vs M2265 the primary comparison",
+    "design includes mid_offtrack mild_overshoot clearance-risk and profile-seed axes",
+    "design selects a follow-up implementation route",
+    "no reset rollout measured execution training replay private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design ignores M2258 slice metrics",
+    "design treats aggregate M2265 outcome as sufficient",
+    "design starts rollout or training",
+    "design ranks profiles or selects a winner",
+    "design makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design of no-rerun targeted containment failure-slice diagnosis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+    "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv"
+  ],
+  "decision_rule": "M2267 passes if it freezes a no-rerun slice diagnosis design and keeps ranking and paper claims blocked.",
+  "next_blocker": "m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design"
+}

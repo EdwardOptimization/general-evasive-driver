@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2273,
+    "completed": 2274,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+    "command_log": "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+    "run_dir": "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
     "status": "completed",
-    "task_id": "m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation"
+    "task_id": "m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json and outcome aggregates",
-    "hypothesis": "M2265 provides enough outcome-localization evidence to decide whether targeted containment should proceed to no-rerun slice diagnosis, synthesis, or redesign.",
-    "id": "m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit",
+    "command": "manual design of no-rerun targeted containment failure-slice diagnosis",
+    "hypothesis": "A no-rerun slice diagnosis can determine whether M2265 restored the M2256 midcourse/mild offtrack failure slices or only improved aggregate counts.",
+    "id": "m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design",
     "kind": "gate",
-    "notes": "Pending: audit M2265 aggregate and missing slice evidence before synthesis or slice diagnosis no ranking claims",
-    "priority": 22610,
+    "notes": "Pending: freeze no-rerun M2244/M2265/M2253 slice diagnosis no rollout/ranking claims",
+    "priority": 22620,
     "status": "pending",
-    "success_artifact": "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md"
+    "success_artifact": "docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md"
   },
-  "updated_at_utc": "20260601T175831Z"
+  "updated_at_utc": "20260601T180223Z"
 }

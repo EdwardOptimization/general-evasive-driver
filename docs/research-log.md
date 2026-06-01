@@ -40786,3 +40786,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.json`
 - next: `m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit`
+
+## M2266 Paper-Route Current-Sim Midcourse Corridor-Containment Selected-Checkpoint Outcome Localization Result Audit
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_outcome_audit_route_to_no_rerun_slice_diagnosis_design`
+- manifest: `experiments/manifests/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.json`
+- audit artifact: `docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md`
+- parent result: `runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json`
+- M2265 global success/offtrack/collision/max-step: `278/110/92/0`
+- delta vs M2244: `+1/0/-1/0`
+- delta vs M2253: `+9/-8/-1/0`
+- strict global offtrack target `<110`: `false`
+- collision guardrail `<=107`: `true`
+- max-step guardrail `0`: `true`
+- missing required slice evidence: mid_offtrack_delta, mild_overshoot_delta, safe_clearance_offtrack_delta
+- route decision: `m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.json`
+- next: `m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design`

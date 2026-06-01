@@ -296,7 +296,11 @@ better than M2253 generic repair (`269/118/93/0`) and slightly better than
 M2244 base on success/collision, but offtrack is exactly back to `110`, not
 below the strict M2258 target. The current route is therefore not another
 training run; M2266 must audit whether to run no-rerun slice diagnosis for
-midcourse/mild offtrack or synthesize the branch.
+midcourse/mild offtrack or synthesize the branch. M2266 audits this as
+aggregate-improved but slice-incomplete: M2265 fixes the M2253 regression at
+aggregate level, yet strict offtrack improvement is not proven. The next task is
+M2267: design a no-rerun M2244/M2265/M2253 slice diagnosis focused on
+mid_offtrack, mild_overshoot, clearance-risk, and profile-seed regressions.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
