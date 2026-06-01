@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2130,
+    "completed": 2131,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.md",
+    "command_log": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+    "run_dir": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
     "status": "completed",
-    "task_id": "m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run"
+    "task_id": "m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.json",
-    "hypothesis": "M2121 produced a clean reset-validation artifact that can be admitted to measured-execution command design.",
-    "id": "m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json",
+    "hypothesis": "A comparison-support-specific measured-execution command can be frozen over the M2118 workload without changing actor inputs, profile configs, or claim boundaries.",
+    "id": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2121 reset-validation result before measured-execution command design",
-    "priority": 21170,
+    "notes": "Pending: design comparison-support-specific measured-execution command over reset-valid M2118 workload",
+    "priority": 21180,
     "status": "pending",
-    "success_artifact": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T021137Z"
+  "updated_at_utc": "20260601T021737Z"
 }

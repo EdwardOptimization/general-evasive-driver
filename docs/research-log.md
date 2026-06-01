@@ -37381,3 +37381,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: reset validity evidence only; no rollout behavior, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.json`
 - next: `m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit`
+
+## M2122 Paper-Route Outcome-Supported Decisive Comparison-Support Reset Validation Result Audit
+
+- status: completed
+- decision: `comparison_support_reset_validation_audit_admit_measured_execution_command_design`
+- manifest: `experiments/manifests/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.json`
+- audited artifact: `runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json`
+- reset/rollout/measured execution in M2122: `false`
+- policy actions executed in M2122: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2121 reset validation is clean and admits measured-execution command design
+- reset_success_count: `240`
+- reset_failure_count: `0`
+- observation_dimension_failure_count: `0`
+- observation_finite_count: `240`
+- obstacle_initialized_count: `240`
+- contract_violation_count: `0`
+- metadata_missing_count: `0`
+- forbidden_key_violation_count: `0`
+- guardrail_violation_count: `0`
+- compatibility note: measured execution must use a comparison-support-specific or parameterized runner because old routing-smoke metadata fields do not match the M2118 panel
+- measured design targets: target_episode_count `1200`, target_spec_count `240`, target_profile_count `5`, eval_seed_base `212300`, device `cpu`
+- conclusion boundary: reset-validity audit only; no measured behavior, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- follow-up manifest: `experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json`
+- next: `m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design`

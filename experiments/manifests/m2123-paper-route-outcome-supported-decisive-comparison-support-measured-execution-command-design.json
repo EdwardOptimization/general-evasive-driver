@@ -1,0 +1,175 @@
+{
+  "id": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv",
+      "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a comparison-support measured-execution command over the reset-valid M2118 panel"
+    ],
+    "derived_from": [
+      "m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2122 reset-validation audit must admit measured-execution command design"
+    ],
+    "supersedes": [
+      "running the old routing-smoke measured runner directly on comparison-support metadata",
+      "direct controller ranking from reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+  "public_gates": [
+    "M2123 must freeze a comparison-support-specific measured-execution command",
+    "M2123 must preserve target_episode_count 1200 target_spec_count 240 target_profile_count 5 and eval_seed_base 212300",
+    "M2123 must account for comparison-support metadata schema",
+    "M2123 must not run measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim measured performance",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_measured_execution_command_design",
+    "evidence_increment": "freezes the measured-execution command and implementation requirements for the reset-valid panel",
+    "claim_scope": "measured-execution command design only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if no measured runner can preserve comparison-support metadata",
+      "stop if command would change profile configs or actor inputs",
+      "stop if command routes directly to ranking",
+      "stop if measured execution target counts are ambiguous"
+    ],
+    "fallback_plan": [
+      "route to measured-runner implementation and run if command design is bounded",
+      "route to measured-runner compatibility repair design if metadata mismatch remains",
+      "route to synthesis if measured execution cannot be designed without changing panel semantics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2122 admits measured-execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support measured-execution command design",
+    "admission_evidence": [
+      "M2122 audited reset validation as clean",
+      "M2121 reset_success_count 240",
+      "M2118 workload_row_count 1200",
+      "M2118 profile_count 5"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in command design",
+      "do not rank",
+      "do not treat measured execution as paper-level evidence before localization and support audit"
+    ],
+    "allowed_updates": [
+      "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+      "M2123 status queue scoreboard research log and review",
+      "one follow-up manifest for measured-execution implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "frozen command is explicit",
+      "target counts and seed base are explicit",
+      "comparison-support metadata route is explicit",
+      "output artifacts are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2123 designs measured execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2123."
+    ],
+    "temporal_evidence_window": "M2118 materialized panel and M2121 reset-validation artifact.",
+    "negative_result_policy": "If measured command cannot preserve comparison-support metadata, design a runner compatibility repair before any rollout.",
+    "allowed_claims": [
+      "comparison-support measured-execution command design",
+      "no measured execution, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares measured execution for a reset-valid support-targeted panel",
+    "paper_verdict_delta": "can prepare measured support evidence but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2123 cannot specify a measured runner without changing panel semantics",
+      "M2123 routes directly to comparison",
+      "M2123 reintroduces fixed public-gate panel repair"
+    ]
+  },
+  "hypothesis": "A comparison-support-specific measured-execution command can be frozen over the M2118 workload without changing actor inputs, profile configs, or claim boundaries.",
+  "success_criteria": [
+    "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md exists",
+    "frozen command names executable specs workload output dir eval seed base target episode count target spec count target profile count and device",
+    "comparison-support metadata compatibility route is explicit",
+    "next implementation route is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "frozen command is ambiguous",
+    "comparison-support metadata route is missing",
+    "new rollout or policy action is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write M2123 comparison-support measured-execution command design from M2118 workload and M2122 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv",
+    "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md"
+  ],
+  "decision_rule": "M2123 passes if it freezes a bounded measured-execution command and implementation route without running rollout or ranking.",
+  "next_blocker": "m2124-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
+}

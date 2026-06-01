@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run
+m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit
+m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design
 ```
 
-Immediate route: M2121 implements and runs the comparison-support-specific
-reset-only validator. It passes: `240/240` reset success, observation dimension
-failures `0`, finite observations `240`, initialized obstacles `240`, contract
-violations `0`, metadata missing `0`, forbidden executable keys `0`, and
-guardrail `0`. M2122 must audit the reset result before measured-execution
-command design. Rollout, policy actions, measured execution, comparison, paper
-claims, finite-window vs GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2122 audits M2121 reset validation as clean: `240/240`
+reset success, observation dimension failures `0`, finite observations `240`,
+initialized obstacles `240`, contract violations `0`, metadata missing `0`,
+forbidden executable keys `0`, and guardrail `0`. M2123 must design a
+comparison-support-specific measured-execution command because the old
+routing-smoke runner uses older panel metadata fields. Actual rollout,
+comparison, paper claims, finite-window vs GRU conclusions, and self-ID claims
+remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
