@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2146,
+    "completed": 2147,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+    "command_log": "docs/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.md",
     "returncode": 0,
-    "run_dir": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+    "run_dir": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol",
     "status": "completed",
-    "task_id": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design"
+    "task_id": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.json",
-    "hypothesis": "The M2137 no-rerun support-matrix protocol can be materialized from M2134 artifacts without ranking or paper claims.",
-    "id": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize no-rerun support matrix and claim boundary from M2134 panel units",
-    "priority": 21330,
+    "command": "see experiments/manifests/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.json",
+    "hypothesis": "M2138 materialization is clean enough to admit a bounded next-route decision, but not ranking or paper claims.",
+    "id": "m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2138 support matrix before route decision",
+    "priority": 21340,
     "status": "pending",
-    "success_artifact": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json"
+    "success_artifact": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md"
   },
-  "updated_at_utc": "20260601T041500Z"
+  "updated_at_utc": "20260601T042000Z"
 }

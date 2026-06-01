@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design
+m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization
 ```
 
 Current next task:
 
 ```text
-m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization
+m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit
 ```
 
-Immediate route: M2137 freezes a no-rerun support-matrix protocol over the
-M2134 controlled panel. M2138 may materialize protocol artifacts from existing
-M2134 rows only: normalized panel units, profile-support matrix, profile-support
-summary, metric contract, and claim boundary. Ranking, comparison execution,
-paper claims, finite-window vs GRU conclusions, and self-ID claims remain
-blocked.
+Immediate route: M2138 materializes the M2137 no-rerun support-matrix protocol
+from M2134 rows. The result passes with `6` panel units, `4` profile labels,
+`24` support-matrix rows, guardrail `0`, and claim-boundary violation `0`.
+M2139 must audit the materialized support matrix before any route decision.
+Ranking, comparison execution, paper claims, finite-window vs GRU conclusions,
+and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

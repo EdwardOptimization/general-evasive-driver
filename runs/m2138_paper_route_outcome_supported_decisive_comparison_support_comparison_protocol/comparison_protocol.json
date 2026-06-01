@@ -1,0 +1,36 @@
+{
+  "absence_semantics": "no_success_support_observed_in_m2134_aggregate",
+  "allowed_metrics": [
+    "profile_supported_unit_count",
+    "profile_supported_intent_count",
+    "profile_supported_source_kind_count"
+  ],
+  "blocked_metrics": [
+    "per_profile_success_rate",
+    "winner_or_rank",
+    "finite_window_vs_gru_verdict",
+    "paper_level_benchmark_verdict",
+    "level3_self_id_verdict"
+  ],
+  "claim_boundary_path": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/claim_boundary.csv",
+  "claim_scope": "support matrix only; no ranking, paper, finite-window-vs-GRU, or self-ID claim",
+  "controlled_panel_units_path": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+  "excluded_qualified_candidates_path": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/excluded_qualified_candidates.csv",
+  "generated_at_utc": "20260601T040948Z",
+  "panel_unit_ids": [
+    "panel_unit_000_actuator_delay_collision_relief",
+    "panel_unit_001_gru_memory_discriminative_boundary",
+    "panel_unit_002_late_boundary_collision_relief",
+    "panel_unit_003_near_zero_margin_collision_relief",
+    "panel_unit_004_nominal_delay_support_boundary",
+    "panel_unit_005_profile_diversity_support"
+  ],
+  "profile_labels": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "protocol_name": "m2138_comparison_support_support_matrix",
+  "source_summary_path": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json"
+}

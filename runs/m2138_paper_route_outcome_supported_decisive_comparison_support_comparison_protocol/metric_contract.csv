@@ -1,0 +1,9 @@
+metric,admissible,reason
+profile_supported_unit_count,True,counts observed success support across non-overlapping panel units
+profile_supported_intent_count,True,counts intent diversity of observed success support
+profile_supported_source_kind_count,True,counts source-kind diversity of observed success support
+per_profile_success_rate,False,M2134 does not carry per-profile denominators
+winner_or_rank,False,M2138 materializes support coverage only and does not rank controller families
+finite_window_vs_gru_verdict,False,support matrix is not a controlled finite-window-vs-GRU comparison
+paper_level_benchmark_verdict,False,generated proxy rows remain paper_validity_claim false
+level3_self_id_verdict,False,materialization does not run history-necessity interventions

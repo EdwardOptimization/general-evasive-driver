@@ -1,0 +1,15 @@
+claim,admissible,reason
+no_rerun_comparison_support_outcome_localization_completed,True,M2128 reads existing M2125 artifacts and writes diagnostic aggregates only
+controller_family_ranking,False,localization identifies support slices but does not run a ranking experiment
+finite_window_vs_gru_conclusion,False,localization may find support slices but does not run a controlled finite-window-vs-GRU comparison
+paper_level_benchmark_result,False,generated comparison-support rows remain smoke proxies with paper_validity_claim=false
+level3_self_identification,False,outcome localization does not test wrong-history or history necessity
+candidate_qualification_completed,True,M2131 classifies localized support slices without rerun or ranking
+controller_family_ranking,False,qualification produces candidate slices only and does not compare profiles
+controlled_panel_construction_completed,True,M2134 materializes non-overlapping panel units without rerun or ranking
+controller_family_ranking,False,controlled panel construction is a pre-comparison artifact
+comparison_protocol_materialization_completed,True,M2138 materializes support-matrix artifacts without rerun or ranking
+controller_family_ranking,False,support matrix records coverage only and is not a ranking experiment
+finite_window_vs_gru_conclusion,False,support matrix lacks controlled per-profile denominators
+paper_level_benchmark_result,False,generated comparison-support rows remain smoke proxies
+level3_self_identification,False,no history-necessity intervention is run

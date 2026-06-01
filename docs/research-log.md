@@ -37768,3 +37768,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - materialization route: write normalized panel units, profile support matrix, profile support summary, metric contract, and claim boundary
 - follow-up manifest: `experiments/manifests/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.json`
 - next: `m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization`
+
+## M2138 Paper-Route Outcome-Supported Decisive Comparison-Support Comparison Protocol Materialization
+
+- status: completed
+- decision: `comparison_support_protocol_materialization_pass_route_to_audit`
+- manifest: `experiments/manifests/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.json`
+- implementation: `src/autodrift/paper_route_outcome_supported_decisive_comparison_support_comparison_protocol.py`
+- tests: `tests/test_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol.py`
+- run artifact: `runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json`
+- documentation: `docs/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.md`
+- reset/rollout/measured execution in M2138: `false`
+- policy actions executed in M2138: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `comparison_support_comparison_protocol_materialization_pass`
+- panel_unit_count: `6`
+- profile_label_count: `4`
+- support_matrix_row_count: `24`
+- supported_intent_count: `3`
+- supported_source_kind_count: `6`
+- panel_duplicate_source_kind_count: `0`
+- direct_broad_aggregate_panel_unit_count: `0`
+- claim_boundary_violation_count: `0`
+- guardrail_violation_count: `0`
+- blocked metrics: per-profile rates, winner/rank, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
+- follow-up manifest: `experiments/manifests/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.json`
+- next: `m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit`
