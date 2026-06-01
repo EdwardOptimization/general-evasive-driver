@@ -38708,3 +38708,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to repeat checkpoint/workload materialization before any repeat measured execution
 - follow-up manifest: `experiments/manifests/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.json`
 - next: `m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run`
+
+## M2177 Paper-Route Current-Sim Training-Seed Repeat Materialization Implementation and Run
+
+- status: completed
+- decision: `current_sim_training_seed_repeat_materialization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_training_seed_repeat_materialization.py`
+- tests: `tests/test_paper_route_current_sim_training_seed_repeat_materialization.py`
+- focused tests: `2 passed`
+- run artifact: `runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json`
+- repeat group count: `3`
+- new repeat group count: `2`
+- new training command count: `14`
+- successful training command count: `14`
+- failed training command count: `0`
+- new materialized workload count: `640`
+- checkpoint path missing/existing: `0/640`
+- reset control trained count: `0`
+- guardrail violation count: `0`
+- measured execution: `false`
+- policy actions executed for measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: repeat materialization ready for audit before repeat measured execution command design
+- follow-up manifest: `experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json`
+- next: `m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit`

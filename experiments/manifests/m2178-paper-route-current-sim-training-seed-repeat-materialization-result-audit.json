@@ -1,0 +1,161 @@
+{
+  "id": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_uses_m2177_outputs"
+    ],
+    "parent_dataset": [
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/repeat_group_rows.csv",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/profile_checkpoint_rows.csv",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit repeat checkpoint/workload materialization before repeat measured execution design"
+    ],
+    "derived_from": [
+      "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2177 repeat materialization must be audited before measured execution command design"
+    ],
+    "supersedes": [
+      "direct repeat measured execution after materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+  "public_gates": [
+    "M2178 must audit M2177 summary and repeat group rows",
+    "M2178 must confirm two new repeat workloads have 640 existing checkpoint paths",
+    "M2178 must confirm reset-control did not train separately",
+    "M2178 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not change profile definitions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_training_seed_repeat_materialization_audit",
+    "evidence_increment": "audits repeat materialization before measured repeat execution design",
+    "claim_scope": "repeat materialization audit only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repeat workloads are missing or incomplete",
+      "stop if checkpoint paths are missing",
+      "stop if reset-control alias policy is violated",
+      "stop if audit would rank profiles"
+    ],
+    "fallback_plan": [
+      "route to repeat materialization repair if audit fails",
+      "route to repeat measured execution command design if audit passes",
+      "route to synthesis if the current branch reaches cadence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2177 repeat materialization requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit repeat checkpoint/workload materialization",
+    "admission_evidence": [
+      "M2177 summary reports current_sim_training_seed_repeat_materialization_pass",
+      "M2177 writes repeat group and profile checkpoint rows"
+    ],
+    "blocked_shortcuts": [
+      "no training in audit",
+      "no measured execution in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+      "M2178 status queue scoreboard research log and review",
+      "one follow-up manifest for repeat measured execution command design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "M2177 pass/fail is classified",
+      "repeat workload counts are audited",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2178 audits repeat materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2178."
+    ],
+    "temporal_evidence_window": "M2177 repeat materialization outputs.",
+    "negative_result_policy": "If repeat materialization is invalid, repair materialization before measured execution.",
+    "allowed_claims": [
+      "repeat materialization audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits newly materialized repeat panel before producing repeat rollout data",
+    "paper_verdict_delta": "can admit repeat measured execution design but cannot decide final comparison",
+    "must_synthesize_if": [
+      "M2178 cannot classify M2177 output",
+      "M2178 needs another materialization rerun",
+      "M2178 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2177 repeat materialized panel is clean enough to admit repeat measured execution command design while keeping ranking blocked.",
+  "success_criteria": [
+    "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md exists",
+    "M2177 summary is audited",
+    "new_materialized_workload_count == 640",
+    "checkpoint_path_exists_count == 640",
+    "reset_control_trained_count == 0",
+    "guardrail_violation_count == 0",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2177 result is not audited",
+    "any repeat workload checkpoint path is missing or nonexistent",
+    "reset-control alias policy is violated",
+    "measured execution or ranking starts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
+    "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/repeat_group_rows.csv"
+  ],
+  "decision_rule": "M2178 passes if it audits M2177 as clean repeat materialization evidence and routes to measured execution command design without running it.",
+  "next_blocker": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2184,
+    "completed": 2185,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+    "command_log": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+    "run_dir": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization",
     "status": "completed",
-    "task_id": "m2176-paper-route-current-sim-training-seed-repeat-design"
+    "task_id": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_seed_repeat_materialization --base-workload runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv --existing-materialized-workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2177_paper_route_current_sim_training_seed_repeat_materialization --device cpu",
-    "hypothesis": "The frozen M2176 repeat protocol can materialize two additional seed groups without changing tasks, inputs, profiles, or claim boundaries.",
-    "id": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement repeat materializer and train two new seed groups",
-    "priority": 21720,
+    "command": "see experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json",
+    "hypothesis": "The M2177 repeat materialized panel is clean enough to admit repeat measured execution command design while keeping ranking blocked.",
+    "id": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit repeat materialization result",
+    "priority": 21730,
     "status": "pending",
-    "success_artifact": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json"
+    "success_artifact": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260601T083203Z"
+  "updated_at_utc": "20260601T084051Z"
 }
