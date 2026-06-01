@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2236-paper-route-current-sim-matched-budget-training-branch-synthesis
+m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design
 ```
 
 Current next task:
 
 ```text
-m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design
+m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -144,6 +144,12 @@ another blind budget increase is blocked. The next branch is
 an artifact-only diagnosis over M2230/M2234 outputs before any new rollout,
 training, measured execution, ranking, finite-window-vs-GRU verdict, or self-ID
 claim.
+M2237 completes the design for an artifact-only diagnosis over M2230/M2234
+outputs. It freezes five axes: readiness-floor gap, seed fragility,
+short-v0-to-medium-v1 budget response, training plateau/late regression, and
+profile-independent task difficulty. M2238 may now implement that no-rerun
+diagnosis and classify the next route without ranking profiles or claiming
+finite-window-vs-GRU/self-ID evidence.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

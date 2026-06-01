@@ -1,0 +1,186 @@
+{
+  "id": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_diagnosis"
+    ],
+    "parent_dataset": [
+      "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/run_rows.csv",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/run_rows.csv",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/profile_aggregate.csv",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profiles/*/seed_*/train_metrics.csv",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/profiles/*/seed_*/train_metrics.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only diagnosis for repeated matched-budget readiness-floor failure"
+    ],
+    "derived_from": [
+      "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design"
+    ],
+    "blocked_by": [
+      "M2237 admits artifact-only implementation and keeps new rollout/training blocked"
+    ],
+    "supersedes": [
+      "another budget-escalation run without diagnosis",
+      "direct ranking from below-floor checkpoints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.md",
+  "public_gates": [
+    "M2238 must operate only on existing M2230/M2234 artifacts",
+    "M2238 must emit row, seed, budget-delta, and training-plateau diagnostics",
+    "M2238 must classify the next route without ranking profiles",
+    "M2238 must not run training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2238 must not claim finite-window-vs-GRU or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_task_curriculum_readiness_artifact_diagnosis",
+    "evidence_increment": "computes artifact-only readiness-floor, seed-fragility, budget-response, and plateau diagnostics",
+    "claim_scope": "artifact diagnosis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if required artifacts are missing",
+      "stop if diagnosis cannot classify a route",
+      "stop if implementation would require new rollout"
+    ],
+    "fallback_plan": [
+      "write artifact-gap report if inputs are insufficient",
+      "route to task/curriculum repair design if seed/task heterogeneity dominates",
+      "route to checkpoint selection or reward/floor audit if plateau/floor signals dominate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2237 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement artifact-only task/curriculum readiness diagnosis",
+    "admission_evidence": [
+      "M2237 freezes artifact-only diagnostic axes",
+      "M2230 and M2234 artifacts exist and are finite",
+      "new rollout/training remains blocked"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_task_curriculum_readiness_diagnosis.py",
+      "tests/test_paper_route_current_sim_task_curriculum_readiness_diagnosis.py",
+      "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/*",
+      "docs/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.md",
+      "M2238 status queue scoreboard research log and review",
+      "one follow-up manifest selected by result"
+    ],
+    "next_stage_criteria": [
+      "diagnosis summary exists",
+      "route classification is explicit",
+      "ranking remains blocked",
+      "next audit or repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2238 diagnoses readiness artifacts and does not test causal history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, zero-history, or measured execution intervention is run in M2238."
+    ],
+    "temporal_evidence_window": "M2230/M2234 training artifacts.",
+    "negative_result_policy": "Diagnosis must route weak evidence to task/curriculum/floor/plateau repair rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "artifact-only readiness diagnosis",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "reuses existing training artifacts to explain repeated below-floor readiness",
+    "paper_verdict_delta": "can decide whether the paper route needs task/curriculum repair or checkpoint/floor calibration",
+    "must_synthesize_if": [
+      "M2238 cannot classify route",
+      "M2238 shows artifacts are insufficient",
+      "M2238 would imply another blind budget escalation"
+    ]
+  },
+  "hypothesis": "Existing M2230/M2234 artifacts are sufficient to classify the repeated below-floor readiness failure into seed/task, plateau, floor, or reward/curriculum routes without rerun.",
+  "success_criteria": [
+    "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json exists",
+    "row_diagnosis.csv exists",
+    "seed_diagnosis.csv exists",
+    "budget_delta.csv exists",
+    "training_plateau.csv exists",
+    "route_classification is explicit",
+    "no new reset rollout measured execution training replay PPO ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "diagnosis outputs are missing",
+    "route classification is ambiguous",
+    "implementation ranks profiles or starts new rollout/training"
+  ],
+  "commands": [
+    {
+      "name": "diagnose",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_curriculum_readiness_diagnosis --output-dir runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_diagnosis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/run_rows.csv",
+    "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/run_rows.csv",
+    "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md"
+  ],
+  "decision_rule": "M2238 passes if it produces artifact-only diagnostics and a non-ranking route classification.",
+  "next_blocker": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation"
+}

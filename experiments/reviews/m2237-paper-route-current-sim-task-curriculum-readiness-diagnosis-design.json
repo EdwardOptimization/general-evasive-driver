@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2237 pending artifact-only task/curriculum readiness diagnosis design no rerun/ranking claims",
+  "decision_reason": "M2237 freezes artifact-only diagnosis axes for floor gaps seed fragility budget response training plateau route classification no rerun/ranking claims",
   "failure_criteria": [
     "diagnosis design is missing",
     "design requires new rollout before artifact audit",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T140926Z",
+  "generated_at_utc": "20260601T141446Z",
   "hypothesis": "An artifact-only diagnosis can localize why short-v0 and medium-v1 matched training remain below readiness floor before any new rollout or training.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
   "next_blocker": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_task_curriculum_readiness_diagnosis_design_admit_artifact_only_implementation",
   "public_gates": [
     "M2237 must design an artifact-only diagnosis over M2230/M2234 training outputs",
     "M2237 must identify diagnostic axes for seed/task heterogeneity, termination behavior, reward/training plateau, and readiness-floor calibration",
@@ -75,9 +75,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_task_curriculum_readiness_diagnosis_design_admit_artifact_only_implementation",
     "milestone": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
-    "reason": "M2237 pending artifact-only task/curriculum readiness diagnosis design no rerun/ranking claims",
+    "reason": "M2237 freezes artifact-only diagnosis axes for floor gaps seed fragility budget response training plateau route classification no rerun/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

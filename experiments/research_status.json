@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2244,
+    "completed": 2245,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+    "command_log": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+    "run_dir": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
     "status": "completed",
-    "task_id": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis"
+    "task_id": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design"
   },
   "next_task": {
-    "command": "write docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
-    "hypothesis": "An artifact-only diagnosis can localize why short-v0 and medium-v1 matched training remain below readiness floor before any new rollout or training.",
-    "id": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
-    "kind": "gate",
-    "notes": "Pending: design artifact-only diagnosis for repeated below-floor matched training readiness",
-    "priority": 22320,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_curriculum_readiness_diagnosis --output-dir runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "hypothesis": "Existing M2230/M2234 artifacts are sufficient to classify the repeated below-floor readiness failure into seed/task, plateau, floor, or reward/curriculum routes without rerun.",
+    "id": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement artifact-only readiness diagnosis over M2230/M2234 training artifacts",
+    "priority": 22330,
     "status": "pending",
-    "success_artifact": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md"
+    "success_artifact": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json"
   },
-  "updated_at_utc": "20260601T140732Z"
+  "updated_at_utc": "20260601T141219Z"
 }

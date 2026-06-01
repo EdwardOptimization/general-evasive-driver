@@ -1,0 +1,96 @@
+# m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260601T141446Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: pending
+- Decision reason: M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims
+
+## Hypothesis
+
+Existing M2230/M2234 artifacts are sufficient to classify the repeated below-floor readiness failure into seed/task, plateau, floor, or reward/curriculum routes without rerun.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_artifact_only_diagnosis
+- parent_dataset: docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md, runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/run_rows.csv, runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv, runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/run_rows.csv, runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/profile_aggregate.csv, runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profiles/*/seed_*/train_metrics.csv, runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/profiles/*/seed_*/train_metrics.csv
+- parent_config: experiments/manifests/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.json
+- parent_objective: implement artifact-only diagnosis for repeated matched-budget readiness-floor failure
+- derived_from: m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design
+- blocked_by: M2237 admits artifact-only implementation and keeps new rollout/training blocked
+- supersedes: another budget-escalation run without diagnosis, direct ranking from below-floor checkpoints
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json exists
+- row_diagnosis.csv exists
+- seed_diagnosis.csv exists
+- budget_delta.csv exists
+- training_plateau.csv exists
+- route_classification is explicit
+- no new reset rollout measured execution training replay PPO ranking paper-level finite-window-vs-GRU or level3 claim is made
+
+## Failure Criteria
+
+- required artifacts are missing
+- diagnosis outputs are missing
+- route classification is ambiguous
+- implementation ranks profiles or starts new rollout/training
+
+## Evidence Gates
+
+- M2238 must operate only on existing M2230/M2234 artifacts
+- M2238 must emit row, seed, budget-delta, and training-plateau diagnostics
+- M2238 must classify the next route without ranking profiles
+- M2238 must not run training, reset, rollout, measured execution, replay, PPO, or private holdout
+- M2238 must not claim finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not run replay
+- do not run PPO
+- do not use private holdout
+- do not promote any checkpoint
+- do not rank controller families
+- do not select a winner
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- training_instability
+- seed_fragility
+- metric_artifact
+
+## Scoreboard
+
+- milestone: m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation
+- type: infrastructure
+- checkpoint: runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pending
+- reason: M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims
+
+## Next Blocker
+
+m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation

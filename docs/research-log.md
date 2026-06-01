@@ -40103,3 +40103,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch: `paper_route_current_sim_task_curriculum_readiness_diagnosis`
 - follow-up manifest: `experiments/manifests/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.json`
 - next: `m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design`
+
+## M2237 Paper-Route Current-Sim Task/Curriculum Readiness Diagnosis Design
+
+- status: completed
+- decision: `current_sim_task_curriculum_readiness_diagnosis_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.json`
+- design artifact: `docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md`
+- input artifacts: M2230/M2234 run rows, profile aggregates, eval summaries, and train metrics
+- diagnostic axes: readiness-floor gap, seed fragility, budget response, training plateau/late regression, profile-independent task difficulty
+- output artifacts: summary, row diagnosis, seed diagnosis, budget delta, training plateau
+- route classes: task seed heterogeneity, training plateau/late regression, floor calibration, reward/termination repair, task/curriculum repair, artifact gap
+- reset/rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits artifact-only implementation in M2238
+- follow-up manifest: `experiments/manifests/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.json`
+- next: `m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation`

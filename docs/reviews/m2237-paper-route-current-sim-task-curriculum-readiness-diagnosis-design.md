@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T140926Z
+- Generated at UTC: 20260601T141446Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2237 pending artifact-only task/curriculum readiness diagnosis design no rerun/ranking claims
+- Promotion decision: current_sim_task_curriculum_readiness_diagnosis_design_admit_artifact_only_implementation
+- Decision reason: M2237 freezes artifact-only diagnosis axes for floor gaps seed fragility budget response training plateau route classification no rerun/ranking claims
 
 ## Hypothesis
 
@@ -84,8 +84,8 @@ An artifact-only diagnosis can localize why short-v0 and medium-v1 matched train
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2237 pending artifact-only task/curriculum readiness diagnosis design no rerun/ranking claims
+- decision: current_sim_task_curriculum_readiness_diagnosis_design_admit_artifact_only_implementation
+- reason: M2237 freezes artifact-only diagnosis axes for floor gaps seed fragility budget response training plateau route classification no rerun/ranking claims
 
 ## Next Blocker
 
