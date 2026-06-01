@@ -38148,3 +38148,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gates: reset attempts/successes `40/40`, reset failure `0`, observation-dimension failure `0`, finite observations `40`, obstacle initialized `40`, contract/metadata/forbidden/guardrail violations `0`
 - follow-up manifest: `experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json`
 - next: `m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run`
+
+## M2154 Paper-Route Current-Sim Controlled Comparison Reset Validation Implementation and Run
+
+- status: failed
+- decision: `current_sim_reset_validation_preflight_fail_route_to_result_audit`
+- manifest: `experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_reset_validation_preflight.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_reset_validation_preflight.py`
+- run artifact: `runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json`
+- environment reset started: `true`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `current_sim_controlled_comparison_reset_validation_preflight_fail`
+- reset attempts/success/failure: `40` / `39` / `1`
+- failing row: `m2151-current-sim-t5-03`, `T5_terminal_boundary_near_constraint`, `eval_seed=215335`
+- error: `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- contract_violation_count / metadata_missing_count / forbidden_key_violation_count / guardrail_violation_count: `0` / `0` / `0` / `0`
+- task_family_quota_pass / source_family_template_quota_pass: `true` / `true`
+- follow-up manifest: `experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json`
+- next: `m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit`

@@ -2,27 +2,27 @@
   "counts": {
     "blocked": 1,
     "completed": 2162,
-    "failed": 1,
+    "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md",
-    "returncode": 0,
-    "run_dir": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md",
-    "status": "completed",
-    "task_id": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design"
+    "command_log": "docs/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.md",
+    "returncode": 1,
+    "run_dir": "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight",
+    "status": "failed",
+    "task_id": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json",
-    "hypothesis": "A current-sim reset validator can validate all 40 M2151 executable specs with finite 72-dimensional observations, initialized obstacles, and zero claim or contract violations.",
-    "id": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run frozen reset-only validation over M2151 executable specs",
-    "priority": 21490,
+    "command": "see experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json",
+    "hypothesis": "M2154's fail result is localized to one terminal-boundary reset-sampling failure rather than a contract metadata forbidden-key or guardrail failure.",
+    "id": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2154 39/40 reset result before repair or rerun",
+    "priority": 21500,
     "status": "pending",
-    "success_artifact": "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260601T054236Z"
+  "updated_at_utc": "20260601T055316Z"
 }

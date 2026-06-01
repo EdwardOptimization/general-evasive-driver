@@ -1,0 +1,173 @@
+{
+  "id": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.md",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_distribution_by_task_family.csv",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_distribution_by_source_family_template.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit M2154 reset-validation fail-closed result before repair or rerun"
+    ],
+    "derived_from": [
+      "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2154 result_class failed because one terminal-boundary current-sim spec could not sample an obstacle scenario"
+    ],
+    "supersedes": [
+      "rerunning reset without auditing the sampling failure",
+      "repairing scenario filters without classifying the failing row"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2155 must audit M2154 summary without rerunning reset",
+    "M2155 must separate sampling feasibility from contract metadata and guardrail checks",
+    "M2155 must classify the failing row and choose an explicit next route",
+    "M2155 must keep rollout measured execution ranking paper and level3 claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_reset_validation_result_audit",
+    "evidence_increment": "classifies the M2154 39/40 reset result and identifies whether repair should target terminal-boundary sampling",
+    "claim_scope": "reset result audit only; no rerun rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2154 reset counts are not summarized",
+      "stop if the single reset failure is not localized",
+      "stop if audit overclaims reset-valid status despite result_class fail",
+      "stop if audit routes to measured execution without repair or clean reset pass"
+    ],
+    "fallback_plan": [
+      "route to terminal-boundary reset-sampling repair design if the failure is localized and repairable",
+      "route to executable-spec repair if the scenario specification itself is invalid",
+      "route to branch synthesis if reset sampling failures indicate the current-sim panel design is too brittle"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2154 produced a fail-closed reset-validation result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim reset-validation result audit",
+    "admission_evidence": [
+      "M2154 completed reset-only validation with 39 reset successes and one terminal-boundary sampling failure",
+      "M2154 contract metadata forbidden-key quota and guardrail checks were clean"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun reset in audit",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+      "M2155 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-sampling repair design or branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "reset success and failure counts are summarized",
+      "failure taxonomy is explicit",
+      "failing row is identified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2155 reset audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2155."
+    ],
+    "temporal_evidence_window": "M2154 reset validation artifacts.",
+    "negative_result_policy": "If the failure is scenario sampling, repair or respec reset feasibility before measured execution; do not weaken self-ID standards.",
+    "allowed_claims": [
+      "reset-validation result audit and failure classification",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies whether current-sim reset validation is blocked by one scenario-sampling failure or broader panel brittleness",
+    "paper_verdict_delta": "can decide whether a reset-sampling repair is needed before measured execution can be considered",
+    "must_synthesize_if": [
+      "M2155 cannot classify the M2154 failure",
+      "the same reset-sampling failure repeats after one repair",
+      "audit would continue to measured execution without a clean pass or explicit repair"
+    ]
+  },
+  "hypothesis": "M2154's fail result is localized to one terminal-boundary reset-sampling failure rather than a contract metadata forbidden-key or guardrail failure.",
+  "success_criteria": [
+    "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md exists",
+    "M2154 reset success and failure counts are summarized",
+    "failing row and error are identified",
+    "failure taxonomy is explicit",
+    "supported and unsupported claims are explicit",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2154 result is not summarized",
+    "failure classification is ambiguous",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json",
+    "docs/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.md"
+  ],
+  "decision_rule": "M2155 passes if it classifies the M2154 reset-validation failure and chooses a next route without rerun or overclaiming.",
+  "next_blocker": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit"
+}

@@ -1,0 +1,8 @@
+claim,admissible,reason
+current_sim_controlled_comparison_reset_validity,False,reset validity is admissible only if all reset gates pass and after M2155 audit
+measured_controller_performance,False,policy actions and measured rollout remain blocked until reset validation is audited
+controller_family_ranking,False,"reset validation is a scenario admissibility gate, not a controller comparison"
+winner_selection,False,reset validation does not compare controller-family outcomes
+paper_level_benchmark_evidence,False,paper evidence requires measured execution and audited comparison support
+finite_window_vs_gru_conclusion,False,reset validation does not compare controller-family outcomes
+level3_self_identification,False,reset validation does not test history necessity or wrong-history interventions

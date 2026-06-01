@@ -22,16 +22,18 @@ m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-des
 Current next task:
 
 ```text
-m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run
+m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit
 ```
 
-Immediate route: M2153 freezes the current-sim reset-only validator command
-over M2151 executable specs. M2154 must implement and run that exact command:
-`40` reset attempts, expected observation dimension `72`, eval seed base
-`215300`, and zero reset, contract, metadata, forbidden-key, or guardrail
-failures. Rollout, measured execution, controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked until audited
-evidence supports them.
+Immediate route: M2154 implemented and ran the frozen current-sim reset-only
+validator. It failed closed with `39/40` reset successes: one
+`T5_terminal_boundary_near_constraint` row
+(`m2151-current-sim-t5-03`, eval seed `215335`) could not sample an obstacle
+scenario matching its configured filters. Contract, metadata, forbidden-key,
+task/source quota, and guardrail counts are all `0`. M2155 must audit this
+sampling failure before any repair or rerun. Rollout, measured execution,
+controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
+claims remain blocked until audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
