@@ -99,6 +99,15 @@ Last updated: 2026-06-01
 - result: M2277 is accepted as a valid no-reset config materialization, but execution remains blocked because `38` left/right emergency obstacle lateral-offset specs are unsupported by the current centerline-only obstacle task.
 - decision: route to M2279 obstacle lateral-offset instrumentation design. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
+
+## 20260601T191800Z m2279-obstacle-lateral-offset-instrumentation-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md`
+- result: freezes `obstacle.lateral_offset_range` semantics, default `(0.0, 0.0)` compatibility, frame-normal placement, info/observation effects, materializer updates, and reset-only implementation tests.
+- decision: admit M2280 implementation. M2280 may run reset-only instrumentation tests, but policy actions, measured rollout, training, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

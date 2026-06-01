@@ -1,0 +1,190 @@
+{
+  "id": "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact",
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_instrumentation"
+    ],
+    "parent_dataset": [
+      "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+      "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/unsupported_capability_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.json"
+    ],
+    "parent_objective": [
+      "implement obstacle lateral_offset_range instrumentation and rerun no-reset materialization"
+    ],
+    "derived_from": [
+      "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design"
+    ],
+    "blocked_by": [
+      "M2279 admits implementation of obstacle.lateral_offset_range"
+    ],
+    "supersedes": [
+      "centerline-only emergency obstacle materialization",
+      "unsupported lateral-offset execution blocker"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+  "public_gates": [
+    "M2280 must implement obstacle.lateral_offset_range with default centerline compatibility",
+    "M2280 may run reset-only instrumentation tests but must not execute policy actions or rollouts",
+    "M2280 must preserve actor observation dimension and P0 contract",
+    "M2280 must rerun M2277 materialization and reduce unsupported execution blockers to 0",
+    "M2280 must not run measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute policy actions",
+    "do not run measured rollout",
+    "do not run training",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_obstacle_lateral_offset_instrumentation_implementation",
+    "evidence_increment": "implements required simulator instrumentation and refreshes the materialized config pack",
+    "claim_scope": "infrastructure only; reset-unit tests and no-reset materialization allowed; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if default centerline behavior changes",
+      "stop if actor observation dimension changes",
+      "stop if materializer still has lateral-offset execution blockers",
+      "stop if implementation requires policy rollout"
+    ],
+    "fallback_plan": [
+      "route to result audit if implementation passes",
+      "route to instrumentation repair if reset-only tests fail",
+      "route to materialization repair if config pack still blocks lateral offsets"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2279 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement obstacle lateral-offset instrumentation and rerun config materialization",
+    "admission_evidence": [
+      "M2279 freezes field semantics default compatibility and tests",
+      "M2278 accepted 38 lateral-offset execution blockers"
+    ],
+    "blocked_shortcuts": [
+      "no policy actions",
+      "no measured rollout",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/env.py",
+      "src/autodrift/config.py if needed",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_config_materialization.py",
+      "tests/test_obstacle_lateral_offset_instrumentation.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_config_materialization.py",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+      "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+      "M2280 status queue scoreboard research log and review",
+      "one follow-up manifest selected by implementation"
+    ],
+    "next_stage_criteria": [
+      "field implementation is test-covered",
+      "default centerline compatibility is test-covered",
+      "actor contract is unchanged",
+      "materializer execution blocker count is 0",
+      "next result-audit route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2280 changes scenario instrumentation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2280; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2279 design and M2277 materialization blockers.",
+    "negative_result_policy": "Instrumentation results only affect scenario support readiness, not self-ID evidence.",
+    "allowed_claims": [
+      "obstacle lateral-offset instrumentation implementation",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds simulator support for a missing scenario axis",
+    "paper_verdict_delta": "can admit reset-validation audit of role-supported scenario pack after implementation",
+    "must_synthesize_if": [
+      "M2280 cannot preserve centerline compatibility",
+      "M2280 cannot preserve actor contract",
+      "M2280 cannot clear materializer lateral-offset blockers"
+    ]
+  },
+  "hypothesis": "Implementing obstacle.lateral_offset_range can clear M2277 lateral-offset execution blockers without actor-contract drift.",
+  "success_criteria": [
+    "ObstacleTaskConfig has lateral_offset_range defaulting to (0.0, 0.0)",
+    "build_env_config accepts obstacle.lateral_offset_range",
+    "fixed positive/negative lateral offsets are observable after reset-only tests",
+    "actor observation dimension and P0 contract are unchanged",
+    "M2277 materialization rerun reports unsupported_execution_blocker_count == 0",
+    "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md exists"
+  ],
+  "failure_criteria": [
+    "M2280 changes actor input contract",
+    "M2280 breaks default centerline behavior",
+    "M2280 executes policy actions measured rollout training replay PPO or private holdout",
+    "M2280 ranks profiles or selects a winner",
+    "M2280 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_obstacle_lateral_offset_instrumentation.py tests/test_paper_route_current_sim_scenario_task_family_config_materialization.py"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation --next-blocker m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_instrumentation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+    "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json"
+  ],
+  "decision_rule": "M2280 passes if reset-only instrumentation tests and materialization refresh clear lateral-offset execution blockers without actor-contract drift.",
+  "next_blocker": "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit"
+}

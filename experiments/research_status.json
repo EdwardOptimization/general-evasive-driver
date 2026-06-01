@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2286,
+    "completed": 2287,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+    "task_id": "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md"
+    "command_log": "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md"
   },
   "next_task": {
-    "id": "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design",
-    "kind": "gate",
-    "priority": 22740,
+    "id": "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation",
+    "kind": "infrastructure",
+    "priority": 22750,
     "status": "pending",
-    "hypothesis": "A backward-compatible obstacle.lateral_offset_range design can close M2277 execution blockers without changing the P0 actor contract.",
-    "command": "manual obstacle lateral-offset instrumentation design artifact",
-    "success_artifact": "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
-    "notes": "Pending: freeze obstacle.lateral_offset_range semantics default compatibility tests and implementation route; no reset rollout training ranking or paper claims"
+    "hypothesis": "Implementing obstacle.lateral_offset_range can clear M2277 lateral-offset execution blockers without actor-contract drift.",
+    "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_obstacle_lateral_offset_instrumentation.py tests/test_paper_route_current_sim_scenario_task_family_config_materialization.py && PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation --next-blocker m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit",
+    "success_artifact": "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json",
+    "notes": "Pending: implement obstacle.lateral_offset_range run reset-only tests rerun materializer; no policy rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T191400Z"
+  "updated_at_utc": "20260601T191800Z"
 }
