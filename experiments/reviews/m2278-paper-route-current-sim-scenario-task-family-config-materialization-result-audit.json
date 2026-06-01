@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2278 audits M2277 as valid no-reset materialization but not execution-admissible due 38 lateral-offset blockers route to instrumentation design",
+  "failure_criteria": [
+    "M2277 artifacts are missing",
+    "M2278 ignores unsupported execution blockers",
+    "M2278 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2278 ranks profiles or selects a winner",
+    "M2278 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T191555Z",
+  "hypothesis": "M2277 materialization should route to obstacle lateral-offset instrumentation repair before reset/rollout because execution blockers are explicit.",
+  "lineage": {
+    "blocked_by": [
+      "M2277 primary_route is scenario_task_family_result_audit_route_to_instrumentation_repair"
+    ],
+    "derived_from": [
+      "m2277-paper-route-current-sim-scenario-task-family-config-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2277-paper-route-current-sim-scenario-task-family-config-materialization.json"
+    ],
+    "parent_dataset": [
+      "docs/m2277-paper-route-current-sim-scenario-task-family-config-materialization.md",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/unsupported_capability_rows.csv",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit M2277 scenario task-family materialization result and choose next non-ranking route"
+    ],
+    "supersedes": [
+      "reset validation before materialization result audit",
+      "training from unsupported lateral-offset rows",
+      "controller ranking from no-reset config pack"
+    ]
+  },
+  "milestone": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+  "next_blocker": "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_materialization_audit_route_to_obstacle_lateral_offset_instrumentation_design",
+  "public_gates": [
+    "M2278 must audit M2277 completeness and guardrails",
+    "M2278 must interpret unsupported lateral-offset blockers",
+    "M2278 must choose instrumentation repair or reset-validation design without running reset or training",
+    "M2278 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_materialization_audit_route_to_obstacle_lateral_offset_instrumentation_design",
+    "milestone": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+    "reason": "M2278 audits M2277 as valid no-reset materialization but not execution-admissible due 38 lateral-offset blockers route to instrumentation design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md exists",
+    "M2277 result_class and guardrails are audited",
+    "unsupported lateral-offset blockers are interpreted",
+    "a non-ranking follow-up route is selected",
+    "guardrails remain false for reset rollout training ranking paper-level finite-window-vs-GRU and level3 self-ID claims"
+  ],
+  "type": "gate"
+}

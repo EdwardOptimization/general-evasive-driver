@@ -90,6 +90,15 @@ Last updated: 2026-06-01
 - key evidence: timing buckets are balanced (`24/24/24`); lateral metadata has `34` centerline, `19` left-offset, and `19` right-offset specs; unsupported execution blockers are `38` because current emergency obstacle placement is centerline-only.
 - decision: route to M2278 result audit. Likely next branch is obstacle lateral-offset instrumentation repair before reset/rollout; no training/ranking/paper/self-ID claims.
 
+
+## 20260601T191400Z m2278-scenario-task-family-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md`
+- result: M2277 is accepted as a valid no-reset config materialization, but execution remains blocked because `38` left/right emergency obstacle lateral-offset specs are unsupported by the current centerline-only obstacle task.
+- decision: route to M2279 obstacle lateral-offset instrumentation design. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

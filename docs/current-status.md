@@ -16,27 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2277-paper-route-current-sim-scenario-task-family-config-materialization
+m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit
+m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design
 ```
 
-Immediate route: M2277 materialized a no-reset v0 scenario task-family config
-pack with `6` roles and `72` specs. Metadata is complete, corrected role mapping
-is used, labels do not enter actor input, actor contract violations are `0`, and
-ranking-admissible rows are `0`. The pack is not execution-admissible yet:
-`38` desired left/right emergency obstacle lateral-offset rows are explicit
-unsupported execution blockers because the current emergency obstacle task is
-centerline-only.
+Immediate route: M2278 accepts M2277 as a valid no-reset materialization, but
+blocks execution of the generated role-family pack until emergency obstacle
+lateral-offset instrumentation exists. The blocker is specific: `38` left/right
+obstacle-offset rows would otherwise be silently approximated as centerline
+obstacles.
 
-Active interpretation: M2278 must audit M2277 and almost certainly route to
-obstacle lateral-offset instrumentation repair before any reset, rollout,
+Active interpretation: M2279 must design a backward-compatible
+`obstacle.lateral_offset_range` extension with default `(0.0, 0.0)`, preserving
+the P0 actor contract and centerline default behavior. No reset, rollout,
 measured execution, training, ranking, finite-window vs GRU verdict, paper-level
-claim, or level3 self-ID claim is admitted.
+claim, or level3 self-ID claim is admitted yet.
 
 ## Actor Contract
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2285,
+    "completed": 2286,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2277-paper-route-current-sim-scenario-task-family-config-materialization",
+    "task_id": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization",
-    "command_log": "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+    "id": "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design",
     "kind": "gate",
-    "priority": 22730,
+    "priority": 22740,
     "status": "pending",
-    "hypothesis": "M2277 materialization should route to obstacle lateral-offset instrumentation repair before reset/rollout because execution blockers are explicit.",
-    "command": "manual artifact audit of runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json and support tables",
-    "success_artifact": "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
-    "notes": "Pending: audit unsupported lateral-offset blockers and choose instrumentation repair or reset-validation design; no reset rollout training ranking or paper claims"
+    "hypothesis": "A backward-compatible obstacle.lateral_offset_range design can close M2277 execution blockers without changing the P0 actor contract.",
+    "command": "manual obstacle lateral-offset instrumentation design artifact",
+    "success_artifact": "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+    "notes": "Pending: freeze obstacle.lateral_offset_range semantics default compatibility tests and implementation route; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T190847Z"
+  "updated_at_utc": "20260601T191400Z"
 }

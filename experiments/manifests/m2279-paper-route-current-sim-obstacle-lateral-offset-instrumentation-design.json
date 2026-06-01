@@ -1,0 +1,174 @@
+{
+  "id": "m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/unsupported_capability_rows.csv",
+      "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design backward-compatible emergency obstacle lateral-offset instrumentation"
+    ],
+    "derived_from": [
+      "m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2278 accepts 38 emergency obstacle lateral-offset execution blockers"
+    ],
+    "supersedes": [
+      "reset validation before lateral-offset instrumentation",
+      "silent centerline approximation of left/right obstacle rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+  "public_gates": [
+    "M2279 must design a backward-compatible obstacle lateral_offset_range field",
+    "M2279 must preserve centerline default behavior and P0 actor input contract",
+    "M2279 must define implementation tests before code changes",
+    "M2279 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_obstacle_lateral_offset_instrumentation_design",
+    "evidence_increment": "designs the simulator metadata extension required by the materialized scenario distribution",
+    "claim_scope": "design only; no reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design changes deployable actor inputs",
+      "stop if design cannot preserve centerline default compatibility",
+      "stop if design routes directly to rollout before implementation audit"
+    ],
+    "fallback_plan": [
+      "route to implementation if design is complete",
+      "route to materialization repair if lateral-offset semantics cannot be represented",
+      "route to high-fidelity planning only if current-sim instrumentation is impossible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2278 routes to obstacle lateral-offset instrumentation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design obstacle lateral-offset instrumentation before implementation",
+    "admission_evidence": [
+      "M2278 accepts unsupported emergency obstacle lateral-offset rows as execution blockers",
+      "M2277 materialization passed but execution_admissible_without_instrumentation is false"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+      "M2279 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "field semantics and default compatibility are frozen",
+      "env/config/info/observation effects are specified",
+      "implementation test plan is frozen",
+      "next implementation route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2279 designs simulator instrumentation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2279; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2277/M2278 materialization blocker artifacts.",
+    "negative_result_policy": "Instrumentation design must remain a scenario-quality prerequisite, not self-ID evidence.",
+    "allowed_claims": [
+      "obstacle lateral-offset instrumentation design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "unblocks the scenario distribution by designing missing simulator instrumentation",
+    "paper_verdict_delta": "can admit implementation of a required scenario-axis field",
+    "must_synthesize_if": [
+      "M2279 cannot define backward-compatible lateral-offset semantics",
+      "M2279 would change actor input contract",
+      "M2279 would route directly to reset/rollout/training"
+    ]
+  },
+  "hypothesis": "A backward-compatible obstacle.lateral_offset_range design can close M2277 execution blockers without changing the P0 actor contract.",
+  "success_criteria": [
+    "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md exists",
+    "field semantics and default compatibility are specified",
+    "config builder and env reset placement effects are specified",
+    "info/metadata/observation effects are specified",
+    "focused implementation tests are specified",
+    "a non-ranking implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2279 ignores M2278 lateral-offset blockers",
+    "M2279 changes actor input contract",
+    "M2279 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2279 ranks profiles or selects a winner",
+    "M2279 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual obstacle lateral-offset instrumentation design artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
+    "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/unsupported_capability_rows.csv"
+  ],
+  "decision_rule": "M2279 passes if it freezes a safe implementation plan and selects a non-ranking follow-up route.",
+  "next_blocker": "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation"
+}
