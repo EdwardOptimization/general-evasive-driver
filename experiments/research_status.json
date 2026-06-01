@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2157,
+    "completed": 2158,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.md",
+    "command_log": "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight",
+    "run_dir": "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
     "status": "completed",
-    "task_id": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation"
+    "task_id": "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.json",
-    "hypothesis": "M2148 preflight artifacts are clean enough to admit reset-validation command design, while metric gaps remain explicit and non-silent.",
-    "id": "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit",
+    "command": "see experiments/manifests/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.json",
+    "hypothesis": "The M2148 benchmark contract can be converted into a concrete no-rollout executable-spec materialization plan.",
+    "id": "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2148 benchmark spec preflight before reset-validation design",
-    "priority": 21440,
+    "notes": "Pending: design executable-spec materialization before reset validation",
+    "priority": 21450,
     "status": "pending",
-    "success_artifact": "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md"
+    "success_artifact": "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md"
   },
-  "updated_at_utc": "20260601T051348Z"
+  "updated_at_utc": "20260601T051730Z"
 }

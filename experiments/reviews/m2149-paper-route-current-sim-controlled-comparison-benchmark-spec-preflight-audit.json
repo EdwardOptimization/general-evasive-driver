@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2149 audits M2148 as clean benchmark contract but not executable reset-validation input and routes to executable-spec materialization design",
+  "failure_criteria": [
+    "audit doc is missing",
+    "preflight artifacts are not audited",
+    "metric gaps are ignored",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T051919Z",
+  "hypothesis": "M2148 preflight artifacts are clean enough to admit the next benchmark route, while metric gaps remain explicit and non-silent.",
+  "lineage": {
+    "blocked_by": [
+      "M2148 must materialize preflight artifacts before audit"
+    ],
+    "derived_from": [
+      "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_benchmark_spec_preflight_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.md",
+      "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/profile_matrix.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/task_family_specs.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/metric_support.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit current-sim controlled comparison benchmark spec preflight before reset-validation design"
+    ],
+    "supersedes": [
+      "direct reset validation without preflight audit",
+      "silent metric-gap acceptance"
+    ]
+  },
+  "milestone": "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit",
+  "next_blocker": "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_benchmark_spec_preflight_audit_route_to_executable_spec_materialization_design",
+  "public_gates": [
+    "M2149 must audit M2148 profile matrix completeness",
+    "M2149 must audit T1-T5 task-family coverage",
+    "M2149 must audit explicit metric gaps",
+    "M2149 must audit claim-boundary and guardrail fields",
+    "M2149 must decide executable-spec materialization design, reset-validation command design, schema repair, or synthesis"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_benchmark_spec_preflight_audit_route_to_executable_spec_materialization_design",
+    "milestone": "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit",
+    "reason": "M2149 audits M2148 as clean benchmark contract but not executable reset-validation input and routes to executable-spec materialization design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md exists",
+    "profile matrix completeness is audited",
+    "T1-T5 coverage is audited",
+    "unsupported metric gaps are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

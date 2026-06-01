@@ -1,0 +1,178 @@
+{
+  "id": "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_executable_spec_materialization_design"
+    ],
+    "parent_dataset": [
+      "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+      "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/task_family_specs.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/profile_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rollout materialization from benchmark-family contract rows into executable current-sim scenario specs"
+    ],
+    "derived_from": [
+      "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit"
+    ],
+    "blocked_by": [
+      "M2149 finds M2148 is a clean contract but not executable reset-validation input"
+    ],
+    "supersedes": [
+      "direct reset validation from abstract benchmark-family rows",
+      "implicit scenario materialization inside reset validator"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+  "public_gates": [
+    "M2150 must design executable current-sim scenario spec materialization from M2148 contract rows",
+    "M2150 must preserve the 8-profile matrix and T1-T5 task-family labels",
+    "M2150 must define concrete env-config/source/seed fields required before reset validation",
+    "M2150 must preserve metric-gap and claim-boundary fields",
+    "M2150 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_executable_spec_materialization_design",
+    "evidence_increment": "designs the concrete no-rollout step needed to turn benchmark contract rows into reset-validatable executable scenario specs",
+    "claim_scope": "executable spec materialization design only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design jumps directly to reset validation",
+      "stop if design omits concrete env-config or seed fields",
+      "stop if design drops T1-T5 or profile matrix provenance",
+      "stop if design silently discards deferred metric gaps",
+      "stop if design introduces profile-specific tuning"
+    ],
+    "fallback_plan": [
+      "route to executable-spec materialization implementation if design is concrete",
+      "route to benchmark contract repair if required executable fields cannot be derived",
+      "route to synthesis if current-sim benchmark scope is too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2149 routes from clean contract preflight to executable-spec materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim controlled comparison executable spec materialization design",
+    "admission_evidence": [
+      "M2149 audits profile matrix completeness",
+      "M2149 audits T1-T5 coverage",
+      "M2149 keeps metric gaps explicit",
+      "M2149 blocks direct reset validation until executable specs exist"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2150",
+      "do not materialize by profile-specific tuning",
+      "do not hide unsupported metric gaps"
+    ],
+    "allowed_updates": [
+      "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+      "M2150 status queue scoreboard research log and review",
+      "one follow-up manifest for executable-spec materialization implementation or fallback"
+    ],
+    "next_stage_criteria": [
+      "executable spec schema is specified",
+      "task-family quotas are specified",
+      "source and seed materialization rules are specified",
+      "claim boundary and metric gaps are preserved",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2150 designs executable specs and does not test history necessity.",
+    "history_necessity_tests": [
+      "M2150 must preserve future T4/T5 history-intervention metrics as deferred gaps or executable-spec metadata, but does not execute them."
+    ],
+    "temporal_evidence_window": "M2148-M2149 benchmark contract artifacts.",
+    "negative_result_policy": "If executable spec design cannot preserve T4/T5 mechanism families without unsupported metrics, narrow claims before any self-ID experiment.",
+    "allowed_claims": [
+      "executable spec materialization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "fills the concrete executable-spec gap discovered by M2149 before any reset validation",
+    "paper_verdict_delta": "can make reset validation possible but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2150 cannot define executable env-config fields",
+      "M2150 would require profile-specific scenario tuning",
+      "M2150 would need another design-only milestone without implementation"
+    ]
+  },
+  "hypothesis": "The M2148 benchmark contract can be converted into a concrete no-rollout executable-spec materialization plan that preserves T1-T5, the 8-profile matrix, metric gaps, and claim boundaries.",
+  "success_criteria": [
+    "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md exists",
+    "executable spec schema is explicit",
+    "task-family quotas and source rules are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "executable spec schema is missing",
+    "source or seed materialization rules are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_executable_spec_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+    "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+    "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json"
+  ],
+  "decision_rule": "M2150 passes if it freezes concrete executable-spec materialization design without reset or ranking.",
+  "next_blocker": "m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation"
+}

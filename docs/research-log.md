@@ -38039,3 +38039,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - task families: T1 reactive, T2 delayed-response, T3 warmup-reveal, T4 same-current older-history, T5 terminal-boundary
 - follow-up manifest: `experiments/manifests/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.json`
 - next: `m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit`
+
+## M2149 Paper-Route Current-Sim Controlled Comparison Benchmark Spec Preflight Audit
+
+- status: completed
+- decision: `current_sim_benchmark_spec_preflight_audit_route_to_executable_spec_materialization_design`
+- manifest: `experiments/manifests/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.json`
+- audit artifact: `docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md`
+- audited summary: `runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json`
+- reset/rollout/measured execution in M2149: `false`
+- policy actions executed in M2149: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2148 is a clean no-rollout benchmark contract preflight
+- profile/task/metric rows: `8` / `5` / `18`
+- explicit deferred metric gaps: `10`
+- guardrail_violation_count: `0`
+- route correction: M2148 task rows are benchmark-family contract rows, not executable env specs; reset validation is blocked until executable-spec materialization exists
+- follow-up manifest: `experiments/manifests/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.json`
+- next: `m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design`

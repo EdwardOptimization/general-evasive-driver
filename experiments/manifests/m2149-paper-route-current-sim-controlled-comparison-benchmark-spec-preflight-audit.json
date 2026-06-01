@@ -43,7 +43,7 @@
     "M2149 must audit T1-T5 task-family coverage",
     "M2149 must audit explicit metric gaps",
     "M2149 must audit claim-boundary and guardrail fields",
-    "M2149 must decide reset-validation command design, schema repair, or synthesis"
+    "M2149 must decide executable-spec materialization design, reset-validation command design, schema repair, or synthesis"
   ],
   "private_holdout_policy": "not_used",
   "forbidden_shortcuts": [
@@ -77,7 +77,8 @@
       "stop if audit routes to execution without reset validation"
     ],
     "fallback_plan": [
-      "route to reset-validation command design if preflight is clean",
+      "route to executable-spec materialization design if preflight is clean but not reset-validatable",
+      "route to reset-validation command design only if executable specs already exist",
       "route to metric-support repair if deferred gaps block reset validation",
       "route to schema repair if profile matrix or T1-T5 coverage is incomplete",
       "route to synthesis if branch scope is too broad"
@@ -140,7 +141,7 @@
       "M2149 finds benchmark scope too broad for current simulator"
     ]
   },
-  "hypothesis": "M2148 preflight artifacts are clean enough to admit reset-validation command design, while metric gaps remain explicit and non-silent.",
+  "hypothesis": "M2148 preflight artifacts are clean enough to admit the next benchmark route, while metric gaps remain explicit and non-silent.",
   "success_criteria": [
     "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md exists",
     "profile matrix completeness is audited",
@@ -176,5 +177,5 @@
     "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json"
   ],
   "decision_rule": "M2149 passes if it audits M2148 and chooses a bounded next route without reset or ranking.",
-  "next_blocker": "m2150-paper-route-current-sim-controlled-comparison-benchmark-reset-validation-command-design"
+  "next_blocker": "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design"
 }
