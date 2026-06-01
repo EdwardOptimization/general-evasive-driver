@@ -38821,3 +38821,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to implementation audit before repeat measured execution command design
 - follow-up manifest: `experiments/manifests/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.json`
 - next: `m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit`
+
+## M2182 Paper-Route Current-Sim Repeat Measured-Runner Metadata Extension Result Audit
+
+- status: completed
+- decision: `current_sim_repeat_metadata_extension_audit_admit_repeat_measured_execution_command_design`
+- manifest: `experiments/manifests/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.json`
+- audit artifact: `docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md`
+- audited implementation: `docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md`
+- audited focused tests: `4 passed`
+- accepted: repeat metadata preserved in fake-rollout episode rows
+- accepted: `training_repeat_aggregate.csv` written for repeat rows
+- accepted: partial repeat metadata fails validation before rollout
+- accepted: non-repeat workload compatibility remains intact
+- training: `false`
+- real measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to repeat measured execution command design
+- follow-up manifest: `experiments/manifests/m2183-paper-route-current-sim-repeat-measured-execution-command-design.json`
+- next: `m2183-paper-route-current-sim-repeat-measured-execution-command-design`

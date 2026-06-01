@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2189,
+    "completed": 2190,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md",
+    "command_log": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md",
+    "run_dir": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
     "status": "completed",
-    "task_id": "m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation"
+    "task_id": "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
-    "hypothesis": "The M2181 metadata extension is clean enough to admit repeat measured execution command design while keeping ranking blocked.",
-    "id": "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit",
+    "command": "write docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+    "hypothesis": "The repeat measured-execution command can be frozen over the M2177 new repeat workload with exact target counts and preserved repeat metadata.",
+    "id": "m2183-paper-route-current-sim-repeat-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2181 repeat metadata-preserving runner patch before measured execution command design",
-    "priority": 21770,
+    "notes": "Pending: freeze repeat measured-execution command without executing rollout",
+    "priority": 21780,
     "status": "pending",
-    "success_artifact": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md"
+    "success_artifact": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T090718Z"
+  "updated_at_utc": "20260601T091420Z"
 }

@@ -1,0 +1,161 @@
+{
+  "id": "m2183-paper-route-current-sim-repeat-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_command_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze repeat measured-execution command after metadata-preserving runner audit"
+    ],
+    "derived_from": [
+      "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit"
+    ],
+    "blocked_by": [
+      "M2182 audit must admit command design before repeat measured execution"
+    ],
+    "supersedes": [
+      "ad hoc repeat measured execution without frozen command"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+  "public_gates": [
+    "M2183 must freeze an exact repeat measured-execution command",
+    "M2183 must target M2177 new repeat workload rows",
+    "M2183 must preserve repeat metadata through the measured runner",
+    "M2183 must not execute the measured rollout",
+    "M2183 must not rank profiles or select a winner"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_measured_execution_command_design",
+    "evidence_increment": "freezes a metadata-preserving command for new repeat measured execution without running it",
+    "claim_scope": "command design only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the M2177 repeat workload is missing or incomplete",
+      "stop if the command cannot preserve repeat metadata",
+      "stop if target episode/spec/profile counts are ambiguous",
+      "stop if design would execute the rollout"
+    ],
+    "fallback_plan": [
+      "route to repeat workload audit if counts are ambiguous",
+      "route to runner repair if metadata preservation is still insufficient",
+      "route to measured execution implementation only after command design passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2182 audit admits repeat measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze repeat measured-execution command",
+    "admission_evidence": [
+      "M2182 audits M2181 metadata preservation as clean",
+      "M2177 materialized two new repeat seed groups with 640 workload rows",
+      "M2174 already provides the original one-seed measured execution context"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in command design",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+      "M2183 status queue scoreboard research log and review",
+      "one follow-up manifest for repeat measured execution implementation"
+    ],
+    "next_stage_criteria": [
+      "exact command is frozen",
+      "target counts are explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2183 designs a measured execution command and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2183."
+    ],
+    "temporal_evidence_window": "M2177 repeat materialized workload.",
+    "negative_result_policy": "If command design cannot preserve metadata or counts, repair design before execution.",
+    "allowed_claims": [
+      "repeat measured-execution command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares two-repeat measured execution while preserving metadata provenance",
+    "paper_verdict_delta": "can admit repeat measured execution but cannot decide comparison",
+    "must_synthesize_if": [
+      "M2183 cannot freeze an unambiguous command",
+      "M2183 reveals repeat workload count or metadata mismatch",
+      "M2183 would run measured execution"
+    ]
+  },
+  "hypothesis": "The repeat measured-execution command can be frozen over the M2177 new repeat workload with exact target counts and preserved repeat metadata.",
+  "success_criteria": [
+    "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md exists",
+    "exact command is recorded",
+    "target episode count is 640",
+    "target spec count is 40",
+    "target profile count is 8",
+    "repeat metadata preservation is required in the route",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "command design document is missing",
+    "target counts are ambiguous",
+    "command uses the wrong workload artifact",
+    "measured execution starts",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_command_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+    "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv"
+  ],
+  "decision_rule": "M2183 passes if it freezes a metadata-preserving repeat measured-execution command and keeps execution/ranking blocked.",
+  "next_blocker": "m2183-paper-route-current-sim-repeat-measured-execution-command-design"
+}
