@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T162121Z
+- Generated at UTC: 20260601T163125Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2251 pending audit M2250 repaired training execution and choose non-ranking next route
+- Promotion decision: current_sim_offtrack_recovery_corridor_training_audit_route_to_selected_checkpoint_outcome_localization_design
+- Decision reason: M2251 audits M2250 clean execution selected beats final 15/15 return improves but floor pass 0 route to outcome localization no ranking claims
 
 ## Hypothesis
 
@@ -92,8 +92,8 @@ M2250 provides enough repaired training evidence to decide whether the next rout
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2251 pending audit M2250 repaired training execution and choose non-ranking next route
+- decision: current_sim_offtrack_recovery_corridor_training_audit_route_to_selected_checkpoint_outcome_localization_design
+- reason: M2251 audits M2250 clean execution selected beats final 15/15 return improves but floor pass 0 route to outcome localization no ranking claims
 
 ## Next Blocker
 

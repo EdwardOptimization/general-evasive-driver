@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution
+m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit
+m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -230,7 +230,11 @@ is whether the reward extension reduced offtrack or merely shifted termination
 mode, so selected-checkpoint outcome localization over the M2250 selected rows
 is the leading non-ranking route unless M2251 finds a stronger repair blocker.
 Ranking, finite-window-vs-GRU verdicts, paper-level claims, and level3
-self-identification claims remain blocked.
+self-identification claims remain blocked. M2251 audits this result and routes
+to M2252 selected-checkpoint outcome-localization design: M2250 is clean and
+return-improved, but outcome mode is unverified, so another repaired training
+run is blocked until the selected checkpoints are localized over the same
+`480` public episode protocol used by M2244.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

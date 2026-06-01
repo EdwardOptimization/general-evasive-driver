@@ -1,0 +1,184 @@
+{
+  "id": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "training_instability",
+    "seed_fragility",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/profile_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design episode-level outcome localization over M2250 selected checkpoints"
+    ],
+    "derived_from": [
+      "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2251 classifies M2250 as return improved but outcome mode unverified"
+    ],
+    "supersedes": [
+      "another repaired training run before outcome localization",
+      "interpreting return-only improvement as offtrack repair",
+      "ranking below-floor selected checkpoints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+  "public_gates": [
+    "M2252 must design localization over exactly the 15 M2250 selected checkpoints",
+    "M2252 must require 32 public episodes per selected checkpoint for 480 expected rows",
+    "M2252 must use M2250 configs and selected checkpoint paths without retraining",
+    "M2252 must compare against M2244 only as repair-route evidence",
+    "M2252 must not run rollout training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design",
+    "evidence_increment": "turns M2251 audit into a concrete no-ranking outcome-localization protocol",
+    "claim_scope": "design only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2250 selected checkpoint rows are incomplete",
+      "stop if M2252 cannot define a complete 480-row localization protocol",
+      "stop if design would compare profiles as winners"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if selected rows or configs are missing",
+      "route to localization execution if design is complete",
+      "route to synthesis if repeated below-floor evidence cannot justify more localization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2251 routes to selected-checkpoint outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design selected-checkpoint outcome localization over M2250 artifacts",
+    "admission_evidence": [
+      "M2250 selected_checkpoint_count is 15",
+      "M2250 selected_checkpoint_profile_floor_pass_count is 0",
+      "M2251 routes to outcome localization because return improved but outcome mode is unverified",
+      "M2244 provides the baseline outcome panel for repair-route comparison"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout in M2252",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+      "M2252 status queue scoreboard research log and review",
+      "one follow-up implementation manifest"
+    ],
+    "next_stage_criteria": [
+      "selected checkpoint source is fixed",
+      "config root and output dir are fixed",
+      "expected episode count and guardrails are fixed",
+      "implementation command is specified"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2252 designs closed-loop outcome localization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2252; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2250 selected checkpoints only.",
+    "negative_result_policy": "Use localization to repair task/reward design; do not lower self-ID standards.",
+    "allowed_claims": [
+      "selected-checkpoint outcome-localization design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "prepares episode-level failure-mode evidence over the repaired selected checkpoints rather than another aggregate training run",
+    "paper_verdict_delta": "can determine whether the reward repair changed offtrack collision or mixed failure modes",
+    "must_synthesize_if": [
+      "M2252 cannot define a complete localization route",
+      "M2253 later duplicates M2244 offtrack dominance without new route clarity",
+      "M2252 would recommend another training run before localization"
+    ]
+  },
+  "hypothesis": "A fixed selected-checkpoint outcome-localization design over M2250 can determine whether the reward repair changed the offtrack-dominated failure mode.",
+  "success_criteria": [
+    "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md exists",
+    "selected checkpoint source is runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv",
+    "config root is runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/configs",
+    "expected selected checkpoint count is 15",
+    "episodes per selected checkpoint is 32",
+    "expected episode row count is 480",
+    "M2244 baseline outcome counts are named for repair-route comparison",
+    "guardrails block ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2252 ignores M2250 selected checkpoint source",
+    "M2252 changes actor inputs or training configs",
+    "M2252 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2252 ranks profiles or selects a winner",
+    "M2252 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design of M2253 selected-checkpoint outcome localization command"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2252 passes if it freezes a complete no-ranking outcome-localization execution protocol over M2250 selected checkpoints.",
+  "next_blocker": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design"
+}

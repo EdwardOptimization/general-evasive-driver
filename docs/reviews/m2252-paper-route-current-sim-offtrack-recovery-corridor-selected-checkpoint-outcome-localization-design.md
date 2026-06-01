@@ -1,0 +1,101 @@
+# m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260601T163125Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pending
+- Decision reason: M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims
+
+## Hypothesis
+
+A fixed selected-checkpoint outcome-localization design over M2250 can determine whether the reward repair changed the offtrack-dominated failure mode.
+
+## Lineage
+
+- parent_checkpoint: runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv
+- parent_dataset: docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md, runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json, runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv, runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/profile_aggregate.csv, runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json
+- parent_config: experiments/manifests/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.json
+- parent_objective: design episode-level outcome localization over M2250 selected checkpoints
+- derived_from: m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit
+- blocked_by: M2251 classifies M2250 as return improved but outcome mode unverified
+- supersedes: another repaired training run before outcome localization, interpreting return-only improvement as offtrack repair, ranking below-floor selected checkpoints
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md exists
+- selected checkpoint source is runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv
+- config root is runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/configs
+- expected selected checkpoint count is 15
+- episodes per selected checkpoint is 32
+- expected episode row count is 480
+- M2244 baseline outcome counts are named for repair-route comparison
+- guardrails block ranking paper-level finite-window-vs-GRU and level3 self-ID claims
+- a follow-up implementation route is selected
+
+## Failure Criteria
+
+- M2252 ignores M2250 selected checkpoint source
+- M2252 changes actor inputs or training configs
+- M2252 starts new training reset rollout measured execution replay PPO or private holdout
+- M2252 ranks profiles or selects a winner
+- M2252 makes finite-window-vs-GRU paper-level or level3 self-ID claims
+
+## Evidence Gates
+
+- M2252 must design localization over exactly the 15 M2250 selected checkpoints
+- M2252 must require 32 public episodes per selected checkpoint for 480 expected rows
+- M2252 must use M2250 configs and selected checkpoint paths without retraining
+- M2252 must compare against M2244 only as repair-route evidence
+- M2252 must not run rollout training replay PPO private holdout ranking or paper/self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not run replay
+- do not run PPO
+- do not use private holdout
+- do not promote any checkpoint
+- do not rank controller families
+- do not select a winner
+- do not change actor observation contract
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- training_instability
+- seed_fragility
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design
+- type: gate
+- checkpoint: docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pending
+- reason: M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims
+
+## Next Blocker
+
+m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design

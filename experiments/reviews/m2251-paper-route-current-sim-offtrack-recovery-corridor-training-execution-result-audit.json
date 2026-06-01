@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2251 pending audit M2250 repaired training execution and choose non-ranking next route",
+  "decision_reason": "M2251 audits M2250 clean execution selected beats final 15/15 return improves but floor pass 0 route to outcome localization no ranking claims",
   "failure_criteria": [
     "M2250 artifacts are missing",
     "M2250 selected checkpoint result is ignored",
@@ -31,7 +31,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T162121Z",
+  "generated_at_utc": "20260601T163125Z",
   "hypothesis": "M2250 provides enough repaired training evidence to decide whether the next route should be selected-checkpoint outcome localization or another bounded repair.",
   "lineage": {
     "blocked_by": [
@@ -66,7 +66,7 @@
   "milestone": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
   "next_blocker": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_training_audit_route_to_selected_checkpoint_outcome_localization_design",
   "public_gates": [
     "M2251 must audit M2250 execution completeness candidate count selected checkpoint count and guardrails",
     "M2251 must compare final vs selected checkpoint evidence without ranking profiles",
@@ -77,9 +77,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_training_audit_route_to_selected_checkpoint_outcome_localization_design",
     "milestone": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
-    "reason": "M2251 pending audit M2250 repaired training execution and choose non-ranking next route",
+    "reason": "M2251 audits M2250 clean execution selected beats final 15/15 return improves but floor pass 0 route to outcome localization no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

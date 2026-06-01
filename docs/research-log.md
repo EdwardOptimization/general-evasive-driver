@@ -40443,3 +40443,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.json`
 - next: `m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit`
+
+## M2251 Paper-Route Current-Sim Offtrack/Recovery/Corridor Training Execution Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_training_audit_route_to_selected_checkpoint_outcome_localization_design`
+- manifest: `experiments/manifests/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.json`
+- audit artifact: `docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md`
+- parent result: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json`
+- result class: `current_sim_training_stability_repair_execution_pass`
+- completed runs: `15`
+- candidate eval rows: `120`
+- selected checkpoint rows: `15`
+- selected beats final count: `15/15`
+- selected checkpoint profile floor pass count: `0`
+- local selected readiness rows: `4/15`
+- aggregate return vs M2241 selected panel: improved for all five profiles
+- aggregate termination vs M2241 selected panel: mixed
+- primary classification: `return_signal_improved_but_outcome_mode_unverified`
+- route decision: `m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design`
+- blocked: another repaired training run before outcome localization
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.json`
+- next: `m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design`
