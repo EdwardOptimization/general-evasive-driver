@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2227,
+    "completed": 2228,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+    "command_log": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+    "run_dir": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
     "status": "completed",
-    "task_id": "m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis"
+    "task_id": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design"
   },
   "next_task": {
-    "command": "write docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
-    "hypothesis": "A no-rerun profile/history metric diagnosis can localize why L3 recurrent profiles are zero-success on M2218 scene-backed candidates without ranking.",
-    "id": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun profile/history metric diagnosis for L3 zero-success and L2 finite-window support",
-    "priority": 22150,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_profile_history_failure_diagnosis --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --diagnostic-summary runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json --scene-candidate-summary runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_summary.csv --output-dir runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis",
+    "hypothesis": "Existing M2209/M2218 metrics can localize L3 recurrent zero-success without rerun or ranking.",
+    "id": "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rerun profile/history metric diagnosis",
+    "priority": 22160,
     "status": "pending",
-    "success_artifact": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md"
+    "success_artifact": "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json"
   },
-  "updated_at_utc": "20260601T121532Z"
+  "updated_at_utc": "20260601T122650Z"
 }

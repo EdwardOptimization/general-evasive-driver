@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2220 freezes no-rerun profile/history failure diagnosis design with L3/L2 target metrics failure-mode labels pairwise deltas and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims",
   "failure_criteria": [
     "design document is missing",
     "design lacks L3 zero-success diagnosis path",
@@ -26,7 +26,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T122411Z",
+  "generated_at_utc": "20260601T122838Z",
   "hypothesis": "A no-rerun profile/history metric diagnosis can localize why L3 recurrent profiles are zero-success on M2218 scene-backed candidates without ranking.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
   "next_blocker": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_profile_history_failure_diagnosis_design_admit_no_rerun_implementation",
   "public_gates": [
     "M2220 must design a no-rerun metric audit over M2209/M2218 artifacts",
     "M2220 must focus on L3 zero-success and L2 finite-window support as diagnostics",
@@ -70,9 +70,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_profile_history_failure_diagnosis_design_admit_no_rerun_implementation",
     "milestone": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
-    "reason": "M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2220 freezes no-rerun profile/history failure diagnosis design with L3/L2 target metrics failure-mode labels pairwise deltas and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T122411Z
+- Generated at UTC: 20260601T122838Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_profile_history_failure_diagnosis_design_admit_no_rerun_implementation
+- Decision reason: M2220 freezes no-rerun profile/history failure diagnosis design with L3/L2 target metrics failure-mode labels pairwise deltas and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims
 
 ## Hypothesis
 
@@ -82,8 +82,8 @@ A no-rerun profile/history metric diagnosis can localize why L3 recurrent profil
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_profile_history_failure_diagnosis_design_admit_no_rerun_implementation
+- reason: M2220 freezes no-rerun profile/history failure diagnosis design with L3/L2 target metrics failure-mode labels pairwise deltas and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims
 
 ## Next Blocker
 

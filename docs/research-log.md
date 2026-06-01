@@ -39646,3 +39646,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M2218 diagnostic matrices are useful but not ranking-ready; pivot to L3 zero-success and profile/history failure diagnosis
 - follow-up manifest: `experiments/manifests/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.json`
 - next: `m2220-paper-route-current-sim-profile-history-failure-diagnosis-design`
+
+## M2220 Paper-Route Current-Sim Profile/History Failure Diagnosis Design
+
+- status: completed
+- decision: `current_sim_profile_history_failure_diagnosis_design_admit_no_rerun_implementation`
+- manifest: `experiments/manifests/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.json`
+- design artifact: `docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md`
+- parent synthesis: `docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md`
+- target profiles: `L3_online_gru`, `L3_reset_control`, `L2_window_25`, `L2_window_50`, `L0_current_masked`, `L1_one_step`
+- target history groups: `online_recurrent_hidden`, `explicit_finite_window`, `current_response`, `one_step_command_response`
+- required outputs: profile/history metric summaries, profile-pair deltas, L3 failure-mode breakdown, claim boundary
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits no-rerun metric diagnosis implementation
+- follow-up manifest: `experiments/manifests/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.json`
+- next: `m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation`
