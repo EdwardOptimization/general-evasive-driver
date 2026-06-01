@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2287 materialization pass 72 specs blockers 0 reset-validation fail 71/72 one R4 low_mu late_close reset failure lateral mismatch 1 contract 0 guardrail 0 no rollout/training claims",
+  "failure_criteria": [
+    "materialization summary is missing",
+    "reset-validation summary is missing",
+    "any reset fails",
+    "any contract label lateral-offset or guardrail violation appears",
+    "rollout policy action measured execution ranking training or paper-level claims are made",
+    "M2287 repairs and reruns again after validation instead of routing to audit"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not repair and rerun again inside M2287 after validation"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T201201Z",
+  "hypothesis": "Sampler-aware role generation plus lateral sign correction can produce a 72-spec pack that passes reset validation under the P0 actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "M2286 admits combined implementation for reset sampling and lateral sign repair"
+    ],
+    "derived_from": [
+      "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_repair_implementation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
+      "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_objective": [
+      "implement combined materialization repair and run reset-only validation"
+    ],
+    "supersedes": [
+      "sign-only repair without sampler-aware materialization",
+      "reset rerun before materialization repair"
+    ]
+  },
+  "milestone": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation",
+  "next_blocker": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_reset_repair_fail_route_to_result_audit",
+  "public_gates": [
+    "M2287 must repair lateral sign convention in materialization",
+    "M2287 must make R1-R5 generation sampler-aware without changing actor input contract",
+    "M2287 must rerun materialization and reset-only validation",
+    "M2287 must not run rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_reset_repair_fail_route_to_result_audit",
+    "milestone": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation",
+    "reason": "M2287 materialization pass 72 specs blockers 0 reset-validation fail 71/72 one R4 low_mu late_close reset failure lateral mismatch 1 contract 0 guardrail 0 no rollout/training claims",
+    "reset_success": "0.9861111111111112",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "materialization summary exists and passes",
+    "reset-validation summary exists",
+    "reset_success_count equals 72",
+    "lateral_bucket_mismatch_count equals 0",
+    "actor_contract_violation_count equals 0",
+    "guardrail_violation_count equals 0",
+    "a result audit follow-up manifest is registered"
+  ],
+  "type": "infrastructure"
+}

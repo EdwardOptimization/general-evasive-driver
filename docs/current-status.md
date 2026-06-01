@@ -16,43 +16,42 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design
+m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation
+m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit
 ```
 
-Immediate route: M2282 freezes a focused reset-only validation design for
-`configs/paper_route_current_sim_scenario_task_family_v0.json`. M2281 audited
-M2280 as complete and guardrail clean, with the M2277 lateral-offset execution
-blockers cleared:
+Immediate route: M2287 implemented the combined materializer repair for
+`configs/paper_route_current_sim_scenario_task_family_v0.json`:
 
 ```text
+materialization result_class: current_sim_scenario_task_family_config_materialization_pass
 unsupported_execution_blocker_count: 0
-execution_admissible_without_instrumentation: true
-primary_route: scenario_task_family_result_audit_route_to_reset_validation_design
-```
-
-Active interpretation: M2285 audits M2284 as a fail-closed scenario/config
-negative:
-
-```text
-reset_success_count: 12 / 72
-reset_failure_count: 60
-lateral_bucket_mismatch_count: 66
+scenario_spec_count: 72
 actor_contract_violation_count: 0
 guardrail_violation_count: 0
 ```
 
-The failure decomposes into R1-R5 reset-sampling failure and R0 left/right
-lateral sign mismatch. M2286 now freezes a combined repair design: correct
-`left_offset/right_offset` signs and make R1-R5 generation sampler-aware before
-rerunning materialization plus reset-only validation in M2287. Policy actions,
-measured rollout, training, ranking, finite-window vs GRU verdict, paper-level
-claim, and level3 self-ID claim remain blocked.
+Reset validation improved substantially but remains fail-closed:
+
+```text
+reset_success_count: 71 / 72
+reset_failure_count: 1
+lateral_bucket_mismatch_count: 1
+actor_contract_violation_count: 0
+guardrail_violation_count: 0
+```
+
+The remaining failure is `m2277_r4_02`: R4 unavoidable mitigation, low_mu,
+late_close, centerline. The next step is M2288 result audit to localize that
+single reset-sampling edge case and separate it from the repaired left/right
+lateral sign convention. Policy actions, measured rollout, training, ranking,
+finite-window vs GRU verdict, paper-level claim, and level3 self-ID claim remain
+blocked.
 
 ## Actor Contract
 

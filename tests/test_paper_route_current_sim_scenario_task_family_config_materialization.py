@@ -3,12 +3,14 @@ from pathlib import Path
 from autodrift.artifacts import read_json
 from autodrift.paper_route_current_sim_scenario_task_family_config_materialization import (
     REQUIRED_METADATA_FIELDS,
+    TRACK_RADIUS_M,
     TARGET_ROLE_FAMILY_COUNT,
     TARGET_SCENARIO_SPEC_COUNT,
     TARGET_SPECS_PER_ROLE,
     materialize_scenario_specs,
     run_config_materialization,
 )
+from autodrift.scenarios import ObstacleScenarioConfig, classify_obstacle_scenario
 
 
 def test_materialized_specs_use_correct_role_mapping_and_contract() -> None:
@@ -41,6 +43,8 @@ def test_materialized_specs_use_correct_role_mapping_and_contract() -> None:
         "left_offset",
         "right_offset",
     }
+    assert all(float(row["obstacle_lateral_offset_m"]) >= 0.5 for row in specs if row["obstacle_lateral_offset_bucket"] == "left_offset")
+    assert all(float(row["obstacle_lateral_offset_m"]) <= -0.5 for row in specs if row["obstacle_lateral_offset_bucket"] == "right_offset")
     assert len({row["hidden_dynamics_bucket"] for row in specs if row["scenario_family_id"] == "R5"}) >= 4
     assert not any(row["capability"] == "emergency_obstacle_lateral_offset" for row in unsupported_rows)
     assert all(row["silently_approximated"] is False for row in unsupported_rows)
@@ -56,6 +60,36 @@ def test_required_metadata_fields_are_present() -> None:
             if value is None or value == "" or (field == "env_config" and not value):
                 missing.append((row["scenario_spec_id"], field))
     assert missing == []
+
+
+def test_materialized_specs_are_sampler_valid_at_config_centers() -> None:
+    specs, _, _ = materialize_scenario_specs()
+
+    for row in specs:
+        env_config = row["env_config"]
+        obstacle_config = env_config["obstacle"]
+        speed = float(env_config["speed_range"][0])
+        mu = float(env_config["randomization"]["mu_range"][0])
+        distance = float(obstacle_config["distance_range"][0])
+        half_width = float(obstacle_config["half_width_range"][0])
+        scenario = classify_obstacle_scenario(
+            speed=speed,
+            mu=mu,
+            obstacle_distance=distance,
+            obstacle_half_width=half_width,
+            config=ObstacleScenarioConfig(),
+        )
+        allowed_labels = set(str(row["allowed_labels_metadata_only"]).split(";"))
+
+        assert env_config["track_radius"] == TRACK_RADIUS_M
+        assert speed == float(row["initial_speed_mps"])
+        assert distance == float(row["obstacle_longitudinal_distance_m"])
+        assert half_width == float(row["obstacle_half_width_m"])
+        assert scenario.label in allowed_labels
+        if len(allowed_labels) == 1:
+            assert scenario.label == row["sampled_obstacle_label"]
+        if bool(obstacle_config.get("require_aeb_infeasible", False)):
+            assert scenario.label != "aeb_feasible"
 
 
 def test_run_config_materialization_writes_no_reset_artifacts(tmp_path: Path) -> None:

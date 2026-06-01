@@ -5,11 +5,14 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from copy import deepcopy
+from dataclasses import dataclass
+import math
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from autodrift.artifacts import utc_timestamp, write_csv_rows, write_json
 from autodrift.config import build_env_config
+from autodrift.scenarios import ObstacleScenario, ObstacleScenarioConfig, classify_obstacle_scenario
 
 
 DEFAULT_CONFIG_OUTPUT = Path("configs/paper_route_current_sim_scenario_task_family_v0.json")
@@ -19,6 +22,7 @@ TARGET_ROLE_FAMILY_COUNT = 6
 TARGET_SPECS_PER_ROLE = 12
 TARGET_SCENARIO_SPEC_COUNT = TARGET_ROLE_FAMILY_COUNT * TARGET_SPECS_PER_ROLE
 ACTOR_CONTRACT_ID = "P0_human_view_no_wheel_no_oracle"
+TRACK_RADIUS_M = 80.0
 TIMING_BUCKETS = {
     "early_far": {
         "distance_range": (34.0, 52.0),
@@ -41,8 +45,8 @@ TIMING_BUCKETS = {
 }
 LATERAL_BUCKETS = {
     "centerline": 0.0,
-    "left_offset": -1.2,
-    "right_offset": 1.2,
+    "left_offset": 1.2,
+    "right_offset": -1.2,
 }
 RECOVERY_BUCKETS = {
     "none": 0.0,
@@ -262,12 +266,129 @@ def _replace_nested(data: dict[str, Any], key: str, updates: Mapping[str, Any]) 
     data[key] = nested
 
 
+def _linspace(low: float, high: float, count: int) -> tuple[float, ...]:
+    if count <= 1 or math.isclose(float(low), float(high)):
+        return (float(0.5 * (float(low) + float(high))),)
+    step = (float(high) - float(low)) / float(count - 1)
+    return tuple(float(low) + step * index for index in range(count))
+
+
+@dataclass(frozen=True)
+class SamplerTarget:
+    speed_mps: float
+    mu: float
+    obstacle_distance_m: float
+    obstacle_half_width_m: float
+    scenario: ObstacleScenario
+    margin_score: float
+
+
+def _scenario_margin_score(scenario: ObstacleScenario) -> float:
+    aeb_infeasible_margin = scenario.aeb_stop_distance - (scenario.obstacle_distance - 0.30)
+    conventional_margin = scenario.conventional_lateral_capacity - scenario.required_lateral_offset
+    drift_margin = scenario.drift_lateral_capacity - scenario.required_lateral_offset
+    if scenario.label == "aeb_feasible":
+        return float(-aeb_infeasible_margin)
+    if scenario.label == "aes_feasible":
+        return float(min(aeb_infeasible_margin, conventional_margin))
+    if scenario.label == "drift_required":
+        return float(min(aeb_infeasible_margin, -conventional_margin, drift_margin))
+    if scenario.label == "unavoidable":
+        return float(min(aeb_infeasible_margin, -drift_margin))
+    return float("-inf")
+
+
+def _speed_under_friction_cap(speed: float, mu: float, *, radius: float = TRACK_RADIUS_M) -> bool:
+    cap = math.sqrt(max(float(mu) * 9.81 * float(radius), 1e-6)) * 0.92
+    return float(speed) <= cap + 1e-9
+
+
+def _candidate_half_widths(family: Mapping[str, Any]) -> tuple[float, ...]:
+    base = float(family["half_width_m"])
+    role_id = str(family["scenario_family_id"])
+    values = {base, max(0.45, base - 0.35), base + 0.35}
+    if role_id == "R4":
+        values.update({1.25, 1.8, 2.6, 4.0, 7.0})
+    elif role_id in {"R2", "R3"}:
+        values.update({0.45, 0.65, 0.90, 1.25, 1.60, 2.20, 3.00})
+    elif role_id in {"R1", "R5"}:
+        values.update({0.45, 0.55, 0.75, 0.90, 1.05, 1.25})
+    else:
+        values.update({0.45, 0.55, 0.75, 0.90})
+    return tuple(sorted(float(value) for value in values if float(value) > 0.0))
+
+
+def _select_sampler_target(
+    family: Mapping[str, Any],
+    *,
+    timing_bucket: str,
+    hidden_bucket: str,
+) -> SamplerTarget:
+    timing = TIMING_BUCKETS[timing_bucket]
+    hidden = HIDDEN_DYNAMICS[hidden_bucket]
+    mu_low, mu_high = tuple(float(value) for value in hidden.get("mu_range", HIDDEN_DYNAMICS["nominal"]["mu_range"]))
+    allowed_labels = set(str(label) for label in family["allowed_labels"])
+    require_aeb_infeasible = bool(family.get("require_aeb_infeasible", False))
+    scenario_config = ObstacleScenarioConfig()
+    candidates: list[SamplerTarget] = []
+    speed_values = tuple(
+        sorted(
+            {
+                *_linspace(float(timing["speed_range"][0]), float(timing["speed_range"][1]), 11),
+                *_linspace(8.0, 24.0, 17),
+            }
+        )
+    )
+    distance_values = _linspace(float(timing["distance_range"][0]), float(timing["distance_range"][1]), 19)
+    mu_values = _linspace(mu_low, mu_high, 9)
+    for mu in mu_values:
+        for speed in speed_values:
+            if not _speed_under_friction_cap(speed, mu):
+                continue
+            for distance in distance_values:
+                for half_width in _candidate_half_widths(family):
+                    scenario = classify_obstacle_scenario(
+                        speed=speed,
+                        mu=mu,
+                        obstacle_distance=distance,
+                        obstacle_half_width=half_width,
+                        config=scenario_config,
+                    )
+                    if scenario.label not in allowed_labels:
+                        continue
+                    if require_aeb_infeasible and scenario.label == "aeb_feasible":
+                        continue
+                    margin_score = _scenario_margin_score(scenario)
+                    if margin_score <= 0.02:
+                        continue
+                    width_penalty = 0.04 * abs(float(half_width) - float(family["half_width_m"]))
+                    speed_penalty = 0.01 * abs(float(speed) - float(timing["representative_speed_mps"]))
+                    distance_penalty = 0.003 * abs(float(distance) - float(timing["representative_distance_m"]))
+                    score = float(margin_score - width_penalty - speed_penalty - distance_penalty)
+                    candidates.append(
+                        SamplerTarget(
+                            speed_mps=float(speed),
+                            mu=float(mu),
+                            obstacle_distance_m=float(distance),
+                            obstacle_half_width_m=float(half_width),
+                            scenario=scenario,
+                            margin_score=score,
+                        )
+                    )
+    if not candidates:
+        raise ValueError(
+            "failed to find reset-valid sampler target for "
+            f"{family['scenario_family_id']} timing={timing_bucket} hidden={hidden_bucket}"
+        )
+    return max(candidates, key=lambda candidate: candidate.margin_score)
+
+
 def _base_env_config() -> dict[str, Any]:
     return {
         "dt": 0.02,
         "max_steps": 520,
         "track_kind": "circle",
-        "track_radius": 18.0,
+        "track_radius": TRACK_RADIUS_M,
         "track_width": 6.0,
         "speed_range": (8.0, 14.0),
         "history_length": 1,
@@ -301,19 +422,20 @@ def _env_config_for_spec(
     hidden_bucket: str,
     recovery_bucket: str,
     lateral_offset_m: float,
-) -> dict[str, Any]:
-    timing = TIMING_BUCKETS[timing_bucket]
-    hidden = HIDDEN_DYNAMICS[hidden_bucket]
+) -> tuple[dict[str, Any], SamplerTarget]:
+    target = _select_sampler_target(family, timing_bucket=timing_bucket, hidden_bucket=hidden_bucket)
+    hidden = deepcopy(HIDDEN_DYNAMICS[hidden_bucket])
+    hidden["mu_range"] = (target.mu, target.mu)
     env = _base_env_config()
-    env["speed_range"] = timing["speed_range"]
+    env["speed_range"] = (target.speed_mps, target.speed_mps)
     env["track_width"] = float(family["track_width_m"])
     env["max_steps"] = 560 if recovery_bucket != "none" else 420
     _replace_nested(
         env,
         "obstacle",
         {
-            "distance_range": timing["distance_range"],
-            "half_width_range": _range_around(float(family["half_width_m"]), 0.05),
+            "distance_range": (target.obstacle_distance_m, target.obstacle_distance_m),
+            "half_width_range": (target.obstacle_half_width_m, target.obstacle_half_width_m),
             "lateral_offset_range": (float(lateral_offset_m), float(lateral_offset_m)),
             "allowed_labels": tuple(str(label) for label in family["allowed_labels"]),
             "require_aeb_infeasible": bool(family.get("require_aeb_infeasible", False)),
@@ -328,7 +450,7 @@ def _env_config_for_spec(
             "friction_step",
             {"enabled": True, "step_range": (24, 42), "mu_range": (0.25, 0.85), "resample_speed_ref": False},
         )
-    return env
+    return env, target
 
 
 def assert_p0_actor_contract(env_config: Mapping[str, Any]) -> None:
@@ -371,10 +493,8 @@ def materialize_scenario_specs() -> tuple[list[dict[str, Any]], list[dict[str, A
                 lateral_bucket = lateral_names[(index // len(timing_names)) % len(lateral_names)]
                 same_scene_group_id = f"m2277_{role_id.lower()}_{index:02d}"
             recovery_bucket = recovery_buckets[index % len(recovery_buckets)]
-            timing = TIMING_BUCKETS[timing_bucket]
-            hidden = HIDDEN_DYNAMICS[hidden_bucket]
             lateral_offset = float(LATERAL_BUCKETS[lateral_bucket])
-            env_config = _env_config_for_spec(
+            env_config, sampler_target = _env_config_for_spec(
                 family,
                 timing_bucket=timing_bucket,
                 hidden_bucket=hidden_bucket,
@@ -387,44 +507,53 @@ def materialize_scenario_specs() -> tuple[list[dict[str, Any]], list[dict[str, A
                 assert_p0_actor_contract(env_config)
             except Exception as exc:  # noqa: BLE001 - materializer records all contract failures.
                 violation_messages.append(str(exc))
-            mu_range = tuple(float(v) for v in hidden.get("mu_range", HIDDEN_DYNAMICS["nominal"]["mu_range"]))
+            hidden_for_metadata = dict(env_config.get("randomization") or {})
+            mu_range = tuple(float(v) for v in hidden_for_metadata.get("mu_range", HIDDEN_DYNAMICS["nominal"]["mu_range"]))
             brake_range = tuple(
-                float(v) for v in hidden.get("brake_scale_range", HIDDEN_DYNAMICS["nominal"]["brake_scale_range"])
+                float(v)
+                for v in hidden_for_metadata.get("brake_scale_range", HIDDEN_DYNAMICS["nominal"]["brake_scale_range"])
             )
             tau_range = tuple(
-                float(v) for v in hidden.get("actuator_tau_scale_range", HIDDEN_DYNAMICS["nominal"]["actuator_tau_scale_range"])
+                float(v)
+                for v in hidden_for_metadata.get(
+                    "actuator_tau_scale_range", HIDDEN_DYNAMICS["nominal"]["actuator_tau_scale_range"]
+                )
             )
             mass_range = tuple(
-                float(v) for v in hidden.get("mass_scale_range", HIDDEN_DYNAMICS["nominal"]["mass_scale_range"])
+                float(v)
+                for v in hidden_for_metadata.get("mass_scale_range", HIDDEN_DYNAMICS["nominal"]["mass_scale_range"])
             )
             inertia_range = tuple(
-                float(v) for v in hidden.get("inertia_scale_range", HIDDEN_DYNAMICS["nominal"]["inertia_scale_range"])
+                float(v)
+                for v in hidden_for_metadata.get("inertia_scale_range", HIDDEN_DYNAMICS["nominal"]["inertia_scale_range"])
             )
             tire_range = tuple(
                 float(v)
-                for v in hidden.get("tire_stiffness_scale_range", HIDDEN_DYNAMICS["nominal"]["tire_stiffness_scale_range"])
+                for v in hidden_for_metadata.get(
+                    "tire_stiffness_scale_range", HIDDEN_DYNAMICS["nominal"]["tire_stiffness_scale_range"]
+                )
             )
             spec = {
                 "scenario_spec_id": scenario_spec_id,
                 "scenario_family_id": role_id,
                 "role_family": role,
                 "role_semantics": str(family["role_semantics"]),
-                "sampled_obstacle_label": str(family["sampled_obstacle_label"]),
+                "sampled_obstacle_label": str(sampler_target.scenario.label),
                 "allowed_labels_metadata_only": ";".join(str(label) for label in family["allowed_labels"]),
                 "labels_enter_actor_input": False,
                 "same_scene_group_id": same_scene_group_id,
                 "hidden_dynamics_bucket": hidden_bucket,
-                "obstacle_longitudinal_distance_m": float(timing["representative_distance_m"]),
+                "obstacle_longitudinal_distance_m": float(sampler_target.obstacle_distance_m),
                 "obstacle_longitudinal_timing_bucket": timing_bucket,
                 "obstacle_lateral_offset_m": lateral_offset,
                 "obstacle_lateral_offset_bucket": lateral_bucket,
-                "obstacle_half_width_m": float(family["half_width_m"]),
-                "initial_speed_mps": float(timing["representative_speed_mps"]),
+                "obstacle_half_width_m": float(sampler_target.obstacle_half_width_m),
+                "initial_speed_mps": float(sampler_target.speed_mps),
                 "initial_speed_bucket": timing_bucket,
                 "track_kind": "circle",
-                "track_radius_m": 18.0,
+                "track_radius_m": TRACK_RADIUS_M,
                 "track_width_m": float(family["track_width_m"]),
-                "road_curvature_bucket": "circle_r18",
+                "road_curvature_bucket": f"circle_r{int(TRACK_RADIUS_M)}",
                 "friction_bucket": _bucket_from_range(
                     mu_range,
                     low=0.40,

@@ -41020,3 +41020,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.json`
 - next: `m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation`
+
+## M2287 Paper-Route Current-Sim Scenario Task-Family Reset-Sampling And Lateral-Sign Repair Implementation
+
+- status: completed
+- result class: `current_sim_scenario_task_family_reset_validation_fail`
+- decision: `current_sim_scenario_task_family_reset_repair_fail_route_to_result_audit`
+- manifest: `experiments/manifests/m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation.json`
+- implementation artifact: `docs/m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation.md`
+- materialization artifact: `runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/materialization/summary.json`
+- reset-validation artifact: `runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json`
+- materialization result: pass, 72 specs, unsupported execution blockers 0, actor contract 0, guardrail 0
+- reset-validation result: fail, reset successes 71/72, one R4 low_mu late_close failure, lateral bucket mismatch 1
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.json`
+- next: `m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit`
