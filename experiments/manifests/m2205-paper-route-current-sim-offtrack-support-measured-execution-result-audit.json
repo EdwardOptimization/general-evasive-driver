@@ -1,0 +1,174 @@
+{
+  "id": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_measured_execution_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json",
+      "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/validation_failure_rows.csv",
+      "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/metadata_missing_rows.csv",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv",
+      "docs/m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit M2204 pre-rollout metadata validation failure before repair or rerun"
+    ],
+    "derived_from": [
+      "m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2204 failed closed before rollout because repeat metadata fields are missing from every repaired workload row"
+    ],
+    "supersedes": [
+      "repairing or rerunning M2204 before classifying the validation failure"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2205 must audit M2204 summary and validation failure rows",
+    "M2205 must confirm zero episode rollout and zero policy action execution",
+    "M2205 must count missing repeat metadata fields",
+    "M2205 must determine whether the failure is workload materialization metadata gap, runner validation overreach, or required normalization",
+    "M2205 must choose a repair route or stop condition",
+    "M2205 must not repair rerun rank or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_measured_execution_failure_audit",
+    "evidence_increment": "classifies M2204 pre-rollout missing repeat-metadata validation failure and chooses next repair route",
+    "claim_scope": "failure audit only; no measured execution rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2204 failure cannot be localized",
+      "stop if repair route would weaken metadata preservation",
+      "stop if audit would require rerun before classification"
+    ],
+    "fallback_plan": [
+      "route to workload metadata normalization if non-repeat workloads must carry explicit sentinel repeat fields",
+      "route to measured-runner validation repair if repeat metadata should be optional for non-repeat workloads",
+      "route to source-schema repair if the repaired workload legitimately needs provenance fields"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2204 pre-rollout measured execution metadata validation failure",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack-support measured execution result audit",
+    "admission_evidence": [
+      "M2204 produced summary and validation failure rows without starting rollout",
+      "M2204 metadata_missing_count is 2304",
+      "M2204 guardrail violation count is 0"
+    ],
+    "blocked_shortcuts": [
+      "do not repair or rerun before audit",
+      "do not interpret pre-rollout failure as driver performance",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+      "M2205 status queue scoreboard research log and review",
+      "one follow-up manifest for selected repair route"
+    ],
+    "next_stage_criteria": [
+      "failure source is classified",
+      "affected rows and fields are counted",
+      "supported and unsupported claims are explicit",
+      "repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; failure audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2205."
+    ],
+    "temporal_evidence_window": "M2204 failed measured execution artifacts.",
+    "negative_result_policy": "Record pre-rollout schema failure as infrastructure evidence, not driver-performance evidence.",
+    "allowed_claims": [
+      "measured execution failure audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns failed measured execution attempt into classified repair route",
+    "paper_verdict_delta": "can unblock measured execution only if metadata failure is localized cleanly",
+    "must_synthesize_if": [
+      "M2205 cannot classify the metadata failure",
+      "M2205 would need another audit without a repair route",
+      "the same metadata failure repeats after repair"
+    ]
+  },
+  "hypothesis": "M2204 failed closed before rollout because the measured runner requires repeat metadata fields that are absent from the non-repeat repaired workload, and the failure can be classified before repair or rerun.",
+  "success_criteria": [
+    "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md exists",
+    "M2204 result_class and zero-episode failure are summarized",
+    "validation failure rows are counted",
+    "missing repeat metadata fields are identified",
+    "failure is classified",
+    "repair route is explicit",
+    "no measured execution rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "failure source remains ambiguous",
+    "pre-rollout validation failure is interpreted as driver performance",
+    "repair or rerun is performed before classification",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_measured_execution_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json",
+    "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/validation_failure_rows.csv",
+    "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/metadata_missing_rows.csv"
+  ],
+  "decision_rule": "M2205 passes if it classifies the M2204 failure and selects a repair route without rerun or ranking.",
+  "next_blocker": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit"
+}

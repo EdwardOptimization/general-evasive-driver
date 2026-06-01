@@ -39309,3 +39309,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit frozen command implementation/run
 - follow-up manifest: `experiments/manifests/m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run.json`
 - next: `m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run`
+
+## M2204 Paper-Route Current-Sim Offtrack-Support Measured-Execution Implementation And Run
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_execution_metadata_validation_fail_route_to_audit`
+- manifest: `experiments/manifests/m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run.json`
+- run artifact: `runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json`
+- result_class: `current_sim_controlled_comparison_measured_execution_incomplete_or_fail`
+- episode_count: `0`
+- target_episode_count: `2304`
+- spec_count: `0`
+- target_spec_count: `288`
+- profile_count: `0`
+- target_profile_count: `8`
+- metadata_missing_count: `2304`
+- metric_completeness_failure_count: `0`
+- guardrail violations: `0`
+- environment rollout started: `false`
+- policy action executed: `false`
+- measured rollout started: `false`
+- missing fields: `training_repeat_id`, `training_seed_group`, `profile_training_seed`, `profile_checkpoint_source_profile`, `base_workload_id`
+- result: route to failure audit before repair or rerun
+- follow-up manifest: `experiments/manifests/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.json`
+- next: `m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit`

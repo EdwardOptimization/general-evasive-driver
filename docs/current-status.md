@@ -16,21 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design
+m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run
+m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit
 ```
 
-Immediate route: M2203 freezes the measured-execution command over the repaired
-offtrack-support panel. M2204 may run only that command over M2194 repaired
-specs and the M2200 checkpoint-complete workload: `2304` episodes, `288` specs,
-`8` profiles, output `runs/m2204_paper_route_current_sim_offtrack_support_measured_execution`.
-Controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
-claims remain blocked until result audit and denominator-backed comparison.
+Immediate route: M2204 ran the frozen measured-execution command but failed
+closed before rollout: `episode_count=0`, `metadata_missing_count=2304`, no
+policy action executed, and guardrail `0`. The failure is missing repeat
+metadata fields (`training_repeat_id`, `training_seed_group`,
+`profile_training_seed`, `profile_checkpoint_source_profile`,
+`base_workload_id`) in the non-repeat repaired workload. M2205 must audit and
+classify this schema/validation issue before any repair or rerun. Controller
+ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

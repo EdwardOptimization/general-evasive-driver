@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2211,
+    "completed": 2212,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md",
+    "command_log": "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md",
+    "run_dir": "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution",
     "status": "completed",
-    "task_id": "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design"
+    "task_id": "m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json --workload runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv --output-dir runs/m2204_paper_route_current_sim_offtrack_support_measured_execution --eval-seed-base 220400 --device cpu --no-resume --target-episode-count 2304 --target-spec-count 288 --target-profile-count 8 --next-blocker m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit",
-    "hypothesis": "The frozen M2203 measured execution command can run the 2304-cell repaired current-sim panel over the checkpoint-complete workload without validation failures or claim-boundary violations.",
-    "id": "m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen measured-execution command over repaired 2304-cell panel",
-    "priority": 21990,
+    "command": "write docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+    "hypothesis": "M2204 failed closed before rollout because the measured runner requires repeat metadata fields that are absent from the non-repeat repaired workload, and the failure can be classified before repair or rerun.",
+    "id": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2204 pre-rollout missing repeat metadata validation failure before repair or rerun",
+    "priority": 22000,
     "status": "pending",
-    "success_artifact": "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json"
+    "success_artifact": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T105825Z"
+  "updated_at_utc": "20260601T110243Z"
 }
