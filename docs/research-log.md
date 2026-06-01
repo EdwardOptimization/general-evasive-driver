@@ -41847,3 +41847,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.json`
 - next: `m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation`
+
+## M2321 Paper-Route Current-Sim Scenario Task-Family Residual Support Audit Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_residual_support_audit_pass`
+- manifest: `experiments/manifests/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.json`
+- implementation doc: `docs/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.md`
+- summary: `runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_residual_support_audit.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_residual_support_audit.py`
+- residual_scenario_count: `48`
+- R0/R1/R2-R5 residual counts: `0/0/48`
+- residual support labels mixed/blocked/metric: `26/21/1`
+- route labels coverage/redesign/mitigation/metric: `23/12/12/1`
+- guardrail_violation_count: `0`
+- reset/rollout/policy action in M2321: `false`
+- training/replay/PPO in M2321: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.json`
+- next: `m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit`

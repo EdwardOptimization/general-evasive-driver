@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2328,
+    "completed": 2329,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design",
+    "task_id": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md"
+    "run_dir": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit",
+    "command_log": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json"
   },
   "next_task": {
-    "id": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
-    "kind": "infrastructure",
-    "priority": 23160,
+    "id": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+    "kind": "gate",
+    "priority": 23170,
     "status": "pending",
-    "hypothesis": "Artifact-only residual-support audit will classify all 48 remaining non-clear scenarios into actionable non-ranking route labels.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_residual_support_audit --episode-rows runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv --scenario-support-labels runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/scenario_support_labels_rescored.csv --role-support-summary runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/role_support_summary_rescored.csv --output-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --target-scenario-count 72 --target-residual-scenario-count 48 --next-blocker m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
-    "success_artifact": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
-    "notes": "Pending: implement artifact-only residual-support audit no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "M2321 provides enough residual-support classification evidence to choose a non-ranking follow-up route.",
+    "command": "manual artifact audit of runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json and route summaries",
+    "success_artifact": "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md",
+    "notes": "Pending: audit M2321 route labels and choose non-ranking route no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T234644Z"
+  "updated_at_utc": "20260601T235323Z"
 }

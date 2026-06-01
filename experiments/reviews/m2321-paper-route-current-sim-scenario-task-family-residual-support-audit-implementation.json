@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2321 residual audit pass 48 residuals R0/R1 0 coverage 23 redesign 12 mitigation 12 metric 1 guardrail 0 no ranking claims",
+  "failure_criteria": [
+    "M2321 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2321 ranks support policies or selects a winner",
+    "M2321 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2321 cannot classify residual rows"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T235858Z",
+  "hypothesis": "Artifact-only residual-support audit will classify all 48 remaining non-clear scenarios into actionable non-ranking route labels.",
+  "lineage": {
+    "blocked_by": [
+      "residual R2-R5 support structure must be classified before training or ranking"
+    ],
+    "derived_from": [
+      "m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/scenario_support_labels_rescored.csv",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/role_support_summary_rescored.csv"
+    ],
+    "parent_objective": [
+      "implement artifact-only residual-support audit"
+    ],
+    "supersedes": [
+      "manual inspection of residual support rows",
+      "direct training from repaired labels without residual audit"
+    ]
+  },
+  "milestone": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
+  "next_blocker": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_residual_support_audit_pass",
+  "public_gates": [
+    "M2321 must implement artifact-only residual-support audit",
+    "M2321 must consume M2318 rescored support artifacts",
+    "M2321 must write residual scenario/role/axis/route summaries",
+    "M2321 must show R0/R1 residual count 0 and R2-R5 residual count 48",
+    "M2321 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_residual_support_audit_pass",
+    "milestone": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
+    "reason": "M2321 residual audit pass 48 residuals R0/R1 0 coverage 23 redesign 12 mitigation 12 metric 1 guardrail 0 no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_residual_support_audit.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_residual_support_audit.py passes",
+    "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json exists",
+    "residual_scenario_count is 48",
+    "r0_residual_count and r1_residual_count are 0",
+    "guardrail_violation_count is 0",
+    "a follow-up result-audit manifest is selected"
+  ],
+  "type": "infrastructure"
+}
