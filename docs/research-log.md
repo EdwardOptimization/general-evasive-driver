@@ -37582,3 +37582,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: generated smoke-proxy support only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json`
 - next: `m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design`
+
+## M2130 Paper-Route Outcome-Supported Decisive Comparison-Support Candidate Qualification Design
+
+- status: completed
+- decision: `comparison_support_candidate_qualification_design_admit_no_rerun_implementation`
+- manifest: `experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json`
+- design artifact: `docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md`
+- reset/rollout/measured execution in M2130: `false`
+- policy actions executed in M2130: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: M2131 must implement a no-rerun qualifier over M2128 support artifacts only
+- hard qualification criteria: comparison-ready label, episode `>=50`, success `>=6`, success profiles `>=3`, success sources `>=5`, collision rate `<=0.30`, offtrack outcome rate `<=0.70`, finite metrics
+- pass gate: reproduce source candidate counts `15` / `37`, write qualified/diagnostic/rejection artifacts, qualified candidates `>=6`, guardrail `0`
+- claim boundary: qualification design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.json`
+- next: `m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation`

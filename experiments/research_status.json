@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2138,
+    "completed": 2139,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
+    "command_log": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
+    "run_dir": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md",
     "status": "completed",
-    "task_id": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit"
+    "task_id": "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json",
-    "hypothesis": "A bounded no-rerun candidate qualification design can separate interpretable comparison-support slices from diagnostic-only slices before any controller ranking.",
-    "id": "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design",
-    "kind": "gate",
-    "notes": "Pending: design candidate qualification criteria over M2128 support artifacts without rerun or ranking",
-    "priority": 21250,
+    "command": "see experiments/manifests/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.json",
+    "hypothesis": "A no-rerun qualifier can turn M2128 localized support into a bounded set of qualified candidate slices while preserving claim boundaries.",
+    "id": "m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun qualification over M2128 support artifacts without ranking",
+    "priority": 21260,
     "status": "pending",
-    "success_artifact": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md"
+    "success_artifact": "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json"
   },
-  "updated_at_utc": "20260601T031800Z"
+  "updated_at_utc": "20260601T032800Z"
 }

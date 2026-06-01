@@ -1,0 +1,188 @@
+{
+  "id": "m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_candidate_qualification"
+    ],
+    "parent_dataset": [
+      "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_ready_candidates.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_support_candidates.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/offtrack_dominance_slices.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/collision_dominance_slices.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rerun qualification over M2128 comparison-support candidates"
+    ],
+    "derived_from": [
+      "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design"
+    ],
+    "blocked_by": [
+      "M2130 must freeze qualification criteria before implementation"
+    ],
+    "supersedes": [
+      "direct controller ranking from M2128 comparison-ready rows",
+      "manual candidate interpretation without qualification artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md",
+  "public_gates": [
+    "M2131 must read M2128 localization artifacts only",
+    "M2131 must reproduce source candidate counts",
+    "M2131 must write qualified and diagnostic-only candidate artifacts",
+    "M2131 must not reset rollout execute policy actions or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_candidate_qualification",
+    "evidence_increment": "runs no-rerun qualification over localized comparison-support candidates",
+    "claim_scope": "qualification artifact only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if source candidate counts do not reproduce M2128",
+      "stop if implementation ranks controller profiles",
+      "stop if guardrail violations appear",
+      "stop if qualified support is below threshold and same-panel repair is proposed"
+    ],
+    "fallback_plan": [
+      "route to result audit if qualification passes",
+      "route to branch synthesis if qualified candidates are insufficient",
+      "route to schema repair if M2128 candidate fields are missing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2130 admits no-rerun qualification implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "comparison-support candidate qualification implementation",
+    "admission_evidence": [
+      "M2130 freezes qualification criteria",
+      "M2128 provides 15 comparison-ready candidates and 37 candidate-support slices",
+      "M2129 admits qualification design without ranking"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution",
+      "do not rank profiles",
+      "do not claim paper-level evidence from qualification"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_comparison_support_candidate_qualification.py",
+      "tests/test_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification.py",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json",
+      "docs/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md",
+      "M2131 status queue scoreboard research log and review",
+      "one follow-up manifest for qualification result audit or synthesis"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "source candidate counts reproduce",
+      "qualified candidates are counted",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2131 qualifies support slices and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2131."
+    ],
+    "temporal_evidence_window": "M2128 localization artifact.",
+    "negative_result_policy": "If qualification support is insufficient, record the negative result and route to synthesis or scenario redesign rather than ranking aggregates.",
+    "allowed_claims": [
+      "candidate qualification result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a qualified-candidate panel from localized support slices without additional rollout",
+    "paper_verdict_delta": "can decide whether controlled comparison panel design is admitted but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2131 yields fewer than 6 qualified candidates and proposes same-panel repair",
+      "M2131 routes directly to ranking",
+      "M2131 ignores generated-proxy paper-validity boundary"
+    ]
+  },
+  "hypothesis": "A no-rerun qualifier can turn M2128 localized support into a bounded set of qualified candidate slices while preserving claim boundaries.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json exists",
+    "source_comparison_ready_candidate_count is 15",
+    "source_comparison_support_candidate_count is 37",
+    "qualified_candidate_count is at least 6",
+    "guardrail_violation_count is 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "source candidate counts do not reproduce M2128",
+    "guardrail violations appear",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification.py"
+    },
+    {
+      "name": "qualification",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_comparison_support_candidate_qualification --summary runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json --comparison-ready-candidates runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_ready_candidates.csv --comparison-support-candidates runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_support_candidates.csv --claim-boundary runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/claim_boundary.csv --output-dir runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification --min-qualified-candidates 6 --next-blocker m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_candidate_qualification"
+  ],
+  "baseline_artifacts": [
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json",
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_ready_candidates.csv"
+  ],
+  "decision_rule": "M2131 passes if it reproduces M2128 source candidate counts, writes qualification artifacts, and keeps guardrail 0 without ranking.",
+  "next_blocker": "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
+}
