@@ -40062,3 +40062,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: medium-v1 training execution is complete and finite, but still not comparison-ready by the pre-registered floor
 - follow-up manifest: `experiments/manifests/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.json`
 - next: `m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit`
+
+## M2235 Paper-Route Current-Sim Matched-Budget Medium Training Execution Result Audit
+
+- status: completed
+- decision: `current_sim_medium_training_below_floor_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.json`
+- audit artifact: `docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md`
+- parent result: `runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json`
+- M2234 result_class: `current_sim_matched_budget_profile_training_execution_pass`
+- completed_run_count: `15`
+- failed_run_count: `0`
+- all_selected_metrics_finite: `true`
+- contract_violation_count: `0`
+- guardrail violations: `0`
+- quality_floor_profile_pass_count: `0`
+- classification: repeated training-readiness floor failure after short-v0 and medium-v1
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: blocks another blind budget escalation and routes to branch synthesis
+- follow-up manifest: `experiments/manifests/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.json`
+- next: `m2236-paper-route-current-sim-matched-budget-training-branch-synthesis`

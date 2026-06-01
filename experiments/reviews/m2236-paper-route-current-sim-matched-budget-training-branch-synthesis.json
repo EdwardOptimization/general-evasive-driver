@@ -1,0 +1,105 @@
+{
+  "decision_reason": "M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch",
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims below-floor checkpoints as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or training is performed"
+  ],
+  "failure_types": [
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T140543Z",
+  "hypothesis": "M2226-M2235 evidence is sufficient to pivot from matched-budget budget escalation to task/curriculum readiness diagnosis without ranking profiles.",
+  "lineage": {
+    "blocked_by": [
+      "M2230 and M2234 both complete cleanly but quality_floor_profile_pass_count is 0",
+      "local-search guard blocks another blind budget escalation"
+    ],
+    "derived_from": [
+      "m2226-paper-route-current-sim-matched-budget-profile-training-design",
+      "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
+      "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
+      "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
+      "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json",
+      "experiments/manifests/m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run.json",
+      "experiments/manifests/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+      "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+      "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
+      "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md"
+    ],
+    "parent_objective": [
+      "synthesize matched-budget short-v0 and medium-v1 profile training branch after repeated readiness-floor failure"
+    ],
+    "supersedes": [
+      "another ordinary budget-escalation training design",
+      "direct controller-family ranking from below-floor checkpoints"
+    ]
+  },
+  "milestone": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
+  "next_blocker": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2236 must synthesize M2226-M2235 matched-budget training evidence",
+    "M2236 must separate execution success from comparison readiness",
+    "M2236 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M2236 must not run reset, rollout, measured execution, policy action, training, replay, PPO, or private holdout",
+    "M2236 must not rank controller families or claim finite-window-vs-GRU/self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
+    "reason": "M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "short-v0 and medium-v1 evidence are summarized",
+    "below-floor readiness failure is classified",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run
+m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit
+m2236-paper-route-current-sim-matched-budget-training-branch-synthesis
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -129,6 +129,13 @@ means but still does not make any profile comparison-ready by the pre-registered
 `2/3` seed readiness floor. M2235 must audit this repeated below-floor result
 before any further budget escalation, task/curriculum repair, measured
 execution, ranking, finite-window-vs-GRU verdict, paper claim, or self-ID claim.
+M2235 audits this as repeated training-readiness floor failure: short-v0 and
+medium-v1 both complete cleanly, both have finite metrics, both keep contract
+and guardrail clean, and both have `quality_floor_profile_pass_count=0`. Another
+blind budget increase is now blocked by the local-search guard. M2236 must
+synthesize the matched-budget training branch and choose the next non-ranking
+route, likely task/curriculum readiness diagnosis rather than more budget
+escalation.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

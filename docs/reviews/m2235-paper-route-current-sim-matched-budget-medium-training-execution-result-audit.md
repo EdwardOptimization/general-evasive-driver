@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T140100Z
+- Generated at UTC: 20260601T140543Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2235 pending audit of complete medium-v1 training result and repeated readiness-floor failure no ranking claims
+- Promotion decision: current_sim_medium_training_below_floor_route_to_branch_synthesis
+- Decision reason: M2235 audits M2234 clean execution but repeated quality floor profile pass count 0 routes to branch synthesis no ranking claims
 
 ## Hypothesis
 
@@ -86,8 +86,8 @@ M2234 produced complete finite medium-v1 training artifacts but still did not me
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2235 pending audit of complete medium-v1 training result and repeated readiness-floor failure no ranking claims
+- decision: current_sim_medium_training_below_floor_route_to_branch_synthesis
+- reason: M2235 audits M2234 clean execution but repeated quality floor profile pass count 0 routes to branch synthesis no ranking claims
 
 ## Next Blocker
 

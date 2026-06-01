@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2242,
+    "completed": 2243,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
+    "command_log": "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution",
+    "run_dir": "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run"
+    "task_id": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json and profile_aggregate.csv",
-    "hypothesis": "M2234 produced complete finite medium-v1 training artifacts but still did not meet readiness floors, so M2235 can classify the repeated below-floor result and choose a non-ranking route.",
-    "id": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit",
+    "command": "write docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+    "hypothesis": "M2226-M2235 evidence is sufficient to pivot from matched-budget budget escalation to task/curriculum readiness diagnosis without ranking profiles.",
+    "id": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2234 medium-v1 training result and repeated readiness-floor failure",
-    "priority": 22300,
+    "notes": "Pending: synthesize short-v0 and medium-v1 complete-but-below-floor training branch and choose next route",
+    "priority": 22310,
     "status": "pending",
-    "success_artifact": "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md"
+    "success_artifact": "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T135741Z"
+  "updated_at_utc": "20260601T140334Z"
 }

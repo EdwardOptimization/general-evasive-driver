@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2235 pending audit of complete medium-v1 training result and repeated readiness-floor failure no ranking claims",
+  "decision_reason": "M2235 audits M2234 clean execution but repeated quality floor profile pass count 0 routes to branch synthesis no ranking claims",
   "failure_criteria": [
     "M2234 artifacts are missing",
     "completion or finite-metric fields are inconsistent",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T140100Z",
+  "generated_at_utc": "20260601T140543Z",
   "hypothesis": "M2234 produced complete finite medium-v1 training artifacts but still did not meet readiness floors, so M2235 can classify the repeated below-floor result and choose a non-ranking route.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit",
   "next_blocker": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_medium_training_below_floor_route_to_branch_synthesis",
   "public_gates": [
     "M2235 must audit M2234 completion, finite metrics, contract guardrails, and quality-floor profile pass count",
     "M2235 must compare the route decision against M2230 short-v0 failure without ranking profiles",
@@ -70,9 +70,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_medium_training_below_floor_route_to_branch_synthesis",
     "milestone": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit",
-    "reason": "M2235 pending audit of complete medium-v1 training result and repeated readiness-floor failure no ranking claims",
+    "reason": "M2235 audits M2234 clean execution but repeated quality floor profile pass count 0 routes to branch synthesis no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
