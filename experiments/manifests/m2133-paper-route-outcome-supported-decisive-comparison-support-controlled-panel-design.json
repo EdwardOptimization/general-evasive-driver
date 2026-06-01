@@ -1,0 +1,175 @@
+{
+  "id": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_controlled_panel_design"
+    ],
+    "parent_dataset": [
+      "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/diagnostic_only_candidates.csv",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/rejection_reasons.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a controlled comparison-panel construction route from M2131 qualified candidates"
+    ],
+    "derived_from": [
+      "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
+    ],
+    "blocked_by": [
+      "M2132 must audit M2131 qualification before panel design"
+    ],
+    "supersedes": [
+      "direct controller ranking from qualified candidate rows",
+      "using broad aggregate rows as direct comparison units without panel rules"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+  "public_gates": [
+    "M2133 must design a no-rerun controlled panel over M2131 qualified candidates",
+    "M2133 must define inclusion and exclusion rules before any comparison",
+    "M2133 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2133 must not execute ranking or policy rollouts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_controlled_panel_design",
+    "evidence_increment": "designs a controlled panel construction route from qualified candidates",
+    "claim_scope": "controlled panel design only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks controller profiles",
+      "stop if design requires new rollout",
+      "stop if design double-counts broad aggregate and source-kind rows",
+      "stop if design ignores generated-proxy paper-validity boundary"
+    ],
+    "fallback_plan": [
+      "route to no-rerun controlled panel construction implementation if rules are clear",
+      "route to branch synthesis if qualified rows remain too confounded",
+      "route to scenario redesign if no controlled panel can be constructed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2132 admits controlled comparison-panel design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support controlled panel design",
+    "admission_evidence": [
+      "M2131 result_class comparison_support_candidate_qualification_pass",
+      "M2131 qualified_candidate_count 15",
+      "M2131 qualified_axis_coverage_pass true",
+      "M2132 admits controlled panel design without ranking"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2133",
+      "do not run measured execution in M2133",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+      "M2133 status queue scoreboard research log and review",
+      "one follow-up manifest for controlled panel construction implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "panel inputs and outputs are specified",
+      "inclusion and exclusion criteria are explicit",
+      "claim boundary is explicit",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2133 designs comparison panel construction and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2133."
+    ],
+    "temporal_evidence_window": "M2131 qualification artifact and M2132 audit.",
+    "negative_result_policy": "If qualified rows remain too confounded, record the negative result and route to synthesis or scenario redesign rather than ranking aggregates.",
+    "allowed_claims": [
+      "controlled panel design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a panel construction gate from the qualified-candidate dataset",
+    "paper_verdict_delta": "can decide whether controlled comparison-panel construction is admitted but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2133 proposes direct ranking",
+      "M2133 cannot define panel inclusion rules",
+      "M2133 ignores generated-proxy and paper-validity boundaries"
+    ]
+  },
+  "hypothesis": "A controlled panel design can turn M2131 qualified candidates into non-overlapping panel units before any comparison or ranking.",
+  "success_criteria": [
+    "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md exists",
+    "panel inputs are M2131 artifacts only",
+    "inclusion and exclusion criteria are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "panel route requires rerun",
+    "panel criteria are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_controlled_panel_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
+    "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json",
+    "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv"
+  ],
+  "decision_rule": "M2133 passes if it freezes controlled panel construction criteria and route without ranking.",
+  "next_blocker": "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction"
+}

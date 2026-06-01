@@ -16,22 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation
+m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit
 ```
 
 Current next task:
 
 ```text
-m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit
+m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design
 ```
 
-Immediate route: M2131 implements and runs the no-rerun candidate qualifier
-over M2128 localized support. It reproduces source candidate counts (`15`
-comparison-ready and `37` candidate-support rows), qualifies all `15` ready
-rows, keeps `37` support-only rows diagnostic, and records guardrail `0`.
-M2132 must audit this before any comparison-panel design. Ranking, comparison,
-paper claims, finite-window vs GRU conclusions, and self-ID claims remain
-blocked.
+Immediate route: M2132 audits M2131 as a clean qualified-candidate panel:
+`15` qualified rows, `37` diagnostic rows, source count reproduction, axis
+coverage, and guardrail `0`. This admits M2133 controlled panel design only.
+Ranking, comparison execution, paper claims, finite-window vs GRU conclusions,
+and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

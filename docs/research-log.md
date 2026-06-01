@@ -37627,3 +37627,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: qualification artifact only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json`
 - next: `m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit`
+
+## M2132 Paper-Route Outcome-Supported Decisive Comparison-Support Candidate Qualification Result Audit
+
+- status: completed
+- decision: `comparison_support_candidate_qualification_audit_admit_controlled_panel_design`
+- manifest: `experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json`
+- audit artifact: `docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md`
+- audited summary: `runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json`
+- reset/rollout/measured execution in M2132: `false`
+- policy actions executed in M2132: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2131 is a clean qualified-candidate panel and is valid for controlled panel design
+- qualified/diagnostic candidates: `15` / `37`
+- qualified coverage: axis coverage `true`, source_kind `6`, intent `3`, target_support_tier `1`
+- rejection summary: not_comparison_ready `37`, insufficient_profile_coverage `23`, offtrack_rate_too_high `22`, insufficient_source_coverage `12`, insufficient_success_count `8`
+- claim boundary: controlled panel design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.json`
+- next: `m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design`

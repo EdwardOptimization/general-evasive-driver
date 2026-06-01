@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2140,
+    "completed": 2141,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation.md",
+    "command_log": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification",
+    "run_dir": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
     "status": "completed",
-    "task_id": "m2131-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-implementation"
+    "task_id": "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json",
-    "hypothesis": "M2131 qualification produced enough qualified candidates to admit controlled comparison-panel design, but not direct ranking or paper claims.",
-    "id": "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit",
+    "command": "see experiments/manifests/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.json",
+    "hypothesis": "A controlled panel design can turn M2131 qualified candidates into non-overlapping panel units before any comparison or ranking.",
+    "id": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design",
     "kind": "gate",
-    "notes": "Pending: audit M2131 qualification before comparison-panel design or synthesis",
-    "priority": 21270,
+    "notes": "Pending: design controlled panel construction from M2131 qualified candidates without ranking",
+    "priority": 21280,
     "status": "pending",
-    "success_artifact": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md"
+    "success_artifact": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md"
   },
-  "updated_at_utc": "20260601T033100Z"
+  "updated_at_utc": "20260601T033500Z"
 }
