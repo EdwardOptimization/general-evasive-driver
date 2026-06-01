@@ -1,0 +1,175 @@
+{
+  "id": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_comparison_protocol_design"
+    ],
+    "parent_dataset": [
+      "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/excluded_qualified_candidates.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded comparison protocol over M2134 controlled panel units before any ranking"
+    ],
+    "derived_from": [
+      "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+    ],
+    "blocked_by": [
+      "M2136 must audit controlled panel construction before comparison protocol design"
+    ],
+    "supersedes": [
+      "direct profile ranking from controlled panel units",
+      "comparison execution without a pre-registered protocol"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+  "public_gates": [
+    "M2137 must design a no-rerun comparison protocol over M2134 controlled panel units",
+    "M2137 must define metrics and ranking blockers before any comparison execution",
+    "M2137 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2137 must not execute comparison or policy rollouts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_comparison_protocol_design",
+    "evidence_increment": "designs a controlled comparison protocol over non-overlapping panel units",
+    "claim_scope": "comparison protocol design only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks controller profiles",
+      "stop if design requires new rollout",
+      "stop if design ignores non-overlap panel units",
+      "stop if design ignores generated-proxy paper-validity boundary"
+    ],
+    "fallback_plan": [
+      "route to no-rerun protocol materialization if criteria are clear",
+      "route to scenario redesign if panel metrics are insufficient",
+      "route to synthesis if protocol would collapse into ranking"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2136 admits comparison protocol design after controlled-panel audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support comparison protocol design",
+    "admission_evidence": [
+      "M2136 audits M2134 controlled panel as clean",
+      "M2134 controlled_panel_unit_count 6",
+      "M2134 panel_duplicate_source_kind_count 0",
+      "M2134 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2137",
+      "do not run measured execution in M2137",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+      "M2137 status queue scoreboard research log and review",
+      "one follow-up manifest for comparison protocol materialization or synthesis"
+    ],
+    "next_stage_criteria": [
+      "protocol inputs and outputs are specified",
+      "metric and support criteria are explicit",
+      "claim boundary is explicit",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2137 designs comparison protocol and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2137."
+    ],
+    "temporal_evidence_window": "M2134 controlled panel artifact and M2136 audit.",
+    "negative_result_policy": "If protocol design cannot avoid ranking shortcuts or generated-proxy overclaim, record the negative result and route to synthesis or scenario redesign.",
+    "allowed_claims": [
+      "comparison protocol design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a protocol over a newly constructed non-overlapping panel",
+    "paper_verdict_delta": "can decide whether a no-rerun comparison protocol artifact should be materialized but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2137 proposes direct ranking",
+      "M2137 cannot define metric and support criteria",
+      "M2137 ignores generated-proxy and paper-validity boundaries"
+    ]
+  },
+  "hypothesis": "A bounded no-rerun comparison protocol can be designed over M2134 panel units while keeping ranking and paper claims blocked.",
+  "success_criteria": [
+    "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md exists",
+    "protocol inputs are M2134 artifacts only",
+    "comparison metrics and support rules are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "protocol route requires rerun",
+    "protocol criteria are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_comparison_protocol_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv"
+  ],
+  "decision_rule": "M2137 passes if it freezes comparison protocol criteria and route without ranking.",
+  "next_blocker": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization"
+}

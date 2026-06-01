@@ -37721,3 +37721,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: continue to controlled-panel result audit, not ranking
 - follow-up manifest: `experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json`
 - next: `m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit`
+
+## M2136 Paper-Route Outcome-Supported Decisive Comparison-Support Controlled Panel Result Audit
+
+- status: completed
+- decision: `comparison_support_controlled_panel_audit_admit_comparison_protocol_design`
+- manifest: `experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json`
+- audit artifact: `docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md`
+- audited summary: `runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json`
+- reset/rollout/measured execution in M2136: `false`
+- policy actions executed in M2136: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2134 is a clean six-unit non-overlapping controlled-panel artifact and is valid for comparison protocol design
+- panel units/source kinds: `6` / `6`
+- duplicate source_kind count: `0`
+- broad aggregate exclusions: `3`
+- excluded qualified rows: `9`
+- guardrail_violation_count: `0`
+- claim boundary: protocol design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json`
+- next: `m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2144,
+    "completed": 2145,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+    "command_log": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+    "run_dir": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
     "status": "completed",
-    "task_id": "m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis"
+    "task_id": "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json",
-    "hypothesis": "M2134 controlled panel construction is sufficient to admit comparison protocol design, but not direct ranking or paper claims.",
-    "id": "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit",
+    "command": "see experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json",
+    "hypothesis": "A bounded no-rerun comparison protocol can be designed over M2134 panel units while keeping ranking and paper claims blocked.",
+    "id": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design",
     "kind": "gate",
-    "notes": "Pending: audit M2134 controlled panel construction after required branch synthesis",
-    "priority": 21310,
+    "notes": "Pending: design comparison protocol over M2134 controlled panel units without ranking",
+    "priority": 21320,
     "status": "pending",
-    "success_artifact": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md"
+    "success_artifact": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md"
   },
-  "updated_at_utc": "20260601T035200Z"
+  "updated_at_utc": "20260601T041000Z"
 }
