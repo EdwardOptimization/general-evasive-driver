@@ -1,0 +1,190 @@
+{
+  "id": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_policy_diagnostic_panel"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md",
+      "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
+      "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-ranking support-policy feasibility calibration panel"
+    ],
+    "derived_from": [
+      "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design"
+    ],
+    "blocked_by": [
+      "current scenario task family has not separated feasibility from actor weakness",
+      "controller-family ranking remains blocked until support calibration is audited"
+    ],
+    "supersedes": [
+      "another guarded-v2 scalar reward tweak",
+      "direct controller-family comparison before support calibration"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.md",
+  "public_gates": [
+    "M2313 must implement a support-policy diagnostic runner",
+    "M2313 must run 72 scenario specs x 3 support policies x 5 seed repeats = 1080 episodes",
+    "M2313 must write support labels and role support aggregates",
+    "M2313 must keep ranking_admissible false and winner_selected false",
+    "M2313 must not train replay PPO promote private holdout rank controllers or make paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat support policies as deployable candidates",
+    "do not compare support policies as winners"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_support_policy_feasibility_calibration_panel",
+    "evidence_increment": "creates closed-loop support-policy diagnostic data for the 72-spec scenario task family",
+    "claim_scope": "diagnostic feasibility/support evidence only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if support policies are interpreted as controller candidates",
+      "stop if the runner loses scenario metadata or support labels",
+      "stop if ranking_admissible or winner_selected becomes true",
+      "stop if implementation cannot preserve 1080-episode denominator"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if schema/metadata fail",
+      "route to result audit if execution artifact is complete",
+      "route to scenario spec redesign if support execution exposes unsupported tasks"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2312 admits support-policy feasibility calibration implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run support-policy feasibility calibration panel",
+    "admission_evidence": [
+      "M2312 freezes support policies aeb aes envelope_aes",
+      "M2312 freezes 72 x 3 x 5 = 1080 denominator",
+      "M2312 forbids controller ranking and paper/self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+      "docs/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.md",
+      "M2313 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "support calibration runner is implemented",
+      "focused tests pass",
+      "1080 episode rows are produced or fail-closed with failure rows",
+      "summary and support labels are written",
+      "next result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2313 uses support policies as diagnostic feasibility bounds and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2313; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "72-spec current-sim scenario task-family support-policy diagnostic panel.",
+    "negative_result_policy": "If support policies fail broadly, route to scenario feasibility/metric audit instead of weakening self-ID criteria.",
+    "allowed_claims": [
+      "support-policy feasibility calibration artifact",
+      "scenario support labels",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds new support-policy diagnostic data rather than repairing the same checkpoint family",
+    "paper_verdict_delta": "can classify the task pack as support-clear support-mixed support-blocked or metric-conflicted before ranking",
+    "must_synthesize_if": [
+      "support-policy diagnostics are used to rank controllers",
+      "the next proposed task is another scalar reward tweak",
+      "the feasibility branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A support-policy diagnostic panel can separate scenario feasibility/support from actor weakness without ranking controllers.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py passes",
+    "summary.json exists in the M2313 output directory",
+    "episode_count is 1080",
+    "scenario_spec_count is 72",
+    "support_policy_count is 3",
+    "seed_repeat_count is 5",
+    "ranking_admissible_count is 0",
+    "guardrail_violation_count is 0",
+    "a follow-up result-audit manifest is selected"
+  ],
+  "failure_criteria": [
+    "M2313 starts training replay PPO private holdout or promotion",
+    "M2313 ranks support policies or selects a winner",
+    "M2313 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2313 omits support labels or role support aggregates",
+    "M2313 cannot preserve the 1080-episode denominator without fail-closed artifacts"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_feasibility_calibration --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --eval-seed-base 231300 --support-policies aeb aes envelope_aes --seed-repeats 5 --target-scenario-spec-count 72 --target-support-policy-count 3 --target-episode-count 1080 --next-blocker m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_policy_diagnostic_panel"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_current_sim_scenario_task_family_v0.json",
+    "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md"
+  ],
+  "decision_rule": "M2313 passes if it implements the diagnostic runner, writes complete support-policy artifacts, and pre-registers a result audit without ranking.",
+  "next_blocker": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation"
+}

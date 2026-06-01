@@ -41632,3 +41632,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.json`
 - next: `m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design`
+
+## M2312 Paper-Route Current-Sim Scenario Task-Family Feasibility Calibration Design
+
+- status: completed
+- decision: `feasibility_calibration_design_admit_support_policy_panel_implementation`
+- manifest: `experiments/manifests/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.json`
+- design doc: `docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md`
+- parent synthesis: `docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md`
+- design question: separate task infeasibility/support imbalance from actor weakness and metric artifacts
+- support policies: `aeb`, `aes`, `envelope_aes`
+- support-policy boundary: diagnostic support bounds only, not deployable candidates and not controller-family ranking
+- panel shape admitted for M2313: `72` scenario specs x `3` support policies x `5` seed repeats = `1080` episodes
+- output route: support labels (`support_clear`, `support_mixed`, `support_blocked`, `metric_conflict`) plus role support aggregates
+- reset/rollout/policy action in M2312: `false`
+- training/replay/PPO in M2312: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.json`
+- next: `m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation`

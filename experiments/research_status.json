@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2319,
+    "completed": 2320,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+    "task_id": "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md"
+    "command_log": "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md"
   },
   "next_task": {
-    "id": "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design",
-    "kind": "gate",
-    "priority": 23070,
+    "id": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
+    "kind": "infrastructure",
+    "priority": 23080,
     "status": "pending",
-    "hypothesis": "A feasibility/support calibration design will produce a better next evidence route than another same-support guarded repair run.",
-    "command": "write docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md",
-    "success_artifact": "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md",
-    "notes": "Pending: design no-ranking feasibility/support calibration route after M2311 pivot; no execution training ranking paper or self-ID claims"
+    "hypothesis": "A support-policy diagnostic panel can separate scenario feasibility/support from actor weakness without ranking controllers.",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_feasibility_calibration --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --eval-seed-base 231300 --support-policies aeb aes envelope_aes --seed-repeats 5 --target-scenario-spec-count 72 --target-support-policy-count 3 --target-episode-count 1080 --next-blocker m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
+    "success_artifact": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+    "notes": "Pending: implement and run no-ranking support-policy feasibility calibration panel; support policies are diagnostics not candidates"
   },
-  "updated_at_utc": "20260601T223930Z"
+  "updated_at_utc": "20260601T224727Z"
 }

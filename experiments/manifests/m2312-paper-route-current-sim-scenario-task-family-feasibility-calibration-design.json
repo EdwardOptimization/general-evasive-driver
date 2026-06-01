@@ -181,5 +181,5 @@
     "configs/paper_route_current_sim_scenario_task_family_v0.json"
   ],
   "decision_rule": "M2312 passes if it writes a no-ranking feasibility/support calibration design and selects a follow-up implementation or redesign route.",
-  "next_blocker": "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design"
+  "next_blocker": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation"
 }
