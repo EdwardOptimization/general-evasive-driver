@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2249,
+    "completed": 2250,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
+    "command_log": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2241_paper_route_current_sim_training_stability_repair_execution",
+    "run_dir": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
     "status": "completed",
-    "task_id": "m2241-paper-route-current-sim-training-stability-repair-execution"
+    "task_id": "m2242-paper-route-current-sim-training-stability-repair-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json and selected checkpoint diagnostics",
-    "hypothesis": "M2241 provides enough evidence to audit checkpoint-selection repair and route to the next non-ranking repair stage.",
-    "id": "m2242-paper-route-current-sim-training-stability-repair-result-audit",
+    "command": "manual design over M2241 selected checkpoint artifacts",
+    "hypothesis": "An episode-level outcome localization design over M2241 selected checkpoints can identify the repair target more reliably than immediate reward/task training.",
+    "id": "m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2241 selected checkpoint result and route to next non-ranking repair",
-    "priority": 22370,
+    "notes": "Pending: design episode-level outcome localization over M2241 selected checkpoints no rollout/ranking claims",
+    "priority": 22380,
     "status": "pending",
-    "success_artifact": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md"
+    "success_artifact": "docs/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260601T145704Z"
+  "updated_at_utc": "20260601T150151Z"
 }

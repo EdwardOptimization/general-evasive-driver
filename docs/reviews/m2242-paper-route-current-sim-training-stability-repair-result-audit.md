@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T145957Z
+- Generated at UTC: 20260601T150408Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2242 pending M2241 selected checkpoint result audit no rerun/ranking claims
+- Promotion decision: current_sim_training_stability_partial_repair_route_to_selected_checkpoint_outcome_localization_design
+- Decision reason: M2242 audits M2241 selected beats final 12/15 but selected profile floor pass count 0 routes to outcome localization no ranking claims
 
 ## Hypothesis
 
@@ -89,8 +89,8 @@ M2241 provides enough evidence to audit checkpoint-selection repair and route to
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2242 pending M2241 selected checkpoint result audit no rerun/ranking claims
+- decision: current_sim_training_stability_partial_repair_route_to_selected_checkpoint_outcome_localization_design
+- reason: M2242 audits M2241 selected beats final 12/15 but selected profile floor pass count 0 routes to outcome localization no ranking claims
 
 ## Next Blocker
 

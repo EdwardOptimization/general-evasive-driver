@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2241-paper-route-current-sim-training-stability-repair-execution
+m2242-paper-route-current-sim-training-stability-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2242-paper-route-current-sim-training-stability-repair-result-audit
+m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -177,8 +177,12 @@ Candidate selection beats final in `12/15` seed rows and notably recovers
 `L3_online_gru` seed `222602` from final `35.0936 / 0.75` return/termination to
 selected `67.1743 / 0.28125`. However both final and selected checkpoint
 profile-floor pass counts remain `0`, so checkpoint selection is useful but not
-sufficient. M2242 must audit this and route to the next non-ranking repair,
-likely reward/termination or task/curriculum repair, before any new training.
+sufficient. M2242 audits this as a partial repair: keep checkpoint retention,
+but do not run another checkpoint-selection-only experiment. Because selected
+checkpoints still fail readiness broadly, M2243 must design selected-checkpoint
+episode-level outcome localization before reward/termination or task/curriculum
+repair. The next evidence gap is failure mode, not another aggregate eval:
+offtrack, collision, max-step noncompletion, recovery, and termination timing.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

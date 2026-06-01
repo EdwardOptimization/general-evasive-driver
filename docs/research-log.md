@@ -40221,3 +40221,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to result audit before any new training
 - follow-up manifest: `experiments/manifests/m2242-paper-route-current-sim-training-stability-repair-result-audit.json`
 - next: `m2242-paper-route-current-sim-training-stability-repair-result-audit`
+
+## M2242 Paper-Route Current-Sim Training-Stability Repair Result Audit
+
+- status: completed
+- decision: `current_sim_training_stability_partial_repair_route_to_selected_checkpoint_outcome_localization_design`
+- manifest: `experiments/manifests/m2242-paper-route-current-sim-training-stability-repair-result-audit.json`
+- audit artifact: `docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md`
+- parent result: `runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json`
+- M2241 result_class: `current_sim_training_stability_repair_execution_pass`
+- selected_beats_final_count: `12/15`
+- final_checkpoint_profile_floor_pass_count: `0`
+- selected_checkpoint_profile_floor_pass_count: `0`
+- classification: `training_stability_partial_repair_but_readiness_still_below_floor`
+- supported: checkpoint retention is useful and should remain in future training recipes
+- unsupported: checkpoint selection alone solves comparison readiness
+- next route: selected-checkpoint episode-level outcome localization design
+- reset/rollout/measured execution/training/replay/PPO in audit: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.json`
+- next: `m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design`

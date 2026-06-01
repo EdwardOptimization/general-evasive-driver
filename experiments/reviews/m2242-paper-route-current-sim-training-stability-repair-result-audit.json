@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2242 pending M2241 selected checkpoint result audit no rerun/ranking claims",
+  "decision_reason": "M2242 audits M2241 selected beats final 12/15 but selected profile floor pass count 0 routes to outcome localization no ranking claims",
   "failure_criteria": [
     "M2241 artifacts are missing",
     "M2241 selected checkpoint result is ignored",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T145957Z",
+  "generated_at_utc": "20260601T150408Z",
   "hypothesis": "M2241 provides enough evidence to audit checkpoint-selection repair and route to the next non-ranking repair stage.",
   "lineage": {
     "blocked_by": [
@@ -64,7 +64,7 @@
   "milestone": "m2242-paper-route-current-sim-training-stability-repair-result-audit",
   "next_blocker": "m2242-paper-route-current-sim-training-stability-repair-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_training_stability_partial_repair_route_to_selected_checkpoint_outcome_localization_design",
   "public_gates": [
     "M2242 must audit M2241 execution completeness, candidate eval count, selected checkpoint count, and guardrails",
     "M2242 must compare final vs selected checkpoint readiness without ranking profiles",
@@ -74,9 +74,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_training_stability_partial_repair_route_to_selected_checkpoint_outcome_localization_design",
     "milestone": "m2242-paper-route-current-sim-training-stability-repair-result-audit",
-    "reason": "M2242 pending M2241 selected checkpoint result audit no rerun/ranking claims",
+    "reason": "M2242 audits M2241 selected beats final 12/15 but selected profile floor pass count 0 routes to outcome localization no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
