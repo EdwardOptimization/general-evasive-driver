@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2122,
+    "completed": 2123,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "command_log": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "run_dir": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
     "status": "completed",
-    "task_id": "m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
+    "task_id": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json",
-    "hypothesis": "A new scenario-redesign branch can target comparison-support evidence directly, avoiding same-panel public-gate local search after M2111 found zero candidate-support slices.",
-    "id": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design",
-    "kind": "gate",
-    "notes": "Pending: design non-local-repair scenario branch with explicit comparison-support gates",
-    "priority": 21090,
+    "command": "see experiments/manifests/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.json",
+    "hypothesis": "A no-rollout generator can create a 240-candidate comparison-support scenario set with balanced support-ladder and boundary intents while preserving claim boundaries.",
+    "id": "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout 240-candidate generator with four 60-row intent groups and claim guards",
+    "priority": 21100,
     "status": "pending",
-    "success_artifact": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md"
+    "success_artifact": "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json"
   },
-  "updated_at_utc": "20260601T011847Z"
+  "updated_at_utc": "20260601T012312Z"
 }

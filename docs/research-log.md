@@ -37160,3 +37160,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: pivot to comparison-support scenario redesign, not same-panel local repair
 - follow-up manifest: `experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json`
 - next: `m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design`
+
+## M2114 Paper-Route Outcome-Supported Decisive Comparison-Support Scenario Redesign Design
+
+- status: completed
+- decision: `comparison_support_scenario_redesign_design_route_to_candidate_generation`
+- manifest: `experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json`
+- design artifact: `docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md`
+- reset/rollout/measured execution in M2114: `false`
+- policy actions executed in M2114: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design principle: first make comparison support measurable then consider comparison
+- candidate plan: `240` no-rollout candidates split into four intent groups of `60`
+- intent groups: support_ladder_easy; support_ladder_medium; discriminative_boundary; collision_relief_probe
+- support gates before comparison: comparison_ready_candidate_count >= `3`, candidate_support_count >= `6`, success_row_count >= `80`, plus profile/source diversity and collision/offtrack thresholds
+- claim guards: generated rows keep `paper_validity_claim=false` and `profile_specific_tuning=false`
+- follow-up manifest: `experiments/manifests/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.json`
+- next: `m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation`

@@ -1,0 +1,185 @@
+{
+  "id": "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_candidate_generation"
+    ],
+    "parent_dataset": [
+      "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+      "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json"
+    ],
+    "parent_objective": [
+      "implement a no-rollout candidate generator for the comparison-support scenario redesign branch"
+    ],
+    "derived_from": [
+      "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design"
+    ],
+    "blocked_by": [
+      "M2114 must define support gates and candidate quotas before implementation"
+    ],
+    "supersedes": [
+      "same-panel public-gate repair",
+      "manual candidate list without reproducible generation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md",
+  "public_gates": [
+    "M2115 must generate exactly 240 no-rollout candidates",
+    "M2115 must satisfy four intent-group quotas of 60 each",
+    "M2115 must mark all generated rows as paper_validity_claim false",
+    "M2115 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_candidate_generation",
+    "evidence_increment": "materializes the first no-rollout candidate set for the comparison-support redesign branch",
+    "claim_scope": "candidate generation only; no reset validity rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if generator cannot meet candidate quotas",
+      "stop if generated rows imply paper-valid tasks",
+      "stop if candidate fields include controller answers or actor-input shortcuts",
+      "stop if implementation requires rollout"
+    ],
+    "fallback_plan": [
+      "route to candidate generator audit if quotas pass or fail closed",
+      "route to design repair if quotas are impossible without changing branch scope",
+      "route to synthesis if candidate generation repeats same-panel public-gate rows"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2114 freezes comparison-support candidate generation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "comparison-support candidate generation implementation",
+    "admission_evidence": [
+      "M2114 defines 240 total candidates",
+      "M2114 defines four 60-candidate intent groups",
+      "M2114 defines support gates before comparison"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset or measured execution",
+      "do not label candidates as paper-valid",
+      "do not tune profiles per candidate"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_comparison_support_candidates.py",
+      "tests/test_paper_route_outcome_supported_decisive_comparison_support_candidates.py",
+      "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "docs/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md",
+      "M2115 status queue scoreboard research log and review",
+      "one follow-up manifest for candidate generation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "candidate config exists",
+      "candidate quotas pass",
+      "claim boundary is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2115 generates candidate scenarios and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2115."
+    ],
+    "temporal_evidence_window": "M2114 scenario redesign design.",
+    "negative_result_policy": "If candidates cannot meet support-oriented quotas, fail closed and audit rather than measuring unsupported rows.",
+    "allowed_claims": [
+      "comparison-support candidate generation",
+      "no reset validity, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new support-targeted candidate panel instead of repairing the fixed public-gate panel",
+    "paper_verdict_delta": "can prepare support-seeking evaluation but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2115 reuses same fixed public-gate rows",
+      "M2115 cannot meet quotas without paper-valid overclaiming",
+      "M2115 routes directly to ranking"
+    ]
+  },
+  "hypothesis": "A no-rollout generator can create a 240-candidate comparison-support scenario set with balanced support-ladder and boundary intents while preserving claim boundaries.",
+  "success_criteria": [
+    "focused tests pass",
+    "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json exists",
+    "candidate_count is 240",
+    "intent group counts are 60 each",
+    "paper_validity_claim true count is 0",
+    "profile_specific_tuning true count is 0",
+    "forbidden actor-input shortcut count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "candidate config is missing",
+    "candidate quotas fail",
+    "generated rows are marked paper-valid",
+    "profile-specific tuning appears",
+    "reset rollout measured execution or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_comparison_support_candidates.py"
+    },
+    {
+      "name": "generate_candidates",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_comparison_support_candidates --output configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json --next-blocker m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_candidate_generation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md"
+  ],
+  "decision_rule": "M2115 passes if it generates a quota-balanced no-rollout candidate artifact with claim guards and no execution.",
+  "next_blocker": "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit"
+}

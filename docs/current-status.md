@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
+m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design
 ```
 
 Current next task:
 
 ```text
-m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design
+m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation
 ```
 
-Immediate route: M2113 synthesizes M2106-M2112 and pivots away from the fixed
-public-gate smoke panel. The branch is successful as execution infrastructure
-but failed as comparison evidence: M2111 found `0` comparison-ready candidates,
-`0` candidate-support slices, and broad collision dominance. M2114 must design
-a new comparison-support scenario branch with explicit support gates before any
-measured rerun or controller comparison. Direct comparison, paper claims,
-finite-window vs GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2114 designs a new comparison-support scenario branch. The
+next artifact must be a no-rollout candidate generator, not a measured rerun:
+`240` candidates total with four equal intent groups (`60` each) for
+support-ladder easy, support-ladder medium, discriminative boundary, and
+collision-relief probes. All generated rows must keep
+`paper_validity_claim=false` and `profile_specific_tuning=false`. Direct
+comparison, paper claims, finite-window vs GRU conclusions, and self-ID claims
+remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
