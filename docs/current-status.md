@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit
+m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design
 ```
 
 Current next task:
 
 ```text
-m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design
+m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -260,7 +260,12 @@ with collision delta `0`. The current interpretation is midcourse mild boundary
 containment regression. M2257 audits that interpretation and routes to M2258:
 design a targeted midcourse corridor-containment repair with slice-metric
 acceptance criteria, while blocking another generic return-oriented reward tweak
-and keeping ranking/paper/FW-vs-GRU/self-ID claims blocked.
+and keeping ranking/paper/FW-vs-GRU/self-ID claims blocked. M2258 completes
+that design: materialize a matched 15-config matrix with earlier/denser
+road-margin containment (`road_margin_warning_fraction=0.50`,
+`road_margin_cost_scale=2.6`, `track_cost_scale=3.0`) while preserving
+`track_width=8.5`, actor inputs, and collision/clearance guardrails. M2259 may
+now materialize configs only; no training or rollout is admitted yet.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

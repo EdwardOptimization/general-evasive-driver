@@ -1,0 +1,191 @@
+{
+  "id": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/offtrack_timing_delta.csv",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/offtrack_severity_delta.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize targeted midcourse corridor-containment repaired config matrix"
+    ],
+    "derived_from": [
+      "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design"
+    ],
+    "blocked_by": [
+      "M2258 admits config materialization only no training"
+    ],
+    "supersedes": [
+      "generic offtrack reward tweak",
+      "return-only acceptance criteria",
+      "profile-specific tuning"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.md",
+  "public_gates": [
+    "M2259 must materialize exactly 15 configs for 5 profiles x 3 seeds",
+    "M2259 must keep actor observation contract unchanged and track_width unchanged",
+    "M2259 must set the shared targeted containment repair values from M2258",
+    "M2259 must emit a training matrix but must not train or run rollout",
+    "M2259 must not rank profiles or make paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_config_materialization",
+    "evidence_increment": "turns targeted repair design into reproducible configs without training",
+    "claim_scope": "config materialization only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if config count is not 15",
+      "stop if actor contract changes",
+      "stop if track_width changes",
+      "stop if training or rollout starts"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if config validation fails",
+      "route to training-execution design if materialization is clean",
+      "route to synthesis if target values cannot be materialized safely"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2258 admits materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize targeted corridor-containment config matrix",
+    "admission_evidence": [
+      "M2258 freezes target reward values",
+      "M2258 keeps actor input and track_width unchanged",
+      "M2258 blocks training until materialization validates"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_midcourse_corridor_containment_config_materialization.py",
+      "tests/test_paper_route_current_sim_midcourse_corridor_containment_config_materialization.py",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/*",
+      "docs/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.md",
+      "M2259 status queue scoreboard research log and review",
+      "one follow-up execution-design manifest"
+    ],
+    "next_stage_criteria": [
+      "15 configs exist",
+      "training matrix exists",
+      "target repair values match M2258",
+      "contract and track_width guardrails are clean"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2259 materializes training configs and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2259; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2258 repair design.",
+    "negative_result_policy": "If materialization fails route to config repair; do not lower self-ID standards.",
+    "allowed_claims": [
+      "config materialization result",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a targeted repair matrix with slice-metric guardrails rather than generic reward search",
+    "paper_verdict_delta": "can test whether targeted containment repair is runnable before training",
+    "must_synthesize_if": [
+      "M2259 cannot materialize target values",
+      "M2259 would require actor input changes",
+      "M2259 would change track_width or scenario geometry"
+    ]
+  },
+  "hypothesis": "The M2258 targeted containment repair can be materialized into a matched 15-config panel without actor-contract or geometry shortcuts.",
+  "success_criteria": [
+    "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json exists",
+    "materialized_config_count is 15",
+    "training_matrix_row_count is 15",
+    "target repair values match M2258",
+    "contract_violation_count is 0",
+    "track_width_widened_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "config count is not 15",
+    "training matrix row count is not 15",
+    "target repair values do not match M2258",
+    "actor input contract changes",
+    "track_width widens",
+    "M2259 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2259 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_midcourse_corridor_containment_config_materialization --output-dir runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs --next-blocker m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md",
+    "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+  ],
+  "decision_rule": "M2259 passes if it materializes a matched targeted repair matrix without contract or geometry shortcuts.",
+  "next_blocker": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization"
+}

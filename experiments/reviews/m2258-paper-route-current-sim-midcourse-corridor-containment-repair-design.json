@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2258 pending targeted midcourse corridor-containment repair design no ranking claims",
+  "decision_reason": "M2258 freezes targeted containment repair values and slice-metric acceptance no ranking claims",
   "failure_criteria": [
     "M2258 ignores M2256 slice evidence",
     "M2258 proposes only return-oriented reward tuning",
@@ -31,7 +31,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T170935Z",
+  "generated_at_utc": "20260601T171420Z",
   "hypothesis": "A targeted midcourse corridor-containment repair design can address the M2256 offtrack regression without return-only overfit.",
   "lineage": {
     "blocked_by": [
@@ -67,7 +67,7 @@
   "milestone": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
   "next_blocker": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_midcourse_corridor_containment_repair_design_admit_config_materialization",
   "public_gates": [
     "M2258 must design a targeted repair for midcourse mild boundary containment regression",
     "M2258 must preserve collision and clearance guardrails",
@@ -77,9 +77,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_midcourse_corridor_containment_repair_design_admit_config_materialization",
     "milestone": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
-    "reason": "M2258 pending targeted midcourse corridor-containment repair design no ranking claims",
+    "reason": "M2258 freezes targeted containment repair values and slice-metric acceptance no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

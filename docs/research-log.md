@@ -40606,3 +40606,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.json`
 - next: `m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design`
+
+## M2258 Paper-Route Current-Sim Midcourse Corridor-Containment Repair Design
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_repair_design_admit_config_materialization`
+- manifest: `experiments/manifests/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.json`
+- design artifact: `docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md`
+- target failure: `midcourse_mild_boundary_containment_regression`
+- target values: track_cost `3.0`, heading_cost `0.30`, road_margin_cost `2.6`, road_margin_warning_fraction `0.50`, off_track_penalty `8.0`
+- unchanged: track_width `8.5`, actor observation contract, profiles, seeds, collision/clearance guardrails
+- acceptance metrics: mid_offtrack_delta `<=0`, mild_overshoot_delta `<=0`, global_offtrack_count `<110`, collision_count `<=107`, max-step noncompletion `0`
+- execution started in M2258: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.json`
+- next: `m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization`

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T170935Z
+- Generated at UTC: 20260601T171420Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2258 pending targeted midcourse corridor-containment repair design no ranking claims
+- Promotion decision: current_sim_midcourse_corridor_containment_repair_design_admit_config_materialization
+- Decision reason: M2258 freezes targeted containment repair values and slice-metric acceptance no ranking claims
 
 ## Hypothesis
 
@@ -88,8 +88,8 @@ A targeted midcourse corridor-containment repair design can address the M2256 of
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2258 pending targeted midcourse corridor-containment repair design no ranking claims
+- decision: current_sim_midcourse_corridor_containment_repair_design_admit_config_materialization
+- reason: M2258 freezes targeted containment repair values and slice-metric acceptance no ranking claims
 
 ## Next Blocker
 
