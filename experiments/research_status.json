@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2235,
+    "completed": 2236,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+    "command_log": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs",
+    "run_dir": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization"
+    "task_id": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json and generated configs",
-    "hypothesis": "M2227 materialization artifacts are clean enough to admit a separate matched-budget training-execution command design while still blocking direct training and ranking claims.",
-    "id": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit",
+    "command": "manual command design over runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+    "hypothesis": "A safe matched-budget training-execution command can be designed from M2227 artifacts without changing budgets, profiles, seeds, or actor inputs and without running training in the design milestone.",
+    "id": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2227 matched-budget config materialization before any training execution design",
-    "priority": 22230,
+    "notes": "Pending: freeze matched-budget training execution command policy before actual training",
+    "priority": 22240,
     "status": "pending",
-    "success_artifact": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md"
+    "success_artifact": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T131239Z"
+  "updated_at_utc": "20260601T131723Z"
 }

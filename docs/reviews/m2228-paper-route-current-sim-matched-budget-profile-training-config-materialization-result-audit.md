@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T131520Z
+- Generated at UTC: 20260601T131936Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2228 pending artifact audit of M2227 matched-budget config materialization before training execution design no ranking claims
+- Promotion decision: current_sim_matched_budget_profile_training_config_audit_admit_execution_command_design
+- Decision reason: M2228 audits M2227 clean 15 configs 15 matrix rows budget signature 1 seed policy pass contract 0 guardrail 0 admits execution command design only no training/ranking claims
 
 ## Hypothesis
 
@@ -92,8 +92,8 @@ M2227 materialization artifacts are clean enough to admit a separate matched-bud
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2228 pending artifact audit of M2227 matched-budget config materialization before training execution design no ranking claims
+- decision: current_sim_matched_budget_profile_training_config_audit_admit_execution_command_design
+- reason: M2228 audits M2227 clean 15 configs 15 matrix rows budget signature 1 seed policy pass contract 0 guardrail 0 admits execution command design only no training/ranking claims
 
 ## Next Blocker
 

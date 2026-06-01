@@ -1,0 +1,174 @@
+{
+  "id": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "training_instability",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_training_design"
+    ],
+    "parent_dataset": [
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+      "configs/paper_route_profiles/m2227_matched_budget_short_v0",
+      "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze matched-budget profile training execution command policy without running training"
+    ],
+    "derived_from": [
+      "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2228 admits execution command design but not immediate training"
+    ],
+    "supersedes": [
+      "manual ad hoc execution of M2227 training commands"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
+  "public_gates": [
+    "M2229 must freeze the exact training command source and execution order",
+    "M2229 must decide whether to preserve the M2227 frozen training_output_root or rematerialize command paths without changing budgets, profiles, seeds, or actor inputs",
+    "M2229 must specify failure behavior for individual seed/profile failures",
+    "M2229 must specify post-training artifacts, quality floors, and follow-up audit route",
+    "M2229 must not run training, reset, rollout, replay, PPO, measured execution, or policy action"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "Q_matched_budget_profile_training_execution_design",
+    "evidence_increment": "freezes execution policy for matched-budget training without producing outcome evidence",
+    "claim_scope": "training command design only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if execution would require profile-specific budgets or seeds",
+      "stop if execution-root handling would invalidate M2227 audit lineage",
+      "stop if command design cannot preserve contract and guardrail boundaries"
+    ],
+    "fallback_plan": [
+      "route to command materialization repair if output-root handling is ambiguous",
+      "route to config repair if budget/profile/seed drift is required",
+      "route to training execution only after the command design is accepted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2228 admits execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design matched-budget profile training execution command",
+    "admission_evidence": [
+      "M2228 audits M2227 artifacts as count-, budget-, seed-, contract-, and guardrail-clean",
+      "M2228 blocks immediate training and admits command design only"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
+      "M2229 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "execution command source is frozen",
+      "output-root handling is explicit",
+      "failure behavior is explicit",
+      "post-training quality floors are explicit",
+      "actual training remains blocked until a separate run milestone"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2229 designs training execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2229."
+    ],
+    "temporal_evidence_window": "M2227 matched-budget configs and M2228 artifact audit.",
+    "negative_result_policy": "Execution design must not imply that any profile will win or that GRU self-ID exists.",
+    "allowed_claims": [
+      "matched-budget training execution command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prevents ad hoc training by freezing the execution protocol before outcome generation",
+    "paper_verdict_delta": "enables clean matched-budget training data collection but produces no result by itself",
+    "must_synthesize_if": [
+      "M2229 cannot choose output-root handling without rematerialization",
+      "M2229 cannot specify failure behavior",
+      "M2229 would allow direct ranking after training without post-training audit"
+    ]
+  },
+  "hypothesis": "A safe matched-budget training-execution command can be designed from M2227 artifacts without changing budgets, profiles, seeds, or actor inputs and without running training in the design milestone.",
+  "success_criteria": [
+    "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md exists",
+    "execution command source and run order are explicit",
+    "output-root handling is explicit",
+    "failure behavior is explicit",
+    "post-training artifacts and quality floors are explicit",
+    "actual training remains blocked",
+    "no reset rollout measured execution training replay PPO ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "execution design silently changes budgets, profiles, seeds, or actor inputs",
+    "execution design leaves output-root handling ambiguous",
+    "training is started during M2229",
+    "M2229 admits ranking or paper-level claims directly after training without result audit"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual command design over runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_training_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+    "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md"
+  ],
+  "decision_rule": "M2229 passes if it freezes a safe execution command policy and routes actual training to a separate milestone.",
+  "next_blocker": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design"
+}

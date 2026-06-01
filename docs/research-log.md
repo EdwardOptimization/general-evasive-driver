@@ -39872,3 +39872,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: materializes matched-budget short-v0 configs and training command matrix without training or rollout
 - follow-up manifest: `experiments/manifests/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.json`
 - next: `m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit`
+
+## M2228 Paper-Route Current-Sim Matched-Budget Profile Training Config Materialization Result Audit
+
+- status: completed
+- decision: `current_sim_matched_budget_profile_training_config_audit_admit_execution_command_design`
+- manifest: `experiments/manifests/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.json`
+- audit artifact: `docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md`
+- parent result: `runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json`
+- parent matrix: `runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv`
+- M2227 result_class: `current_sim_matched_budget_profile_training_config_materialization_pass`
+- generated_config_count: `15`
+- training_matrix_row_count: `15`
+- trainable_profile_count: `5`
+- seed_ids: `222601`, `222602`, `222603`
+- budget_signature_count: `1`
+- budget_matched: `true`
+- seed_policy_matched: `true`
+- contract_violation_count: `0`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- replay/PPO/training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits training-execution command design only; immediate training and ranking remain blocked
+- follow-up manifest: `experiments/manifests/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.json`
+- next: `m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design`

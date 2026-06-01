@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization
+m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit
+m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -85,6 +85,13 @@ The materialization result is clean: `budget_matched=true`,
 policy action, replay, PPO, or training started. M2228 must now audit those
 artifacts before any training-execution command design; ranking, paper-level
 claims, finite-window-vs-GRU verdicts, and self-ID claims remain blocked.
+M2228 completes that audit: M2227 artifacts have `15` configs, `15` matrix
+rows, one budget signature, matched seed policy, contract `0`, guardrail `0`,
+and no reset, rollout, measured execution, policy action, replay, PPO, or
+training. The audit admits only M2229 execution-command design. M2229 must
+freeze command source, output-root handling, run order, failure behavior,
+logging, and post-training quality floors before any actual matched-budget
+training run.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

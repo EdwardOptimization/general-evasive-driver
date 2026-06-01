@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2228 pending artifact audit of M2227 matched-budget config materialization before training execution design no ranking claims",
+  "decision_reason": "M2228 audits M2227 clean 15 configs 15 matrix rows budget signature 1 seed policy pass contract 0 guardrail 0 admits execution command design only no training/ranking claims",
   "failure_criteria": [
     "M2227 summary is missing",
     "M2227 config or command counts differ from M2226 design",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T131520Z",
+  "generated_at_utc": "20260601T131936Z",
   "hypothesis": "M2227 materialization artifacts are clean enough to admit a separate matched-budget training-execution command design, while still blocking direct training and ranking claims.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit",
   "next_blocker": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_profile_training_config_audit_admit_execution_command_design",
   "public_gates": [
     "M2228 must audit M2227 summary result_class and counts",
     "M2228 must verify generated_config_count=15 and training_matrix_row_count=15",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_profile_training_config_audit_admit_execution_command_design",
     "milestone": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit",
-    "reason": "M2228 pending artifact audit of M2227 matched-budget config materialization before training execution design no ranking claims",
+    "reason": "M2228 audits M2227 clean 15 configs 15 matrix rows budget signature 1 seed policy pass contract 0 guardrail 0 admits execution command design only no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
