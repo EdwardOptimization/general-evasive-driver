@@ -37649,3 +37649,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: controlled panel design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.json`
 - next: `m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design`
+
+## M2133 Paper-Route Outcome-Supported Decisive Comparison-Support Controlled Panel Design
+
+- status: completed
+- decision: `comparison_support_controlled_panel_design_admit_no_rerun_construction`
+- manifest: `experiments/manifests/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.json`
+- design artifact: `docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md`
+- reset/rollout/measured execution in M2133: `false`
+- policy actions executed in M2133: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: M2134 must construct non-overlapping source-kind panel units from M2131 qualified candidates
+- primary unit rule: one canonical row per nonempty `source_kind`, prefer `outcome_by_intent_source_kind`, exclude broad aggregate rows and duplicate `outcome_by_source_kind` rows from direct panel units
+- expected primary panel source kinds: actuator_delay_collision_relief, gru_memory_discriminative_boundary, late_boundary_collision_relief, near_zero_margin_collision_relief, nominal_delay_support_boundary, profile_diversity_support
+- pass gate: source qualified count `15`, controlled panel units `>=6`, duplicate source_kind count `0`, broad aggregate exclusion `>=3`, guardrail `0`
+- claim boundary: controlled panel construction design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json`
+- next: `m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction`

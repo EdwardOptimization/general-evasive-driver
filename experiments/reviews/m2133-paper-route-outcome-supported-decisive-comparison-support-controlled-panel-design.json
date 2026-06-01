@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2133 freezes no-rerun controlled panel construction one canonical source_kind row per unit broad aggregates diagnostic expected 6 units no ranking",
+  "failure_criteria": [
+    "design document is missing",
+    "panel route requires rerun",
+    "panel criteria are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T033956Z",
+  "hypothesis": "A controlled panel design can turn M2131 qualified candidates into non-overlapping panel units before any comparison or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2132 must audit M2131 qualification before panel design"
+    ],
+    "derived_from": [
+      "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_controlled_panel_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/diagnostic_only_candidates.csv",
+      "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/rejection_reasons.csv"
+    ],
+    "parent_objective": [
+      "design a controlled comparison-panel construction route from M2131 qualified candidates"
+    ],
+    "supersedes": [
+      "direct controller ranking from qualified candidate rows",
+      "using broad aggregate rows as direct comparison units without panel rules"
+    ]
+  },
+  "milestone": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design",
+  "next_blocker": "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "comparison_support_controlled_panel_design_admit_no_rerun_construction",
+  "public_gates": [
+    "M2133 must design a no-rerun controlled panel over M2131 qualified candidates",
+    "M2133 must define inclusion and exclusion rules before any comparison",
+    "M2133 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2133 must not execute ranking or policy rollouts"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+    "clearance_margin_mean": "",
+    "decision": "comparison_support_controlled_panel_design_admit_no_rerun_construction",
+    "milestone": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design",
+    "reason": "M2133 freezes no-rerun controlled panel construction one canonical source_kind row per unit broad aggregates diagnostic expected 6 units no ranking",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md exists",
+    "panel inputs are M2131 artifacts only",
+    "inclusion and exclusion criteria are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

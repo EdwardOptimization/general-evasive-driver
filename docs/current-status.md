@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit
+m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design
 ```
 
 Current next task:
 
 ```text
-m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design
+m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction
 ```
 
-Immediate route: M2132 audits M2131 as a clean qualified-candidate panel:
-`15` qualified rows, `37` diagnostic rows, source count reproduction, axis
-coverage, and guardrail `0`. This admits M2133 controlled panel design only.
-Ranking, comparison execution, paper claims, finite-window vs GRU conclusions,
-and self-ID claims remain blocked.
+Immediate route: M2133 freezes the no-rerun controlled-panel construction
+rules. M2134 may materialize one canonical panel unit per nonempty
+`source_kind`, preferring `outcome_by_intent_source_kind` over duplicate
+`outcome_by_source_kind` rows. Broad aggregate rows stay diagnostic. Ranking,
+comparison execution, paper claims, finite-window vs GRU conclusions, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

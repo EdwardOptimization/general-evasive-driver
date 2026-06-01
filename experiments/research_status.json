@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2141,
+    "completed": 2142,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
+    "command_log": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit.md",
+    "run_dir": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
     "status": "completed",
-    "task_id": "m2132-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-result-audit"
+    "task_id": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.json",
-    "hypothesis": "A controlled panel design can turn M2131 qualified candidates into non-overlapping panel units before any comparison or ranking.",
-    "id": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design",
-    "kind": "gate",
-    "notes": "Pending: design controlled panel construction from M2131 qualified candidates without ranking",
-    "priority": 21280,
+    "command": "see experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json",
+    "hypothesis": "A no-rerun panel constructor can materialize non-overlapping source-kind panel units from M2131 qualified candidates while preserving claim boundaries.",
+    "id": "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction",
+    "kind": "infrastructure",
+    "notes": "Pending: construct controlled panel units from M2131 qualified candidates without ranking",
+    "priority": 21290,
     "status": "pending",
-    "success_artifact": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md"
+    "success_artifact": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json"
   },
-  "updated_at_utc": "20260601T033500Z"
+  "updated_at_utc": "20260601T034100Z"
 }
