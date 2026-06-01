@@ -37,7 +37,7 @@
   "review_artifact": "docs/reviews/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md",
   "public_gates": [
     "M2105 must audit M2104 repaired artifact counts and claim guards",
-    "M2105 must decide whether repaired measured-execution rerun command design is admitted",
+    "M2105 must decide whether repaired measured-execution rerun command design is admitted after required branch synthesis",
     "M2105 must not run measured execution or rank controller families"
   ],
   "private_holdout_policy": "not_used",
@@ -64,7 +64,7 @@
   "workflow_synthesis": {
     "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
     "evidence_axis": "Q_public_gate_core_measured_execution_repair_audit",
-    "evidence_increment": "audits whether repaired artifacts are clean enough for measured execution rerun command design",
+    "evidence_increment": "audits whether repaired artifacts are clean enough for a repaired measured execution route while respecting the branch synthesis cadence",
     "claim_scope": "repair result audit only; no rollout driver performance ranking paper or self-ID claim",
     "stop_condition": [
       "stop if M2104 metadata_missing_count is nonzero",
@@ -73,7 +73,7 @@
       "stop if audit would rank controllers"
     ],
     "fallback_plan": [
-      "route to repaired rerun command design if M2104 is clean",
+      "route through required branch synthesis if M2104 is clean",
       "route to synthesis if another metadata or sampling bridge is required",
       "route to repair redesign if seed override semantics are unsafe"
     ],
@@ -100,11 +100,11 @@
     "allowed_updates": [
       "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md",
       "M2105 status queue scoreboard research log and review",
-      "one follow-up manifest for repaired measured-execution command design or synthesis"
+      "one follow-up manifest for required branch synthesis before repaired measured-execution command design"
     ],
     "next_stage_criteria": [
       "M2104 repair is audited",
-      "next route is explicit",
+      "next route is explicit and respects synthesis cadence",
       "claim boundary is preserved"
     ]
   },
@@ -128,18 +128,18 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0,
     "evidence_expansion": "audits repaired artifacts before measured rerun",
-    "paper_verdict_delta": "can admit repaired rerun command design but cannot change ranking or paper verdict by itself",
+    "paper_verdict_delta": "can admit a repaired rerun route after synthesis but cannot change ranking or paper verdict by itself",
     "must_synthesize_if": [
       "M2105 finds another metadata bridge is required",
       "M2105 cannot admit rerun but proposes more local repair",
       "M2105 proposes ranking before complete rerun audit"
     ]
   },
-  "hypothesis": "M2104's repaired artifacts are clean enough to admit repaired public-gate measured-execution rerun command design.",
+  "hypothesis": "M2104's repaired artifacts are clean enough to admit a repaired public-gate measured-execution rerun route, but workflow cadence requires branch synthesis before command design.",
   "success_criteria": [
     "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md exists",
     "M2104 summary and repaired artifacts are audited",
-    "next route is explicit",
+    "next route is explicit and respects synthesis cadence",
     "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
   ],
   "failure_criteria": [
@@ -168,6 +168,6 @@
     "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json",
     "docs/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.md"
   ],
-  "decision_rule": "M2105 passes if it audits M2104 repair and selects a bounded next route without rerunning or ranking.",
-  "next_blocker": "m2106-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design"
+  "decision_rule": "M2105 passes if it audits M2104 repair and selects a bounded synthesis-before-rerun route without rerunning or ranking.",
+  "next_blocker": "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
 }

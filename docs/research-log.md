@@ -36948,3 +36948,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.json`
 - next: `m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit`
+
+## M2105 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Repair Result Audit
+
+- status: completed
+- decision: `public_gate_core_measured_execution_repair_audit_route_to_branch_synthesis_before_command_design`
+- manifest: `experiments/manifests/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.json`
+- audited artifact: `runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json`
+- reset/rollout/measured execution in M2105: `false`
+- policy actions executed in M2105: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2104 repair is clean with specs `96`, workload rows `480`, profile count `5`
+- metadata_missing_count: `0`
+- validation_failure_count: `0`
+- eval_seed_override_count: `2`
+- override rows preserved: `m2063-osd-osd_v0_0162_t3::L2_window_50 -> 210260`; `m2063-osd-osd_v0_0235_t5::L3_online_gru -> 210333`
+- env_config_changed_count: `0`
+- duplicate_workload_id_count: `0`
+- guardrail_violation_count: `0`
+- decision: M2104 repair is clean, but branch synthesis cadence has fired; route to required M2106 synthesis before repaired command design
+- unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
+- next: `m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis`

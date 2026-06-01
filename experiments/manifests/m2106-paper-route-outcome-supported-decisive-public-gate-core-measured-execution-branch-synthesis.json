@@ -1,0 +1,193 @@
+{
+  "id": "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation.md",
+      "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+      "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json",
+      "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the public-gate core measured-execution branch before continuing to repaired rerun command design"
+    ],
+    "derived_from": [
+      "m2094-paper-route-outcome-supported-decisive-public-gate-core-panel-extraction-implementation",
+      "m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run",
+      "m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation",
+      "m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after 10 non-synthesis milestones in paper_route_outcome_supported_decisive_public_gate_core_measured_execution"
+    ],
+    "supersedes": [
+      "direct repaired rerun command design before branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+  "public_gates": [
+    "M2106 must synthesize M2094-M2105 public-gate core measured-execution branch evidence",
+    "M2106 must answer synthesis questions and choose continue pivot stop or promote_to_next_branch",
+    "M2106 must not run reset rollout measured execution or policy actions",
+    "M2106 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change env configs",
+    "do not change obstacle filters",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_branch_synthesis",
+    "evidence_increment": "synthesizes panel extraction compatibility execution repair and repair audit evidence before the repaired rerun route continues",
+    "claim_scope": "branch synthesis only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if next route is command design without synthesis decision",
+      "stop if audit would rerun reset or rollout",
+      "stop if generated smoke proxy rows are treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "continue to repaired measured command design if M2104 repair resolves the active blockers",
+      "pivot to task distribution redesign if repair evidence is still seed-fragile",
+      "stop the branch if complete measured execution cannot be admitted without another local bridge"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "10 non-synthesis milestones elapsed in the public-gate core measured-execution branch",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured execution branch synthesis",
+    "admission_evidence": [
+      "M2094 materialized 96-row public-gate core panel",
+      "M2101 partial measured execution completed 478/480 cells but exposed two sampling failures and 480 metadata gaps",
+      "M2104 repaired metadata completeness and exactly two eval seed overrides",
+      "M2105 audited M2104 repair as clean"
+    ],
+    "blocked_shortcuts": [
+      "do not skip synthesis cadence",
+      "do not run measured execution in M2106",
+      "do not rank controller families",
+      "do not interpret synthesis as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "M2106 status queue scoreboard research log and review",
+      "one follow-up manifest for repaired measured command design pivot stop or next branch"
+    ],
+    "next_stage_criteria": [
+      "M2094-M2105 evidence is synthesized",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is assessed",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2106 synthesizes artifact and execution-readiness evidence only; it does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2106."
+    ],
+    "temporal_evidence_window": "M2094-M2105 branch artifacts.",
+    "negative_result_policy": "If synthesis finds another local repair loop is needed, pivot or stop rather than continuing hidden local search.",
+    "allowed_claims": [
+      "public-gate core measured execution branch synthesis",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "converts a long public-gate-core execution-repair run into a branch-level decision before the next rerun",
+    "paper_verdict_delta": "can decide whether repaired measured execution should continue but cannot change paper verdict by itself",
+    "must_synthesize_if": [
+      "M2106 attempts to route to command design without answering synthesis questions",
+      "M2106 proposes another local bridge before deciding the branch",
+      "M2106 treats incomplete M2101 or repaired artifacts as ranking evidence"
+    ]
+  },
+  "hypothesis": "M2094-M2105 have accumulated enough public-gate core measured-execution branch evidence that the cadence requires synthesis before continuing; the clean M2104/M2105 repair supports continuing to repaired measured command design while preserving claim boundaries.",
+  "success_criteria": [
+    "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md exists",
+    "M2094-M2105 branch evidence is summarized",
+    "synthesis questions are answered",
+    "synthesis decision is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "branch evidence is not summarized",
+    "synthesis questions are not answered",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2094_paper_route_outcome_supported_decisive_public_gate_core_panel_extraction/summary.json",
+    "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+    "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json",
+    "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md"
+  ],
+  "decision_rule": "M2106 passes if it answers synthesis questions and selects a bounded next route without running rollout or ranking.",
+  "next_blocker": "m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design"
+}

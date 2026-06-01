@@ -16,24 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation
+m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit
+m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
 ```
 
-Immediate route: M2104 implements the bounded no-rollout repair for the
-incomplete M2101 measured execution. The repaired artifacts have `96` specs,
-`480` workload rows, metadata missing count `0`, validation failure count `0`,
-exactly two `eval_seed_override` rows for the M2101 sampling failures
-(`210260`, `210333`), env_config changed count `0`, and guardrail `0`.
-Default measured-runner seed behavior remains unchanged when no override is
-present. M2105 must audit these repaired artifacts before any repaired measured
-rerun command design. Measured rerun, ranking, paper claims, finite-window vs
-GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2105 audits the M2104 bounded no-rollout repair as clean:
+`96` specs, `480` workload rows, metadata missing count `0`, validation failure
+count `0`, exactly two targeted `eval_seed_override` rows for the M2101
+sampling failures (`210260`, `210333`), env_config changed count `0`, and
+guardrail `0`. Default measured-runner seed behavior remains unchanged when no
+override is present. The branch has reached the workflow synthesis cadence, so
+M2106 must synthesize the public-gate core measured-execution branch before any
+repaired rerun command design. The M2105 audit itself did not run reset,
+rollout, measured execution, or policy actions. Measured rerun, ranking, paper
+claims, finite-window vs GRU conclusions, and self-ID claims remain blocked
+until a future rerun and result audit.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
