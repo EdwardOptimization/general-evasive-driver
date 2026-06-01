@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design
+m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation
 ```
 
 Current next task:
 
 ```text
-m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation
+m2166-paper-route-current-sim-measured-readiness-inventory-result-audit
 ```
 
-Immediate route: M2164 blocks direct measured rollout. The M2151 panel is
-reset-valid, but it is not measured-ready: old measured runners expect earlier
-panel metadata, and all `320` workload rows have empty `checkpoint_path` while
-`checkpoint_required_for_measured_execution=true`. M2165 must implement and run
-a no-rollout readiness inventory over the `40` specs and `320` workload rows.
-Rollout, controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked until audited measured evidence supports them.
+Immediate route: M2165 completed the no-rollout readiness inventory. It checked
+`40` specs, `320` workload rows, and `8` profiles; all `320` workload rows are
+missing required checkpoint paths, no profile is measured-ready, and the old
+controlled-routing measured runner is missing `12` required current-sim fields.
+M2166 must audit these blockers and choose the repair order. Rollout,
+controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
+claims remain blocked until audited measured evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

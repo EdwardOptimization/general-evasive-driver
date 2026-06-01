@@ -38420,3 +38420,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: no-rollout measured-readiness inventory over 40 specs and 320 workload rows
 - follow-up manifest: `experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json`
 - next: `m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation`
+
+## M2165 Paper-Route Current-Sim Controlled-Comparison Measured Readiness Inventory Implementation
+
+- status: completed
+- decision: `current_sim_measured_readiness_inventory_complete_route_to_result_audit`
+- manifest: `experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_measured_readiness_inventory.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_measured_readiness_inventory.py`
+- summary: `runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json`
+- focused tests: `1 passed`
+- result class: `current_sim_measured_readiness_inventory_complete`
+- specs inspected: `40`
+- workload rows inspected: `320`
+- profiles inspected: `8`
+- checkpoint required workload rows: `320`
+- checkpoint path missing count: `320`
+- checkpoint path present count: `0`
+- checkpoint path exists count: `0`
+- workload ready count: `0`
+- profile ready count: `0`
+- old runner missing required fields: `12/20`
+- old runner compatible with current-sim panel: `false`
+- guardrail violation count: `0`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.json`
+- next: `m2166-paper-route-current-sim-measured-readiness-inventory-result-audit`

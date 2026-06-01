@@ -1,0 +1,172 @@
+{
+  "id": "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_measured_readiness_inventory_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.md",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/profile_readiness_rows.csv",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/runner_schema_gap_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout measured-readiness blockers before repair design"
+    ],
+    "derived_from": [
+      "m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation"
+    ],
+    "blocked_by": [
+      "M2165 found checkpoint_path_missing_count 320 and old_runner_missing_field_count 12"
+    ],
+    "supersedes": [
+      "running measured execution despite missing checkpoints",
+      "implementing runner before auditing readiness blocker order"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+  "public_gates": [
+    "M2166 must audit M2165 artifacts without rerunning inventory",
+    "M2166 must classify checkpoint readiness and runner schema blockers",
+    "M2166 must choose a repair order before measured execution",
+    "M2166 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun inventory",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_readiness_inventory_audit",
+    "evidence_increment": "audits checkpoint and runner schema blockers before repair design",
+    "claim_scope": "readiness result audit only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if checkpoint blocker is not summarized",
+      "stop if runner schema blocker is not summarized",
+      "stop if audit routes directly to measured execution",
+      "stop if audit overclaims readiness inventory as measured evidence"
+    ],
+    "fallback_plan": [
+      "route to checkpoint/profile materialization design if checkpoints are primary blocker",
+      "route to current-sim runner design if schema compatibility is primary blocker",
+      "route to staged repair if both are required"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2165 produced measured-readiness inventory result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim measured-readiness inventory audit",
+    "admission_evidence": [
+      "M2165 completed inventory over 40 specs and 320 workload rows",
+      "M2165 found checkpoint_path_missing_count 320",
+      "M2165 found old_runner_missing_field_count 12"
+    ],
+    "blocked_shortcuts": [
+      "do not train in audit",
+      "do not implement runner in audit",
+      "do not run measured execution"
+    ],
+    "allowed_updates": [
+      "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+      "M2166 status queue scoreboard research log and review",
+      "one follow-up manifest for checkpoint/profile materialization or runner compatibility repair design"
+    ],
+    "next_stage_criteria": [
+      "checkpoint blocker is classified",
+      "runner schema blocker is classified",
+      "repair order is explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2166 readiness audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2166."
+    ],
+    "temporal_evidence_window": "M2165 readiness inventory artifacts.",
+    "negative_result_policy": "If measured readiness is blocked, repair readiness before rollout; do not weaken comparison standards.",
+    "allowed_claims": [
+      "measured-readiness inventory audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns readiness inventory into a repair-order decision",
+    "paper_verdict_delta": "can admit measured-readiness repair design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2166 cannot classify readiness blockers",
+      "M2166 requires another inventory repair",
+      "M2166 routes directly to measured execution"
+    ]
+  },
+  "hypothesis": "M2165 identifies two concrete measured-readiness blockers: all workload rows lack required checkpoints and old runners are schema-incompatible, so M2166 can choose an explicit staged repair route before measured execution.",
+  "success_criteria": [
+    "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md exists",
+    "M2165 result is summarized",
+    "checkpoint blocker is classified",
+    "runner schema blocker is classified",
+    "repair order is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2165 result is not summarized",
+    "readiness blocker classification is ambiguous",
+    "next route is ambiguous",
+    "measured execution or ranking claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_measured_readiness_inventory_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.md",
+    "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
+  ],
+  "decision_rule": "M2166 passes if it audits M2165 readiness blockers and chooses an explicit repair order without rerun or measured execution.",
+  "next_blocker": "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit"
+}

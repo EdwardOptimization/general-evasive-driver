@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2172,
+    "completed": 2173,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+    "command_log": "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+    "run_dir": "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory",
     "status": "completed",
-    "task_id": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design"
+    "task_id": "m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json",
-    "hypothesis": "A no-rollout readiness inventory will expose the current measured-execution blockers: missing checkpoint paths for required workload rows and old-runner schema mismatch.",
-    "id": "m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rollout readiness inventory",
-    "priority": 21600,
+    "command": "see experiments/manifests/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.json",
+    "hypothesis": "M2165 identifies two concrete measured-readiness blockers: all workload rows lack required checkpoints and old runners are schema-incompatible, so M2166 can choose an explicit staged repair route before measured execution.",
+    "id": "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit checkpoint and runner schema blockers",
+    "priority": 21610,
     "status": "pending",
-    "success_artifact": "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
+    "success_artifact": "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md"
   },
-  "updated_at_utc": "20260601T071331Z"
+  "updated_at_utc": "20260601T072358Z"
 }
