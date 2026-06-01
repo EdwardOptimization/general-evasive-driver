@@ -1,0 +1,194 @@
+{
+  "id": "m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_rescore"
+    ],
+    "parent_dataset": [
+      "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded role-success semantics helper and artifact-only rescore"
+    ],
+    "derived_from": [
+      "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design"
+    ],
+    "blocked_by": [
+      "R0 obstacle-pass-only success semantics misclassifies safe stops",
+      "current-sim scenario task-family support labels need role-success rescore before comparison"
+    ],
+    "supersedes": [
+      "duplicated obstacle-pass-only success helper logic in current-sim task-family scripts",
+      "manual safe-stop metric diagnosis without executable semantics repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.md",
+  "public_gates": [
+    "M2318 must implement a bounded role-success semantics helper",
+    "M2318 must preserve R0 safe-stop success as role-bounded rather than global",
+    "M2318 must run artifact-only rescore over M2313 rows",
+    "M2318 must show R0 support labels become support_clear under the repaired semantics",
+    "M2318 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat R2-R5 safe-stop rows as solved by the R0 rule"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_role_success_semantics_repair_implementation",
+    "evidence_increment": "implements bounded R0 safe-stop role-success semantics and rescoring over existing M2313 artifacts",
+    "claim_scope": "artifact-only semantics repair; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation starts environment reset or rollout",
+      "stop if safe-stop success becomes global instead of R0-bounded",
+      "stop if R2-R5 residual support rows are silently marked solved",
+      "stop if support policies are ranked"
+    ],
+    "fallback_plan": [
+      "route to result audit if helper tests and rescore pass",
+      "route to semantics schema repair if helper cannot preserve raw and role success fields",
+      "route to branch synthesis if R0 does not become support_clear under the bounded rule"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2317 admits artifact-only role-success semantics repair implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement bounded role-success semantics repair and artifact-only rescore",
+    "admission_evidence": [
+      "M2317 freezes R0 safe-stop success semantics",
+      "M2317 requires artifact-only rescore before new rollout",
+      "M2315 reports R0 AEB safe-stop episodes 60"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_role_success_semantics.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_role_success_semantics_repair.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_failure_slice_diagnosis.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_role_success_semantics.py",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json",
+      "docs/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.md",
+      "M2318 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "focused role-success semantics tests pass",
+      "artifact-only rescore writes summary and rescored support labels",
+      "R0 support labels become support_clear under repaired semantics",
+      "guardrail_violation_count is 0",
+      "next result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2318 repairs metric semantics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2318; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2313 artifact-only support-policy rows.",
+    "negative_result_policy": "If rescore fails, treat it as metric semantics/schema failure rather than driver evidence.",
+    "allowed_claims": [
+      "bounded role-success semantics repair and artifact-only rescore",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds executable role-success semantics and rescoring so later comparisons use correct R0 labels",
+    "paper_verdict_delta": "can unblock current-sim comparison by removing safe-stop metric artifact before training",
+    "must_synthesize_if": [
+      "M2318 cannot make R0 support_clear without globalizing safe-stop success",
+      "M2318 routes directly to training",
+      "the feasibility branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The bounded R0 safe-stop semantics repair will convert R0 support labels from metric_conflict to support_clear using only existing M2313 artifacts.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_role_success_semantics.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_role_success_semantics.py passes",
+    "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json exists",
+    "R0 support_clear count is 12 under repaired semantics",
+    "R0 metric_conflict count is 0 under repaired semantics",
+    "guardrail_violation_count is 0",
+    "a follow-up result-audit manifest is selected"
+  ],
+  "failure_criteria": [
+    "M2318 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2318 ranks support policies or selects a winner",
+    "M2318 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2318 globalizes safe-stop success outside R0",
+    "M2318 silently treats residual support-blocked roles as solved"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_scenario_task_family_role_success_semantics.py"
+    },
+    {
+      "name": "rescore",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics_repair --config configs/paper_route_current_sim_scenario_task_family_v0.json --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --output-dir runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair --target-episode-count 1080 --target-scenario-spec-count 72 --next-blocker m2319-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_rescore"
+  ],
+  "baseline_artifacts": [
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2318 passes if bounded R0 safe-stop success semantics are implemented and artifact-only rescore converts R0 to support_clear without guardrail violations.",
+  "next_blocker": "m2319-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-result-audit"
+}

@@ -41756,3 +41756,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.json`
 - next: `m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design`
+
+## M2317 Paper-Route Current-Sim Scenario Task-Family Role Success Semantics Repair Design
+
+- status: completed
+- decision: `role_success_semantics_repair_design_admit_artifact_rescore_implementation`
+- manifest: `experiments/manifests/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.json`
+- design doc: `docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md`
+- parent audit: `docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md`
+- design target: bounded R0 safe-stop success semantics plus artifact-only M2313 rescore
+- R0 safe-stop rule: `role_family == R0_stable_avoidable`, `termination_reason == speed_too_low`, `min_clearance_margin > 0`, no collision, no offtrack
+- implementation route: shared role-success helper plus artifact-only rescore command
+- expected M2318 gate: R0 support_clear count `12`, R0 metric_conflict count `0`, no global safe-stop success outside R0
+- reset/rollout/policy action in M2317: `false`
+- training/replay/PPO in M2317: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation.json`
+- next: `m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation`

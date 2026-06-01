@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2324,
+    "completed": 2325,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+    "task_id": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md"
+    "command_log": "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md"
   },
   "next_task": {
-    "id": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design",
-    "kind": "gate",
-    "priority": 23120,
+    "id": "m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation",
+    "kind": "infrastructure",
+    "priority": 23130,
     "status": "pending",
-    "hypothesis": "A bounded role-success semantics repair can define R0 safe-stop success without weakening P0 actor contract or turning support policies into ranked controllers.",
-    "command": "manual design of role-specific success semantics repair from M2315/M2316 artifacts",
-    "success_artifact": "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
-    "notes": "Pending: freeze R0 safe-stop success semantics and implementation boundary no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "The bounded R0 safe-stop semantics repair will convert R0 support labels from metric_conflict to support_clear using only existing M2313 artifacts.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics_repair --config configs/paper_route_current_sim_scenario_task_family_v0.json --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --output-dir runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair --target-episode-count 1080 --target-scenario-spec-count 72 --next-blocker m2319-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-result-audit",
+    "success_artifact": "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json",
+    "notes": "Pending: implement bounded R0 safe-stop semantics helper and artifact-only rescore no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T231823Z"
+  "updated_at_utc": "20260601T232516Z"
 }
