@@ -39403,3 +39403,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit repaired measured-execution rerun to new output directory
 - follow-up manifest: `experiments/manifests/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.json`
 - next: `m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun`
+
+## M2209 Paper-Route Current-Sim Offtrack-Support Measured-Execution Rerun
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_execution_rerun_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.json`
+- run artifact: `runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json`
+- result_class: `current_sim_controlled_comparison_measured_execution_pass`
+- episode_count: `2304`
+- failure_count: `0`
+- spec_count: `288`
+- profile_count: `8`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail violations: `0`
+- environment rollout started: `true`
+- policy action executed: `true`
+- measured rollout started: `true`
+- success_obstacle_pass: `374`
+- collision_failure: `49`
+- off_track_noncollision_noncompletion: `1881`
+- result: route to result audit before comparison or rerun
+- follow-up manifest: `experiments/manifests/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.json`
+- next: `m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit`

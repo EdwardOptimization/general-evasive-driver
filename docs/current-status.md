@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit
+m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun
 ```
 
 Current next task:
 
 ```text
-m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun
+m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit
 ```
 
-Immediate route: M2208 audits the measured-runner repair as clean: focused
-tests pass and no-rollout M2194/M2200 metadata validation reports `0` missing
-rows and `0` validation failures. M2209 may rerun the repaired 2304-cell
-measured execution into a new output directory. Controller ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
-rerun result audit and denominator-backed comparison.
+Immediate route: M2209 completed the repaired 2304-cell measured execution:
+`2304` episodes, `0` runner failures, `0` metadata missing rows, `0` metric
+completeness failures, and guardrail `0`. Raw outcomes are success `374`,
+collision `49`, offtrack noncompletion `1881`. M2210 must audit outcome support
+before any comparison. Controller ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

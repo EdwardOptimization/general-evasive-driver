@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2216,
+    "completed": 2217,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+    "command_log": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+    "run_dir": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun",
     "status": "completed",
-    "task_id": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit"
+    "task_id": "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json --workload runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv --output-dir runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun --eval-seed-base 220900 --device cpu --no-resume --target-episode-count 2304 --target-spec-count 288 --target-profile-count 8 --next-blocker m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
-    "hypothesis": "After the M2207 metadata activation repair, the frozen 2304-cell current-sim offtrack-support measured execution can run without the M2204 pre-rollout metadata validation failure.",
-    "id": "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun",
-    "kind": "infrastructure",
-    "notes": "Pending: rerun repaired measured execution into new M2209 output directory",
-    "priority": 22040,
+    "command": "write docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+    "hypothesis": "The M2209 repaired measured execution is complete enough to audit outcome support before any controller-family comparison.",
+    "id": "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2209 measured execution result before comparison or rerun",
+    "priority": 22050,
     "status": "pending",
-    "success_artifact": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json"
+    "success_artifact": "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md"
   },
-  "updated_at_utc": "20260601T112546Z"
+  "updated_at_utc": "20260601T113112Z"
 }

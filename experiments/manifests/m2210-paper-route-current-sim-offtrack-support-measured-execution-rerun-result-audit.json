@@ -1,0 +1,165 @@
+{
+  "id": "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_measured_execution_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/outcome_aggregate.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/profile_aggregate.csv",
+      "docs/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.json"
+    ],
+    "parent_objective": [
+      "audit repaired 2304-cell measured execution before comparison or rerun"
+    ],
+    "derived_from": [
+      "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun"
+    ],
+    "blocked_by": [
+      "M2209 measured execution result requires audit before interpretation"
+    ],
+    "supersedes": [
+      "ranking controller families directly from raw M2209 profile aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+  "public_gates": [
+    "M2210 must audit M2209 summary and aggregate artifacts",
+    "M2210 must confirm execution completeness and guardrails",
+    "M2210 must classify raw outcome support and offtrack dominance",
+    "M2210 must decide comparison-ready vs blocked route",
+    "M2210 must not rerun or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_measured_execution_rerun_audit",
+    "evidence_increment": "audits repaired 2304-cell measured execution outcome support before comparison",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if execution completeness is not clean",
+      "stop if outcome support remains too offtrack-dominated for comparison",
+      "stop if audit would rank profiles directly"
+    ],
+    "fallback_plan": [
+      "route to outcome-support audit if execution is complete but comparison readiness is unclear",
+      "route to task-quality repair if offtrack dominance remains blocking",
+      "route to comparison design only if denominator-backed support is sufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2209 repaired measured execution result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit repaired current-sim measured execution result",
+    "admission_evidence": [
+      "M2209 summary reports measured execution pass",
+      "M2209 episode_count is 2304",
+      "M2209 guardrail violation count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun in audit",
+      "no profile ranking in audit",
+      "no paper-level claims"
+    ],
+    "allowed_updates": [
+      "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+      "M2210 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "execution pass/fail is audited",
+      "outcome support classification is explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2210 audits outcomes but does not run history-necessity interventions.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2210."
+    ],
+    "temporal_evidence_window": "M2209 measured execution output.",
+    "negative_result_policy": "If outcome support remains low, record blocker and route to repair or support audit rather than ranking profiles.",
+    "allowed_claims": [
+      "measured execution result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new closed-loop data to decide whether comparison can proceed",
+    "paper_verdict_delta": "can route to comparison design only if outcome support is sufficient",
+    "must_synthesize_if": [
+      "M2210 cannot classify outcome support",
+      "M2210 would need another local audit without route decision",
+      "the panel remains offtrack dominated after repair"
+    ]
+  },
+  "hypothesis": "The M2209 repaired measured execution is complete enough to audit outcome support before any controller-family comparison.",
+  "success_criteria": [
+    "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md exists",
+    "M2209 execution completeness and guardrails are audited",
+    "raw outcome distribution is summarized",
+    "comparison readiness or blocker is explicit",
+    "no rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2209 result is not audited",
+    "outcome support classification is ambiguous",
+    "audit reruns workload",
+    "audit ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_measured_execution_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+    "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/outcome_aggregate.csv",
+    "docs/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.md"
+  ],
+  "decision_rule": "M2210 passes if it audits M2209 and selects a next route without rerun or ranking.",
+  "next_blocker": "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit"
+}
