@@ -1,0 +1,159 @@
+{
+  "id": "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_uses_m2181_code_and_tests"
+    ],
+    "parent_dataset": [
+      "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.json"
+    ],
+    "parent_objective": [
+      "audit repeat metadata-preserving measured runner implementation before repeat measured execution command design"
+    ],
+    "derived_from": [
+      "m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation"
+    ],
+    "blocked_by": [
+      "M2181 implementation must be audited before repeat measured execution command design"
+    ],
+    "supersedes": [
+      "direct repeat measured execution command design without metadata implementation audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+  "public_gates": [
+    "M2182 must audit M2181 focused test result",
+    "M2182 must confirm repeat metadata is preserved in fake-rollout episode rows",
+    "M2182 must confirm partial repeat metadata fails validation before rollout",
+    "M2182 must confirm non-repeat workload compatibility remains intact",
+    "M2182 must not run real repeat measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run real measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_metadata_preservation_result_audit",
+    "evidence_increment": "audits focused runner metadata implementation before repeat measured execution command design",
+    "claim_scope": "implementation audit only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repeat metadata preservation is not proven by focused tests",
+      "stop if partial repeat metadata does not fail closed",
+      "stop if non-repeat workload compatibility regresses",
+      "stop if audit would rank profiles"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if audit fails",
+      "route to repeat measured execution command design if audit passes",
+      "route to synthesis if branch cadence requires it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2181 implementation requires process audit before measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit repeat metadata-preserving measured runner implementation",
+    "admission_evidence": [
+      "M2181 focused measured-runner tests pass",
+      "M2179 freezes optional repeat metadata compatibility rule",
+      "M2180 synthesis chooses continue to metadata implementation"
+    ],
+    "blocked_shortcuts": [
+      "no training in audit",
+      "no real measured execution in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+      "M2182 status queue scoreboard research log and review",
+      "one follow-up manifest for repeat measured execution command design or implementation repair"
+    ],
+    "next_stage_criteria": [
+      "M2181 implementation pass/fail is classified",
+      "claim boundary is preserved",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2182 audits metadata plumbing and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2182."
+    ],
+    "temporal_evidence_window": "M2181 focused fake-rollout tests.",
+    "negative_result_policy": "If metadata preservation is invalid, repair runner implementation before measured execution command design.",
+    "allowed_claims": [
+      "repeat metadata implementation audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits tooling required to preserve repeat-seed evidence during future measured execution",
+    "paper_verdict_delta": "can admit repeat measured execution command design but cannot decide comparison",
+    "must_synthesize_if": [
+      "M2182 cannot classify M2181 output",
+      "M2182 requires another runner redesign",
+      "M2182 would run real measured execution"
+    ]
+  },
+  "hypothesis": "The M2181 metadata extension is clean enough to admit repeat measured execution command design while keeping ranking blocked.",
+  "success_criteria": [
+    "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md exists",
+    "M2181 focused test result is audited",
+    "repeat metadata preservation is accepted",
+    "partial repeat metadata validation fail-closed behavior is accepted",
+    "non-repeat compatibility is accepted",
+    "no real measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2181 result is not audited",
+    "repeat metadata preservation is not accepted",
+    "partial repeat metadata does not fail closed",
+    "non-repeat compatibility regresses",
+    "real measured execution or ranking starts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md"
+  ],
+  "decision_rule": "M2182 passes if it audits M2181 as a clean metadata-preserving implementation and routes to repeat measured execution command design without running it.",
+  "next_blocker": "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit"
+}

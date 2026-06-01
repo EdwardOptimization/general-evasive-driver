@@ -79,7 +79,16 @@ WORKLOAD_METADATA_FIELDS = (
     "paper_level_claim_made",
     "level3_self_id_claim_made",
 )
-METADATA_FIELDS = (*SPEC_METADATA_FIELDS, *WORKLOAD_METADATA_FIELDS)
+OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS = (
+    "training_repeat_id",
+    "training_seed_group",
+    "profile_training_seed",
+    "profile_checkpoint_source_profile",
+    "checkpoint_materialization_mode",
+    "base_workload_id",
+)
+REQUIRED_METADATA_FIELDS = (*SPEC_METADATA_FIELDS, *WORKLOAD_METADATA_FIELDS)
+METADATA_FIELDS = (*REQUIRED_METADATA_FIELDS, *OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS)
 FAILURE_FIELDNAMES = [
     *METADATA_FIELDS,
     "eval_seed",
@@ -162,6 +171,16 @@ def _metric_or_nan(row: Mapping[str, Any], metric: str) -> float:
     return _float_metric(row.get(metric, float("nan")))
 
 
+def _has_repeat_metadata(row: Mapping[str, Any]) -> bool:
+    return any(str(row.get(field, "")).strip() for field in OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS)
+
+
+def _missing_repeat_metadata_fields(row: Mapping[str, Any]) -> list[str]:
+    if not _has_repeat_metadata(row):
+        return []
+    return [field for field in OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS if not str(row.get(field, "")).strip()]
+
+
 def load_executable_task_specs(path: Path | str = DEFAULT_EXECUTABLE_TASK_SPECS) -> list[dict[str, Any]]:
     payload = read_json(path)
     rows = payload.get("executable_task_specs")
@@ -187,6 +206,7 @@ def eval_seed_for_workload(*, workload_row: Mapping[str, Any], executable_spec: 
 def current_sim_metadata_row(workload_row: Mapping[str, Any], spec: Mapping[str, Any]) -> dict[str, Any]:
     row = {field: str(spec.get(field, "")) for field in SPEC_METADATA_FIELDS}
     row.update({field: str(workload_row.get(field, "")) for field in WORKLOAD_METADATA_FIELDS})
+    row.update({field: str(workload_row.get(field, "")) for field in OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS})
     for field in (
         "generated_proxy_source",
         "reset_or_truncated_control",
@@ -215,7 +235,10 @@ def metadata_missing_rows(
         task_source_id = str(workload_row.get("task_source_id", ""))
         spec = spec_by_id.get(task_source_id, {})
         metadata = current_sim_metadata_row(workload_row, spec)
-        missing = [field for field in METADATA_FIELDS if not str(metadata.get(field, "")).strip()]
+        required_fields = REQUIRED_METADATA_FIELDS
+        if _has_repeat_metadata(workload_row):
+            required_fields = (*required_fields, *OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS)
+        missing = [field for field in required_fields if not str(metadata.get(field, "")).strip()]
         if missing:
             rows.append(
                 {
@@ -267,6 +290,8 @@ def validation_failure_rows(
         for field in required_workload_fields:
             if not str(row.get(field, "")).strip():
                 failures.append({"workload_id": workload_id, "error_type": "missing_workload_field", "error_message": field})
+        for field in _missing_repeat_metadata_fields(row):
+            failures.append({"workload_id": workload_id, "error_type": "missing_repeat_metadata_field", "error_message": field})
         if str(row.get("task_source_id", "")) not in spec_ids:
             failures.append({"workload_id": workload_id, "error_type": "missing_executable_spec", "error_message": str(row.get("task_source_id", ""))})
         profile_config_path = str(row.get("profile_config_path", "")).strip()
@@ -454,6 +479,8 @@ def finalize_outputs(
         "outcome_aggregate": ("outcome_aggregate.csv", "outcome_bucket"),
         "termination_reason_aggregate": ("termination_reason_aggregate.csv", "termination_reason"),
     }
+    if any(str(row.get("training_repeat_id", "")).strip() for row in episode_rows):
+        aggregate_paths["training_repeat_aggregate"] = ("training_repeat_aggregate.csv", "training_repeat_id")
     artifacts: dict[str, str] = {
         "summary": str(output_dir / "summary.json"),
         "episode_rows": str(output_dir / "episode_rows.csv"),

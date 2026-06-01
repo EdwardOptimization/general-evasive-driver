@@ -67,7 +67,24 @@ def _workload(
     }
 
 
-def _write_inputs(tmp_path: Path, *, missing_checkpoint: bool = False) -> tuple[Path, Path]:
+def _repeat_metadata(*, repeat_id: str = "repeat_1_seed_21761") -> dict[str, str]:
+    return {
+        "training_repeat_id": repeat_id,
+        "training_seed_group": "seed_21761",
+        "profile_training_seed": "2176106",
+        "profile_checkpoint_source_profile": "L3_online_gru",
+        "checkpoint_materialization_mode": "trained_checkpoint",
+        "base_workload_id": "base-task::L3_online_gru",
+    }
+
+
+def _write_inputs(
+    tmp_path: Path,
+    *,
+    missing_checkpoint: bool = False,
+    repeat_metadata: bool = False,
+    partial_repeat_metadata: bool = False,
+) -> tuple[Path, Path]:
     profile_config = tmp_path / "profile.json"
     profile_config.write_text("{}", encoding="utf-8")
     checkpoint = "" if missing_checkpoint else tmp_path / "checkpoint.pt"
@@ -92,6 +109,12 @@ def _write_inputs(tmp_path: Path, *, missing_checkpoint: bool = False) -> tuple[
             task_family="T5_terminal_boundary_near_constraint",
         ),
     ]
+    if repeat_metadata:
+        for row in workloads:
+            row.update(_repeat_metadata(repeat_id="repeat_1_seed_21761"))
+    if partial_repeat_metadata:
+        for row in workloads:
+            row.update({"training_repeat_id": "repeat_1_seed_21761"})
     specs_path = tmp_path / "specs.json"
     workload_path = tmp_path / "workload.csv"
     write_json(specs_path, {"executable_task_specs": specs})
@@ -149,6 +172,70 @@ def test_current_sim_measured_runner_preserves_metadata_with_fake_rollout(tmp_pa
     assert (tmp_path / "out" / "profile_aggregate.csv").exists()
     assert (tmp_path / "out" / "history_representation_aggregate.csv").exists()
     assert (tmp_path / "out" / "claim_boundary.csv").exists()
+    assert not (tmp_path / "out" / "training_repeat_aggregate.csv").exists()
+
+
+def test_current_sim_measured_runner_preserves_repeat_metadata_with_fake_rollout(tmp_path: Path) -> None:
+    specs_path, workload_path = _write_inputs(tmp_path, repeat_metadata=True)
+
+    summary = runner.run_current_sim_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=216900,
+        target_episode_count=4,
+        target_spec_count=2,
+        target_profile_count=2,
+        rollout_fn=_fake_rollout,
+    )
+
+    assert summary["result_class"] == "current_sim_controlled_comparison_measured_execution_pass"
+    assert summary["episode_count"] == 4
+    assert summary["metadata_missing_count"] == 0
+    assert "training_repeat_aggregate" in summary["artifacts"]
+
+    episode_rows = runner.read_csv_rows(tmp_path / "out" / "episode_rows.csv")
+    assert {row["training_repeat_id"] for row in episode_rows} == {"repeat_1_seed_21761"}
+    assert {row["training_seed_group"] for row in episode_rows} == {"seed_21761"}
+    assert {row["checkpoint_materialization_mode"] for row in episode_rows} == {"trained_checkpoint"}
+
+    repeat_aggregate = runner.read_csv_rows(tmp_path / "out" / "training_repeat_aggregate.csv")
+    assert repeat_aggregate == [
+        {
+            "key": "repeat_1_seed_21761",
+            "episode_count": "4",
+            "success_rate": "1.0",
+            "collision_rate": "0.0",
+            "clearance_margin_mean": "0.25",
+            "return_mean": "1.0",
+            "steps_mean": "20.0",
+            "all_selected_metrics_finite": "True",
+        }
+    ]
+
+
+def test_current_sim_measured_runner_fails_closed_on_partial_repeat_metadata(tmp_path: Path) -> None:
+    specs_path, workload_path = _write_inputs(tmp_path, partial_repeat_metadata=True)
+
+    summary = runner.run_current_sim_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=216900,
+        target_episode_count=4,
+        target_spec_count=2,
+        target_profile_count=2,
+        rollout_fn=_fake_rollout,
+    )
+
+    assert summary["result_class"] == "current_sim_controlled_comparison_measured_execution_incomplete_or_fail"
+    assert summary["episode_count"] == 0
+    assert summary["environment_rollout_started"] is False
+    assert summary["policy_action_executed"] is False
+
+    validation_rows = (tmp_path / "out" / "validation_failure_rows.csv").read_text(encoding="utf-8")
+    assert "missing_repeat_metadata_field" in validation_rows
+    assert "training_seed_group" in validation_rows
 
 
 def test_current_sim_measured_runner_fails_closed_on_missing_checkpoints(tmp_path: Path) -> None:

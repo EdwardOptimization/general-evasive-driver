@@ -38800,3 +38800,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: continue to focused metadata extension implementation
 - follow-up manifest: `experiments/manifests/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.json`
 - next: `m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation`
+
+## M2181 Paper-Route Current-Sim Repeat Measured-Runner Metadata Extension Implementation
+
+- status: completed
+- decision: `current_sim_repeat_metadata_extension_implementation_pass_route_to_audit`
+- manifest: `experiments/manifests/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.json`
+- implementation artifact: `docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md`
+- focused tests: `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py`
+- focused test result: `4 passed`
+- repeat metadata fields preserved: `training_repeat_id`, `training_seed_group`, `profile_training_seed`, `profile_checkpoint_source_profile`, `checkpoint_materialization_mode`, `base_workload_id`
+- compatibility rule implemented: repeat fields optional for non-repeat workloads, complete when any repeat metadata value is present
+- training: `false`
+- real measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to implementation audit before repeat measured execution command design
+- follow-up manifest: `experiments/manifests/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.json`
+- next: `m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit`
