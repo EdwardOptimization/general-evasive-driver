@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2240-paper-route-current-sim-training-stability-repair-design
+m2241-paper-route-current-sim-training-stability-repair-execution
 ```
 
 Current next task:
 
 ```text
-m2241-paper-route-current-sim-training-stability-repair-execution
+m2242-paper-route-current-sim-training-stability-repair-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -170,7 +170,15 @@ evaluate `8` candidate checkpoints per run for `120` candidate eval rows and
 lexicographic rule: readiness pass, lower termination, higher return, lower
 lateral RMSE, earlier step. M2241 may now implement and run this same-budget
 candidate-checkpoint execution, still with no controller-family ranking,
-finite-window-vs-GRU verdict, paper claim, or self-ID claim.
+finite-window-vs-GRU verdict, paper claim, or self-ID claim. M2241 completes
+that run: `15/15` training runs complete, `120` candidate checkpoints evaluated,
+`15` selected checkpoint rows, all metrics finite, and guardrail `0`.
+Candidate selection beats final in `12/15` seed rows and notably recovers
+`L3_online_gru` seed `222602` from final `35.0936 / 0.75` return/termination to
+selected `67.1743 / 0.28125`. However both final and selected checkpoint
+profile-floor pass counts remain `0`, so checkpoint selection is useful but not
+sufficient. M2242 must audit this and route to the next non-ranking repair,
+likely reward/termination or task/curriculum repair, before any new training.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

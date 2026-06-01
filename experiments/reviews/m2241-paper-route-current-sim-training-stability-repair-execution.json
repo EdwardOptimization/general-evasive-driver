@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2241 pending same-budget candidate checkpoint execution no ranking claims",
+  "decision_reason": "M2241 pass 15/15 runs 120 candidate evals selected beats final 12/15 selected profile floor pass count 0 no ranking claims",
   "failure_criteria": [
     "any profile/seed training run fails",
     "candidate checkpoint evals are missing",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T144316Z",
+  "generated_at_utc": "20260601T145957Z",
   "hypothesis": "Same-budget periodic checkpoint retention can recover readiness lost by final-checkpoint late regression without changing actor inputs or profile fairness.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2241-paper-route-current-sim-training-stability-repair-execution",
   "next_blocker": "m2241-paper-route-current-sim-training-stability-repair-execution",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_training_stability_repair_pass_but_readiness_still_below_floor_route_to_result_audit",
   "public_gates": [
     "M2241 must keep the same five trainable profiles and three seeds",
     "M2241 must keep total_steps at 32768 and add checkpoint_interval_steps 4096",
@@ -71,9 +71,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_training_stability_repair_pass_but_readiness_still_below_floor_route_to_result_audit",
     "milestone": "m2241-paper-route-current-sim-training-stability-repair-execution",
-    "reason": "M2241 pending same-budget candidate checkpoint execution no ranking claims",
+    "reason": "M2241 pass 15/15 runs 120 candidate evals selected beats final 12/15 selected profile floor pass count 0 no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

@@ -1,0 +1,178 @@
+{
+  "id": "m2242-paper-route-current-sim-training-stability-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "seed_fragility",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/checkpoints"
+    ],
+    "parent_dataset": [
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/profile_aggregate.csv",
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv",
+      "docs/m2241-paper-route-current-sim-training-stability-repair-execution.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2241-paper-route-current-sim-training-stability-repair-execution.json"
+    ],
+    "parent_objective": [
+      "audit same-budget candidate-checkpoint repair result and select next non-ranking route"
+    ],
+    "derived_from": [
+      "m2241-paper-route-current-sim-training-stability-repair-execution"
+    ],
+    "blocked_by": [
+      "M2241 passes execution but selected_checkpoint_profile_floor_pass_count remains 0"
+    ],
+    "supersedes": [
+      "assuming final-checkpoint late regression was the only blocker",
+      "directly ranking selected checkpoints",
+      "directly proceeding to measured execution from M2241 selected checkpoints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
+  "public_gates": [
+    "M2242 must audit M2241 execution completeness, candidate eval count, selected checkpoint count, and guardrails",
+    "M2242 must compare final vs selected checkpoint readiness without ranking profiles",
+    "M2242 must decide whether to route to reward/termination repair, task/curriculum repair, floor calibration, or branch synthesis",
+    "M2242 must not run training, reset, rollout, measured execution, replay, PPO, or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_training_stability_repair_result_audit",
+    "evidence_increment": "audits whether candidate-checkpoint selection changes comparison readiness and selects the next repair route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2241 artifacts are incomplete",
+      "stop if selected checkpoint result is interpreted as a profile ranking",
+      "stop if the audit would run more training without route decision"
+    ],
+    "fallback_plan": [
+      "route to reward/termination repair if selected checkpoints improve final but stay below floor",
+      "route to task/curriculum repair if failures remain broad",
+      "route to floor-calibration support analysis if near-floor evidence dominates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2241 completed with selected_checkpoint_profile_floor_pass_count 0",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit same-budget candidate-checkpoint repair result",
+    "admission_evidence": [
+      "M2241 result_class is current_sim_training_stability_repair_execution_pass",
+      "M2241 selected_beats_final_count is 12/15",
+      "M2241 selected_checkpoint_profile_floor_pass_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
+      "M2242 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2241 completeness and guardrails are audited",
+      "final-vs-selected checkpoint effect is classified",
+      "next non-ranking repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2242 audits training-protocol repair artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2242; no wrong-history, reset-hidden, or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2241 public candidate-checkpoint training/eval artifacts.",
+    "negative_result_policy": "If selected checkpoints still fail readiness, route to reward/task/curriculum repair rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "candidate-checkpoint repair result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies new same-budget candidate-checkpoint evidence before choosing another repair",
+    "paper_verdict_delta": "can determine whether checkpoint retention is enough for current-sim readiness or whether reward/task repair is required",
+    "must_synthesize_if": [
+      "M2242 cannot select a route",
+      "M2242 would run another narrow checkpoint-selection experiment",
+      "M2242 would rank profiles despite below-floor readiness"
+    ]
+  },
+  "hypothesis": "M2241 provides enough evidence to audit checkpoint-selection repair and route to the next non-ranking repair stage.",
+  "success_criteria": [
+    "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md exists",
+    "M2241 result_class is current_sim_training_stability_repair_execution_pass",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "selected_checkpoint_profile_floor_pass_count is audited",
+    "final_checkpoint_profile_floor_pass_count is audited",
+    "guardrails remain false for ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2241 artifacts are missing",
+    "M2241 selected checkpoint result is ignored",
+    "M2242 starts new training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2242 ranks profiles or selects a winner",
+    "M2242 makes finite-window-vs-GRU, paper-level, or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json and selected checkpoint diagnostics"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/checkpoints"
+  ],
+  "baseline_artifacts": [
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/profile_aggregate.csv",
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2242 passes if it audits M2241 completeness and selected-checkpoint outcome, then selects a non-ranking follow-up route.",
+  "next_blocker": "m2242-paper-route-current-sim-training-stability-repair-result-audit"
+}

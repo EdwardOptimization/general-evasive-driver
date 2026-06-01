@@ -40196,3 +40196,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits controlled same-budget candidate-checkpoint execution in M2241
 - follow-up manifest: `experiments/manifests/m2241-paper-route-current-sim-training-stability-repair-execution.json`
 - next: `m2241-paper-route-current-sim-training-stability-repair-execution`
+
+## M2241 Paper-Route Current-Sim Training-Stability Repair Execution
+
+- status: completed
+- decision: `current_sim_training_stability_repair_pass_but_readiness_still_below_floor_route_to_result_audit`
+- manifest: `experiments/manifests/m2241-paper-route-current-sim-training-stability-repair-execution.json`
+- result artifact: `runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json`
+- completed run count: `15`
+- failed run count: `0`
+- candidate eval count: `120`
+- selected checkpoint count: `15`
+- all run/candidate/selected metrics finite: `true/true/true`
+- guardrail violation count: `0`
+- final_checkpoint_profile_floor_pass_count: `0`
+- selected_checkpoint_profile_floor_pass_count: `0`
+- selected_beats_final_count: `12/15`
+- L3 seed `222602` selected checkpoint improvement: final `35.0936/0.75` to selected `67.1743/0.28125`
+- interpretation: checkpoint selection is useful but not sufficient; profile readiness remains below floor
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to result audit before any new training
+- follow-up manifest: `experiments/manifests/m2242-paper-route-current-sim-training-stability-repair-result-audit.json`
+- next: `m2242-paper-route-current-sim-training-stability-repair-result-audit`

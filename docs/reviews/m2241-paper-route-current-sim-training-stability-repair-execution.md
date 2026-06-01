@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T144316Z
+- Generated at UTC: 20260601T145957Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2241 pending same-budget candidate checkpoint execution no ranking claims
+- Promotion decision: current_sim_training_stability_repair_pass_but_readiness_still_below_floor_route_to_result_audit
+- Decision reason: M2241 pass 15/15 runs 120 candidate evals selected beats final 12/15 selected profile floor pass count 0 no ranking claims
 
 ## Hypothesis
 
@@ -92,8 +92,8 @@ Same-budget periodic checkpoint retention can recover readiness lost by final-ch
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2241 pending same-budget candidate checkpoint execution no ranking claims
+- decision: current_sim_training_stability_repair_pass_but_readiness_still_below_floor_route_to_result_audit
+- reason: M2241 pass 15/15 runs 120 candidate evals selected beats final 12/15 selected profile floor pass count 0 no ranking claims
 
 ## Next Blocker
 
