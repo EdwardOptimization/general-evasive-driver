@@ -21,6 +21,16 @@ Last updated: 2026-06-01
 - result: M2269 is complete and guardrail clean; targeted containment recovers intended slices (`mid_offtrack -8`, `mild_overshoot -2`) but remains aggregate-neutral on offtrack versus M2244 (`110 -> 110`).
 - decision: stop immediate scalar reward-repair local search and route to M2271 current-sim task-quality branch synthesis design. Ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
 
+
+## 20260601T184000Z m2271-current-sim-task-quality-synthesis-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md`
+- result: freezes M2272 synthesis scope over M2236-M2271 current-sim task-quality evidence after M2270 stopped local scalar reward repair.
+- required synthesis questions: evidence summary, supported/falsified claims, failure taxonomy, public-gate overfit risk, and next branch decision.
+- decision: admit M2272 branch synthesis; no training, ranking, paper-level, finite-window-vs-GRU, or level3 self-ID claims.
+
 ## Current Best
 
 - checkpoint:

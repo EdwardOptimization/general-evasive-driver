@@ -16,27 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit
+m2271-paper-route-current-sim-task-quality-branch-synthesis-design
 ```
 
 Current next task:
 
 ```text
-m2271-paper-route-current-sim-task-quality-branch-synthesis-design
+m2272-paper-route-current-sim-task-quality-branch-synthesis
 ```
 
-Immediate route: M2270 audits M2269 as complete and guardrail clean. M2265
-targeted containment recovers the intended M2256/M2257 slices versus M2244
-(`mid_offtrack_delta=-8`, `mild_overshoot_delta=-2`) and beats M2253 generic
-repair on offtrack by `-8`, but it remains aggregate-neutral versus M2244 on
-global offtrack (`110 -> 110`).
+Immediate route: M2271 freezes the M2272 branch synthesis scope after M2270
+stopped the local scalar reward-repair loop. The synthesis window is
+M2236-M2271: matched-budget readiness failure, task/curriculum diagnosis,
+checkpoint-selection/outcome localization, generic reward repair failure, and
+targeted containment slice recovery with aggregate-neutral global offtrack.
 
-Active interpretation: targeted containment fixed the generic-repair slice
-regression but did not produce a strict global offtrack improvement or a
-comparison-ready current-sim panel. The local scalar reward-repair loop is
-stopped for now. The next step is to design a branch-level current-sim
-task-quality synthesis before any new training, measured execution, ranking,
-finite-window vs GRU conclusion, paper-level claim, or level3 self-ID claim.
+Active interpretation: current-sim task quality is the blocker before any
+controller-family ranking or paper-level claim. M2272 must choose continue,
+pivot, stop, or promote_to_next_branch without running training, measured
+execution, replay, PPO, private holdout, ranking, finite-window vs GRU verdict,
+or level3 self-ID claim.
 
 ## Actor Contract
 

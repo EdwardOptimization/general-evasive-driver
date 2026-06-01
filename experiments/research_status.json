@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2278,
+    "completed": 2279,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
+    "task_id": "m2271-paper-route-current-sim-task-quality-branch-synthesis-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
-    "command_log": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md"
+    "run_dir": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+    "command_log": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md"
   },
   "next_task": {
-    "id": "m2271-paper-route-current-sim-task-quality-branch-synthesis-design",
+    "id": "m2272-paper-route-current-sim-task-quality-branch-synthesis",
     "kind": "gate",
-    "priority": 22660,
+    "priority": 22670,
     "status": "pending",
-    "hypothesis": "A branch-level current-sim task-quality synthesis can choose the next paper-route move more reliably than continuing local reward repair.",
-    "command": "manual synthesis-design artifact over M2236-M2270 current-sim task-quality evidence",
-    "success_artifact": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
-    "notes": "Pending: freeze synthesis scope over current-sim task-quality evidence no training/ranking claims"
+    "hypothesis": "Synthesizing M2236-M2271 will identify the next paper-route branch more reliably than continuing current-sim local repair.",
+    "command": "manual synthesis artifact over M2236-M2271 current-sim task-quality evidence",
+    "success_artifact": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+    "notes": "Pending: write branch synthesis with continue pivot stop or promote_to_next_branch decision no training/ranking claims"
   },
-  "updated_at_utc": "20260601T183243Z"
+  "updated_at_utc": "20260601T183535Z"
 }

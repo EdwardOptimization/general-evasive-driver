@@ -1,0 +1,189 @@
+{
+  "id": "m2272-paper-route-current-sim-task-quality-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+      "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+      "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+      "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+      "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.json"
+    ],
+    "parent_objective": [
+      "synthesize current-sim task-quality evidence and choose next paper-route branch"
+    ],
+    "derived_from": [
+      "m2271-paper-route-current-sim-task-quality-branch-synthesis-design"
+    ],
+    "blocked_by": [
+      "M2271 admits synthesis before any further repair or training"
+    ],
+    "supersedes": [
+      "another immediate scalar reward repair",
+      "controller-family ranking before task-quality readiness",
+      "paper-level claim before current-sim verdict"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+  "public_gates": [
+    "M2272 must answer the standard synthesis questions",
+    "M2272 must classify evidence under engineering performance, history mechanism, task quality, high-fidelity readiness, and workflow complexity axes",
+    "M2272 must select continue pivot stop or promote_to_next_branch",
+    "M2272 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_quality_synthesis",
+    "evidence_axis": "Q_current_sim_task_quality_branch_synthesis",
+    "evidence_increment": "synthesizes M2236-M2271 task-quality evidence into a next-branch decision",
+    "claim_scope": "branch synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot choose a decision",
+      "stop if synthesis recommends another scalar reward tweak without new evidence axis",
+      "stop if synthesis claims comparison readiness from below-floor public diagnostic support"
+    ],
+    "fallback_plan": [
+      "pivot to scenario/task-quality redesign if readiness remains blocked",
+      "continue only on a new evidence axis with pre-registered acceptance",
+      "stop for user review if evidence is contradictory"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2271 explicitly registers branch-level synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "synthesis_artifact": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "write current-sim task-quality branch synthesis",
+    "admission_evidence": [
+      "M2271 freezes synthesis scope and questions",
+      "M2270 stops immediate containment reward local search",
+      "governing paper-route plans require task quality before ranking/self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+      "M2272 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis decision is one of continue pivot stop promote_to_next_branch",
+      "next route is selected without new experiment execution"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2272 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2272; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2236-M2271 public current-sim task-quality artifacts.",
+    "negative_result_policy": "If task quality blocks comparison, pivot to task/scenario quality instead of weakening self-ID criteria.",
+    "allowed_claims": [
+      "current-sim task-quality branch synthesis",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates multiple prior branches rather than adding another local repair",
+    "paper_verdict_delta": "can pivot the paper route toward scenario/task-quality redesign or comparison redesign",
+    "must_synthesize_if": [
+      "M2272 is completed",
+      "the next proposed task is another scalar reward tweak",
+      "current-sim readiness remains below floor"
+    ]
+  },
+  "hypothesis": "Synthesizing M2236-M2271 will identify the next paper-route branch more reliably than continuing current-sim local repair.",
+  "success_criteria": [
+    "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis blocks ranking paper-level finite-window-vs-GRU and level3 self-ID claims unless explicitly supported",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2272 omits a required synthesis question",
+    "M2272 recommends another scalar reward tweak without a new evidence axis",
+    "M2272 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2272 ranks profiles or selects a winner",
+    "M2272 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesize",
+      "command": "manual synthesis artifact over M2236-M2271 current-sim task-quality evidence"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+    "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+    "docs/current-status.md",
+    "experiments/research_status.json"
+  ],
+  "decision_rule": "M2272 passes if it writes the required synthesis and selects a non-ranking follow-up route.",
+  "next_blocker": "m2272-paper-route-current-sim-task-quality-branch-synthesis"
+}
