@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2145,
+    "completed": 2146,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+    "command_log": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+    "run_dir": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
     "status": "completed",
-    "task_id": "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+    "task_id": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json",
-    "hypothesis": "A bounded no-rerun comparison protocol can be designed over M2134 panel units while keeping ranking and paper claims blocked.",
-    "id": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design",
-    "kind": "gate",
-    "notes": "Pending: design comparison protocol over M2134 controlled panel units without ranking",
-    "priority": 21320,
+    "command": "see experiments/manifests/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.json",
+    "hypothesis": "The M2137 no-rerun support-matrix protocol can be materialized from M2134 artifacts without ranking or paper claims.",
+    "id": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-rerun support matrix and claim boundary from M2134 panel units",
+    "priority": 21330,
     "status": "pending",
-    "success_artifact": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md"
+    "success_artifact": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json"
   },
-  "updated_at_utc": "20260601T041000Z"
+  "updated_at_utc": "20260601T041500Z"
 }

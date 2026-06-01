@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit
+m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design
 ```
 
 Current next task:
 
 ```text
-m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design
+m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization
 ```
 
-Immediate route: M2136 audits M2134 as a clean controlled-panel artifact:
-`6` primary non-overlapping source-kind units, duplicate source-kind count `0`,
-broad aggregate exclusions `3`, and guardrail `0`. This admits M2137 comparison
-protocol design only. Ranking, comparison execution, paper claims,
-finite-window vs GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2137 freezes a no-rerun support-matrix protocol over the
+M2134 controlled panel. M2138 may materialize protocol artifacts from existing
+M2134 rows only: normalized panel units, profile-support matrix, profile-support
+summary, metric contract, and claim boundary. Ranking, comparison execution,
+paper claims, finite-window vs GRU conclusions, and self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

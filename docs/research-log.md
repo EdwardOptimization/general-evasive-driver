@@ -37745,3 +37745,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: protocol design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json`
 - next: `m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design`
+
+## M2137 Paper-Route Outcome-Supported Decisive Comparison-Support Comparison Protocol Design
+
+- status: completed
+- decision: `comparison_support_protocol_design_admit_no_rerun_materialization`
+- manifest: `experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json`
+- design artifact: `docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md`
+- reset/rollout/measured execution in M2137: `false`
+- policy actions executed in M2137: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: freeze a no-rerun support-matrix protocol over the M2134 controlled panel
+- protocol inputs: M2134 summary, controlled panel units, excluded qualified candidates, and claim boundary only
+- panel inclusion: six primary non-overlapping source-kind units; no broad aggregate direct units
+- profile labels: observed `profiles_with_success` support labels only, not tuned contenders or winners
+- metrics admitted: support coverage by unit, intent, and source kind
+- metrics blocked: per-profile rates, mean return, winner, rank, paper verdict, finite-window-vs-GRU verdict, level3 self-ID verdict
+- materialization route: write normalized panel units, profile support matrix, profile support summary, metric contract, and claim boundary
+- follow-up manifest: `experiments/manifests/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.json`
+- next: `m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization`

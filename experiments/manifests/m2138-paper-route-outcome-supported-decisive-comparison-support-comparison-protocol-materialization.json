@@ -1,0 +1,184 @@
+{
+  "id": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_comparison_protocol_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/excluded_qualified_candidates.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.json"
+    ],
+    "parent_objective": [
+      "materialize a no-rerun support-matrix protocol over M2134 controlled panel units"
+    ],
+    "derived_from": [
+      "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design"
+    ],
+    "blocked_by": [
+      "M2137 must design comparison protocol before materialization"
+    ],
+    "supersedes": [
+      "manual interpretation of M2134 profile support strings",
+      "direct ranking from controlled panel units"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.md",
+  "public_gates": [
+    "M2138 must materialize protocol artifacts from M2134 and M2137 only",
+    "M2138 must produce a profile support matrix without ranking",
+    "M2138 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2138 must not execute comparison or policy rollouts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit RL implementation code except the protocol materializer if needed",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_comparison_protocol_materialization",
+    "evidence_increment": "materializes a support matrix over non-overlapping panel units",
+    "claim_scope": "protocol materialization only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization ranks controller profiles",
+      "stop if materialization requires new rollout",
+      "stop if materialization uses broad aggregate rows as direct panel units",
+      "stop if materialization ignores generated-proxy paper-validity boundary"
+    ],
+    "fallback_plan": [
+      "route to materialization audit if artifacts are clean",
+      "route to scenario redesign if per-profile denominators are required for the next question",
+      "route to synthesis if support-matrix evidence is insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2137 admits no-rerun support-matrix materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "comparison-support protocol materialization",
+    "admission_evidence": [
+      "M2137 designs support-matrix protocol",
+      "M2134 controlled_panel_unit_count 6",
+      "M2134 panel_duplicate_source_kind_count 0",
+      "M2134 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2138",
+      "do not run measured execution in M2138",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "protocol materialization script or existing infrastructure if needed",
+      "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol artifacts",
+      "M2138 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization audit or synthesis"
+    ],
+    "next_stage_criteria": [
+      "support matrix artifacts are written",
+      "metric contract is machine-readable",
+      "claim boundary is machine-readable",
+      "next audit or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2138 materializes support protocol and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2138."
+    ],
+    "temporal_evidence_window": "M2134 controlled panel artifact and M2137 protocol design.",
+    "negative_result_policy": "If materialization cannot avoid ranking shortcuts or generated-proxy overclaim, record the negative result and route to synthesis or scenario redesign.",
+    "allowed_claims": [
+      "comparison protocol materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns controlled panel units into a machine-readable support matrix for later audit",
+    "paper_verdict_delta": "can decide whether the no-rerun support matrix should be audited but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2138 produces ranking fields",
+      "M2138 cannot materialize support matrix without missing per-profile denominators",
+      "M2138 ignores generated-proxy and paper-validity boundaries"
+    ]
+  },
+  "hypothesis": "The M2137 no-rerun support-matrix protocol can be materialized from M2134 artifacts without ranking or paper claims.",
+  "success_criteria": [
+    "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json exists",
+    "profile support matrix exists",
+    "metric contract exists",
+    "claim boundary exists",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "materialization route requires rerun",
+    "support matrix cannot be built",
+    "ranking or paper-level claims are made",
+    "claim boundary is missing or violated"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "write M2138 no-rerun support-matrix artifacts from M2134 controlled panel units"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/profile_support_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/claim_boundary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_comparison_protocol_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv"
+  ],
+  "decision_rule": "M2138 passes if it writes a clean support matrix and claim boundary without ranking.",
+  "next_blocker": "m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit"
+}

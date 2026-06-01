@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2137 freezes no-rerun support-matrix protocol over M2134 panel units no profile ranking per-profile rates paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "design document is missing",
+    "protocol route requires rerun",
+    "protocol criteria are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T040456Z",
+  "hypothesis": "A bounded no-rerun comparison protocol can be designed over M2134 panel units while keeping ranking and paper claims blocked.",
+  "lineage": {
+    "blocked_by": [
+      "M2136 must audit controlled panel construction before comparison protocol design"
+    ],
+    "derived_from": [
+      "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_comparison_protocol_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/excluded_qualified_candidates.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "design a bounded comparison protocol over M2134 controlled panel units before any ranking"
+    ],
+    "supersedes": [
+      "direct profile ranking from controlled panel units",
+      "comparison execution without a pre-registered protocol"
+    ]
+  },
+  "milestone": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design",
+  "next_blocker": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "comparison_support_protocol_design_admit_no_rerun_materialization",
+  "public_gates": [
+    "M2137 must design a no-rerun comparison protocol over M2134 controlled panel units",
+    "M2137 must define metrics and ranking blockers before any comparison execution",
+    "M2137 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2137 must not execute comparison or policy rollouts"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md",
+    "clearance_margin_mean": "",
+    "decision": "comparison_support_protocol_design_admit_no_rerun_materialization",
+    "milestone": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design",
+    "reason": "M2137 freezes no-rerun support-matrix protocol over M2134 panel units no profile ranking per-profile rates paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design.md exists",
+    "protocol inputs are M2134 artifacts only",
+    "comparison metrics and support rules are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}
