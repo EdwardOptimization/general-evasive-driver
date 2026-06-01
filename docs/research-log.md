@@ -41472,3 +41472,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.json`
 - next: `m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design`
+
+## M2306 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Selected-Checkpoint Measured Execution Design
+
+- status: completed
+- decision: `guarded_repair_selected_checkpoint_measured_execution_design_admit_execution`
+- manifest: `experiments/manifests/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.json`
+- design doc: `docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md`
+- selected rows: `runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv`
+- config root: `runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/configs`
+- scenario config: `configs/paper_route_current_sim_scenario_task_family_v0.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py`
+- expected_scenario_spec_count: `72`
+- expected_selected_checkpoint_count: `15`
+- expected_episode_count: `1080`
+- eval_seed_base: `230700`
+- output_dir: `runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution`
+- reset/rollout/policy action in M2306: `false`
+- training/replay/PPO in M2306: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.json`
+- next: `m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution`
