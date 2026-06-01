@@ -1,0 +1,171 @@
+{
+  "id": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.md",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_failure_metric_summary.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/history_failure_metric_summary.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_pair_delta_metrics.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/l3_failure_mode_breakdown.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun profile/history failure diagnosis result before repair, rerun, ranking, or conclusion"
+    ],
+    "derived_from": [
+      "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation"
+    ],
+    "blocked_by": [
+      "M2221 must produce summary and claim-boundary artifacts"
+    ],
+    "supersedes": [
+      "direct recurrent-profile repair from M2221 counts without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+  "public_gates": [
+    "M2222 must audit M2221 summary and claim boundary",
+    "M2222 must keep ranking_admissible_count at 0",
+    "M2222 must decide recurrent-profile audit, recurrent-state diagnostic, task-quality repair, diagnostic report, or stop",
+    "M2222 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_profile_history_failure_diagnosis",
+    "evidence_axis": "Q_current_sim_profile_history_failure_diagnosis_result_audit",
+    "evidence_increment": "turns M2221 profile/history diagnosis into a bounded route decision",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2221 artifacts are missing",
+      "stop if M2222 overclaims finite-window support as a verdict",
+      "stop if M2222 routes to repair before explaining L3 online/reset zero-success equivalence"
+    ],
+    "fallback_plan": [
+      "route to recurrent-profile checkpoint/config/training audit if L3 zero-success and reset equivalence are confirmed",
+      "route to recurrent-state/path-dependence diagnostic if L3 online and reset differ",
+      "route to task-quality repair if all profile groups are low support",
+      "stop with diagnostic report if no actionable next audit remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2221 implementation produced no-rerun diagnosis artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit profile/history failure diagnosis result",
+    "admission_evidence": [
+      "M2221 result_class pass",
+      "M2221 ranking_admissible_count 0",
+      "M2221 winner_selected false",
+      "M2221 claim boundary blocks ranking, paper, finite-window-vs-GRU, and self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+      "M2222 status queue scoreboard research log and review",
+      "one follow-up manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "audit decision is explicit",
+      "M2221 L3 online/reset zero-success evidence is checked",
+      "next route is bounded and claim-safe"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2222 audits aggregate failure diagnosis and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2222."
+    ],
+    "temporal_evidence_window": "M2221 diagnosis artifacts.",
+    "negative_result_policy": "If L3 online/reset zero-success equivalence is confirmed, route to recurrent-profile audit instead of declaring finite-window superiority or self-ID failure.",
+    "allowed_claims": [
+      "profile/history failure diagnosis result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2221 diagnosis into a bounded route decision",
+    "paper_verdict_delta": "can decide whether recurrent-profile failure is a checkpoint/config/training blocker before comparison",
+    "must_synthesize_if": [
+      "M2222 cannot choose a bounded next route",
+      "M2222 leads to another blind repair",
+      "M2222 overclaims diagnostic support"
+    ]
+  },
+  "hypothesis": "M2221 failure diagnosis can be audited into a bounded next-route decision without rerun or ranking.",
+  "success_criteria": [
+    "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md exists",
+    "audit checks M2221 result_class, L3 zero-success, L3 reset equivalence, finite-window support, ranking_admissible_count, winner_selected, and guardrail",
+    "next route is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims M2221 as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json",
+    "docs/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.md"
+  ],
+  "decision_rule": "M2222 passes if it audits M2221 and selects a bounded next route without ranking or rerun.",
+  "next_blocker": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit"
+}

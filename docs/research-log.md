@@ -39666,3 +39666,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits no-rerun metric diagnosis implementation
 - follow-up manifest: `experiments/manifests/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.json`
 - next: `m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation`
+
+## M2221 Paper-Route Current-Sim Profile/History Failure Diagnosis Implementation
+
+- status: completed
+- decision: `current_sim_profile_history_failure_diagnosis_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.json`
+- run artifact: `runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_profile_history_failure_diagnosis.py`
+- focused tests: `2 passed`
+- episode_row_count: `2304`
+- scene_candidate_count: `9`
+- profile_metric_row_count: `54`
+- history_metric_row_count: `36`
+- pair_delta_row_count: `45`
+- l3_failure_breakdown_row_count: `9`
+- l3_online_success_count: `0`
+- l3_reset_success_count: `0`
+- l2_window_25_success_count: `360`
+- l2_window_50_success_count: `153`
+- l3_zero_success_confirmed: `true`
+- l3_reset_equivalent_to_online: `true`
+- finite_window_support_visible: `true`
+- failure_mode_counts: `early_offtrack_failure=21`, `late_offtrack_or_noncompletion=3`, `supported_success=30`
+- ranking_admissible_count: `0`
+- winner_selected: `false`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: L3 online and reset profiles are zero-success and outcome-equivalent on the current diagnostic slices; finite-window support is visible but diagnostic-only
+- follow-up manifest: `experiments/manifests/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.json`
+- next: `m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit`

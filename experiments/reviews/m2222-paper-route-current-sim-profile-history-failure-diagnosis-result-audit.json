@@ -1,0 +1,93 @@
+{
+  "decision_reason": "M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims M2221 as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T123831Z",
+  "hypothesis": "M2221 failure diagnosis can be audited into a bounded next-route decision without rerun or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2221 must produce summary and claim-boundary artifacts"
+    ],
+    "derived_from": [
+      "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation.md",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_failure_metric_summary.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/history_failure_metric_summary.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_pair_delta_metrics.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/l3_failure_mode_breakdown.csv",
+      "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "audit no-rerun profile/history failure diagnosis result before repair, rerun, ranking, or conclusion"
+    ],
+    "supersedes": [
+      "direct recurrent-profile repair from M2221 counts without result audit"
+    ]
+  },
+  "milestone": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
+  "next_blocker": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2222 must audit M2221 summary and claim boundary",
+    "M2222 must keep ranking_admissible_count at 0",
+    "M2222 must decide recurrent-profile audit, recurrent-state diagnostic, task-quality repair, diagnostic report, or stop",
+    "M2222 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
+    "reason": "M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md exists",
+    "audit checks M2221 result_class, L3 zero-success, L3 reset equivalence, finite-window support, ranking_admissible_count, winner_selected, and guardrail",
+    "next route is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

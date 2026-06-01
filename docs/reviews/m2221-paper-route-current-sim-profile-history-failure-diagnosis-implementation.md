@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T122838Z
+- Generated at UTC: 20260601T123803Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2221 pending no-rerun profile/history failure diagnosis over M2209/M2218 artifacts no ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_profile_history_failure_diagnosis_pass_route_to_result_audit
+- Decision reason: M2221 no-rerun diagnosis pass 9 scene candidates rows profile/history/pair/l3 54/36/45/9 L3 online/reset success 0/0 reset equivalent true L2 finite-window support visible ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ Existing M2209/M2218 metrics can localize L3 recurrent zero-success without reru
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2221 pending no-rerun profile/history failure diagnosis over M2209/M2218 artifacts no ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_profile_history_failure_diagnosis_pass_route_to_result_audit
+- reason: M2221 no-rerun diagnosis pass 9 scene candidates rows profile/history/pair/l3 54/36/45/9 L3 online/reset success 0/0 reset equivalent true L2 finite-window support visible ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2220-paper-route-current-sim-profile-history-failure-diagnosis-design
+m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation
 ```
 
 Current next task:
 
 ```text
-m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation
+m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -44,9 +44,13 @@ via branch synthesis because the local-search guard tripped. It pivots to
 profile/history failure diagnosis. M2220 freezes that no-rerun metric diagnosis
 design over M2209/M2218 artifacts, targeting L3 zero-success and L2
 finite-window support with failure-mode labels and pairwise diagnostic deltas.
-M2221 may implement that artifact-only diagnosis. Reset, rollout, measured
-execution, repair, ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked.
+M2221 implements that artifact-only diagnosis: `2304` existing episode rows,
+`9` scene candidates, profile/history/pair/L3 rows `54/36/45/9`,
+`L3_online_gru` and `L3_reset_control` success `0/0`, L3 reset equivalent to
+online `true`, `L2_window_25` success count `360`, `L2_window_50` success count
+`153`, `ranking_admissible_count=0`, `winner_selected=false`, and guardrail
+`0`. M2222 must audit this before any recurrent-profile repair, rerun, ranking,
+paper claims, finite-window vs GRU verdicts, or self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

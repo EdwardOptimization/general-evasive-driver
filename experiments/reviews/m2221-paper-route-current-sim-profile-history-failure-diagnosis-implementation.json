@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2221 pending no-rerun profile/history failure diagnosis over M2209/M2218 artifacts no ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2221 no-rerun diagnosis pass 9 scene candidates rows profile/history/pair/l3 54/36/45/9 L3 online/reset success 0/0 reset equivalent true L2 finite-window support visible ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
   "failure_criteria": [
     "summary is missing",
     "metric tables are missing",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T122838Z",
+  "generated_at_utc": "20260601T123803Z",
   "hypothesis": "Existing M2209/M2218 metrics can localize L3 recurrent zero-success without rerun or ranking.",
   "lineage": {
     "blocked_by": [
@@ -62,7 +62,7 @@
   "milestone": "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation",
   "next_blocker": "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_profile_history_failure_diagnosis_pass_route_to_result_audit",
   "public_gates": [
     "M2221 must use only M2209/M2218 artifacts",
     "M2221 must write profile/history failure diagnosis artifacts",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_profile_history_failure_diagnosis_pass_route_to_result_audit",
     "milestone": "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation",
-    "reason": "M2221 pending no-rerun profile/history failure diagnosis over M2209/M2218 artifacts no ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2221 no-rerun diagnosis pass 9 scene candidates rows profile/history/pair/l3 54/36/45/9 L3 online/reset success 0/0 reset equivalent true L2 finite-window support visible ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
