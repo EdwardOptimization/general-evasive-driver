@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2119,
+    "completed": 2120,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md",
+    "command_log": "docs/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md",
+    "run_dir": "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization",
     "status": "completed",
-    "task_id": "m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design"
+    "task_id": "m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.json",
-    "hypothesis": "The existing no-rerun localization tool can analyze M2108 artifacts with target counts 480 episodes 5 profiles 96 specs and 3 families while reproducing outcome counts exactly.",
-    "id": "m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen no-rerun localization command and defer route interpretation to audit",
-    "priority": 21060,
+    "command": "see experiments/manifests/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.json",
+    "hypothesis": "M2111's zero comparison-ready and zero candidate-support slices should block controller comparison and force an explicit next-route decision.",
+    "id": "m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit zero comparison-ready localization result and choose synthesis or scenario redesign route",
+    "priority": 21070,
     "status": "pending",
-    "success_artifact": "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json"
+    "success_artifact": "docs/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.md"
   },
-  "updated_at_utc": "20260601T010051Z"
+  "updated_at_utc": "20260601T010559Z"
 }
