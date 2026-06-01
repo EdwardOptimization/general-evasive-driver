@@ -1,0 +1,207 @@
+{
+  "id": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json",
+      "docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md",
+      "docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2294-M2299 scenario task-family diagnosis and target/guardrail materialization before guarded repair design"
+    ],
+    "derived_from": [
+      "m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit",
+      "m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation",
+      "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation",
+      "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit"
+    ],
+    "blocked_by": [
+      "local-search guard reports six consecutive non-evidence milestones if guarded repair design is started directly",
+      "M2299 admits guarded repair design but process synthesis must happen before another design milestone"
+    ],
+    "supersedes": [
+      "direct M2300 guarded repair design after M2299",
+      "continuing scenario task-quality redesign without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+  "public_gates": [
+    "M2300 must synthesize M2294-M2299 scenario task-family evidence",
+    "M2300 must answer the standard synthesis questions",
+    "M2300 must explicitly decide continue, pivot, stop, or promote_to_next_branch",
+    "M2300 must not run reset, rollout, policy action, training, replay, PPO, private holdout, ranking, or paper/self-ID claims",
+    "M2300 must decide whether guarded repair design remains the next route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not use profile_name or profile_seed as repair targets",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_branch_synthesis",
+    "evidence_increment": "synthesizes complete measured-execution, failure-slice diagnosis, and target/guardrail materialization before another design milestone",
+    "claim_scope": "branch synthesis and route decision only; no rollout training ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if target/guardrail materialization is insufficient for guarded repair design",
+      "stop if process overhead dominates without an actionable evidence route",
+      "stop if guarded repair would rely on profile-axis tuning"
+    ],
+    "fallback_plan": [
+      "continue to guarded repair design if target/guardrail route is coherent",
+      "pivot to fresh data/panel evidence if current public slices risk overfit",
+      "stop for user review if current-sim scenario task quality is not repairable without changing task specs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local-search guard fired after M2299 because direct M2300 design would create six consecutive non-evidence milestones",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize scenario task-family diagnosis before guarded repair design",
+    "admission_evidence": [
+      "M2293 produced complete 1080-episode measured execution data",
+      "M2295 classified offtrack as dominant failure and collision as guardrail",
+      "M2298 materialized 20 offtrack targets and 11 collision guardrails",
+      "M2299 accepted the repair_gate_spec",
+      "local-search guard blocks another design-only milestone without synthesis"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "M2300 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "process-overhead and local-search risk are explicit",
+      "supported and falsified claims are explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2300 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2300."
+    ],
+    "temporal_evidence_window": "M2294-M2299 scenario task-family evidence.",
+    "negative_result_policy": "If current-sim task repair remains weak, pivot or stop without weakening self-ID criteria.",
+    "allowed_claims": [
+      "scenario task-family guarded-repair branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates measured panel, failure slices, and target/guardrail materialization before allowing repair design",
+    "paper_verdict_delta": "can decide whether the current-sim route should continue to guarded repair design or pivot to fresh evidence",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2294-M2299 will decide whether guarded repair design is still justified or whether the branch should pivot before another design-only milestone.",
+  "success_criteria": [
+    "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "process-overhead and public-gate overfit risk are assessed",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2300 omits a required synthesis question",
+    "M2300 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2300 ranks profiles or selects a winner",
+    "M2300 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2300 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md from M2294-M2299 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+    "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json",
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2300 passes if it writes the required synthesis and selects a non-ranking follow-up route.",
+  "next_blocker": "m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design"
+}

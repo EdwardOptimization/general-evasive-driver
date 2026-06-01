@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2306,
+    "completed": 2307,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation",
+    "task_id": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail",
-    "command_log": "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md"
   },
   "next_task": {
-    "id": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+    "id": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
     "kind": "gate",
-    "priority": 22940,
+    "priority": 22950,
     "status": "pending",
-    "hypothesis": "M2298 target/guardrail materialization can be audited to admit a guarded repair design without rerun, ranking, or paper/self-ID claims.",
-    "command": "manual result audit over runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json and repair_gate_spec.json",
-    "success_artifact": "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
-    "notes": "Pending: verify target/guardrail counts profile-axis exclusion and repair_gate_spec; no rerun training ranking or paper claims"
+    "hypothesis": "Synthesizing M2294-M2299 will decide whether guarded repair design is still justified or whether the branch should pivot before another design-only milestone.",
+    "command": "write docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md from M2294-M2299 artifacts",
+    "success_artifact": "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+    "notes": "Pending: answer synthesis questions and decide continue pivot stop before any guarded repair design; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T211450Z"
+  "updated_at_utc": "20260601T211626Z"
 }

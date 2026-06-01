@@ -173,5 +173,5 @@
     "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
   ],
   "decision_rule": "M2299 passes if it verifies M2298 materialization and pre-registers a non-ranking follow-up route.",
-  "next_blocker": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-design"
+  "next_blocker": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis"
 }

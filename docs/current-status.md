@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation
+m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit
 ```
 
 Current next task:
 
 ```text
-m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit
+m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -100,9 +100,31 @@ profile_guardrail_slice_count: 0
 repair_gate_spec_exists: true
 ```
 
-M2299 must audit this materialization before any repair/training. Training,
-replay, PPO, promotion, ranking, winner selection, finite-window vs GRU verdict,
-paper-level claim, and level3 self-ID claim remain blocked.
+M2299 accepts M2298 as a clean target/guardrail materialization and accepts the
+guarded repair route. The accepted repair gates are:
+
+```text
+offtrack target:
+  reduce global offtrack count
+  reduce or hold offtrack count on 20 target slices
+
+collision guardrail:
+  do not increase global collision count
+  do not increase collision count on 11 guardrail slices
+
+completeness:
+  keep the 1080-episode measured-execution denominator
+  metadata_missing_count: 0
+  metric_completeness_failure_count: 0
+  guardrail_violation_count: 0
+```
+
+The local-search guard blocks another design-only milestone, so M2300 must first
+synthesize M2294-M2299 and decide whether to continue to guarded repair design,
+pivot to fresh evidence, or stop.
+
+Training, replay, PPO, promotion, ranking, winner selection, finite-window vs
+GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

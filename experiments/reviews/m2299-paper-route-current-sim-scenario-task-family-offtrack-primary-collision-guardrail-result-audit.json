@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2299 accepts M2298 target/guardrail materialization and routes to M2300 synthesis before guarded repair design no rerun/training/ranking claims",
+  "failure_criteria": [
+    "M2299 reruns reset or rollout",
+    "M2299 ranks profiles or selects a winner",
+    "M2299 changes scenario specs or profile configs",
+    "M2299 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2299 cannot select a next route"
+  ],
+  "failure_types": [
+    "behavior_regression",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not change profile configs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T212113Z",
+  "hypothesis": "M2298 target/guardrail materialization can be audited to admit a guarded repair design without rerun, ranking, or paper/self-ID claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2298 materialized target/guardrail slices and repair_gate_spec"
+    ],
+    "derived_from": [
+      "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/offtrack_target_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/collision_guardrail_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json",
+      "docs/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.md"
+    ],
+    "parent_objective": [
+      "audit offtrack target and collision guardrail materialization"
+    ],
+    "supersedes": [
+      "direct repair before target/guardrail audit"
+    ]
+  },
+  "milestone": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+  "next_blocker": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_guarded_repair_design_route",
+  "public_gates": [
+    "M2299 must not rerun reset or rollout",
+    "M2299 must verify M2298 target and guardrail counts",
+    "M2299 must verify profile axes are excluded from target and guardrail slices",
+    "M2299 must decide the next non-ranking route",
+    "M2299 must not rank profiles, select a winner, or claim paper/self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+    "clearance_margin_mean": "6.802372067958403",
+    "decision": "accept_guarded_repair_design_route",
+    "milestone": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+    "reason": "M2299 accepts M2298 target/guardrail materialization and routes to M2300 synthesis before guarded repair design no rerun/training/ranking claims",
+    "reset_success": "",
+    "success_rate": "0.06388888888888888",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md exists",
+    "M2298 target and guardrail counts are verified",
+    "profile target and guardrail counts are verified as zero",
+    "repair_gate_spec is accepted or rejected",
+    "a non-ranking follow-up route is pre-registered"
+  ],
+  "type": "gate"
+}

@@ -41287,3 +41287,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.json`
 - next: `m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit`
+
+## M2299 Paper-Route Current-Sim Scenario Task-Family Offtrack-Primary Collision-Guardrail Result Audit
+
+- status: completed
+- decision: `accept_guarded_repair_design_route`
+- manifest: `experiments/manifests/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.json`
+- audit doc: `docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md`
+- parent summary: `runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json`
+- repair gate spec: `runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json`
+- accepted M2298 result_class: `current_sim_scenario_task_family_offtrack_collision_guardrail_materialization_pass`
+- offtrack_target_slice_count: `20`
+- collision_guardrail_slice_count: `11`
+- profile_target_slice_count: `0`
+- profile_guardrail_slice_count: `0`
+- repair_gate_spec accepted: `true`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
+- next: `m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis`
