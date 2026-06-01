@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2175-paper-route-current-sim-measured-execution-result-audit
+m2176-paper-route-current-sim-training-seed-repeat-design
 ```
 
 Current next task:
 
 ```text
-m2176-paper-route-current-sim-training-seed-repeat-design
+m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run
 ```
 
-Immediate route: M2175 audits M2174 as clean execution-completeness evidence
-but not ranking-ready evidence. The run has `320` episodes and `0` failures,
-but it is one training seed per trainable profile and offtrack-dominated (`63`
-success, `20` collision, `237` offtrack noncompletion). M2176 must design a
-controlled training-seed repeat before any controller comparison. Controller
-ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
-blocked until later audited evidence supports them.
+Immediate route: M2176 freezes a controlled training-seed repeat design:
+`repeat_0_existing` is the M2171/M2174 group, while `repeat_1_seed_21761` and
+`repeat_2_seed_21762` require `14` new trainable profile checkpoints total.
+The repeat preserves tasks, profile definitions, actor inputs, and eval seed
+policy, and keeps `L3_reset_control` as a same-repeat alias to `L3_online_gru`.
+M2177 may materialize repeat checkpoints/workloads only; measured execution,
+controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
+claims remain blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

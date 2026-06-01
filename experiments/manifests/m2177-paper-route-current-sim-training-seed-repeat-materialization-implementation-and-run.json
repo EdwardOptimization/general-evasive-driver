@@ -1,0 +1,201 @@
+{
+  "id": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L0_current_masked/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L1_one_step/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_13/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_25/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_50/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_100/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json",
+      "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json",
+      "configs/paper_route_profiles/m1190_l1_one_step_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_13_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_25_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_50_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_100_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_online_gru_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_reset_control_smoke.json"
+    ],
+    "parent_objective": [
+      "materialize two additional training-seed repeat groups without measured execution or ranking"
+    ],
+    "derived_from": [
+      "m2176-paper-route-current-sim-training-seed-repeat-design"
+    ],
+    "blocked_by": [
+      "M2175 audits M2174 as one-seed and not ranking-ready"
+    ],
+    "supersedes": [
+      "ranking from M2174 single training seed"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.md",
+  "public_gates": [
+    "M2177 must train exactly 14 new repeat checkpoints from frozen configs with seed overrides",
+    "M2177 must alias each reset-control repeat to the same-repeat L3_online_gru checkpoint",
+    "M2177 must write materialized repeat workloads with existing checkpoint paths",
+    "M2177 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not change profile definitions",
+    "do not use profile-specific tuning",
+    "do not train L3_reset_control",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_training_seed_repeat_materialization",
+    "evidence_increment": "materializes additional repeat seed groups for reliability testing",
+    "claim_scope": "repeat materialization only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if any repeat checkpoint fails to train",
+      "stop if reset-control trains separately",
+      "stop if checkpoint paths are missing",
+      "stop if measured execution starts"
+    ],
+    "fallback_plan": [
+      "route to profile config compatibility audit if training fails",
+      "route to repeat materialization audit if materialization passes",
+      "route to synthesis if repeat scope becomes too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2176 design admits repeat materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize additional training-seed repeat checkpoints and workloads",
+    "admission_evidence": [
+      "M2176 freezes repeat seeds and budget",
+      "M2175 identifies one-seed fragility as active limitation"
+    ],
+    "allowed_training": [
+      "train exactly 14 checkpoints for repeat_1_seed_21761 and repeat_2_seed_21762",
+      "use frozen configs with seed overrides only",
+      "keep L3_reset_control as alias"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution",
+      "no ranking",
+      "no paper-level claims"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_training_seed_repeat_materialization.py",
+      "tests/test_paper_route_current_sim_training_seed_repeat_materialization.py",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/*",
+      "docs/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.md",
+      "M2177 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "repeat_group_rows.csv covers three groups",
+      "new repeat materialized workloads cover 640 rows",
+      "checkpoint paths exist",
+      "guardrail violation count is zero"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2177 materializes repeat checkpoints and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2177."
+    ],
+    "temporal_evidence_window": "M2176 repeat design.",
+    "negative_result_policy": "If repeat training fails, classify materialization failure and do not compare profiles.",
+    "allowed_claims": [
+      "repeat checkpoint/workload materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds new repeat-seed panel instead of local tuning the one-seed result",
+    "paper_verdict_delta": "can admit repeat measured execution design but cannot decide final comparison",
+    "must_synthesize_if": [
+      "M2177 cannot materialize repeat checkpoints",
+      "M2177 requires changing task specs or profile definitions",
+      "M2177 would rank profiles"
+    ]
+  },
+  "hypothesis": "The frozen M2176 repeat protocol can materialize two additional seed groups without changing tasks, inputs, profiles, or claim boundaries.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_training_seed_repeat_materialization.py exists",
+    "focused tests pass",
+    "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json exists",
+    "repeat_group_count == 3",
+    "new_repeat_group_count == 2",
+    "new_training_command_count == 14",
+    "successful_training_command_count == 14",
+    "new_materialized_workload_count == 640",
+    "checkpoint_path_missing_count == 0",
+    "checkpoint_path_exists_count == 640",
+    "guardrail_violation_count == 0",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "any repeat checkpoint training command fails",
+    "reset-control trains separately",
+    "any repeat workload checkpoint path is missing or nonexistent",
+    "actor inputs or profile definitions change",
+    "measured execution or ranking starts"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_seed_repeat_materialization --base-workload runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv --existing-materialized-workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2177_paper_route_current_sim_training_seed_repeat_materialization --device cpu"
+    },
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_training_seed_repeat_materialization.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/paper_route_current_sim_training_seed_repeat_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_paper_route_current_sim_training_seed_repeat_materialization.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_new_repeat_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2177 passes if it materializes the frozen two-new-repeat checkpoint/workload panel with zero guardrail violations and no measured execution.",
+  "next_blocker": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run"
+}

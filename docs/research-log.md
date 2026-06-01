@@ -38686,3 +38686,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to controlled training-seed repeat design before ranking or paper comparison
 - follow-up manifest: `experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json`
 - next: `m2176-paper-route-current-sim-training-seed-repeat-design`
+
+## M2176 Paper-Route Current-Sim Training-Seed Repeat Design
+
+- status: completed
+- decision: `current_sim_training_seed_repeat_design_admit_materialization`
+- manifest: `experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json`
+- design artifact: `docs/m2176-paper-route-current-sim-training-seed-repeat-design.md`
+- repeat groups: `repeat_0_existing`, `repeat_1_seed_21761`, `repeat_2_seed_21762`
+- new repeat groups to train: `2`
+- new trainable checkpoint commands: `14`
+- reset-control policy: alias to same-repeat `L3_online_gru` checkpoint
+- evaluation policy: same specs/workload family and same eval seed policy as M2174
+- training in M2176: `false`
+- measured execution in M2176: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to repeat checkpoint/workload materialization before any repeat measured execution
+- follow-up manifest: `experiments/manifests/m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run.json`
+- next: `m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run`

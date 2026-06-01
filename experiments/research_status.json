@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2183,
+    "completed": 2184,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+    "command_log": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+    "run_dir": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
     "status": "completed",
-    "task_id": "m2175-paper-route-current-sim-measured-execution-result-audit"
+    "task_id": "m2176-paper-route-current-sim-training-seed-repeat-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2176-paper-route-current-sim-training-seed-repeat-design.json",
-    "hypothesis": "A controlled repeat design can test whether M2174 profile differences survive training-seed variation without changing tasks, inputs, or profiles.",
-    "id": "m2176-paper-route-current-sim-training-seed-repeat-design",
-    "kind": "gate",
-    "notes": "Pending: design training-seed repeat protocol",
-    "priority": 21710,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_seed_repeat_materialization --base-workload runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv --existing-materialized-workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2177_paper_route_current_sim_training_seed_repeat_materialization --device cpu",
+    "hypothesis": "The frozen M2176 repeat protocol can materialize two additional seed groups without changing tasks, inputs, profiles, or claim boundaries.",
+    "id": "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement repeat materializer and train two new seed groups",
+    "priority": 21720,
     "status": "pending",
-    "success_artifact": "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md"
+    "success_artifact": "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json"
   },
-  "updated_at_utc": "20260601T082744Z"
+  "updated_at_utc": "20260601T083203Z"
 }
