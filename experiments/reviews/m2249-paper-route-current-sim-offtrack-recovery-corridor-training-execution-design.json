@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2249 pending repaired training execution design over M2248 matrix no training/ranking claims",
+  "failure_criteria": [
+    "design starts training",
+    "design uses a matrix other than M2248",
+    "candidate checkpoint retention is omitted",
+    "design ranks profiles or selects a winner",
+    "design changes actor input contract or widens track_width"
+  ],
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO outside the pre-registered training runner",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T155018Z",
+  "hypothesis": "A controlled execution design can run the M2248 repaired config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2248 materialized configs but did not run training"
+    ],
+    "derived_from": [
+      "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.json"
+    ],
+    "parent_dataset": [
+      "docs/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.md",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+    ],
+    "parent_objective": [
+      "design a controlled training execution over M2248 repaired configs"
+    ],
+    "supersedes": [
+      "ad-hoc manual training from repaired configs",
+      "running repaired configs without candidate checkpoint evaluation",
+      "ranking before readiness floors"
+    ]
+  },
+  "milestone": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
+  "next_blocker": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2249 must design training execution without running training",
+    "M2249 must use exactly the M2248 training matrix",
+    "M2249 must keep the 5-profile x 3-seed matched panel",
+    "M2249 must keep candidate-checkpoint retention and selected-checkpoint evaluation",
+    "M2249 must keep ranking, winner selection, paper claims, finite-window-vs-GRU, and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
+    "reason": "M2249 pending repaired training execution design over M2248 matrix no training/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md exists",
+    "design references the M2248 training matrix",
+    "design fixes output dir, task id, next blocker, and guardrails",
+    "design keeps candidate checkpoint evaluation",
+    "no reset rollout measured execution training replay private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,178 @@
+{
+  "id": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.md",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.json"
+    ],
+    "parent_objective": [
+      "design a controlled training execution over M2248 repaired configs"
+    ],
+    "derived_from": [
+      "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization"
+    ],
+    "blocked_by": [
+      "M2248 materialized configs but did not run training"
+    ],
+    "supersedes": [
+      "ad-hoc manual training from repaired configs",
+      "running repaired configs without candidate checkpoint evaluation",
+      "ranking before readiness floors"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+  "public_gates": [
+    "M2249 must design training execution without running training",
+    "M2249 must use exactly the M2248 training matrix",
+    "M2249 must keep the 5-profile x 3-seed matched panel",
+    "M2249 must keep candidate-checkpoint retention and selected-checkpoint evaluation",
+    "M2249 must keep ranking, winner selection, paper claims, finite-window-vs-GRU, and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO outside the pre-registered training runner",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_training_execution_design",
+    "evidence_increment": "turns M2248 materialized configs into a bounded execution design without starting training",
+    "claim_scope": "design only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2248 matrix is incomplete",
+      "stop if execution design cannot preserve candidate checkpoint retention",
+      "stop if design would rank profiles before readiness floors"
+    ],
+    "fallback_plan": [
+      "route back to M2248 materialization repair if the matrix is incomplete",
+      "route to branch synthesis if execution design cannot stay bounded",
+      "route to config audit if reward hooks appear contract-unsafe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2248 materialized repaired config matrix",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze controlled execution command and guardrails before running M2248 configs",
+    "admission_evidence": [
+      "M2248 materialized 15 repaired configs",
+      "M2248 contract_violation_count is 0",
+      "M2248 track_width_widened_count is 0",
+      "M2248 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no training in design",
+      "no rollout in design",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+      "M2249 status queue scoreboard research log and review",
+      "one follow-up execution manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "execution command references M2248 training_matrix.csv",
+      "output directory and task id are fixed",
+      "candidate checkpoint policy is fixed",
+      "post-execution audit route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2249 is execution design and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2249; no wrong-history, reset-hidden, zero-history, or measured execution intervention is run."
+    ],
+    "temporal_evidence_window": "M2248 materialization only.",
+    "negative_result_policy": "If repaired training later fails, route to result audit; do not weaken ranking or self-ID standards.",
+    "allowed_claims": [
+      "training execution design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares one bounded execution of the newly materialized repair matrix",
+    "paper_verdict_delta": "can produce repaired training evidence for the current-sim task-quality branch",
+    "must_synthesize_if": [
+      "M2249 cannot define a bounded execution command",
+      "M2249 would rank profiles before readiness floors",
+      "M2249 would skip candidate checkpoint retention"
+    ]
+  },
+  "hypothesis": "A controlled execution design can run the M2248 repaired config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md exists",
+    "design references the M2248 training matrix",
+    "design fixes output dir, task id, next blocker, and guardrails",
+    "design keeps candidate checkpoint evaluation",
+    "no reset rollout measured execution training replay private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design starts training",
+    "design uses a matrix other than M2248",
+    "candidate checkpoint retention is omitted",
+    "design ranks profiles or selects a winner",
+    "design changes actor input contract or widens track_width"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design over M2248 materialization artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+    "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+  ],
+  "decision_rule": "M2249 passes if it freezes a bounded repaired training execution design without running training or ranking profiles.",
+  "next_blocker": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design"
+}

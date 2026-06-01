@@ -7,6 +7,7 @@ from autodrift.dynamics import RandomizationConfig, VehicleState
 from autodrift.env import AutoDriftEnv, DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig, WarmupGateConfig
 from autodrift.policies import HeuristicPolicy
 from autodrift.scenarios import ObstacleScenario
+from autodrift.tasks import PathFrame
 
 
 def test_env_reset_and_step_shapes():
@@ -117,6 +118,53 @@ def test_speed_reference_respects_low_friction_limit():
 
     friction_limit = (info["mu"] * 9.81 * 18.0) ** 0.5 * env.config.friction_speed_margin
     assert info["speed_ref"] <= friction_limit + 1e-9
+
+
+def test_road_margin_cost_is_default_off_and_configurable():
+    env = AutoDriftEnv()
+    env.reset(seed=141)
+    frame = PathFrame(
+        lateral_error=4.0,
+        heading_error=0.0,
+        curvature=0.0,
+        progress=0.0,
+        tangent_heading=0.0,
+        tangent=np.array([1.0, 0.0], dtype=np.float64),
+    )
+
+    _, default_terms = env._reward(frame, env.last_control, env.last_forces)
+
+    repaired_env = AutoDriftEnv(
+        DriftEnvConfig(track_width=5.0, road_margin_cost_scale=2.0, road_margin_warning_fraction=0.5)
+    )
+    repaired_env.reset(seed=141)
+    _, repaired_terms = repaired_env._reward(frame, repaired_env.last_control, repaired_env.last_forces)
+
+    assert "road_margin_cost" not in default_terms
+    assert repaired_terms["road_margin_fraction"] == pytest.approx(0.8)
+    assert repaired_terms["road_margin_cost"] == pytest.approx(0.36)
+
+
+def test_off_track_penalty_is_separate_from_generic_termination_penalty():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            friction_limited_speed=False,
+            speed_range=(8.0, 8.0),
+            track_radius=18.0,
+            track_width=0.1,
+            termination_penalty=1.0,
+            off_track_penalty=4.0,
+        )
+    )
+    env.reset(seed=142)
+    env.state = VehicleState(19.0, 0.0, np.pi / 2.0, 8.0, 0.0, 0.0)
+
+    _, _, terminated, _, info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
+
+    assert terminated is True
+    assert info["termination_reason"] == "off_track"
+    assert info["reward_terms"]["termination_penalty"] == pytest.approx(1.0)
+    assert info["reward_terms"]["off_track_penalty"] == pytest.approx(4.0)
 
 
 def test_figure_eight_env_reset_reports_track_kind_and_curvature():

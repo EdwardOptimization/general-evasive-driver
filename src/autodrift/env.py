@@ -144,6 +144,11 @@ class DriftEnvConfig:
     track_width: float = 5.0
     speed_range: tuple[float, float] = (5.0, 12.0)
     beta_target_range: tuple[float, float] = (0.32, 0.70)
+    track_cost_scale: float = 2.4
+    heading_cost_scale: float = 0.25
+    road_margin_cost_scale: float = 0.0
+    road_margin_warning_fraction: float = 0.70
+    off_track_penalty: float = 0.0
     termination_penalty: float = 0.0
     friction_limited_speed: bool = True
     friction_speed_margin: float = 0.92
@@ -187,6 +192,16 @@ class DriftEnvConfig:
             raise ValueError("road_lookahead_spacing must be positive")
         if self.obstacle_slots < 1:
             raise ValueError("obstacle_slots must be at least 1")
+        if self.track_cost_scale < 0.0:
+            raise ValueError("track_cost_scale must be non-negative")
+        if self.heading_cost_scale < 0.0:
+            raise ValueError("heading_cost_scale must be non-negative")
+        if self.road_margin_cost_scale < 0.0:
+            raise ValueError("road_margin_cost_scale must be non-negative")
+        if not (0.0 <= self.road_margin_warning_fraction < 1.0):
+            raise ValueError("road_margin_warning_fraction must be in [0, 1)")
+        if self.off_track_penalty < 0.0:
+            raise ValueError("off_track_penalty must be non-negative")
 
 
 class AutoDriftEnv(gym.Env):
@@ -349,6 +364,9 @@ class AutoDriftEnv(gym.Env):
         if terminated and self.config.termination_penalty > 0.0:
             reward -= self.config.termination_penalty
             reward_terms["termination_penalty"] = self.config.termination_penalty
+        if self.termination_reason == "off_track" and self.config.off_track_penalty > 0.0:
+            reward -= self.config.off_track_penalty
+            reward_terms["off_track_penalty"] = self.config.off_track_penalty
         truncated = self.obstacle_completed or self.step_count >= self.config.max_steps
         if self.obstacle_completed:
             self.completion_reason = "obstacle_pass"
@@ -932,6 +950,13 @@ class AutoDriftEnv(gym.Env):
 
         track_cost = (frame.lateral_error / self.config.track_width) ** 2
         heading_cost = wrap_pi(frame.heading_error) ** 2
+        margin_fraction = abs(frame.lateral_error) / max(self.config.track_width, 1e-6)
+        road_margin_excess = max(margin_fraction - self.config.road_margin_warning_fraction, 0.0)
+        road_margin_cost = 0.0
+        if self.config.road_margin_cost_scale > 0.0:
+            road_margin_cost = (
+                road_margin_excess / max(1.0 - self.config.road_margin_warning_fraction, 1e-6)
+            ) ** 2
         speed_cost = ((speed - self.speed_ref) / max(self.speed_ref, 1.0)) ** 2
         beta_cost = (abs(beta) - self.beta_target) ** 2
         action_cost = float(np.sum(np.square(control)))
@@ -948,8 +973,9 @@ class AutoDriftEnv(gym.Env):
             1.1 * progress_reward
             + 0.18 * drift_bonus
             + 0.10 * rear_saturation
-            - 2.4 * track_cost
-            - 0.25 * heading_cost
+            - self.config.track_cost_scale * track_cost
+            - self.config.heading_cost_scale * heading_cost
+            - self.config.road_margin_cost_scale * road_margin_cost
             - 0.40 * speed_cost
             - 0.70 * beta_cost
             - 0.030 * action_cost
@@ -962,9 +988,12 @@ class AutoDriftEnv(gym.Env):
             "rear_saturation": rear_saturation,
             "track_cost": track_cost,
             "heading_cost": heading_cost,
+            "road_margin_fraction": margin_fraction,
             "speed_cost": speed_cost,
             "beta_cost": beta_cost,
         }
+        if road_margin_cost > 0.0 or self.config.road_margin_cost_scale > 0.0:
+            terms["road_margin_cost"] = road_margin_cost
         if stable_aes_sideslip_cost > 0.0 or self.config.obstacle.stable_aes_sideslip_penalty > 0.0:
             terms["stable_aes_sideslip_cost"] = stable_aes_sideslip_cost
         return reward, terms

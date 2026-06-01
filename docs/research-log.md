@@ -40364,3 +40364,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.json`
 - next: `m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization`
+
+## M2248 Paper-Route Current-Sim Offtrack/Recovery/Corridor Reward Extension Materialization
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_reward_extension_materialization_pass_route_to_training_execution_design`
+- manifest: `experiments/manifests/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.json`
+- result artifact: `runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json`
+- implemented reward fields: `track_cost_scale`, `heading_cost_scale`, `road_margin_cost_scale`, `road_margin_warning_fraction`, `off_track_penalty`
+- default behavior preserved by default values: `true`
+- focused tests: `42 passed`
+- materialized config count: `15`
+- training matrix rows: `15`
+- profile set matched: `true`
+- seed set matched: `true`
+- budget signature count: `1`
+- contract violation count: `0`
+- track width widened count: `0`
+- guardrail violation count: `0`
+- training/replay/PPO/private holdout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.json`
+- next: `m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design`

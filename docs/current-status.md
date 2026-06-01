@@ -207,8 +207,12 @@ M2247 branch synthesis before implementation. M2247 synthesizes M2236-M2246 and
 decides `continue`: infrastructure and selected-checkpoint evidence are strong
 enough to try one bounded reward-extension materialization, while ranking,
 paper-level, finite-window-vs-GRU, and self-ID claims remain blocked. M2248
-must implement those hooks and materialize configs without training, rollout,
-ranking, finite-window-vs-GRU verdict, paper claim, or self-ID claim.
+implements those hooks and materializes the repaired config matrix without
+training: `15` configs, `15` matrix rows, one budget signature, contract `0`,
+`track_width_widened_count=0`, and guardrail `0`. The next task is M2249, a
+training-execution design over the M2248 matrix using the existing
+candidate-checkpoint runner; it must not start training in the design milestone
+or make ranking, finite-window-vs-GRU, paper, or self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

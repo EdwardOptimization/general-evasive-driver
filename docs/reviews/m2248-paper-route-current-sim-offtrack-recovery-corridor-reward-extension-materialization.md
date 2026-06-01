@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T153952Z
+- Generated at UTC: 20260601T155018Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: pending
-- Decision reason: M2248 pending reward hook implementation and 15-config materialization no training/ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_reward_extension_materialization_pass_route_to_training_execution_design
+- Decision reason: M2248 pass 15 configs budget signature 1 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims
 
 ## Hypothesis
 
@@ -96,8 +96,8 @@ A default-preserving road-containment reward extension can materialize a matched
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2248 pending reward hook implementation and 15-config materialization no training/ranking claims
+- decision: current_sim_offtrack_recovery_corridor_reward_extension_materialization_pass_route_to_training_execution_design
+- reason: M2248 pass 15 configs budget signature 1 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims
 
 ## Next Blocker
 

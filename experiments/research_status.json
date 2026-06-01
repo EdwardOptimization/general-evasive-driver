@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2255,
+    "completed": 2256,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+    "command_log": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+    "run_dir": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization",
     "status": "completed",
-    "task_id": "m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis"
+    "task_id": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization --output-dir runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization",
-    "hypothesis": "A default-preserving road-containment reward extension can materialize a matched offtrack repair config matrix without changing actor inputs or running training.",
-    "id": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: implement default-preserving road containment reward hooks and materialize 15 matched repaired configs no training/ranking claims",
-    "priority": 22430,
+    "command": "manual design over M2248 materialization artifacts",
+    "hypothesis": "A controlled execution design can run the M2248 repaired config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
+    "id": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
+    "kind": "gate",
+    "notes": "Pending: design bounded repaired training execution over M2248 matrix no training/ranking claims",
+    "priority": 22440,
     "status": "pending",
-    "success_artifact": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json"
+    "success_artifact": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md"
   },
-  "updated_at_utc": "20260601T153243Z"
+  "updated_at_utc": "20260601T154824Z"
 }

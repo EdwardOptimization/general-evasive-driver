@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2248 pending reward hook implementation and 15-config materialization no training/ranking claims",
+  "decision_reason": "M2248 pass 15 configs budget signature 1 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims",
   "failure_criteria": [
     "default reward behavior changes when new fields use default values",
     "materialized config count is not 15",
@@ -34,7 +34,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260601T153952Z",
+  "generated_at_utc": "20260601T155018Z",
   "hypothesis": "A default-preserving road-containment reward extension can materialize a matched offtrack repair config matrix without changing actor inputs or running training.",
   "lineage": {
     "blocked_by": [
@@ -69,7 +69,7 @@
   "milestone": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
   "next_blocker": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_reward_extension_materialization_pass_route_to_training_execution_design",
   "public_gates": [
     "M2248 must preserve old reward behavior by default",
     "M2248 must add configurable road-containment reward fields without actor input changes",
@@ -80,9 +80,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_reward_extension_materialization_pass_route_to_training_execution_design",
     "milestone": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
-    "reason": "M2248 pending reward hook implementation and 15-config materialization no training/ranking claims",
+    "reason": "M2248 pass 15 configs budget signature 1 contract 0 track_width_widened 0 guardrail 0 no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
