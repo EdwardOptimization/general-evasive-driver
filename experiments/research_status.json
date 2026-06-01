@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2312,
+    "completed": 2313,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution",
+    "task_id": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution",
-    "command_log": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md"
   },
   "next_task": {
-    "id": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit",
+    "id": "m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design",
     "kind": "gate",
-    "priority": 23000,
+    "priority": 23010,
     "status": "pending",
-    "hypothesis": "M2304 provides enough guarded-v2 training evidence to decide whether the next route should be selected-checkpoint outcome localization, branch synthesis, or bounded repair audit.",
-    "command": "manual artifact audit of runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json and profile aggregates",
-    "success_artifact": "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
-    "notes": "Pending: audit M2304 clean execution pass 15 runs 120 candidates 15 selected but selected profile floor pass count 0; choose non-ranking route"
+    "hypothesis": "A bounded measured-execution design can test whether M2304 guarded-v2 selected checkpoints change the M2293 scenario-task-family outcome distribution and M2298 offtrack/collision slices.",
+    "command": "manual design of guarded-v2 selected-checkpoint measured execution over M2304 selected checkpoints",
+    "success_artifact": "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md",
+    "notes": "Pending: design selected-checkpoint measured execution over M2304 selected rows using 72 specs x 15 checkpoints = 1080 episodes; no execution/ranking claims"
   },
-  "updated_at_utc": "20260601T215442Z"
+  "updated_at_utc": "20260601T220106Z"
 }

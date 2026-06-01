@@ -1,0 +1,191 @@
+{
+  "id": "m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/profile_aggregate.csv",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design selected-checkpoint measured execution for guarded-v2 repair outcome localization"
+    ],
+    "derived_from": [
+      "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2305 routes clean but below-floor M2304 training evidence to measured outcome design instead of another training run"
+    ],
+    "supersedes": [
+      "interpreting M2304 candidate return as repair success",
+      "direct measured execution without design freeze",
+      "another guarded repair training run before outcome evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md",
+  "public_gates": [
+    "M2306 must not run measured execution",
+    "M2306 must use M2304 selected_checkpoint_rows.csv and config root",
+    "M2306 must preserve the M2293 72 scenario specs x 15 selected checkpoints = 1080 episode shape",
+    "M2306 must use M2293/M2295/M2298 as reference artifacts for audit planning only",
+    "M2306 must freeze a bounded follow-up execution command or route to synthesis",
+    "M2306 must not rank profiles, select a winner, promote a checkpoint, or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_selected_checkpoint_measured_execution_design",
+    "evidence_increment": "freezes the measured outcome route needed to test whether M2304 guarded-v2 selected checkpoints affect M2298 offtrack/collision slices",
+    "claim_scope": "measured-execution design only; no execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2304 selected checkpoint rows are missing",
+      "stop if M2293 scenario-task-family runner cannot consume M2304 selected rows",
+      "stop if the design would change scenario specs or actor inputs",
+      "stop if no bounded execution command can be frozen"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2304 selected rows or configs are malformed",
+      "route to execution if a clean frozen command is available",
+      "route to branch synthesis if measured execution is not justified after below-floor training"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2305 routes guarded-v2 repair evidence to selected-checkpoint measured execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design guarded-v2 selected-checkpoint measured execution",
+    "admission_evidence": [
+      "M2304 result_class is current_sim_training_stability_repair_execution_pass",
+      "M2304 selected_checkpoint_count is 15",
+      "M2304 guardrail_violation_count is 0",
+      "M2305 blocks another training run before measured outcome evidence",
+      "M2293 provides the reusable scenario-task-family measured execution shape"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no measured execution in design",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md",
+      "M2306 status queue scoreboard research log and review",
+      "one follow-up measured-execution manifest if admitted"
+    ],
+    "next_stage_criteria": [
+      "M2307 command is frozen or branch synthesis is selected",
+      "expected scenario spec count selected checkpoint count and episode count are stated",
+      "guardrails and claim boundaries are stated"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2306 designs measured execution only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2306."
+    ],
+    "temporal_evidence_window": "M2304 selected checkpoint rows and M2293 scenario-task-family measured execution protocol.",
+    "negative_result_policy": "If the design cannot preserve the M2293 measured panel shape, route to synthesis rather than lowering evidence standards.",
+    "allowed_claims": [
+      "guarded-v2 selected-checkpoint measured-execution design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "can admit a measured outcome panel instead of another local training repair",
+    "paper_verdict_delta": "can enable the first post-guarded-v2 outcome comparison against M2293/M2298 slices",
+    "must_synthesize_if": [
+      "M2306 cannot freeze an execution command",
+      "M2306 proposes another training run before measured outcome evidence",
+      "M2306 would rank profiles or claim repair success from selected returns"
+    ]
+  },
+  "hypothesis": "A bounded measured-execution design can test whether M2304 guarded-v2 selected checkpoints change the M2293 scenario-task-family outcome distribution and M2298 offtrack/collision slices.",
+  "success_criteria": [
+    "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md exists",
+    "M2304 selected checkpoint rows and config root are named",
+    "M2293 scenario config and measured runner are named",
+    "target scenario spec count is 72",
+    "target selected checkpoint count is 15",
+    "target episode count is 1080",
+    "one follow-up execution manifest is pre-registered or synthesis route is selected",
+    "ranking paper finite-window-vs-GRU and level3 self-ID claims remain blocked"
+  ],
+  "failure_criteria": [
+    "M2306 runs measured execution",
+    "M2306 changes scenario specs or actor inputs",
+    "M2306 ignores the M2304 selected checkpoint rows",
+    "M2306 admits ranking or winner selection",
+    "M2306 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2306 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design of guarded-v2 selected-checkpoint measured execution over M2304 selected checkpoints"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv",
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json"
+  ],
+  "decision_rule": "M2306 passes if it freezes a bounded measured-execution design over M2304 selected checkpoints or selects a synthesis route while keeping all ranking and paper claims blocked.",
+  "next_blocker": "m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design"
+}

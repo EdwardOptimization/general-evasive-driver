@@ -41444,3 +41444,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: clean execution but below profile readiness floor; no ranking or repair-success claim
 - follow-up manifest: `experiments/manifests/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.json`
 - next: `m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit`
+
+## M2305 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Training Execution Result Audit
+
+- status: completed
+- decision: `guarded_repair_training_audit_route_to_selected_checkpoint_measured_execution_design`
+- manifest: `experiments/manifests/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.json`
+- audit doc: `docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md`
+- parent summary: `runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json`
+- M2304 result_class: `current_sim_training_stability_repair_execution_pass`
+- completed_run_count: `15`
+- candidate_eval_count: `120`
+- selected_checkpoint_count: `15`
+- selected_beats_final_count: `10/15`
+- selected_checkpoint_profile_floor_pass_count: `0`
+- final_checkpoint_profile_floor_pass_count: `0`
+- selected_readiness_floor_pass_count: `5/15`
+- final_readiness_floor_pass_count: `4/15`
+- audit interpretation: clean training execution but still below comparison-readiness floor
+- route: selected-checkpoint measured-execution design over M2304 selected rows
+- reset/rollout/policy action in M2305: `false`
+- training/replay/PPO in M2305: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.json`
+- next: `m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design`
