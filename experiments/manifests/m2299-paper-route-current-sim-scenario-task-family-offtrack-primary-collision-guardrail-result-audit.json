@@ -1,0 +1,177 @@
+{
+  "id": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/offtrack_target_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/collision_guardrail_slices.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json",
+      "docs/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.json"
+    ],
+    "parent_objective": [
+      "audit offtrack target and collision guardrail materialization"
+    ],
+    "derived_from": [
+      "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation"
+    ],
+    "blocked_by": [
+      "M2298 materialized target/guardrail slices and repair_gate_spec"
+    ],
+    "supersedes": [
+      "direct repair before target/guardrail audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+  "public_gates": [
+    "M2299 must not rerun reset or rollout",
+    "M2299 must verify M2298 target and guardrail counts",
+    "M2299 must verify profile axes are excluded from target and guardrail slices",
+    "M2299 must decide the next non-ranking route",
+    "M2299 must not rank profiles, select a winner, or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not change profile configs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_offtrack_target_collision_guardrail_result_audit",
+    "evidence_increment": "audits materialized target/guardrail slices and repair gate spec before any repair",
+    "claim_scope": "result audit and route selection only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2298 target/guardrail counts fail",
+      "stop if profile axes leaked into target or guardrail slices",
+      "stop if repair_gate_spec is missing or incoherent",
+      "stop if no non-ranking follow-up route can be selected"
+    ],
+    "fallback_plan": [
+      "route to threshold repair if materialization counts fail",
+      "route to guarded repair design if target/guardrail materialization is accepted",
+      "route to branch synthesis if target and guardrail objectives conflict"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2298 writes target/guardrail materialization artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit target/guardrail materialization and choose next route",
+    "admission_evidence": [
+      "M2298 result_class is current_sim_scenario_task_family_offtrack_collision_guardrail_materialization_pass",
+      "M2298 writes repair_gate_spec.json",
+      "M2298 profile_target_slice_count and profile_guardrail_slice_count are zero"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+      "M2299 status queue scoreboard research log and review",
+      "one follow-up manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "target/guardrail materialization is accepted or rejected",
+      "repair_gate_spec is accepted or rejected",
+      "non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2299 audits task-performance target materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2299."
+    ],
+    "temporal_evidence_window": "M2298 materialization artifacts.",
+    "negative_result_policy": "Treat materialized target/guardrail slices as repair infrastructure, not self-ID evidence.",
+    "allowed_claims": [
+      "target/guardrail materialization audit",
+      "non-ranking route selection"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits explicit repair targets before repair execution",
+    "paper_verdict_delta": "can admit guarded repair design or force scenario-task reshaping",
+    "must_synthesize_if": [
+      "M2299 cannot select a non-ranking route",
+      "M2299 recommends broad repair without using target/guardrail gates",
+      "M2299 finds target and guardrail objectives conflict"
+    ]
+  },
+  "hypothesis": "M2298 target/guardrail materialization can be audited to admit a guarded repair design without rerun, ranking, or paper/self-ID claims.",
+  "success_criteria": [
+    "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md exists",
+    "M2298 target and guardrail counts are verified",
+    "profile target and guardrail counts are verified as zero",
+    "repair_gate_spec is accepted or rejected",
+    "a non-ranking follow-up route is pre-registered"
+  ],
+  "failure_criteria": [
+    "M2299 reruns reset or rollout",
+    "M2299 ranks profiles or selects a winner",
+    "M2299 changes scenario specs or profile configs",
+    "M2299 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2299 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual result audit over runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json and repair_gate_spec.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
+  ],
+  "decision_rule": "M2299 passes if it verifies M2298 materialization and pre-registers a non-ranking follow-up route.",
+  "next_blocker": "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-design"
+}

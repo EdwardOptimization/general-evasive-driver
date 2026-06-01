@@ -41259,3 +41259,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.json`
 - next: `m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation`
+
+## M2298 Paper-Route Current-Sim Scenario Task-Family Offtrack-Primary Collision-Guardrail Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_offtrack_collision_guardrail_materialization_pass`
+- manifest: `experiments/manifests/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.json`
+- implementation doc: `docs/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.md`
+- summary: `runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization.py`
+- input_slice_count: `57`
+- dominant_slice_count: `56`
+- offtrack_target_slice_count: `20`
+- collision_guardrail_slice_count: `11`
+- profile_diagnostic_slice_count: `20`
+- profile_target_slice_count: `0`
+- profile_guardrail_slice_count: `0`
+- repair_gate_spec_exists: `true`
+- primary_route: `offtrack_primary_collision_guardrail_failure_slice_result_audit`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit.json`
+- next: `m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit`

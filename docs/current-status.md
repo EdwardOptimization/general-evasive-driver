@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design
+m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation
 ```
 
 Current next task:
 
 ```text
-m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation
+m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -90,11 +90,19 @@ global counts exactly. The primary diagnostic route is:
 offtrack_primary_collision_guardrail_failure_slice_result_audit
 ```
 
-M2297 designs the next route: materialize non-profile offtrack target slices and
-collision guardrail slices before any repair/training. M2298 must consume M2295
-slice artifacts only and write target/guardrail CSVs plus `repair_gate_spec.json`.
-Training, replay, PPO, promotion, ranking, winner selection, finite-window vs
-GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
+M2298 materializes the non-profile target and guardrail pack:
+
+```text
+offtrack_target_slice_count: 20
+collision_guardrail_slice_count: 11
+profile_target_slice_count: 0
+profile_guardrail_slice_count: 0
+repair_gate_spec_exists: true
+```
+
+M2299 must audit this materialization before any repair/training. Training,
+replay, PPO, promotion, ranking, winner selection, finite-window vs GRU verdict,
+paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 
