@@ -1,0 +1,176 @@
+{
+  "id": "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_controlled_panel_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/excluded_qualified_candidates.csv",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/panel_diagnostics.csv",
+      "docs/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit M2134 controlled panel construction result after required branch synthesis"
+    ],
+    "derived_from": [
+      "m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2135 synthesis must complete before controlled panel result audit"
+    ],
+    "supersedes": [
+      "direct controller ranking from controlled panel units",
+      "direct comparison protocol design without panel audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+  "public_gates": [
+    "M2136 must audit M2134 controlled panel completeness and guardrails",
+    "M2136 must decide whether comparison protocol design is admitted",
+    "M2136 must not rerun reset rollout measured execution or execute policy actions",
+    "M2136 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_controlled_panel_result_audit",
+    "evidence_increment": "audits controlled panel artifact after branch synthesis",
+    "claim_scope": "controlled panel result audit only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2134 construction is incomplete",
+      "stop if panel source kinds duplicate",
+      "stop if broad aggregate rows enter direct panel units",
+      "stop if audit ranks profiles directly"
+    ],
+    "fallback_plan": [
+      "route to comparison protocol design if panel construction is sufficient",
+      "route to scenario redesign if panel construction is insufficient or too confounded",
+      "route to branch synthesis if new evidence contradicts M2135"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2135 continues branch and admits panel result audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support controlled panel result audit",
+    "admission_evidence": [
+      "M2135 synthesis decision continue",
+      "M2134 result_class comparison_support_controlled_panel_construction_pass",
+      "M2134 controlled_panel_unit_count 6",
+      "M2134 panel_duplicate_source_kind_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles",
+      "do not claim paper-level evidence",
+      "do not skip result audit before comparison protocol design"
+    ],
+    "allowed_updates": [
+      "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+      "M2136 status queue scoreboard research log and review",
+      "one follow-up manifest for comparison protocol design or scenario redesign"
+    ],
+    "next_stage_criteria": [
+      "M2134 panel artifact is audited",
+      "panel and exclusion counts are summarized",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2136 audits panel construction and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2136."
+    ],
+    "temporal_evidence_window": "M2134 controlled panel artifact.",
+    "negative_result_policy": "If panel support is not sufficient, record the negative result and route to synthesis or scenario redesign rather than ranking aggregates.",
+    "allowed_claims": [
+      "controlled panel result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns controlled panel artifact into a bounded next-route decision after synthesis",
+    "paper_verdict_delta": "can admit comparison protocol design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2136 proposes direct ranking",
+      "M2136 ignores generated-proxy paper-validity boundary",
+      "M2136 contradicts M2135 continuation decision without a new synthesis"
+    ]
+  },
+  "hypothesis": "M2134 controlled panel construction is sufficient to admit comparison protocol design, but not direct ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md exists",
+    "M2134 summary is audited",
+    "panel and exclusion counts are summarized",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2134 artifact is not audited",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md from M2134 summary and panel artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_controlled_panel_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv"
+  ],
+  "decision_rule": "M2136 passes if it audits M2134 and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m2137-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-design"
+}

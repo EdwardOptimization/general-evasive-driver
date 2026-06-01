@@ -37699,3 +37699,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: controlled panel artifact only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.json`
 - next: `m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis`
+
+## M2135 Paper-Route Outcome-Supported Decisive Comparison-Support Branch Synthesis
+
+- status: completed
+- decision: `comparison_support_branch_synthesis_continue_to_controlled_panel_audit`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.json`
+- synthesis artifact: `docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md`
+- reset/rollout/measured execution in M2135: `false`
+- policy actions executed in M2135: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- synthesis window: `M2125-M2134`
+- supported evidence: M2125 complete 1200-episode measured artifact; M2128 localized 15 ready and 37 support candidates; M2131 qualified 15 rows; M2134 constructed 6 non-overlapping panel units with guardrail 0
+- unsupported claims remain: controller-family ranking, finite-window-vs-GRU conclusion, paper-level benchmark result, level3 self-identification
+- public-gate overfit risk: medium because rows are generated comparison-support smoke proxies with `paper_validity_claim=false`, no private holdout, and only 6 primary panel units
+- decision: continue to controlled-panel result audit, not ranking
+- follow-up manifest: `experiments/manifests/m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit.json`
+- next: `m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit`

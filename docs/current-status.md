@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction
+m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis
+m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit
 ```
 
-Immediate route: M2134 materializes a non-overlapping controlled panel from
-M2131 qualified candidates: `6` primary source-kind units, `9` excluded
-qualified rows, duplicate source-kind count `0`, broad aggregate exclusions
-`3`, and guardrail `0`. The workflow synthesis cadence is now reached, so
-M2135 must synthesize the M2125-M2134 branch before any result audit or
-comparison protocol design. Ranking, comparison execution, paper claims,
-finite-window vs GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2135 synthesizes M2125-M2134 and decides `continue`. The
+branch produced a complete measured artifact, localized support, a qualified
+candidate panel, and a six-unit non-overlapping controlled panel. M2136 may
+audit the controlled panel result before comparison protocol design. Ranking,
+comparison execution, paper claims, finite-window vs GRU conclusions, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
