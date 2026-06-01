@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2214-paper-route-current-sim-support-slice-validity-audit-design
+m2215-paper-route-current-sim-support-slice-validity-audit-implementation
 ```
 
 Current next task:
 
 ```text
-m2215-paper-route-current-sim-support-slice-validity-audit-implementation
+m2216-paper-route-current-sim-support-slice-validity-audit-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -30,11 +30,13 @@ artifacts. It found `2304` input episodes, `212` grouped support rows, `13`
 comparison-ready candidate slices, `27` candidate-support slices, `112`
 offtrack-dominated slices, and guardrail `0`, but the global panel remains
 offtrack dominated (`0.81640625` offtrack rate). M2213 synthesizes M2203-M2212
-and pivots to a new support-slice validity branch. M2214 freezes that no-rerun
-audit design with scene-backed, history-family diagnostic, profile-only,
-denominator-imbalanced, and blocker labels. M2215 may implement the audit over
-M2212 artifacts only; reset, rollout, measured execution, repair, ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
+and pivots to a new support-slice validity branch. M2215 implements that
+no-rerun audit and finds `9` scene-backed candidates, `13` history-family
+diagnostic candidates, `18` profile-only candidates, `7` scene blockers, and
+`ranking_admissible_count=0`. M2216 must audit those counts and choose bounded
+diagnostic comparison, task-quality/profile repair, or stop. Reset, rollout,
+measured execution, repair, ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked until that audit.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

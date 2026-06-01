@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T115852Z
+- Generated at UTC: 20260601T120444Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2215 pending no-rerun implementation over M2212 support artifacts no reset rollout measured execution ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_support_slice_validity_audit_pass_route_to_result_audit
+- Decision reason: M2215 no-rerun validity audit pass 212 groups scene-backed 9 history diagnostic 13 profile-only 18 global blockers 7 ranking_admissible 0 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -83,8 +83,8 @@ M2212 support slices can be validity-classified without rerun, preventing profil
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2215 pending no-rerun implementation over M2212 support artifacts no reset rollout measured execution ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_support_slice_validity_audit_pass_route_to_result_audit
+- reason: M2215 no-rerun validity audit pass 212 groups scene-backed 9 history diagnostic 13 profile-only 18 global blockers 7 ranking_admissible 0 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

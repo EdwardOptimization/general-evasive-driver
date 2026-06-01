@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2215 pending no-rerun implementation over M2212 support artifacts no reset rollout measured execution ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2215 no-rerun validity audit pass 212 groups scene-backed 9 history diagnostic 13 profile-only 18 global blockers 7 ranking_admissible 0 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
   "failure_criteria": [
     "summary is missing",
     "slice_validity.csv is missing",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T115852Z",
+  "generated_at_utc": "20260601T120444Z",
   "hypothesis": "M2212 support slices can be validity-classified without rerun, preventing profile-only candidate labels from being overclaimed.",
   "lineage": {
     "blocked_by": [
@@ -61,7 +61,7 @@
   "milestone": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
   "next_blocker": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_support_slice_validity_audit_pass_route_to_result_audit",
   "public_gates": [
     "M2215 must use only M2209/M2212 artifacts",
     "M2215 must write slice validity artifacts",
@@ -71,9 +71,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_support_slice_validity_audit_pass_route_to_result_audit",
     "milestone": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
-    "reason": "M2215 pending no-rerun implementation over M2212 support artifacts no reset rollout measured execution ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2215 no-rerun validity audit pass 212 groups scene-backed 9 history diagnostic 13 profile-only 18 global blockers 7 ranking_admissible 0 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

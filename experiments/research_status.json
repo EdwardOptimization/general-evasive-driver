@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2222,
+    "completed": 2223,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+    "command_log": "docs/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+    "run_dir": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
     "status": "completed",
-    "task_id": "m2214-paper-route-current-sim-support-slice-validity-audit-design"
+    "task_id": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_slice_validity_audit --group-support runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv --summary runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --output-dir runs/m2215_paper_route_current_sim_support_slice_validity_audit",
-    "hypothesis": "M2212 support slices can be validity-classified without rerun, preventing profile-only candidate labels from being overclaimed.",
-    "id": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun support-slice validity audit over M2212 artifacts",
-    "priority": 22100,
+    "command": "write docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+    "hypothesis": "M2215 validity artifacts can be audited into a bounded next-route decision without ranking or rerun.",
+    "id": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2215 validity counts and decide bounded diagnostic comparison vs repair/stop",
+    "priority": 22110,
     "status": "pending",
-    "success_artifact": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json"
+    "success_artifact": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md"
   },
-  "updated_at_utc": "20260601T115730Z"
+  "updated_at_utc": "20260601T120208Z"
 }

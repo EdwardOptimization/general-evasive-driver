@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M2216 pending result audit over M2215 validity artifacts before bounded diagnostic comparison repair or stop",
+  "failure_criteria": [
+    "audit document is missing",
+    "audit overclaims M2215 as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T120444Z",
+  "hypothesis": "M2215 validity artifacts can be audited into a bounded next-route decision without ranking or rerun.",
+  "lineage": {
+    "blocked_by": [
+      "M2215 must classify slices without ranking"
+    ],
+    "derived_from": [
+      "m2215-paper-route-current-sim-support-slice-validity-audit-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/history_family_diagnostic_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/profile_only_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/global_or_scene_blockers.csv"
+    ],
+    "parent_objective": [
+      "audit no-rerun support-slice validity result before choosing comparison or repair route"
+    ],
+    "supersedes": [
+      "direct comparison design from M2215 counts without result audit"
+    ]
+  },
+  "milestone": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+  "next_blocker": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2216 must audit M2215 summary and validity artifacts",
+    "M2216 must keep ranking_admissible_count at 0",
+    "M2216 must decide bounded diagnostic comparison, task-quality repair, or stop",
+    "M2216 must not run reset, rollout, measured execution, policy action, or training"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+    "reason": "M2216 pending result audit over M2215 validity artifacts before bounded diagnostic comparison repair or stop",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md exists",
+    "audit checks M2215 result_class, validity counts, ranking_admissible_count, and guardrail",
+    "next route is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

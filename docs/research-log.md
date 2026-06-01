@@ -39525,3 +39525,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits no-rerun support-slice validity audit implementation
 - follow-up manifest: `experiments/manifests/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.json`
 - next: `m2215-paper-route-current-sim-support-slice-validity-audit-implementation`
+
+## M2215 Paper-Route Current-Sim Support-Slice Validity Audit Implementation
+
+- status: completed
+- decision: `current_sim_support_slice_validity_audit_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.json`
+- run artifact: `runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_support_slice_validity_audit.py`
+- focused tests: `2 passed`
+- input_group_count: `212`
+- episode_row_count: `2304`
+- scene_backed_candidate_count: `9`
+- history_family_diagnostic_count: `13`
+- profile_only_candidate_count: `18`
+- global_or_scene_blocker_count: `7`
+- low_sample_or_unresolved_count: `60`
+- invalid_for_ranking_count: `105`
+- ranking_admissible_count: `0`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: support exists as scene-backed and history-family diagnostics, but no ranking-admissible slice exists
+- follow-up manifest: `experiments/manifests/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.json`
+- next: `m2216-paper-route-current-sim-support-slice-validity-audit-result-audit`
