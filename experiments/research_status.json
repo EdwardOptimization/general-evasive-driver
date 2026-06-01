@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2194,
+    "completed": 2195,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+    "command_log": "docs/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+    "run_dir": "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit",
     "status": "completed",
-    "task_id": "m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design"
+    "task_id": "m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit --original-output-dir runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution --original-workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --repeat-output-dir runs/m2184_paper_route_current_sim_repeat_measured_execution --repeat-workload runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv --output-dir runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit",
-    "hypothesis": "A no-rerun audit can classify combined M2174+M2184 outcome support and seed diversity before any profile ranking.",
-    "id": "m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun seed-diversity combined-outcome audit",
-    "priority": 21820,
+    "command": "write docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+    "hypothesis": "The M2187 no-rerun audit result should block comparison and route to explicit support/seed-diversity repair.",
+    "id": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2187 no-rerun result and choose repair route",
+    "priority": 21830,
     "status": "pending",
-    "success_artifact": "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json"
+    "success_artifact": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md"
   },
-  "updated_at_utc": "20260601T092902Z"
+  "updated_at_utc": "20260601T093718Z"
 }

@@ -1,0 +1,161 @@
+{
+  "id": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json",
+      "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/repeat_diversity_flags.csv",
+      "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/comparison_readiness_claim_boundary.csv",
+      "docs/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit no-rerun combined outcome and seed-diversity result before next route"
+    ],
+    "derived_from": [
+      "m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2187 audit result must be interpreted before repair or comparison design"
+    ],
+    "supersedes": [
+      "direct ranking after no-rerun combined audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+  "public_gates": [
+    "M2188 must audit M2187 summary and flags",
+    "M2188 must decide whether comparison remains blocked",
+    "M2188 must route support failure and seed-diversity suspicion explicitly",
+    "M2188 must not rank profiles or select a winner",
+    "M2188 must not claim finite-window vs GRU"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_seed_diversity_combined_outcome_result_audit",
+    "evidence_increment": "audits comparison-readiness failure and chooses repair route",
+    "claim_scope": "result audit only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2187 summary is missing",
+      "stop if support failure or seed-diversity suspicion is not classified",
+      "stop if audit would rank profiles",
+      "stop if next route is ambiguous"
+    ],
+    "fallback_plan": [
+      "route to task-quality/offtrack repair if support is the primary blocker",
+      "route to repeat seed-diversity repair if seed independence is invalid",
+      "route to synthesis if both blockers require branch pivot"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2187 result requires process audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-rerun combined repeat data-quality result",
+    "admission_evidence": [
+      "M2187 summary reports not_comparison_ready",
+      "M2187 completeness_pass true",
+      "M2187 outcome_support_pass false",
+      "M2187 seed_diversity_status suspicious_identical_repeat_outcome_vectors"
+    ],
+    "blocked_shortcuts": [
+      "no ranking in audit",
+      "no paper claim",
+      "no self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+      "M2188 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "support failure is classified",
+      "seed-diversity suspicion is classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2188 audits aggregate data quality and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2188."
+    ],
+    "temporal_evidence_window": "M2174/M2184/M2187 artifacts.",
+    "negative_result_policy": "Record comparison-readiness failure and route repair; do not weaken ranking threshold.",
+    "allowed_claims": [
+      "combined repeat data-quality result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new repeat data-quality result before deciding repair",
+    "paper_verdict_delta": "can choose support repair or seed-diversity repair but cannot rank profiles",
+    "must_synthesize_if": [
+      "M2188 cannot decide the next route",
+      "M2188 would rank profiles",
+      "M2188 identifies both support and seed-diversity as major blockers needing branch pivot"
+    ]
+  },
+  "hypothesis": "The M2187 no-rerun audit result should block comparison and route to explicit support/seed-diversity repair.",
+  "success_criteria": [
+    "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md exists",
+    "M2187 result is audited",
+    "support failure is classified",
+    "seed-diversity suspicion is classified",
+    "next route is explicit",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2187 result is not audited",
+    "audit ranks profiles",
+    "audit claims paper-level evidence or finite-window vs GRU"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json",
+    "docs/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.md"
+  ],
+  "decision_rule": "M2188 passes if it audits M2187 and chooses a repair route without ranking profiles.",
+  "next_blocker": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit"
+}

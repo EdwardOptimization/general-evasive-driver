@@ -38934,3 +38934,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to no-rerun audit implementation
 - follow-up manifest: `experiments/manifests/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.json`
 - next: `m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run`
+
+## M2187 Paper-Route Current-Sim Repeat Seed-Diversity and Combined-Outcome Audit Implementation and Run
+
+- status: completed
+- decision: `current_sim_repeat_seed_diversity_combined_outcome_audit_not_comparison_ready_route_to_result_audit`
+- manifest: `experiments/manifests/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit.py`
+- focused tests: `2 passed`
+- summary: `runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json`
+- result_class: `current_sim_repeat_seed_diversity_combined_outcome_audit_not_comparison_ready`
+- combined episode/repeat count: `960/3`
+- repeat counts: `320` each for `repeat_0_existing`, `repeat_1_seed_21761`, and `repeat_2_seed_21762`
+- completeness pass: `true`
+- combined success/collision/offtrack: `163/56/741`
+- combined success/offtrack rate: `0.16979166666666667/0.771875`
+- outcome support pass: `false`
+- readiness thresholds: min combined success `240`, max offtrack rate `0.60`, min per-repeat success `80`
+- checkpoint duplicate count repeat_1 vs repeat_2: `0`
+- repeat aggregate equal: `true`
+- profile vector equal: `true`
+- seed diversity status: `suspicious_identical_repeat_outcome_vectors`
+- comparison ready: `false`
+- training: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to no-rerun audit result audit and repair-route decision
+- follow-up manifest: `experiments/manifests/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.json`
+- next: `m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit`
