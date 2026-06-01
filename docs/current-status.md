@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit
+m2183-paper-route-current-sim-repeat-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2183-paper-route-current-sim-repeat-measured-execution-command-design
+m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2182 audits the M2181 measured-runner metadata extension as
-clean. Repeat metadata is now preserved under focused fake-rollout tests,
-partial repeat metadata fails closed before rollout, and non-repeat workloads
-remain compatible. M2183 may now freeze the repeat measured-execution command
-over the M2177 new repeat workload. The execution itself, controller ranking,
-paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked
-until later audited evidence supports them.
+Immediate route: M2183 freezes the exact repeat measured-execution command
+over the M2177 new repeat workload: `640` episodes, `40` specs, `8` profiles,
+and `2` repeat training-seed groups. M2184 may now run only that frozen command
+and must defer interpretation to M2185. Controller ranking, paper claims,
+finite-window vs GRU verdicts, and self-ID claims remain blocked until later
+audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

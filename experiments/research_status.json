@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2190,
+    "completed": 2191,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+    "command_log": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+    "run_dir": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit"
+    "task_id": "m2183-paper-route-current-sim-repeat-measured-execution-command-design"
   },
   "next_task": {
-    "command": "write docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
-    "hypothesis": "The repeat measured-execution command can be frozen over the M2177 new repeat workload with exact target counts and preserved repeat metadata.",
-    "id": "m2183-paper-route-current-sim-repeat-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze repeat measured-execution command without executing rollout",
-    "priority": 21780,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv --output-dir runs/m2184_paper_route_current_sim_repeat_measured_execution --eval-seed-base 218400 --device cpu --no-resume --target-episode-count 640 --target-spec-count 40 --target-profile-count 8 --next-blocker m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
+    "hypothesis": "The frozen M2183 command can execute the two new repeat groups and preserve repeat metadata without runner failures.",
+    "id": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: execute frozen repeat measured-execution command; defer interpretation to audit",
+    "priority": 21790,
     "status": "pending",
-    "success_artifact": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md"
+    "success_artifact": "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260601T091420Z"
+  "updated_at_utc": "20260601T091821Z"
 }
