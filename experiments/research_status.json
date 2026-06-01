@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2300,
+    "completed": 2301,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
+    "task_id": "m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md"
+    "run_dir": "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution",
+    "command_log": "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json"
   },
   "next_task": {
-    "id": "m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation",
-    "kind": "infrastructure",
-    "priority": 22880,
+    "id": "m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit",
+    "kind": "gate",
+    "priority": 22890,
     "status": "pending",
-    "hypothesis": "The frozen M2292 measured execution command can run the 1080-episode scenario task-family panel without validation failures or claim-boundary violations.",
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_measured_execution --config configs/paper_route_current_sim_scenario_task_family_v0.json --selected-rows runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv --config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --output-dir runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution --eval-seed-base 229300 --target-scenario-spec-count 72 --target-selected-checkpoint-count 15 --target-episode-count 1080 --device cpu --next-blocker m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit",
-    "success_artifact": "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
-    "notes": "Pending: implement focused measured runner and run frozen 1080-episode panel; no training ranking or paper claims"
+    "hypothesis": "M2293 measured execution artifacts can be audited as the scenario task-quality cadence synthesis to classify outcome structure and choose the next non-ranking route without making profile ranking or paper/self-ID claims.",
+    "command": "manual result audit over runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json and aggregate CSVs",
+    "success_artifact": "docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md",
+    "notes": "Pending: audit M2293 complete measured panel as cadence synthesis and route next work; no rerun training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T203118Z"
+  "updated_at_utc": "20260601T204419Z"
 }

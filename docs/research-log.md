@@ -41130,3 +41130,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.json`
 - next: `m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation`
+
+## M2293 Paper-Route Current-Sim Scenario Task-Family Measured Execution Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_measured_execution_pass`
+- manifest: `experiments/manifests/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.json`
+- implementation doc: `docs/m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation.md`
+- summary: `runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_measured_execution.py`
+- episode_count: `1080 / 1080`
+- scenario_spec_count: `72 / 72`
+- selected_checkpoint_count: `15 / 15`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- label_mismatch_count: `0`
+- global_success_rate: `0.06388888888888888`
+- global_offtrack_rate: `0.7268518518518519`
+- global_collision_rate: `0.1935185185185185`
+- global_dominant_failure_mode: `offtrack_dominated_failure`
+- rollout/measured execution: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.json`
+- next: `m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit`

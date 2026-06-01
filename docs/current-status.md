@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2292-paper-route-current-sim-scenario-task-family-measured-execution-design
+m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation
 ```
 
 Current next task:
 
 ```text
-m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation
+m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -59,20 +59,35 @@ actor_contract_violation_count: 0
 guardrail_violation_count: 0
 ```
 
-M2292 freezes the measured execution design: implement a focused runner over the
+M2293 implements and runs the focused measured-execution runner over the
 reset-valid `scenario_specs`, using M2262 selected checkpoints and profile
-configs. The frozen panel is:
+configs. The measured panel is complete:
 
 ```text
-scenario specs: 72
-selected checkpoints: 15
-episodes: 1080
+scenario specs: 72 / 72
+selected checkpoints: 15 / 15
+episodes: 1080 / 1080
+failure_count: 0
+metadata_missing_count: 0
+metric_completeness_failure_count: 0
+guardrail_violation_count: 0
 checkpoint source: runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv
 ```
 
-M2293 may run this frozen measured-execution command. Training, replay, PPO,
-promotion, ranking, winner selection, finite-window vs GRU verdict, paper-level
-claim, and level3 self-ID claim remain blocked.
+The outcome distribution is weak and needs audit before interpretation:
+
+```text
+success_rate: 0.06388888888888888
+offtrack_rate: 0.7268518518518519
+collision_rate: 0.1935185185185185
+dominant_failure_mode: offtrack_dominated_failure
+```
+
+M2294 must audit this result as the scenario task-quality branch cadence
+synthesis before any repair, ranking, comparison, or paper-route
+interpretation. Training, replay, PPO, promotion, ranking, winner selection,
+finite-window vs GRU verdict, paper-level claim, and level3 self-ID claim remain
+blocked.
 
 ## Actor Contract
 
