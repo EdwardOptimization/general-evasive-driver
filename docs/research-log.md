@@ -39184,3 +39184,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to reset-validation result audit before measured-execution readiness design
 - follow-up manifest: `experiments/manifests/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.json`
 - next: `m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit`
+
+## M2198 Paper-Route Current-Sim Offtrack-Support Reset-Validation Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_reset_validation_audit_admit_measured_readiness_design`
+- manifest: `experiments/manifests/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.json`
+- audit artifact: `docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md`
+- audited summary: `runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json`
+- reset attempts: `288`
+- reset successes: `288`
+- reset failures: `0`
+- observation dimension failures: `0`
+- contract violations: `0`
+- metadata missing: `0`
+- forbidden-key violations: `0`
+- seed_source_quota_pass: `true`
+- guardrail violations: `0`
+- result: admit measured-readiness design only
+- follow-up manifest: `experiments/manifests/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.json`
+- next: `m2199-paper-route-current-sim-offtrack-support-measured-readiness-design`

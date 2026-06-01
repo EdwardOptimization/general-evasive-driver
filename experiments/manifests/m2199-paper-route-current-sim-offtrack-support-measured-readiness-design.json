@@ -1,0 +1,162 @@
+{
+  "id": "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv",
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured-execution readiness materialization for reset-valid repaired panel"
+    ],
+    "derived_from": [
+      "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "measured workload needs checkpoint/profile readiness before measured execution"
+    ],
+    "supersedes": [
+      "direct measured execution after reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+  "public_gates": [
+    "M2199 must design measured-readiness materialization over M2194 planned workload",
+    "M2199 must use M2171 profile checkpoint rows as the checkpoint source",
+    "M2199 must require 2304 workload rows and 0 missing checkpoint paths",
+    "M2199 must preserve reset-control alias semantics",
+    "M2199 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_measured_readiness_design",
+    "evidence_increment": "freezes checkpoint/workload readiness route for the reset-valid repaired panel",
+    "claim_scope": "measured-readiness design only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if checkpoint source cannot cover all 8 profiles",
+      "stop if workload rows cannot be joined to checkpoint paths",
+      "stop if design would execute policies or rank profiles"
+    ],
+    "fallback_plan": [
+      "route to readiness implementation if design is complete",
+      "route to checkpoint/profile materialization repair if checkpoint coverage is insufficient",
+      "route to branch synthesis if measured readiness cannot change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2198 reset audit admits measured-readiness design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design measured-execution readiness materialization",
+    "admission_evidence": [
+      "M2198 audits M2197 reset validation as clean",
+      "M2194 planned workload has 2304 rows",
+      "M2171 checkpoint profile materialization provides profile checkpoint rows"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in design",
+      "no policy action execution",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+      "M2199 status queue scoreboard research log and review",
+      "one follow-up manifest for readiness implementation"
+    ],
+    "next_stage_criteria": [
+      "readiness input/output contract is explicit",
+      "checkpoint join rule is explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2199 designs measured readiness and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2199."
+    ],
+    "temporal_evidence_window": "M2197 reset-validation result.",
+    "negative_result_policy": "If measured readiness cannot cover all workload rows, repair readiness before measured execution.",
+    "allowed_claims": [
+      "measured-readiness design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares reset-valid repaired panel for measured execution readiness",
+    "paper_verdict_delta": "can admit measured-readiness implementation but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2199 cannot define checkpoint/workload readiness",
+      "M2199 would run measured execution",
+      "M2199 would rank profiles"
+    ]
+  },
+  "hypothesis": "The reset-valid repaired workload can be joined with profile checkpoints into a measured-readiness artifact without running measured execution or ranking profiles.",
+  "success_criteria": [
+    "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md exists",
+    "input workload and checkpoint source are specified",
+    "expected workload row count 2304 is specified",
+    "checkpoint join and reset-control alias rules are specified",
+    "next implementation route is explicit",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "checkpoint join rule is ambiguous",
+    "expected counts are ambiguous",
+    "design starts measured execution",
+    "design ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2199 passes if it freezes a complete measured-readiness design and pre-registers implementation without measured execution or ranking.",
+  "next_blocker": "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design"
+}

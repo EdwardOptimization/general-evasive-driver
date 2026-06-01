@@ -1,0 +1,86 @@
+{
+  "decision_reason": "M2198 audits M2197 reset validation clean 288/288 reset success contract 0 metadata 0 forbidden-key 0 seed-source pass guardrail 0 admits measured-readiness design only no measured execution ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "audit document is missing",
+    "reset result is not audited",
+    "reset or contract checks fail",
+    "audit runs measured execution",
+    "audit ranks profiles"
+  ],
+  "failure_types": [],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T103859Z",
+  "hypothesis": "The M2197 reset-validation result is clean enough to admit measured-execution readiness design while keeping measured rollout/ranking blocked.",
+  "lineage": {
+    "blocked_by": [
+      "reset-validation pass must be audited before measured execution design"
+    ],
+    "derived_from": [
+      "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_reset_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/reset_rows.csv",
+      "docs/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md"
+    ],
+    "parent_objective": [
+      "audit reset-validation result before measured-execution readiness or command design"
+    ],
+    "supersedes": [
+      "direct measured-execution command design after reset run"
+    ]
+  },
+  "milestone": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+  "next_blocker": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_offtrack_support_reset_validation_audit_admit_measured_readiness_design",
+  "public_gates": [
+    "M2198 must audit M2197 reset summary",
+    "M2198 must confirm 288/288 reset success and zero reset failures",
+    "M2198 must confirm contract, metadata, forbidden-key, seed-source, and guardrail checks",
+    "M2198 must decide whether measured-execution readiness design is admitted",
+    "M2198 must not run measured execution or rank profiles"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_offtrack_support_reset_validation_audit_admit_measured_readiness_design",
+    "milestone": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+    "reason": "M2198 audits M2197 reset validation clean 288/288 reset success contract 0 metadata 0 forbidden-key 0 seed-source pass guardrail 0 admits measured-readiness design only no measured execution ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "1.0",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md exists",
+    "M2197 summary is audited",
+    "reset_success_count == 288",
+    "reset_failure_count == 0",
+    "contract, metadata, forbidden-key, seed-source, and guardrail checks pass",
+    "next route is explicit",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

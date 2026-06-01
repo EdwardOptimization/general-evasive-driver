@@ -16,22 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run
+m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit
+m2199-paper-route-current-sim-offtrack-support-measured-readiness-design
 ```
 
-Immediate route: M2197 implements reset-validator compatibility for M2194
-semantics and completes reset-only validation: `288/288` reset success,
-observation dim failures `0`, contract violations `0`, metadata missing `0`,
-forbidden-key violations `0`, seed-source quota pass, and guardrail violations
-`0`. M2198 must audit this reset result before measured-execution readiness or
-command design. Measured execution, controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked.
+Immediate route: M2198 audits M2197 as a clean reset-valid repaired panel and
+admits M2199 measured-readiness design. The next design must join the `2304`
+row repaired workload with profile checkpoint rows without running measured
+execution. Controller ranking, paper claims, finite-window vs GRU verdicts, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
