@@ -37821,3 +37821,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: design denominator-source inventory before any controlled comparison or ranking
 - follow-up manifest: `experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json`
 - next: `m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design`
+
+## M2140 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Source Inventory Design
+
+- status: completed
+- decision: `denominator_source_inventory_design_admit_no_rerun_materialization`
+- manifest: `experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json`
+- design artifact: `docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md`
+- reset/rollout/measured execution in M2140: `false`
+- policy actions executed in M2140: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: inventory M2138 panel source kinds against the complete M2125 measured profile universe
+- profile universe: `L0_current_masked`, `L1_one_step`, `L2_window_50`, `L3_online_gru`, `L3_reset_control_corrected`
+- expected denominator rows: `6 * 5 = 30`
+- primary denominator source: `runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/outcome_by_profile_source_kind.csv`
+- measured metadata source: `runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/profile_aggregate.csv`
+- blocked: ranking, family superiority, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
+- follow-up manifest: `experiments/manifests/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.json`
+- next: `m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization`

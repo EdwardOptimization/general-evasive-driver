@@ -1,0 +1,185 @@
+{
+  "id": "m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_denominator_source_inventory_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md",
+      "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/panel_units_normalized.csv",
+      "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/profile_support_matrix.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/outcome_by_profile_source_kind.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/profile_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json"
+    ],
+    "parent_objective": [
+      "materialize denominator-source inventory for M2138 panel units and M2125 measured profiles"
+    ],
+    "derived_from": [
+      "m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design"
+    ],
+    "blocked_by": [
+      "M2140 must design denominator-source inventory before materialization"
+    ],
+    "supersedes": [
+      "support-only matrix as denominator evidence",
+      "direct ranking before denominator availability is proven"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.md",
+  "public_gates": [
+    "M2141 must materialize denominator inventory from existing artifacts only",
+    "M2141 must include the complete M2125 measured profile universe",
+    "M2141 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2141 must not execute comparison or policy rollouts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit RL implementation code except the inventory materializer if needed",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_denominator_source_inventory_materialization",
+    "evidence_increment": "materializes denominator availability evidence for panel-unit/profile cells",
+    "claim_scope": "denominator inventory only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization ranks profiles",
+      "stop if materialization runs new rollouts",
+      "stop if materialization ignores missing denominator rows",
+      "stop if materialization ignores generated-proxy paper-validity boundary"
+    ],
+    "fallback_plan": [
+      "route to denominator inventory audit if artifacts are clean",
+      "route to controlled rerun design if denominator rows are unavailable",
+      "route to synthesis if denominator inventory cannot change the branch verdict"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2140 admits no-rerun denominator-source inventory materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "comparison-support denominator-source inventory materialization",
+    "admission_evidence": [
+      "M2140 designs denominator inventory",
+      "M2128 outcome_by_profile_source_kind exists",
+      "M2125 profile_aggregate exists"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2141",
+      "do not run measured execution in M2141",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "denominator-source inventory materializer if needed",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory artifacts",
+      "M2141 status queue scoreboard research log and review",
+      "one follow-up manifest for denominator inventory audit or controlled rerun design"
+    ],
+    "next_stage_criteria": [
+      "denominator inventory artifacts are written",
+      "availability labels are summarized",
+      "claim boundary is machine-readable",
+      "next audit or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2141 materializes denominator inventory and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2141."
+    ],
+    "temporal_evidence_window": "M2138 support matrix, M2128 outcome-by-profile-source-kind rows, and M2125 measured artifacts.",
+    "negative_result_policy": "If denominator inventory is incomplete, record missing rows and route to controlled rerun design or synthesis.",
+    "allowed_claims": [
+      "denominator-source inventory materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns support-only panel units into denominator availability evidence across the full measured profile universe",
+    "paper_verdict_delta": "can decide whether denominator-backed comparison design is possible but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2141 produces ranking fields",
+      "M2141 cannot recover denominator rows",
+      "M2141 finds denominator inventory cannot change the next route"
+    ]
+  },
+  "hypothesis": "Existing M2125/M2128 artifacts contain complete no-rerun denominator rows for M2138 panel units across the measured profile universe.",
+  "success_criteria": [
+    "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json exists",
+    "denominator inventory rows exist",
+    "all expected panel-unit/profile denominator rows are available",
+    "claim boundary exists",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "denominator inventory route requires rerun",
+    "denominator rows are missing duplicate or nonfinite",
+    "ranking or paper-level claims are made",
+    "claim boundary is missing or violated"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "write M2141 no-rerun denominator inventory artifacts from M2138 M2128 and M2125 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/denominator_inventory_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/claim_boundary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_denominator_source_inventory_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md",
+    "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/panel_units_normalized.csv",
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/outcome_by_profile_source_kind.csv"
+  ],
+  "decision_rule": "M2141 passes if it writes complete denominator inventory artifacts without ranking.",
+  "next_blocker": "m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit"
+}

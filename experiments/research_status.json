@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2148,
+    "completed": 2149,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md",
+    "command_log": "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md",
+    "run_dir": "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md",
     "status": "completed",
-    "task_id": "m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit"
+    "task_id": "m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json",
-    "hypothesis": "A bounded denominator-source inventory protocol can be designed for M2138 panel-unit/profile rows without ranking or rerun.",
-    "id": "m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun denominator-source inventory over M2138 panel-unit/profile rows",
-    "priority": 21350,
+    "command": "see experiments/manifests/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.json",
+    "hypothesis": "Existing M2125/M2128 artifacts contain complete no-rerun denominator rows for M2138 panel units across the measured profile universe.",
+    "id": "m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-rerun denominator inventory from M2138 M2128 and M2125 artifacts",
+    "priority": 21360,
     "status": "pending",
-    "success_artifact": "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md"
+    "success_artifact": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json"
   },
-  "updated_at_utc": "20260601T042500Z"
+  "updated_at_utc": "20260601T043000Z"
 }
