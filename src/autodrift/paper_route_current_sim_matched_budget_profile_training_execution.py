@@ -21,6 +21,7 @@ from autodrift.controller_family_full_rollout_execution import write_run_state
 DEFAULT_TRAINING_MATRIX = Path("runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv")
 DEFAULT_OUTPUT_DIR = Path("runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution")
 DEFAULT_EXECUTION_ROOT = DEFAULT_OUTPUT_DIR
+DEFAULT_TASK_ID = "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run"
 DEFAULT_NEXT_BLOCKER = "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit"
 
 EXPECTED_PROFILES = (
@@ -178,6 +179,7 @@ def build_execution_plan(
     training_matrix: Path | str,
     execution_root: Path | str,
     device: str = "cpu",
+    expected_total_steps: int = 8192,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     rows = load_training_matrix(training_matrix)
     execution = Path(execution_root)
@@ -185,9 +187,12 @@ def build_execution_plan(
     profile_names = tuple(sorted({str(row.get("profile_name", "")) for row in rows}))
     seed_ids = tuple(sorted({int(row.get("seed_id", -1)) for row in rows}))
     budget_signatures = {_budget_signature(row) for row in rows}
+    expected_budget = dict(EXPECTED_BUDGET)
+    expected_budget["total_steps"] = str(int(expected_total_steps))
 
     validation = {
         "expected_run_count": expected_count,
+        "expected_total_steps": int(expected_total_steps),
         "matrix_row_count": len(rows),
         "profile_names": list(profile_names),
         "seed_ids": list(seed_ids),
@@ -195,7 +200,7 @@ def build_execution_plan(
         "profile_set_matched": profile_names == EXPECTED_PROFILES,
         "seed_set_matched": seed_ids == EXPECTED_SEED_IDS,
         "budget_matched": len(budget_signatures) == 1 and next(iter(budget_signatures), ()) == tuple(
-            EXPECTED_BUDGET[field] for field in BUDGET_FIELDS
+            expected_budget[field] for field in BUDGET_FIELDS
         ),
         "missing_config_count": 0,
         "contract_violation_count": 0,
@@ -215,7 +220,7 @@ def build_execution_plan(
             if _config_contract_violation(config):
                 validation["contract_violation_count"] += 1
             ppo = config.get("ppo", {})
-            for field, expected in EXPECTED_BUDGET.items():
+            for field, expected in expected_budget.items():
                 if str(ppo.get(field)) != expected:
                     validation["config_budget_violation_count"] += 1
                     break
@@ -418,7 +423,9 @@ def execute_matched_budget_training(
     execution_root: Path | str = DEFAULT_EXECUTION_ROOT,
     device: str = "cpu",
     fail_fast: bool = True,
+    expected_total_steps: int = 8192,
     command_runner: CommandRunner = _default_runner,
+    task_id: str = DEFAULT_TASK_ID,
     next_blocker: str = DEFAULT_NEXT_BLOCKER,
 ) -> dict[str, Any]:
     output = Path(output_dir)
@@ -427,6 +434,7 @@ def execute_matched_budget_training(
         training_matrix=training_matrix,
         execution_root=execution_root,
         device=device,
+        expected_total_steps=int(expected_total_steps),
     )
     write_csv_rows(output / "command_matrix.csv", _command_rows(plan_rows), fieldnames=COMMAND_FIELDNAMES)
 
@@ -477,6 +485,7 @@ def execute_matched_budget_training(
         "execution_root": str(execution_root),
         "device": str(device),
         "fail_fast": bool(fail_fast),
+        "expected_total_steps": int(expected_total_steps),
         "expected_run_count": expected_run_count,
         "planned_run_count": len(plan_rows),
         "completed_run_count": completed_run_count,
@@ -516,7 +525,7 @@ def execute_matched_budget_training(
     write_run_state(
         output / "run_state.json",
         {
-            "task_id": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
+            "task_id": str(task_id),
             "status": "completed" if result_class.endswith("_pass") else "failed",
             "result_class": result_class,
             "next_blocker": next_blocker,
@@ -531,6 +540,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--execution-root", type=Path, default=DEFAULT_EXECUTION_ROOT)
     parser.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
+    parser.add_argument("--expected-total-steps", type=int, default=8192)
+    parser.add_argument("--task-id", default=DEFAULT_TASK_ID)
     parser.add_argument("--fail-fast", action="store_true")
     parser.add_argument("--no-fail-fast", dest="fail_fast", action="store_false")
     parser.set_defaults(fail_fast=True)
@@ -546,6 +557,8 @@ def main(argv: list[str] | None = None) -> int:
         execution_root=args.execution_root,
         device=args.device,
         fail_fast=bool(args.fail_fast),
+        expected_total_steps=int(args.expected_total_steps),
+        task_id=str(args.task_id),
         next_blocker=str(args.next_blocker),
     )
     print(f"summary={Path(args.output_dir) / 'summary.json'}")

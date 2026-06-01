@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2241,
+    "completed": 2242,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json",
+    "command_log": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
     "returncode": 0,
-    "run_dir": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs",
+    "run_dir": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution",
     "status": "completed",
-    "task_id": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization"
+    "task_id": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --output-dir runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --execution-root runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --device cpu --expected-total-steps 32768 --fail-fast",
-    "hypothesis": "The M2233 medium-v1 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, testing whether short-v0 was undertrained.",
-    "id": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: adapt focused runner for 32768-step expected budget and execute 15 medium-v1 profile/seed training jobs",
-    "priority": 22290,
+    "command": "manual artifact audit of runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json and profile_aggregate.csv",
+    "hypothesis": "M2234 produced complete finite medium-v1 training artifacts but still did not meet readiness floors, so M2235 can classify the repeated below-floor result and choose a non-ranking route.",
+    "id": "m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2234 medium-v1 training result and repeated readiness-floor failure",
+    "priority": 22300,
     "status": "pending",
-    "success_artifact": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json"
+    "success_artifact": "docs/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T134641Z"
+  "updated_at_utc": "20260601T135741Z"
 }

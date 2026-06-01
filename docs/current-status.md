@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization
+m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run
+m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -122,6 +122,13 @@ passes that materialization: `15` configs, `15` matrix rows, `32768` total
 steps in every generated config, one budget signature, contract `0`, guardrail
 `0`, and no training/ranking claims. M2234 may adapt the focused runner for
 expected `32768`-step matrices and run the fixed 15 medium-v1 training jobs.
+M2234 completes that run: `15/15` medium-v1 train_ppo runs complete, failures
+`0`, finite metrics true, budget signature `1`, contract `0`, guardrail `0`,
+and `quality_floor_profile_pass_count=0`. Medium-v1 improves some aggregate
+means but still does not make any profile comparison-ready by the pre-registered
+`2/3` seed readiness floor. M2235 must audit this repeated below-floor result
+before any further budget escalation, task/curriculum repair, measured
+execution, ranking, finite-window-vs-GRU verdict, paper claim, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

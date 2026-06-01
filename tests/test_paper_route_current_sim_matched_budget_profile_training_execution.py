@@ -10,10 +10,11 @@ from autodrift.paper_route_current_sim_matched_budget_profile_training_execution
     EXPECTED_SEED_IDS,
     aggregate_profile_rows,
     build_execution_plan,
+    build_arg_parser,
 )
 
 
-def _write_matrix(path: Path, config_dir: Path) -> None:
+def _write_matrix(path: Path, config_dir: Path, *, total_steps: int = 8192) -> None:
     fieldnames = [
         "matrix_id",
         "profile_name",
@@ -45,7 +46,7 @@ def _write_matrix(path: Path, config_dir: Path) -> None:
                             "wheel_observation_mode": "none",
                             "obstacle_relative_velocity_mode": "zero",
                         },
-                        "ppo": dict(EXPECTED_BUDGET),
+                        "ppo": {**EXPECTED_BUDGET, "total_steps": str(total_steps)},
                     },
                 )
                 writer.writerow(
@@ -54,7 +55,7 @@ def _write_matrix(path: Path, config_dir: Path) -> None:
                         "profile_name": profile_name,
                         "seed_id": str(seed_id),
                         "generated_config_path": str(config_path),
-                        **EXPECTED_BUDGET,
+                        **{**EXPECTED_BUDGET, "total_steps": str(total_steps)},
                         "input_contract": "P0_human_view_no_wheel_no_oracle",
                         "wheel_observation_mode": "none",
                         "obstacle_relative_velocity_mode": "zero",
@@ -81,6 +82,21 @@ def test_build_execution_plan_validates_matrix_and_remaps_output_root(tmp_path: 
     assert all(str(execution_root) in row["checkpoint_path"] for row in plan)
 
 
+def test_build_execution_plan_accepts_medium_expected_total_steps(tmp_path: Path) -> None:
+    matrix_path = tmp_path / "training_matrix.csv"
+    config_dir = tmp_path / "configs"
+    _write_matrix(matrix_path, config_dir, total_steps=32768)
+
+    _, validation = build_execution_plan(
+        training_matrix=matrix_path,
+        execution_root=tmp_path / "m2234_execution",
+        expected_total_steps=32768,
+    )
+
+    assert validation["validation_pass"] is True
+    assert validation["expected_total_steps"] == 32768
+
+
 def test_aggregate_profile_rows_applies_two_of_three_quality_floor() -> None:
     rows = []
     for profile_name in EXPECTED_PROFILES:
@@ -103,3 +119,17 @@ def test_aggregate_profile_rows_applies_two_of_three_quality_floor() -> None:
     assert all(row["passing_seed_count"] == 2 for row in aggregate)
     assert all(row["readiness_floor_pass"] is True for row in aggregate)
     assert all(row["ranking_admissible"] is False for row in aggregate)
+
+
+def test_arg_parser_accepts_task_id_and_expected_total_steps() -> None:
+    args = build_arg_parser().parse_args(
+        [
+            "--expected-total-steps",
+            "32768",
+            "--task-id",
+            "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
+        ]
+    )
+
+    assert args.expected_total_steps == 32768
+    assert args.task_id == "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run"

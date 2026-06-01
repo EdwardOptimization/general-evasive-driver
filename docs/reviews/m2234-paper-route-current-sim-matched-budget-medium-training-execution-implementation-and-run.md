@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T134848Z
+- Generated at UTC: 20260601T140019Z
 - Type: infrastructure
 - Gate tier: generalization
-- Promotion decision: pending
-- Decision reason: M2234 pending 32768-step focused runner adaptation and 15 medium-v1 profile/seed training jobs no ranking claims
+- Promotion decision: current_sim_matched_budget_medium_training_execution_complete_route_to_result_audit
+- Decision reason: M2234 medium-v1 runner pass 15/15 complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked
 
 ## Hypothesis
 
@@ -95,8 +95,8 @@ The M2233 medium-v1 matched-budget profile configs can be executed as 15 fixed t
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2234 pending 32768-step focused runner adaptation and 15 medium-v1 profile/seed training jobs no ranking claims
+- decision: current_sim_matched_budget_medium_training_execution_complete_route_to_result_audit
+- reason: M2234 medium-v1 runner pass 15/15 complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked
 
 ## Next Blocker
 

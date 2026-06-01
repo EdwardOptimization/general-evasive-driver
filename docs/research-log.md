@@ -40030,3 +40030,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits medium-v1 execution implementation-and-run
 - follow-up manifest: `experiments/manifests/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.json`
 - next: `m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run`
+
+## M2234 Paper-Route Current-Sim Matched-Budget Medium Training Execution Implementation and Run
+
+- status: completed
+- decision: `current_sim_matched_budget_medium_training_execution_complete_route_to_result_audit`
+- manifest: `experiments/manifests/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.json`
+- run artifact: `runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json`
+- implementation update: `src/autodrift/paper_route_current_sim_matched_budget_profile_training_execution.py`
+- focused tests: `3 passed`
+- result_class: `current_sim_matched_budget_profile_training_execution_pass`
+- expected_total_steps: `32768`
+- expected_run_count: `15`
+- completed_run_count: `15`
+- failed_run_count: `0`
+- checkpoint count: `15`
+- all_selected_metrics_finite: `true`
+- budget_signature_count: `1`
+- budget_matched: `true`
+- contract_violation_count: `0`
+- config_budget_violation_count: `0`
+- guardrail violations: `0`
+- quality_floor_profile_pass_count: `0`
+- training/PPO/environment rollout/policy action started: `true`
+- measured rollout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- aggregate readiness floors: all five profiles below the `2/3` seed floor
+- result: medium-v1 training execution is complete and finite, but still not comparison-ready by the pre-registered floor
+- follow-up manifest: `experiments/manifests/m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit.json`
+- next: `m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit`

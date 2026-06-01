@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2234 pending 32768-step focused runner adaptation and 15 medium-v1 profile/seed training jobs no ranking claims",
+  "decision_reason": "M2234 medium-v1 runner pass 15/15 complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked",
   "failure_criteria": [
     "any train_ppo subprocess fails",
     "any expected checkpoint or eval summary is missing",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "generalization",
-  "generated_at_utc": "20260601T134848Z",
+  "generated_at_utc": "20260601T140019Z",
   "hypothesis": "The M2233 medium-v1 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, testing whether short-v0 was undertrained.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
   "next_blocker": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_medium_training_execution_complete_route_to_result_audit",
   "public_gates": [
     "M2234 may adapt the focused execution adapter to accept expected total_steps 32768 and run exactly the 15 M2233 profile/seed configs",
     "M2234 must preserve frozen profiles, seeds, budgets, and actor input contract",
@@ -71,9 +71,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_medium_training_execution_complete_route_to_result_audit",
     "milestone": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
-    "reason": "M2234 pending 32768-step focused runner adaptation and 15 medium-v1 profile/seed training jobs no ranking claims",
+    "reason": "M2234 medium-v1 runner pass 15/15 complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

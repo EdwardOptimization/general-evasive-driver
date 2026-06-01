@@ -193,7 +193,7 @@
   "commands": [
     {
       "name": "implement_and_run",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --output-dir runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --execution-root runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --device cpu --expected-total-steps 32768 --fail-fast"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --output-dir runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --execution-root runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --device cpu --expected-total-steps 32768 --task-id m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run --next-blocker m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit --fail-fast"
     }
   ],
   "required_artifacts": [
