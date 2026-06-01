@@ -16,21 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2183-paper-route-current-sim-repeat-measured-execution-command-design
+m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run
+m2185-paper-route-current-sim-repeat-measured-execution-result-audit
 ```
 
-Immediate route: M2183 freezes the exact repeat measured-execution command
-over the M2177 new repeat workload: `640` episodes, `40` specs, `8` profiles,
-and `2` repeat training-seed groups. M2184 may now run only that frozen command
-and must defer interpretation to M2185. Controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked until later
-audited evidence supports them.
+Immediate route: M2184 runs the frozen repeat measured-execution command and
+passes execution/metadata gates: `640` episodes, `0` runner failures,
+metadata-missing `0`, metric-completeness failures `0`, guardrail `0`, and
+quota pass. Raw outcomes are still low-support and offtrack-dominated:
+`100` success, `36` collision, `504` offtrack noncollision noncompletion.
+M2185 must audit this result before any comparison. Controller ranking, paper
+claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
+later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

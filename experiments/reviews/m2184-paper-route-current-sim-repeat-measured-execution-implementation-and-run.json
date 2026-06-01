@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M2184 repeat measured execution pass 640 episodes 0 failures metadata missing 0 metric completeness 0 guardrail 0 outcomes success 100 collision 36 offtrack 504 no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "summary.json is missing",
+    "validation fails before rollout",
+    "episode_count != 640",
+    "any runner failure occurs",
+    "repeat metadata is missing",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not change actor inputs",
+    "do not change profile definitions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T092409Z",
+  "hypothesis": "The frozen M2183 command can execute the two new repeat groups and preserve repeat metadata without runner failures.",
+  "lineage": {
+    "blocked_by": [
+      "M2183 command design must freeze exact command before rollout"
+    ],
+    "derived_from": [
+      "m2183-paper-route-current-sim-repeat-measured-execution-command-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "M2177 materialized repeat profile checkpoints"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2183-paper-route-current-sim-repeat-measured-execution-command-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_objective": [
+      "execute frozen repeat measured-execution command for two new training-seed groups"
+    ],
+    "supersedes": [
+      "manual repeat measured execution without command-design artifact"
+    ]
+  },
+  "milestone": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
+  "next_blocker": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_repeat_measured_execution_pass_route_to_result_audit",
+  "public_gates": [
+    "M2184 must run only the frozen M2183 command",
+    "M2184 must produce 640 measured episode rows or fail closed",
+    "M2184 must preserve repeat metadata and write training_repeat_aggregate.csv",
+    "M2184 must not rank profiles or select a winner",
+    "M2184 result interpretation must be deferred to M2185 audit"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_repeat_measured_execution_pass_route_to_result_audit",
+    "milestone": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
+    "reason": "M2184 repeat measured execution pass 640 episodes 0 failures metadata missing 0 metric completeness 0 guardrail 0 outcomes success 100 collision 36 offtrack 504 no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "0.15625",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json exists",
+    "episode_count == 640",
+    "failure_count == 0",
+    "metadata_missing_count == 0",
+    "metric_completeness_failure_count == 0",
+    "training_repeat_aggregate artifact exists",
+    "guardrail_violation_count == 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

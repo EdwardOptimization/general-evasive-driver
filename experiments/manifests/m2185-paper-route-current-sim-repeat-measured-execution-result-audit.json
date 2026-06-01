@@ -1,0 +1,160 @@
+{
+  "id": "m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "M2177 materialized repeat profile checkpoints"
+    ],
+    "parent_dataset": [
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/training_repeat_aggregate.csv",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/profile_aggregate.csv",
+      "docs/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit repeat measured-execution result before comparison or ranking"
+    ],
+    "derived_from": [
+      "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2184 measured execution must be audited before interpretation"
+    ],
+    "supersedes": [
+      "direct profile ranking from M2184 profile aggregate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2185 must audit M2184 summary and repeat aggregate",
+    "M2185 must classify execution completeness and metadata preservation",
+    "M2185 must classify raw outcome support and offtrack dominance",
+    "M2185 must decide the next route before any ranking",
+    "M2185 must not select a winner or claim finite-window vs GRU"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run additional measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_measured_execution_result_audit",
+    "evidence_increment": "audits two-repeat closed-loop data and chooses next route before comparison",
+    "claim_scope": "execution result audit only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2184 did not actually complete",
+      "stop if repeat metadata is incomplete",
+      "stop if outcome support is too low for comparison",
+      "stop if repeated aggregate equality suggests seed-diversity audit is needed"
+    ],
+    "fallback_plan": [
+      "route to combined-repeat/seed-diversity audit if execution is complete but comparison remains underpowered",
+      "route to runner/workload repair if metadata is missing",
+      "route to task-quality repair if offtrack dominance blocks comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2184 execution completed and requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit repeat measured execution result",
+    "admission_evidence": [
+      "M2184 summary reports result_class pass",
+      "M2184 produced 640 episode rows and repeat aggregate",
+      "M2184 outcome distribution remains low-support/offtrack-dominated"
+    ],
+    "blocked_shortcuts": [
+      "no ranking in audit",
+      "no paper claim",
+      "no self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+      "M2185 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "execution pass/fail is classified",
+      "outcome support is classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2185 audits repeat measured execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2185."
+    ],
+    "temporal_evidence_window": "M2184 two-repeat measured execution.",
+    "negative_result_policy": "If offtrack dominance or seed-diversity concerns block comparison, record that and route repair/audit instead of ranking.",
+    "allowed_claims": [
+      "repeat execution audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new repeat closed-loop data before comparison",
+    "paper_verdict_delta": "can decide whether repeat data are comparison-ready or need repair",
+    "must_synthesize_if": [
+      "M2185 cannot classify outcome support",
+      "M2185 would rank profiles from descriptive aggregates",
+      "M2185 finds repeated aggregate equality requires a new audit branch"
+    ]
+  },
+  "hypothesis": "The M2184 repeat measured execution is complete and metadata-clean, but must be audited for outcome support before comparison.",
+  "success_criteria": [
+    "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md exists",
+    "M2184 summary is audited",
+    "episode_count/failure_count/metadata completeness are classified",
+    "outcome support and offtrack dominance are classified",
+    "next route is explicit",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2184 result is not audited",
+    "audit ranks profiles",
+    "audit claims paper-level evidence or finite-window vs GRU conclusion"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "M2177 repeat materialized checkpoints"
+  ],
+  "baseline_artifacts": [
+    "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+    "docs/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.md"
+  ],
+  "decision_rule": "M2185 passes if it audits M2184 and chooses the next route without ranking profiles or claiming paper-level conclusions.",
+  "next_blocker": "m2185-paper-route-current-sim-repeat-measured-execution-result-audit"
+}

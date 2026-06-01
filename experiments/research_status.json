@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2191,
+    "completed": 2192,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+    "command_log": "docs/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+    "run_dir": "runs/m2184_paper_route_current_sim_repeat_measured_execution",
     "status": "completed",
-    "task_id": "m2183-paper-route-current-sim-repeat-measured-execution-command-design"
+    "task_id": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv --output-dir runs/m2184_paper_route_current_sim_repeat_measured_execution --eval-seed-base 218400 --device cpu --no-resume --target-episode-count 640 --target-spec-count 40 --target-profile-count 8 --next-blocker m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
-    "hypothesis": "The frozen M2183 command can execute the two new repeat groups and preserve repeat metadata without runner failures.",
-    "id": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: execute frozen repeat measured-execution command; defer interpretation to audit",
-    "priority": 21790,
+    "command": "write docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+    "hypothesis": "The M2184 repeat measured execution is complete and metadata-clean, but must be audited for outcome support before comparison.",
+    "id": "m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2184 repeat measured execution before comparison",
+    "priority": 21800,
     "status": "pending",
-    "success_artifact": "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json"
+    "success_artifact": "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T091821Z"
+  "updated_at_utc": "20260601T092211Z"
 }

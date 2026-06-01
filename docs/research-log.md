@@ -38865,3 +38865,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to frozen command execution with interpretation deferred to result audit
 - follow-up manifest: `experiments/manifests/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.json`
 - next: `m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run`
+
+## M2184 Paper-Route Current-Sim Repeat Measured Execution Implementation and Run
+
+- status: completed
+- decision: `current_sim_repeat_measured_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.json`
+- summary: `runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json`
+- result_class: `current_sim_controlled_comparison_measured_execution_pass`
+- episode/failure count: `640/0`
+- spec/profile count: `40/8`
+- metadata missing count: `0`
+- metric completeness failure count: `0`
+- guardrail violation count: `0`
+- task/profile/history quota pass: `true/true/true`
+- raw outcomes: `100` success, `36` collision, `504` offtrack noncollision noncompletion
+- repeat aggregate: `repeat_1_seed_21761` and `repeat_2_seed_21762` each `320` episodes with success_rate `0.15625` and collision_rate `0.05625`
+- training: `false`
+- measured execution: `true`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to result audit before comparison or ranking
+- follow-up manifest: `experiments/manifests/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.json`
+- next: `m2185-paper-route-current-sim-repeat-measured-execution-result-audit`
