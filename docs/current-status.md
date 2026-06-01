@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis
+m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design
+m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation
 ```
 
-Immediate route: M2163 synthesizes the post-reset repair segment and chooses
-`continue`: the current-sim panel is now reset-valid under materialized
-per-spec eval seeds, and the next evidence increment should be measured rollout
-data. M2164 must design the current-sim measured execution command or a
-compatibility repair route for the M2151 `40`-spec / `320`-workload panel.
+Immediate route: M2164 blocks direct measured rollout. The M2151 panel is
+reset-valid, but it is not measured-ready: old measured runners expect earlier
+panel metadata, and all `320` workload rows have empty `checkpoint_path` while
+`checkpoint_required_for_measured_execution=true`. M2165 must implement and run
+a no-rollout readiness inventory over the `40` specs and `320` workload rows.
 Rollout, controller ranking, paper claims, finite-window vs GRU verdicts, and
 self-ID claims remain blocked until audited measured evidence supports them.
 

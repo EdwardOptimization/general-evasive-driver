@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2171,
+    "completed": 2172,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+    "command_log": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+    "run_dir": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis"
+    "task_id": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.json",
-    "hypothesis": "The clean M2163 synthesis admits a measured-execution command design over the reset-valid M2151 current-sim panel if runner metadata compatibility is explicit.",
-    "id": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: design measured execution command or compatibility repair route",
-    "priority": 21590,
+    "command": "see experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json",
+    "hypothesis": "A no-rollout readiness inventory will expose the current measured-execution blockers: missing checkpoint paths for required workload rows and old-runner schema mismatch.",
+    "id": "m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout readiness inventory",
+    "priority": 21600,
     "status": "pending",
-    "success_artifact": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md"
+    "success_artifact": "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
   },
-  "updated_at_utc": "20260601T070129Z"
+  "updated_at_utc": "20260601T071331Z"
 }

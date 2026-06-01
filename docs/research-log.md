@@ -38399,3 +38399,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: continue to measured execution command design with runner compatibility check
 - follow-up manifest: `experiments/manifests/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.json`
 - next: `m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design`
+
+## M2164 Paper-Route Current-Sim Controlled-Comparison Measured Execution Command Design
+
+- status: completed
+- decision: `current_sim_measured_execution_command_design_blocked_by_checkpoint_and_runner_readiness_inventory`
+- manifest: `experiments/manifests/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.json`
+- design artifact: `docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md`
+- reset rerun in M2164: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- runner compatibility result: old controlled-routing measured runner expects old panel metadata and is not compatible with M2151 current-sim workload semantics
+- checkpoint readiness result: M2151 planned workload leaves `checkpoint_path` empty and marks `checkpoint_required_for_measured_execution=true`; this must be repaired before measured rollout
+- next route: no-rollout measured-readiness inventory over 40 specs and 320 workload rows
+- follow-up manifest: `experiments/manifests/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.json`
+- next: `m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation`

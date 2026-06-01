@@ -1,0 +1,190 @@
+{
+  "id": "m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_measured_readiness_inventory"
+    ],
+    "parent_dataset": [
+      "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "implement and run a no-rollout measured readiness inventory before command execution"
+    ],
+    "derived_from": [
+      "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "M2164 finds checkpoint paths missing and old runner metadata incompatible"
+    ],
+    "supersedes": [
+      "direct measured execution despite missing checkpoint paths",
+      "using old measured runner without schema gap report"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.md",
+  "public_gates": [
+    "M2165 must not run measured execution",
+    "M2165 must inspect all 40 specs and 320 workload rows",
+    "M2165 must expose checkpoint readiness and old-runner schema gaps",
+    "M2165 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_readiness_inventory",
+    "evidence_increment": "materializes a no-rollout inventory of checkpoint and runner-schema blockers before measured execution",
+    "claim_scope": "readiness inventory only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if inventory runs rollout or policy actions",
+      "stop if checkpoint readiness is not reported",
+      "stop if runner schema gaps are not reported",
+      "stop if inventory result is routed directly to measured execution without audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if inventory completes",
+      "route to inventory repair if schema or count validation fails",
+      "route to branch synthesis if checkpoint readiness remains ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2164 command design routes to readiness inventory",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "current-sim measured-readiness inventory",
+    "admission_evidence": [
+      "M2164 blocks direct measured execution on checkpoint and runner schema readiness",
+      "M2151 workload has checkpoint_required_for_measured_execution true",
+      "M2151 workload is reset-valid but not measured-ready"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution",
+      "do not train checkpoints in the inventory step",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_readiness_inventory.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_readiness_inventory.py",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/workload_readiness_rows.csv",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/profile_readiness_rows.csv",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/runner_schema_gap_rows.csv",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/claim_boundary.csv",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/run_state.json",
+      "docs/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.md",
+      "M2165 status queue scoreboard research log and review",
+      "one follow-up manifest for readiness result audit"
+    ],
+    "next_stage_criteria": [
+      "inventory summary exists",
+      "40 specs and 320 workload rows are inspected",
+      "checkpoint readiness is explicit",
+      "runner schema gaps are explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2165 inventory does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2165."
+    ],
+    "temporal_evidence_window": "M2151 panel and workload artifacts.",
+    "negative_result_policy": "If measured-readiness is blocked by checkpoints or runner schema, audit and repair before rollout.",
+    "allowed_claims": [
+      "measured-readiness inventory result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces explicit no-rollout readiness data before measured execution",
+    "paper_verdict_delta": "identifies whether measured data generation is blocked by checkpoint or runner schema readiness",
+    "must_synthesize_if": [
+      "M2165 cannot classify readiness blockers",
+      "M2165 would require repeated readiness repair",
+      "M2165 routes directly to measured execution without audit"
+    ]
+  },
+  "hypothesis": "A no-rollout readiness inventory will expose the current measured-execution blockers: missing checkpoint paths for required workload rows and old-runner schema mismatch, while preserving the reset-valid current-sim panel identity.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json exists",
+    "result_class is current_sim_measured_readiness_inventory_complete",
+    "input_executable_spec_count is 40",
+    "input_workload_count is 320",
+    "profile_count is 8",
+    "checkpoint readiness counts are reported",
+    "runner schema gap rows are reported",
+    "guardrail_violation_count is 0",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "spec or workload counts are wrong",
+    "checkpoint readiness or runner schema gaps are missing",
+    "policy action or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_readiness_inventory.py"
+    },
+    {
+      "name": "readiness_inventory",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_readiness_inventory --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv --output-dir runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory --target-spec-count 40 --target-workload-count 320 --target-profile-count 8 --next-blocker m2166-paper-route-current-sim-measured-readiness-inventory-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2165-paper-route-current-sim-controlled-comparison-measured-readiness-inventory-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_measured_readiness_inventory"
+  ],
+  "baseline_artifacts": [
+    "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv"
+  ],
+  "decision_rule": "M2165 passes if the no-rollout inventory completes with explicit checkpoint and runner-schema readiness outputs without executing measured rollout.",
+  "next_blocker": "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit"
+}
