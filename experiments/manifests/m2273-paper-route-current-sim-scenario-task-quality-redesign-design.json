@@ -1,0 +1,178 @@
+{
+  "id": "m2273-paper-route-current-sim-scenario-task-quality-redesign-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "seed_fragility",
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+      "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2272-paper-route-current-sim-task-quality-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design scenario/task-quality redesign branch after M2272 pivot"
+    ],
+    "derived_from": [
+      "m2272-paper-route-current-sim-task-quality-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2272 pivots away from local reward repair into scenario/task-quality redesign"
+    ],
+    "supersedes": [
+      "another scalar reward tweak",
+      "controller-family ranking before role-specific task quality",
+      "training before task-family and metric acceptance are frozen"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+  "public_gates": [
+    "M2273 must design role-specific scenario/task families before any rollout or training",
+    "M2273 must freeze metrics and readiness floors for stable AES, drift-capable avoidance, recovery, and mitigation roles",
+    "M2273 must include artifact-only support audit criteria before generating new scenarios",
+    "M2273 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_quality_redesign_design",
+    "evidence_increment": "pre-registers a new branch to redesign task families and metrics before more training",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design starts from reward scalars instead of task/metric definitions",
+      "stop if design omits role-specific metrics",
+      "stop if design admits training before support audit"
+    ],
+    "fallback_plan": [
+      "route to artifact-only support audit if design is clean",
+      "route to user review if role definitions cannot be made explicit",
+      "route back to synthesis if design would collapse into local reward search"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2272 pivot selects scenario/task-quality redesign as the next branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design scenario/task-quality redesign branch",
+    "admission_evidence": [
+      "M2272 synthesis decision is pivot",
+      "current-sim profile panel remains below readiness floor",
+      "targeted containment recovered slices but did not make global offtrack strictly better",
+      "governing paper-route plans require task quality before ranking/self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+      "M2273 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "role-specific task families are named",
+      "metrics/readiness floors are frozen",
+      "support-audit inputs and outputs are frozen",
+      "next artifact-only audit route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2273 designs task-quality infrastructure and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2273; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2272 synthesis plus governing paper-route plans.",
+    "negative_result_policy": "Scenario/task quality must be repaired before any self-ID claim is weakened or strengthened.",
+    "allowed_claims": [
+      "scenario/task-quality redesign design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes evidence axis from scalar repair to task-family and metric design",
+    "paper_verdict_delta": "can admit a benchmark-pack support audit before new training",
+    "must_synthesize_if": [
+      "M2273 cannot define role-specific metrics",
+      "M2273 would admit reward tuning before support audit",
+      "M2273 cannot select a follow-up audit"
+    ]
+  },
+  "hypothesis": "A role-specific scenario/task-quality redesign can make the next current-sim evidence more paper-relevant than continuing reward-scalar local search.",
+  "success_criteria": [
+    "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md exists",
+    "role-specific scenario families are defined",
+    "role-specific metrics and readiness floors are defined",
+    "artifact-only support audit route is selected before any new rollout/training",
+    "guardrails remain false for ranking paper-level finite-window-vs-GRU and level3 self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2273 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2273 proposes reward scalar tuning as the next step before task-quality audit",
+    "M2273 omits role-specific metrics",
+    "M2273 ranks profiles or selects a winner",
+    "M2273 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual scenario/task-quality redesign artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+    "docs/current-status.md",
+    "experiments/research_status.json"
+  ],
+  "decision_rule": "M2273 passes if it freezes task families, metrics, readiness floors, and an artifact-only support-audit route.",
+  "next_blocker": "m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation"
+}

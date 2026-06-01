@@ -31,6 +31,16 @@ Last updated: 2026-06-01
 - required synthesis questions: evidence summary, supported/falsified claims, failure taxonomy, public-gate overfit risk, and next branch decision.
 - decision: admit M2272 branch synthesis; no training, ranking, paper-level, finite-window-vs-GRU, or level3 self-ID claims.
 
+
+## 20260601T184500Z m2272-current-sim-task-quality-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- synthesis decision: `pivot`
+- artifact: `docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md`
+- result: M2236-M2271 evidence shows clean infrastructure and useful targeted slice recovery, but the current-sim panel remains below comparison readiness and scalar reward repair is not the right next evidence axis.
+- decision: pivot to `paper_route_current_sim_scenario_task_quality_redesign`; M2273 must define role-specific task families, metrics, readiness floors, and an artifact-only support audit before rollout/training.
+
 ## Current Best
 
 - checkpoint:

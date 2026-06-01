@@ -16,26 +16,27 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2271-paper-route-current-sim-task-quality-branch-synthesis-design
+m2272-paper-route-current-sim-task-quality-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2272-paper-route-current-sim-task-quality-branch-synthesis
+m2273-paper-route-current-sim-scenario-task-quality-redesign-design
 ```
 
-Immediate route: M2271 freezes the M2272 branch synthesis scope after M2270
-stopped the local scalar reward-repair loop. The synthesis window is
-M2236-M2271: matched-budget readiness failure, task/curriculum diagnosis,
-checkpoint-selection/outcome localization, generic reward repair failure, and
-targeted containment slice recovery with aggregate-neutral global offtrack.
+Immediate route: M2272 synthesizes M2236-M2271 and decides `pivot`. The
+current-sim infrastructure is clean, checkpoint selection is useful, and
+targeted containment recovers the diagnosed midcourse/mild slices, but the
+profile panel remains below comparison readiness and global offtrack is not
+strictly better than M2244. Continuing scalar reward repair would be local
+search.
 
-Active interpretation: current-sim task quality is the blocker before any
-controller-family ranking or paper-level claim. M2272 must choose continue,
-pivot, stop, or promote_to_next_branch without running training, measured
-execution, replay, PPO, private holdout, ranking, finite-window vs GRU verdict,
-or level3 self-ID claim.
+Active interpretation: the next evidence axis is role-specific scenario/task
+quality. M2273 must define task families, metrics, readiness floors, and an
+artifact-only support audit before any new rollout, training, measured
+execution, ranking, finite-window vs GRU verdict, paper-level claim, or level3
+self-ID claim.
 
 ## Actor Contract
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2279,
+    "completed": 2280,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2271-paper-route-current-sim-task-quality-branch-synthesis-design",
+    "task_id": "m2272-paper-route-current-sim-task-quality-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
-    "command_log": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md"
+    "run_dir": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+    "command_log": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2272-paper-route-current-sim-task-quality-branch-synthesis",
+    "id": "m2273-paper-route-current-sim-scenario-task-quality-redesign-design",
     "kind": "gate",
-    "priority": 22670,
+    "priority": 22680,
     "status": "pending",
-    "hypothesis": "Synthesizing M2236-M2271 will identify the next paper-route branch more reliably than continuing current-sim local repair.",
-    "command": "manual synthesis artifact over M2236-M2271 current-sim task-quality evidence",
-    "success_artifact": "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
-    "notes": "Pending: write branch synthesis with continue pivot stop or promote_to_next_branch decision no training/ranking claims"
+    "hypothesis": "A role-specific scenario/task-quality redesign can make the next current-sim evidence more paper-relevant than continuing reward-scalar local search.",
+    "command": "manual scenario/task-quality redesign artifact",
+    "success_artifact": "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+    "notes": "Pending: define task families metrics floors and support audit before rollout/training no ranking claims"
   },
-  "updated_at_utc": "20260601T183535Z"
+  "updated_at_utc": "20260601T183847Z"
 }
