@@ -1,0 +1,161 @@
+{
+  "id": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_metadata_runner_repair_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.json"
+    ],
+    "parent_objective": [
+      "audit repeat metadata activation repair before measured-execution rerun"
+    ],
+    "derived_from": [
+      "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation"
+    ],
+    "blocked_by": [
+      "M2207 implementation must be audited before rerunning M2204"
+    ],
+    "supersedes": [
+      "rerunning measured execution immediately after implementation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+  "public_gates": [
+    "M2208 must audit focused tests",
+    "M2208 must confirm no-rollout metadata check over M2194/M2200 reports 0 missing rows",
+    "M2208 must confirm repeat fail-closed behavior remains covered",
+    "M2208 must decide whether measured-execution rerun command design or direct rerun is admitted",
+    "M2208 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_runner_repeat_metadata_activation_repair_audit",
+    "evidence_increment": "audits measured-runner activation repair before measured-execution rerun",
+    "claim_scope": "repair result audit only; no measured execution rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if focused tests do not cover non-repeat, repeat, partial-repeat, and checkpoint failure cases",
+      "stop if M2194/M2200 no-rollout metadata check still fails",
+      "stop if audit would rerun measured execution"
+    ],
+    "fallback_plan": [
+      "route back to implementation repair if tests or metadata check fail",
+      "route to rerun command design or measured execution rerun if audit passes",
+      "route to synthesis if metadata failures repeat"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2207 implementation requires audit before rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit measured-runner metadata activation repair",
+    "admission_evidence": [
+      "M2207 focused tests pass",
+      "M2207 no-rollout metadata check over M2194/M2200 reports zero validation failures"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in audit",
+      "no policy action execution in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+      "M2208 status queue scoreboard research log and review",
+      "one follow-up manifest for rerun route if admitted"
+    ],
+    "next_stage_criteria": [
+      "implementation pass/fail is audited",
+      "rerun admission is explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; repair audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2208."
+    ],
+    "temporal_evidence_window": "M2207 focused repair evidence.",
+    "negative_result_policy": "If audit fails, repair implementation before rerun.",
+    "allowed_claims": [
+      "metadata validation repair result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the infrastructure repair needed before closed-loop data can be produced",
+    "paper_verdict_delta": "can admit measured execution rerun but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2208 cannot classify implementation readiness",
+      "M2208 would need another repair audit without rerun route",
+      "the same metadata failure repeats after rerun"
+    ]
+  },
+  "hypothesis": "The M2207 repair is sufficient to unblock M2194/M2200 metadata validation while preserving repeat fail-closed behavior.",
+  "success_criteria": [
+    "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md exists",
+    "focused tests are audited",
+    "M2194/M2200 no-rollout metadata check is audited",
+    "rerun route is explicit",
+    "no measured execution rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "focused tests or metadata check are not audited",
+    "rerun is started in audit",
+    "controller ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_metadata_runner_repair_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+    "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+  ],
+  "decision_rule": "M2208 passes if it audits M2207 and chooses a rerun route without executing measured rollout.",
+  "next_blocker": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit"
+}

@@ -39370,3 +39370,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit focused runner implementation and tests
 - follow-up manifest: `experiments/manifests/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.json`
 - next: `m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation`
+
+## M2207 Paper-Route Current-Sim Measured-Runner Repeat-Metadata Activation Repair Implementation
+
+- status: completed
+- decision: `current_sim_measured_runner_repeat_metadata_activation_repair_pass_route_to_audit`
+- manifest: `experiments/manifests/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py`
+- focused tests: `4 passed`
+- repeat activation fields: `training_repeat_id`, `training_seed_group`, `profile_training_seed`, `profile_checkpoint_source_profile`, `base_workload_id`
+- checkpoint provenance field: `checkpoint_materialization_mode`
+- M2194/M2200 metadata_missing_rows after repair: `0`
+- M2194/M2200 validation_failure_rows after repair: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: route to implementation audit before measured-execution rerun
+- follow-up manifest: `experiments/manifests/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.json`
+- next: `m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit`

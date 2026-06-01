@@ -59,6 +59,7 @@ def _workload(
         "environment_reset_scheduled": "false",
         "environment_rollout_scheduled": "false",
         "training_scheduled": "false",
+        "checkpoint_materialization_mode": "train_frozen_profile_config",
         "profile_specific_tuning": "false",
         "controller_family_ranking_claim_made": "false",
         "finite_window_vs_gru_conclusion_made": "false",

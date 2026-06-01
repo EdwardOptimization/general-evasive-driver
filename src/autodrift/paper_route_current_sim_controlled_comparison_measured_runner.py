@@ -79,6 +79,13 @@ WORKLOAD_METADATA_FIELDS = (
     "paper_level_claim_made",
     "level3_self_id_claim_made",
 )
+REPEAT_IDENTITY_WORKLOAD_METADATA_FIELDS = (
+    "training_repeat_id",
+    "training_seed_group",
+    "profile_training_seed",
+    "profile_checkpoint_source_profile",
+    "base_workload_id",
+)
 OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS = (
     "training_repeat_id",
     "training_seed_group",
@@ -172,7 +179,7 @@ def _metric_or_nan(row: Mapping[str, Any], metric: str) -> float:
 
 
 def _has_repeat_metadata(row: Mapping[str, Any]) -> bool:
-    return any(str(row.get(field, "")).strip() for field in OPTIONAL_REPEAT_WORKLOAD_METADATA_FIELDS)
+    return any(str(row.get(field, "")).strip() for field in REPEAT_IDENTITY_WORKLOAD_METADATA_FIELDS)
 
 
 def _missing_repeat_metadata_fields(row: Mapping[str, Any]) -> list[str]:
