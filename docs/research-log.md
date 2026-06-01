@@ -39157,3 +39157,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit reset-validator compatibility implementation and reset-only run
 - follow-up manifest: `experiments/manifests/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.json`
 - next: `m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run`
+
+## M2197 Paper-Route Current-Sim Offtrack-Support Reset-Validation Compatibility Implementation And Run
+
+- status: completed
+- decision: `current_sim_offtrack_support_reset_validation_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_reset_validation_preflight.py`
+- focused tests: `5 passed`
+- summary: `runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json`
+- result_class: `current_sim_controlled_comparison_reset_validation_preflight_pass`
+- reset attempts: `288`
+- reset successes: `288`
+- reset failures: `0`
+- observation finite count: `288`
+- observation dimension failures: `0`
+- obstacle initialized count: `288`
+- contract violations: `0`
+- metadata missing: `0`
+- forbidden-key violations: `0`
+- seed_source_mode: `prefer_spec_eval_seed_override`
+- seed_source_quota_pass: `true`
+- guardrail violations: `0`
+- policy action executed: `false`
+- measured execution: `false`
+- result: route to reset-validation result audit before measured-execution readiness design
+- follow-up manifest: `experiments/manifests/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.json`
+- next: `m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit`

@@ -35,6 +35,9 @@ def test_current_sim_reset_validation_preflight_runs_reset_only(tmp_path: Path) 
     )
 
     assert summary["result_class"] == "current_sim_controlled_comparison_reset_validation_preflight_pass"
+    assert summary["task_id"] == "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run"
+    assert summary["expected_materialization_semantics"] == "current_sim_executable_spec_v0"
+    assert summary["expected_paper_validity_status"] == "current_sim_executable_candidate_not_reset_validated"
     assert summary["input_executable_spec_count"] == 2
     assert summary["reset_attempt_count"] == 2
     assert summary["reset_success_count"] == 2
@@ -151,8 +154,29 @@ def test_current_sim_contract_rejects_wrong_materialization_semantics(tmp_path: 
     wrong_semantics["materialization_semantics"] = "comparison_support_smoke_proxy"
     row = contract_row_for_spec(wrong_semantics)
 
-    assert row["materialization_semantics_current_sim_executable_spec_v0"] is False
+    assert row["materialization_semantics_matches_expected"] is False
     assert row["contract_violation_count"] >= 1
+
+
+def test_current_sim_contract_accepts_custom_materialization_semantics(tmp_path: Path) -> None:
+    specs_path = tmp_path / "specs.json"
+    spec = _write_specs(specs_path, count=1)[0]
+    repaired = dict(spec)
+    repaired["materialization_semantics"] = "current_sim_offtrack_support_repair_materialization_v0"
+    repaired["paper_validity_status"] = "current_sim_offtrack_support_candidate_not_reset_validated"
+
+    default_row = contract_row_for_spec(repaired)
+    custom_row = contract_row_for_spec(
+        repaired,
+        expected_materialization_semantics="current_sim_offtrack_support_repair_materialization_v0",
+        expected_paper_validity_status="current_sim_offtrack_support_candidate_not_reset_validated",
+    )
+
+    assert default_row["materialization_semantics_matches_expected"] is False
+    assert default_row["paper_validity_status_matches_expected"] is False
+    assert custom_row["materialization_semantics_matches_expected"] is True
+    assert custom_row["paper_validity_status_matches_expected"] is True
+    assert custom_row["contract_violation_count"] == 0
 
 
 def test_current_sim_reset_validation_fails_closed_on_metadata_gap(tmp_path: Path) -> None:

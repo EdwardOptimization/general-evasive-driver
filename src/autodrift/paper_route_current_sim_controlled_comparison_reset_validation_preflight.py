@@ -62,8 +62,8 @@ CONTRACT_FIELDNAMES = [
     "obstacle_relative_velocity_mode_zero",
     "obstacle_enabled",
     "obstacle_max_sample_attempts_at_least_200",
-    "materialization_semantics_current_sim_executable_spec_v0",
-    "paper_validity_status_not_reset_validated",
+    "materialization_semantics_matches_expected",
+    "paper_validity_status_matches_expected",
     "generated_proxy_source_false",
     "profile_specific_tuning_false",
     "actor_input_contract_p0_human_view",
@@ -237,7 +237,12 @@ def current_sim_metadata(spec: Mapping[str, Any]) -> dict[str, Any]:
     return metadata
 
 
-def contract_row_for_spec(spec: Mapping[str, Any]) -> dict[str, Any]:
+def contract_row_for_spec(
+    spec: Mapping[str, Any],
+    *,
+    expected_materialization_semantics: str = EXPECTED_MATERIALIZATION_SEMANTICS,
+    expected_paper_validity_status: str = EXPECTED_PAPER_VALIDITY_STATUS,
+) -> dict[str, Any]:
     env_config = dict(spec.get("env_config") or {})
     obstacle = dict(env_config.get("obstacle") or {})
     materialization_semantics = str(spec.get("materialization_semantics", ""))
@@ -251,10 +256,9 @@ def contract_row_for_spec(spec: Mapping[str, Any]) -> dict[str, Any]:
         "obstacle_relative_velocity_mode_zero": str(env_config.get("obstacle_relative_velocity_mode", "")) == "zero",
         "obstacle_enabled": _bool_value(obstacle.get("enabled")),
         "obstacle_max_sample_attempts_at_least_200": int(obstacle.get("max_sample_attempts", 0)) >= 200,
-        "materialization_semantics_current_sim_executable_spec_v0": (
-            materialization_semantics == EXPECTED_MATERIALIZATION_SEMANTICS
-        ),
-        "paper_validity_status_not_reset_validated": paper_validity_status == EXPECTED_PAPER_VALIDITY_STATUS,
+        "materialization_semantics_matches_expected": materialization_semantics
+        == str(expected_materialization_semantics),
+        "paper_validity_status_matches_expected": paper_validity_status == str(expected_paper_validity_status),
         "generated_proxy_source_false": not _bool_value(spec.get("generated_proxy_source")),
         "profile_specific_tuning_false": not _bool_value(spec.get("profile_specific_tuning")),
         "actor_input_contract_p0_human_view": actor_input_contract == EXPECTED_ACTOR_INPUT_CONTRACT,
@@ -383,6 +387,9 @@ def run_current_sim_reset_validation_preflight(
     target_spec_count: int | None = TARGET_EXECUTABLE_SPEC_COUNT,
     expected_observation_dim: int | None = EXPECTED_OBSERVATION_DIM,
     seed_source_mode: str = SEED_SOURCE_MODE_BASE_PLUS_INDEX,
+    expected_materialization_semantics: str = EXPECTED_MATERIALIZATION_SEMANTICS,
+    expected_paper_validity_status: str = EXPECTED_PAPER_VALIDITY_STATUS,
+    task_id: str = "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
     next_blocker: str = DEFAULT_NEXT_BLOCKER,
 ) -> dict[str, Any]:
     output = Path(output_dir)
@@ -412,7 +419,14 @@ def run_current_sim_reset_validation_preflight(
             }
         )
         reset_rows.append(row)
-    contract_rows = [contract_row_for_spec(spec) for spec in specs]
+    contract_rows = [
+        contract_row_for_spec(
+            spec,
+            expected_materialization_semantics=str(expected_materialization_semantics),
+            expected_paper_validity_status=str(expected_paper_validity_status),
+        )
+        for spec in specs
+    ]
     failure_rows = [dict(row) for row in reset_rows if not _bool_value(row.get("reset_success"))]
     missing_rows = metadata_missing_rows(specs)
     forbidden_key_hits = forbidden_key_violations(specs)
@@ -494,7 +508,10 @@ def run_current_sim_reset_validation_preflight(
         "result_class": result_class,
         "generated_at_utc": utc_timestamp(),
         "output_dir": str(output),
+        "task_id": str(task_id),
         "executable_task_specs_path": str(executable_task_specs_path),
+        "expected_materialization_semantics": str(expected_materialization_semantics),
+        "expected_paper_validity_status": str(expected_paper_validity_status),
         "input_executable_spec_count": len(specs),
         "target_executable_spec_count": target_spec_count,
         "seed_source_mode": seed_source_mode,
@@ -556,7 +573,7 @@ def run_current_sim_reset_validation_preflight(
     write_run_state(
         output / "run_state.json",
         {
-            "task_id": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
+            "task_id": str(task_id),
             "status": "completed" if passes else "failed",
             "result_class": result_class,
             "next_blocker": next_blocker,
@@ -573,6 +590,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--target-spec-count", type=int, default=TARGET_EXECUTABLE_SPEC_COUNT)
     parser.add_argument("--expected-observation-dim", type=int, default=EXPECTED_OBSERVATION_DIM)
     parser.add_argument("--seed-source-mode", choices=SEED_SOURCE_MODES, default=SEED_SOURCE_MODE_BASE_PLUS_INDEX)
+    parser.add_argument("--expected-materialization-semantics", default=EXPECTED_MATERIALIZATION_SEMANTICS)
+    parser.add_argument("--expected-paper-validity-status", default=EXPECTED_PAPER_VALIDITY_STATUS)
+    parser.add_argument(
+        "--task-id",
+        default="m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
+    )
     parser.add_argument("--next-blocker", default=DEFAULT_NEXT_BLOCKER)
     return parser
 
@@ -586,6 +609,9 @@ def main() -> int:
         target_spec_count=int(args.target_spec_count),
         expected_observation_dim=args.expected_observation_dim,
         seed_source_mode=str(args.seed_source_mode),
+        expected_materialization_semantics=str(args.expected_materialization_semantics),
+        expected_paper_validity_status=str(args.expected_paper_validity_status),
+        task_id=str(args.task_id),
         next_blocker=str(args.next_blocker),
     )
     print(f"summary={args.output_dir / 'summary.json'}")

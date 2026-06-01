@@ -1,0 +1,161 @@
+{
+  "id": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/reset_rows.csv",
+      "docs/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit reset-validation result before measured-execution readiness or command design"
+    ],
+    "derived_from": [
+      "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run"
+    ],
+    "blocked_by": [
+      "reset-validation pass must be audited before measured execution design"
+    ],
+    "supersedes": [
+      "direct measured-execution command design after reset run"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2198 must audit M2197 reset summary",
+    "M2198 must confirm 288/288 reset success and zero reset failures",
+    "M2198 must confirm contract, metadata, forbidden-key, seed-source, and guardrail checks",
+    "M2198 must decide whether measured-execution readiness design is admitted",
+    "M2198 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_reset_validation_audit",
+    "evidence_increment": "audits reset validity of the repaired executable task panel",
+    "claim_scope": "reset-validation result audit only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if reset success is not 288/288",
+      "stop if contract, metadata, forbidden-key, seed-source, or guardrail checks fail",
+      "stop if audit would run measured execution or rank profiles"
+    ],
+    "fallback_plan": [
+      "route to reset sampling diagnostic if reset failures are localized",
+      "route to metadata repair if contract or metadata checks fail",
+      "route to measured-execution readiness design if audit passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2197 reset-validation result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit reset-validation result",
+    "admission_evidence": [
+      "M2197 summary reports reset-validation pass",
+      "M2197 reset success count is 288",
+      "M2197 guardrail violation count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in audit",
+      "no policy action execution in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+      "M2198 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "reset-validation pass/fail is audited",
+      "measured-execution readiness admission is explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2198 audits reset validity and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2198."
+    ],
+    "temporal_evidence_window": "M2197 reset-validation result.",
+    "negative_result_policy": "If reset validation is not clean, repair reset/materialization before measured execution.",
+    "allowed_claims": [
+      "reset-validation result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits reset-valid repaired task evidence",
+    "paper_verdict_delta": "can admit measured-execution readiness design but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2198 cannot classify reset result",
+      "M2198 would run measured execution",
+      "M2198 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2197 reset-validation result is clean enough to admit measured-execution readiness design while keeping measured rollout/ranking blocked.",
+  "success_criteria": [
+    "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md exists",
+    "M2197 summary is audited",
+    "reset_success_count == 288",
+    "reset_failure_count == 0",
+    "contract, metadata, forbidden-key, seed-source, and guardrail checks pass",
+    "next route is explicit",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "reset result is not audited",
+    "reset or contract checks fail",
+    "audit runs measured execution",
+    "audit ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+    "docs/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md"
+  ],
+  "decision_rule": "M2198 passes if it audits M2197 and chooses a next route without measured execution or ranking.",
+  "next_blocker": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit"
+}
