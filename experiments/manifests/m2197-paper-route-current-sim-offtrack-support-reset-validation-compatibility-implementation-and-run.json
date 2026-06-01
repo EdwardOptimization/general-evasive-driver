@@ -1,0 +1,171 @@
+{
+  "id": "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_reset_validation"
+    ],
+    "parent_dataset": [
+      "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.json"
+    ],
+    "parent_objective": [
+      "implement reset-validator semantics compatibility and run reset-only validation for M2194 repaired specs"
+    ],
+    "derived_from": [
+      "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design"
+    ],
+    "blocked_by": [
+      "reset validator must accept M2194 materialization semantics before reset run"
+    ],
+    "supersedes": [
+      "manual reset validation with edited constants"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md",
+  "public_gates": [
+    "M2197 must preserve default M2151 reset-validator behavior",
+    "M2197 must add M2194 materialization semantics/status compatibility",
+    "M2197 must run reset-only validation over 288 repaired specs",
+    "M2197 must not run measured execution or policy actions",
+    "M2197 must not rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_reset_validation",
+    "evidence_increment": "runs reset-only validation for the repaired executable task panel after compatibility extension",
+    "claim_scope": "reset validity only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if default reset-validator compatibility breaks",
+      "stop if M2194 semantics are not accepted explicitly",
+      "stop if reset failures are nonzero",
+      "stop if policy actions or rollout start"
+    ],
+    "fallback_plan": [
+      "route to result audit if reset validation passes",
+      "route to sampling diagnostic if localized reset failures occur",
+      "route to materialization metadata repair if compatibility checks fail"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2196 command design admits compatible implementation and run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement compatibility and run reset-only validation",
+    "admission_evidence": [
+      "M2196 freezes command and compatibility requirements",
+      "M2195 audits M2194 materialization as clean",
+      "M2194 repaired specs are available"
+    ],
+    "blocked_shortcuts": [
+      "no policy action execution",
+      "no measured execution",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_controlled_comparison_reset_validation_preflight.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_reset_validation_preflight.py",
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+      "docs/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md",
+      "M2197 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "compatibility tests pass",
+      "reset-validation pass/fail is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2197 validates reset only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2197."
+    ],
+    "temporal_evidence_window": "M2194 repaired task panel.",
+    "negative_result_policy": "If reset validation fails, classify as reset sampling or metadata compatibility before any measured execution.",
+    "allowed_claims": [
+      "reset-validity evidence if all reset checks pass",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns repaired executable specs into reset-validity evidence",
+    "paper_verdict_delta": "can admit measured-execution readiness audit if reset passes but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2197 cannot run reset validation",
+      "M2197 would run measured execution",
+      "M2197 would rank profiles"
+    ]
+  },
+  "hypothesis": "A narrow reset-validator compatibility extension can preserve old behavior and reset-validate all 288 M2194 repaired specs without rollout or ranking.",
+  "success_criteria": [
+    "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json exists",
+    "target_executable_spec_count == 288",
+    "reset_success_count == 288",
+    "reset_failure_count == 0",
+    "contract_violation_count == 0",
+    "metadata_missing_count == 0",
+    "forbidden_key_violation_count == 0",
+    "guardrail_violation_count == 0",
+    "no policy action measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary.json is missing",
+    "reset failures are nonzero",
+    "compatibility tests fail",
+    "contract or guardrail violations are nonzero",
+    "policy actions or measured execution run",
+    "ranking is claimed"
+  ],
+  "commands": [
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_reset_validation_preflight --executable-task-specs runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json --output-dir runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight --eval-seed-base 219700 --target-spec-count 288 --expected-observation-dim 72 --seed-source-mode prefer_spec_eval_seed_override --expected-materialization-semantics current_sim_offtrack_support_repair_materialization_v0 --expected-paper-validity-status current_sim_offtrack_support_candidate_not_reset_validated --task-id m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run --next-blocker m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json"
+  ],
+  "decision_rule": "M2197 passes if compatibility and reset validation pass without rollout, policy actions, or ranking.",
+  "next_blocker": "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run"
+}

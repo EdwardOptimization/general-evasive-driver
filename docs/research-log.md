@@ -39139,3 +39139,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit reset-validation command design only
 - follow-up manifest: `experiments/manifests/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.json`
 - next: `m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design`
+
+## M2196 Paper-Route Current-Sim Offtrack-Support Reset-Validation Command Design
+
+- status: completed
+- decision: `current_sim_offtrack_support_reset_validation_command_design_admit_compatibility_implementation_and_run`
+- manifest: `experiments/manifests/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.json`
+- design artifact: `docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md`
+- repaired specs: `runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json`
+- target spec count: `288`
+- expected observation dim: `72`
+- seed source mode: `prefer_spec_eval_seed_override`
+- required compatibility: accept M2194 materialization semantics/status while preserving old defaults
+- implementation: `false`
+- reset: `false`
+- measured execution: `false`
+- result: admit reset-validator compatibility implementation and reset-only run
+- follow-up manifest: `experiments/manifests/m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run.json`
+- next: `m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run`

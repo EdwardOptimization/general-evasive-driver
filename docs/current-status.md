@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit
+m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design
+m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run
 ```
 
-Immediate route: M2195 audits the M2194 materialization as clean and admits
-M2196 reset-validation command design. The next design must account for the
-M2194-specific materialization semantics/status instead of blindly using the
-old M2151-only reset validator. This remains task-quality readiness, not
-controller comparison; new rollout, controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked until later
-audited evidence supports them.
+Immediate route: M2196 designs a compatible reset-validation path for the
+M2194 repaired specs. M2197 may add explicit expected materialization
+semantics/status flags to the existing reset validator, preserve old defaults,
+and run reset-only validation over `288` repaired specs with observation dim
+`72` and `prefer_spec_eval_seed_override`. This remains reset/task-quality
+readiness, not controller comparison; measured execution, controller ranking,
+paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

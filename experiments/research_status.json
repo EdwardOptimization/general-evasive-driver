@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2203,
+    "completed": 2204,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+    "command_log": "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+    "run_dir": "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
     "status": "completed",
-    "task_id": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit"
+    "task_id": "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design"
   },
   "next_task": {
-    "command": "write docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
-    "hypothesis": "The M2194 repaired task panel can be reset-validated with an explicit compatibility design for its materialization semantics without rollout or ranking shortcuts.",
-    "id": "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: design compatible reset-validation command for M2194 repaired specs",
-    "priority": 21910,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_reset_validation_preflight --executable-task-specs runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json --output-dir runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight --eval-seed-base 219700 --target-spec-count 288 --expected-observation-dim 72 --seed-source-mode prefer_spec_eval_seed_override --expected-materialization-semantics current_sim_offtrack_support_repair_materialization_v0 --expected-paper-validity-status current_sim_offtrack_support_candidate_not_reset_validated --task-id m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run --next-blocker m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+    "hypothesis": "A narrow reset-validator compatibility extension can preserve old behavior and reset-validate all 288 M2194 repaired specs without rollout or ranking.",
+    "id": "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement reset-validator compatibility flags and run reset-only validation over M2194 repaired specs",
+    "priority": 21920,
     "status": "pending",
-    "success_artifact": "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md"
+    "success_artifact": "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T102559Z"
+  "updated_at_utc": "20260601T102914Z"
 }
