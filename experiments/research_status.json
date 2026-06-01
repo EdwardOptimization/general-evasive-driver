@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2315,
+    "completed": 2316,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution",
+    "task_id": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution",
-    "command_log": "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md"
   },
   "next_task": {
-    "id": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
-    "kind": "gate",
-    "priority": 23030,
+    "id": "m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation",
+    "kind": "infrastructure",
+    "priority": 23040,
     "status": "pending",
-    "hypothesis": "M2307 provides enough measured outcome evidence to decide whether guarded-v2 repair merits target/guardrail slice diagnosis, branch synthesis, or bounded repair.",
-    "command": "manual artifact audit of runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json and M2293/M2298 references",
-    "success_artifact": "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
-    "notes": "Pending: audit M2307 pass 1080 episodes global success/offtrack/collision 68/786/218 vs M2293 69/785/209; choose non-ranking route"
+    "hypothesis": "A durable artifact-only slice diagnosis can materialize the M2298 offtrack target and collision guardrail deltas for M2307 versus M2293 without rerunning policy episodes.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis --baseline-episode-rows runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv --candidate-episode-rows runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/episode_rows.csv --repair-gate-spec runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json --output-dir runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis --next-blocker m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit",
+    "success_artifact": "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
+    "notes": "Pending: implement/run artifact-only M2298 target/guardrail slice delta diagnosis over M2293 vs M2307 rows no rerun/ranking claims"
   },
-  "updated_at_utc": "20260601T221228Z"
+  "updated_at_utc": "20260601T221736Z"
 }

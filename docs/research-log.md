@@ -41527,3 +41527,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.json`
 - next: `m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit`
+
+## M2308 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Measured Execution Result Audit
+
+- status: completed
+- decision: `guarded_repair_measured_execution_audit_route_to_target_guardrail_slice_diagnosis`
+- manifest: `experiments/manifests/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.json`
+- audit doc: `docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md`
+- parent summary: `runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json`
+- M2307 result_class: `current_sim_scenario_task_family_measured_execution_pass`
+- M2307 episode_count/failure_count: `1080/0`
+- M2307 global success/offtrack/collision: `68/786/218`
+- M2293 global success/offtrack/collision: `69/785/209`
+- global deltas vs M2293 success/offtrack/collision: `-1/+1/+9`
+- offtrack target slice preview non-increase/increase: `9/20` / `11/20`
+- collision guardrail slice preview non-increase/increase: `4/11` / `7/11`
+- interpretation: global repair direction fails; full target/guardrail slice table must be materialized before synthesis or repair
+- route: artifact-only target/guardrail slice diagnosis
+- reset/rollout/policy action in M2308: `false`
+- training/replay/PPO in M2308: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation.json`
+- next: `m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation`
