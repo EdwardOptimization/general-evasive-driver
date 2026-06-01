@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch",
+  "decision_reason": "M2236 synthesizes short-v0/medium-v1 clean-but-below-floor training and pivots to task/curriculum readiness diagnosis no ranking claims",
   "failure_criteria": [
     "synthesis document is missing",
     "synthesis overclaims below-floor checkpoints as ranking evidence",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T140543Z",
+  "generated_at_utc": "20260601T140926Z",
   "hypothesis": "M2226-M2235 evidence is sufficient to pivot from matched-budget budget escalation to task/curriculum readiness diagnosis without ranking profiles.",
   "lineage": {
     "blocked_by": [
@@ -71,7 +71,7 @@
   "milestone": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
   "next_blocker": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_training_synthesis_pivot_to_task_curriculum_readiness_diagnosis",
   "public_gates": [
     "M2236 must synthesize M2226-M2235 matched-budget training evidence",
     "M2236 must separate execution success from comparison readiness",
@@ -82,9 +82,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_training_synthesis_pivot_to_task_curriculum_readiness_diagnosis",
     "milestone": "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
-    "reason": "M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch",
+    "reason": "M2236 synthesizes short-v0/medium-v1 clean-but-below-floor training and pivots to task/curriculum readiness diagnosis no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

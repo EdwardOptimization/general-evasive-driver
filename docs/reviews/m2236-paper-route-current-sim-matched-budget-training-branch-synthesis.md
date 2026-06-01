@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T140543Z
+- Generated at UTC: 20260601T140926Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch
+- Promotion decision: current_sim_matched_budget_training_synthesis_pivot_to_task_curriculum_readiness_diagnosis
+- Decision reason: M2236 synthesizes short-v0/medium-v1 clean-but-below-floor training and pivots to task/curriculum readiness diagnosis no ranking claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ M2226-M2235 evidence is sufficient to pivot from matched-budget budget escalatio
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2236 pending synthesis of matched-budget short-v0/medium-v1 below-floor branch
+- decision: current_sim_matched_budget_training_synthesis_pivot_to_task_curriculum_readiness_diagnosis
+- reason: M2236 synthesizes short-v0/medium-v1 clean-but-below-floor training and pivots to task/curriculum readiness diagnosis no ranking claims
 
 ## Next Blocker
 

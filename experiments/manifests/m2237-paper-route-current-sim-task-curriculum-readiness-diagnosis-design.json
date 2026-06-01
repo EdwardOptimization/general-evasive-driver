@@ -1,0 +1,175 @@
+{
+  "id": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/run_rows.csv",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/run_rows.csv",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/profile_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design artifact-only diagnosis for repeated matched-budget readiness-floor failure"
+    ],
+    "derived_from": [
+      "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2236 pivots away from blind budget escalation toward task/curriculum readiness diagnosis"
+    ],
+    "supersedes": [
+      "another budget-escalation run without diagnosis",
+      "direct ranking from below-floor checkpoints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+  "public_gates": [
+    "M2237 must design an artifact-only diagnosis over M2230/M2234 training outputs",
+    "M2237 must identify diagnostic axes for seed/task heterogeneity, termination behavior, reward/training plateau, and readiness-floor calibration",
+    "M2237 must not run training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2237 must not rank profiles or claim finite-window-vs-GRU/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_task_curriculum_readiness_diagnosis_design",
+    "evidence_increment": "turns matched-budget synthesis into an artifact-only diagnosis plan",
+    "claim_scope": "diagnosis design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if diagnosis would require new rollout before artifact audit",
+      "stop if design ranks profiles",
+      "stop if design weakens readiness floors without evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact-only implementation if design is clean",
+      "route to synthesis if existing artifacts are insufficient",
+      "route to task redesign only after diagnosis evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2236 pivot decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design artifact-only task/curriculum readiness diagnosis",
+    "admission_evidence": [
+      "M2236 synthesis pivots from budget escalation to task/curriculum readiness diagnosis",
+      "M2230 and M2234 provide complete finite training artifacts with repeated below-floor readiness",
+      "ranking and measured execution remain blocked"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+      "M2237 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "diagnostic axes are explicit",
+      "input artifacts are explicit",
+      "implementation route is explicit",
+      "no new rollout is admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2237 designs readiness diagnosis and does not test causal history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, zero-history, or measured execution intervention is run in M2237."
+    ],
+    "temporal_evidence_window": "M2230/M2234 training artifacts and M2236 synthesis.",
+    "negative_result_policy": "Repeated below-floor evidence must diagnose task/curriculum/readiness before any self-ID claim or profile ranking.",
+    "allowed_claims": [
+      "task/curriculum readiness diagnosis design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new diagnosis axis after matched-budget synthesis",
+    "paper_verdict_delta": "can explain why the current-sim profile panel is below readiness floor",
+    "must_synthesize_if": [
+      "M2237 cannot define artifact-only diagnostic axes",
+      "M2237 would require another blind budget run",
+      "M2237 would rank below-floor checkpoints"
+    ]
+  },
+  "hypothesis": "An artifact-only diagnosis can localize why short-v0 and medium-v1 matched training remain below readiness floor before any new rollout or training.",
+  "success_criteria": [
+    "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md exists",
+    "diagnostic axes and input artifacts are explicit",
+    "implementation route is explicit",
+    "no new reset rollout measured execution training replay PPO ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "diagnosis design is missing",
+    "design requires new rollout before artifact audit",
+    "design ranks profiles or weakens readiness floors without evidence",
+    "next route is ambiguous"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+    "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+    "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json"
+  ],
+  "decision_rule": "M2237 passes if it freezes an artifact-only diagnosis plan that explains repeated below-floor readiness without ranking or rerun.",
+  "next_blocker": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design"
+}

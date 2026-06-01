@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2235-paper-route-current-sim-matched-budget-medium-training-execution-result-audit
+m2236-paper-route-current-sim-matched-budget-training-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2236-paper-route-current-sim-matched-budget-training-branch-synthesis
+m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -136,6 +136,14 @@ blind budget increase is now blocked by the local-search guard. M2236 must
 synthesize the matched-budget training branch and choose the next non-ranking
 route, likely task/curriculum readiness diagnosis rather than more budget
 escalation.
+M2236 completes that synthesis and pivots: matched-budget training
+infrastructure is clean, but short-v0 and medium-v1 both have
+`quality_floor_profile_pass_count=0`, so the branch is not comparison-ready and
+another blind budget increase is blocked. The next branch is
+`paper_route_current_sim_task_curriculum_readiness_diagnosis`; M2237 must design
+an artifact-only diagnosis over M2230/M2234 outputs before any new rollout,
+training, measured execution, ranking, finite-window-vs-GRU verdict, or self-ID
+claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

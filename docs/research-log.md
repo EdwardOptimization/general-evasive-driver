@@ -40085,3 +40085,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: blocks another blind budget escalation and routes to branch synthesis
 - follow-up manifest: `experiments/manifests/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.json`
 - next: `m2236-paper-route-current-sim-matched-budget-training-branch-synthesis`
+
+## M2236 Paper-Route Current-Sim Matched-Budget Training Branch Synthesis
+
+- status: completed
+- synthesis_decision: `pivot`
+- decision: `current_sim_matched_budget_training_synthesis_pivot_to_task_curriculum_readiness_diagnosis`
+- manifest: `experiments/manifests/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.json`
+- synthesis artifact: `docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md`
+- evidence window: M2226-M2235 matched-budget training branch
+- short-v0: `15/15` complete, failed `0`, quality_floor_profile_pass_count `0`
+- medium-v1: `15/15` complete, failed `0`, quality_floor_profile_pass_count `0`
+- supported claims: infrastructure executes fair matched-budget panels; current panel is not comparison-ready
+- unsupported claims: profile ranking, finite-window-vs-GRU, paper-level result, level3 self-ID
+- primary failure: repeated training-readiness floor failure / seed fragility
+- public gate overfit risk: more budget escalation would be local-search churn
+- next branch: `paper_route_current_sim_task_curriculum_readiness_diagnosis`
+- follow-up manifest: `experiments/manifests/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.json`
+- next: `m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design`
