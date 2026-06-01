@@ -38106,3 +38106,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - note: workload checkpoint paths are deferred for measured execution and do not block reset validation
 - follow-up manifest: `experiments/manifests/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.json`
 - next: `m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit`
+
+## M2152 Paper-Route Current-Sim Controlled Comparison Executable Spec Materialization Audit
+
+- status: completed
+- decision: `current_sim_executable_spec_materialization_audit_admit_reset_validation_command_design`
+- manifest: `experiments/manifests/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.json`
+- audit artifact: `docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md`
+- audited summary: `runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json`
+- reset/rollout/measured execution in M2152: `false`
+- policy actions executed in M2152: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2151 cleanly materialized executable specs and planned workload rows
+- executable specs / workload rows / guardrail: `40` / `320` / `0`
+- note: checkpoint paths remain deferred for measured execution and do not block reset validation
+- follow-up manifest: `experiments/manifests/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.json`
+- next: `m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design`

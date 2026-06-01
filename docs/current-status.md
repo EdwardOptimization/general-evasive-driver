@@ -16,21 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation
+m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit
 ```
 
 Current next task:
 
 ```text
-m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit
+m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design
 ```
 
-Immediate route: M2151 materializes `40` no-rollout executable current-sim specs
-and `320` planned workload rows across the 8-profile matrix. It preserves T1-T5
-coverage, P0 actor contract checks, explicit metric-gap preservation, and
-guardrail `0`. Checkpoint paths remain intentionally deferred for measured
-execution; this does not block reset validation. M2152 must audit the
-materialization before any reset-validation command design. Ranking, paper
+Immediate route: M2152 audits M2151 as a clean no-rollout executable-spec
+materialization: `40` specs, `320` planned workload rows, balanced T1-T5
+coverage, contract `0`, guardrail `0`. Checkpoint paths remain deferred for
+measured execution and do not block reset validation. M2153 must freeze the
+exact current-sim reset-validation command over M2151 artifacts. Ranking, paper
 claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
