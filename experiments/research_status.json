@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2225,
+    "completed": 2227,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+    "command_log": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+    "run_dir": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design"
+    "task_id": "m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_bounded_diagnostic_comparison --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --scene-backed-candidates runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv --validity-summary runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json --output-dir runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison",
-    "hypothesis": "Scene-backed M2215 candidates can be converted into diagnostic matrices without ranking or rerun.",
-    "id": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rerun diagnostic matrices over M2215 scene-backed candidates",
-    "priority": 22130,
+    "command": "write docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
+    "hypothesis": "A no-rerun profile/history metric diagnosis can localize why L3 recurrent profiles are zero-success on M2218 scene-backed candidates without ranking.",
+    "id": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
+    "kind": "gate",
+    "notes": "Pending: design no-rerun profile/history metric diagnosis for L3 zero-success and L2 finite-window support",
+    "priority": 22150,
     "status": "pending",
-    "success_artifact": "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json"
+    "success_artifact": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md"
   },
-  "updated_at_utc": "20260601T120917Z"
+  "updated_at_utc": "20260601T121532Z"
 }

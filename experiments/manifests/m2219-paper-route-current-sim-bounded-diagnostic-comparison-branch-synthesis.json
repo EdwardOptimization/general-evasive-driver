@@ -1,0 +1,194 @@
+{
+  "id": "m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+      "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_profile_matrix.csv",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_history_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2214-paper-route-current-sim-support-slice-validity-audit-design.json",
+      "experiments/manifests/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M2214-M2218 support-slice validity and bounded diagnostic comparison branch"
+    ],
+    "derived_from": [
+      "m2214-paper-route-current-sim-support-slice-validity-audit-design",
+      "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
+      "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+      "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
+      "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation"
+    ],
+    "blocked_by": [
+      "local-search guard requires synthesis before another ordinary result audit",
+      "M2218 shows diagnostic support but not ranking-ready evidence"
+    ],
+    "supersedes": [
+      "ordinary M2218 result audit",
+      "direct controller-family ranking from M2218 matrices"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+  "public_gates": [
+    "M2219 must synthesize M2214-M2218",
+    "M2219 must separate diagnostic support from ranking evidence",
+    "M2219 must choose continue, pivot, stop, or promote_to_next_branch",
+    "M2219 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_slice_validity",
+    "evidence_axis": "Q_current_sim_bounded_diagnostic_comparison_synthesis",
+    "evidence_increment": "synthesizes support-slice validity and bounded diagnostic matrices into a next-branch decision",
+    "claim_scope": "branch synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2218 diagnostics are overclaimed as ranking",
+      "stop if next route ignores L3 zero-success signal",
+      "stop if next route continues blind repair without diagnosing profile/history failure"
+    ],
+    "fallback_plan": [
+      "pivot to profile/history failure diagnosis if diagnostics show usable but non-ranking signal",
+      "stop current-sim comparison panel if no actionable diagnostic remains",
+      "route to diagnostic report only if no further investigation is needed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local_search_guard tripped after M2218 when M2219 result-audit would be another non-evidence milestone",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize support-slice validity and bounded diagnostic comparison branch",
+    "admission_evidence": [
+      "M2215 validity audit pass",
+      "M2218 diagnostic comparison pass",
+      "M2218 ranking_admissible_count 0",
+      "M2218 multi_profile_diagnostic_support_count 9",
+      "research validator requires synthesis before another ordinary result audit"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+      "M2219 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "supported and unsupported claims are explicit",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2219 synthesizes outcome diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity intervention is run in M2219."
+    ],
+    "temporal_evidence_window": "M2214-M2218 branch artifacts.",
+    "negative_result_policy": "If diagnostics show L3 zero success, route to diagnosis rather than claiming finite-window-vs-GRU or self-ID.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns diagnostic matrices into a profile/history failure diagnosis branch decision",
+    "paper_verdict_delta": "keeps the current panel diagnostic-only and chooses the next evidence axis",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "M2214-M2218 evidence is sufficient to pivot from support-slice validity to profile/history failure diagnosis without ranking.",
+  "success_criteria": [
+    "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "M2218 diagnostics are not overclaimed as ranking",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis overclaims M2218 as ranking evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+    "docs/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.md"
+  ],
+  "decision_rule": "M2219 passes if it synthesizes M2214-M2218 and selects a bounded next branch without ranking or rerun.",
+  "next_blocker": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design"
+}

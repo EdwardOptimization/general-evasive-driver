@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T121155Z
+- Generated at UTC: 20260601T122411Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_bounded_diagnostic_comparison_pass_route_to_result_audit
+- Decision reason: M2218 no-rerun diagnostic comparison pass 9 scene candidates all multi-profile diagnostic support matrices 72/36/72 ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -86,8 +86,8 @@ Scene-backed M2215 candidates can be converted into diagnostic matrices without 
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_bounded_diagnostic_comparison_pass_route_to_result_audit
+- reason: M2218 no-rerun diagnostic comparison pass 9 scene candidates all multi-profile diagnostic support matrices 72/36/72 ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

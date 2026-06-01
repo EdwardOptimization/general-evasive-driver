@@ -1,0 +1,169 @@
+{
+  "id": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_design"
+    ],
+    "parent_dataset": [
+      "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_profile_matrix.csv",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_history_matrix.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design no-rerun profile/history failure diagnosis for L3 zero-success and L2 finite-window support"
+    ],
+    "derived_from": [
+      "m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2219 pivots to profile/history failure diagnosis before repair or ranking"
+    ],
+    "supersedes": [
+      "direct diagnostic report from M2218",
+      "direct controller-family ranking from M2218"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
+  "public_gates": [
+    "M2220 must design a no-rerun metric audit over M2209/M2218 artifacts",
+    "M2220 must focus on L3 zero-success and L2 finite-window support as diagnostics",
+    "M2220 must keep ranking and finite-window-vs-GRU claims blocked",
+    "M2220 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_profile_history_failure_diagnosis",
+    "evidence_axis": "Q_current_sim_profile_history_failure_diagnosis_design",
+    "evidence_increment": "designs a no-rerun metric audit for recurrent-profile zero success and finite-window support",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks profiles",
+      "stop if L3 zero-success diagnosis is absent",
+      "stop if design ignores task/profile metric fields already present in M2209"
+    ],
+    "fallback_plan": [
+      "route to no-rerun implementation if diagnosis design is complete",
+      "route to branch synthesis if diagnosis cannot be made from available artifacts",
+      "stop current-sim comparison route if profile/history failure cannot be localized"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2219 pivot selects profile/history failure diagnosis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rerun profile/history failure diagnosis",
+    "admission_evidence": [
+      "M2218 profile matrix shows L3 zero success on visible scene-backed candidates",
+      "M2218 diagnostic matrices are claim-safe but not ranking evidence",
+      "M2219 pivots to profile/history failure diagnosis"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
+      "M2220 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rerun implementation"
+    ],
+    "next_stage_criteria": [
+      "diagnostic metrics are explicit",
+      "profile/history groups are explicit",
+      "claim boundary remains blocked",
+      "routing rule after diagnosis is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2220 designs outcome metric diagnosis and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity intervention is run in M2220."
+    ],
+    "temporal_evidence_window": "M2209 and M2218 public artifacts.",
+    "negative_result_policy": "If L3 failure is explained by task/profile artifacts, record that rather than claiming finite-window-vs-GRU or self-ID.",
+    "allowed_claims": [
+      "profile/history failure diagnosis design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "starts a new synthesis-selected profile/history failure diagnosis branch",
+    "paper_verdict_delta": "can determine whether current-sim profile differences are diagnosis targets rather than comparison results",
+    "must_synthesize_if": [
+      "the branch accumulates 10 non-synthesis milestones",
+      "the design cannot identify metrics for L3 failure",
+      "implementation would rank profiles"
+    ]
+  },
+  "hypothesis": "A no-rerun profile/history metric diagnosis can localize why L3 recurrent profiles are zero-success on M2218 scene-backed candidates without ranking.",
+  "success_criteria": [
+    "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md exists",
+    "design lists exact M2209/M2218 input artifacts",
+    "design defines metric groups for L3_online_gru, L3_reset_control, L2_window_25, and L2_window_50",
+    "design preserves no-ranking claim boundary",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks L3 zero-success diagnosis path",
+    "design treats diagnostics as ranking",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+    "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_profile_matrix.csv"
+  ],
+  "decision_rule": "M2220 passes if it freezes a no-rerun profile/history failure diagnosis design without ranking or rerun.",
+  "next_blocker": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design"
+}

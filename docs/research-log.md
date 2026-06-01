@@ -39598,3 +39598,51 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits no-rerun diagnostic comparison implementation over scene-backed candidates only
 - follow-up manifest: `experiments/manifests/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.json`
 - next: `m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation`
+
+## M2218 Paper-Route Current-Sim Bounded Diagnostic Comparison Implementation
+
+- status: completed
+- decision: `current_sim_bounded_diagnostic_comparison_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.json`
+- run artifact: `runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_bounded_diagnostic_comparison.py`
+- focused tests: `2 passed`
+- scene_candidate_count: `9`
+- diagnostic_row_count: `9`
+- multi_profile_diagnostic_support_count: `9`
+- profile_concentrated_support_count: `0`
+- history_family_concentrated_support_count: `0`
+- profile_matrix_row_count: `72`
+- history_matrix_row_count: `36`
+- profile_history_matrix_row_count: `72`
+- ranking_admissible_count: `0`
+- winner_selected: `false`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: scene-backed candidates have multi-profile diagnostic support but remain diagnostic-only public evidence
+- follow-up manifest: `experiments/manifests/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.json`
+- next: `m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis`
+
+## M2219 Paper-Route Current-Sim Bounded Diagnostic Comparison Branch Synthesis
+
+- status: completed
+- decision: `current_sim_bounded_diagnostic_comparison_synthesis_pivot_to_profile_history_failure_diagnosis`
+- synthesis decision: `pivot`
+- synthesis window: `M2214-M2218`
+- manifest: `experiments/manifests/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.json`
+- synthesis artifact: `docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md`
+- primary failure taxonomy: `scenario_sampling_failure`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: M2218 diagnostic matrices are useful but not ranking-ready; pivot to L3 zero-success and profile/history failure diagnosis
+- follow-up manifest: `experiments/manifests/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.json`
+- next: `m2220-paper-route-current-sim-profile-history-failure-diagnosis-design`

@@ -1,0 +1,92 @@
+{
+  "decision_reason": "M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks L3 zero-success diagnosis path",
+    "design treats diagnostics as ranking",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T122411Z",
+  "hypothesis": "A no-rerun profile/history metric diagnosis can localize why L3 recurrent profiles are zero-success on M2218 scene-backed candidates without ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2219 pivots to profile/history failure diagnosis before repair or ranking"
+    ],
+    "derived_from": [
+      "m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis.md",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_profile_matrix.csv",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/scene_candidate_history_matrix.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "design no-rerun profile/history failure diagnosis for L3 zero-success and L2 finite-window support"
+    ],
+    "supersedes": [
+      "direct diagnostic report from M2218",
+      "direct controller-family ranking from M2218"
+    ]
+  },
+  "milestone": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
+  "next_blocker": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2220 must design a no-rerun metric audit over M2209/M2218 artifacts",
+    "M2220 must focus on L3 zero-success and L2 finite-window support as diagnostics",
+    "M2220 must keep ranking and finite-window-vs-GRU claims blocked",
+    "M2220 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2220-paper-route-current-sim-profile-history-failure-diagnosis-design",
+    "reason": "M2220 pending no-rerun profile/history failure diagnosis design for L3 zero-success and L2 finite-window support no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2220-paper-route-current-sim-profile-history-failure-diagnosis-design.md exists",
+    "design lists exact M2209/M2218 input artifacts",
+    "design defines metric groups for L3_online_gru, L3_reset_control, L2_window_25, and L2_window_50",
+    "design preserves no-ranking claim boundary",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2218 no-rerun diagnostic comparison pass 9 scene candidates all multi-profile diagnostic support matrices 72/36/72 ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
   "failure_criteria": [
     "summary is missing",
     "diagnostic matrices are missing",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T121155Z",
+  "generated_at_utc": "20260601T122411Z",
   "hypothesis": "Scene-backed M2215 candidates can be converted into diagnostic matrices without ranking or rerun.",
   "lineage": {
     "blocked_by": [
@@ -62,7 +62,7 @@
   "milestone": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
   "next_blocker": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_bounded_diagnostic_comparison_pass_route_to_result_audit",
   "public_gates": [
     "M2218 must use only M2209 and M2215 artifacts",
     "M2218 must write bounded diagnostic tables",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_bounded_diagnostic_comparison_pass_route_to_result_audit",
     "milestone": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
-    "reason": "M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2218 no-rerun diagnostic comparison pass 9 scene candidates all multi-profile diagnostic support matrices 72/36/72 ranking_admissible 0 winner false guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

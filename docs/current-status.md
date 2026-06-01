@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2217-paper-route-current-sim-bounded-diagnostic-comparison-design
+m2219-paper-route-current-sim-bounded-diagnostic-comparison-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation
+m2220-paper-route-current-sim-profile-history-failure-diagnosis-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -36,10 +36,15 @@ diagnostic candidates, `18` profile-only candidates, `7` scene blockers, and
 `ranking_admissible_count=0`. M2216 audits this as sufficient only for a
 bounded public diagnostic comparison design. M2217 freezes that no-rerun
 diagnostic route over scene-backed candidates only, with diagnostic tables,
-`ranking_admissible=false`, and `winner_selected=false`. M2218 may implement the
-diagnostic matrices from existing artifacts only. Reset, rollout, measured
-execution, repair, ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked.
+`ranking_admissible=false`, and `winner_selected=false`. M2218 implements it:
+all `9` scene-backed candidates are `multi_profile_diagnostic_support`, with
+profile/history/profile-history matrix rows `72/36/72`, while
+`ranking_admissible_count=0` and `winner_selected=false`. M2219 must audit this
+via branch synthesis because the local-search guard tripped. It pivots to
+profile/history failure diagnosis: the next step is to explain the L3
+zero-success signal and L2 finite-window support without ranking. Reset,
+rollout, measured execution, repair, ranking, paper claims, finite-window vs
+GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
