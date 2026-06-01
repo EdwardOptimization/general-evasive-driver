@@ -39553,3 +39553,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: support exists as scene-backed and history-family diagnostics, but no ranking-admissible slice exists
 - follow-up manifest: `experiments/manifests/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.json`
 - next: `m2216-paper-route-current-sim-support-slice-validity-audit-result-audit`
+
+## M2216 Paper-Route Current-Sim Support-Slice Validity Audit Result Audit
+
+- status: completed
+- decision: `current_sim_support_slice_validity_result_audit_route_to_bounded_diagnostic_comparison_design`
+- manifest: `experiments/manifests/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.json`
+- audit artifact: `docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md`
+- audited summary: `runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json`
+- result_class: `current_sim_support_slice_validity_audit_pass`
+- scene_backed_candidate_count: `9`
+- history_family_diagnostic_count: `13`
+- profile_only_candidate_count: `18`
+- ranking_admissible_count: `0`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: scene-backed support justifies a bounded diagnostic comparison design, not ranking or paper conclusion
+- follow-up manifest: `experiments/manifests/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.json`
+- next: `m2217-paper-route-current-sim-bounded-diagnostic-comparison-design`

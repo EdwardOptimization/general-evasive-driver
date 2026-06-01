@@ -1,0 +1,171 @@
+{
+  "id": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_design"
+    ],
+    "parent_dataset": [
+      "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/history_family_diagnostic_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/profile_only_candidates.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded public diagnostic comparison over scene-backed support candidates"
+    ],
+    "derived_from": [
+      "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit"
+    ],
+    "blocked_by": [
+      "M2216 admits only bounded diagnostic comparison design, not ranking"
+    ],
+    "supersedes": [
+      "direct controller-family ranking from M2215",
+      "direct task repair before using scene-backed diagnostic support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+  "public_gates": [
+    "M2217 must design a bounded diagnostic comparison over scene-backed candidates only",
+    "M2217 must keep ranking_admissible false",
+    "M2217 must define output tables as diagnostics, not promotion or paper gates",
+    "M2217 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_slice_validity",
+    "evidence_axis": "Q_current_sim_bounded_diagnostic_comparison_design",
+    "evidence_increment": "designs a bounded diagnostic comparison over M2215 scene-backed candidates without ranking",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks profiles",
+      "stop if scene-backed candidate filtering is absent",
+      "stop if diagnostic tables are treated as promotion gates",
+      "stop if global offtrack blockers are ignored"
+    ],
+    "fallback_plan": [
+      "route to no-rerun implementation if diagnostic design is complete",
+      "route to task-quality/profile repair if diagnostic denominator is too weak",
+      "stop current-sim comparison branch if bounded diagnostics cannot be made claim-safe"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2216 result audit admits bounded diagnostic design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rerun bounded diagnostic comparison",
+    "admission_evidence": [
+      "M2215 scene_backed_candidate_count 9",
+      "M2215 ranking_admissible_count 0",
+      "M2216 routes only to diagnostic design"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+      "M2217 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rerun implementation"
+    ],
+    "next_stage_criteria": [
+      "scene-backed candidate filter is explicit",
+      "diagnostic output tables are explicit",
+      "claim boundary remains blocked",
+      "routing rule after diagnostics is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2217 designs outcome diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity intervention is run in M2217."
+    ],
+    "temporal_evidence_window": "M2209/M2215 public artifacts.",
+    "negative_result_policy": "If diagnostic tables remain profile-local or offtrack-dominated, route to repair/stop instead of weakening comparison standards.",
+    "allowed_claims": [
+      "bounded diagnostic comparison design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns validity audit into a bounded diagnostic comparison design",
+    "paper_verdict_delta": "can decide whether current public panel has diagnostic comparison value before repair/stop",
+    "must_synthesize_if": [
+      "M2217 cannot define a claim-safe diagnostic table",
+      "M2217 would rank profiles",
+      "implementation would only repeat profile-only support"
+    ]
+  },
+  "hypothesis": "A bounded diagnostic comparison design can use scene-backed M2215 candidates without creating ranking or paper-level claims.",
+  "success_criteria": [
+    "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md exists",
+    "design lists exact input artifacts and scene-backed candidate filter",
+    "design defines diagnostic tables and blocked claims",
+    "design preserves no-ranking claim boundary",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design lacks scene-backed filtering",
+    "design treats diagnostics as ranking",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+    "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv"
+  ],
+  "decision_rule": "M2217 passes if it freezes a claim-safe bounded diagnostic comparison design without ranking or rerun.",
+  "next_blocker": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design"
+}

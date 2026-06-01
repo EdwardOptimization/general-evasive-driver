@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2223,
+    "completed": 2224,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
+    "command_log": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+    "run_dir": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
     "status": "completed",
-    "task_id": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation"
+    "task_id": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
-    "hypothesis": "M2215 validity artifacts can be audited into a bounded next-route decision without ranking or rerun.",
-    "id": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit",
+    "command": "write docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+    "hypothesis": "A bounded diagnostic comparison design can use scene-backed M2215 candidates without creating ranking or paper-level claims.",
+    "id": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
     "kind": "gate",
-    "notes": "Pending: audit M2215 validity counts and decide bounded diagnostic comparison vs repair/stop",
-    "priority": 22110,
+    "notes": "Pending: design no-rerun bounded diagnostic comparison over M2215 scene-backed candidates",
+    "priority": 22120,
     "status": "pending",
-    "success_artifact": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md"
+    "success_artifact": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md"
   },
-  "updated_at_utc": "20260601T120208Z"
+  "updated_at_utc": "20260601T120559Z"
 }

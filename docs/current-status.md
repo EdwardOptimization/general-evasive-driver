@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2215-paper-route-current-sim-support-slice-validity-audit-implementation
+m2216-paper-route-current-sim-support-slice-validity-audit-result-audit
 ```
 
 Current next task:
 
 ```text
-m2216-paper-route-current-sim-support-slice-validity-audit-result-audit
+m2217-paper-route-current-sim-bounded-diagnostic-comparison-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -33,10 +33,11 @@ offtrack dominated (`0.81640625` offtrack rate). M2213 synthesizes M2203-M2212
 and pivots to a new support-slice validity branch. M2215 implements that
 no-rerun audit and finds `9` scene-backed candidates, `13` history-family
 diagnostic candidates, `18` profile-only candidates, `7` scene blockers, and
-`ranking_admissible_count=0`. M2216 must audit those counts and choose bounded
-diagnostic comparison, task-quality/profile repair, or stop. Reset, rollout,
-measured execution, repair, ranking, paper claims, finite-window vs GRU
-verdicts, and self-ID claims remain blocked until that audit.
+`ranking_admissible_count=0`. M2216 audits this as sufficient only for a
+bounded public diagnostic comparison design. M2217 must design that no-rerun
+diagnostic route over scene-backed candidates only. Reset, rollout, measured
+execution, repair, ranking, paper claims, finite-window vs GRU verdicts, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

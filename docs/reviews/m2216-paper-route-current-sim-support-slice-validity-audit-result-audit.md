@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T120444Z
+- Generated at UTC: 20260601T120834Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2216 pending result audit over M2215 validity artifacts before bounded diagnostic comparison repair or stop
+- Promotion decision: current_sim_support_slice_validity_result_audit_route_to_bounded_diagnostic_comparison_design
+- Decision reason: M2216 audits M2215 pass ranking_admissible 0 scene-backed 9 profile-only 18 and routes to bounded diagnostic comparison design only no ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -81,8 +81,8 @@ M2215 validity artifacts can be audited into a bounded next-route decision witho
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2216 pending result audit over M2215 validity artifacts before bounded diagnostic comparison repair or stop
+- decision: current_sim_support_slice_validity_result_audit_route_to_bounded_diagnostic_comparison_design
+- reason: M2216 audits M2215 pass ranking_admissible 0 scene-backed 9 profile-only 18 and routes to bounded diagnostic comparison design only no ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 
