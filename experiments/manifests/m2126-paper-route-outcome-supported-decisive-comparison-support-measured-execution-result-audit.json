@@ -1,0 +1,173 @@
+{
+  "id": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_measured_execution_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/episode_rows.csv",
+      "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit M2125 measured execution before localization or comparison interpretation"
+    ],
+    "derived_from": [
+      "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2125 measured execution must complete before result audit"
+    ],
+    "supersedes": [
+      "direct profile ranking from raw measured aggregate rows",
+      "direct finite-window-vs-GRU conclusion from measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2126 must audit M2125 measured execution completeness and guardrails",
+    "M2126 must route to outcome localization before comparison interpretation",
+    "M2126 must not rerun measured execution or execute policy actions",
+    "M2126 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change profile configs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_measured_execution_result_audit",
+    "evidence_increment": "audits measured execution completeness and routes to no-rerun outcome localization",
+    "claim_scope": "measured-execution result audit only; no driver ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2125 artifact is incomplete",
+      "stop if metadata metric or guardrail failures are present",
+      "stop if audit would compare controller profiles directly",
+      "stop if measured outcomes are interpreted before localization"
+    ],
+    "fallback_plan": [
+      "route to no-rerun outcome localization if M2125 measured execution is complete",
+      "route to measured-runner repair if metadata or metric completeness fails",
+      "route to scenario repair or synthesis if measured failures dominate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2125 measured execution completes and requires audit before localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support measured-execution result audit",
+    "admission_evidence": [
+      "M2125 result_class comparison_support_measured_execution_pass",
+      "M2125 episode_count 1200",
+      "M2125 failure_count 0",
+      "M2125 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank",
+      "do not localize without audit",
+      "do not claim paper-level evidence from raw profile aggregates"
+    ],
+    "allowed_updates": [
+      "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
+      "M2126 status queue scoreboard research log and review",
+      "one follow-up manifest for outcome localization design"
+    ],
+    "next_stage_criteria": [
+      "M2125 measured artifact is audited",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2126 audits measured execution only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2126."
+    ],
+    "temporal_evidence_window": "M2125 measured execution artifact.",
+    "negative_result_policy": "If M2125 is incomplete, preserve the failure classification and route to repair before localization.",
+    "allowed_claims": [
+      "comparison-support measured-execution result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the measured execution artifact into an audited route before localization",
+    "paper_verdict_delta": "can admit localization but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2126 tries to rank profiles directly",
+      "M2126 finds the measured artifact incomplete",
+      "M2126 routes to repeated local repair without outcome localization or synthesis"
+    ]
+  },
+  "hypothesis": "M2125 is a complete measured-execution artifact and should route to no-rerun outcome localization rather than direct profile ranking.",
+  "success_criteria": [
+    "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md exists",
+    "M2125 summary is audited",
+    "M2125 completeness guardrails are summarized",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2125 artifact is not audited",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md from M2125 summary and aggregates"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_measured_execution_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+    "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/episode_rows.csv",
+    "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md"
+  ],
+  "decision_rule": "M2126 passes if it audits M2125 and routes to localization without rerun or ranking.",
+  "next_blocker": "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design"
+}

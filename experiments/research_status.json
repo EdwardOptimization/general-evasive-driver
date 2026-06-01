@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2133,
+    "completed": 2134,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+    "command_log": "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+    "run_dir": "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution",
     "status": "completed",
-    "task_id": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis"
+    "task_id": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json",
-    "hypothesis": "A comparison-support measured runner can execute all 1200 M2118 workload rows with complete metadata metrics and zero guardrail violations.",
-    "id": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run the comparison-support-specific measured runner admitted by M2124 synthesis",
-    "priority": 21200,
+    "command": "see experiments/manifests/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.json",
+    "hypothesis": "M2125 is a complete measured-execution artifact and should route to no-rerun outcome localization rather than direct profile ranking.",
+    "id": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2125 measured execution completeness before outcome localization or interpretation",
+    "priority": 21210,
     "status": "pending",
-    "success_artifact": "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json"
+    "success_artifact": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T023707Z"
+  "updated_at_utc": "20260601T024803Z"
 }

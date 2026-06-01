@@ -37460,3 +37460,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: continue to measured-execution implementation, not ranking
 - follow-up manifest: `experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json`
 - next: `m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run`
+
+## M2125 Paper-Route Outcome-Supported Decisive Comparison-Support Measured Execution Implementation And Run
+
+- status: completed
+- decision: `comparison_support_measured_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json`
+- doc: `docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md`
+- measured artifact: `runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json`
+- focused tests: `4 passed`
+- reset/rollout/measured execution in M2125: `true`
+- policy actions executed in M2125: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result_class: `comparison_support_measured_execution_pass`
+- episode_count: `1200`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- spec_count/profile_count: `240` / `5`
+- quota passes: intent `true`, target_support_tier `true`, source_kind `true`, proxy_template `true`, generated_proxy `true`
+- raw outcome counts: success `188`, collision `144`, off-track non-completion `868`
+- conclusion boundary: measured-execution completeness only; no comparison-ready support, controller ranking, finite-window-vs-GRU conclusion, paper-level result, or level3 self-ID evidence
+- follow-up manifest: `experiments/manifests/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.json`
+- next: `m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit`

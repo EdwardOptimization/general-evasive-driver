@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis
+m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run
+m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit
 ```
 
-Immediate route: M2124 synthesized the M2114-M2123 comparison-support
-scenario-redesign branch and chose `continue`. The branch has a clean
-reset-valid, metadata-preserving `240`-spec / `1200`-workload panel and a
-bounded measured-execution command. M2125 may now implement and run the
-comparison-support-specific measured runner with output
-`runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution`.
-Ranking, comparison, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked until measured execution and later localization
-are audited.
+Immediate route: M2125 implemented and ran the comparison-support-specific
+measured runner over the reset-valid M2118 workload. The measured artifact
+passes completeness: `1200/1200` episodes, failure `0`, validation failure `0`,
+metadata missing `0`, metric-completeness failure `0`, and guardrail `0`. Raw
+outcomes are `188` success, `144` collision, and `868` off-track
+non-completion. M2126 must audit this artifact before outcome localization or
+any interpretation. Ranking, comparison, paper claims, finite-window vs GRU
+conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
