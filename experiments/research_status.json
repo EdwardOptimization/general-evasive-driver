@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2147,
+    "completed": 2148,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization.md",
+    "command_log": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol",
+    "run_dir": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md",
     "status": "completed",
-    "task_id": "m2138-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization"
+    "task_id": "m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.json",
-    "hypothesis": "M2138 materialization is clean enough to admit a bounded next-route decision, but not ranking or paper claims.",
-    "id": "m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit",
+    "command": "see experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json",
+    "hypothesis": "A bounded denominator-source inventory protocol can be designed for M2138 panel-unit/profile rows without ranking or rerun.",
+    "id": "m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design",
     "kind": "gate",
-    "notes": "Pending: audit M2138 support matrix before route decision",
-    "priority": 21340,
+    "notes": "Pending: design no-rerun denominator-source inventory over M2138 panel-unit/profile rows",
+    "priority": 21350,
     "status": "pending",
-    "success_artifact": "docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md"
+    "success_artifact": "docs/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.md"
   },
-  "updated_at_utc": "20260601T042000Z"
+  "updated_at_utc": "20260601T042500Z"
 }

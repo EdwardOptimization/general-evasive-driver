@@ -37799,3 +37799,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked metrics: per-profile rates, winner/rank, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
 - follow-up manifest: `experiments/manifests/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.json`
 - next: `m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit`
+
+## M2139 Paper-Route Outcome-Supported Decisive Comparison-Support Comparison Protocol Materialization Audit
+
+- status: completed
+- decision: `comparison_support_protocol_materialization_audit_admit_denominator_source_inventory_design`
+- manifest: `experiments/manifests/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.json`
+- audit artifact: `docs/m2139-paper-route-outcome-supported-decisive-comparison-support-comparison-protocol-materialization-audit.md`
+- audited summary: `runs/m2138_paper_route_outcome_supported_decisive_comparison_support_comparison_protocol/summary.json`
+- reset/rollout/measured execution in M2139: `false`
+- policy actions executed in M2139: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2138 is clean materialization, but only support coverage
+- blocker identified: no per-profile denominators are present in M2138
+- support summary: L0 `3/6`, L1 `5/6`, L3 online `6/6`, L3 reset corrected `6/6`
+- interpretation: coverage counts are not ranking or mechanism evidence
+- route decision: design denominator-source inventory before any controlled comparison or ranking
+- follow-up manifest: `experiments/manifests/m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design.json`
+- next: `m2140-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-design`
