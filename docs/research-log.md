@@ -37293,3 +37293,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: preflight creates artifacts only; no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.json`
 - next: `m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit`
+
+## M2119 Paper-Route Outcome-Supported Decisive Comparison-Support Materialization Preflight Result Audit
+
+- status: completed
+- decision: `comparison_support_materialization_audit_admit_reset_validation_command_design`
+- manifest: `experiments/manifests/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.json`
+- audited artifact: `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json`
+- reset/rollout/measured execution in M2119: `false`
+- policy actions executed in M2119: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2118 materialization is clean and admits reset-validation command design
+- compatibility note: existing routing-smoke reset validator hard-codes `smoke_proxy`; this branch requires a dedicated or parameterized reset validator for `comparison_support_smoke_proxy`
+- executable_spec_count: `240`
+- workload_row_count: `1200`
+- profile_count: `5`
+- materialization_failure_count: `0`
+- contract_violation_count: `0`
+- forbidden_key_violation_count: `0`
+- paper_validity_claim_true_count: `0`
+- profile_specific_tuning_true_count: `0`
+- guardrail_violation_count: `0`
+- reset-validation design targets: target_spec_count `240`, expected_observation_dim `72`, eval_seed_base `212100`
+- conclusion boundary: no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence yet
+- follow-up manifest: `experiments/manifests/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.json`
+- next: `m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design`

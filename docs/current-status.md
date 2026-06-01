@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation
+m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit
 ```
 
 Current next task:
 
 ```text
-m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit
+m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design
 ```
 
-Immediate route: M2118 implements the reset-free materialization preflight and
-writes `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json`.
-The artifact passes preflight gates: `240` candidates, `240` executable specs,
-`1200` planned workload rows, `5` profiles, materialization failures `0`,
-missing profile artifacts `0`, contract violations `0`, forbidden executable
-keys `0`, claim guards `0`, and guardrail `0`. M2119 must audit the result
-before reset-validation command design. Reset, rollout, measured execution,
-comparison, paper claims, finite-window vs GRU conclusions, and self-ID claims
-remain blocked.
+Immediate route: M2119 audits the M2118 materialization as clean: `240`
+executable specs, `1200` planned workload rows, materialization failures `0`,
+contract violations `0`, forbidden executable keys `0`, and guardrail `0`.
+M2119 also records that the old routing-smoke reset validator hard-codes
+`smoke_proxy`, while this branch correctly uses `comparison_support_smoke_proxy`.
+M2120 must therefore design a comparison-support-specific reset-only validation
+command before any reset run. Rollout, measured execution, comparison, paper
+claims, finite-window vs GRU conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2127,
+    "completed": 2128,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.md",
+    "command_log": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+    "run_dir": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
     "status": "completed",
-    "task_id": "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation"
+    "task_id": "m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.json",
-    "hypothesis": "M2118 produced a clean reset-free materialization preflight artifact that can be admitted to reset-validation command design.",
-    "id": "m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit",
+    "command": "see experiments/manifests/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.json",
+    "hypothesis": "A comparison-support-specific reset-validation command can be frozen over the M2118 materialized panel without changing actor inputs, profile configs, or claim boundaries.",
+    "id": "m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2118 materialization preflight result before reset-validation command design",
-    "priority": 21140,
+    "notes": "Pending: design comparison-support-specific reset-only validation command over M2118 materialized panel",
+    "priority": 21150,
     "status": "pending",
-    "success_artifact": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md"
+    "success_artifact": "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260601T015303Z"
+  "updated_at_utc": "20260601T015818Z"
 }

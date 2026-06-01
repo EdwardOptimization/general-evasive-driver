@@ -1,0 +1,175 @@
+{
+  "id": "m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_reset_validation_command_design"
+    ],
+    "parent_dataset": [
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+      "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a comparison-support reset-validation command over the clean M2118 materialized panel"
+    ],
+    "derived_from": [
+      "m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit"
+    ],
+    "blocked_by": [
+      "M2119 must audit materialization before reset-validation command design"
+    ],
+    "supersedes": [
+      "running the old routing-smoke reset validator directly on comparison_support_smoke_proxy rows",
+      "direct measured execution without reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md",
+  "public_gates": [
+    "M2120 must freeze a comparison-support-specific reset-only command",
+    "M2120 must preserve target_spec_count 240 expected_observation_dim 72 and eval_seed_base 212100",
+    "M2120 must account for materialization_semantics comparison_support_smoke_proxy",
+    "M2120 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim reset validity",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_reset_validation_command_design",
+    "evidence_increment": "freezes the reset-only validation command and implementation requirements for the materialized panel",
+    "claim_scope": "reset-validation command design only; no reset execution rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if no reset validator can accept comparison_support_smoke_proxy semantics",
+      "stop if command would execute policy actions",
+      "stop if command would change actor inputs or profile configs",
+      "stop if design routes directly to measured comparison"
+    ],
+    "fallback_plan": [
+      "route to reset-validator implementation and run if command design is bounded",
+      "route to reset-validator compatibility repair design if schema mismatch remains",
+      "route to synthesis if reset validation cannot be designed without changing materialized panel semantics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2119 admits reset-validation command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support reset-validation command design",
+    "admission_evidence": [
+      "M2119 audited M2118 as clean",
+      "M2118 executable_spec_count 240",
+      "M2118 workload_row_count 1200",
+      "M2118 contract_violation_count 0",
+      "M2118 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in command design",
+      "do not rank",
+      "do not treat materialized rows as reset-valid or paper-valid"
+    ],
+    "allowed_updates": [
+      "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md",
+      "M2120 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "frozen command is explicit",
+      "target counts and seed base are explicit",
+      "comparison_support_smoke_proxy compatibility route is explicit",
+      "output artifacts are explicit",
+      "next implementation route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2120 designs reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2120."
+    ],
+    "temporal_evidence_window": "M2118 materialization artifact and M2119 audit.",
+    "negative_result_policy": "If reset validation command cannot preserve schema compatibility, design a validator compatibility repair before any reset run.",
+    "allowed_claims": [
+      "comparison-support reset-validation command design",
+      "no reset execution, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares reset validation for a new materialized support-targeted scenario panel",
+    "paper_verdict_delta": "can prepare reset validation but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2120 cannot specify a validator without changing panel semantics",
+      "M2120 routes directly to measured comparison",
+      "M2120 reintroduces fixed public-gate panel repair"
+    ]
+  },
+  "hypothesis": "A comparison-support-specific reset-validation command can be frozen over the M2118 materialized panel without changing actor inputs, profile configs, or claim boundaries.",
+  "success_criteria": [
+    "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md exists",
+    "frozen command names executable specs output dir eval seed base target spec count and expected observation dim",
+    "comparison_support_smoke_proxy compatibility route is explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "frozen command is ambiguous",
+    "comparison_support_smoke_proxy compatibility route is missing",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write M2120 comparison-support reset-validation command design from M2118 artifacts and M2119 audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_reset_validation_command_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+    "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md"
+  ],
+  "decision_rule": "M2120 passes if it freezes a bounded reset-only validation command and implementation route without running reset or ranking.",
+  "next_blocker": "m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run"
+}
