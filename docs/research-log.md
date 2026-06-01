@@ -39204,3 +39204,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit measured-readiness design only
 - follow-up manifest: `experiments/manifests/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.json`
 - next: `m2199-paper-route-current-sim-offtrack-support-measured-readiness-design`
+
+## M2199 Paper-Route Current-Sim Offtrack-Support Measured-Readiness Design
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_readiness_design_admit_implementation`
+- manifest: `experiments/manifests/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.json`
+- design artifact: `docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md`
+- parent workload: `runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv`
+- profile checkpoints: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv`
+- expected workload rows: `2304`
+- expected profiles: `8`
+- measured execution: `false`
+- policy action executed: `false`
+- result: admit no-rollout measured-readiness implementation
+- follow-up manifest: `experiments/manifests/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.json`
+- next: `m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation`

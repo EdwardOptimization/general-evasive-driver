@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit
+m2199-paper-route-current-sim-offtrack-support-measured-readiness-design
 ```
 
 Current next task:
 
 ```text
-m2199-paper-route-current-sim-offtrack-support-measured-readiness-design
+m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation
 ```
 
-Immediate route: M2198 audits M2197 as a clean reset-valid repaired panel and
-admits M2199 measured-readiness design. The next design must join the `2304`
-row repaired workload with profile checkpoint rows without running measured
-execution. Controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked.
+Immediate route: M2199 designs measured-readiness for the reset-valid repaired
+panel. M2200 may join the `2304` repaired workload rows with M2171 profile
+checkpoint rows, preserve the L3 reset-control alias, and verify checkpoint
+coverage without running measured execution. Controller ranking, paper claims,
+finite-window vs GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

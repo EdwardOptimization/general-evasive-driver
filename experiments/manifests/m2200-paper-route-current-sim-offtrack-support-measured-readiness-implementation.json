@@ -1,0 +1,171 @@
+{
+  "id": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_readiness"
+    ],
+    "parent_dataset": [
+      "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout measured-readiness materialization for repaired workload"
+    ],
+    "derived_from": [
+      "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design"
+    ],
+    "blocked_by": [
+      "M2199 design must freeze checkpoint join and guardrail rules before implementation"
+    ],
+    "supersedes": [
+      "direct measured execution with empty checkpoint paths"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.md",
+  "public_gates": [
+    "M2200 must materialize 2304 measured workload rows with checkpoint paths",
+    "M2200 must report 0 missing checkpoint paths",
+    "M2200 must preserve the L3 reset-control alias rule",
+    "M2200 must fail closed on actor-input shortcut or guardrail violations",
+    "M2200 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_measured_readiness",
+    "evidence_increment": "turns reset-valid repaired workload into checkpoint-complete measured workload without execution",
+    "claim_scope": "measured-readiness only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if checkpoint coverage is incomplete",
+      "stop if profile shortcut guardrails fail",
+      "stop if readiness implementation runs policy actions",
+      "stop if measured execution is attempted"
+    ],
+    "fallback_plan": [
+      "route to readiness result audit if implementation passes",
+      "route to checkpoint materialization repair if checkpoint paths are missing",
+      "route to branch synthesis if readiness cannot be completed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2199 design admits readiness implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize checkpoint-complete measured workload without execution",
+    "admission_evidence": [
+      "M2199 freezes readiness design",
+      "M2198 audits repaired panel reset-valid",
+      "M2171 profile checkpoint rows are available"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution",
+      "no policy action execution",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_offtrack_support_measured_readiness.py",
+      "tests/test_paper_route_current_sim_offtrack_support_measured_readiness.py",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+      "docs/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.md",
+      "M2200 status queue scoreboard research log and review",
+      "one follow-up manifest for readiness result audit"
+    ],
+    "next_stage_criteria": [
+      "readiness pass/fail is explicit",
+      "checkpoint coverage is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2200 materializes measured readiness and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2200."
+    ],
+    "temporal_evidence_window": "M2194-M2198 repaired reset-valid workload.",
+    "negative_result_policy": "If readiness fails, repair checkpoint/workload materialization before measured execution.",
+    "allowed_claims": [
+      "measured-readiness materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates checkpoint-complete measured workload for repaired panel",
+    "paper_verdict_delta": "can admit measured-execution command design after audit but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2200 does not create checkpoint-complete workload",
+      "M2200 would run measured execution",
+      "M2200 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2194 repaired workload can be joined with M2171 profile checkpoints into 2304 checkpoint-complete measured workload rows without measured execution or ranking.",
+  "success_criteria": [
+    "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json exists",
+    "materialized_workload_count == 2304",
+    "checkpoint_path_exists_count == 2304",
+    "checkpoint_path_missing_count == 0",
+    "profile_count == 8",
+    "guardrail_violation_count == 0",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary.json is missing",
+    "workload count is not 2304",
+    "checkpoint paths are missing",
+    "profile shortcut guardrails fail",
+    "measured execution runs",
+    "ranking is claimed"
+  ],
+  "commands": [
+    {
+      "name": "readiness",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_measured_readiness --planned-workload runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv --profile-checkpoints runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv --output-dir runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_readiness"
+  ],
+  "baseline_artifacts": [
+    "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2200 passes if it writes a checkpoint-complete measured workload without measured execution or ranking.",
+  "next_blocker": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation"
+}

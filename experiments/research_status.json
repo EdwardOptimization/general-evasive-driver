@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2206,
+    "completed": 2207,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+    "command_log": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+    "run_dir": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
     "status": "completed",
-    "task_id": "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit"
+    "task_id": "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design"
   },
   "next_task": {
-    "command": "write docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
-    "hypothesis": "The reset-valid repaired workload can be joined with profile checkpoints into a measured-readiness artifact without running measured execution or ranking profiles.",
-    "id": "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design",
-    "kind": "gate",
-    "notes": "Pending: design checkpoint/workload readiness for reset-valid repaired panel",
-    "priority": 21940,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_measured_readiness --planned-workload runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv --profile-checkpoints runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv --output-dir runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness",
+    "hypothesis": "The M2194 repaired workload can be joined with M2171 profile checkpoints into 2304 checkpoint-complete measured workload rows without measured execution or ranking.",
+    "id": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement checkpoint/workload readiness materialization for reset-valid repaired panel",
+    "priority": 21950,
     "status": "pending",
-    "success_artifact": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md"
+    "success_artifact": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json"
   },
-  "updated_at_utc": "20260601T103725Z"
+  "updated_at_utc": "20260601T104036Z"
 }
