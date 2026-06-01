@@ -7,6 +7,7 @@ from autodrift.paper_route_current_sim_scenario_task_family_config_materializati
     TARGET_ROLE_FAMILY_COUNT,
     TARGET_SCENARIO_SPEC_COUNT,
     TARGET_SPECS_PER_ROLE,
+    _reset_filter_compatible,
     materialize_scenario_specs,
     run_config_materialization,
 )
@@ -43,8 +44,16 @@ def test_materialized_specs_use_correct_role_mapping_and_contract() -> None:
         "left_offset",
         "right_offset",
     }
-    assert all(float(row["obstacle_lateral_offset_m"]) >= 0.5 for row in specs if row["obstacle_lateral_offset_bucket"] == "left_offset")
-    assert all(float(row["obstacle_lateral_offset_m"]) <= -0.5 for row in specs if row["obstacle_lateral_offset_bucket"] == "right_offset")
+    assert all(
+        float(row["obstacle_lateral_offset_m"]) >= 0.5
+        for row in specs
+        if row["obstacle_lateral_offset_bucket"] == "left_offset"
+    )
+    assert all(
+        float(row["obstacle_lateral_offset_m"]) <= -0.5
+        for row in specs
+        if row["obstacle_lateral_offset_bucket"] == "right_offset"
+    )
     assert len({row["hidden_dynamics_bucket"] for row in specs if row["scenario_family_id"] == "R5"}) >= 4
     assert not any(row["capability"] == "emergency_obstacle_lateral_offset" for row in unsupported_rows)
     assert all(row["silently_approximated"] is False for row in unsupported_rows)
@@ -85,11 +94,42 @@ def test_materialized_specs_are_sampler_valid_at_config_centers() -> None:
         assert speed == float(row["initial_speed_mps"])
         assert distance == float(row["obstacle_longitudinal_distance_m"])
         assert half_width == float(row["obstacle_half_width_m"])
+        assert env_config["friction_step"]["enabled"] is False
         assert scenario.label in allowed_labels
+        assert _reset_filter_compatible(env_config, scenario)
         if len(allowed_labels) == 1:
             assert scenario.label == row["sampled_obstacle_label"]
         if bool(obstacle_config.get("require_aeb_infeasible", False)):
             assert scenario.label != "aeb_feasible"
+
+
+def test_reset_filter_precheck_rejects_friction_step_after_obstacle() -> None:
+    scenario = classify_obstacle_scenario(
+        speed=17.2,
+        mu=0.45,
+        obstacle_distance=11.0,
+        obstacle_half_width=7.0,
+        config=ObstacleScenarioConfig(),
+    )
+    env_config = {
+        "dt": 0.02,
+        "max_steps": 420,
+        "track_radius": TRACK_RADIUS_M,
+        "speed_range": (17.2, 17.2),
+        "friction_limited_speed": True,
+        "randomization": {"mu_range": (0.45, 0.45)},
+        "obstacle": {
+            "allowed_labels": ("unavoidable",),
+            "require_aeb_infeasible": True,
+            "min_time_after_friction_step": 0.0,
+        },
+        "friction_step": {"enabled": True, "step_range": (24, 42)},
+    }
+
+    assert scenario.label == "unavoidable"
+    assert not _reset_filter_compatible(env_config, scenario)
+    env_config["friction_step"] = {"enabled": False}
+    assert _reset_filter_compatible(env_config, scenario)
 
 
 def test_run_config_materialization_writes_no_reset_artifacts(tmp_path: Path) -> None:

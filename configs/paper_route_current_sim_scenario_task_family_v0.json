@@ -2,8 +2,8 @@
   "actor_contract_id": "P0_human_view_no_wheel_no_oracle",
   "claim_scope": "no-reset scenario task-family materialization",
   "config_name": "paper_route_current_sim_scenario_task_family_v0",
-  "generated_at_utc": "20260601T200757Z",
-  "next_blocker": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation",
+  "generated_at_utc": "20260601T202128Z",
+  "next_blocker": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
   "required_metadata_fields": [
     "scenario_spec_id",
     "scenario_family_id",
@@ -3067,16 +3067,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -3201,16 +3192,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -3335,16 +3317,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -3469,16 +3442,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -4603,16 +4567,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -4737,16 +4692,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -4871,16 +4817,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -5005,16 +4942,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -6139,16 +6067,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -6273,16 +6192,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -6407,16 +6317,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -6541,16 +6442,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -7801,16 +7693,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -8314,16 +8197,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,
@@ -8827,16 +8701,7 @@
         "dt": 0.02,
         "friction_limited_speed": true,
         "friction_step": {
-          "enabled": true,
-          "mu_range": [
-            0.25,
-            0.85
-          ],
-          "resample_speed_ref": false,
-          "step_range": [
-            24,
-            42
-          ]
+          "enabled": false
         },
         "history_length": 1,
         "include_privileged_params": false,

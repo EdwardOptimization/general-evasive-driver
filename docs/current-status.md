@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design
+m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation
+m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -46,15 +46,22 @@ actor_contract_violation_count: 0
 guardrail_violation_count: 0
 ```
 
-M2288 localized the remaining failure to a friction-step timing filter omitted
-from the materializer precheck. M2289 freezes the focused repair design: the v0
-reset-valid role-family pack disables `friction_step` for all specs because
-`low_mu` is already encoded by exact initial `mu`; sudden friction-change events
-should be a future explicit scenario family, not silently mixed into this pack.
-M2290 will remove the implicit low_mu friction-step rule, add a reset-filter
-compatibility precheck, rerun materialization, and run reset-only validation.
-Policy actions, measured rollout, training, ranking, finite-window vs GRU
-verdict, paper-level claim, and level3 self-ID claim remain blocked.
+M2290 completed the focused filter-edge repair. The current-sim role-family
+scenario pack is now materialized and reset-valid under the P0 actor contract:
+
+```text
+scenario_spec_count: 72
+friction_step_enabled_count: 0
+reset_success_count: 72 / 72
+label_not_allowed_count: 0
+lateral_bucket_mismatch_count: 0
+actor_contract_violation_count: 0
+guardrail_violation_count: 0
+```
+
+M2291 must audit this reset-validity result before any measured execution
+design. Policy actions, measured rollout, training, ranking, finite-window vs
+GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

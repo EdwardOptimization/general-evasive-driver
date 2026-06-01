@@ -41075,3 +41075,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.json`
 - next: `m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation`
+
+## M2290 Paper-Route Current-Sim Scenario Task-Family Reset Filter-Edge Repair Implementation
+
+- status: completed
+- result class: `current_sim_scenario_task_family_reset_validation_pass`
+- decision: `current_sim_scenario_task_family_filter_edge_repair_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.json`
+- implementation artifact: `docs/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.md`
+- materialization artifact: `runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization/summary.json`
+- reset-validation artifact: `runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json`
+- focused tests: `11 passed`
+- materialization result: pass, 72 specs, friction_step_enabled 0, unsupported execution blockers 0, actor contract 0, guardrail 0
+- reset-validation result: pass, reset successes 72/72, label mismatches 0, lateral mismatches 0, actor contract 0, guardrail 0
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.json`
+- next: `m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit`

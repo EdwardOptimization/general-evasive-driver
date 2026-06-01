@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2297,
+    "completed": 2298,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
+    "task_id": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md"
+    "run_dir": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation",
+    "command_log": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json"
   },
   "next_task": {
-    "id": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
-    "kind": "infrastructure",
-    "priority": 22850,
+    "id": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+    "kind": "gate",
+    "priority": 22860,
     "status": "pending",
-    "hypothesis": "Removing implicit low_mu friction_step from the v0 reset-valid role-family pack and adding filter-aware precheck can produce a 72-spec pack that passes reset validation under the P0 actor contract.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization --next-blocker m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation && PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation --eval-seed-base 229000 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
-    "success_artifact": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
-    "notes": "Pending: remove implicit low_mu friction_step, add filter-aware precheck, rerun materialization and reset-only validation; no rollout training ranking or paper claims"
+    "hypothesis": "M2290 reset-validity pass can be audited and routed to the next non-ranking current-sim scenario task-quality step.",
+    "command": "manual audit of runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair artifacts",
+    "success_artifact": "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md",
+    "notes": "Pending: audit M2290 reset-validity pass and decide measured execution design/synthesis route; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T201721Z"
+  "updated_at_utc": "20260601T202209Z"
 }

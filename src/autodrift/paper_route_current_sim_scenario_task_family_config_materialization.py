@@ -303,6 +303,39 @@ def _speed_under_friction_cap(speed: float, mu: float, *, radius: float = TRACK_
     return float(speed) <= cap + 1e-9
 
 
+def _reset_filter_compatible(env_config: Mapping[str, Any], scenario: ObstacleScenario) -> bool:
+    obstacle = dict(env_config.get("obstacle") or {})
+    allowed_labels = set(str(label) for label in obstacle.get("allowed_labels", ()))
+    if allowed_labels and scenario.label not in allowed_labels:
+        return False
+    if bool(obstacle.get("require_aeb_infeasible", False)) and scenario.label == "aeb_feasible":
+        return False
+
+    speed_range = tuple(float(value) for value in env_config.get("speed_range", (scenario.speed, scenario.speed)))
+    randomization = dict(env_config.get("randomization") or {})
+    mu_range = tuple(float(value) for value in randomization.get("mu_range", (scenario.mu, scenario.mu)))
+    track_radius = float(env_config.get("track_radius", TRACK_RADIUS_M))
+    if bool(env_config.get("friction_limited_speed", True)):
+        for speed in speed_range:
+            for mu in mu_range:
+                if not _speed_under_friction_cap(speed, mu, radius=track_radius):
+                    return False
+
+    friction_step = dict(env_config.get("friction_step") or {})
+    if not bool(friction_step.get("enabled", False)):
+        return True
+    step_range = tuple(int(value) for value in friction_step.get("step_range", (250, 550)))
+    max_steps = int(env_config.get("max_steps", 0))
+    low = max(1, int(step_range[0]))
+    high = min(int(step_range[1]), max_steps - 1)
+    if high < low:
+        return True
+    dt = float(env_config.get("dt", 0.02))
+    min_time_after_step = float(obstacle.get("min_time_after_friction_step", 0.0) or 0.0)
+    latest_valid_step = int(math.floor((scenario.time_to_obstacle - min_time_after_step) / dt))
+    return high <= latest_valid_step
+
+
 def _candidate_half_widths(family: Mapping[str, Any]) -> tuple[float, ...]:
     base = float(family["half_width_m"])
     role_id = str(family["scenario_family_id"])
@@ -444,11 +477,10 @@ def _env_config_for_spec(
         },
     )
     _replace_nested(env, "randomization", hidden)
-    if hidden_bucket == "low_mu":
-        _replace_nested(
-            env,
-            "friction_step",
-            {"enabled": True, "step_range": (24, 42), "mu_range": (0.25, 0.85), "resample_speed_ref": False},
+    if not _reset_filter_compatible(env, target.scenario):
+        raise ValueError(
+            "selected target is not compatible with reset filters for "
+            f"{family['scenario_family_id']} timing={timing_bucket} hidden={hidden_bucket}"
         )
     return env, target
 
