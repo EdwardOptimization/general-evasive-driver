@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design
+m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation
 ```
 
 Current next task:
 
 ```text
-m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation
+m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit
 ```
 
-Immediate route: M2127 designs a comparison-support-specific no-rerun outcome
-localizer for M2125 artifacts. The old public-gate localizer's grouping logic
-is reusable, but its schema is not; M2128 must use comparison-support fields
-such as `comparison_support_intent`, `target_support_tier`, and dynamics/timing
-bands. M2128 may run localization only over existing M2125 CSV/JSON artifacts.
-Ranking, comparison, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked.
+Immediate route: M2128 implemented and ran no-rerun localization over M2125
+artifacts. It reproduced M2125 outcome counts exactly and found `15`
+comparison-ready candidates plus `37` candidate-support slices, with
+guardrail `0`. M2129 must audit these support artifacts and decide the bounded
+next route. Ranking, comparison, paper claims, finite-window vs GRU
+conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

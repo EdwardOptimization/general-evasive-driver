@@ -37531,3 +37531,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: localization design only; no localization result, comparison-ready support, controller ranking, finite-window-vs-GRU conclusion, paper-level result, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json`
 - next: `m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation`
+
+## M2128 Paper-Route Outcome-Supported Decisive Comparison-Support Outcome Localization Implementation
+
+- status: completed
+- decision: `comparison_support_outcome_localization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json`
+- doc: `docs/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.md`
+- run artifact: `runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json`
+- focused tests: `3 passed`
+- reset/rollout/measured execution in M2128: `false`
+- policy actions executed in M2128: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result_class: `comparison_support_outcome_localization_pass`
+- outcome_counts_match_source_summary: `true`
+- episode/profile/spec/intent/support_tier: `1200` / `5` / `240` / `4` / `4`
+- missing_schema_fields: `[]`
+- all_selected_metrics_finite: `true`
+- guardrail_violation_count: `0`
+- success_row_count: `188`
+- comparison_ready_candidate_count: `15`
+- comparison_support_candidate_count: `37`
+- offtrack_dominance_slice_count: `92`
+- collision_dominance_slice_count: `27`
+- conclusion boundary: localization result only; candidate rows need M2129 audit before qualification, no ranking/paper/FW-vs-GRU/self-ID claims
+- follow-up manifest: `experiments/manifests/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.json`
+- next: `m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit`

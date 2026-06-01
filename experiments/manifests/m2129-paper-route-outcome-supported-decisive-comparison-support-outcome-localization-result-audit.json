@@ -1,0 +1,174 @@
+{
+  "id": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_outcome_localization_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_ready_candidates.csv",
+      "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_support_candidates.csv",
+      "docs/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2128 localization result before candidate qualification or comparison interpretation"
+    ],
+    "derived_from": [
+      "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "M2128 localization must complete before result audit"
+    ],
+    "supersedes": [
+      "direct controller ranking from comparison-ready candidate rows",
+      "direct paper claim from generated comparison-support smoke proxies"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M2129 must audit M2128 localization completeness and guardrails",
+    "M2129 must decide whether candidate qualification is admitted",
+    "M2129 must not rerun localization reset rollout or execute policy actions",
+    "M2129 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_outcome_localization_result_audit",
+    "evidence_increment": "audits localized support and decides whether bounded candidate qualification is admitted",
+    "claim_scope": "localization result audit only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2128 localization is incomplete",
+      "stop if outcome counts do not reproduce source summary",
+      "stop if no support candidates exist and same-panel repair is proposed without synthesis",
+      "stop if audit ranks profiles directly"
+    ],
+    "fallback_plan": [
+      "route to candidate qualification design if support candidates are sufficient",
+      "route to scenario repair or synthesis if support is insufficient",
+      "route to schema repair if localization artifacts are invalid"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2128 localization completes and requires result audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support outcome-localization result audit",
+    "admission_evidence": [
+      "M2128 result_class comparison_support_outcome_localization_pass",
+      "M2128 comparison_ready_candidate_count 15",
+      "M2128 comparison_support_candidate_count 37",
+      "M2128 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles",
+      "do not claim paper-level evidence",
+      "do not skip candidate qualification"
+    ],
+    "allowed_updates": [
+      "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
+      "M2129 status queue scoreboard research log and review",
+      "one follow-up manifest for candidate qualification design scenario repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2128 localization artifact is audited",
+      "candidate counts and dominance counts are summarized",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2129 audits localization output and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2129."
+    ],
+    "temporal_evidence_window": "M2128 localization artifact.",
+    "negative_result_policy": "If support candidates are not sufficient, record the negative result and route to redesign or synthesis rather than ranking aggregates.",
+    "allowed_claims": [
+      "outcome localization result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns localized support evidence into a bounded next-route decision before comparison",
+    "paper_verdict_delta": "can admit candidate qualification but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2129 proposes direct ranking",
+      "M2129 ignores generated-proxy paper-validity boundary",
+      "M2129 routes to repeated local repair despite sufficient support candidates"
+    ]
+  },
+  "hypothesis": "M2128 localization found enough comparison-ready/support candidates to admit bounded candidate qualification, but not direct ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md exists",
+    "M2128 summary is audited",
+    "candidate and dominance counts are summarized",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2128 artifact is not audited",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md from M2128 summary and support artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_outcome_localization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json",
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/comparison_ready_candidates.csv",
+    "docs/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.md"
+  ],
+  "decision_rule": "M2129 passes if it audits M2128 and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design"
+}

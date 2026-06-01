@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2136,
+    "completed": 2137,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md",
+    "command_log": "docs/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md",
+    "run_dir": "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization",
     "status": "completed",
-    "task_id": "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design"
+    "task_id": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.json",
-    "hypothesis": "A comparison-support no-rerun localizer can reproduce M2125 outcome counts and identify whether comparison-ready or candidate-support slices exist before any ranking.",
-    "id": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run comparison-support-specific no-rerun outcome localization over M2125 artifacts",
-    "priority": 21230,
+    "command": "see experiments/manifests/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.json",
+    "hypothesis": "M2128 localization found enough comparison-ready/support candidates to admit bounded candidate qualification, but not direct ranking or paper claims.",
+    "id": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2128 localization support candidates before candidate qualification or ranking",
+    "priority": 21240,
     "status": "pending",
-    "success_artifact": "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json"
+    "success_artifact": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md"
   },
-  "updated_at_utc": "20260601T025954Z"
+  "updated_at_utc": "20260601T030900Z"
 }

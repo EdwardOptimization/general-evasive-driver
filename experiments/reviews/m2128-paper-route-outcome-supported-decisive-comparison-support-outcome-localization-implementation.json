@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M2128 focused tests 3 passed and no-rerun localization pass outcome counts match true comparison_ready 15 candidate_support 37 offtrack dominance 92 collision dominance 27 guardrail 0 no ranking",
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "outcome counts do not match source summary",
+    "schema fields are missing",
+    "guardrail violations appear",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T031256Z",
+  "hypothesis": "A comparison-support no-rerun localizer can reproduce M2125 outcome counts and identify whether comparison-ready or candidate-support slices exist before any ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2127 must freeze localization design before implementation"
+    ],
+    "derived_from": [
+      "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_outcome_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/episode_rows.csv",
+      "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md"
+    ],
+    "parent_objective": [
+      "implement and run no-rerun outcome localization over M2125 artifacts"
+    ],
+    "supersedes": [
+      "direct controller ranking from aggregate M2125 profile rows",
+      "running the old public-gate localizer directly on comparison-support metadata"
+    ]
+  },
+  "milestone": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation",
+  "next_blocker": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "comparison_support_outcome_localization_pass_route_to_result_audit",
+  "public_gates": [
+    "M2128 must run no-rerun localization over M2125 artifacts only",
+    "M2128 must reproduce source outcome counts exactly",
+    "M2128 must write support candidate and dominance artifacts",
+    "M2128 must not reset rollout execute policy actions or rank controller families"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "comparison_support_outcome_localization_pass_route_to_result_audit",
+    "milestone": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation",
+    "reason": "M2128 focused tests 3 passed and no-rerun localization pass outcome counts match true comparison_ready 15 candidate_support 37 offtrack dominance 92 collision dominance 27 guardrail 0 no ranking",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json exists",
+    "result_class is comparison_support_outcome_localization_pass",
+    "outcome_counts_match_source_summary is true",
+    "episode_count is 1200",
+    "profile_count is 5",
+    "spec_count is 240",
+    "intent_count is 4",
+    "support_tier_count is 4",
+    "missing_schema_fields is empty",
+    "all_selected_metrics_finite is true",
+    "guardrail_violation_count is 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}
