@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit
+m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design
+m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -91,7 +91,14 @@ and no reset, rollout, measured execution, policy action, replay, PPO, or
 training. The audit admits only M2229 execution-command design. M2229 must
 freeze command source, output-root handling, run order, failure behavior,
 logging, and post-training quality floors before any actual matched-budget
-training run.
+training run. M2229 completes that design: M2230 should implement a focused
+runner over the M2227 matrix, remap only outputs to
+`runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution`,
+run exactly `15` fixed train_ppo jobs in profile/seed order, fail closed on
+contract, budget, subprocess, checkpoint, eval-summary, or finite-metric
+failures, and report readiness floors without ranking or selecting a winner.
+M2230 may now implement and run the focused adapter; interpretation remains
+blocked until a separate result audit.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

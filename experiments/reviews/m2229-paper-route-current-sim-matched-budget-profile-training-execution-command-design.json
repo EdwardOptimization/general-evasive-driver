@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2229 pending matched-budget training execution command design no training or ranking claims",
+  "decision_reason": "M2229 freezes M2230 runner policy over M2227 matrix output-root remap fail-closed behavior quality floors and no ranking claims",
   "failure_criteria": [
     "execution design silently changes budgets, profiles, seeds, or actor inputs",
     "execution design leaves output-root handling ambiguous",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T131936Z",
+  "generated_at_utc": "20260601T132505Z",
   "hypothesis": "A safe matched-budget training-execution command can be designed from M2227 artifacts without changing budgets, profiles, seeds, or actor inputs and without running training in the design milestone.",
   "lineage": {
     "blocked_by": [
@@ -61,7 +61,7 @@
   "milestone": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
   "next_blocker": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_profile_training_execution_command_design_admit_implementation_and_run",
   "public_gates": [
     "M2229 must freeze the exact training command source and execution order",
     "M2229 must decide whether to preserve the M2227 frozen training_output_root or rematerialize command paths without changing budgets, profiles, seeds, or actor inputs",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_profile_training_execution_command_design_admit_implementation_and_run",
     "milestone": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
-    "reason": "M2229 pending matched-budget training execution command design no training or ranking claims",
+    "reason": "M2229 freezes M2230 runner policy over M2227 matrix output-root remap fail-closed behavior quality floors and no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

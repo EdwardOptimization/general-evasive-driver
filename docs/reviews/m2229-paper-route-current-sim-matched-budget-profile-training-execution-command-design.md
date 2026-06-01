@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T131936Z
+- Generated at UTC: 20260601T132505Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2229 pending matched-budget training execution command design no training or ranking claims
+- Promotion decision: current_sim_matched_budget_profile_training_execution_command_design_admit_implementation_and_run
+- Decision reason: M2229 freezes M2230 runner policy over M2227 matrix output-root remap fail-closed behavior quality floors and no ranking claims
 
 ## Hypothesis
 
@@ -88,8 +88,8 @@ A safe matched-budget training-execution command can be designed from M2227 arti
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2229 pending matched-budget training execution command design no training or ranking claims
+- decision: current_sim_matched_budget_profile_training_execution_command_design_admit_implementation_and_run
+- reason: M2229 freezes M2230 runner policy over M2227 matrix output-root remap fail-closed behavior quality floors and no ranking claims
 
 ## Next Blocker
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2236,
+    "completed": 2237,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
+    "command_log": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
+    "run_dir": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit"
+    "task_id": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design"
   },
   "next_task": {
-    "command": "manual command design over runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
-    "hypothesis": "A safe matched-budget training-execution command can be designed from M2227 artifacts without changing budgets, profiles, seeds, or actor inputs and without running training in the design milestone.",
-    "id": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze matched-budget training execution command policy before actual training",
-    "priority": 22240,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv --output-dir runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution --execution-root runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution --device cpu --fail-fast",
+    "hypothesis": "The M2227 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, producing auditable public checkpoint-quality evidence.",
+    "id": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement focused runner and execute the 15 fixed matched-budget profile/seed training jobs",
+    "priority": 22250,
     "status": "pending",
-    "success_artifact": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md"
+    "success_artifact": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json"
   },
-  "updated_at_utc": "20260601T131723Z"
+  "updated_at_utc": "20260601T132250Z"
 }

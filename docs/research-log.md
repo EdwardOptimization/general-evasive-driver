@@ -39901,3 +39901,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits training-execution command design only; immediate training and ranking remain blocked
 - follow-up manifest: `experiments/manifests/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.json`
 - next: `m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design`
+
+## M2229 Paper-Route Current-Sim Matched-Budget Profile Training Execution Command Design
+
+- status: completed
+- decision: `current_sim_matched_budget_profile_training_execution_command_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.json`
+- design artifact: `docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md`
+- parent matrix: `runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv`
+- execution root decision: remap outputs to `runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution`
+- command source: M2227 matrix profile/config/seed/budget/contract rows
+- expected runs: `15`
+- trainable profiles: `L0_current_masked`, `L1_one_step`, `L2_window_25`, `L2_window_50`, `L3_online_gru`
+- seed_ids: `222601`, `222602`, `222603`
+- run order: profile name ascending, seed id ascending
+- failure policy: fail closed and record partial rows if any config, contract, subprocess, checkpoint, eval summary, or finite-metric check fails
+- quality floors: at least `2/3` seeds per profile with eval termination rate `<=0.4` and eval return mean `>=50.0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- replay/PPO/training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits focused runner implementation-and-run in M2230; interpretation remains blocked until result audit
+- follow-up manifest: `experiments/manifests/m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run.json`
+- next: `m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run`
