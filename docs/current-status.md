@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation
+m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit
 ```
 
 Current next task:
 
 ```text
-m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit
+m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -257,8 +257,10 @@ synthesis, or stop. M2256 implements that no-rerun diagnosis and finds the
 regression is not collision-driven or severe-loss driven: offtrack delta is
 `+8` globally, concentrated in `mid_offtrack +14` and `mild_overshoot +11`,
 with collision delta `0`. The current interpretation is midcourse mild boundary
-containment regression; M2257 must audit whether this justifies targeted
-corridor-containment repair or stopping/synthesizing the current-sim branch.
+containment regression. M2257 audits that interpretation and routes to M2258:
+design a targeted midcourse corridor-containment repair with slice-metric
+acceptance criteria, while blocking another generic return-oriented reward tweak
+and keeping ranking/paper/FW-vs-GRU/self-ID claims blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

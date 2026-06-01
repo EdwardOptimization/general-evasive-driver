@@ -1,32 +1,29 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2264,
+    "completed": 2265,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "baseline_episode_count": 480,
-    "guardrail_violation_count": 0,
-    "primary_route": "stronger_offtrack_recovery_corridor_repair_design",
-    "repaired_episode_count": 480,
+    "command_log": "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis",
+    "route_decision": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
+    "run_dir": "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md",
     "status": "completed",
-    "summary": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
-    "task_id": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation"
+    "task_id": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json and slice deltas",
-    "hypothesis": "M2256 provides enough slice-level evidence to select a targeted current-sim repair route or stop the branch.",
-    "id": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
+    "command": "manual targeted repair design from M2256 slice diagnosis",
+    "hypothesis": "A targeted midcourse corridor-containment repair design can address the M2256 offtrack regression without return-only overfit.",
+    "id": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2256 midcourse mild containment regression and choose repair synthesis or stop route",
-    "priority": 22520,
+    "notes": "Pending: design targeted repair for midcourse mild boundary containment regression before more training",
+    "priority": 22530,
     "status": "pending",
-    "success_artifact": "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md"
+    "success_artifact": "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md"
   },
-  "updated_at_utc": "20260601T170151Z"
+  "updated_at_utc": "20260601T170726Z"
 }

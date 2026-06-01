@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2257 pending audit M2256 slice diagnosis and select route",
+  "decision_reason": "M2257 audits M2256 as midcourse mild boundary containment regression route to targeted repair design no ranking claims",
   "failure_criteria": [
     "M2256 artifacts are missing",
     "M2257 ignores slice deltas",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T170405Z",
+  "generated_at_utc": "20260601T170935Z",
   "hypothesis": "M2256 provides enough slice-level evidence to select a targeted current-sim repair route or stop the branch.",
   "lineage": {
     "blocked_by": [
@@ -68,7 +68,7 @@
   "milestone": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
   "next_blocker": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_failure_slice_audit_route_to_midcourse_corridor_containment_repair_design",
   "public_gates": [
     "M2257 must audit M2256 completeness support and guardrails",
     "M2257 must audit global timing severity clearance and profile_seed deltas",
@@ -78,9 +78,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_failure_slice_audit_route_to_midcourse_corridor_containment_repair_design",
     "milestone": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
-    "reason": "M2257 pending audit M2256 slice diagnosis and select route",
+    "reason": "M2257 audits M2256 as midcourse mild boundary containment regression route to targeted repair design no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

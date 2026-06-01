@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2258 pending targeted midcourse corridor-containment repair design no ranking claims",
+  "failure_criteria": [
+    "M2258 ignores M2256 slice evidence",
+    "M2258 proposes only return-oriented reward tuning",
+    "M2258 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2258 ranks profiles or selects a winner",
+    "M2258 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "objective_overfit",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T170935Z",
+  "hypothesis": "A targeted midcourse corridor-containment repair design can address the M2256 offtrack regression without return-only overfit.",
+  "lineage": {
+    "blocked_by": [
+      "M2257 audits M2256 as midcourse mild boundary containment regression"
+    ],
+    "derived_from": [
+      "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/offtrack_timing_delta.csv",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/offtrack_severity_delta.csv",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/clearance_risk_delta.csv",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/profile_seed_delta.csv"
+    ],
+    "parent_objective": [
+      "design targeted midcourse corridor-containment repair before any more training"
+    ],
+    "supersedes": [
+      "another generic offtrack penalty increase",
+      "collision-only repair as primary route",
+      "profile-specific repair"
+    ]
+  },
+  "milestone": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
+  "next_blocker": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2258 must design a targeted repair for midcourse mild boundary containment regression",
+    "M2258 must preserve collision and clearance guardrails",
+    "M2258 must define slice-metric success criteria before any implementation",
+    "M2258 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
+    "reason": "M2258 pending targeted midcourse corridor-containment repair design no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md exists",
+    "repair targets midcourse mild boundary containment",
+    "collision and clearance guardrails are explicit",
+    "slice metrics from M2256 are used as acceptance criteria",
+    "guardrails block reset rollout training ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up implementation materialization or stop route is selected"
+  ],
+  "type": "gate"
+}

@@ -40587,3 +40587,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.json`
 - next: `m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit`
+
+## M2257 Paper-Route Current-Sim Offtrack Failure-Slice Diagnosis Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_failure_slice_audit_route_to_midcourse_corridor_containment_repair_design`
+- manifest: `experiments/manifests/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.json`
+- audit artifact: `docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md`
+- parent result: `runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json`
+- result class: `current_sim_offtrack_failure_slice_diagnosis_pass`
+- interpretation: `midcourse_mild_boundary_containment_regression`
+- support: mid_offtrack `+14`, mild_overshoot `+11`, safe-clearance offtrack `+7`
+- non-support: collision delta `0`, severe overshoot delta `0`, no absolute profile-seed singleton `>=5`
+- route decision: `m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.json`
+- next: `m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design`

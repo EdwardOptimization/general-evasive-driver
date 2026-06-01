@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T170405Z
+- Generated at UTC: 20260601T170935Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2257 pending audit M2256 slice diagnosis and select route
+- Promotion decision: current_sim_offtrack_failure_slice_audit_route_to_midcourse_corridor_containment_repair_design
+- Decision reason: M2257 audits M2256 as midcourse mild boundary containment regression route to targeted repair design no ranking claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ M2256 provides enough slice-level evidence to select a targeted current-sim repa
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2257 pending audit M2256 slice diagnosis and select route
+- decision: current_sim_offtrack_failure_slice_audit_route_to_midcourse_corridor_containment_repair_design
+- reason: M2257 audits M2256 as midcourse mild boundary containment regression route to targeted repair design no ranking claims
 
 ## Next Blocker
 
