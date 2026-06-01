@@ -1,0 +1,96 @@
+# m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260601T183251Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: current_sim_midcourse_corridor_containment_slice_audit_route_to_task_quality_synthesis
+- Decision reason: M2270 audits M2269 as slice recovery supported but aggregate strict repair not proven; stop scalar repair local search and route to current-sim task-quality synthesis
+
+## Hypothesis
+
+M2269 provides enough slice-level evidence to decide whether targeted containment recovered the intended regression or whether the branch should synthesize/pivot.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_no_rerun
+- parent_dataset: runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json, runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/global_delta.csv, runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_timing_delta.csv, runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_severity_delta.csv, runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/clearance_risk_delta.csv, docs/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.md
+- parent_config: experiments/manifests/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.json
+- parent_objective: audit whether M2269 slice diagnosis supports targeted containment repair or requires synthesis/pivot
+- derived_from: m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation
+- blocked_by: M2269 completed no-rerun diagnosis with aggregate-neutral but slice-recovered route
+- supersedes: claiming targeted repair success from aggregate outcome only, claiming M2265 failed because global offtrack did not improve below M2244, another reward/training run before M2269 result audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md exists
+- M2269 result_class is audited
+- M2269 support_complete and guardrail_violation_count are audited
+- M2269 global and slice deltas are interpreted separately
+- guardrails remain false for training ranking paper-level finite-window-vs-GRU and level3 self-ID claims
+- a follow-up non-ranking route is selected
+
+## Failure Criteria
+
+- M2269 artifacts are missing
+- M2269 slice evidence is ignored
+- M2270 starts new training reset rollout measured execution replay PPO or private holdout
+- M2270 ranks profiles or selects a winner
+- M2270 makes finite-window-vs-GRU paper-level or level3 self-ID claims
+
+## Evidence Gates
+
+- M2270 must audit M2269 completeness and guardrails
+- M2270 must distinguish global aggregate neutrality from intended slice recovery
+- M2270 must classify whether the containment branch should continue, synthesize, pivot, or stop
+- M2270 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not run replay
+- do not run PPO
+- do not use private holdout
+- do not promote any checkpoint
+- do not rank controller families
+- do not select a winner
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- behavior_regression
+- scenario_sampling_failure
+- objective_overfit
+- metric_artifact
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit
+- type: gate
+- checkpoint: docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md
+- success_rate: 0.5791666666666667
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: current_sim_midcourse_corridor_containment_slice_audit_route_to_task_quality_synthesis
+- reason: M2270 audits M2269 as slice recovery supported but aggregate strict repair not proven; stop scalar repair local search and route to current-sim task-quality synthesis
+
+## Next Blocker
+
+m2271-paper-route-current-sim-task-quality-branch-synthesis-design

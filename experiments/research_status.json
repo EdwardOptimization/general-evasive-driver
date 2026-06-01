@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2277,
+    "completed": 2278,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation",
+    "task_id": "m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis",
-    "command_log": "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json"
+    "run_dir": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+    "command_log": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md"
   },
   "next_task": {
-    "id": "m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
+    "id": "m2271-paper-route-current-sim-task-quality-branch-synthesis-design",
     "kind": "gate",
-    "priority": 22650,
+    "priority": 22660,
     "status": "pending",
-    "hypothesis": "M2269 provides enough slice-level evidence to decide whether targeted containment recovered the intended regression or whether the branch should synthesize/pivot.",
-    "command": "manual artifact audit of runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json and slice deltas",
-    "success_artifact": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
-    "notes": "Pending: audit M2269 aggregate-neutral slice-recovered result and choose non-ranking follow-up route no training/ranking claims"
+    "hypothesis": "A branch-level current-sim task-quality synthesis can choose the next paper-route move more reliably than continuing local reward repair.",
+    "command": "manual synthesis-design artifact over M2236-M2270 current-sim task-quality evidence",
+    "success_artifact": "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+    "notes": "Pending: freeze synthesis scope over current-sim task-quality evidence no training/ranking claims"
   },
-  "updated_at_utc": "20260601T182623Z"
+  "updated_at_utc": "20260601T183243Z"
 }

@@ -16,28 +16,27 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation
+m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit
 ```
 
 Current next task:
 
 ```text
-m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit
+m2271-paper-route-current-sim-task-quality-branch-synthesis-design
 ```
 
-Immediate route: M2269 completed the no-rerun three-panel slice diagnosis over
-M2244 baseline, M2265 targeted containment, and M2253 generic repair. All three
-panels have `480` rows and guardrail violations are `0`. Relative to M2244,
-M2265 is aggregate-neutral on offtrack (`110 -> 110`), improves success by `+1`,
-and reduces collision by `-1`; relative to M2253, it improves offtrack by `-8`
-and success by `+9`. The intended M2256 failure slices are recovered versus
-M2244: `mid_offtrack_delta=-8` and `mild_overshoot_delta=-2`.
+Immediate route: M2270 audits M2269 as complete and guardrail clean. M2265
+targeted containment recovers the intended M2256/M2257 slices versus M2244
+(`mid_offtrack_delta=-8`, `mild_overshoot_delta=-2`) and beats M2253 generic
+repair on offtrack by `-8`, but it remains aggregate-neutral versus M2244 on
+global offtrack (`110 -> 110`).
 
 Active interpretation: targeted containment fixed the generic-repair slice
-regression but did not produce a strict global offtrack improvement below
-M2244. The next step is a process audit, not another immediate reward/training
-local search. Ranking, winner selection, paper-level claims, finite-window vs
-GRU conclusions, and level3 self-identification claims remain blocked.
+regression but did not produce a strict global offtrack improvement or a
+comparison-ready current-sim panel. The local scalar reward-repair loop is
+stopped for now. The next step is to design a branch-level current-sim
+task-quality synthesis before any new training, measured execution, ranking,
+finite-window vs GRU conclusion, paper-level claim, or level3 self-ID claim.
 
 ## Actor Contract
 

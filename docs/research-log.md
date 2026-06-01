@@ -12,6 +12,15 @@ Last updated: 2026-06-01
 - key evidence: baseline vs targeted `success +1`, `offtrack 0`, `collision -1`; generic vs targeted `success +9`, `offtrack -8`, `collision -1`; intended slices recovered with `mid_offtrack -8` and `mild_overshoot -2` versus M2244.
 - decision: route to M2270 result audit; do not claim ranking, paper-level evidence, finite-window-vs-GRU conclusion, or level3 self-identification.
 
+
+## 20260601T183200Z m2270-containment-slice-diagnosis-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md`
+- result: M2269 is complete and guardrail clean; targeted containment recovers intended slices (`mid_offtrack -8`, `mild_overshoot -2`) but remains aggregate-neutral on offtrack versus M2244 (`110 -> 110`).
+- decision: stop immediate scalar reward-repair local search and route to M2271 current-sim task-quality branch synthesis design. Ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:
