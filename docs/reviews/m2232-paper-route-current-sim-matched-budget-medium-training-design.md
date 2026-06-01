@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T133744Z
+- Generated at UTC: 20260601T134052Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2232 pending medium-v1 matched-budget 32768-step training design no training/ranking claims
+- Promotion decision: current_sim_matched_budget_medium_training_design_admit_config_materialization
+- Decision reason: M2232 freezes medium-v1 matched budget same profiles/seeds readiness floors total_steps 32768 no training/ranking claims
 
 ## Hypothesis
 
@@ -89,8 +89,8 @@ A medium-v1 matched-budget plan with 32768 steps per seed can test whether M2230
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2232 pending medium-v1 matched-budget 32768-step training design no training/ranking claims
+- decision: current_sim_matched_budget_medium_training_design_admit_config_materialization
+- reason: M2232 freezes medium-v1 matched budget same profiles/seeds readiness floors total_steps 32768 no training/ranking claims
 
 ## Next Blocker
 

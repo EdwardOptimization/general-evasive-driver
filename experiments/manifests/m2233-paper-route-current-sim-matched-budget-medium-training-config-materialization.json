@@ -1,0 +1,184 @@
+{
+  "id": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_materialization"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_profiles/m2227_matched_budget_short_v0",
+      "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2232-paper-route-current-sim-matched-budget-medium-training-design.json"
+    ],
+    "parent_objective": [
+      "materialize medium-v1 matched-budget profile training configs and command matrix without training"
+    ],
+    "derived_from": [
+      "m2232-paper-route-current-sim-matched-budget-medium-training-design"
+    ],
+    "blocked_by": [
+      "M2232 medium design must freeze profiles, seeds, budgets, readiness floors, and claim boundaries"
+    ],
+    "supersedes": [
+      "manual medium-budget config edits",
+      "profile-specific medium training configs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.md",
+  "public_gates": [
+    "M2233 must materialize exactly the M2232 five-profile three-seed medium-v1 matrix",
+    "M2233 must set total_steps=32768 for every trainable profile/seed config",
+    "M2233 must preserve all other matched budget fields and readiness floors",
+    "M2233 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2233 must write a training command matrix and claim boundary",
+    "M2233 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "Q_matched_budget_medium_training_config_materialization",
+    "evidence_increment": "turns medium-v1 design into deterministic config and command artifacts",
+    "claim_scope": "config materialization only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if medium configs differ across profiles beyond profile architecture",
+      "stop if generated configs violate actor input contract",
+      "stop if materialization starts training or rollout"
+    ],
+    "fallback_plan": [
+      "route to config repair if materialization fails",
+      "route to execution design/run if materialization is clean",
+      "route to synthesis if medium training cost is no longer justified"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2232 admits medium config materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-training medium-v1 matched-budget profile configs",
+    "admission_evidence": [
+      "M2230 complete short-v0 training shows quality_floor_profile_pass_count 0",
+      "M2231 audits that as below-floor rather than comparison-ready",
+      "M2232 freezes medium-v1 protocol with unchanged profiles, seeds, and readiness floors"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_matched_budget_medium_training_configs.py",
+      "tests/test_paper_route_current_sim_matched_budget_medium_training_configs.py",
+      "configs/paper_route_profiles/m2233_matched_budget_medium_v1/*.json",
+      "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/*",
+      "docs/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.md",
+      "M2233 status queue scoreboard research log and review",
+      "one follow-up manifest selected by materialization"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "training_matrix.csv exists",
+      "profile/seed/budget counts match design",
+      "contract violation count is 0",
+      "training_started false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2233 materializes configs and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2233."
+    ],
+    "temporal_evidence_window": "M2232 medium-v1 matched-budget training design.",
+    "negative_result_policy": "Materialized configs must support fair finite-window and GRU outcomes without assuming a winner.",
+    "allowed_claims": [
+      "medium-v1 matched-budget config materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates deterministic medium-v1 matched-budget training artifacts after short-v0 below-floor result",
+    "paper_verdict_delta": "enables the next controlled test of undertraining versus task/curriculum limitations",
+    "must_synthesize_if": [
+      "M2233 cannot materialize equal medium budgets",
+      "M2233 would require profile-specific config tuning",
+      "M2233 starts training"
+    ]
+  },
+  "hypothesis": "M2232 medium-v1 design can be materialized into contract-clean configs and command artifacts without running training.",
+  "success_criteria": [
+    "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json exists",
+    "training_matrix.csv exists",
+    "generated configs exist for each trainable profile and seed",
+    "all trained profiles use matched medium budgets and seeds",
+    "total_steps is 32768 in every generated config",
+    "contract_violation_count is 0",
+    "training_started is false",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "training matrix is missing",
+    "budget fields differ across profiles",
+    "contract violations are nonzero",
+    "new rollout or training is performed"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_medium_training_configs --output-dir runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs --config-output-dir configs/paper_route_profiles/m2233_matched_budget_medium_v1"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
+    "configs/paper_route_profiles/m2227_matched_budget_short_v0"
+  ],
+  "decision_rule": "M2233 passes if it materializes medium-v1 matched-budget configs and command matrix without training or contract violations.",
+  "next_blocker": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization"
+}

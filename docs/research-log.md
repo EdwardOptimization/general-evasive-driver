@@ -39981,3 +39981,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: routes to medium-v1 matched-budget training design with unchanged profiles/seeds/readiness floor
 - follow-up manifest: `experiments/manifests/m2232-paper-route-current-sim-matched-budget-medium-training-design.json`
 - next: `m2232-paper-route-current-sim-matched-budget-medium-training-design`
+
+## M2232 Paper-Route Current-Sim Matched-Budget Medium Training Design
+
+- status: completed
+- decision: `current_sim_matched_budget_medium_training_design_admit_config_materialization`
+- manifest: `experiments/manifests/m2232-paper-route-current-sim-matched-budget-medium-training-design.json`
+- design artifact: `docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md`
+- profiles: `L0_current_masked`, `L1_one_step`, `L2_window_25`, `L2_window_50`, `L3_online_gru`
+- seed_ids: `222601`, `222602`, `222603`
+- total_steps_per_seed: `32768`
+- rollout_steps: `128`
+- num_envs: `4`
+- update_epochs: `2`
+- eval_episodes: `32`
+- readiness floor: unchanged, at least `2/3` seeds per profile with eval termination `<=0.4` and eval return `>=50.0`
+- actor input contract changed: `false`
+- training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits medium-v1 config materialization only
+- follow-up manifest: `experiments/manifests/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.json`
+- next: `m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization`

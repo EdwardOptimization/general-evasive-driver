@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2239,
+    "completed": 2240,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+    "command_log": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+    "run_dir": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
     "status": "completed",
-    "task_id": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit"
+    "task_id": "m2232-paper-route-current-sim-matched-budget-medium-training-design"
   },
   "next_task": {
-    "command": "manual medium-budget training design based on M2230 readiness-floor audit",
-    "hypothesis": "A medium-v1 matched-budget plan with 32768 steps per seed can test whether M2230 short-v0 readiness failure is undertraining, without profile-specific tuning or claim expansion.",
-    "id": "m2232-paper-route-current-sim-matched-budget-medium-training-design",
-    "kind": "gate",
-    "notes": "Pending: freeze medium-v1 matched-budget profile training design after short-v0 readiness failure",
-    "priority": 22270,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_medium_training_configs --output-dir runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs --config-output-dir configs/paper_route_profiles/m2233_matched_budget_medium_v1",
+    "hypothesis": "M2232 medium-v1 design can be materialized into contract-clean configs and command artifacts without running training.",
+    "id": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize medium-v1 matched-budget configs and command matrix without training",
+    "priority": 22280,
     "status": "pending",
-    "success_artifact": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md"
+    "success_artifact": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json"
   },
-  "updated_at_utc": "20260601T133537Z"
+  "updated_at_utc": "20260601T133908Z"
 }

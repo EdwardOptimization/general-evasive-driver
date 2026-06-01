@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2232 pending medium-v1 matched-budget 32768-step training design no training/ranking claims",
+  "decision_reason": "M2232 freezes medium-v1 matched budget same profiles/seeds readiness floors total_steps 32768 no training/ranking claims",
   "failure_criteria": [
     "M2232 changes profile-specific budgets",
     "M2232 weakens readiness floors to reinterpret M2230",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T133744Z",
+  "generated_at_utc": "20260601T134052Z",
   "hypothesis": "A medium-v1 matched-budget plan with 32768 steps per seed can test whether M2230 short-v0 readiness failure is undertraining, without profile-specific tuning or claim expansion.",
   "lineage": {
     "blocked_by": [
@@ -61,7 +61,7 @@
   "milestone": "m2232-paper-route-current-sim-matched-budget-medium-training-design",
   "next_blocker": "m2232-paper-route-current-sim-matched-budget-medium-training-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_medium_training_design_admit_config_materialization",
   "public_gates": [
     "M2232 must freeze medium-v1 matched training budget and keep profiles/seeds comparable",
     "M2232 must preserve actor input contract and no-oracle/no-wheel constraints",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_medium_training_design_admit_config_materialization",
     "milestone": "m2232-paper-route-current-sim-matched-budget-medium-training-design",
-    "reason": "M2232 pending medium-v1 matched-budget 32768-step training design no training/ranking claims",
+    "reason": "M2232 freezes medium-v1 matched budget same profiles/seeds readiness floors total_steps 32768 no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

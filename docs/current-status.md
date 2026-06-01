@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit
+m2232-paper-route-current-sim-matched-budget-medium-training-design
 ```
 
 Current next task:
 
 ```text
-m2232-paper-route-current-sim-matched-budget-medium-training-design
+m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -113,7 +113,11 @@ M2231 audits this as a clean execution but training-readiness floor failure:
 measured execution and all ranking/FW-vs-GRU/self-ID claims, then routes to
 M2232 medium-v1 matched-budget design: same five profiles, same three seeds,
 unchanged readiness floor, no actor input changes, and `32768` steps per seed
-to test whether M2230 was simply undertrained.
+to test whether M2230 was simply undertrained. M2232 completes that design:
+same five profiles, same `222601/222602/222603` seeds, unchanged readiness
+floor, `32768` steps per seed, rollout `128`, `4` envs, `2` update epochs,
+eval episodes `32`, CPU/sync, and no ranking/self-ID/paper claims. M2233 must
+now materialize medium-v1 configs and command matrix without training.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
