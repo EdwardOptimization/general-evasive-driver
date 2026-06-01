@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T150408Z
+- Generated at UTC: 20260601T150928Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2243 pending selected-checkpoint outcome localization design no rollout/ranking claims
+- Promotion decision: current_sim_selected_checkpoint_outcome_localization_design_admit_execution
+- Decision reason: M2243 freezes selected-checkpoint outcome localization 480 episodes fields groups repair route logic no ranking claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ An episode-level outcome localization design over M2241 selected checkpoints can
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2243 pending selected-checkpoint outcome localization design no rollout/ranking claims
+- decision: current_sim_selected_checkpoint_outcome_localization_design_admit_execution
+- reason: M2243 freezes selected-checkpoint outcome localization 480 episodes fields groups repair route logic no ranking claims
 
 ## Next Blocker
 

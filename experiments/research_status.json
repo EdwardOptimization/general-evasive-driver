@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2250,
+    "completed": 2251,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
+    "command_log": "docs/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2242-paper-route-current-sim-training-stability-repair-result-audit.md",
+    "run_dir": "docs/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.md",
     "status": "completed",
-    "task_id": "m2242-paper-route-current-sim-training-stability-repair-result-audit"
+    "task_id": "m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design"
   },
   "next_task": {
-    "command": "manual design over M2241 selected checkpoint artifacts",
-    "hypothesis": "An episode-level outcome localization design over M2241 selected checkpoints can identify the repair target more reliably than immediate reward/task training.",
-    "id": "m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design",
-    "kind": "gate",
-    "notes": "Pending: design episode-level outcome localization over M2241 selected checkpoints no rollout/ranking claims",
-    "priority": 22380,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_selected_checkpoint_outcome_localization --output-dir runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization",
+    "hypothesis": "Episode-level outcome localization over selected checkpoints can identify the next repair target without ranking profiles.",
+    "id": "m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: run selected-checkpoint episode-level outcome localization 480 episodes no ranking claims",
+    "priority": 22390,
     "status": "pending",
-    "success_artifact": "docs/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.md"
+    "success_artifact": "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
   },
-  "updated_at_utc": "20260601T150151Z"
+  "updated_at_utc": "20260601T150646Z"
 }

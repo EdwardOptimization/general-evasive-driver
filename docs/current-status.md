@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2242-paper-route-current-sim-training-stability-repair-result-audit
+m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design
 ```
 
 Current next task:
 
 ```text
-m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design
+m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -183,6 +183,12 @@ checkpoints still fail readiness broadly, M2243 must design selected-checkpoint
 episode-level outcome localization before reward/termination or task/curriculum
 repair. The next evidence gap is failure mode, not another aggregate eval:
 offtrack, collision, max-step noncompletion, recovery, and termination timing.
+M2243 completes that design: evaluate exactly `15` selected checkpoints over
+`32` public episodes each (`480` rows), using the same `seed_id + 10000` seed
+policy as M2241 candidate eval. Required outputs include episode rows, profile
+and profile-seed aggregates, outcome/termination aggregates, and repair-route
+candidates. M2244 may run this diagnostic localization; it is not a ranking or
+paper result.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

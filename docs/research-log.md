@@ -40244,3 +40244,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.json`
 - next: `m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design`
+
+## M2243 Paper-Route Current-Sim Selected-Checkpoint Outcome Localization Design
+
+- status: completed
+- decision: `current_sim_selected_checkpoint_outcome_localization_design_admit_execution`
+- manifest: `experiments/manifests/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.json`
+- design artifact: `docs/m2243-paper-route-current-sim-selected-checkpoint-outcome-localization-design.md`
+- selected checkpoint source: `runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv`
+- scope: `15` selected checkpoints x `32` episodes = `480` episode rows
+- seed policy: `seed_id + 10000`, matching M2241 public candidate eval
+- required outcome fields: outcome_bucket, termination_reason, collision, obstacle completion, clearance, offtrack, impact, sideslip, recovery proxies
+- grouping axes: global, profile, profile+seed, checkpoint step, outcome bucket, termination reason, selected readiness pass
+- failure labels: success_supported, offtrack_dominated, collision_dominated, max-step noncompletion, mixed, low support
+- repair route logic: offtrack/recovery, collision/clearance, progress/noncompletion, task-curriculum stratification, or runner repair
+- training/replay/PPO/private holdout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation.json`
+- next: `m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation`
