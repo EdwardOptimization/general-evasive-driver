@@ -1,0 +1,172 @@
+{
+  "id": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/checkpoints"
+    ],
+    "parent_dataset": [
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/run_rows.csv",
+      "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv",
+      "docs/m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit matched-budget training execution result and readiness-floor failure without rerun"
+    ],
+    "derived_from": [
+      "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2230 completed training but quality_floor_profile_pass_count is 0"
+    ],
+    "supersedes": [
+      "directly ranking profiles from M2230 aggregate rows",
+      "directly proceeding to measured execution from M2230 checkpoints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+  "public_gates": [
+    "M2231 must audit M2230 completion, failure counts, finite metrics, contract guardrails, and quality-floor profile pass count",
+    "M2231 must explicitly block controller-family ranking and finite-window-vs-GRU conclusions",
+    "M2231 must decide whether to route to training recipe repair, longer matched-budget training design, task-quality adjustment, or bounded negative-result synthesis",
+    "M2231 must not rerun training, reset, rollout, measured execution, replay, PPO, or policy action"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun training",
+    "do not edit checkpoints",
+    "do not run measured execution",
+    "do not run replay gates",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "Q_matched_budget_profile_training_result_audit",
+    "evidence_increment": "audits complete matched-budget training artifacts and readiness-floor failure before deciding the next branch",
+    "claim_scope": "result audit only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2230 artifacts are incomplete or non-finite",
+      "stop if quality-floor failure blocks downstream measured execution",
+      "stop if interpreting aggregate rows would require ranking"
+    ],
+    "fallback_plan": [
+      "route to training recipe/curriculum repair if completion is clean but readiness is weak",
+      "route to implementation repair if artifact completeness is broken",
+      "route to bounded negative synthesis if short-v0 matched-budget training is clean but broadly below floor"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2230 completed with quality_floor_profile_pass_count=0",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit matched-budget training execution result",
+    "admission_evidence": [
+      "M2230 summary reports 15 completed runs and 0 failed runs",
+      "M2230 profile aggregate reports quality_floor_profile_pass_count 0",
+      "M2230 keeps ranking and paper claims blocked"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun training",
+      "do not use private holdout",
+      "do not rank profiles",
+      "do not promote",
+      "do not claim finite-window-vs-GRU or self-ID"
+    ],
+    "allowed_updates": [
+      "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+      "M2231 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "result completeness is audited",
+      "readiness-floor failure is classified",
+      "next route is selected without ranking claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2231 audits training/eval rows only and does not test causal history necessity.",
+    "history_necessity_tests": [
+      "None in M2231; no wrong-history, reset-hidden, or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "Three public training seeds per profile with 32 public eval episodes per checkpoint.",
+    "negative_result_policy": "If all profiles fail readiness floors, record it as a training-readiness blocker rather than lowering claim standards.",
+    "allowed_claims": [
+      "matched-budget short-v0 training completion/readiness audit",
+      "no architecture ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2230 completed public training artifacts into an audited route decision",
+    "paper_verdict_delta": "determines whether matched-budget short-v0 training is ready for comparison or needs repair",
+    "must_synthesize_if": [
+      "M2231 cannot choose a repair or synthesis route",
+      "M2231 would rank profiles despite quality-floor failure",
+      "M2231 would proceed to measured execution with quality_floor_profile_pass_count=0"
+    ]
+  },
+  "hypothesis": "M2230 produced complete finite training artifacts but did not meet readiness floors, so M2231 can classify the result and select a repair or synthesis route without rerunning or ranking.",
+  "success_criteria": [
+    "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md exists",
+    "M2230 result_class is current_sim_matched_budget_profile_training_execution_pass",
+    "completed_run_count is 15",
+    "failed_run_count is 0",
+    "all_selected_metrics_finite is true",
+    "quality_floor_profile_pass_count is audited",
+    "ranking remains blocked",
+    "no rerun measured execution replay PPO private holdout ranking paper-level finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2230 artifacts are missing",
+    "completion or finite-metric fields are inconsistent",
+    "quality-floor failure is ignored",
+    "profiles are ranked or a winner is selected before the audit route",
+    "M2231 starts new training, measured execution, replay, PPO, or private holdout"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json and profile_aggregate.csv"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/checkpoints"
+  ],
+  "baseline_artifacts": [
+    "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+    "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv"
+  ],
+  "decision_rule": "M2231 passes if it audits M2230 completeness and readiness-floor failure, then selects the next non-ranking route.",
+  "next_blocker": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2237,
+    "completed": 2238,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
+    "command_log": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design.md",
+    "run_dir": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution",
     "status": "completed",
-    "task_id": "m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design"
+    "task_id": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv --output-dir runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution --execution-root runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution --device cpu --fail-fast",
-    "hypothesis": "The M2227 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, producing auditable public checkpoint-quality evidence.",
-    "id": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement focused runner and execute the 15 fixed matched-budget profile/seed training jobs",
-    "priority": 22250,
+    "command": "manual artifact audit of runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json and profile_aggregate.csv",
+    "hypothesis": "M2230 produced complete finite training artifacts but did not meet readiness floors, so M2231 can classify the result and select a repair or synthesis route without rerunning or ranking.",
+    "id": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2230 complete training result and quality-floor failure before any comparison route",
+    "priority": 22260,
     "status": "pending",
-    "success_artifact": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json"
+    "success_artifact": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T132250Z"
+  "updated_at_utc": "20260601T133206Z"
 }

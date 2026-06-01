@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T132534Z
+- Generated at UTC: 20260601T133413Z
 - Type: infrastructure
 - Gate tier: generalization
-- Promotion decision: pending
-- Decision reason: M2230 pending focused runner implementation and 15 fixed matched-budget profile/seed training jobs no ranking claims
+- Promotion decision: current_sim_matched_budget_profile_training_execution_complete_route_to_result_audit
+- Decision reason: M2230 runner pass 15/15 runs complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked
 
 ## Hypothesis
 
@@ -96,8 +96,8 @@ The M2227 matched-budget profile configs can be executed as 15 fixed train_ppo j
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2230 pending focused runner implementation and 15 fixed matched-budget profile/seed training jobs no ranking claims
+- decision: current_sim_matched_budget_profile_training_execution_complete_route_to_result_audit
+- reason: M2230 runner pass 15/15 runs complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked
 
 ## Next Blocker
 

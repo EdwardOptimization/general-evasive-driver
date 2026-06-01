@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2229-paper-route-current-sim-matched-budget-profile-training-execution-command-design
+m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run
+m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -98,7 +98,15 @@ run exactly `15` fixed train_ppo jobs in profile/seed order, fail closed on
 contract, budget, subprocess, checkpoint, eval-summary, or finite-metric
 failures, and report readiness floors without ranking or selecting a winner.
 M2230 may now implement and run the focused adapter; interpretation remains
-blocked until a separate result audit.
+blocked until a separate result audit. M2230 implements the runner and executes
+the fixed panel: `15/15` train_ppo runs complete, failures `0`, checkpoints
+`15`, finite selected metrics `true`, budget signature `1`, contract
+violations `0`, guardrail `0`. The readiness result is weak:
+`quality_floor_profile_pass_count=0`; every profile has fewer than `2/3` seeds
+passing the pre-registered eval termination/return floor. M2231 must audit this
+as a complete-but-not-ready training result before any repair, rerun,
+measured-execution, ranking, finite-window-vs-GRU verdict, paper claim, or
+self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

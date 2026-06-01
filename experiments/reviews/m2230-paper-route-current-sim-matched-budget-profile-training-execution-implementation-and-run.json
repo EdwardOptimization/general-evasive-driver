@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2230 pending focused runner implementation and 15 fixed matched-budget profile/seed training jobs no ranking claims",
+  "decision_reason": "M2230 runner pass 15/15 runs complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked",
   "failure_criteria": [
     "any train_ppo subprocess fails",
     "any expected checkpoint or eval summary is missing",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "generalization",
-  "generated_at_utc": "20260601T132534Z",
+  "generated_at_utc": "20260601T133413Z",
   "hypothesis": "The M2227 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, producing auditable public checkpoint-quality evidence.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
   "next_blocker": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_profile_training_execution_complete_route_to_result_audit",
   "public_gates": [
     "M2230 may implement a focused execution adapter and run exactly the 15 M2227 profile/seed configs",
     "M2230 must remap only output paths to the M2230 execution root",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_profile_training_execution_complete_route_to_result_audit",
     "milestone": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run",
-    "reason": "M2230 pending focused runner implementation and 15 fixed matched-budget profile/seed training jobs no ranking claims",
+    "reason": "M2230 runner pass 15/15 runs complete failed 0 finite metrics true quality_floor_profile_pass_count 0 ranking blocked",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",
