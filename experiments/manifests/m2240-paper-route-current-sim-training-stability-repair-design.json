@@ -1,0 +1,179 @@
+{
+  "id": "m2240-paper-route-current-sim-training-stability-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
+      "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
+      "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/training_plateau.csv",
+      "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/budget_delta.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a non-training repair route for M2238 late-regression and below-floor readiness evidence"
+    ],
+    "derived_from": [
+      "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit"
+    ],
+    "blocked_by": [
+      "M2238/M2239 block another blind budget escalation and route to training stability repair design"
+    ],
+    "supersedes": [
+      "directly increasing total_steps again",
+      "ranking below-floor profile checkpoints",
+      "changing actor inputs to recover readiness"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2240-paper-route-current-sim-training-stability-repair-design.md",
+  "public_gates": [
+    "M2240 must design a training-stability repair without executing training",
+    "M2240 must preserve the human-view/no-privileged actor input contract",
+    "M2240 must specify checkpoint retention or best-checkpoint selection criteria before execution",
+    "M2240 must keep controller-family ranking, winner selection, finite-window-vs-GRU, paper-level, and self-ID claims blocked",
+    "M2240 must include a fallback route if checkpoint-selection repair is insufficient"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor input contract",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_training_stability_repair_design",
+    "evidence_increment": "turns M2238 late-regression diagnosis into an execution-ready repair design without training",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repair design would require actor input contract changes",
+      "stop if design cannot specify checkpoint retention and readiness gates",
+      "stop if design would become another blind budget escalation"
+    ],
+    "fallback_plan": [
+      "route to task/curriculum/reward repair design if checkpoint retention cannot address the blocker",
+      "route to floor calibration audit only if the design finds readiness floors are mismatched",
+      "route to branch synthesis if no non-training repair route is defensible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2239 routes to training-stability repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze a training-stability repair plan before any new matched-budget execution",
+    "admission_evidence": [
+      "M2238 detects late regression in 18/30 training traces",
+      "M2238 reports 0 fail-to-pass readiness transitions from short-v0 to medium-v1",
+      "M2239 blocks another blind budget escalation"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
+      "M2240 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "repair design defines checkpoint retention and readiness checks",
+      "execution admission is explicit",
+      "fallback route is explicit",
+      "no training or ranking claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2240 is a training-stability design and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2240; no wrong-history, reset-hidden, zero-history, or measured execution intervention is run."
+    ],
+    "temporal_evidence_window": "M2238/M2239 artifact diagnosis only.",
+    "negative_result_policy": "If training stability design cannot support readiness repair, route to task/curriculum repair or branch synthesis instead of lowering self-ID standards.",
+    "allowed_claims": [
+      "training-stability repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "uses M2238 diagnostics to design a new repair mechanism instead of extending the same budget escalation",
+    "paper_verdict_delta": "can admit a controlled repair execution or route to task/curriculum redesign",
+    "must_synthesize_if": [
+      "M2240 cannot define an execution-ready repair",
+      "M2240 recommends only more total_steps",
+      "M2240 would change actor inputs or rank below-floor profiles"
+    ]
+  },
+  "hypothesis": "A training-stability repair design can address M2238 late-regression evidence more directly than another blind budget increase.",
+  "success_criteria": [
+    "docs/m2240-paper-route-current-sim-training-stability-repair-design.md exists",
+    "repair design specifies checkpoint retention or best-checkpoint selection",
+    "repair design preserves actor input contract and matched profile/seed fairness",
+    "repair design defines readiness floors and guardrails for any follow-up execution",
+    "fallback route is explicit",
+    "no reset rollout measured execution training replay PPO private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design requires actor input contract changes",
+    "design is just another total_steps increase",
+    "checkpoint retention/readiness gates are unspecified",
+    "M2240 starts new training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2240 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design over M2238/M2239 diagnosis artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
+    "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
+    "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/training_plateau.csv"
+  ],
+  "decision_rule": "M2240 passes if it freezes an execution-ready training-stability repair design without training or ranking claims.",
+  "next_blocker": "m2240-paper-route-current-sim-training-stability-repair-design"
+}

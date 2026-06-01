@@ -40149,3 +40149,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: another blind budget escalation remains blocked; route to result audit
 - follow-up manifest: `experiments/manifests/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.json`
 - next: `m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit`
+
+## M2239 Paper-Route Current-Sim Task/Curriculum Readiness Diagnosis Result Audit
+
+- status: completed
+- decision: `current_sim_readiness_diagnosis_route_to_training_stability_repair_design`
+- manifest: `experiments/manifests/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.json`
+- audit artifact: `docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md`
+- parent result: `runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json`
+- M2238 result_class: `current_sim_task_curriculum_readiness_diagnosis_pass`
+- missing artifact count: `0`
+- route-level readiness state: profile_floor_pass_count short-v0/medium-v1 `0/0`
+- near-floor calibration evidence: `medium_near_floor_count=0`
+- seed-only evidence: medium seed pass counts `2/5`, `0/5`, `2/5`
+- training stability evidence: late regression rows `18/30`
+- accepted primary route: `training_plateau_or_late_regression`
+- next route: training-stability repair design before another budget increase
+- reset/rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2240-paper-route-current-sim-training-stability-repair-design.json`
+- next: `m2240-paper-route-current-sim-training-stability-repair-design`

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T143013Z
+- Generated at UTC: 20260601T143535Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2239 pending result audit of M2238 readiness diagnosis no rerun/ranking claims
+- Promotion decision: current_sim_readiness_diagnosis_route_to_training_stability_repair_design
+- Decision reason: M2239 audits M2238 route training_plateau_or_late_regression and admits M2240 checkpoint-retention repair design no ranking claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ M2238 provides enough artifact-only evidence to audit the repeated below-floor r
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2239 pending result audit of M2238 readiness diagnosis no rerun/ranking claims
+- decision: current_sim_readiness_diagnosis_route_to_training_stability_repair_design
+- reason: M2239 audits M2238 route training_plateau_or_late_regression and admits M2240 checkpoint-retention repair design no ranking claims
 
 ## Next Blocker
 

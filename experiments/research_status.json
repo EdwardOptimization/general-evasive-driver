@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2246,
+    "completed": 2247,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
+    "command_log": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "run_dir": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
     "status": "completed",
-    "task_id": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation"
+    "task_id": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json and diagnostic CSVs",
-    "hypothesis": "M2238 provides enough artifact-only evidence to audit the repeated below-floor result and route away from blind budget escalation.",
-    "id": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit",
+    "command": "manual design over M2238/M2239 diagnosis artifacts",
+    "hypothesis": "A training-stability repair design can address M2238 late-regression evidence more directly than another blind budget increase.",
+    "id": "m2240-paper-route-current-sim-training-stability-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2238 route classification and select next non-training repair route",
-    "priority": 22340,
+    "notes": "Pending: design checkpoint retention/best-checkpoint repair route from M2238 late-regression evidence no training/ranking claims",
+    "priority": 22350,
     "status": "pending",
-    "success_artifact": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md"
+    "success_artifact": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md"
   },
-  "updated_at_utc": "20260601T142544Z"
+  "updated_at_utc": "20260601T143102Z"
 }

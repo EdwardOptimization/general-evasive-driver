@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2239 pending result audit of M2238 readiness diagnosis no rerun/ranking claims",
+  "decision_reason": "M2239 audits M2238 route training_plateau_or_late_regression and admits M2240 checkpoint-retention repair design no ranking claims",
   "failure_criteria": [
     "M2238 artifacts are missing",
     "M2238 route classification is ignored",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T143013Z",
+  "generated_at_utc": "20260601T143535Z",
   "hypothesis": "M2238 provides enough artifact-only evidence to audit the repeated below-floor result and route away from blind budget escalation.",
   "lineage": {
     "blocked_by": [
@@ -66,7 +66,7 @@
   "milestone": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit",
   "next_blocker": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_readiness_diagnosis_route_to_training_stability_repair_design",
   "public_gates": [
     "M2239 must audit M2238 result_class, missing artifact count, route classification, and guardrails",
     "M2239 must decide whether the next route is plateau/reward/curriculum repair, floor calibration, or artifact-gap handling",
@@ -76,9 +76,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_readiness_diagnosis_route_to_training_stability_repair_design",
     "milestone": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit",
-    "reason": "M2239 pending result audit of M2238 readiness diagnosis no rerun/ranking claims",
+    "reason": "M2239 audits M2238 route training_plateau_or_late_regression and admits M2240 checkpoint-retention repair design no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

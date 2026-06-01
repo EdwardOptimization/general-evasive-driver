@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation
+m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit
 ```
 
 Current next task:
 
 ```text
-m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit
+m2240-paper-route-current-sim-training-stability-repair-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -159,9 +159,13 @@ improves return and termination in `10/15` rows but produces `0` fail-to-pass
 readiness transitions. The primary route classification is
 `training_plateau_or_late_regression` because `18/30` training traces show late
 return or termination regression; secondary route is `task_curriculum_repair`.
-M2239 must audit this result and select the next non-training repair route
-before any new rollout, training, measured execution, ranking,
-finite-window-vs-GRU verdict, or self-ID claim.
+M2239 audits this result and routes to M2240 training-stability repair design.
+The audit rejects near-floor calibration as the primary route
+(`medium_near_floor_count=0`), rejects a seed-only explanation as primary
+(medium seed pass counts `2/5`, `0/5`, `2/5`), and blocks another blind budget
+increase. M2240 must design a checkpoint-retention/best-checkpoint or
+early-stop repair route before any new rollout, training, measured execution,
+ranking, finite-window-vs-GRU verdict, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
