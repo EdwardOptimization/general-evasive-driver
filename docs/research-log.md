@@ -37018,3 +37018,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json`
 - next: `m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run`
+
+## M2108 Paper-Route Outcome-Supported Decisive Public-Gate Core Repaired Measured Execution Implementation And Run
+
+- status: completed
+- decision: `public_gate_core_repaired_measured_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json`
+- run artifact: `runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json`
+- focused tests: `4 passed`
+- measured execution in M2108: `true`
+- rollout/policy actions in M2108: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: `controlled_routing_smoke_measured_execution_pass`, episodes `480/480`, failure_count `0`, spec_count `96`, profile_count `5`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- family/profile/source/proxy quota checks: all pass
+- raw outcomes recorded but not interpreted for ranking: success_obstacle_pass `41`, collision_failure `415`, off_track_noncollision_noncompletion `24`
+- supported claim: complete repaired public-gate core measured execution artifact exists with zero failure rows and guardrail 0
+- unsupported claims remain: controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.json`
+- next: `m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit`

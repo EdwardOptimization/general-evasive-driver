@@ -1,0 +1,175 @@
+{
+  "id": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_repaired_measured_execution_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/outcome_aggregate.csv",
+      "docs/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit the complete repaired measured execution artifact before any ranking or outcome-support route"
+    ],
+    "derived_from": [
+      "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2108 measured execution result must be audited before ranking or route selection"
+    ],
+    "supersedes": [
+      "direct ranking from M2108 raw outcomes",
+      "paper-level claim from generated smoke proxy rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2109 must audit M2108 execution completeness and raw outcomes",
+    "M2109 must classify whether the complete artifact is ranking-ready or needs outcome localization",
+    "M2109 must not rerun measured execution or rank controller families",
+    "M2109 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_repaired_measured_execution_result_audit",
+    "evidence_increment": "audits the complete repaired measured execution artifact and selects the next route",
+    "claim_scope": "result audit and route selection only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if audit reruns measured execution",
+      "stop if audit ranks controller families",
+      "stop if smoke proxy rows are treated as paper-valid tasks",
+      "stop if raw outcomes are interpreted without support analysis"
+    ],
+    "fallback_plan": [
+      "route to no-rerun outcome localization if raw outcomes are low-support or collision/offtrack dominated",
+      "route to comparison readiness design only if aggregate support is sufficient",
+      "route to synthesis if another local repair loop is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2108 completes repaired measured execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core repaired measured execution result audit",
+    "admission_evidence": [
+      "M2108 episode_count 480",
+      "M2108 failure_count 0",
+      "M2108 metadata_missing_count 0",
+      "M2108 metric_completeness_failure_count 0",
+      "M2108 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank in M2109",
+      "do not treat M2108 as paper-level evidence",
+      "do not run another measured execution in audit"
+    ],
+    "allowed_updates": [
+      "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
+      "M2109 status queue scoreboard research log and review",
+      "one follow-up manifest for localization comparison readiness synthesis or stop route"
+    ],
+    "next_stage_criteria": [
+      "M2108 execution completeness is audited",
+      "raw outcome distribution is recorded",
+      "ranking readiness is explicitly blocked or admitted",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2109 audits a measured execution artifact and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2109."
+    ],
+    "temporal_evidence_window": "M2108 measured execution artifact.",
+    "negative_result_policy": "If outcomes are low-support, route to localization or synthesis before comparison; do not tune or rerun ad hoc.",
+    "allowed_claims": [
+      "repaired measured execution result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits complete repaired measured execution before any next comparison or repair route",
+    "paper_verdict_delta": "can decide whether the artifact is comparison-ready but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2109 proposes another local repair without localization",
+      "M2109 cannot decide ranking readiness",
+      "M2109 treats M2108 raw outcomes as paper evidence"
+    ]
+  },
+  "hypothesis": "M2108 produced a complete repaired public-gate core measured execution artifact that can be audited for ranking readiness and routed without overclaiming.",
+  "success_criteria": [
+    "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md exists",
+    "M2108 summary is audited",
+    "M2108 raw outcome distribution is recorded",
+    "ranking readiness is classified",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2108 result is not classified",
+    "ranking readiness is ambiguous",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution artifacts and write M2109 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_repaired_measured_execution_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+    "docs/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.md"
+  ],
+  "decision_rule": "M2109 passes if it audits M2108 execution, classifies ranking readiness, and selects a bounded next route without rerunning or ranking.",
+  "next_blocker": "m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design"
+}

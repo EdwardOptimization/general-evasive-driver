@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design
+m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run
+m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit
 ```
 
-Immediate route: M2107 freezes the exact repaired measured-execution command
-over M2104 artifacts. M2108 may run only that command: target `480` episodes,
-`96` specs, `5` profiles, CPU device, eval seed base `210100`, output
-`runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution`,
-and the two audited seed overrides preserved from the repaired workload. M2107
-does not run rollout or policy actions. Outcome interpretation, ranking, paper
-claims, finite-window vs GRU conclusions, and self-ID claims remain blocked
-until M2108 runs and M2109 audits the result.
+Immediate route: M2108 ran the frozen repaired measured-execution command and
+passed the execution gate: `480/480` episodes, failure count `0`, metadata
+missing count `0`, metric completeness failure count `0`, guardrail `0`, and
+all family/source/profile quotas passed. Raw outcomes are recorded as `41`
+successes, `415` collisions, and `24` off-track noncollision noncompletions,
+but no ranking or interpretation is made in M2108. M2109 must audit the
+complete repaired measured artifact and decide whether to localize outcomes or
+admit any comparison-readiness route. Paper claims, finite-window vs GRU
+conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

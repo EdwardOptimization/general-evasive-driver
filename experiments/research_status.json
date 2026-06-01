@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2116,
+    "completed": 2117,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md",
+    "command_log": "docs/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md",
+    "run_dir": "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution",
     "status": "completed",
-    "task_id": "m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design"
+    "task_id": "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json",
-    "hypothesis": "The frozen M2107 command can run the 480-cell repaired public-gate core measured execution workload and produce complete artifacts without guardrail violations.",
-    "id": "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run only the frozen M2107 repaired measured execution command and defer interpretation to audit",
-    "priority": 21030,
+    "command": "see experiments/manifests/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.json",
+    "hypothesis": "M2108 produced a complete repaired public-gate core measured execution artifact that can be audited for ranking readiness and routed without overclaiming.",
+    "id": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit complete M2108 artifact and classify ranking readiness without rerun or ranking",
+    "priority": 21040,
     "status": "pending",
-    "success_artifact": "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json"
+    "success_artifact": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T004704Z"
+  "updated_at_utc": "20260601T005141Z"
 }
