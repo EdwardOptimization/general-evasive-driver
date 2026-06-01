@@ -38966,3 +38966,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to no-rerun audit result audit and repair-route decision
 - follow-up manifest: `experiments/manifests/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.json`
 - next: `m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit`
+
+## M2188 Paper-Route Current-Sim Repeat Seed-Diversity and Combined-Outcome Audit Result Audit
+
+- status: completed
+- decision: `current_sim_repeat_data_quality_audit_route_to_task_quality_offtrack_support_repair_design`
+- manifest: `experiments/manifests/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.json`
+- audit artifact: `docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md`
+- audited summary: `runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json`
+- accepted: M2187 is a clean no-rerun audit and combined panel completeness passes
+- comparison-ready: `false`
+- primary blocker: `outcome_support_low_offtrack_dominated`
+- secondary blocker: `seed_diversity_suspicious_identical_repeat_outcome_vectors`
+- combined success/offtrack: `163/741`
+- combined success/offtrack rate: `0.16979166666666667/0.771875`
+- seed diversity status: `suspicious_identical_repeat_outcome_vectors`
+- next route: task-quality/offtrack support repair design before comparison
+- training: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to support repair design, not ranking
+- follow-up manifest: `experiments/manifests/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.json`
+- next: `m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design`

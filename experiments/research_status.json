@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2195,
+    "completed": 2196,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run.md",
+    "command_log": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit",
+    "run_dir": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
     "status": "completed",
-    "task_id": "m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run"
+    "task_id": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
-    "hypothesis": "The M2187 no-rerun audit result should block comparison and route to explicit support/seed-diversity repair.",
-    "id": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit",
+    "command": "write docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+    "hypothesis": "A task-quality/offtrack support repair can be designed to produce a more comparison-ready current-sim panel without changing actor inputs or ranking profiles.",
+    "id": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2187 no-rerun result and choose repair route",
-    "priority": 21830,
+    "notes": "Pending: design task-quality/offtrack support repair before comparison",
+    "priority": 21840,
     "status": "pending",
-    "success_artifact": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md"
+    "success_artifact": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md"
   },
-  "updated_at_utc": "20260601T093718Z"
+  "updated_at_utc": "20260601T094228Z"
 }

@@ -1,0 +1,161 @@
+{
+  "id": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+      "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.json"
+    ],
+    "parent_objective": [
+      "design current-sim task-quality/offtrack support repair before comparison"
+    ],
+    "derived_from": [
+      "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit"
+    ],
+    "blocked_by": [
+      "M2188 audits current repeat panel as not comparison-ready due low support/offtrack dominance"
+    ],
+    "supersedes": [
+      "controller-family comparison on offtrack-dominated repeat panel"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+  "public_gates": [
+    "M2189 must design a support repair route before comparison",
+    "M2189 must target offtrack dominance and low success support",
+    "M2189 must keep human-view/no-oracle actor input contract intact",
+    "M2189 must keep repeat metadata and seed-diversity audit requirements",
+    "M2189 must not run new rollout or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_task_quality_offtrack_support_repair_design",
+    "evidence_increment": "pivots from complete-but-underpowered repeat data to task-quality support repair design",
+    "claim_scope": "repair design only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repair design would tune to a profile winner",
+      "stop if repair design changes actor inputs",
+      "stop if repair design ignores repeat metadata and seed-diversity audit",
+      "stop if design would run rollout"
+    ],
+    "fallback_plan": [
+      "route to no-rollout repair candidate generation if design is clear",
+      "route to branch synthesis if support repair conflicts with paper-route constraints",
+      "route to seed-diversity repair only if support repair is not the primary blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2188 routes to support repair before comparison",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design task-quality/offtrack support repair",
+    "admission_evidence": [
+      "M2187 combined panel completeness pass",
+      "M2187 outcome_support_pass false",
+      "M2188 identifies outcome_support_low_offtrack_dominated as primary blocker"
+    ],
+    "blocked_shortcuts": [
+      "no rollout in design",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+      "M2189 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rollout repair candidate generation"
+    ],
+    "next_stage_criteria": [
+      "repair axes are explicit",
+      "support thresholds are explicit",
+      "next implementation artifact is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2189 designs task-quality repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2189."
+    ],
+    "temporal_evidence_window": "M2187 combined repeat data-quality audit.",
+    "negative_result_policy": "Treat low support/offtrack dominance as a task-quality blocker; do not lower comparison thresholds to force a result.",
+    "allowed_claims": [
+      "task-quality/offtrack support repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns measured evidence failure into a support-repair branch rather than local ranking",
+    "paper_verdict_delta": "can define repair route but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2189 cannot define a support repair route",
+      "M2189 would tune to observed winner-like profiles",
+      "M2189 would rank profiles"
+    ]
+  },
+  "hypothesis": "A task-quality/offtrack support repair can be designed to produce a more comparison-ready current-sim panel without changing actor inputs or ranking profiles.",
+  "success_criteria": [
+    "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md exists",
+    "repair axes are explicit",
+    "success/offtrack support thresholds are explicit",
+    "seed-diversity follow-up requirement is explicit",
+    "next route is explicit",
+    "no rollout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "repair route is ambiguous",
+    "design changes actor inputs",
+    "design ranks profiles",
+    "design runs measured execution"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+    "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json"
+  ],
+  "decision_rule": "M2189 passes if it freezes a support repair design without rollout or ranking.",
+  "next_blocker": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design"
+}
