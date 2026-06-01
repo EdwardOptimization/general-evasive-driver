@@ -37489,3 +37489,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: measured-execution completeness only; no comparison-ready support, controller ranking, finite-window-vs-GRU conclusion, paper-level result, or level3 self-ID evidence
 - follow-up manifest: `experiments/manifests/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.json`
 - next: `m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit`
+
+## M2126 Paper-Route Outcome-Supported Decisive Comparison-Support Measured Execution Result Audit
+
+- status: completed
+- decision: `comparison_support_measured_execution_audit_route_to_no_rerun_outcome_localization_design`
+- manifest: `experiments/manifests/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.json`
+- audit artifact: `docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md`
+- audited summary: `runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json`
+- reset/rollout/measured execution in M2126: `false`
+- policy actions executed in M2126: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2125 is a complete measured artifact and is valid for no-rerun outcome localization
+- completeness: episode `1200/1200`, failure `0`, validation failure `0`, metadata missing `0`, metric completeness failure `0`, guardrail `0`
+- raw outcome counts: success `188`, collision `144`, off-track non-completion `868`
+- ranking readiness: blocked until localization identifies comparison-ready or candidate-support slices
+- follow-up manifest: `experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json`
+- next: `m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2134,
+    "completed": 2135,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md",
+    "command_log": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution",
+    "run_dir": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
+    "task_id": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.json",
-    "hypothesis": "M2125 is a complete measured-execution artifact and should route to no-rerun outcome localization rather than direct profile ranking.",
-    "id": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit",
+    "command": "see experiments/manifests/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.json",
+    "hypothesis": "A no-rerun outcome localization design can classify the M2125 artifact and decide the next route before any controller-family comparison.",
+    "id": "m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2125 measured execution completeness before outcome localization or interpretation",
-    "priority": 21210,
+    "notes": "Pending: design no-rerun outcome localization over M2125 artifacts with comparison-ready criteria and no ranking",
+    "priority": 21220,
     "status": "pending",
-    "success_artifact": "docs/m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit.md"
+    "success_artifact": "docs/m2127-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260601T024803Z"
+  "updated_at_utc": "20260601T025358Z"
 }
