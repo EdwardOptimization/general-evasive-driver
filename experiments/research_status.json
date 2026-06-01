@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2322,
+    "completed": 2323,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
+    "task_id": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md"
+    "run_dir": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis",
+    "command_log": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json"
   },
   "next_task": {
-    "id": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
-    "kind": "infrastructure",
-    "priority": 23100,
+    "id": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+    "kind": "gate",
+    "priority": 23110,
     "status": "pending",
-    "hypothesis": "No-rerun metric semantics conflict diagnosis can separate safe-stop AEB conflicts from true support-blocked scenarios.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --scenario-support-labels runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv --role-support-summary runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv --output-dir runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --next-blocker m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
-    "success_artifact": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
-    "notes": "Pending: artifact-only metric semantics conflict diagnosis from M2313 rows; no rerun training ranking paper or self-ID claims"
+    "hypothesis": "M2315 provides enough metric-semantics evidence to route to role-specific safe-stop success semantics repair before any training or ranking.",
+    "command": "manual artifact audit of runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json role_metric_semantics_summary.csv and scenario_metric_semantics_diagnosis.csv",
+    "success_artifact": "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
+    "notes": "Pending: audit M2315 safe-stop semantics evidence and residual support-blocked roles; no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T230607Z"
+  "updated_at_utc": "20260601T231418Z"
 }

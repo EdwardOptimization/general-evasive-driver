@@ -41705,3 +41705,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.json`
 - next: `m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation`
+
+## M2315 Paper-Route Current-Sim Scenario Task-Family Metric Semantics Conflict Diagnosis Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_metric_semantics_conflict_diagnosis_pass`
+- manifest: `experiments/manifests/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.json`
+- implementation doc: `docs/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.md`
+- summary: `runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py`
+- input_episode_count/scenario_count: `1080/72`
+- metric_conflict_scenario_count: `13`
+- safe_stop_metric_conflict_episode_count/scenario_count: `92/23`
+- residual_support_blocked_scenario_count: `18`
+- R0 safe-stop scenario/episode/AEB-episode count: `12/62/60`
+- R0 safe-stop clearance min/mean/max: `10.96082732487428/25.993928793681416/43.58735902844862`
+- role labels: R0 `role_safe_stop_success_semantics_repair_required`; R1 `role_non_metric_conflict`; R2-R5 `role_support_redesign_candidate`
+- guardrail_violation_count: `0`
+- reset/rollout/policy action in M2315: `false`
+- training/replay/PPO in M2315: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.json`
+- next: `m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit`
