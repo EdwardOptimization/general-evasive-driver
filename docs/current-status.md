@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit
+m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design
+m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run
 ```
 
-Immediate route: M2119 audits the M2118 materialization as clean: `240`
-executable specs, `1200` planned workload rows, materialization failures `0`,
-contract violations `0`, forbidden executable keys `0`, and guardrail `0`.
-M2119 also records that the old routing-smoke reset validator hard-codes
-`smoke_proxy`, while this branch correctly uses `comparison_support_smoke_proxy`.
-M2120 must therefore design a comparison-support-specific reset-only validation
-command before any reset run. Rollout, measured execution, comparison, paper
-claims, finite-window vs GRU conclusions, and self-ID claims remain blocked.
+Immediate route: M2120 freezes a comparison-support-specific reset-only
+validation command over the M2118 executable specs. The frozen run targets
+`240` specs, expected observation dim `72`, eval seed base `212100`, and output
+dir `runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight`.
+M2121 may implement and run only that reset validator. Rollout, policy actions,
+measured execution, comparison, paper claims, finite-window vs GRU conclusions,
+and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

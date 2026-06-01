@@ -37322,3 +37322,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence yet
 - follow-up manifest: `experiments/manifests/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.json`
 - next: `m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design`
+
+## M2120 Paper-Route Outcome-Supported Decisive Comparison-Support Reset Validation Command Design
+
+- status: completed
+- decision: `comparison_support_reset_validation_command_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.json`
+- design artifact: `docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md`
+- reset/rollout/measured execution in M2120: `false`
+- policy actions executed in M2120: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: freezes dedicated comparison-support reset-validation command for `comparison_support_smoke_proxy` semantics
+- executable specs: `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json`
+- output dir: `runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight`
+- target_spec_count: `240`
+- expected_observation_dim: `72`
+- eval_seed_base: `212100`
+- next expected result class: `comparison_support_reset_validation_preflight_pass`
+- conclusion boundary: command design only; no reset validity, rollout, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- follow-up manifest: `experiments/manifests/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.json`
+- next: `m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run`

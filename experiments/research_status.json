@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2128,
+    "completed": 2129,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
+    "command_log": "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit.md",
+    "run_dir": "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md",
     "status": "completed",
-    "task_id": "m2119-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-result-audit"
+    "task_id": "m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.json",
-    "hypothesis": "A comparison-support-specific reset-validation command can be frozen over the M2118 materialized panel without changing actor inputs, profile configs, or claim boundaries.",
-    "id": "m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: design comparison-support-specific reset-only validation command over M2118 materialized panel",
-    "priority": 21150,
+    "command": "see experiments/manifests/m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run.json",
+    "hypothesis": "A comparison-support reset validator can validate all 240 M2118 executable specs with finite 72-dimensional observations, initialized obstacles, and zero claim or contract violations.",
+    "id": "m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run the frozen comparison-support reset-only validator over M2118 executable specs",
+    "priority": 21160,
     "status": "pending",
-    "success_artifact": "docs/m2120-paper-route-outcome-supported-decisive-comparison-support-reset-validation-command-design.md"
+    "success_artifact": "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T015818Z"
+  "updated_at_utc": "20260601T020306Z"
 }
