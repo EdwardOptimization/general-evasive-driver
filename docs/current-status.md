@@ -16,26 +16,29 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit
+m2276-paper-route-current-sim-scenario-task-family-generation-design
 ```
 
 Current next task:
 
 ```text
-m2276-paper-route-current-sim-scenario-task-family-generation-design
+m2277-paper-route-current-sim-scenario-task-family-config-materialization
 ```
 
-Immediate route: M2275 accepts the M2274 support-audit route. The existing
-current-sim artifacts are guardrail-clean and metric-complete (`10/10` primary
-metrics), but they are not yet a role-supported benchmark pack: explicit role
-labels cover only `3/6` families, `R1_aeb_infeasible_stable_aes` is missing,
-`R3` and `R5` are proxy-only, and direct obstacle timing/lateral-offset axes are
-missing.
+Immediate route: M2276 freezes a role-supported current-sim scenario-generation
+design and admits only no-reset materialization next. It also corrects the role
+semantics that M2274 treated provisionally: `aeb_feasible` maps to
+`R0_stable_avoidable`, while `aes_feasible` maps to
+`R1_aeb_infeasible_stable_aes`. The old support audit remains useful for
+diagnosing incomplete benchmark support, but M2277 must not propagate the old
+`aes_feasible -> R0` mapping.
 
-Active interpretation: M2276 must design explicit scenario task-family
-generation and metadata instrumentation before any rollout, training, measured
-execution, ranking, finite-window vs GRU verdict, paper-level claim, or level3
-self-ID claim is admitted.
+Active interpretation: M2277 must materialize a v0 scenario task-family config
+pack with explicit role labels, obstacle timing/lateral-offset metadata,
+recovery-window metadata, hidden-dynamics robustness bundles, unsupported
+capability rows, and claim boundaries. No reset, rollout, measured execution,
+training, ranking, finite-window vs GRU verdict, paper-level claim, or level3
+self-ID claim is admitted yet.
 
 ## Actor Contract
 

@@ -70,6 +70,16 @@ Last updated: 2026-06-01
 - key evidence: metrics are covered (`10/10`), but role/scenario support is incomplete: `R1` missing, `R3`/`R5` proxy-only, direct obstacle timing and lateral-offset axes missing, and recovery window partial.
 - decision: accept `scenario_task_family_generation_design`; M2276 must freeze role targets, scenario metadata schema, instrumentation, materialization outputs, and acceptance criteria before any training or ranking.
 
+
+## 20260601T190055Z m2276-scenario-task-family-generation-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md`
+- result: freezes a no-rollout scenario task-family generation design with six role families, >=72 v0 specs, required metadata schema, timing/lateral/recovery/hidden-dynamics axes, unsupported capability policy, and M2277 materialization outputs.
+- semantic correction: M2277 must use `aeb_feasible -> R0_stable_avoidable` and `aes_feasible -> R1_aeb_infeasible_stable_aes`; the M2274 provisional `aes_feasible -> R0` support mapping must not propagate.
+- decision: admit M2277 no-reset config materialization only. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

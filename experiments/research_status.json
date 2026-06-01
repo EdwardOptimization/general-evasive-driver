@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2283,
+    "completed": 2284,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit",
+    "task_id": "m2276-paper-route-current-sim-scenario-task-family-generation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md"
+    "command_log": "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md"
   },
   "next_task": {
-    "id": "m2276-paper-route-current-sim-scenario-task-family-generation-design",
-    "kind": "gate",
-    "priority": 22710,
+    "id": "m2277-paper-route-current-sim-scenario-task-family-config-materialization",
+    "kind": "infrastructure",
+    "priority": 22720,
     "status": "pending",
-    "hypothesis": "Explicit role-family generation and metadata instrumentation can close the task-quality support gaps found by M2274.",
-    "command": "manual scenario task-family generation design artifact",
-    "success_artifact": "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
-    "notes": "Pending: freeze role-family targets scenario metadata schema and materialization route; no rollout training ranking or paper claims"
+    "hypothesis": "The M2276 role-family design can be materialized as a no-reset current-sim scenario config pack with explicit metadata and claim boundaries.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization --next-blocker m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit",
+    "success_artifact": "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+    "notes": "Pending: materialize v0 config pack metadata schema unsupported capability rows and claim boundary; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T185407Z"
+  "updated_at_utc": "20260601T190055Z"
 }
