@@ -41608,3 +41608,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
 - next: `m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis`
+
+## M2311 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- decision: `pivot_to_scenario_task_family_feasibility_calibration`
+- manifest: `experiments/manifests/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
+- synthesis artifact: `docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md`
+- synthesis window: `M2300-M2310`
+- evidence: M2304 training execution complete but selected profile floor pass `0`; M2307 measured execution regressed success/offtrack/collision `-1/+1/+9`; M2309 repair_gate_pass `false`
+- supported claim: target/guardrail gate caught broad guarded-v2 repair failure
+- falsified claim: same-support guarded-v2 scalar repair fixes the current 72-spec role-family panel
+- public gate overfit risk: high if continuing on M2298 support
+- new branch: `paper_route_current_sim_scenario_task_family_feasibility_calibration`
+- route: design feasibility/support calibration before more execution or training
+- reset/rollout/policy action in M2311: `false`
+- training/replay/PPO in M2311: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.json`
+- next: `m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design`
