@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2309,
+    "completed": 2310,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design",
+    "task_id": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md"
+    "run_dir": "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs",
+    "command_log": "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json"
   },
   "next_task": {
-    "id": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization",
-    "kind": "infrastructure",
-    "priority": 22970,
+    "id": "m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design",
+    "kind": "gate",
+    "priority": 22980,
     "status": "pending",
-    "hypothesis": "M2301 guarded repair design can be materialized as a 15-config shared-reward config pack without actor-contract, track-width, profile-tuning, or claim-boundary violations.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization --source-config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --repair-gate-spec runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json --output-dir runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs --training-output-root runs/m2303_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --next-blocker m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design",
-    "success_artifact": "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
-    "notes": "Pending: materialize 15 guarded repair configs matrix gate spec copy and claim boundary; no reset rollout training ranking or paper claims"
+    "hypothesis": "M2302 guarded repair configs can be routed into a bounded non-ranking training execution using the existing candidate-checkpoint runner.",
+    "command": "manual design over M2302 training_matrix.csv and existing training-stability repair runner",
+    "success_artifact": "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+    "notes": "Pending: freeze exact training command expected run and candidate counts; no training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T212808Z"
+  "updated_at_utc": "20260601T213603Z"
 }

@@ -1,0 +1,177 @@
+{
+  "id": "m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "objective_overfit",
+    "training_instability",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_training_design"
+    ],
+    "parent_dataset": [
+      "docs/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.md",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/repair_gate_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.json"
+    ],
+    "parent_objective": [
+      "design guarded repair training execution over M2302 config matrix"
+    ],
+    "derived_from": [
+      "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization"
+    ],
+    "blocked_by": [
+      "M2302 materialized clean guarded repair configs and matrix"
+    ],
+    "supersedes": [
+      "direct training before config materialization audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+  "public_gates": [
+    "M2303 must not run training",
+    "M2303 must freeze the exact M2304 training execution command",
+    "M2303 must use the M2302 training_matrix.csv",
+    "M2303 must preserve no-ranking/no-paper/no-self-ID claim boundaries",
+    "M2303 must pre-register one execution milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO outside the frozen training runner",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not widen track_width",
+    "do not use profile_name or profile_seed as repair targets",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_training_execution_design",
+    "evidence_increment": "freezes the next measurable guarded repair training execution command",
+    "claim_scope": "training execution design only; no training ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2302 matrix is missing or failed",
+      "stop if execution would ignore M2298 gate spec",
+      "stop if execution would rank profiles",
+      "stop if no bounded command can be frozen"
+    ],
+    "fallback_plan": [
+      "route to config materialization repair if M2302 artifacts are invalid",
+      "route to execution if command is frozen cleanly",
+      "route to synthesis if training route would be too costly or unconstrained"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2302 materialized guarded repair configs and matrix",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze guarded repair training execution command",
+    "admission_evidence": [
+      "M2302 result_class is current_sim_scenario_task_family_guarded_repair_config_materialization_pass",
+      "M2302 config_count is 15",
+      "M2302 actor_contract_violation_count and track_width_widened_count are zero"
+    ],
+    "blocked_shortcuts": [
+      "no training in design",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+      "M2303 status queue scoreboard research log and review",
+      "one follow-up execution manifest"
+    ],
+    "next_stage_criteria": [
+      "M2304 command is frozen",
+      "expected run count and candidate count are stated",
+      "guardrails and claim boundaries are stated",
+      "follow-up execution manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2303 designs training execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2303."
+    ],
+    "temporal_evidence_window": "M2302 config materialization artifacts.",
+    "negative_result_policy": "Treat training design as infrastructure, not self-ID evidence.",
+    "allowed_claims": [
+      "guarded repair training execution design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "freezes an execution route that will generate new training evidence in the next milestone",
+    "paper_verdict_delta": "can admit new guarded repair training data but cannot improve the verdict by itself",
+    "must_synthesize_if": [
+      "M2303 cannot freeze an execution command",
+      "M2303 proposes another process-only follow-up",
+      "M2303 routes away from measured evidence"
+    ]
+  },
+  "hypothesis": "M2302 guarded repair configs can be routed into a bounded non-ranking training execution using the existing candidate-checkpoint runner.",
+  "success_criteria": [
+    "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md exists",
+    "M2304 execution command is frozen",
+    "M2304 expected run count is 15",
+    "M2304 expected candidate count is 120",
+    "M2304 keeps ranking and paper/self-ID claims blocked",
+    "M2304 follow-up manifest is pre-registered"
+  ],
+  "failure_criteria": [
+    "M2303 runs training",
+    "M2303 changes configs or scenario specs",
+    "M2303 ranks profiles or selects a winner",
+    "M2303 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2303 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design over M2302 training_matrix.csv and existing training-stability repair runner"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_training_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
+    "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv"
+  ],
+  "decision_rule": "M2303 passes if it freezes a bounded guarded repair training execution command and pre-registers the execution milestone.",
+  "next_blocker": "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution"
+}

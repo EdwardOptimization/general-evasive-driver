@@ -41358,3 +41358,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.json`
 - next: `m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization`
+
+## M2302 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Config Materialization
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_guarded_repair_config_materialization_pass`
+- manifest: `experiments/manifests/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.json`
+- implementation doc: `docs/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.md`
+- summary: `runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization.py`
+- config_count: `15`
+- profile_count: `5`
+- seed_count: `3`
+- budget_signature_count: `1`
+- actor_contract_violation_count: `0`
+- track_width_widened_count: `0`
+- reward_changed_config_count: `15`
+- repair_gate_spec_copied: `true`
+- offtrack_target_slice_count: `20`
+- collision_guardrail_slice_count: `11`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.json`
+- next: `m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design`

@@ -54,11 +54,11 @@ M2302 may change only shared reward/config knobs already supported by the
 current simulator:
 
 ```text
-track_cost_scale: 3.0
-heading_cost_scale: 0.30
-road_margin_cost_scale: 2.6
-road_margin_warning_fraction: 0.50
-off_track_penalty: 8.0
+track_cost_scale: 3.4
+heading_cost_scale: 0.35
+road_margin_cost_scale: 3.4
+road_margin_warning_fraction: 0.45
+off_track_penalty: 10.0
 termination_penalty: 8.0
 dense_clearance_margin_reward_scale: 0.5
 dense_clearance_margin_reward_window: 10.0
@@ -67,10 +67,10 @@ clearance_margin_reward_clip: 0.25
 collision_penalty: 25.0
 ```
 
-These values reuse the prior targeted containment repair knobs. The important
-change is not the scalar values themselves; it is the acceptance rule. Return
-improvement is insufficient. Later repair must be judged by offtrack targets and
-collision guardrails.
+These are shared guarded-v2 values, not profile-specific tuning. They increase
+dense road-margin pressure relative to the M2262 source configs while keeping
+the scenario and actor contract fixed. Return improvement is insufficient.
+Later repair must be judged by offtrack targets and collision guardrails.
 
 ## Fixed Boundary
 
