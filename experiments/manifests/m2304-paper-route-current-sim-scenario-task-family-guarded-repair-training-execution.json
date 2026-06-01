@@ -1,0 +1,183 @@
+{
+  "id": "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_training_execution"
+    ],
+    "parent_dataset": [
+      "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/repair_gate_spec.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute guarded repair training and candidate-checkpoint selection over M2302 matrix"
+    ],
+    "derived_from": [
+      "m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design"
+    ],
+    "blocked_by": [
+      "M2303 freezes the training execution command"
+    ],
+    "supersedes": [
+      "manual ad hoc training command outside manifest"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.md",
+  "public_gates": [
+    "M2304 must use the frozen M2303 command",
+    "M2304 must use M2302 training_matrix.csv",
+    "M2304 expected completed run count is 15",
+    "M2304 expected candidate eval count is 120",
+    "M2304 expected selected checkpoint count is 15",
+    "M2304 must keep ranking/paper/self-ID claims blocked",
+    "M2304 must not promote a checkpoint"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not widen track_width",
+    "do not edit the M2302 training matrix during execution",
+    "do not use profile_name or profile_seed as repair targets",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_training_execution",
+    "evidence_increment": "generates guarded repair training runs, candidate evaluations, and selected checkpoint rows for later measured execution",
+    "claim_scope": "training execution evidence only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if validation fails before training",
+      "stop if any training run fails under fail-fast",
+      "stop if candidate evaluation metrics are non-finite",
+      "stop if guardrail violations appear"
+    ],
+    "fallback_plan": [
+      "route to training failure audit if execution fails",
+      "route to result audit if execution passes",
+      "route to config/materialization repair if validation fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2303 froze guarded repair training execution command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "run guarded repair training and candidate checkpoint evaluation",
+    "admission_evidence": [
+      "Pretrain capability evidence: M2293/M2295 showed the current selected-checkpoint family is execution-complete but offtrack-dominated on the 1080-episode role-family panel, so guarded repair training is needed as task-performance evidence rather than ranking evidence",
+      "Posttrain capability evidence target: M2304 is admitted only to collect complete guarded-repair candidate-checkpoint evidence for M2305 audit and later 1080-episode measured execution, not to rank profiles or claim paper-level success",
+      "Exact/proof gates: M2302 provides exact config-count 15, profile-count 5, seed-count 3, budget signature 1, actor contract 0, track_width_widened 0, reward_changed_config_count 15, and guardrail_violation_count 0 evidence",
+      "Rollback or repair protection: M2303 freezes the CUDA command, fail-fast execution, fixed output/task id, candidate-checkpoint retention, no promotion, and a required M2305 result-audit route before any interpretation",
+      "The target repair remains tied to M2298 offtrack target slices and collision guardrail slices"
+    ],
+    "blocked_shortcuts": [
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion",
+      "no checkpoint promotion"
+    ],
+    "allowed_updates": [
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/*",
+      "docs/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.md",
+      "M2304 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "completed_run_count is 15",
+      "candidate_eval_count is 120",
+      "selected_checkpoint_count is 15",
+      "guardrail_violation_count is 0",
+      "result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2304 trains profiles but does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2304."
+    ],
+    "temporal_evidence_window": "M2302-M2303 guarded repair config and execution design.",
+    "negative_result_policy": "Treat weak or failed training as task-performance evidence, not self-ID evidence.",
+    "allowed_claims": [
+      "guarded repair training execution completeness",
+      "candidate checkpoint diagnostic selection",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces new guarded repair training and candidate evaluation data",
+    "paper_verdict_delta": "can enable a later 1080-episode measured execution audit, but cannot rank profiles by itself",
+    "must_synthesize_if": [
+      "M2304 fails and the next route would be another scalar repair without audit",
+      "M2304 passes but selected checkpoints are below readiness floors",
+      "M2304 produces non-finite metrics"
+    ]
+  },
+  "hypothesis": "The M2302 guarded repair config matrix can complete 15 CUDA training runs and 120 candidate evaluations without guardrail or claim-boundary violations.",
+  "success_criteria": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json exists",
+    "completed_run_count equals 15",
+    "failed_run_count equals 0",
+    "candidate_eval_count equals 120",
+    "selected_checkpoint_count equals 15",
+    "all_run_metrics_finite is true",
+    "all_candidate_metrics_finite is true",
+    "all_selected_metrics_finite is true",
+    "guardrail_violation_count equals 0",
+    "no ranking paper-level finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2304 validation fails",
+    "any training run fails under fail-fast",
+    "candidate metrics are missing or non-finite",
+    "M2304 promotes or ranks a checkpoint",
+    "M2304 makes paper-level finite-window-vs-GRU or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "execution",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv --output-dir runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --execution-root runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --device cuda --task-id m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution --fail-fast --next-blocker m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_training_execution"
+  ],
+  "baseline_artifacts": [
+    "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
+    "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv"
+  ],
+  "decision_rule": "M2304 passes if the frozen training execution completes all runs and candidate evaluations without guardrail violations.",
+  "next_blocker": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit"
+}

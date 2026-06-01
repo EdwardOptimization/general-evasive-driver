@@ -22,7 +22,7 @@ m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-gu
 Current next task:
 
 ```text
-m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design
+m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -152,11 +152,22 @@ reward_changed_config_count: 15
 repair_gate_spec_copied: true
 ```
 
-M2303 must design the guarded repair training execution command before any
-training starts.
+M2303 designs the guarded repair training execution command:
 
-Training, replay, PPO, promotion, ranking, winner selection, finite-window vs
-GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
+```text
+device: cuda
+expected_run_count: 15
+expected_candidate_count: 120
+expected_selected_checkpoint_count: 15
+runner: autodrift.paper_route_current_sim_training_stability_repair_execution
+```
+
+M2304 is the next actual training execution. It may train through the frozen
+runner, but ranking, promotion, paper-level claim, finite-window vs GRU verdict,
+and level3 self-ID claim remain blocked.
+
+Promotion, ranking, winner selection, finite-window vs GRU verdict, paper-level
+claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

@@ -41387,3 +41387,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.json`
 - next: `m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design`
+
+## M2303 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Training Execution Design
+
+- status: completed
+- decision: `guarded_repair_training_execution_design_admit_cuda_execution`
+- manifest: `experiments/manifests/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.json`
+- design doc: `docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md`
+- training_matrix: `runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv`
+- output_dir: `runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution`
+- device: `cuda`
+- cuda_device: `NVIDIA GeForce RTX 5080`
+- expected_run_count: `15`
+- expected_candidate_count: `120`
+- expected_selected_checkpoint_count: `15`
+- training executed in M2303: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.json`
+- next: `m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution`
