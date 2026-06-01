@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2208,
+    "completed": 2210,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+    "command_log": "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness",
+    "run_dir": "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation"
+    "task_id": "m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis"
   },
   "next_task": {
-    "command": "write docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md",
-    "hypothesis": "The M2200 readiness artifact is clean enough to admit measured-execution command design after audit, while ranking and paper claims remain blocked.",
-    "id": "m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit",
+    "command": "write docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md",
+    "hypothesis": "The audited and synthesized repaired workload can be converted into a precise current-sim measured execution command without running it or making comparison claims.",
+    "id": "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit checkpoint-complete readiness before measured-execution command design or required synthesis",
-    "priority": 21960,
+    "notes": "Pending: freeze measured-execution command over M2194 repaired specs and M2200 materialized workload",
+    "priority": 21980,
     "status": "pending",
-    "success_artifact": "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md"
+    "success_artifact": "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T104836Z"
+  "updated_at_utc": "20260601T105450Z"
 }

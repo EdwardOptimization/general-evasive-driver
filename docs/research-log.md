@@ -39245,3 +39245,48 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to readiness result audit before measured-execution command design
 - follow-up manifest: `experiments/manifests/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.json`
 - next: `m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit`
+
+## M2201 Paper-Route Current-Sim Offtrack-Support Measured-Readiness Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_readiness_audit_route_to_required_branch_synthesis`
+- manifest: `experiments/manifests/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.json`
+- audit artifact: `docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md`
+- audited summary: `runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json`
+- result_class: `current_sim_offtrack_support_measured_readiness_pass`
+- materialized workload rows: `2304`
+- checkpoint paths existing: `2304`
+- checkpoint paths missing: `0`
+- profile count: `8`
+- rows per profile: `288`
+- reset-control alias pass: `true`
+- profile shortcut violations: `0`
+- profile-specific tuning count: `0`
+- claim violations: `0`
+- guardrail violations: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: route to required branch synthesis before measured-execution command design
+- follow-up manifest: `experiments/manifests/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.json`
+- next: `m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis`
+
+## M2202 Paper-Route Current-Sim Offtrack-Support Readiness Branch Synthesis
+
+- status: completed
+- decision: `current_sim_offtrack_support_readiness_synthesis_continue_to_measured_execution_command_design`
+- manifest: `experiments/manifests/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.json`
+- synthesis artifact: `docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md`
+- synthesis window: `M2192-M2201`
+- repaired specs: `288`
+- reset successes: `288`
+- materialized workload rows: `2304`
+- checkpoint paths existing: `2304`
+- checkpoint paths missing: `0`
+- profile count: `8`
+- rows per profile: `288`
+- guardrail violations: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: continue to measured-execution command design only
+- follow-up manifest: `experiments/manifests/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.json`
+- next: `m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design`

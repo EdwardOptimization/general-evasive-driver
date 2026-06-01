@@ -1,0 +1,196 @@
+{
+  "id": "m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+      "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+      "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+      "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+      "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+      "docs/m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit.md",
+      "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+      "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.json",
+      "experiments/manifests/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize current-sim offtrack-support readiness branch before measured-execution command design"
+    ],
+    "derived_from": [
+      "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit",
+      "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design",
+      "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run",
+      "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit",
+      "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design",
+      "m2197-paper-route-current-sim-offtrack-support-reset-validation-compatibility-implementation-and-run",
+      "m2198-paper-route-current-sim-offtrack-support-reset-validation-result-audit",
+      "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design",
+      "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation",
+      "m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2201"
+    ],
+    "supersedes": [
+      "direct measured-execution command design after readiness audit without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+  "public_gates": [
+    "M2202 must synthesize M2192-M2201",
+    "M2202 must answer required synthesis questions",
+    "M2202 must assess whether the repaired panel is ready for measured-execution command design",
+    "M2202 must decide continue, pivot, stop, or promote_to_next_branch",
+    "M2202 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_readiness_synthesis",
+    "evidence_increment": "synthesizes candidate audit, repaired materialization, reset validation, and measured-readiness artifacts before execution design",
+    "claim_scope": "branch synthesis decision only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if readiness evidence is only local process overhead",
+      "stop if reset validation or checkpoint coverage is not clean",
+      "stop if the branch would rank profiles before measured outcomes exist",
+      "stop if the next step would ignore public-gate overfit risk"
+    ],
+    "fallback_plan": [
+      "continue to measured-execution command design if synthesis supports it",
+      "pivot to scenario redesign if repaired tasks remain unlikely to improve outcome support",
+      "pivot to seed-diversity instrumentation if repeat variation remains suspect",
+      "stop current-sim comparison branch if evidence cannot support paper-route comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "validator cadence reached after M2201",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current-sim offtrack-support readiness branch",
+    "admission_evidence": [
+      "M2194 creates 288 repaired specs and 2304 workload rows",
+      "M2197 reset-validates all 288 repaired specs",
+      "M2200 materializes 2304 checkpoint-complete workload rows",
+      "M2201 audits readiness as clean",
+      "research cadence requires synthesis before measured-execution command design"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in synthesis",
+      "no policy action execution in synthesis",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+      "M2202 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "continue/pivot/stop/promote decision is explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2202 synthesizes current-sim task-quality workflow and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2202."
+    ],
+    "temporal_evidence_window": "M2192-M2201 branch evidence.",
+    "negative_result_policy": "If synthesis finds readiness insufficient or overfit risk too high, pivot or stop instead of adding another local command-design milestone.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the repaired offtrack-support readiness branch before any measured execution design",
+    "paper_verdict_delta": "can choose whether repaired workload is worth measured execution but cannot compare profiles",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "The current-sim offtrack-support readiness branch can be synthesized into a clear continue/pivot/stop decision before measured-execution command design.",
+  "success_criteria": [
+    "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "next branch decision is explicit",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "next blocker is ambiguous",
+    "measured execution or ranking starts"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+    "runs/m2197_paper_route_current_sim_offtrack_support_reset_validation_preflight/summary.json",
+    "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+    "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md"
+  ],
+  "decision_rule": "M2202 passes if it makes a durable branch synthesis decision and pre-registers the next blocker without measured execution or ranking.",
+  "next_blocker": "m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis"
+}

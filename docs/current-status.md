@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation
+m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit
+m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design
 ```
 
-Immediate route: M2200 materialized the reset-valid repaired panel into a
-checkpoint-complete measured workload: `2304` rows, `8` profiles, `288` rows
-per profile, `2304` existing checkpoint paths, `0` missing paths, reset-control
-alias preserved, and guardrail `0`. M2201 must audit this readiness result
-before measured-execution command design. Controller ranking, paper claims,
+Immediate route: M2202 synthesizes M2192-M2201 and chooses `continue` to
+measured-execution command design. The repaired offtrack-support panel now has
+`288` reset-valid specs and a checkpoint-complete `2304`-row workload across
+`8` profiles with guardrail `0`. M2203 must freeze the measured-execution
+command; it must not execute policies. Controller ranking, paper claims,
 finite-window vs GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
