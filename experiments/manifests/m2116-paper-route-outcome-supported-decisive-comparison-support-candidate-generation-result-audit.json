@@ -1,0 +1,168 @@
+{
+  "id": "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_candidate_generation_audit"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "docs/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the no-rollout comparison-support candidate generation artifact"
+    ],
+    "derived_from": [
+      "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation"
+    ],
+    "blocked_by": [
+      "M2115 candidate generation result must be audited before materialization design"
+    ],
+    "supersedes": [
+      "direct materialization without candidate audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md",
+  "public_gates": [
+    "M2116 must audit M2115 candidate count quotas and claim guards",
+    "M2116 must decide whether materialization preflight design is admitted",
+    "M2116 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_candidate_generation_audit",
+    "evidence_increment": "audits the no-rollout comparison-support candidate set before materialization",
+    "claim_scope": "candidate generation audit only; no reset validity rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if quotas fail",
+      "stop if generated rows are marked paper-valid",
+      "stop if actor-input shortcuts appear",
+      "stop if audit routes directly to ranking"
+    ],
+    "fallback_plan": [
+      "route to materialization preflight design if artifact is clean",
+      "route to generator repair if quotas or guards fail",
+      "route to synthesis if candidate generation repeats previous zero-support panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2115 writes comparison-support candidate artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support candidate generation result audit",
+    "admission_evidence": [
+      "M2115 candidate_count 240",
+      "M2115 intent group counts 60 each",
+      "M2115 paper_validity_claim_true_count 0",
+      "M2115 actor_input_forbidden_key_count 0",
+      "M2115 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run materialization before audit",
+      "do not rank",
+      "do not treat candidate rows as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md",
+      "M2116 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization preflight design or repair"
+    ],
+    "next_stage_criteria": [
+      "candidate artifact is audited",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2116 audits candidates and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2116."
+    ],
+    "temporal_evidence_window": "M2115 candidate artifact.",
+    "negative_result_policy": "If candidate guards fail, repair generator before materialization; do not measure unsupported rows.",
+    "allowed_claims": [
+      "comparison-support candidate generation audit",
+      "no reset validity, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new support-targeted candidate panel before materialization",
+    "paper_verdict_delta": "can admit materialization preflight design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2116 finds candidates duplicate the failed public-gate panel",
+      "M2116 cannot decide materialization readiness",
+      "M2116 routes directly to measured comparison"
+    ]
+  },
+  "hypothesis": "M2115 produced a clean no-rollout 240-candidate comparison-support artifact that can be admitted to materialization preflight design.",
+  "success_criteria": [
+    "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md exists",
+    "M2115 artifact is audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "candidate result is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json and write M2116 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_candidate_generation_audit"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+    "docs/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md"
+  ],
+  "decision_rule": "M2116 passes if it audits candidate generation and selects a bounded next route without execution or ranking.",
+  "next_blocker": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design"
+}

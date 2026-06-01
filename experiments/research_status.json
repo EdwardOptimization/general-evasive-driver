@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2123,
+    "completed": 2124,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+    "command_log": "docs/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+    "run_dir": "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
     "status": "completed",
-    "task_id": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design"
+    "task_id": "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation.json",
-    "hypothesis": "A no-rollout generator can create a 240-candidate comparison-support scenario set with balanced support-ladder and boundary intents while preserving claim boundaries.",
-    "id": "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rollout 240-candidate generator with four 60-row intent groups and claim guards",
-    "priority": 21100,
+    "command": "see experiments/manifests/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.json",
+    "hypothesis": "M2115 produced a clean no-rollout 240-candidate comparison-support artifact that can be admitted to materialization preflight design.",
+    "id": "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2115 candidate artifact before materialization preflight design",
+    "priority": 21110,
     "status": "pending",
-    "success_artifact": "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json"
+    "success_artifact": "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md"
   },
-  "updated_at_utc": "20260601T012312Z"
+  "updated_at_utc": "20260601T013325Z"
 }

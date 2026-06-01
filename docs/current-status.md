@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design
+m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation
 ```
 
 Current next task:
 
 ```text
-m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation
+m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit
 ```
 
-Immediate route: M2114 designs a new comparison-support scenario branch. The
-next artifact must be a no-rollout candidate generator, not a measured rerun:
-`240` candidates total with four equal intent groups (`60` each) for
-support-ladder easy, support-ladder medium, discriminative boundary, and
-collision-relief probes. All generated rows must keep
-`paper_validity_claim=false` and `profile_specific_tuning=false`. Direct
+Immediate route: M2115 implements the no-rollout comparison-support candidate
+generator and writes `configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json`.
+The artifact passes generation gates: `240` candidates, four intent groups of
+`60`, duplicate candidate IDs `0`, `paper_validity_claim_true_count=0`,
+`profile_specific_tuning_true_count=0`, actor-input forbidden key count `0`,
+and guardrail `0`. M2116 must audit the candidate artifact before
+materialization preflight design. Reset, rollout, measured execution,
 comparison, paper claims, finite-window vs GRU conclusions, and self-ID claims
 remain blocked.
 
