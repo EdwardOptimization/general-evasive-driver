@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2264 freezes M2265 480-episode localization over M2262 selected checkpoints no rollout/ranking claims",
+  "failure_criteria": [
+    "design ignores M2262 selected checkpoints",
+    "design omits mid_offtrack or mild_overshoot metrics",
+    "design starts rollout or training",
+    "design ranks profiles or selects a winner",
+    "design makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T175622Z",
+  "hypothesis": "A bounded selected-checkpoint localization design can test whether M2262 targeted containment repaired the M2256 midcourse/mild offtrack slices.",
+  "lineage": {
+    "blocked_by": [
+      "M2263 says M2262 selected checkpoints are complete but outcome slices are unknown"
+    ],
+    "derived_from": [
+      "m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md",
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json"
+    ],
+    "parent_objective": [
+      "design selected-checkpoint outcome localization for targeted containment repair"
+    ],
+    "supersedes": [
+      "accepting return or termination movement as repair success",
+      "another training run before outcome localization",
+      "ranking selected checkpoints before repair outcome evidence"
+    ]
+  },
+  "milestone": "m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design",
+  "next_blocker": "m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization_design_admit_execution",
+  "public_gates": [
+    "M2264 must design localization over exactly the 15 M2262 selected checkpoints",
+    "M2264 must preserve the M2244/M2253 public 480-episode localization shape",
+    "M2264 must define M2258 slice acceptance metrics before running localization",
+    "M2264 must compare against M2244 base and M2253 generic-repair reference only as repair-route evidence",
+    "M2264 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization_design_admit_execution",
+    "milestone": "m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design",
+    "reason": "M2264 freezes M2265 480-episode localization over M2262 selected checkpoints no rollout/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.md exists",
+    "design references the M2262 selected checkpoint rows",
+    "design preserves 15 selected checkpoints x 32 episodes",
+    "design includes M2258 slice metrics",
+    "design selects a follow-up implementation route",
+    "no reset rollout measured execution training replay private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

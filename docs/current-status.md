@@ -286,7 +286,10 @@ synthesis, or any further repair. M2263 completes that audit and routes to
 M2264 selected-checkpoint outcome localization design. The reason is that M2262
 is runnable and guardrail clean, but only an M2244/M2253-style `480`-episode
 localization can test the M2258 acceptance slices: `mid_offtrack_delta`,
-`mild_overshoot_delta`, global offtrack, and collision guardrail.
+`mild_overshoot_delta`, global offtrack, and collision guardrail. M2264
+completes that design: M2265 must evaluate exactly the `15` M2262 selected
+checkpoints for `32` episodes each, compare against M2244 base and M2253 generic
+repair only as route evidence, and keep ranking/paper/self-ID claims blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

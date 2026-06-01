@@ -40741,3 +40741,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.json`
 - next: `m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design`
+
+## M2264 Paper-Route Current-Sim Midcourse Corridor-Containment Selected-Checkpoint Outcome Localization Design
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization_design_admit_execution`
+- manifest: `experiments/manifests/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.json`
+- design artifact: `docs/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.md`
+- selected checkpoint source: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv`
+- config root: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs`
+- output dir: `runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization`
+- selected checkpoint count: `15`
+- episodes per checkpoint: `32`
+- expected episode rows: `480`
+- baseline/reference: M2244 base `277/110/93`, M2253 generic repair `269/118/93`
+- required slice metrics: mid_offtrack_delta, mild_overshoot_delta, global offtrack, collision guardrail, max-step noncompletion
+- execution started in M2264: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation.json`
+- next: `m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation`
