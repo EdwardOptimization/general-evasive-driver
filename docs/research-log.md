@@ -38353,3 +38353,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.json`
 - next: `m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit`
+
+## M2162 Paper-Route Current-Sim Seed-Source Repaired Reset-Validation Result Audit
+
+- status: completed
+- decision: `seed_source_repaired_reset_validation_audit_admit_branch_synthesis_before_measured_execution_command_design`
+- manifest: `experiments/manifests/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.json`
+- audit artifact: `docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md`
+- audited summary: `runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json`
+- reset rerun in M2162: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: clean repaired reset pass with `40/40` reset successes, `seed_source_counts = eval_seed_override:40`, seed-source quota pass, contract `0`, metadata `0`, forbidden-key `0`, guardrail `0`
+- supported claim: current-sim executable panel is reset-valid under materialized per-spec eval seeds
+- unsupported claims: measured execution, controller-family ranking, paper-level evidence, finite-window vs GRU verdict, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.json`
+- next: `m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis`

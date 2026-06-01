@@ -1,0 +1,190 @@
+{
+  "id": "m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_post_reset_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+      "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the post-reset current-sim branch before measured-execution command design"
+    ],
+    "derived_from": [
+      "m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "local search guard reached six consecutive non-evidence milestones after M2157 synthesis",
+      "M2162 admits measured execution command design but harness requires synthesis first"
+    ],
+    "supersedes": [
+      "continuing directly to measured execution command design after six non-evidence milestones",
+      "extending current-sim setup work without summarizing evidence quality"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+  "public_gates": [
+    "M2163 must synthesize M2158-M2162 evidence before further branch work",
+    "M2163 must answer the required synthesis questions",
+    "M2163 must decide continue pivot stop or promote_to_next_branch",
+    "M2163 must state whether measured-execution command design remains the next best evidence increment",
+    "M2163 must not run reset rollout measured execution policy actions ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_post_reset_branch_synthesis",
+    "evidence_increment": "synthesizes terminal-boundary diagnostic seed-source repair and clean repaired reset validation before measured-execution command design",
+    "claim_scope": "branch synthesis decision only; no reset rerun rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis ignores the M2161 seed-source repair result",
+      "stop if synthesis routes directly to measured execution run without command design",
+      "stop if synthesis overclaims reset-only evidence as driver performance",
+      "stop if synthesis fails to choose continue pivot stop or promote_to_next_branch"
+    ],
+    "fallback_plan": [
+      "continue to measured-execution command design if synthesis judges reset setup complete",
+      "pivot to current-sim task/spec repair if reset-validity evidence is insufficient",
+      "stop the branch if additional current-sim process work no longer changes the paper verdict",
+      "promote_to_next_branch only if current-sim setup can leave reset validation and move to measured evidence generation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local-search guard requires synthesis after six non-evidence milestones since M2157",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "post-reset current-sim controlled-comparison branch synthesis",
+    "admission_evidence": [
+      "M2158 diagnosed the terminal-boundary reset failure as seed-local",
+      "M2159 classified the blocker as a seed-source protocol artifact",
+      "M2161 repaired the reset validator and passed 40/40 reset validation",
+      "M2162 audited the repaired reset pass as clean",
+      "validator blocked direct measured-execution command design because six non-evidence milestones accumulated"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2163",
+      "do not run measured execution",
+      "do not rank controller families",
+      "do not continue local process work without synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+      "M2163 status queue scoreboard research log and review",
+      "one follow-up manifest consistent with synthesis decision"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact answers all required questions",
+      "decision is continue pivot stop or promote_to_next_branch",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2163 synthesizes reset/setup evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2163.",
+      "Current-sim reset/setup evidence must not be treated as finite-window-vs-GRU or self-ID evidence."
+    ],
+    "temporal_evidence_window": "M2158-M2162 current-sim reset diagnostic repair artifacts.",
+    "negative_result_policy": "If setup evidence is clean, proceed to measured data generation under command design; otherwise record blocker before comparison.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "closes the post-M2157 reset repair loop and decides whether to continue to measured-execution command design",
+    "paper_verdict_delta": "can decide route direction but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "always: this milestone is the required synthesis"
+    ]
+  },
+  "hypothesis": "M2158-M2162 produced enough audited reset/setup evidence to leave reset repair and continue to measured-execution command design, while keeping measured execution, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims blocked.",
+  "success_criteria": [
+    "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md exists",
+    "synthesis artifact answers all required synthesis questions",
+    "synthesis_decision is continue pivot stop or promote_to_next_branch",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "required synthesis questions are unanswered",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_post_reset_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+    "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
+    "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2163 passes if it writes the required synthesis artifact and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design"
+}

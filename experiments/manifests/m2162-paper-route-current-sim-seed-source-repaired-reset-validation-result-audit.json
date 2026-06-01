@@ -76,7 +76,7 @@
     "fallback_plan": [
       "route to reset-validator repair audit if seed-source logging is inconsistent",
       "route to terminal-boundary spec repair if reset failures remain",
-      "route to measured execution command design only after clean audit"
+      "route to measured execution command design after clean audit unless local-search guard requires branch synthesis first"
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2161 repaired reset validation produced a full-panel result",
@@ -98,7 +98,7 @@
     "allowed_updates": [
       "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
       "M2162 status queue scoreboard research log and review",
-      "one follow-up manifest for measured execution command design or repair"
+      "one follow-up manifest for branch synthesis before measured execution command design or repair"
     ],
     "next_stage_criteria": [
       "M2161 result is summarized",
@@ -127,11 +127,12 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 1,
     "evidence_expansion": "turns M2161 reset output into an audited current-sim panel reset-validity decision",
-    "paper_verdict_delta": "can admit measured execution command design but cannot make a paper verdict by itself",
+    "paper_verdict_delta": "can admit branch synthesis before measured execution command design but cannot make a paper verdict by itself",
     "must_synthesize_if": [
       "M2162 finds the repaired reset result is not clean",
       "M2162 would require another seed-source repair",
-      "M2162 routes directly to measured execution without command design"
+      "M2162 routes directly to measured execution without command design",
+      "local-search guard requires synthesis before command design"
     ]
   },
   "hypothesis": "M2161 cleanly repaired the reset-validation seed-source artifact: all 40 current-sim executable specs reset under their materialized eval_seed_override seeds with clean contract, metadata, quota, and guardrail counts.",
