@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2168-paper-route-current-sim-measured-runner-adapter-implementation
+m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis
+m2170-paper-route-current-sim-checkpoint-profile-materialization-design
 ```
 
-Immediate route: M2168 implements the current-sim measured runner adapter and
-focused tests pass. The adapter preserves metadata in fake-rollout tests and
-fails closed before rollout when required checkpoints are missing. The
-local-search guard now requires M2169 branch synthesis before checkpoint/profile
-materialization design. Real M2151 measured execution, checkpoint training,
+Immediate route: M2169 synthesizes the measured-readiness repair branch and
+chooses `continue` to checkpoint/profile materialization design. The
+runner-schema blocker is repaired by the current-sim adapter and focused tests;
+the active blocker is now checkpoint/profile materialization for the 8
+current-sim profiles. Real M2151 measured execution, checkpoint training,
 controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
 claims remain blocked until later audited evidence supports them.
 

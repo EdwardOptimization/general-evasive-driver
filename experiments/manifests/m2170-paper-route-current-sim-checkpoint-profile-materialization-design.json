@@ -1,0 +1,174 @@
+{
+  "id": "m2170-paper-route-current-sim-checkpoint-profile-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_checkpoint_profile_materialization_design"
+    ],
+    "parent_dataset": [
+      "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv",
+      "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json",
+      "configs/paper_route_profiles/m1190_l1_one_step_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_13_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_25_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_50_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_100_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_online_gru_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_reset_control_smoke.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design checkpoint/profile materialization for the 8 current-sim comparison profiles"
+    ],
+    "derived_from": [
+      "m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2169 synthesis identifies checkpoint/profile materialization as remaining measured-readiness blocker"
+    ],
+    "supersedes": [
+      "direct real measured execution with missing checkpoints",
+      "training checkpoints without pre-registered budget and fairness constraints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md",
+  "public_gates": [
+    "M2170 must not train checkpoints",
+    "M2170 must enumerate all 8 profile configs",
+    "M2170 must define output paths and checkpoint readiness criteria",
+    "M2170 must preserve fair comparison constraints and no-ranking claim boundary"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not run real M2151 measured execution",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles based on measured outcomes",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_checkpoint_profile_materialization_design",
+    "evidence_increment": "designs checkpoint/profile materialization after runner adapter readiness",
+    "claim_scope": "checkpoint materialization design only; no training measured rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if not all 8 profiles are enumerated",
+      "stop if training budget and seed policy are ambiguous",
+      "stop if output checkpoint paths are not frozen",
+      "stop if design changes actor inputs or profile definitions"
+    ],
+    "fallback_plan": [
+      "route to checkpoint materialization implementation if design is complete",
+      "route to profile config audit if profile configs are incompatible with fair comparison",
+      "route to synthesis if checkpoint materialization scope expands beyond current branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2169 synthesis continues to checkpoint/profile materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim checkpoint/profile materialization design",
+    "admission_evidence": [
+      "M2169 synthesis chooses continue",
+      "M2168 runner adapter is implemented and focused-test covered",
+      "M2165 readiness inventory found all 320 workload rows missing checkpoints"
+    ],
+    "blocked_shortcuts": [
+      "do not train in design milestone",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md",
+      "M2170 status queue scoreboard research log and review",
+      "one follow-up manifest for checkpoint/profile materialization implementation or profile-config audit"
+    ],
+    "next_stage_criteria": [
+      "all 8 profiles are listed",
+      "training commands or materialization commands are frozen",
+      "output checkpoint path policy is explicit",
+      "fairness constraints and claim boundary are explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2170 design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2170."
+    ],
+    "temporal_evidence_window": "M2169 synthesis and M2151 profile matrix.",
+    "negative_result_policy": "Training budgets must be fair across L0/L1/L2/L3 before any comparison.",
+    "allowed_claims": [
+      "checkpoint/profile materialization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from measured-runner readiness to checkpoint/profile generation readiness",
+    "paper_verdict_delta": "can admit checkpoint data generation but cannot decide controller comparison",
+    "must_synthesize_if": [
+      "M2170 cannot define fair checkpoint materialization",
+      "M2170 requires another readiness inventory",
+      "M2170 would route directly to measured execution"
+    ]
+  },
+  "hypothesis": "The remaining measured-readiness blocker can be converted into a fair checkpoint/profile materialization plan for all 8 current-sim controller profiles.",
+  "success_criteria": [
+    "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md exists",
+    "all 8 profiles are enumerated",
+    "training or materialization commands are explicit",
+    "output checkpoint path policy is explicit",
+    "fairness constraints and claim boundary are explicit",
+    "no training measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "profile enumeration is incomplete",
+    "training/materialization route is ambiguous",
+    "actor inputs or profile definitions are changed",
+    "training or measured execution is run"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_checkpoint_profile_materialization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md",
+    "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
+  ],
+  "decision_rule": "M2170 passes if it freezes a fair checkpoint/profile materialization route without training or measured execution.",
+  "next_blocker": "m2170-paper-route-current-sim-checkpoint-profile-materialization-design"
+}

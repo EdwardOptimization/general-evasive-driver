@@ -38514,3 +38514,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - covered path: real-mode missing-checkpoint validation fails closed before rollout
 - follow-up manifest: `experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json`
 - next: `m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis`
+
+## M2169 Paper-Route Current-Sim Measured-Readiness Repair Branch Synthesis
+
+- status: completed
+- decision: `current_sim_measured_readiness_repair_synthesis_continue_to_checkpoint_profile_materialization_design`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json`
+- synthesis artifact: `docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md`
+- synthesis window: `M2164-M2168`
+- real M2151 measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported infrastructure claim: current-sim measured runner adapter exists and focused tests pass
+- falsified route claim: old measured runner can be reused directly
+- active blocker: checkpoint/profile materialization gap remains `checkpoint_path_missing_count == 320`
+- next branch decision: continue to checkpoint/profile materialization design
+- follow-up manifest: `experiments/manifests/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.json`
+- next: `m2170-paper-route-current-sim-checkpoint-profile-materialization-design`

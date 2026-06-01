@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2176,
+    "completed": 2177,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
+    "command_log": "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
+    "run_dir": "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2168-paper-route-current-sim-measured-runner-adapter-implementation"
+    "task_id": "m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json",
-    "hypothesis": "M2164-M2168 repaired the runner-schema blocker enough to continue to checkpoint/profile materialization design, while keeping real measured execution and ranking blocked.",
-    "id": "m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis",
+    "command": "see experiments/manifests/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.json",
+    "hypothesis": "The remaining measured-readiness blocker can be converted into a fair checkpoint/profile materialization plan for all 8 current-sim controller profiles.",
+    "id": "m2170-paper-route-current-sim-checkpoint-profile-materialization-design",
     "kind": "gate",
-    "notes": "Pending: synthesize measured-readiness repair branch before checkpoint/profile materialization",
-    "priority": 21640,
+    "notes": "Pending: design checkpoint/profile materialization route",
+    "priority": 21650,
     "status": "pending",
-    "success_artifact": "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md"
+    "success_artifact": "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md"
   },
-  "updated_at_utc": "20260601T075003Z"
+  "updated_at_utc": "20260601T075640Z"
 }
