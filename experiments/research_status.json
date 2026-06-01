@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2200,
+    "completed": 2201,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+    "command_log": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+    "run_dir": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
     "status": "completed",
-    "task_id": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit"
+    "task_id": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design"
   },
   "next_task": {
-    "command": "write docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
-    "hypothesis": "The audited M2190 candidate artifact can be converted into a fail-closed no-rollout materialization design without actor-input or ranking shortcuts.",
-    "id": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rollout materialization rules for audited support-repair candidates",
-    "priority": 21880,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_candidate_materialization --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization",
+    "hypothesis": "The M2193 design can be implemented as a fail-closed no-rollout materializer that creates 288 repaired specs and 2304 workload rows without actor-input or ranking shortcuts.",
+    "id": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rollout materialization of audited support-repair candidates",
+    "priority": 21890,
     "status": "pending",
-    "success_artifact": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md"
+    "success_artifact": "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json"
   },
-  "updated_at_utc": "20260601T100958Z"
+  "updated_at_utc": "20260601T101331Z"
 }

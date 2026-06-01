@@ -16,25 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit
+m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design
 ```
 
 Current next task:
 
 ```text
-m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design
+m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run
 ```
 
-Immediate route: M2192 audits the M2190 offtrack-support candidate artifact as
-structurally clean and admits only M2193 no-rollout materialization design. The
-latest durable evidence is still task-quality readiness, not controller
-comparison: M2187 found the 960-episode panel not-comparison-ready
-(`success=163`, `offtrack=741`,
-`combined_success_rate=0.16979166666666667`, `combined_offtrack_rate=0.771875`)
-and M2190/M2192 now provide a clean deterministic `288`-candidate repair
-artifact. New rollout, controller ranking, paper claims, finite-window vs GRU
-verdicts, and self-ID claims remain blocked until later audited evidence
-supports them.
+Immediate route: M2193 freezes the no-rollout materialization design for the
+clean `288`-candidate offtrack-support artifact and admits M2194 implementation.
+The intended materialized panel is `288` repaired executable specs crossed with
+the 8-profile matrix for `2304` planned workload rows. This is still
+task-quality readiness, not controller comparison: M2187 found the 960-episode
+panel not-comparison-ready (`success=163`, `offtrack=741`,
+`combined_success_rate=0.16979166666666667`, `combined_offtrack_rate=0.771875`).
+New rollout, controller ranking, paper claims, finite-window vs GRU verdicts,
+and self-ID claims remain blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

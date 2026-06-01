@@ -39083,3 +39083,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit no-rollout materialization design only
 - follow-up manifest: `experiments/manifests/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.json`
 - next: `m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design`
+
+## M2193 Paper-Route Current-Sim Offtrack-Support Candidate Materialization Design
+
+- status: completed
+- decision: `current_sim_offtrack_support_candidate_materialization_design_admit_implementation`
+- manifest: `experiments/manifests/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.json`
+- design artifact: `docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md`
+- parent candidate config: `configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json`
+- parent executable specs: `runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json`
+- expected repaired executable specs: `288`
+- expected planned workload rows: `2304`
+- implementation: `false`
+- reset: `false`
+- measured execution: `false`
+- result: admit no-rollout materialization implementation
+- follow-up manifest: `experiments/manifests/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.json`
+- next: `m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run`

@@ -1,0 +1,172 @@
+{
+  "id": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+      "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement and run no-rollout materialization of offtrack-support repair candidates"
+    ],
+    "derived_from": [
+      "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design"
+    ],
+    "blocked_by": [
+      "M2193 design must freeze materialization rules before implementation"
+    ],
+    "supersedes": [
+      "manual repaired spec creation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md",
+  "public_gates": [
+    "M2194 must materialize exactly 288 repaired executable specs",
+    "M2194 must write exactly 2304 planned workload rows",
+    "M2194 must preserve actor input contract and candidate split metadata",
+    "M2194 must fail closed on materialization, contract, forbidden-key, or guardrail violations",
+    "M2194 must not reset, roll out, train, rank, or compare profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_candidate_materialization",
+    "evidence_increment": "turns the audited support-repair candidate artifact into executable task specs without rollout",
+    "claim_scope": "no-rollout materialization only; no reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if materialization failures are nonzero",
+      "stop if contract or forbidden-key violations are nonzero",
+      "stop if workload count is not 2304",
+      "stop if materialization requires actor input changes"
+    ],
+    "fallback_plan": [
+      "route to result audit if materialization passes",
+      "route to materialization repair design if failures are localized",
+      "route to candidate artifact repair if failures are broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2193 design admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and run no-rollout materialization",
+    "admission_evidence": [
+      "M2193 freezes materialization rules",
+      "M2192 accepts candidate artifact",
+      "M2151 executable specs are available"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout",
+      "no policy action execution",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_offtrack_support_candidate_materialization.py",
+      "tests/test_paper_route_current_sim_offtrack_support_candidate_materialization.py",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+      "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md",
+      "M2194 status queue scoreboard research log and review",
+      "one follow-up manifest for materialization result audit"
+    ],
+    "next_stage_criteria": [
+      "materialization pass/fail is explicit",
+      "summary and artifacts are written",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2194 materializes tasks and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2194."
+    ],
+    "temporal_evidence_window": "M2190-M2193 candidate artifact and materialization design.",
+    "negative_result_policy": "If materialization fails, classify as task-materialization failure before any reset or rollout.",
+    "allowed_claims": [
+      "no-rollout task materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates executable repaired task specs from the candidate artifact",
+    "paper_verdict_delta": "can admit reset validation if materialization passes but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2194 does not create a new executable artifact",
+      "M2194 would run reset or rollout",
+      "M2194 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2193 design can be implemented as a fail-closed no-rollout materializer that creates 288 repaired specs and 2304 workload rows without actor-input or ranking shortcuts.",
+  "success_criteria": [
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json exists",
+    "repaired_executable_spec_count == 288",
+    "planned_workload_row_count == 2304",
+    "materialization_failure_count == 0",
+    "contract_violation_count == 0",
+    "guardrail_violation_count == 0",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary.json is missing",
+    "repaired_executable_spec_count != 288",
+    "planned_workload_row_count != 2304",
+    "materialization failures are nonzero",
+    "contract or guardrail violations are nonzero",
+    "materialization runs reset or rollout",
+    "materialization ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "materialization",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_candidate_materialization --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+    "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+  ],
+  "decision_rule": "M2194 passes if it materializes a complete repaired executable task panel without reset, rollout, or ranking.",
+  "next_blocker": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run"
+}
