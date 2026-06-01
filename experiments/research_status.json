@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2215,
+    "completed": 2216,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+    "command_log": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+    "run_dir": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
     "status": "completed",
-    "task_id": "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation"
+    "task_id": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
-    "hypothesis": "The M2207 repair is sufficient to unblock M2194/M2200 metadata validation while preserving repeat fail-closed behavior.",
-    "id": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit metadata activation repair before measured-execution rerun",
-    "priority": 22030,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json --workload runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv --output-dir runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun --eval-seed-base 220900 --device cpu --no-resume --target-episode-count 2304 --target-spec-count 288 --target-profile-count 8 --next-blocker m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
+    "hypothesis": "After the M2207 metadata activation repair, the frozen 2304-cell current-sim offtrack-support measured execution can run without the M2204 pre-rollout metadata validation failure.",
+    "id": "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun",
+    "kind": "infrastructure",
+    "notes": "Pending: rerun repaired measured execution into new M2209 output directory",
+    "priority": 22040,
     "status": "pending",
-    "success_artifact": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md"
+    "success_artifact": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json"
   },
-  "updated_at_utc": "20260601T111519Z"
+  "updated_at_utc": "20260601T112546Z"
 }

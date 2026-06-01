@@ -39387,3 +39387,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to implementation audit before measured-execution rerun
 - follow-up manifest: `experiments/manifests/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.json`
 - next: `m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit`
+
+## M2208 Paper-Route Current-Sim Measured-Runner Repeat-Metadata Activation Repair Result Audit
+
+- status: completed
+- decision: `current_sim_measured_runner_repeat_metadata_activation_repair_audit_admit_rerun`
+- manifest: `experiments/manifests/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.json`
+- audit artifact: `docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md`
+- audited implementation: `docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md`
+- focused tests: `4 passed`
+- M2194/M2200 metadata_missing_rows after repair: `0`
+- M2194/M2200 validation_failure_rows after repair: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: admit repaired measured-execution rerun to new output directory
+- follow-up manifest: `experiments/manifests/m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun.json`
+- next: `m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun`

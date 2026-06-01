@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation
+m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit
+m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun
 ```
 
-Immediate route: M2207 implements the measured-runner repair: repeat mode is
-activated by repeat identity fields, while `checkpoint_materialization_mode`
-alone remains checkpoint provenance for non-repeat workloads. Focused tests pass
-and a no-rollout M2194/M2200 metadata check now reports `0` missing rows and
-`0` validation failures. M2208 must audit the repair before any measured
-execution rerun. Controller ranking, paper claims, finite-window vs GRU
-verdicts, and self-ID claims remain blocked.
+Immediate route: M2208 audits the measured-runner repair as clean: focused
+tests pass and no-rollout M2194/M2200 metadata validation reports `0` missing
+rows and `0` validation failures. M2209 may rerun the repaired 2304-cell
+measured execution into a new output directory. Controller ranking, paper
+claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
+rerun result audit and denominator-backed comparison.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

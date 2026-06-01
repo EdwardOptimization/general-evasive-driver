@@ -1,0 +1,87 @@
+{
+  "decision_reason": "M2208 audits M2207 repair clean focused tests 4 passed no-rollout M2194/M2200 metadata check 0 missing 0 validation failures admits M2209 rerun no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "audit document is missing",
+    "focused tests or metadata check are not audited",
+    "rerun is started in audit",
+    "controller ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T112734Z",
+  "hypothesis": "The M2207 repair is sufficient to unblock M2194/M2200 metadata validation while preserving repeat fail-closed behavior.",
+  "lineage": {
+    "blocked_by": [
+      "M2207 implementation must be audited before rerunning M2204"
+    ],
+    "derived_from": [
+      "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_metadata_runner_repair_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+    ],
+    "parent_objective": [
+      "audit repeat metadata activation repair before measured-execution rerun"
+    ],
+    "supersedes": [
+      "rerunning measured execution immediately after implementation"
+    ]
+  },
+  "milestone": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
+  "next_blocker": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_measured_runner_repeat_metadata_activation_repair_audit_admit_rerun",
+  "public_gates": [
+    "M2208 must audit focused tests",
+    "M2208 must confirm no-rollout metadata check over M2194/M2200 reports 0 missing rows",
+    "M2208 must confirm repeat fail-closed behavior remains covered",
+    "M2208 must decide whether measured-execution rerun command design or direct rerun is admitted",
+    "M2208 must not run measured execution or rank profiles"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_measured_runner_repeat_metadata_activation_repair_audit_admit_rerun",
+    "milestone": "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
+    "reason": "M2208 audits M2207 repair clean focused tests 4 passed no-rollout M2194/M2200 metadata check 0 missing 0 validation failures admits M2209 rerun no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md exists",
+    "focused tests are audited",
+    "M2194/M2200 no-rollout metadata check is audited",
+    "rerun route is explicit",
+    "no measured execution rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}
