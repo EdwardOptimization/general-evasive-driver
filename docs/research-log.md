@@ -40292,3 +40292,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.json`
 - next: `m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit`
+
+## M2245 Paper-Route Current-Sim Selected-Checkpoint Outcome Localization Result Audit
+
+- status: completed
+- decision: `current_sim_selected_checkpoint_outcome_localization_audit_route_to_offtrack_recovery_corridor_repair_design`
+- manifest: `experiments/manifests/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.json`
+- audit artifact: `docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md`
+- parent result: `runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json`
+- M2244 result class: `current_sim_selected_checkpoint_outcome_localization_pass`
+- selected checkpoint count: `15`
+- episode row count: `480`
+- profile seed groups complete: `true`
+- guardrail violation count: `0`
+- global success: `277/480` (`0.57708`)
+- global offtrack: `110/480` (`0.22917`)
+- global collision: `93/480` (`0.19375`)
+- max-step noncompletion: `0`
+- dominant failure mode: `offtrack_dominated_failure`
+- primary classification: `selected_checkpoint_panel_offtrack_recovery_corridor_failure`
+- route decision: `m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design`
+- secondary guardrail: collision/clearance risk remains active
+- unsupported: another checkpoint-selection-only run or blind budget escalation
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.json`
+- next: `m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design`

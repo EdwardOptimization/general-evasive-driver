@@ -192,8 +192,13 @@ candidates. M2244 runs this diagnostic localization and completes cleanly:
 guardrail `0`. Global selected-checkpoint outcome is success `277/480`,
 offtrack `110/480`, collision `93/480`, max-step noncompletion `0`; the
 dominant failure mode is `offtrack_dominated_failure`, and the primary repair
-route is `offtrack_recovery_reward_and_corridor_repair_design`. M2245 must
-audit this before any reward/task repair implementation.
+route is `offtrack_recovery_reward_and_corridor_repair_design`. M2245 audits
+this as a clean result and routes to M2246 offtrack/recovery/corridor repair
+design. The active interpretation is not profile ranking: it is that selected
+checkpoints are blocked primarily by offtrack/recovery/corridor failure, with
+collision/clearance retained as a secondary guardrail. M2246 must now freeze a
+bounded repair design before any task/reward implementation, rollout, ranking,
+finite-window-vs-GRU verdict, paper claim, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

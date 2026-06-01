@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M2246 pending offtrack/recovery/corridor repair design no training/ranking claims",
+  "failure_criteria": [
+    "design requires actor input contract changes",
+    "design is just another total_steps increase or checkpoint-selection loop",
+    "collision/clearance guardrails are unspecified",
+    "M2246 starts new training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2246 ranks profiles or selects a winner"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "training_instability",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor input contract",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T152841Z",
+  "hypothesis": "A bounded offtrack/recovery/corridor repair design can address M2244's dominant failure mode more directly than another checkpoint-selection or budget escalation.",
+  "lineage": {
+    "blocked_by": [
+      "M2245 classifies selected-checkpoint panel as offtrack/recovery/corridor failure"
+    ],
+    "derived_from": [
+      "m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_seed_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/termination_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/repair_route_candidates.csv"
+    ],
+    "parent_objective": [
+      "design an offtrack/recovery/corridor repair route after M2245 audit"
+    ],
+    "supersedes": [
+      "another checkpoint-selection-only run",
+      "another blind budget escalation",
+      "direct profile ranking from below-floor diagnostic evidence"
+    ]
+  },
+  "milestone": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
+  "next_blocker": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2246 must design an offtrack/recovery/corridor repair without executing training or rollout",
+    "M2246 must preserve the human-view/no-privileged actor input contract",
+    "M2246 must keep collision/clearance as an explicit guardrail",
+    "M2246 must keep checkpoint retention as infrastructure but not as the active repair variable",
+    "M2246 must not rank profiles, select a winner, or claim paper-level evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
+    "reason": "M2246 pending offtrack/recovery/corridor repair design no training/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md exists",
+    "repair design targets offtrack/recovery/corridor failure",
+    "repair design preserves actor input contract and matched profile/seed fairness",
+    "repair design keeps collision/clearance and max-step noncompletion as guardrails",
+    "repair design defines admission criteria for follow-up config materialization or execution",
+    "fallback route is explicit",
+    "no reset rollout measured execution training replay PPO private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

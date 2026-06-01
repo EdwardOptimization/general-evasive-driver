@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T151917Z
+- Generated at UTC: 20260601T152841Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2245 pending outcome localization result audit no rerun/ranking claims
+- Promotion decision: current_sim_selected_checkpoint_outcome_localization_audit_route_to_offtrack_recovery_corridor_repair_design
+- Decision reason: M2245 audits M2244 clean 480 episodes success 277 offtrack 110 collision 93 offtrack-dominated route to M2246 repair design no ranking claims
 
 ## Hypothesis
 
@@ -83,15 +83,15 @@ M2244 provides enough outcome evidence to route the next repair toward offtrack/
 - milestone: m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit
 - type: gate
 - checkpoint: docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md
-- success_rate: None
+- success_rate: 0.5770833333333333
 - termination_rate: None
 - clearance_margin_mean: None
 - reset_success: None
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2245 pending outcome localization result audit no rerun/ranking claims
+- decision: current_sim_selected_checkpoint_outcome_localization_audit_route_to_offtrack_recovery_corridor_repair_design
+- reason: M2245 audits M2244 clean 480 episodes success 277 offtrack 110 collision 93 offtrack-dominated route to M2246 repair design no ranking claims
 
 ## Next Blocker
 
