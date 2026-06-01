@@ -37670,3 +37670,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: controlled panel construction design only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json`
 - next: `m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction`
+
+## M2134 Paper-Route Outcome-Supported Decisive Comparison-Support Controlled Panel Construction
+
+- status: completed
+- decision: `comparison_support_controlled_panel_construction_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json`
+- doc: `docs/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.md`
+- run artifact: `runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json`
+- focused tests: `3 passed`
+- reset/rollout/measured execution in M2134: `false`
+- policy actions executed in M2134: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result_class: `comparison_support_controlled_panel_construction_pass`
+- source qualified count: `15`; actual qualified count `15`; count match `true`
+- controlled_panel_unit_count: `6`
+- panel_source_kind_count: `6`
+- panel_intent_count: `3`
+- panel_duplicate_source_kind_count: `0`
+- panel_broad_aggregate_exclusion_count: `3`
+- excluded_qualified_candidate_count: `9`
+- excluded reasons: broad_aggregate_candidate `3`, duplicate_source_kind_lower_priority `6`
+- guardrail_violation_count: `0`
+- conclusion boundary: controlled panel artifact only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.json`
+- next: `m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis`

@@ -1,0 +1,181 @@
+{
+  "id": "m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+      "docs/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.md",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json",
+      "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/controlled_panel_units.csv",
+      "docs/research-log.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json"
+    ],
+    "parent_objective": [
+      "synthesize M2125-M2134 comparison-support evidence before any further audit or protocol design"
+    ],
+    "derived_from": [
+      "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2124-M2134 branch continuation"
+    ],
+    "supersedes": [
+      "immediate controlled-panel result audit without synthesis",
+      "continuing local comparison-support panel work past cadence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+  "public_gates": [
+    "M2135 must synthesize M2125-M2134 evidence before continuing the branch",
+    "M2135 must decide continue pivot stop or promote_to_next_branch",
+    "M2135 must not run reset rollout measured execution or policy actions",
+    "M2135 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked unless evidence explicitly supports them"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_branch_synthesis",
+    "evidence_increment": "synthesizes measured execution, localization, qualification, and controlled-panel construction evidence since M2124",
+    "claim_scope": "branch synthesis decision only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if branch evidence is only process overhead",
+      "stop if controlled panel is too narrow or confounded",
+      "stop if next route would rank profiles directly",
+      "stop if generated-proxy paper-validity boundary is ignored"
+    ],
+    "fallback_plan": [
+      "continue to controlled-panel result audit if evidence is sufficient and branch should continue",
+      "pivot to scenario redesign if panel remains too narrow or offtrack dominated",
+      "stop this branch if no paper-verdict distance changed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow validator requires synthesis after 10 non-synthesis milestones since M2124",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support branch synthesis",
+    "admission_evidence": [
+      "M2125 complete measured execution 1200 episodes",
+      "M2128 localization found 15 comparison-ready candidates and 37 support candidates",
+      "M2131 qualification produced 15 qualified rows",
+      "M2134 construction produced 6 non-overlapping controlled panel units"
+    ],
+    "blocked_shortcuts": [
+      "do not skip synthesis cadence",
+      "do not rank profiles in M2135",
+      "do not claim paper-level evidence from generated proxy panel"
+    ],
+    "allowed_updates": [
+      "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+      "M2135 status queue scoreboard research log and review",
+      "one follow-up manifest consistent with synthesis decision"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact answers required questions",
+      "decision is continue pivot stop or promote_to_next_branch",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2135 synthesizes comparison-support artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2135."
+    ],
+    "temporal_evidence_window": "M2125-M2134 comparison-support branch artifacts.",
+    "negative_result_policy": "If branch evidence is insufficient, record the negative result and pivot or stop rather than extending local design milestones.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "summarizes branch-level measured and panel evidence before further work",
+    "paper_verdict_delta": "can decide whether controlled comparison protocol design is admitted but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "always: this milestone is the required synthesis"
+    ]
+  },
+  "hypothesis": "M2125-M2134 created enough non-overlapping comparison-support panel evidence to continue to controlled-panel result audit and protocol design, while still blocking ranking and paper claims.",
+  "success_criteria": [
+    "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md exists",
+    "synthesis artifact answers all required synthesis questions",
+    "synthesis_decision is continue pivot stop or promote_to_next_branch",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "required synthesis questions are unanswered",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+    "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json"
+  ],
+  "decision_rule": "M2135 passes if it writes the required synthesis artifact and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m2136-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+}

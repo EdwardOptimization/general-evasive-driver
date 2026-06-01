@@ -163,7 +163,7 @@
     },
     {
       "name": "construction",
-      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_comparison_support_controlled_panel --summary runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json --qualified-candidates runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv --claim-boundary runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/claim_boundary.csv --output-dir runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel --min-panel-units 6 --next-blocker m2135-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_comparison_support_controlled_panel --summary runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/summary.json --qualified-candidates runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv --claim-boundary runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/claim_boundary.csv --output-dir runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel --min-panel-units 6 --next-blocker m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis"
     }
   ],
   "required_artifacts": [
@@ -184,5 +184,5 @@
     "runs/m2131_paper_route_outcome_supported_decisive_comparison_support_candidate_qualification/qualified_candidates.csv"
   ],
   "decision_rule": "M2134 passes if it writes non-overlapping controlled panel artifacts and keeps guardrail 0 without ranking.",
-  "next_blocker": "m2135-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-result-audit"
+  "next_blocker": "m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis"
 }

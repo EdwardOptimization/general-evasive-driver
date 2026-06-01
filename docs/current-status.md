@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design
+m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction
 ```
 
 Current next task:
 
 ```text
-m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction
+m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis
 ```
 
-Immediate route: M2133 freezes the no-rerun controlled-panel construction
-rules. M2134 may materialize one canonical panel unit per nonempty
-`source_kind`, preferring `outcome_by_intent_source_kind` over duplicate
-`outcome_by_source_kind` rows. Broad aggregate rows stay diagnostic. Ranking,
-comparison execution, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked.
+Immediate route: M2134 materializes a non-overlapping controlled panel from
+M2131 qualified candidates: `6` primary source-kind units, `9` excluded
+qualified rows, duplicate source-kind count `0`, broad aggregate exclusions
+`3`, and guardrail `0`. The workflow synthesis cadence is now reached, so
+M2135 must synthesize the M2125-M2134 branch before any result audit or
+comparison protocol design. Ranking, comparison execution, paper claims,
+finite-window vs GRU conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

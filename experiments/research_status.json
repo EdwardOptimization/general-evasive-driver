@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2142,
+    "completed": 2143,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+    "command_log": "docs/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.md",
     "returncode": 0,
-    "run_dir": "docs/m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design.md",
+    "run_dir": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel",
     "status": "completed",
-    "task_id": "m2133-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-design"
+    "task_id": "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction.json",
-    "hypothesis": "A no-rerun panel constructor can materialize non-overlapping source-kind panel units from M2131 qualified candidates while preserving claim boundaries.",
-    "id": "m2134-paper-route-outcome-supported-decisive-comparison-support-controlled-panel-construction",
-    "kind": "infrastructure",
-    "notes": "Pending: construct controlled panel units from M2131 qualified candidates without ranking",
-    "priority": 21290,
+    "command": "see experiments/manifests/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.json",
+    "hypothesis": "M2125-M2134 created enough non-overlapping comparison-support panel evidence to continue to controlled-panel result audit and protocol design, while still blocking ranking and paper claims.",
+    "id": "m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M2125-M2134 before any controlled-panel result audit or comparison protocol design",
+    "priority": 21300,
     "status": "pending",
-    "success_artifact": "runs/m2134_paper_route_outcome_supported_decisive_comparison_support_controlled_panel/summary.json"
+    "success_artifact": "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T034100Z"
+  "updated_at_utc": "20260601T034600Z"
 }
