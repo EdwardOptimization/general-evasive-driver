@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2304,
+    "completed": 2305,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit",
+    "task_id": "m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md"
+    "command_log": "docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md"
   },
   "next_task": {
-    "id": "m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design",
-    "kind": "gate",
-    "priority": 22920,
+    "id": "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation",
+    "kind": "infrastructure",
+    "priority": 22930,
     "status": "pending",
-    "hypothesis": "A design-only route can convert M2295/M2296 offtrack-primary collision-guardrail evidence into a concrete non-ranking implementation plan.",
-    "command": "manual route design over docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md and M2295 slice artifacts",
-    "success_artifact": "docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md",
-    "notes": "Pending: define target offtrack slices collision guardrails implementation route and pass/fail gates; no rerun training ranking or paper claims"
+    "hypothesis": "M2297 rules can materialize non-profile offtrack target slices and collision guardrail slices suitable for a later guarded repair design.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization --all-slices runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/all_slices.csv --dominant-slices runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/dominant_slices.csv --route-recommendation runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/route_recommendation.csv --output-dir runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail --next-blocker m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit",
+    "success_artifact": "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+    "notes": "Pending: write target/guardrail CSVs and repair_gate_spec from M2295 slices; no rerun training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T210532Z"
+  "updated_at_utc": "20260601T211352Z"
 }

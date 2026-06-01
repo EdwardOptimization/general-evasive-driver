@@ -1,0 +1,184 @@
+{
+  "id": "m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/all_slices.csv",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/dominant_slices.csv",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/route_recommendation.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.json"
+    ],
+    "parent_objective": [
+      "materialize offtrack target slices and collision guardrail slices from M2295 diagnosis"
+    ],
+    "derived_from": [
+      "m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design"
+    ],
+    "blocked_by": [
+      "M2297 selects target/guardrail materialization before any repair or training"
+    ],
+    "supersedes": [
+      "direct broad PPO/reward repair before target materialization",
+      "profile-axis target selection"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.md",
+  "public_gates": [
+    "M2298 must consume M2295 slice artifacts only",
+    "M2298 must not run reset, rollout, policy action, training, replay, or PPO",
+    "M2298 must exclude profile_name and profile_seed axes from target and guardrail materialization",
+    "M2298 must write offtrack target slices, collision guardrail slices, and repair_gate_spec.json",
+    "M2298 must not rank profiles or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not change profile configs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_offtrack_target_collision_guardrail_materialization",
+    "evidence_increment": "materializes explicit offtrack target and collision guardrail slices for later repair",
+    "claim_scope": "artifact materialization only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2295 slice artifacts are missing",
+      "stop if no offtrack target slices meet threshold",
+      "stop if no collision guardrail slices meet threshold",
+      "stop if profile axes leak into target or guardrail slices"
+    ],
+    "fallback_plan": [
+      "route to result audit for threshold repair if target counts are too low",
+      "route to scenario-task reshaping if targets are incoherent",
+      "route to guarded repair design if target/guardrail materialization passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2297 route design admits target/guardrail materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize offtrack target and collision guardrail slices",
+    "admission_evidence": [
+      "M2297 defines target and guardrail rules",
+      "M2295 diagnosis provides all_slices and dominant_slices"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization.py",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/*",
+      "docs/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.md",
+      "M2298 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "offtrack target slices are materialized",
+      "collision guardrail slices are materialized",
+      "repair_gate_spec.json is written",
+      "profile axes are excluded from target and guardrail slices"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2298 materializes task-performance targets and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2298."
+    ],
+    "temporal_evidence_window": "M2295-M2297 slice artifacts and route design.",
+    "negative_result_policy": "Treat target/guardrail materialization as task-performance infrastructure, not self-ID evidence.",
+    "allowed_claims": [
+      "offtrack target and collision guardrail materialization",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns accepted failure slices into explicit repair targets and guardrails",
+    "paper_verdict_delta": "can enable a later guarded repair design with denominator-backed target slices",
+    "must_synthesize_if": [
+      "M2298 cannot materialize target and guardrail slices",
+      "M2298 leaks profile axes into repair targets",
+      "M2298 only repeats M2295 slices without producing a repair gate spec"
+    ]
+  },
+  "hypothesis": "M2297 rules can materialize non-profile offtrack target slices and collision guardrail slices suitable for a later guarded repair design.",
+  "success_criteria": [
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json exists",
+    "offtrack_target_slice_count is at least 8",
+    "collision_guardrail_slice_count is at least 3",
+    "profile_target_slice_count equals 0",
+    "profile_guardrail_slice_count equals 0",
+    "repair_gate_spec.json exists",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2298 runs reset or rollout",
+    "M2298 trains or changes scenario/profile configs",
+    "M2298 admits profile_name/profile_seed target or guardrail slices",
+    "M2298 cannot write repair_gate_spec.json",
+    "M2298 ranks profiles or selects a winner",
+    "M2298 makes paper-level finite-window-vs-GRU or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_offtrack_collision_guardrail_materialization --all-slices runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/all_slices.csv --dominant-slices runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/dominant_slices.csv --route-recommendation runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/route_recommendation.csv --output-dir runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail --next-blocker m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md",
+    "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/all_slices.csv",
+    "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/dominant_slices.csv"
+  ],
+  "decision_rule": "M2298 passes if it materializes enough non-profile target/guardrail slices and writes a repair gate spec.",
+  "next_blocker": "m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit"
+}

@@ -41238,3 +41238,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.json`
 - next: `m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design`
+
+## M2297 Paper-Route Current-Sim Scenario Task-Family Offtrack-Primary Collision-Guardrail Route Design
+
+- status: completed
+- decision: `route_to_offtrack_target_collision_guardrail_materialization`
+- manifest: `experiments/manifests/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.json`
+- design doc: `docs/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.md`
+- parent audit: `docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md`
+- selected next route: materialize non-profile offtrack target slices and collision guardrail slices
+- required offtrack target threshold: `dominant_failure_mode == offtrack_dominated_failure and offtrack_count >= 100`
+- required collision guardrail threshold: `dominant_failure_mode == collision_dominated_failure or collision_count >= 50`
+- profile axes excluded from target/guardrail: `profile_name`, `profile_seed`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation.json`
+- next: `m2298-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-implementation`
