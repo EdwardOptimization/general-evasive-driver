@@ -16,25 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit
+m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design
 ```
 
 Current next task:
 
 ```text
-m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design
+m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation
 ```
 
-Immediate route: M2188 audits M2187 as clean but not comparison-ready. The
-combined repeat panel is complete (`960` episodes, `3` repeats), but support
-fails: success `163`, offtrack `741`, success rate `0.16979166666666667`, and
-offtrack rate `0.771875`. The primary blocker is
-`outcome_support_low_offtrack_dominated`; the secondary blocker is suspicious
-identical repeat_1/repeat_2 outcome vectors despite non-duplicate checkpoint
-hashes. M2189 must design task-quality/offtrack support repair before any
-comparison. New rollout, controller ranking, paper claims, finite-window vs GRU
-verdicts, and self-ID claims remain blocked until later audited evidence
-supports them.
+Immediate route: M2189 designs the current-sim task-quality/offtrack support
+repair branch. The next step is M2190: generate a deterministic no-rollout
+`288`-candidate repair wave with exact quotas across offtrack saturation
+relief, terminal-boundary support, older-history support, diagnostic warmup
+support, and positive-support preservation. New rollout, controller ranking,
+paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked
+until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

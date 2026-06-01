@@ -1,0 +1,178 @@
+{
+  "id": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_candidate_generation"
+    ],
+    "parent_dataset": [
+      "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.json"
+    ],
+    "parent_objective": [
+      "generate deterministic no-rollout task-quality/offtrack support repair candidates"
+    ],
+    "derived_from": [
+      "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design"
+    ],
+    "blocked_by": [
+      "M2189 design must freeze repair axes before candidate generation"
+    ],
+    "supersedes": [
+      "ad hoc task-quality repair based on profile aggregate ranking"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
+  "public_gates": [
+    "M2190 must generate exactly 288 no-rollout repair candidates",
+    "M2190 must satisfy exact repair-axis quotas",
+    "M2190 must reject profile-specific tuning and actor input changes",
+    "M2190 must preserve claim boundary flags as false",
+    "M2190 must not reset, roll out, train, rank, or compare profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_task_quality_offtrack_support_repair_candidates",
+    "evidence_increment": "materializes no-rollout repair candidates from measured offtrack/support evidence",
+    "claim_scope": "candidate generation only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if candidate quotas are not exact",
+      "stop if candidates require actor input changes",
+      "stop if candidates are profile-specific",
+      "stop if candidate generation tries to rank profiles",
+      "stop if branch cadence requires synthesis before further implementation"
+    ],
+    "fallback_plan": [
+      "route to candidate generation audit if artifact passes",
+      "route to repair design revision if quotas or guardrails fail",
+      "route to branch synthesis if support repair design conflicts with paper-route constraints"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2189 design admits no-rollout candidate generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "generate no-rollout task-quality/offtrack support repair candidates",
+    "admission_evidence": [
+      "M2189 freezes repair axes",
+      "M2188 identifies outcome_support_low_offtrack_dominated as primary blocker",
+      "M2187 supplies combined outcome and seed-diversity evidence"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_task_quality_offtrack_support_repair_candidates.py",
+      "tests/test_paper_route_current_sim_task_quality_offtrack_support_repair_candidates.py",
+      "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json",
+      "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+      "docs/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
+      "M2190 status queue scoreboard research log and review",
+      "one follow-up manifest for candidate result audit"
+    ],
+    "next_stage_criteria": [
+      "candidate artifact exists",
+      "summary pass/fail is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2190 generates task candidates and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2190."
+    ],
+    "temporal_evidence_window": "M2187 combined repeat data-quality audit.",
+    "negative_result_policy": "If candidate generation cannot satisfy support-repair guardrails, repair design before rollout rather than ranking current data.",
+    "allowed_claims": [
+      "task-quality/offtrack support candidate generation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new candidate panel instead of optimizing a fixed public comparison aggregate",
+    "paper_verdict_delta": "can admit repaired panel materialization if candidate support guardrails pass",
+    "must_synthesize_if": [
+      "M2190 cannot produce a new candidate artifact",
+      "M2190 only edits process files",
+      "M2190 would rank profiles",
+      "M2190 would run rollout"
+    ]
+  },
+  "hypothesis": "A deterministic no-rollout generator can create a quota-balanced 288-candidate task-quality/offtrack support repair wave without actor-input or ranking shortcuts.",
+  "success_criteria": [
+    "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json exists",
+    "candidate_count == 288",
+    "repair axis quotas are exact",
+    "candidate IDs are unique",
+    "claim flags are false",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary.json is missing",
+    "candidate_count != 288",
+    "quota checks fail",
+    "any candidate is profile-specific",
+    "any candidate changes actor input",
+    "candidate generation runs reset or measured execution",
+    "ranking or paper claims are made"
+  ],
+  "commands": [
+    {
+      "name": "candidate_generation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_quality_offtrack_support_repair_candidates --original-episodes runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv --repeat-episodes runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_candidate_generation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+    "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json"
+  ],
+  "decision_rule": "M2190 passes if it writes a quota-balanced no-rollout candidate artifact without ranking or actor-input shortcuts.",
+  "next_blocker": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation"
+}

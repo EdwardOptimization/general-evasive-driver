@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2196,
+    "completed": 2197,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+    "command_log": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+    "run_dir": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
     "status": "completed",
-    "task_id": "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit"
+    "task_id": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design"
   },
   "next_task": {
-    "command": "write docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
-    "hypothesis": "A task-quality/offtrack support repair can be designed to produce a more comparison-ready current-sim panel without changing actor inputs or ranking profiles.",
-    "id": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design task-quality/offtrack support repair before comparison",
-    "priority": 21840,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_quality_offtrack_support_repair_candidates --original-episodes runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv --repeat-episodes runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+    "hypothesis": "A deterministic no-rollout generator can create a quota-balanced 288-candidate task-quality/offtrack support repair wave without actor-input or ranking shortcuts.",
+    "id": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation",
+    "kind": "infrastructure",
+    "notes": "Pending: generate no-rollout support repair candidates",
+    "priority": 21850,
     "status": "pending",
-    "success_artifact": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md"
+    "success_artifact": "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json"
   },
-  "updated_at_utc": "20260601T094228Z"
+  "updated_at_utc": "20260601T094856Z"
 }

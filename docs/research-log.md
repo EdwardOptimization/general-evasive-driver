@@ -38992,3 +38992,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to support repair design, not ranking
 - follow-up manifest: `experiments/manifests/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.json`
 - next: `m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design`
+
+## M2189 Paper-Route Current-Sim Task-Quality Offtrack Support Repair Design
+
+- status: completed
+- decision: `current_sim_task_quality_offtrack_support_repair_design_admit_candidate_generation`
+- manifest: `experiments/manifests/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.json`
+- design artifact: `docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md`
+- primary blocker addressed: `outcome_support_low_offtrack_dominated`
+- secondary blocker preserved for later audit: `seed_diversity_suspicious_identical_repeat_outcome_vectors`
+- target candidate wave: `288` no-rollout repair candidates
+- repair axes: offtrack saturation relief `96`, terminal-boundary support ladder `64`, older-history ambiguity support ladder `64`, diagnostic warmup support ladder `32`, positive support preservation `32`
+- future readiness gates: combined success >= `240`, offtrack rate <= `0.60`, per-repeat success min >= `80`
+- training: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to deterministic no-rollout candidate generation
+- follow-up manifest: `experiments/manifests/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.json`
+- next: `m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation`
