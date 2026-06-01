@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2320,
+    "completed": 2321,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design",
+    "task_id": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md"
+    "run_dir": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "command_log": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json"
   },
   "next_task": {
-    "id": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
-    "kind": "infrastructure",
-    "priority": 23080,
+    "id": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
+    "kind": "gate",
+    "priority": 23090,
     "status": "pending",
-    "hypothesis": "A support-policy diagnostic panel can separate scenario feasibility/support from actor weakness without ranking controllers.",
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_feasibility_calibration --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --eval-seed-base 231300 --support-policies aeb aes envelope_aes --seed-repeats 5 --target-scenario-spec-count 72 --target-support-policy-count 3 --target-episode-count 1080 --next-blocker m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
-    "success_artifact": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
-    "notes": "Pending: implement and run no-ranking support-policy feasibility calibration panel; support policies are diagnostics not candidates"
+    "hypothesis": "M2313 provides enough support-label evidence to choose whether the next route is metric semantics audit, scenario support redesign, or actor weakness/training.",
+    "command": "manual artifact audit of runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json and support label artifacts",
+    "success_artifact": "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
+    "notes": "Pending: audit M2313 support labels including R0 metric_conflict 12/12 support_clear 12 support_mixed 26 support_blocked 21"
   },
-  "updated_at_utc": "20260601T224727Z"
+  "updated_at_utc": "20260601T225852Z"
 }

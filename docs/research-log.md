@@ -41654,3 +41654,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.json`
 - next: `m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation`
+
+## M2313 Paper-Route Current-Sim Scenario Task-Family Feasibility Calibration Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_feasibility_calibration_pass`
+- manifest: `experiments/manifests/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.json`
+- implementation doc: `docs/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.md`
+- summary: `runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py`
+- episode_count/failure_count: `1080/0`
+- scenario_spec_count/support_policy_count/seed_repeat_count: `72/3/5`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- global success/collision/offtrack: `107/468/393`
+- support labels clear/mixed/blocked/metric_conflict: `12/26/21/13`
+- role highlight: R0 `metric_conflict 12/12`, R1 `support_clear 12/12`, R4 `support_blocked 9/12`
+- reset/rollout/policy action: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.json`
+- next: `m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit`

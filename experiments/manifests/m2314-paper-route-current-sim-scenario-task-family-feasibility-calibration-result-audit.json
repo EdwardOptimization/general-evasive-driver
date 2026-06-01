@@ -1,0 +1,182 @@
+{
+  "id": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_policy_diagnostic_panel"
+    ],
+    "parent_dataset": [
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv",
+      "docs/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.md",
+      "docs/m2312-paper-route-current-sim-scenario-task-family-feasibility-calibration-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation.json"
+    ],
+    "parent_objective": [
+      "audit support-policy feasibility calibration result and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation"
+    ],
+    "blocked_by": [
+      "M2313 support labels include 13 metric_conflict scenarios and 21 support_blocked scenarios",
+      "R0 AEB-feasible role is entirely metric_conflict and must be audited before training or ranking"
+    ],
+    "supersedes": [
+      "direct training from support-policy diagnostic result",
+      "controller-family ranking from support policies",
+      "paper-level current-sim comparison before support-label audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
+  "public_gates": [
+    "M2314 must audit M2313 completeness and claim boundary",
+    "M2314 must record support label counts and role support summary",
+    "M2314 must classify R0 metric_conflict before any training route",
+    "M2314 must select a non-ranking next route",
+    "M2314 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_support_policy_feasibility_calibration_result_audit",
+    "evidence_increment": "audits the M2313 support-policy diagnostic panel and chooses a route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2313 artifacts are incomplete",
+      "stop if R0 metric_conflict is ignored",
+      "stop if support policies are ranked or treated as deployable candidates",
+      "stop if audit routes directly to training without metric/support interpretation"
+    ],
+    "fallback_plan": [
+      "route to metric/termination semantics audit if metric_conflict dominates a role",
+      "route to scenario support redesign if support_blocked dominates",
+      "route to actor/training route only if support_clear or support_mixed evidence supports feasibility"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2313 completed a new support-policy diagnostic panel",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit support-policy feasibility calibration result",
+    "admission_evidence": [
+      "M2313 result_class is current_sim_scenario_task_family_feasibility_calibration_pass",
+      "M2313 writes 1080 episode rows and 72 scenario support labels",
+      "M2313 reports support_clear 12 support_mixed 26 support_blocked 21 metric_conflict 13",
+      "M2313 reports R0 metric_conflict 12/12"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
+      "M2314 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2313 completeness is audited",
+      "support label counts and role support summary are recorded",
+      "R0 metric_conflict and support_blocked roles are classified",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2314 audits support-policy diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2314; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2313 support-policy diagnostic panel.",
+    "negative_result_policy": "If support/metric calibration is weak, repair task semantics before controller-family or self-ID claims.",
+    "allowed_claims": [
+      "support-policy feasibility calibration result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns new support-policy diagnostic data into a route decision",
+    "paper_verdict_delta": "can route to metric semantics audit scenario redesign or actor weakness branch based on support labels",
+    "must_synthesize_if": [
+      "M2314 recommends direct training without resolving metric_conflict/support_blocked structure",
+      "M2314 ranks support policies",
+      "the feasibility branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2313 provides enough support-label evidence to choose whether the next route is metric semantics audit, scenario support redesign, or actor weakness/training.",
+  "success_criteria": [
+    "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md exists",
+    "M2313 result_class is audited",
+    "support label counts are audited",
+    "role support summary is audited",
+    "R0 metric_conflict is classified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2313 artifacts are missing",
+    "M2314 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2314 ranks support policies or selects a winner",
+    "M2314 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2314 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json and support label artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_policy_diagnostic_panel"
+  ],
+  "baseline_artifacts": [
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv"
+  ],
+  "decision_rule": "M2314 passes if it audits M2313 support labels and selects a non-ranking follow-up route.",
+  "next_blocker": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit"
+}
