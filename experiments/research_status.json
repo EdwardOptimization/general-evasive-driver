@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2267,
+    "completed": 2268,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+    "command_log": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+    "run_dir": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization"
+    "task_id": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json and training_matrix.csv",
-    "hypothesis": "M2259 produced a complete targeted containment config panel that is clean enough to admit a controlled training execution design.",
-    "id": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit",
+    "command": "manual design over M2259 materialization artifacts",
+    "hypothesis": "A controlled execution design can run the M2259 targeted containment config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
+    "id": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M2259 materialization before training execution design no ranking claims",
-    "priority": 22550,
+    "notes": "Pending: freeze bounded M2259 training execution command no training/ranking claims",
+    "priority": 22560,
     "status": "pending",
-    "success_artifact": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md"
+    "success_artifact": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md"
   },
-  "updated_at_utc": "20260601T172605Z"
+  "updated_at_utc": "20260601T173203Z"
 }

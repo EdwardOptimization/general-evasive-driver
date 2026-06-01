@@ -1,0 +1,104 @@
+{
+  "decision_reason": "M2260 audits M2259 clean 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 routes to execution design no ranking claims",
+  "failure_criteria": [
+    "M2259 artifacts are missing",
+    "M2259 result_class is not pass",
+    "target values differ from M2258",
+    "actor input contract changes",
+    "track_width widens",
+    "M2260 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2260 ranks profiles or selects a winner"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T173345Z",
+  "hypothesis": "M2259 produced a complete targeted containment config panel that is clean enough to admit a controlled training execution design.",
+  "lineage": {
+    "blocked_by": [
+      "M2259 materialization must be audited before execution design"
+    ],
+    "derived_from": [
+      "m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_checkpoint"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.json"
+    ],
+    "parent_dataset": [
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv",
+      "docs/m2259-paper-route-current-sim-midcourse-corridor-containment-config-materialization.md"
+    ],
+    "parent_objective": [
+      "audit targeted midcourse corridor-containment config materialization before any training execution design"
+    ],
+    "supersedes": [
+      "direct training without materialization audit",
+      "return-only acceptance route",
+      "profile-specific tuning"
+    ]
+  },
+  "milestone": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit",
+  "next_blocker": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_midcourse_corridor_containment_materialization_audit_route_to_training_execution_design",
+  "public_gates": [
+    "M2260 must audit M2259 result_class and artifact completeness",
+    "M2260 must verify 15 configs and 15 matrix rows with one budget signature",
+    "M2260 must verify target repair values match M2258",
+    "M2260 must verify actor contract and track_width guardrails are clean",
+    "M2260 must select training-execution design, materialization repair, synthesis, or stop",
+    "M2260 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_midcourse_corridor_containment_materialization_audit_route_to_training_execution_design",
+    "milestone": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit",
+    "reason": "M2260 audits M2259 clean 15 configs 15 matrix rows target mismatch 0 contract 0 track_width_widened 0 guardrail 0 routes to execution design no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md exists",
+    "M2259 result_class is current_sim_midcourse_corridor_containment_config_materialization_pass",
+    "materialized_config_count and training_matrix_row_count are 15",
+    "target_value_mismatch_count is 0",
+    "contract_violation_count is 0",
+    "track_width_widened_count is 0",
+    "guardrail_violation_count is 0",
+    "a follow-up route design repair synthesis or stop decision is selected"
+  ],
+  "type": "gate"
+}

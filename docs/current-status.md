@@ -269,8 +269,10 @@ materializes that matched `15`-config matrix cleanly: `15` training matrix rows,
 one budget signature, target mismatch `0`, contract violation `0`,
 `track_width_widened=0`, and guardrail violation `0`. No training, rollout,
 ranking, finite-window-vs-GRU verdict, paper-level claim, or level3
-self-identification claim is admitted. M2260 is the next blocker: audit M2259
-before any training-execution design.
+self-identification claim is admitted. M2260 audits M2259 as clean and routes
+to M2261: design the bounded training execution over the M2259 matrix using the
+candidate-checkpoint runner pattern. Training and interpretation remain blocked
+until that design is written and later audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
