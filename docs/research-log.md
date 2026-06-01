@@ -167,6 +167,15 @@ Last updated: 2026-06-01
 - contract/guardrail status: actor contract violations `0`, labels entering actor input `0`, ranking rows `0`, guardrail violations `0`.
 - decision: route to M2286 combined reset-sampling and lateral-sign repair design. No reset rerun, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
 
+
+## 20260601T195610Z m2286-reset-sampling-lateral-sign-repair-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md`
+- result: freezes a combined repair design: `left_offset -> +1.2`, `right_offset -> -1.2`, plus sampler-aware role generation using `classify_obstacle_scenario` before materialization.
+- decision: admit M2287 implementation to repair the materializer, rerun materialization, and run reset-only validation. Policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

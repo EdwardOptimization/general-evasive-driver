@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2293,
+    "completed": 2294,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+    "task_id": "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md"
+    "command_log": "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md"
   },
   "next_task": {
-    "id": "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design",
-    "kind": "gate",
-    "priority": 22810,
+    "id": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation",
+    "kind": "infrastructure",
+    "priority": 22820,
     "status": "pending",
-    "hypothesis": "A combined design can repair lateral sign metadata and make R1-R5 materialization sampler-aware without changing the actor contract.",
-    "command": "manual combined repair design artifact",
-    "success_artifact": "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
-    "notes": "Pending: specify sampler-aware R1-R5 repair and lateral sign correction; no reset rollout training ranking or paper claims"
+    "hypothesis": "Sampler-aware role generation plus lateral sign correction can produce a 72-spec pack that passes reset validation under the P0 actor contract.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/materialization --next-blocker m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation && PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation --eval-seed-base 228700 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+    "success_artifact": "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+    "notes": "Pending: repair materializer, rerun materialization and reset-only validation; no rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T195245Z"
+  "updated_at_utc": "20260601T195610Z"
 }

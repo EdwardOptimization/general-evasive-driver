@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit
+m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design
 ```
 
 Current next task:
 
 ```text
-m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design
+m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation
 ```
 
 Immediate route: M2282 freezes a focused reset-only validation design for
@@ -48,9 +48,11 @@ guardrail_violation_count: 0
 ```
 
 The failure decomposes into R1-R5 reset-sampling failure and R0 left/right
-lateral sign mismatch. M2286 must design one combined repair before any rerun.
-Policy actions, measured rollout, training, ranking, finite-window vs GRU
-verdict, paper-level claim, and level3 self-ID claim remain blocked.
+lateral sign mismatch. M2286 now freezes a combined repair design: correct
+`left_offset/right_offset` signs and make R1-R5 generation sampler-aware before
+rerunning materialization plus reset-only validation in M2287. Policy actions,
+measured rollout, training, ranking, finite-window vs GRU verdict, paper-level
+claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 
