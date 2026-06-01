@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T155018Z
+- Generated at UTC: 20260601T155859Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2249 pending repaired training execution design over M2248 matrix no training/ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_training_execution_design_admit_execution
+- Decision reason: M2249 freezes M2250 command over M2248 matrix using candidate-checkpoint runner no training/ranking claims
 
 ## Hypothesis
 
@@ -89,8 +89,8 @@ A controlled execution design can run the M2248 repaired config matrix through t
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2249 pending repaired training execution design over M2248 matrix no training/ranking claims
+- decision: current_sim_offtrack_recovery_corridor_training_execution_design_admit_execution
+- reason: M2249 freezes M2250 command over M2248 matrix using candidate-checkpoint runner no training/ranking claims
 
 ## Next Blocker
 

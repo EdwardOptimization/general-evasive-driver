@@ -212,7 +212,10 @@ training: `15` configs, `15` matrix rows, one budget signature, contract `0`,
 `track_width_widened_count=0`, and guardrail `0`. The next task is M2249, a
 training-execution design over the M2248 matrix using the existing
 candidate-checkpoint runner; it must not start training in the design milestone
-or make ranking, finite-window-vs-GRU, paper, or self-ID claims.
+or make ranking, finite-window-vs-GRU, paper, or self-ID claims. M2249
+completes that design and admits M2250: run exactly `15` repaired training jobs
+from the M2248 matrix, evaluate `120` candidate checkpoints, select `15`
+checkpoints, and route to M2251 result audit before any interpretation.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

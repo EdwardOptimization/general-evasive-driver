@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2249 pending repaired training execution design over M2248 matrix no training/ranking claims",
+  "decision_reason": "M2249 freezes M2250 command over M2248 matrix using candidate-checkpoint runner no training/ranking claims",
   "failure_criteria": [
     "design starts training",
     "design uses a matrix other than M2248",
@@ -32,7 +32,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T155018Z",
+  "generated_at_utc": "20260601T155859Z",
   "hypothesis": "A controlled execution design can run the M2248 repaired config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
   "next_blocker": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_training_execution_design_admit_execution",
   "public_gates": [
     "M2249 must design training execution without running training",
     "M2249 must use exactly the M2248 training matrix",
@@ -76,9 +76,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_training_execution_design_admit_execution",
     "milestone": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
-    "reason": "M2249 pending repaired training execution design over M2248 matrix no training/ranking claims",
+    "reason": "M2249 freezes M2250 command over M2248 matrix using candidate-checkpoint runner no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

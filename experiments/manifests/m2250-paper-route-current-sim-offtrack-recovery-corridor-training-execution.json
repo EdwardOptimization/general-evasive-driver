@@ -1,0 +1,176 @@
+{
+  "id": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_training_from_scratch"
+    ],
+    "parent_dataset": [
+      "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute repaired training matrix through candidate-checkpoint runner"
+    ],
+    "derived_from": [
+      "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design"
+    ],
+    "blocked_by": [
+      "M2248 materialized repaired configs but no repaired checkpoints exist"
+    ],
+    "supersedes": [
+      "manual ad-hoc repaired training",
+      "running without candidate checkpoint retention",
+      "ranking before result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.md",
+  "public_gates": [
+    "M2250 must use exactly the M2248 training matrix",
+    "M2250 must run exactly 15 train_ppo jobs if validation passes",
+    "M2250 must evaluate exactly 120 candidate checkpoints and 15 selected checkpoints",
+    "M2250 must preserve actor input contract and track_width repair guardrail",
+    "M2250 must not rank profiles, select a winner, or make paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use a matrix other than M2248",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_training_execution",
+    "evidence_increment": "runs the bounded repaired config matrix and produces candidate-checkpoint evidence",
+    "claim_scope": "training execution only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if matrix validation fails",
+      "stop if any training job fails and fail-fast exits",
+      "stop if candidate checkpoint evaluation is incomplete"
+    ],
+    "fallback_plan": [
+      "route to result audit if execution completes",
+      "route to materialization repair if matrix validation fails",
+      "route to training failure audit if any job fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2249 admits repaired training execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "execute repaired M2248 profile/seed training matrix with candidate checkpoint retention",
+    "admission_evidence": [
+      "M2241 provides pretrain capability evidence for this repair branch by showing candidate-checkpoint retention helps 12/15 rows but profile floor pass remains 0",
+      "M2250 is the admitted posttrain capability evidence collection step for the M2248 offtrack/recovery/corridor repair; interpretation remains blocked until result audit",
+      "M2248 and M2249 provide exact/proof gates for config count 15, budget signature 1, actor contract 0, track_width_widened 0, and guardrail-clean execution design",
+      "M2249 provides rollback or repair protection by preserving candidate-checkpoint retention, fail-closed matrix validation, and a required M2251 result-audit route"
+    ],
+    "blocked_shortcuts": [
+      "no private holdout",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+      "docs/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.md",
+      "M2250 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "completed_run_count is 15",
+      "candidate_eval_count is 120",
+      "selected_checkpoint_count is 15",
+      "guardrail_violation_count is 0",
+      "result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2250 trains/evaluates closed-loop policies but does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2250; no wrong-history, reset-hidden, or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2248 repaired training matrix only.",
+    "negative_result_policy": "If execution does not improve readiness or later outcome localization, record negative result and route to audit; do not lower self-ID standards.",
+    "allowed_claims": [
+      "repaired training execution result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces repaired closed-loop training and candidate-checkpoint evidence",
+    "paper_verdict_delta": "can test whether offtrack reward repair improves current-sim readiness",
+    "must_synthesize_if": [
+      "M2250 repeats the same below-floor result without clearer failure localization",
+      "M2250 generates incomplete candidate checkpoint evidence",
+      "M2250 result audit cannot select a route"
+    ]
+  },
+  "hypothesis": "The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
+  "success_criteria": [
+    "summary artifact exists under runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution",
+    "completed_run_count is 15",
+    "failed_run_count is 0",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "all run, candidate, and selected metrics are finite",
+    "guardrail_violation_count is 0",
+    "no private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "matrix validation fails",
+    "completed_run_count is less than 15",
+    "candidate_eval_count is not 120",
+    "selected_checkpoint_count is not 15",
+    "any metrics are non-finite",
+    "guardrail_violation_count is nonzero",
+    "M2250 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv --output-dir runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --execution-root runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --task-id m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution --next-blocker m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_training_from_scratch"
+  ],
+  "baseline_artifacts": [
+    "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+  ],
+  "decision_rule": "M2250 passes if it completes all repaired training jobs and candidate checkpoint evaluation without guardrail violations.",
+  "next_blocker": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution"
+}

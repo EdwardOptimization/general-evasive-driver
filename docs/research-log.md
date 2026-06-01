@@ -40389,3 +40389,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.json`
 - next: `m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design`
+
+## M2249 Paper-Route Current-Sim Offtrack/Recovery/Corridor Training Execution Design
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_training_execution_design_admit_execution`
+- manifest: `experiments/manifests/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.json`
+- design artifact: `docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md`
+- training matrix: `runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv`
+- execution runner: `autodrift.paper_route_current_sim_training_stability_repair_execution`
+- output dir: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution`
+- expected train jobs: `15`
+- expected candidate eval rows: `120`
+- expected selected checkpoint rows: `15`
+- candidate checkpoint interval: `4096`
+- total steps per run: `32768`
+- training started in M2249: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.json`
+- next: `m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution`

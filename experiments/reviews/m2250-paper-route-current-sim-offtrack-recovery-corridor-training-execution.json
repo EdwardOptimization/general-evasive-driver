@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
+  "failure_criteria": [
+    "matrix validation fails",
+    "completed_run_count is less than 15",
+    "candidate_eval_count is not 120",
+    "selected_checkpoint_count is not 15",
+    "any metrics are non-finite",
+    "guardrail_violation_count is nonzero",
+    "M2250 ranks profiles or selects a winner"
+  ],
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not use a matrix other than M2248",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T160230Z",
+  "hypothesis": "The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
+  "lineage": {
+    "blocked_by": [
+      "M2248 materialized repaired configs but no repaired checkpoints exist"
+    ],
+    "derived_from": [
+      "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_training_from_scratch"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
+    ],
+    "parent_objective": [
+      "execute repaired training matrix through candidate-checkpoint runner"
+    ],
+    "supersedes": [
+      "manual ad-hoc repaired training",
+      "running without candidate checkpoint retention",
+      "ranking before result audit"
+    ]
+  },
+  "milestone": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+  "next_blocker": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2250 must use exactly the M2248 training matrix",
+    "M2250 must run exactly 15 train_ppo jobs if validation passes",
+    "M2250 must evaluate exactly 120 candidate checkpoints and 15 selected checkpoints",
+    "M2250 must preserve actor input contract and track_width repair guardrail",
+    "M2250 must not rank profiles, select a winner, or make paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+    "reason": "M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "summary artifact exists under runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution",
+    "completed_run_count is 15",
+    "failed_run_count is 0",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "all run, candidate, and selected metrics are finite",
+    "guardrail_violation_count is 0",
+    "no private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2256,
+    "completed": 2257,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+    "command_log": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
     "returncode": 0,
-    "run_dir": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization",
+    "run_dir": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
     "status": "completed",
-    "task_id": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization"
+    "task_id": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design"
   },
   "next_task": {
-    "command": "manual design over M2248 materialization artifacts",
-    "hypothesis": "A controlled execution design can run the M2248 repaired config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
-    "id": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded repaired training execution over M2248 matrix no training/ranking claims",
-    "priority": 22440,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv --output-dir runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --execution-root runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --task-id m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution --next-blocker m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit --device cpu",
+    "hypothesis": "The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
+    "id": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
+    "priority": 22450,
     "status": "pending",
-    "success_artifact": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md"
+    "success_artifact": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json"
   },
-  "updated_at_utc": "20260601T154824Z"
+  "updated_at_utc": "20260601T155640Z"
 }
