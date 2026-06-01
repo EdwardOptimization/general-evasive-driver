@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2174,
+    "completed": 2175,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+    "command_log": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+    "run_dir": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
     "status": "completed",
-    "task_id": "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit"
+    "task_id": "m2167-paper-route-current-sim-measured-runner-adapter-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2167-paper-route-current-sim-measured-runner-adapter-design.json",
-    "hypothesis": "A focused current-sim measured runner adapter can preserve M2151 metadata and provide fake-rollout-tested infrastructure before expensive checkpoint materialization.",
-    "id": "m2167-paper-route-current-sim-measured-runner-adapter-design",
-    "kind": "gate",
-    "notes": "Pending: design current-sim measured runner adapter",
-    "priority": 21620,
+    "command": "see experiments/manifests/m2168-paper-route-current-sim-measured-runner-adapter-implementation.json",
+    "hypothesis": "The current-sim measured runner adapter can be implemented and fake-rollout tested while preserving M2151 metadata and failing closed on missing checkpoints.",
+    "id": "m2168-paper-route-current-sim-measured-runner-adapter-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement current-sim measured runner adapter with focused tests",
+    "priority": 21630,
     "status": "pending",
-    "success_artifact": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md"
+    "success_artifact": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md"
   },
-  "updated_at_utc": "20260601T073308Z"
+  "updated_at_utc": "20260601T074145Z"
 }

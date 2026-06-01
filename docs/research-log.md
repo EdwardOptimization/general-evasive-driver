@@ -38475,3 +38475,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - repair order: design/implement current-sim measured runner adapter first, then checkpoint/profile materialization, then real measured command
 - follow-up manifest: `experiments/manifests/m2167-paper-route-current-sim-measured-runner-adapter-design.json`
 - next: `m2167-paper-route-current-sim-measured-runner-adapter-design`
+
+## M2167 Paper-Route Current-Sim Measured Runner Adapter Design
+
+- status: completed
+- decision: `current_sim_measured_runner_adapter_design_admit_fake_rollout_implementation`
+- manifest: `experiments/manifests/m2167-paper-route-current-sim-measured-runner-adapter-design.json`
+- design artifact: `docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: current-sim adapter must preserve M2151 spec/workload fields, aggregate by profile/history/task/source/capability/outcome, support fake-rollout focused tests, and fail closed if required checkpoints are missing in real mode
+- follow-up manifest: `experiments/manifests/m2168-paper-route-current-sim-measured-runner-adapter-implementation.json`
+- next: `m2168-paper-route-current-sim-measured-runner-adapter-implementation`

@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2166-paper-route-current-sim-measured-readiness-inventory-result-audit
+m2167-paper-route-current-sim-measured-runner-adapter-design
 ```
 
 Current next task:
 
 ```text
-m2167-paper-route-current-sim-measured-runner-adapter-design
+m2168-paper-route-current-sim-measured-runner-adapter-implementation
 ```
 
-Immediate route: M2166 audits the measured-readiness inventory and chooses a
-staged repair: build the current-sim measured runner adapter first, then repair
-checkpoint/profile materialization, then freeze a real measured-execution
-command. This avoids training checkpoints against an unstable output schema.
-Rollout, controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked until audited measured evidence supports them.
+Immediate route: M2167 freezes the current-sim measured runner adapter design.
+M2168 must implement the adapter and focused fake-rollout tests, preserving
+M2151 metadata and failing closed on missing checkpoints. Real M2151 measured
+execution, checkpoint training, controller ranking, paper claims, finite-window
+vs GRU verdicts, and self-ID claims remain blocked until later audited evidence
+supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

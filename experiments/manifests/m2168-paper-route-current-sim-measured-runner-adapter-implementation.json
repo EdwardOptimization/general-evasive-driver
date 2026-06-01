@@ -1,0 +1,168 @@
+{
+  "id": "m2168-paper-route-current-sim-measured-runner-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_measured_runner_adapter"
+    ],
+    "parent_dataset": [
+      "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2167-paper-route-current-sim-measured-runner-adapter-design.json"
+    ],
+    "parent_objective": [
+      "implement current-sim measured runner adapter with fake-rollout tests"
+    ],
+    "derived_from": [
+      "m2167-paper-route-current-sim-measured-runner-adapter-design"
+    ],
+    "blocked_by": [
+      "M2167 must freeze metadata contract and test route"
+    ],
+    "supersedes": [
+      "old measured runner direct reuse",
+      "real measured execution before checkpoints exist"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
+  "public_gates": [
+    "M2168 must implement adapter and focused fake-rollout tests",
+    "M2168 must not run real measured execution over M2151",
+    "M2168 must fail closed on missing checkpoints in real mode",
+    "M2168 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run real M2151 measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_runner_adapter_implementation",
+    "evidence_increment": "implements current-sim measured runner adapter infrastructure with fake-rollout validation",
+    "claim_scope": "runner adapter infrastructure only; no real rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if tests require real checkpoints",
+      "stop if implementation runs real M2151 measured execution",
+      "stop if adapter drops current-sim metadata fields",
+      "stop if adapter ranks controller families"
+    ],
+    "fallback_plan": [
+      "route to implementation audit if tests pass",
+      "route to schema repair if metadata is not preserved",
+      "route to checkpoint materialization only after adapter is audited"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2167 admits adapter implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "current-sim measured runner adapter implementation",
+    "admission_evidence": [
+      "M2167 freezes metadata contract",
+      "M2166 chooses runner adapter before checkpoint materialization",
+      "M2165 proves old runner schema mismatch"
+    ],
+    "blocked_shortcuts": [
+      "do not run real measured execution",
+      "do not train checkpoints",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py",
+      "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
+      "M2168 status queue scoreboard research log and review",
+      "one follow-up manifest for adapter implementation audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "adapter preserves current-sim metadata",
+      "real-mode missing-checkpoint validation fails closed",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2168 runner infrastructure does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2168."
+    ],
+    "temporal_evidence_window": "M2151 panel and M2167 design artifact.",
+    "negative_result_policy": "Adapter tests must not be interpreted as controller evidence.",
+    "allowed_claims": [
+      "current-sim measured runner adapter infrastructure",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "removes runner-schema blocker before checkpoint materialization",
+    "paper_verdict_delta": "enables later measured data generation but cannot decide controller comparison",
+    "must_synthesize_if": [
+      "M2168 cannot preserve metadata",
+      "M2168 requires another schema design milestone",
+      "M2168 routes directly to measured execution"
+    ]
+  },
+  "hypothesis": "The current-sim measured runner adapter can be implemented and fake-rollout tested while preserving M2151 metadata and failing closed on missing checkpoints.",
+  "success_criteria": [
+    "focused tests pass",
+    "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md exists",
+    "adapter module exists",
+    "test module exists",
+    "real-mode missing-checkpoint validation is covered",
+    "no real M2151 measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "adapter module is missing",
+    "metadata fields are dropped",
+    "real mode can run with missing checkpoints",
+    "real M2151 measured execution or ranking claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_measured_runner_adapter"
+  ],
+  "baseline_artifacts": [
+    "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+    "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
+  ],
+  "decision_rule": "M2168 passes if the adapter and focused tests are implemented without real measured execution or overclaiming.",
+  "next_blocker": "m2169-paper-route-current-sim-measured-runner-adapter-implementation-audit"
+}
