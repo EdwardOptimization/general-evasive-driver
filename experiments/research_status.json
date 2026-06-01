@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2131,
+    "completed": 2132,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
+    "command_log": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md",
+    "run_dir": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit"
+    "task_id": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json",
-    "hypothesis": "A comparison-support-specific measured-execution command can be frozen over the M2118 workload without changing actor inputs, profile configs, or claim boundaries.",
-    "id": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design",
+    "command": "see experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json",
+    "hypothesis": "M2114-M2123 have accumulated enough comparison-support scenario-redesign evidence that the cadence requires synthesis before measured execution; the clean materialization reset validation and bounded command design support continuing to measured-execution implementation while preserving claim boundaries.",
+    "id": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design comparison-support-specific measured-execution command over reset-valid M2118 workload",
-    "priority": 21180,
+    "notes": "Pending: synthesize M2114-M2123 before measured-execution implementation because workflow-synthesis cadence fired",
+    "priority": 21190,
     "status": "pending",
-    "success_artifact": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md"
+    "success_artifact": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T021737Z"
+  "updated_at_utc": "20260601T022301Z"
 }

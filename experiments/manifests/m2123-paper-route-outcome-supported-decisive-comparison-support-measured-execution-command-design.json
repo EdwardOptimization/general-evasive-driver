@@ -73,7 +73,8 @@
       "stop if measured execution target counts are ambiguous"
     ],
     "fallback_plan": [
-      "route to measured-runner implementation and run if command design is bounded",
+      "route to branch synthesis if command design is bounded and the workflow cadence has fired",
+      "route to measured-runner implementation and run after required synthesis",
       "route to measured-runner compatibility repair design if metadata mismatch remains",
       "route to synthesis if measured execution cannot be designed without changing panel semantics"
     ],
@@ -98,14 +99,15 @@
     "allowed_updates": [
       "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
       "M2123 status queue scoreboard research log and review",
-      "one follow-up manifest for measured-execution implementation-and-run"
+      "one follow-up manifest for branch synthesis before measured-execution implementation-and-run"
     ],
     "next_stage_criteria": [
       "frozen command is explicit",
       "target counts and seed base are explicit",
       "comparison-support metadata route is explicit",
       "output artifacts are explicit",
-      "next implementation route is explicit"
+    "next synthesis route is explicit",
+      "post-synthesis implementation route is explicit"
     ]
   },
   "self_id_evidence_discipline": {
@@ -140,7 +142,8 @@
     "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md exists",
     "frozen command names executable specs workload output dir eval seed base target episode count target spec count target profile count and device",
     "comparison-support metadata compatibility route is explicit",
-    "next implementation route is explicit",
+    "next synthesis route is explicit",
+    "post-synthesis implementation route is explicit",
     "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
   ],
   "failure_criteria": [
@@ -170,6 +173,6 @@
     "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv",
     "docs/m2122-paper-route-outcome-supported-decisive-comparison-support-reset-validation-result-audit.md"
   ],
-  "decision_rule": "M2123 passes if it freezes a bounded measured-execution command and implementation route without running rollout or ranking.",
-  "next_blocker": "m2124-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
+  "decision_rule": "M2123 passes if it freezes a bounded measured-execution command and routes to required branch synthesis before implementation without running rollout or ranking.",
+  "next_blocker": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis"
 }

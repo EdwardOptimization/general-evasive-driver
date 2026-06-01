@@ -37410,3 +37410,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: reset-validity audit only; no measured behavior, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
 - follow-up manifest: `experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json`
 - next: `m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design`
+
+## M2123 Paper-Route Outcome-Supported Decisive Comparison-Support Measured Execution Command Design
+
+- status: completed
+- decision: `comparison_support_measured_execution_command_design_admit_branch_synthesis_before_implementation`
+- manifest: `experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json`
+- design artifact: `docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md`
+- reset/rollout/measured execution in M2123: `false`
+- policy actions executed in M2123: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: freezes dedicated comparison-support measured runner command for the reset-valid M2118 workload
+- executable specs: `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json`
+- workload: `runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv`
+- output dir after required synthesis: `runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution`
+- target_episode_count: `1200`
+- target_spec_count: `240`
+- target_profile_count: `5`
+- eval_seed_base: `212300`
+- device: `cpu`
+- next expected result class: `comparison_support_measured_execution_pass`
+- conclusion boundary: command design only; no measured behavior, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- workflow note: the comparison-support scenario-redesign branch has reached the 10-milestone synthesis cadence, so measured execution must wait until branch synthesis
+- follow-up manifest: `experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json`
+- next: `m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis`

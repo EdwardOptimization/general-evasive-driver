@@ -1,0 +1,192 @@
+{
+  "id": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_scenario_redesign_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+      "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+      "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the comparison-support scenario-redesign branch before measured-execution implementation"
+    ],
+    "derived_from": [
+      "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design",
+      "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation",
+      "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation",
+      "m2121-paper-route-outcome-supported-decisive-comparison-support-reset-validation-implementation-and-run",
+      "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after 10 non-synthesis milestones in paper_route_outcome_supported_decisive_comparison_support_scenario_redesign"
+    ],
+    "supersedes": [
+      "direct measured-execution implementation before branch synthesis",
+      "controller-family ranking from reset-valid support proxy rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+  "public_gates": [
+    "M2124 must synthesize M2114-M2123 comparison-support scenario-redesign evidence",
+    "M2124 must answer synthesis questions and choose continue pivot stop or promote_to_next_branch",
+    "M2124 must not run reset rollout measured execution or policy actions",
+    "M2124 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change profile configs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxies as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_scenario_redesign_branch_synthesis_before_measured_execution",
+    "evidence_increment": "synthesizes candidate generation materialization reset validation and command design evidence before measured execution",
+    "claim_scope": "branch synthesis only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if measured execution is admitted without preserving comparison-support metadata",
+      "stop if controller profiles are ranked before measured execution and localization",
+      "stop if smoke proxy rows are treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "continue to measured-execution implementation if the branch is reset-valid and metadata-compatible",
+      "pivot to scenario redesign repair if reset validity or metadata compatibility is not enough",
+      "stop the branch as comparison evidence if support proxies remain execution-only"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "10 non-synthesis milestones elapsed in the comparison-support scenario-redesign branch",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support scenario-redesign branch synthesis before measured execution",
+    "admission_evidence": [
+      "M2115 generated 240 comparison-support candidates across four intents",
+      "M2118 materialized 240 specs and 1200 workload rows with guardrail 0",
+      "M2121 reset validation passed 240/240 specs with obs-dim failures 0",
+      "M2123 froze a comparison-support-specific measured-execution command"
+    ],
+    "blocked_shortcuts": [
+      "do not skip synthesis cadence",
+      "do not run measured execution in M2124",
+      "do not rank controller families",
+      "do not interpret reset-valid support proxies as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+      "M2124 status queue scoreboard research log and review",
+      "one follow-up manifest for measured-execution implementation-and-run"
+    ],
+    "next_stage_criteria": [
+      "M2114-M2123 evidence is synthesized",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit risk is assessed",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2124 synthesizes scenario infrastructure and reset evidence only; it does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2124."
+    ],
+    "temporal_evidence_window": "M2114-M2123 branch artifacts.",
+    "negative_result_policy": "If synthesis finds the branch is only reset-valid and not ready for measured execution, pivot or stop rather than running another local bridge.",
+    "allowed_claims": [
+      "comparison-support scenario-redesign branch synthesis",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts the reset-valid comparison-support scenario-redesign branch into a branch-level decision before measured execution",
+    "paper_verdict_delta": "can decide whether measured execution is admitted but cannot change paper verdict by itself",
+    "must_synthesize_if": [
+      "M2124 attempts to route to measured execution without answering synthesis questions",
+      "M2124 proposes another local bridge before deciding the branch",
+      "M2124 treats reset-valid support proxies as ranking evidence"
+    ]
+  },
+  "hypothesis": "M2114-M2123 have accumulated enough comparison-support scenario-redesign evidence that the cadence requires synthesis before measured execution; the clean materialization reset validation and bounded command design support continuing to measured-execution implementation while preserving claim boundaries.",
+  "success_criteria": [
+    "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md exists",
+    "M2114-M2123 branch evidence is summarized",
+    "synthesis questions are answered",
+    "synthesis decision is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "branch evidence is not summarized",
+    "synthesis questions are not answered",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_scenario_redesign_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json",
+    "runs/m2121_paper_route_outcome_supported_decisive_comparison_support_reset_validation_preflight/summary.json",
+    "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md"
+  ],
+  "decision_rule": "M2124 passes if it answers synthesis questions and selects a bounded next route without running reset rollout measured execution or ranking.",
+  "next_blocker": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run"
+}
