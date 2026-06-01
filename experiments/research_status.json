@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2326,
+    "completed": 2327,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation",
+    "task_id": "m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair",
-    "command_log": "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis",
+    "id": "m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design",
     "kind": "gate",
-    "priority": 23140,
+    "priority": 23150,
     "status": "pending",
-    "hypothesis": "Synthesizing M2312-M2318 will show that R0 metric semantics are repaired and the next non-ranking route should focus on residual R2-R5 support structure.",
-    "command": "write docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md from M2312-M2318 artifacts",
-    "success_artifact": "docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md",
-    "notes": "Pending: synthesize feasibility-calibration branch after R0 repair and choose residual-support route no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "A bounded artifact-only residual-support audit can classify remaining R2-R5 support structure before any new training or ranking.",
+    "command": "manual design of residual-support audit from M2318/M2319 artifacts",
+    "success_artifact": "docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md",
+    "notes": "Pending: freeze residual-support audit groupings route labels and implementation command no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T233601Z"
+  "updated_at_utc": "20260601T234342Z"
 }

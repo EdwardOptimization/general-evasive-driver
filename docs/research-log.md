@@ -41805,3 +41805,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.json`
 - next: `m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis`
+
+## M2319 Paper-Route Current-Sim Scenario Task-Family Feasibility Calibration Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_residual_support_structure_audit_design`
+- manifest: `experiments/manifests/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.json`
+- synthesis artifact: `docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md`
+- synthesis window: `M2312-M2318`
+- accepted claim: R0 metric semantics repaired by M2318 bounded safe-stop role-success rule
+- repaired support labels clear/mixed/blocked/metric: `24/26/21/1`
+- remaining residual structure: R2 `mixed 7 blocked 5`, R3 `mixed 8 blocked 3 metric 1`, R4 `mixed 3 blocked 9`, R5 `mixed 8 blocked 4`
+- next branch: `paper_route_current_sim_scenario_task_family_residual_support_audit`
+- reset/rollout/policy action in M2319: `false`
+- training/replay/PPO in M2319: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.json`
+- next: `m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design`
