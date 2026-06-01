@@ -117,6 +117,16 @@ Last updated: 2026-06-01
 - result: implements `obstacle.lateral_offset_range`, reset-only focused tests pass (`6 passed`), P0 observation shape remains `72`, and materializer refresh passes with unsupported execution blockers reduced from `38` to `0`.
 - decision: route to M2281 result audit before reset-validation design. No policy actions, measured rollout, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
 
+
+## 20260601T192917Z m2281-obstacle-lateral-offset-instrumentation-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md`
+- result: M2280 is accepted as complete and guardrail clean; materializer refresh reports unsupported execution blockers `0`, execution admissible `true`, actor contract violations `0`, labels entering actor input `0`, ranking rows `0`, and guardrail violations `0`.
+- remaining unsupported capability rows: `6` future nonblocking fault items, not current execution blockers.
+- decision: route to M2282 scenario task-family reset-validation design. Reset, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

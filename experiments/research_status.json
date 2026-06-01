@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2288,
+    "completed": 2289,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation",
+    "task_id": "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation",
-    "command_log": "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md"
   },
   "next_task": {
-    "id": "m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit",
+    "id": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
     "kind": "gate",
-    "priority": 22760,
+    "priority": 22770,
     "status": "pending",
-    "hypothesis": "M2280 cleared the lateral-offset execution blockers and should admit reset-validation design before rollout/training.",
-    "command": "manual artifact audit of runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json and M2280 docs",
-    "success_artifact": "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
-    "notes": "Pending: audit blocker count 0 actor contract unchanged and choose reset-validation design or repair; no rollout training ranking or paper claims"
+    "hypothesis": "A reset-only validation design can verify the refreshed scenario task-family pack before any rollout, policy action, training, or ranking.",
+    "command": "manual reset-validation design artifact",
+    "success_artifact": "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md",
+    "notes": "Pending: freeze reset-validation command artifacts acceptance criteria and implementation route; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T192406Z"
+  "updated_at_utc": "20260601T192917Z"
 }
