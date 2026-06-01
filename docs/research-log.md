@@ -38537,3 +38537,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next branch decision: continue to checkpoint/profile materialization design
 - follow-up manifest: `experiments/manifests/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.json`
 - next: `m2170-paper-route-current-sim-checkpoint-profile-materialization-design`
+
+## M2170 Paper-Route Current-Sim Checkpoint/Profile Materialization Design
+
+- status: completed
+- decision: `current_sim_checkpoint_profile_materialization_design_admit_implementation`
+- manifest: `experiments/manifests/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.json`
+- design artifact: `docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md`
+- real M2151 measured execution: `false`
+- policy actions executed: `false`
+- checkpoint training: `false`
+- replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: M2171 may train exactly 7 frozen profile checkpoints and must alias `L3_reset_control` to the `L3_online_gru` checkpoint to isolate hidden reset behavior
+- target output: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization`
+- target workload fill: 320 checkpoint paths present and existing
+- follow-up manifest: `experiments/manifests/m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run.json`
+- next: `m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run`

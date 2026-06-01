@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis
+m2170-paper-route-current-sim-checkpoint-profile-materialization-design
 ```
 
 Current next task:
 
 ```text
-m2170-paper-route-current-sim-checkpoint-profile-materialization-design
+m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run
 ```
 
-Immediate route: M2169 synthesizes the measured-readiness repair branch and
-chooses `continue` to checkpoint/profile materialization design. The
-runner-schema blocker is repaired by the current-sim adapter and focused tests;
-the active blocker is now checkpoint/profile materialization for the 8
-current-sim profiles. Real M2151 measured execution, checkpoint training,
-controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
-claims remain blocked until later audited evidence supports them.
+Immediate route: M2170 freezes the checkpoint/profile materialization plan for
+the 8 current-sim profiles. M2171 may train exactly 7 frozen profile
+checkpoints and must alias `L3_reset_control` to the `L3_online_gru`
+checkpoint, then fill all 320 M2151 workload checkpoint paths. Real M2151
+measured execution, controller ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked until later audited evidence
+supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
