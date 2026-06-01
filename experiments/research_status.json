@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2109,
+    "completed": 2110,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+    "command_log": "docs/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+    "run_dir": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
     "status": "completed",
-    "task_id": "m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design"
+    "task_id": "m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.json",
-    "hypothesis": "The frozen M2100 command can run the 480-cell public-gate core measured execution workload and produce complete artifacts without guardrail violations.",
-    "id": "m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen 480-cell public-gate core measured execution command",
-    "priority": 20960,
+    "command": "see experiments/manifests/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.json",
+    "hypothesis": "M2101's incomplete measured execution can be classified into actionable metadata and scenario-sampling blockers without overclaiming.",
+    "id": "m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit incomplete M2101 measured execution before rerun repair or ranking",
+    "priority": 20970,
     "status": "pending",
-    "success_artifact": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json"
+    "success_artifact": "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T000447Z"
+  "updated_at_utc": "20260601T001057Z"
 }

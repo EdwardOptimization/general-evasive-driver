@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
+m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run
+m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit
 ```
 
-Immediate route: M2100 freezes the exact measured-execution command over the
-M2098 repaired public-gate core artifacts: `480` episodes, `96` specs, `5`
-profiles, eval seed base `210100`, CPU device, and output
-`runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution`.
-M2101 may run only that frozen command. Ranking, paper claims, finite-window vs
-GRU claims, and self-ID claims remain blocked until measured execution is run
-and separately audited.
+Immediate route: M2101 ran the frozen public-gate core measured execution and
+failed the pass gate: `478/480` episodes completed, `failure_count=2` from
+obstacle scenario sampling failures, `metadata_missing_count=480`,
+metric-completeness failures `0`, and guardrail `0`. Rollout/policy actions did
+run, but ranking and interpretation remain blocked. M2102 must audit the
+failure rows and metadata-missing rows before any rerun, repair, ranking, or
+paper claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,149 @@
+{
+  "actor_input_contract_changed": false,
+  "all_selected_metrics_finite": true,
+  "artifacts": {
+    "claim_boundary": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/claim_boundary.csv",
+    "episode_rows": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/episode_rows.csv",
+    "failure_rows": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv",
+    "family_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/family_aggregate.csv",
+    "generated_proxy_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/generated_proxy_aggregate.csv",
+    "metadata_missing_rows": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/metadata_missing_rows.csv",
+    "metric_completeness_failures": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/metric_completeness_failures.csv",
+    "outcome_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/outcome_aggregate.csv",
+    "profile_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/profile_aggregate.csv",
+    "proxy_template_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/proxy_template_aggregate.csv",
+    "run_state": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/run_state.json",
+    "sampled_label_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/sampled_label_aggregate.csv",
+    "source_kind_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/source_kind_aggregate.csv",
+    "summary": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+    "termination_reason_aggregate": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/termination_reason_aggregate.csv",
+    "validation_failure_rows": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/validation_failure_rows.csv"
+  },
+  "controller_family_ranking_claim_made": false,
+  "environment_rollout_started": true,
+  "episode_count": 478,
+  "expected_family_counts": {
+    "T3_active_diagnostic_warmup": 120,
+    "T4_variable_diagnostic_delay": 180,
+    "T5_terminal_boundary_near_constraint": 180
+  },
+  "expected_generated_proxy_counts": {
+    "generated=true|semantics=smoke_proxy|paper_claim=false": 480
+  },
+  "expected_proxy_template_counts": {
+    "t4_actuator_delay_response": 180,
+    "t4_staged_warmup_capability": 120,
+    "t5_boundary_axis_retarget": 180
+  },
+  "expected_source_kind_counts": {
+    "actuator_delay_terminal_boundary": 30,
+    "delayed_obstacle_reveal_response": 30,
+    "late_terminal_boundary_margin": 30,
+    "long_delay_steer_lag_evidence": 30,
+    "low_grip_terminal_boundary": 30,
+    "medium_delay_yaw_evidence": 30,
+    "mixed_dynamics_terminal_boundary": 30,
+    "near_zero_clearance_margin": 30,
+    "short_delay_brake_evidence": 30,
+    "stale_evidence_boundary_check": 30,
+    "tight_road_terminal_boundary": 30,
+    "variable_delay_mixed_authority": 30,
+    "warmup_brake_authority_probe": 20,
+    "warmup_combined_brake_steer_probe": 20,
+    "warmup_steering_lag_probe": 20,
+    "warmup_terminal_recovery_probe": 20,
+    "warmup_throttle_release_response": 20,
+    "warmup_yaw_authority_probe": 20
+  },
+  "failure_count": 2,
+  "family_counts": {
+    "T3_active_diagnostic_warmup": 119,
+    "T4_variable_diagnostic_delay": 180,
+    "T5_terminal_boundary_near_constraint": 179
+  },
+  "family_quota_pass": false,
+  "finite_window_vs_gru_conclusion_made": false,
+  "generated_at_utc": "20260601T000856Z",
+  "generated_proxy_counts": {
+    "generated=true|semantics=smoke_proxy|paper_claim=false": 478
+  },
+  "generated_proxy_quota_pass": false,
+  "guardrail_flags": {
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "finite_window_vs_gru_conclusion_made": false,
+    "level3_self_id_claim_made": false,
+    "paper_level_claim_made": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "guardrail_violation_count": 0,
+  "level3_self_id_claim_made": false,
+  "measured_rollout_started": true,
+  "metadata_missing_count": 480,
+  "metric_completeness_failure_count": 0,
+  "next_blocker": "m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit",
+  "outcome_counts": {
+    "collision_failure": 413,
+    "off_track_noncollision_noncompletion": 24,
+    "success_obstacle_pass": 41
+  },
+  "output_dir": "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+  "paper_level_claim_made": false,
+  "policy_action_executed": true,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "profile_count": 5,
+  "profile_counts": {
+    "L0_current_masked": 96,
+    "L1_one_step": 96,
+    "L2_window_50": 95,
+    "L3_online_gru": 95,
+    "L3_reset_control_corrected": 96
+  },
+  "profile_specific_tuning": false,
+  "promoted": false,
+  "proxy_template_counts": {
+    "t4_actuator_delay_response": 180,
+    "t4_staged_warmup_capability": 119,
+    "t5_boundary_axis_retarget": 179
+  },
+  "proxy_template_quota_pass": false,
+  "replay_started": false,
+  "result_class": "controlled_routing_smoke_measured_execution_incomplete_or_fail",
+  "source_kind_counts": {
+    "actuator_delay_terminal_boundary": 30,
+    "delayed_obstacle_reveal_response": 30,
+    "late_terminal_boundary_margin": 29,
+    "long_delay_steer_lag_evidence": 30,
+    "low_grip_terminal_boundary": 30,
+    "medium_delay_yaw_evidence": 30,
+    "mixed_dynamics_terminal_boundary": 30,
+    "near_zero_clearance_margin": 30,
+    "short_delay_brake_evidence": 30,
+    "stale_evidence_boundary_check": 30,
+    "tight_road_terminal_boundary": 30,
+    "variable_delay_mixed_authority": 30,
+    "warmup_brake_authority_probe": 19,
+    "warmup_combined_brake_steer_probe": 20,
+    "warmup_steering_lag_probe": 20,
+    "warmup_terminal_recovery_probe": 20,
+    "warmup_throttle_release_response": 20,
+    "warmup_yaw_authority_probe": 20
+  },
+  "source_kind_quota_pass": false,
+  "spec_count": 96,
+  "target_episode_count": 480,
+  "target_profile_count": 5,
+  "target_spec_count": 96,
+  "termination_reason_counts": {
+    "": 41,
+    "obstacle_collision": 412,
+    "off_track": 25
+  },
+  "training_started": false
+}

@@ -1,0 +1,175 @@
+{
+  "id": "m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/metadata_missing_rows.csv",
+      "docs/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit incomplete public-gate core measured execution before any rerun, repair, ranking, or synthesis"
+    ],
+    "derived_from": [
+      "m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2101 measured execution is incomplete and reports metadata_missing_count 480"
+    ],
+    "supersedes": [
+      "direct ranking from incomplete measured execution",
+      "ad hoc rerun without failure audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2102 must audit M2101 failure rows and metadata missing rows",
+    "M2102 must decide whether to route to metadata repair, scenario-sampling repair, rerun design, or synthesis",
+    "M2102 must not rerun measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change env configs",
+    "do not change obstacle filters",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_result_audit",
+    "evidence_increment": "classifies the incomplete measured execution result before any rerun or repair",
+    "claim_scope": "result audit only; no ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if M2101 failure cause is not classified",
+      "stop if audit proposes direct ranking",
+      "stop if audit proposes rerun before metadata/failure classification",
+      "stop if audit weakens measured-runner validation"
+    ],
+    "fallback_plan": [
+      "route to metadata completeness repair if metadata_missing_count blocks pass gate",
+      "route to scenario sampling repair if obstacle sampling failures are primary",
+      "route to synthesis if both blockers imply the public-gate measured branch needs redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2101 produces incomplete measured execution artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured execution result audit",
+    "admission_evidence": [
+      "M2101 episode_count 478 target 480",
+      "M2101 failure_count 2",
+      "M2101 metadata_missing_count 480",
+      "M2101 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank from incomplete measured execution",
+      "do not rerun before audit",
+      "do not interpret raw outcomes before failure classification"
+    ],
+    "allowed_updates": [
+      "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+      "M2102 status queue scoreboard research log and review",
+      "one follow-up manifest for repair, rerun design, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2101 result is classified",
+      "next route is explicit",
+      "unsupported claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2102 audits measured execution completeness and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2102."
+    ],
+    "temporal_evidence_window": "M2101 measured execution artifact.",
+    "negative_result_policy": "If M2101 is incomplete, classify and repair the blocker before any ranking or paper claim.",
+    "allowed_claims": [
+      "measured execution result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies the first measured execution attempt on the public-gate core panel",
+    "paper_verdict_delta": "can decide whether the measured branch needs repair or redesign; cannot support ranking before complete execution",
+    "must_synthesize_if": [
+      "M2102 routes to another metadata bridge after M2098",
+      "M2102 cannot distinguish metadata completeness from scenario sampling blockers",
+      "M2102 proposes ranking from incomplete data"
+    ]
+  },
+  "hypothesis": "M2101's incomplete measured execution can be classified into actionable metadata and scenario-sampling blockers without overclaiming.",
+  "success_criteria": [
+    "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md exists",
+    "M2101 failure rows are audited",
+    "M2101 metadata missing rows are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2101 result is not classified",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "audit runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution artifacts and write M2102 result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+    "docs/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.md"
+  ],
+  "decision_rule": "M2102 passes if it classifies the incomplete measured execution and selects a bounded next route without rerunning or ranking.",
+  "next_blocker": "m2103-selected-by-m2102-audit"
+}

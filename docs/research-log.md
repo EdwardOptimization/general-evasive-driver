@@ -36862,3 +36862,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - M2101 must run only the frozen measured-runner command and defer interpretation to M2102
 - follow-up manifest: `experiments/manifests/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.json`
 - next: `m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run`
+
+## M2101 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Implementation And Run
+
+- status: completed
+- decision: `public_gate_core_measured_execution_incomplete_route_to_result_audit`
+- run artifact: `runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json`
+- focused tests: `3 passed`
+- measured execution in M2101: `true`
+- rollout/policy actions in M2101: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: `controlled_routing_smoke_measured_execution_incomplete_or_fail`, episodes `478/480`, failure_count `2`, spec_count `96`, profile_count `5`
+- blocker 1: two obstacle scenario sampling failures at `m2063-osd-osd_v0_0162_t3::L2_window_50` and `m2063-osd-osd_v0_0235_t5::L3_online_gru`
+- blocker 2: metadata_missing_count `480` for `source_role_semantics`, `parent_feasibility_tier_id`, `normalized_surface_variant`, `sampled_obstacle_label`
+- clean fields: validation failure rows header-only, metric completeness failures `0`, guardrail `0`
+- follow-up manifest: `experiments/manifests/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.json`
+- next: `m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit`
