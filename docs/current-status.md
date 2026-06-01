@@ -16,27 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2272-paper-route-current-sim-task-quality-branch-synthesis
+m2273-paper-route-current-sim-scenario-task-quality-redesign-design
 ```
 
 Current next task:
 
 ```text
-m2273-paper-route-current-sim-scenario-task-quality-redesign-design
+m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation
 ```
 
-Immediate route: M2272 synthesizes M2236-M2271 and decides `pivot`. The
-current-sim infrastructure is clean, checkpoint selection is useful, and
-targeted containment recovers the diagnosed midcourse/mild slices, but the
-profile panel remains below comparison readiness and global offtrack is not
-strictly better than M2244. Continuing scalar reward repair would be local
-search.
+Immediate route: M2273 defines role-specific current-sim task families, metrics,
+readiness floors, and an artifact-only support-audit route before any new
+rollout or training. The task families are stable avoidable AES, AEB-infeasible
+stable AES, handling-limit/drift-capable avoidance, recovery-after-limit,
+unavoidable mitigation, and hidden-dynamics robustness.
 
-Active interpretation: the next evidence axis is role-specific scenario/task
-quality. M2273 must define task families, metrics, readiness floors, and an
-artifact-only support audit before any new rollout, training, measured
-execution, ranking, finite-window vs GRU verdict, paper-level claim, or level3
-self-ID claim.
+Active interpretation: current-sim task quality is now a role-support and metric
+coverage problem. M2274 must audit existing M2244/M2253/M2265 episode rows and
+M2227/M2233/M2248/M2259 training matrices without running environments,
+training, measured execution, replay, PPO, ranking, finite-window vs GRU
+verdicts, paper-level claims, or level3 self-ID claims.
 
 ## Actor Contract
 

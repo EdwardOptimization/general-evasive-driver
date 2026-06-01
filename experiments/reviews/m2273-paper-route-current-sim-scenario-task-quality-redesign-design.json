@@ -1,0 +1,97 @@
+{
+  "decision_reason": "M2273 defines role-specific task families metrics readiness floors and M2274 artifact-only support audit route no training/ranking claims",
+  "failure_criteria": [
+    "M2273 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2273 proposes reward scalar tuning as the next step before task-quality audit",
+    "M2273 omits role-specific metrics",
+    "M2273 ranks profiles or selects a winner",
+    "M2273 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "seed_fragility",
+    "training_instability"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T184235Z",
+  "hypothesis": "A role-specific scenario/task-quality redesign can make the next current-sim evidence more paper-relevant than continuing reward-scalar local search.",
+  "lineage": {
+    "blocked_by": [
+      "M2272 pivots away from local reward repair into scenario/task-quality redesign"
+    ],
+    "derived_from": [
+      "m2272-paper-route-current-sim-task-quality-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2272-paper-route-current-sim-task-quality-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2272-paper-route-current-sim-task-quality-branch-synthesis.md",
+      "docs/m2271-paper-route-current-sim-task-quality-branch-synthesis-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design scenario/task-quality redesign branch after M2272 pivot"
+    ],
+    "supersedes": [
+      "another scalar reward tweak",
+      "controller-family ranking before role-specific task quality",
+      "training before task-family and metric acceptance are frozen"
+    ]
+  },
+  "milestone": "m2273-paper-route-current-sim-scenario-task-quality-redesign-design",
+  "next_blocker": "m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_quality_redesign_design_admit_support_audit",
+  "public_gates": [
+    "M2273 must design role-specific scenario/task families before any rollout or training",
+    "M2273 must freeze metrics and readiness floors for stable AES, drift-capable avoidance, recovery, and mitigation roles",
+    "M2273 must include artifact-only support audit criteria before generating new scenarios",
+    "M2273 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_quality_redesign_design_admit_support_audit",
+    "milestone": "m2273-paper-route-current-sim-scenario-task-quality-redesign-design",
+    "reason": "M2273 defines role-specific task families metrics readiness floors and M2274 artifact-only support audit route no training/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md exists",
+    "role-specific scenario families are defined",
+    "role-specific metrics and readiness floors are defined",
+    "artifact-only support audit route is selected before any new rollout/training",
+    "guardrails remain false for ranking paper-level finite-window-vs-GRU and level3 self-ID claims"
+  ],
+  "type": "gate"
+}

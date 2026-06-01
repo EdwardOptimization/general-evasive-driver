@@ -41,6 +41,15 @@ Last updated: 2026-06-01
 - result: M2236-M2271 evidence shows clean infrastructure and useful targeted slice recovery, but the current-sim panel remains below comparison readiness and scalar reward repair is not the right next evidence axis.
 - decision: pivot to `paper_route_current_sim_scenario_task_quality_redesign`; M2273 must define role-specific task families, metrics, readiness floors, and an artifact-only support audit before rollout/training.
 
+
+## 20260601T185200Z m2273-scenario-task-quality-redesign-design
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md`
+- result: defines six role-specific task families, scenario axes, primary/diagnostic metrics, readiness floors, and the M2274 artifact-only support audit route.
+- decision: next is M2274 no-rerun support audit over existing episode rows and training matrices; reward tuning, rollout, training, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:

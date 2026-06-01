@@ -1,0 +1,194 @@
+{
+  "id": "m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "seed_fragility",
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun"
+    ],
+    "parent_dataset": [
+      "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+      "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only support audit for role-specific scenario/task quality"
+    ],
+    "derived_from": [
+      "m2273-paper-route-current-sim-scenario-task-quality-redesign-design"
+    ],
+    "blocked_by": [
+      "M2273 requires support audit before new rollout or training"
+    ],
+    "supersedes": [
+      "new rollout before role-support audit",
+      "reward tuning before task-family support is known",
+      "controller ranking from aggregate public rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation.md",
+  "public_gates": [
+    "M2274 must read existing episode rows and training matrices only",
+    "M2274 must emit role support axis support metric coverage readiness gaps and redesign routes",
+    "M2274 must not infer unsafe role labels without marking them inferred_or_missing",
+    "M2274 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_quality_support_audit",
+    "evidence_increment": "implements no-rerun support audit for role-specific task families and metrics",
+    "claim_scope": "artifact-only support audit; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if required input artifacts are missing",
+      "stop if role labels are guessed without support classification",
+      "stop if audit routes directly to training without a design/audit step"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if inputs are missing",
+      "route to scenario generation design if support is insufficient",
+      "route to metric implementation if support is present but metrics are missing"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2273 admits artifact-only support audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and run artifact-only scenario/task-quality support audit",
+    "admission_evidence": [
+      "M2273 defines role-specific task families and metrics",
+      "existing M2244 M2253 M2265 episode rows exist",
+      "existing config materialization matrices exist",
+      "no new rollout/training is allowed before support audit"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_quality_support_audit.py",
+      "tests/test_paper_route_current_sim_scenario_task_quality_support_audit.py",
+      "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/*",
+      "docs/m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation.md",
+      "M2274 status queue scoreboard research log and review",
+      "one follow-up manifest selected by support audit"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "role_support scenario_axis_support metric_coverage readiness_floor_gap support_gap_report and redesign_routes exist",
+      "route is selected without ranking or training"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2274 audits support artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2274; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2244/M2253/M2265 public episode rows and M2227/M2233/M2248/M2259 config matrices.",
+    "negative_result_policy": "If task support is insufficient, route to scenario generation design before any self-ID claim.",
+    "allowed_claims": [
+      "artifact-only support audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits task-family and metric support rather than repairing public rows",
+    "paper_verdict_delta": "can determine whether new scenario generation or metric implementation is needed",
+    "must_synthesize_if": [
+      "M2274 cannot classify support",
+      "M2274 would route directly to training",
+      "M2274 finds broad support gaps across all role families"
+    ]
+  },
+  "hypothesis": "Existing current-sim artifacts can reveal which role-specific task-quality support is present or missing before new scenario generation.",
+  "success_criteria": [
+    "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json exists",
+    "role_support.csv exists",
+    "scenario_axis_support.csv exists",
+    "metric_coverage.csv exists",
+    "readiness_floor_gap.csv exists",
+    "support_gap_report.csv exists",
+    "redesign_routes.csv exists",
+    "guardrail_violation_count is 0",
+    "ranking_admissible_count is 0",
+    "winner_selected is false"
+  ],
+  "failure_criteria": [
+    "input artifacts are missing",
+    "role labels are inferred without support-status disclosure",
+    "M2274 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2274 ranks profiles or selects a winner",
+    "M2274 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_quality_support_audit --episode-rows runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv --episode-rows runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv --episode-rows runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv --training-matrix runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --training-matrix runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv --training-matrix runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv --output-dir runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit --next-blocker m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun"
+  ],
+  "baseline_artifacts": [
+    "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+    "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv"
+  ],
+  "decision_rule": "M2274 passes if it emits complete no-rerun support audit artifacts and a non-ranking redesign route.",
+  "next_blocker": "m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit"
+}
