@@ -1,0 +1,214 @@
+{
+  "id": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_measured_execution"
+    ],
+    "parent_dataset": [
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+      "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv",
+      "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+      "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement and run comparison-support-specific measured execution over the reset-valid M2118 workload after branch synthesis"
+    ],
+    "derived_from": [
+      "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design",
+      "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2124 synthesis must continue the branch before measured execution"
+    ],
+    "supersedes": [
+      "running the old routing-smoke measured runner directly on comparison-support metadata",
+      "direct controller ranking from reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md",
+  "public_gates": [
+    "M2125 must implement a comparison-support-specific measured runner",
+    "M2125 must run exactly 1200 workload rows across 240 specs and 5 profiles",
+    "M2125 must preserve comparison-support metadata and claim boundaries",
+    "M2125 must not rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change profile configs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_measured_execution",
+    "evidence_increment": "runs measured rollout for the reset-valid support-targeted panel while preserving no-ranking boundaries",
+    "claim_scope": "measured execution artifact only; no driver ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if measured execution fails to complete 1200 rows",
+      "stop if metadata or metric completeness fails",
+      "stop if guardrail violations appear",
+      "stop if implementation makes comparison or paper claims"
+    ],
+    "fallback_plan": [
+      "route to result audit if measured execution passes or fails closed",
+      "route to measured-runner repair if metadata or validation failures occur",
+      "route to scenario repair or synthesis if rollout failures dominate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2124 synthesis continues the branch to measured-execution implementation-and-run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "comparison-support measured-execution implementation and run",
+    "admission_evidence": [
+      "M2123 freezes executable specs path",
+      "M2123 freezes workload path",
+      "M2123 freezes target_episode_count 1200 target_spec_count 240 target_profile_count 5",
+      "M2123 freezes eval_seed_base 212300 device cpu",
+      "M2124 synthesis continues branch to measured execution"
+    ],
+    "blocked_shortcuts": [
+      "do not rank",
+      "do not claim paper-level evidence",
+      "do not treat measured execution as finite-window-vs-GRU conclusion before localization and support audit"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_comparison_support_measured_runner.py",
+      "tests/test_paper_route_outcome_supported_decisive_comparison_support_measured_runner.py",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/episode_rows.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/failure_rows.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/validation_failure_rows.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/metadata_missing_rows.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/metric_completeness_failures.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/profile_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/intent_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/target_support_tier_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/source_kind_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/proxy_template_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/outcome_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/termination_reason_aggregate.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/claim_boundary.csv",
+      "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/run_state.json",
+      "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md",
+      "M2125 status queue scoreboard research log and review",
+      "one follow-up manifest for measured-execution result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "1200 measured episode rows are recorded",
+      "result is classified",
+      "claim boundary is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2125 measured execution does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2125."
+    ],
+    "temporal_evidence_window": "M2118 workload M2121 reset-validation artifact and M2124 synthesis.",
+    "negative_result_policy": "If measured execution fails, preserve failure artifacts and audit before repair.",
+    "allowed_claims": [
+      "comparison-support measured execution result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "runs measured rollout on the new support-targeted panel after branch synthesis",
+    "paper_verdict_delta": "can produce measured support evidence but cannot make a paper verdict before audit and localization",
+    "must_synthesize_if": [
+      "M2125 measured failures dominate",
+      "M2125 needs repeated local scenario repair",
+      "M2125 routes directly to profile comparison without localization"
+    ]
+  },
+  "hypothesis": "A comparison-support measured runner can execute all 1200 M2118 workload rows with complete metadata metrics and zero guardrail violations.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json exists",
+    "result_class is comparison_support_measured_execution_pass",
+    "episode_count is 1200",
+    "failure_count is 0",
+    "spec_count is 240",
+    "profile_count is 5",
+    "metadata_missing_count is 0",
+    "validation_failure_count is 0",
+    "metric_completeness_failure_count is 0",
+    "intent_quota_pass is true",
+    "target_support_tier_quota_pass is true",
+    "source_kind_quota_pass is true",
+    "proxy_template_quota_pass is true",
+    "generated_proxy_quota_pass is true",
+    "guardrail_violation_count is 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "episode count misses target",
+    "failure rows appear",
+    "metadata or metric completeness fails",
+    "guardrail violations appear",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_comparison_support_measured_runner.py"
+    },
+    {
+      "name": "measured_execution",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_comparison_support_measured_runner --executable-task-specs runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json --workload runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv --output-dir runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution --eval-seed-base 212300 --device cpu --target-episode-count 1200 --target-spec-count 240 --target-profile-count 5 --next-blocker m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_measured_execution"
+  ],
+  "baseline_artifacts": [
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/executable_task_specs.json",
+    "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/planned_workload.csv",
+    "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+    "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md"
+  ],
+  "decision_rule": "M2125 passes if it executes the frozen measured runner with exact counts and zero metadata metric or guardrail failures.",
+  "next_blocker": "m2126-paper-route-outcome-supported-decisive-comparison-support-measured-execution-result-audit"
+}

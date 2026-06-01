@@ -37438,3 +37438,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - workflow note: the comparison-support scenario-redesign branch has reached the 10-milestone synthesis cadence, so measured execution must wait until branch synthesis
 - follow-up manifest: `experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json`
 - next: `m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis`
+
+## M2124 Paper-Route Outcome-Supported Decisive Comparison-Support Scenario Redesign Branch Synthesis
+
+- status: completed
+- decision: `comparison_support_scenario_redesign_synthesis_continue_to_measured_execution`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json`
+- synthesis artifact: `docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md`
+- reset/rollout/measured execution in M2124: `false`
+- policy actions executed in M2124: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- synthesis window: `M2114-M2123`
+- supported evidence: candidate generation `240` rows, materialization `240` specs / `1200` workload rows, reset validation `240/240`, metadata missing `0`, guardrail `0`, bounded measured command frozen
+- unsupported claims remain: measured behavior, comparison-ready support, profile ranking, finite-window-vs-GRU conclusion, paper-level benchmark evidence, and level3 self-identification
+- public-gate overfit risk: medium/high because all rows are generated support proxies with `paper_validity_claim=false` and no measured outcomes yet
+- decision: continue to measured-execution implementation, not ranking
+- follow-up manifest: `experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json`
+- next: `m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run`

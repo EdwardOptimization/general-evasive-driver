@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2132,
+    "completed": 2133,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+    "command_log": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design.md",
+    "run_dir": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design"
+    "task_id": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.json",
-    "hypothesis": "M2114-M2123 have accumulated enough comparison-support scenario-redesign evidence that the cadence requires synthesis before measured execution; the clean materialization reset validation and bounded command design support continuing to measured-execution implementation while preserving claim boundaries.",
-    "id": "m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2114-M2123 before measured-execution implementation because workflow-synthesis cadence fired",
-    "priority": 21190,
+    "command": "see experiments/manifests/m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run.json",
+    "hypothesis": "A comparison-support measured runner can execute all 1200 M2118 workload rows with complete metadata metrics and zero guardrail violations.",
+    "id": "m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run the comparison-support-specific measured runner admitted by M2124 synthesis",
+    "priority": 21200,
     "status": "pending",
-    "success_artifact": "docs/m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis.md"
+    "success_artifact": "runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260601T022301Z"
+  "updated_at_utc": "20260601T023707Z"
 }

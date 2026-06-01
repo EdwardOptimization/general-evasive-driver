@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2123-paper-route-outcome-supported-decisive-comparison-support-measured-execution-command-design
+m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2124-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-branch-synthesis
+m2125-paper-route-outcome-supported-decisive-comparison-support-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2123 freezes a comparison-support-specific measured-execution
-command over the reset-valid M2118 workload. The frozen command targets `1200`
-episodes, `240` specs, `5` profiles, eval seed base `212300`, and device
-`cpu`. The comparison-support scenario-redesign branch has reached its
-workflow-synthesis cadence, so M2124 must synthesize M2114-M2123 before any
-measured-execution implementation. Ranking, comparison, paper claims,
-finite-window vs GRU conclusions, and self-ID claims remain blocked until
-measured execution and later localization are audited.
+Immediate route: M2124 synthesized the M2114-M2123 comparison-support
+scenario-redesign branch and chose `continue`. The branch has a clean
+reset-valid, metadata-preserving `240`-spec / `1200`-workload panel and a
+bounded measured-execution command. M2125 may now implement and run the
+comparison-support-specific measured runner with output
+`runs/m2125_paper_route_outcome_supported_decisive_comparison_support_measured_execution`.
+Ranking, comparison, paper claims, finite-window vs GRU conclusions, and
+self-ID claims remain blocked until measured execution and later localization
+are audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
