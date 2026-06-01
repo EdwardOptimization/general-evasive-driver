@@ -38272,3 +38272,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - contract_violation_count / metadata_missing_count / forbidden_key_violation_count / guardrail_violation_count: `0` / `0` / `0` / `0`
 - follow-up manifest: `experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json`
 - next: `m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit`
+
+## M2159 Paper-Route Current-Sim Terminal-Boundary Reset-Sampling Diagnostic Result Audit
+
+- status: completed
+- decision: `terminal_boundary_diagnostic_audit_route_to_reset_validator_seed_source_repair_design`
+- manifest: `experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json`
+- audit artifact: `docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md`
+- audited summary: `runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json`
+- reset rerun in M2159: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- failure taxonomy: `scenario_sampling_failure`, `metric_artifact`
+- audit result: the M2154 blocker is a seed-source protocol artifact; sequential `eval_seed_base+index` seed `215335` fails, but materialized `eval_seed_override=219103` passes at the original 200-attempt budget
+- next route: design reset-validator repair to use per-spec `eval_seed_override` when present and log `seed_source` / `actual_eval_seed`
+- follow-up manifest: `experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json`
+- next: `m2160-paper-route-current-sim-reset-validator-seed-source-repair-design`

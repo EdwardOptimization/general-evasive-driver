@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2166,
+    "completed": 2167,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.md",
+    "command_log": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic",
+    "run_dir": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
     "status": "completed",
-    "task_id": "m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run"
+    "task_id": "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json",
-    "hypothesis": "M2158 shows the M2154 blocker is a reset-validation seed-source artifact: sequential eval_seed_base+index fails, while the materialized spec's eval_seed_override succeeds at the original attempt budget.",
-    "id": "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit",
+    "command": "see experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json",
+    "hypothesis": "A reset-validator seed-source repair can preserve M2151 materialization semantics by using per-spec eval_seed_override when present and falling back to eval_seed_base+index only when missing.",
+    "id": "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit seed-local reset diagnostic before repair or full reset rerun",
-    "priority": 21540,
+    "notes": "Pending: design reset-validator seed-source repair before full reset rerun",
+    "priority": 21550,
     "status": "pending",
-    "success_artifact": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md"
+    "success_artifact": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md"
   },
-  "updated_at_utc": "20260601T061702Z"
+  "updated_at_utc": "20260601T062104Z"
 }

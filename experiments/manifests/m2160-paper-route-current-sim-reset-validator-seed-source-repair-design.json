@@ -1,0 +1,172 @@
+{
+  "id": "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_reset_validator_seed_source_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/diagnostic_rows.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset-validation seed-source repair using per-spec eval_seed_override"
+    ],
+    "derived_from": [
+      "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit"
+    ],
+    "blocked_by": [
+      "M2159 audits M2154 failure as seed-source mismatch"
+    ],
+    "supersedes": [
+      "raising terminal-boundary max_sample_attempts as the primary repair",
+      "rerunning full reset validation with eval_seed_base_plus_index seeds"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+  "public_gates": [
+    "M2160 must freeze the reset-validator seed-source repair rule",
+    "M2160 must not edit implementation code or rerun reset",
+    "M2160 must preserve current-sim metadata and actor-input claim boundaries",
+    "M2160 must define the exact full-panel rerun command for the implementation milestone"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_reset_validator_seed_source_repair_design",
+    "evidence_increment": "freezes the seed-source repair needed before rerunning current-sim reset validation",
+    "claim_scope": "repair command design only; no reset rerun rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design reruns reset in M2160",
+      "stop if design omits seed_source logging",
+      "stop if design changes actor inputs or controller profiles",
+      "stop if design routes directly to measured execution"
+    ],
+    "fallback_plan": [
+      "route to seed-source repair implementation if design is exact",
+      "route to branch synthesis if seed-source policy remains ambiguous",
+      "route to terminal-boundary spec repair only if seed override cannot be used"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2159 routes to seed-source repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim reset-validator seed-source repair design",
+    "admission_evidence": [
+      "M2158 diagnostic shows eval_seed_override 219103 passes at budget 200",
+      "M2159 routes to seed-source repair design"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2160",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+      "M2160 status queue scoreboard research log and review",
+      "one follow-up manifest for seed-source repair implementation and run"
+    ],
+    "next_stage_criteria": [
+      "exact seed-source repair rule is frozen",
+      "planned artifacts and pass gates are explicit",
+      "full-panel rerun command is explicit",
+      "next implementation/run route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2160 designs reset-validation protocol repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2160."
+    ],
+    "temporal_evidence_window": "M2158-M2159 diagnostic artifacts.",
+    "negative_result_policy": "Repair seed-source protocol before any driver comparison; do not weaken self-ID standards.",
+    "allowed_claims": [
+      "reset-validator seed-source repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "prepares a protocol repair that can turn diagnostic evidence into a valid full-panel reset rerun",
+    "paper_verdict_delta": "can enable reset-valid current-sim panel evidence but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2160 cannot freeze an exact seed-source repair rule",
+      "M2160 would require another design-only milestone",
+      "the same seed-source issue repeats after repair"
+    ]
+  },
+  "hypothesis": "A reset-validator seed-source repair can preserve M2151 materialization semantics by using per-spec eval_seed_override when present and falling back to eval_seed_base+index only when missing.",
+  "success_criteria": [
+    "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md exists",
+    "seed-source repair rule is explicit",
+    "planned artifacts include seed_source and actual_eval_seed fields",
+    "full-panel rerun command is explicit",
+    "next implementation/run route is explicit",
+    "no reset rerun rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "seed-source rule is ambiguous",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_reset_validator_seed_source_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
+    "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json"
+  ],
+  "decision_rule": "M2160 passes if it freezes a seed-source repair design without rerun or overclaiming.",
+  "next_blocker": "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run"
+}
