@@ -1,0 +1,185 @@
+{
+  "id": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_diagnosis"
+    ],
+    "parent_dataset": [
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv",
+      "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize no-rerun metric semantics conflict diagnosis from M2313 support-policy artifacts"
+    ],
+    "derived_from": [
+      "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit"
+    ],
+    "blocked_by": [
+      "R0 AEB-feasible rows are metric_conflict 12/12",
+      "AEB support rows terminate speed_too_low with positive clearance and must be distinguished from infeasible rows"
+    ],
+    "supersedes": [
+      "direct training from M2313 support labels",
+      "treating R0 metric_conflict as support_blocked",
+      "controller ranking before role-specific success semantics are audited"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.md",
+  "public_gates": [
+    "M2315 must implement artifact-only metric semantics conflict diagnosis",
+    "M2315 must consume M2313 episode rows and support label artifacts",
+    "M2315 must quantify R0 safe-stop metric conflicts and role-level metric conflicts",
+    "M2315 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_metric_semantics_conflict_diagnosis",
+    "evidence_increment": "materializes no-rerun metric semantics evidence for R0 and other metric-conflict rows",
+    "claim_scope": "artifact-only metric semantics diagnosis; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the diagnosis starts new rollout or training",
+      "stop if R0 speed_too_low safe-stop rows are not separated from support_blocked rows",
+      "stop if support policies are ranked",
+      "stop if the output cannot choose a result-audit route"
+    ],
+    "fallback_plan": [
+      "route to result audit if diagnosis artifacts are complete",
+      "route to schema repair if episode rows lack required fields",
+      "route to manual review if safe-stop criteria cannot be defined from current artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2314 routes R0 metric_conflict to artifact-only diagnosis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement no-rerun metric semantics conflict diagnosis",
+    "admission_evidence": [
+      "M2313 support-policy panel is complete",
+      "M2314 identifies R0 metric_conflict 12/12",
+      "R0 AEB rows terminate speed_too_low with positive clearance and no collision/offtrack"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+      "docs/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.md",
+      "M2315 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "diagnosis runner is implemented",
+      "focused tests pass",
+      "summary and metric conflict rows are written",
+      "next result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2315 diagnoses metric semantics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2315; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2313 support-policy diagnostic panel.",
+    "negative_result_policy": "Repair role-specific metric semantics before controller-family or self-ID claims.",
+    "allowed_claims": [
+      "metric semantics conflict diagnosis",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "separates metric conflict from support-blocked scenario failure without rerun",
+    "paper_verdict_delta": "can decide whether R0 requires role-specific safe-stop success semantics before current-sim comparison",
+    "must_synthesize_if": [
+      "the next task ignores metric semantics and routes directly to training",
+      "support policies are ranked",
+      "the feasibility branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "No-rerun metric semantics conflict diagnosis can separate safe-stop AEB conflicts from true support-blocked scenarios.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis.py passes",
+    "summary.json exists in the M2315 output directory",
+    "R0 safe-stop metric conflicts are quantified",
+    "guardrail_violation_count is 0",
+    "a follow-up result-audit manifest is selected"
+  ],
+  "failure_criteria": [
+    "M2315 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2315 ranks support policies or selects a winner",
+    "M2315 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2315 cannot separate safe-stop metric conflicts from support-blocked rows",
+    "M2315 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "diagnose",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --scenario-support-labels runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv --role-support-summary runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv --output-dir runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --next-blocker m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_diagnosis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv"
+  ],
+  "decision_rule": "M2315 passes if it materializes no-rerun metric semantics conflict artifacts and pre-registers a result audit.",
+  "next_blocker": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation"
+}

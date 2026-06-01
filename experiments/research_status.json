@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2321,
+    "completed": 2322,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2313-paper-route-current-sim-scenario-task-family-feasibility-calibration-implementation",
+    "task_id": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration",
-    "command_log": "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md"
   },
   "next_task": {
-    "id": "m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit",
-    "kind": "gate",
-    "priority": 23090,
+    "id": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
+    "kind": "infrastructure",
+    "priority": 23100,
     "status": "pending",
-    "hypothesis": "M2313 provides enough support-label evidence to choose whether the next route is metric semantics audit, scenario support redesign, or actor weakness/training.",
-    "command": "manual artifact audit of runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json and support label artifacts",
-    "success_artifact": "docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md",
-    "notes": "Pending: audit M2313 support labels including R0 metric_conflict 12/12 support_clear 12 support_mixed 26 support_blocked 21"
+    "hypothesis": "No-rerun metric semantics conflict diagnosis can separate safe-stop AEB conflicts from true support-blocked scenarios.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --episode-rows runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv --scenario-support-labels runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv --role-support-summary runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/role_support_summary.csv --output-dir runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis --next-blocker m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+    "success_artifact": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+    "notes": "Pending: artifact-only metric semantics conflict diagnosis from M2313 rows; no rerun training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T225852Z"
+  "updated_at_utc": "20260601T230607Z"
 }

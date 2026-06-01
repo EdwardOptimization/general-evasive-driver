@@ -41681,3 +41681,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.json`
 - next: `m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit`
+
+## M2314 Paper-Route Current-Sim Scenario Task-Family Feasibility Calibration Result Audit
+
+- status: completed
+- decision: `route_to_metric_semantics_conflict_diagnosis`
+- manifest: `experiments/manifests/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.json`
+- audit doc: `docs/m2314-paper-route-current-sim-scenario-task-family-feasibility-calibration-result-audit.md`
+- parent summary: `runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/summary.json`
+- M2313 result_class: `current_sim_scenario_task_family_feasibility_calibration_pass`
+- support labels clear/mixed/blocked/metric_conflict: `12/26/21/13`
+- R0 role: `metric_conflict 12/12`
+- R0 AEB rows: `60/60` terminate `speed_too_low`, collision `0`, offtrack `0`
+- R0 AEB min_clearance_margin min/mean/max: `10.96082732487428/26.15242840807228/43.58735902844862`
+- interpretation: R0 is a safe-stop/obstacle-pass metric semantics conflict, not ordinary support-blocked infeasibility
+- route: artifact-only metric semantics conflict diagnosis
+- reset/rollout/policy action in M2314: `false`
+- training/replay/PPO in M2314: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.json`
+- next: `m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation`
