@@ -1,0 +1,184 @@
+{
+  "id": "m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun"
+    ],
+    "parent_dataset": [
+      "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json",
+      "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/global_delta.csv",
+      "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_timing_delta.csv",
+      "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_severity_delta.csv",
+      "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/clearance_risk_delta.csv",
+      "docs/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.json"
+    ],
+    "parent_objective": [
+      "audit whether M2269 slice diagnosis supports targeted containment repair or requires synthesis/pivot"
+    ],
+    "derived_from": [
+      "m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation"
+    ],
+    "blocked_by": [
+      "M2269 completed no-rerun diagnosis with aggregate-neutral but slice-recovered route"
+    ],
+    "supersedes": [
+      "claiming targeted repair success from aggregate outcome only",
+      "claiming M2265 failed because global offtrack did not improve below M2244",
+      "another reward/training run before M2269 result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+  "public_gates": [
+    "M2270 must audit M2269 completeness and guardrails",
+    "M2270 must distinguish global aggregate neutrality from intended slice recovery",
+    "M2270 must classify whether the containment branch should continue, synthesize, pivot, or stop",
+    "M2270 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_failure_slice_diagnosis_result_audit",
+    "evidence_increment": "turns M2269 slice diagnosis into a branch-level route decision without new rollout or training",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2269 artifacts are incomplete",
+      "stop if audit ignores the distinction between global neutrality and slice recovery",
+      "stop if audit recommends another scalar reward tweak without evidence expansion"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if targeted repair is insufficient for further local repair",
+      "route to broader task-quality diagnosis if slice recovery is supported but current-sim readiness remains below floor",
+      "route to artifact repair if M2269 outputs are incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2269 completed the only post-synthesis no-rerun slice diagnosis admitted by M2268",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2269 slice diagnosis and select the next non-ranking route",
+    "admission_evidence": [
+      "M2269 result_class is current_sim_midcourse_corridor_containment_failure_slice_diagnosis_pass",
+      "M2269 support_complete is true",
+      "M2269 global offtrack delta vs M2244 is 0",
+      "M2269 mid_offtrack delta vs M2244 is -8",
+      "M2269 mild_overshoot delta vs M2244 is -2",
+      "M2269 targeted offtrack delta vs generic M2253 is -8"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+      "M2270 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2269 completeness and guardrails are audited",
+      "aggregate-neutral slice-recovered interpretation is accepted or rejected",
+      "next route is selected without ranking or new training"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2270 audits outcome slices and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2270; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2269 no-rerun public slice diagnosis.",
+    "negative_result_policy": "If the branch cannot justify further local repair, synthesize or pivot instead of lowering self-ID standards.",
+    "allowed_claims": [
+      "failure-slice diagnosis result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "classifies the M2269 three-panel slice diagnosis before any further repair loop",
+    "paper_verdict_delta": "can decide whether targeted containment should be treated as slice recovery or stopped as aggregate-neutral local repair",
+    "must_synthesize_if": [
+      "M2270 cannot choose a route",
+      "M2270 would recommend another scalar reward tweak",
+      "M2270 finds targeted repair is not enough to change the paper-route verdict"
+    ]
+  },
+  "hypothesis": "M2269 provides enough slice-level evidence to decide whether targeted containment recovered the intended regression or whether the branch should synthesize/pivot.",
+  "success_criteria": [
+    "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md exists",
+    "M2269 result_class is audited",
+    "M2269 support_complete and guardrail_violation_count are audited",
+    "M2269 global and slice deltas are interpreted separately",
+    "guardrails remain false for training ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2269 artifacts are missing",
+    "M2269 slice evidence is ignored",
+    "M2270 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2270 ranks profiles or selects a winner",
+    "M2270 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json and slice deltas"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun"
+  ],
+  "baseline_artifacts": [
+    "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json",
+    "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/failure_slice_routes.csv",
+    "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/global_delta.csv",
+    "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_timing_delta.csv",
+    "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/offtrack_severity_delta.csv"
+  ],
+  "decision_rule": "M2270 passes if it audits M2269 and selects a non-ranking follow-up route without starting new experiments.",
+  "next_blocker": "m2271-paper-route-current-sim-task-quality-branch-synthesis-design"
+}

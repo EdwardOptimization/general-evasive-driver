@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2276,
+    "completed": 2277,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
-    "returncode": 0,
-    "run_dir": "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+    "task_id": "m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation",
     "status": "completed",
-    "task_id": "m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis"
+    "returncode": 0,
+    "run_dir": "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis",
+    "command_log": "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis --baseline-episodes runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv --targeted-episodes runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/episode_rows.csv --reference-episodes runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv --output-dir runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis --next-blocker m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
-    "hypothesis": "No-rerun slice diagnosis can determine whether M2265 restored M2256 failure slices or only repaired aggregate counts.",
-    "id": "m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rerun slice diagnosis over M2244/M2253/M2265 episode rows no rollout/ranking claims",
-    "priority": 22640,
+    "id": "m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit",
+    "kind": "gate",
+    "priority": 22650,
     "status": "pending",
-    "success_artifact": "runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json"
+    "hypothesis": "M2269 provides enough slice-level evidence to decide whether targeted containment recovered the intended regression or whether the branch should synthesize/pivot.",
+    "command": "manual artifact audit of runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json and slice deltas",
+    "success_artifact": "docs/m2270-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-result-audit.md",
+    "notes": "Pending: audit M2269 aggregate-neutral slice-recovered result and choose non-ranking follow-up route no training/ranking claims"
   },
-  "updated_at_utc": "20260601T180529Z"
+  "updated_at_utc": "20260601T182623Z"
 }

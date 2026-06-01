@@ -1,6 +1,16 @@
 # AutoDrift Research Log
 
-Last updated: 2026-05-22
+Last updated: 2026-06-01
+
+
+## 20260601T182028Z m2269-midcourse-corridor-containment-failure-slice-diagnosis
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m2269_paper_route_current_sim_midcourse_corridor_containment_failure_slice_diagnosis/summary.json`
+- result: no-rerun three-panel diagnosis pass with `480/480/480` rows and guardrail `0`.
+- key evidence: baseline vs targeted `success +1`, `offtrack 0`, `collision -1`; generic vs targeted `success +9`, `offtrack -8`, `collision -1`; intended slices recovered with `mid_offtrack -8` and `mild_overshoot -2` versus M2244.
+- decision: route to M2270 result audit; do not claim ranking, paper-level evidence, finite-window-vs-GRU conclusion, or level3 self-identification.
 
 ## Current Best
 
