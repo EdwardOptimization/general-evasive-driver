@@ -1,0 +1,176 @@
+{
+  "id": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md",
+      "docs/m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation.md",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/reset_failures.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design focused materializer repair for friction-step timing filter edge"
+    ],
+    "derived_from": [
+      "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M2288 localizes M2287's remaining reset failure to a friction-step timing filter omitted from materializer precheck"
+    ],
+    "supersedes": [
+      "direct repair/rerun before filter-edge design",
+      "measured execution after 71/72 reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+  "public_gates": [
+    "M2289 must design a focused repair for friction-step timing filter compatibility",
+    "M2289 must preserve role labels, P0 actor contract, and metadata-only feasibility labels",
+    "M2289 must freeze implementation tests and materialization/reset-validation commands before code changes",
+    "M2289 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_filter_edge_repair_design",
+    "evidence_increment": "designs one focused filter-edge repair after M2288 localized the 71/72 reset-validity blocker",
+    "claim_scope": "repair design only; no reset rerun rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design would change actor inputs or role semantics",
+      "stop if design cannot make precheck match reset sampler filters",
+      "stop if design routes directly to rollout or training"
+    ],
+    "fallback_plan": [
+      "route to focused implementation if design is complete",
+      "route to branch synthesis if filter repair implies broader scenario family redesign",
+      "stop for user review if reset-validity cannot be recovered locally"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2288 routes one-row reset failure to focused filter-edge repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design materializer filter-edge repair",
+    "admission_evidence": [
+      "M2287 materialization passes with 72 specs and 0 blockers",
+      "M2287 reset validation reaches 71/72 successes",
+      "M2288 localizes the remaining failure to friction-step timing filter compatibility"
+    ],
+    "blocked_shortcuts": [
+      "no reset in design",
+      "no rollout or measured execution",
+      "no policy actions",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+      "M2289 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "filter-edge repair is specified",
+      "implementation tests and validation commands are specified",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2289 designs scenario reset repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2289."
+    ],
+    "temporal_evidence_window": "M2287/M2288 reset-validation failure artifacts.",
+    "negative_result_policy": "Treat reset filter repair as scenario-quality work, not controller or self-ID evidence.",
+    "allowed_claims": [
+      "scenario task-family reset filter-edge repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "prepares a single localized filter repair after reset validity improved from 12/72 to 71/72",
+    "paper_verdict_delta": "can admit one final reset-validity implementation before measured execution design",
+    "must_synthesize_if": [
+      "M2289 cannot define a local filter repair",
+      "M2289 requires broad scenario semantics changes",
+      "M2289 would route directly to measured execution/training"
+    ]
+  },
+  "hypothesis": "A focused design can make materializer precheck match reset sampler friction-step filters without changing actor inputs or role semantics.",
+  "success_criteria": [
+    "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md exists",
+    "friction-step timing filter compatibility repair is specified",
+    "implementation tests and validation commands are specified",
+    "a non-ranking implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2289 ignores the M2288 friction-step timing filter finding",
+    "M2289 changes the deployable actor contract",
+    "M2289 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2289 ranks profiles or selects a winner",
+    "M2289 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual focused filter-edge repair design artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md",
+    "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2289 passes if it freezes a focused filter-edge repair plan and selects a non-ranking follow-up implementation route.",
+  "next_blocker": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation"
+}

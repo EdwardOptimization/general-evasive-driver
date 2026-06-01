@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M2288 audits M2287 one-row failure as friction-step timing filter edge omitted from materializer precheck; lateral sign repair success; route focused design no reset/ranking claims",
+  "failure_criteria": [
+    "M2288 ignores the single reset failure",
+    "M2288 treats reset validation as controller performance",
+    "M2288 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2288 ranks profiles or selects a winner",
+    "M2288 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "training_instability"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T201614Z",
+  "hypothesis": "M2287's single reset failure can be localized as a sampler/filter edge case and routed without making rollout or ranking claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2287 reset validation fails with one remaining R4 low_mu late_close reset-sampling row"
+    ],
+    "derived_from": [
+      "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation.md",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/materialization/summary.json",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/reset_failures.csv",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/lateral_offset_consistency_rows.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_objective": [
+      "audit M2287 materialization pass and single-row reset-validation failure"
+    ],
+    "supersedes": [
+      "direct second repair/rerun inside M2287",
+      "measured execution after incomplete reset validation"
+    ]
+  },
+  "milestone": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+  "next_blocker": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_reset_repair_audit_route_to_filter_edge_repair_design",
+  "public_gates": [
+    "M2288 must audit M2287 materialization and reset-validation artifacts",
+    "M2288 must localize the one remaining reset failure before any repair",
+    "M2288 must distinguish sign repair success from reset-unavailable lateral mismatch",
+    "M2288 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_reset_repair_audit_route_to_filter_edge_repair_design",
+    "milestone": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+    "reason": "M2288 audits M2287 one-row failure as friction-step timing filter edge omitted from materializer precheck; lateral sign repair success; route focused design no reset/ranking claims",
+    "reset_success": "0.9861111111111112",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md exists",
+    "M2287 materialization result is audited",
+    "M2287 reset-validation failure row is audited",
+    "lateral sign repair outcome is audited separately from reset-unavailable mismatch",
+    "actor-contract and guardrail status are audited",
+    "a non-ranking follow-up route is selected"
+  ],
+  "type": "gate"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2295,
+    "completed": 2296,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation",
+    "task_id": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation",
-    "command_log": "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md"
   },
   "next_task": {
-    "id": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+    "id": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
     "kind": "gate",
-    "priority": 22830,
+    "priority": 22840,
     "status": "pending",
-    "hypothesis": "M2287's single reset failure can be localized as a sampler/filter edge case and routed without making rollout or ranking claims.",
-    "command": "manual audit of runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair artifacts",
-    "success_artifact": "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md",
-    "notes": "Pending: audit M2287 materialization pass and one-row reset failure before any further repair; no reset rollout training ranking or paper claims"
+    "hypothesis": "A focused design can make materializer precheck match reset sampler friction-step filters without changing actor inputs or role semantics.",
+    "command": "manual focused filter-edge repair design artifact",
+    "success_artifact": "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+    "notes": "Pending: design focused filter-edge repair before implementation/reset rerun; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T200923Z"
+  "updated_at_utc": "20260601T201402Z"
 }

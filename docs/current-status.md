@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation
+m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit
+m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -46,10 +46,13 @@ actor_contract_violation_count: 0
 guardrail_violation_count: 0
 ```
 
-The remaining failure is `m2277_r4_02`: R4 unavoidable mitigation, low_mu,
-late_close, centerline. The next step is M2288 result audit to localize that
-single reset-sampling edge case and separate it from the repaired left/right
-lateral sign convention. Policy actions, measured rollout, training, ranking,
+M2288 localizes the remaining failure to a friction-step timing filter omitted
+from the materializer precheck. The failing row has `time_to_obstacle ~= 0.64s`
+and `friction_step.step_range = 24..42`; steps after about `31` happen after the
+obstacle, so the reset sampler can reject the otherwise valid `unavoidable`
+classifier target. Successful left/right rows no longer show the old sign
+reversal. The next step is a focused M2289 filter-edge repair design before any
+implementation rerun. Policy actions, measured rollout, training, ranking,
 finite-window vs GRU verdict, paper-level claim, and level3 self-ID claim remain
 blocked.
 

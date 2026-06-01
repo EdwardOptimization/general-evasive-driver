@@ -41039,3 +41039,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.json`
 - next: `m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit`
+
+## M2288 Paper-Route Current-Sim Scenario Task-Family Reset-Sampling And Lateral-Sign Repair Result Audit
+
+- status: completed
+- decision: `current_sim_scenario_task_family_reset_repair_audit_route_to_filter_edge_repair_design`
+- manifest: `experiments/manifests/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.json`
+- audit artifact: `docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md`
+- parent result: `runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json`
+- audit result: M2287 materialization pass; reset validation 71/72; remaining failure localized to R4 low_mu late_close friction-step timing filter edge
+- lateral sign outcome: successful left/right rows no longer have signed-bucket mismatches
+- reset rerun in M2288: `false`
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.json`
+- next: `m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design`
