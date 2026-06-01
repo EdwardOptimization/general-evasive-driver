@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2117 freezes reset-free materialization preflight 240 specs 5 profiles 1200 workload rows deterministic proxy-template mapping and claim guard preservation before implementation",
+  "failure_criteria": [
+    "design doc is missing",
+    "candidate-to-spec mapping is ambiguous",
+    "planned artifacts drop claim guards or candidate intent",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated rows as paper-valid tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T014442Z",
+  "hypothesis": "A bounded materialization preflight can be designed to convert M2115 candidates into executable specs and workload rows while preserving claim guards and without running the environment.",
+  "lineage": {
+    "blocked_by": [
+      "M2116 candidate audit must admit materialization preflight design before implementation"
+    ],
+    "derived_from": [
+      "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_materialization_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_outcome_supported_decisive_comparison_support_candidates_v0.json",
+      "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md"
+    ],
+    "parent_objective": [
+      "design a bounded no-rollout materialization preflight for comparison-support candidates"
+    ],
+    "supersedes": [
+      "direct measured execution from generated candidates",
+      "direct profile ranking from candidate rows"
+    ]
+  },
+  "milestone": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design",
+  "next_blocker": "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "comparison_support_materialization_preflight_design_admit_implementation",
+  "public_gates": [
+    "M2117 must freeze candidate-to-executable-spec mapping before implementation",
+    "M2117 must preserve M2115 claim guards in planned artifacts",
+    "M2117 must define reset-free validation checks for materialized artifacts",
+    "M2117 must not run reset rollout measured execution or rank controller families"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
+    "clearance_margin_mean": "",
+    "decision": "comparison_support_materialization_preflight_design_admit_implementation",
+    "milestone": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design",
+    "reason": "M2117 freezes reset-free materialization preflight 240 specs 5 profiles 1200 workload rows deterministic proxy-template mapping and claim guard preservation before implementation",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md exists",
+    "candidate-to-spec mapping is explicit",
+    "planned output artifacts are explicit",
+    "reset-free validation checks are explicit",
+    "next implementation route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

@@ -37238,3 +37238,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: candidates remain not reset-valid, not measured executable, not comparison-ready, and not paper-valid
 - follow-up manifest: `experiments/manifests/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.json`
 - next: `m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design`
+
+## M2117 Paper-Route Outcome-Supported Decisive Comparison-Support Materialization Preflight Design
+
+- status: completed
+- decision: `comparison_support_materialization_preflight_design_admit_implementation`
+- manifest: `experiments/manifests/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.json`
+- design artifact: `docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md`
+- reset/rollout/measured execution in M2117: `false`
+- policy actions executed in M2117: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: freeze reset-free materialization preflight before implementation
+- planned executable specs: `240`
+- planned profiles: `5`
+- planned workload rows: `1200`
+- profile subset: L0_current_masked; L1_one_step; L2_window_50; L3_online_gru; L3_reset_control_corrected
+- proxy template mapping: deterministic candidate-level mapping to t4_staged_warmup_capability, t4_actuator_delay_response, t5_boundary_axis_retarget, or t5_near_boundary_warmup
+- required guardrails: preserve candidate intent, support-tier metadata, human-view/no-privileged contract checks, `paper_validity_claim=false`, and `profile_specific_tuning=false`
+- conclusion boundary: materialization design only; no reset validity, measured support, comparison, paper-level result, finite-window-vs-GRU conclusion, or self-ID evidence
+- follow-up manifest: `experiments/manifests/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.json`
+- next: `m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation`

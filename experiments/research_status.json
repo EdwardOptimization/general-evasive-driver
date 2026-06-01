@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2125,
+    "completed": 2126,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md",
+    "command_log": "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit.md",
+    "run_dir": "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md",
     "status": "completed",
-    "task_id": "m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit"
+    "task_id": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.json",
-    "hypothesis": "A bounded materialization preflight can be designed to convert M2115 candidates into executable specs and workload rows while preserving claim guards and without running the environment.",
-    "id": "m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-free materialization preflight for the audited comparison-support candidate panel",
-    "priority": 21120,
+    "command": "see experiments/manifests/m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation.json",
+    "hypothesis": "The M2117 design can be implemented as a reset-free materialization preflight that writes 240 executable specs and 1200 planned workload rows with zero claim-guard or actor-contract violations.",
+    "id": "m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement reset-free materialization preflight for audited comparison-support candidate panel",
+    "priority": 21130,
     "status": "pending",
-    "success_artifact": "docs/m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design.md"
+    "success_artifact": "runs/m2118_paper_route_outcome_supported_decisive_comparison_support_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T013722Z"
+  "updated_at_utc": "20260601T014313Z"
 }

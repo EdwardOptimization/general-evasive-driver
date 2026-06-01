@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2116-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-result-audit
+m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design
 ```
 
 Current next task:
 
 ```text
-m2117-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-design
+m2118-paper-route-outcome-supported-decisive-comparison-support-materialization-preflight-implementation
 ```
 
-Immediate route: M2116 audits the no-rollout comparison-support candidate
-artifact as clean: `240` candidates, four intent groups of `60`, source_family
-count `4`, source_kind count `24`, duplicate candidate IDs `0`,
-`paper_validity_claim_true_count=0`, `profile_specific_tuning_true_count=0`,
-actor-input forbidden key count `0`, and guardrail `0`. M2117 must design a
-reset-free materialization preflight that preserves candidate intent and claim
-guards before any executable artifact implementation. Reset, rollout, measured
-execution, comparison, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked.
+Immediate route: M2117 freezes the reset-free materialization preflight for the
+audited comparison-support candidate panel. The intended implementation maps
+`240` candidates to `240` executable specs and a bounded 5-profile workload of
+`1200` planned rows while preserving candidate intent, support-tier metadata,
+human-view/no-privileged contract checks, and claim guards. M2118 must implement
+that preflight without reset, rollout, measured execution, profile ranking,
+paper claims, finite-window vs GRU conclusions, or self-ID claims.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
