@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2253,
+    "completed": 2255,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+    "command_log": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+    "run_dir": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit"
+    "task_id": "m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis"
   },
   "next_task": {
-    "command": "manual design over M2244/M2245 outcome localization artifacts",
-    "hypothesis": "A bounded offtrack/recovery/corridor repair design can address M2244's dominant failure mode more directly than another checkpoint-selection or budget escalation.",
-    "id": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded offtrack/recovery/corridor repair with collision guardrails no training/ranking claims",
-    "priority": 22410,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization --output-dir runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization",
+    "hypothesis": "A default-preserving road-containment reward extension can materialize a matched offtrack repair config matrix without changing actor inputs or running training.",
+    "id": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: implement default-preserving road containment reward hooks and materialize 15 matched repaired configs no training/ranking claims",
+    "priority": 22430,
     "status": "pending",
-    "success_artifact": "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md"
+    "success_artifact": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json"
   },
-  "updated_at_utc": "20260601T152608Z"
+  "updated_at_utc": "20260601T153243Z"
 }

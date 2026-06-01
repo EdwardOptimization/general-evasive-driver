@@ -1,0 +1,196 @@
+{
+  "id": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_training"
+    ],
+    "parent_dataset": [
+      "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+      "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+      "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md"
+    ],
+    "parent_config": [
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/configs",
+      "experiments/manifests/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement configurable road containment reward extension and materialize repaired matched-budget configs"
+    ],
+    "derived_from": [
+      "m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis",
+      "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design"
+    ],
+    "blocked_by": [
+      "current env has hard-coded track/heading cost and no configurable road-margin/offtrack-specific reward hook"
+    ],
+    "supersedes": [
+      "track-width relaxation as primary repair",
+      "another checkpoint-selection-only repair",
+      "another blind budget escalation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.md",
+  "public_gates": [
+    "M2248 must preserve old reward behavior by default",
+    "M2248 must add configurable road-containment reward fields without actor input changes",
+    "M2248 must materialize exactly 15 repaired profile/seed configs from the M2241 config matrix",
+    "M2248 must keep matched profile/seed/budget protocol unchanged",
+    "M2248 must not train, run rollout, rank profiles, or select a winner"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width as the primary repair",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_reward_extension_materialization",
+    "evidence_increment": "turns M2246 design and M2247 synthesis into default-preserving env reward hooks and a matched repaired config matrix",
+    "claim_scope": "infrastructure/materialization only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if old reward behavior is not preserved by defaults",
+      "stop if materialized configs change actor inputs, profile set, seed set, or budget",
+      "stop if repair requires track-width relaxation as the primary mechanism"
+    ],
+    "fallback_plan": [
+      "route back to repair design if configurable reward hooks cannot preserve old behavior",
+      "route to config-only audit if code extension is unnecessary",
+      "route to branch synthesis if materialization would violate comparison guardrails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2247 continued the branch into reward-extension materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "add default-preserving road containment reward hooks and materialize repaired configs",
+    "admission_evidence": [
+      "M2247 synthesis continues branch",
+      "M2246 rejects track-width relaxation and budget/checkpoint-only repair",
+      "M2246 selects explicit road-margin/offtrack penalty plus collision guardrails"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/env.py",
+      "src/autodrift/config.py if needed for defaults",
+      "one focused materialization utility under src/autodrift/",
+      "focused tests",
+      "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "M2248 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "default reward compatibility is tested",
+      "15 repaired configs are materialized",
+      "contract and guardrail counts are zero",
+      "next audit or execution route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2248 is infrastructure/materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2248; no wrong-history, reset-hidden, zero-history, or measured execution intervention is run."
+    ],
+    "temporal_evidence_window": "M2246/M2247 repair design and synthesis only.",
+    "negative_result_policy": "If materialization fails contract or guardrails, repair the infrastructure before any training; do not weaken comparison or self-ID standards.",
+    "allowed_claims": [
+      "default-preserving reward hook implementation",
+      "matched repaired config materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new configurable repair mechanism and matched config matrix before another training run",
+    "paper_verdict_delta": "can enable a controlled current-sim task-quality repair execution after audit",
+    "must_synthesize_if": [
+      "M2248 cannot preserve old reward behavior by default",
+      "M2248 cannot materialize a matched 15-config matrix",
+      "M2248 would change actor inputs or relax track width"
+    ]
+  },
+  "hypothesis": "A default-preserving road-containment reward extension can materialize a matched offtrack repair config matrix without changing actor inputs or running training.",
+  "success_criteria": [
+    "road-containment reward defaults preserve old reward behavior",
+    "focused tests cover default compatibility and repaired config materialization",
+    "summary artifact exists under runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization",
+    "materialized_config_count is 15",
+    "profile_set_matched is true",
+    "seed_set_matched is true",
+    "budget_signature_count is 1",
+    "contract_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution training replay PPO private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "default reward behavior changes when new fields use default values",
+    "materialized config count is not 15",
+    "profile set, seed set, or budget changes unexpectedly",
+    "actor input contract changes",
+    "track_width is widened as the primary repair",
+    "M2248 starts training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2248 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization.py tests/test_env.py"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization --output-dir runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_training"
+  ],
+  "baseline_artifacts": [
+    "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+    "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/configs"
+  ],
+  "decision_rule": "M2248 passes if it implements default-preserving road containment reward hooks and materializes exactly 15 matched repaired configs without training or ranking claims.",
+  "next_blocker": "m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization"
+}

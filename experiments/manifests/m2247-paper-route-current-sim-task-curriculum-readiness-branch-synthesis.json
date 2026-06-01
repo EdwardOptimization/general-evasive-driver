@@ -1,0 +1,181 @@
+{
+  "id": "m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2236-paper-route-current-sim-matched-budget-training-branch-synthesis.md",
+      "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+      "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+      "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M2236-M2246 before continuing the current branch"
+    ],
+    "derived_from": [
+      "m2236-paper-route-current-sim-matched-budget-training-branch-synthesis",
+      "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2246"
+    ],
+    "supersedes": [
+      "continuing directly to implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+  "public_gates": [
+    "M2247 must summarize actual project capability change since M2236",
+    "M2247 must classify repeated failure types and public-gate overfit risk",
+    "M2247 must decide continue, pivot, stop, or promote_to_next_branch",
+    "M2247 must not train, run rollout, rank profiles, or select a winner"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_branch_synthesis",
+    "evidence_increment": "synthesizes M2236-M2246 and decides whether the branch may continue into reward-extension materialization",
+    "claim_scope": "process synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if evidence shows only local-search overhead without new capability",
+      "stop if offtrack repair would repeat an already failed public-row loop",
+      "stop if the branch cannot name a bounded next repair mechanism"
+    ],
+    "fallback_plan": [
+      "pivot to a new branch if reward-extension materialization is not defensible",
+      "stop current branch if evidence is only public-gate overfit",
+      "continue only if the next milestone creates a new bounded repair mechanism"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2246 reached branch cadence after M2236 synthesis",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current branch evidence and reset cadence before any implementation",
+    "admission_evidence": [
+      "M2246 produced a repair design",
+      "research validator requires synthesis before another non-synthesis milestone"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+      "M2247 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact answers all required synthesis questions",
+      "synthesis decision is explicit",
+      "follow-up route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2247 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2247; no wrong-history, reset-hidden, zero-history, or measured execution intervention is run."
+    ],
+    "temporal_evidence_window": "M2236-M2246 branch artifacts.",
+    "negative_result_policy": "Record blocked ranking/self-ID claims and continue only through bounded repair mechanisms.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "summarizes branch evidence and resets cadence before implementation",
+    "paper_verdict_delta": "keeps paper-route claims blocked but admits one bounded repair mechanism",
+    "must_synthesize_if": [
+      "already satisfied by M2247"
+    ]
+  },
+  "hypothesis": "The M2236-M2246 branch has produced enough non-local evidence to continue into bounded reward-extension materialization rather than pivot or stop.",
+  "success_criteria": [
+    "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md exists",
+    "synthesis artifact answers all required workflow synthesis questions",
+    "synthesis decision is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution training replay PPO private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis artifact is missing",
+    "synthesis decision is not explicit",
+    "M2247 starts training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2247 ranks profiles or selects a winner",
+    "M2247 makes finite-window-vs-GRU, paper-level, or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "manual synthesis over M2236-M2246 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2247 passes if it completes branch synthesis and selects continue, pivot, stop, or promote_to_next_branch without training or ranking claims.",
+  "next_blocker": "m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis"
+}

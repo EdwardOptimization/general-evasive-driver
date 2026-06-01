@@ -40320,3 +40320,47 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.json`
 - next: `m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design`
+
+## M2246 Paper-Route Current-Sim Offtrack/Recovery/Corridor Repair Design
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_repair_design_admit_reward_extension_materialization`
+- manifest: `experiments/manifests/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.json`
+- design artifact: `docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md`
+- parent audit: `docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md`
+- rejected shortcuts: widen track width, move obstacles away as primary repair, actor input change, profile-specific tuning
+- design choice: add default-preserving configurable road containment reward hooks
+- new reward fields: `track_cost_scale`, `heading_cost_scale`, `road_margin_cost_scale`, `road_margin_warning_fraction`, `off_track_penalty`
+- repaired config target: shared setting for all 5 profiles x 3 seeds
+- collision guardrail: keep collision/clearance active while reducing offtrack
+- execution not started: `true`
+- training/replay/PPO/private holdout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.json`
+- next: `m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis`
+
+## M2247 Paper-Route Current-Sim Task/Curriculum Readiness Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- manifest: `experiments/manifests/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.json`
+- synthesis artifact: `docs/m2247-paper-route-current-sim-task-curriculum-readiness-branch-synthesis.md`
+- synthesis window: `M2236-M2246`
+- primary failure taxonomy: `scenario_sampling_failure`
+- secondary failure taxonomy: `training_instability`
+- supported: matched-budget/candidate-checkpoint infrastructure is clean
+- supported: checkpoint retention helps but is insufficient
+- supported: selected checkpoints fail mainly through road containment
+- falsified: medium-v1 or best-checkpoint selection alone makes the panel comparison-ready
+- public-gate overfit risk: `medium`
+- next branch decision: continue into bounded reward-extension materialization
+- reset/rollout/measured execution/training/replay/PPO/private holdout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization.json`
+- next: `m2248-paper-route-current-sim-offtrack-recovery-corridor-reward-extension-materialization`

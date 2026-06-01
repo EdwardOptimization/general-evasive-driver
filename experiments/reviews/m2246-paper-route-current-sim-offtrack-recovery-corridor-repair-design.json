@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2246 pending offtrack/recovery/corridor repair design no training/ranking claims",
+  "decision_reason": "M2246 designs default-preserving road-margin/offtrack reward extension and matched repaired config materialization route no training/ranking claims",
   "failure_criteria": [
     "design requires actor input contract changes",
     "design is just another total_steps increase or checkpoint-selection loop",
@@ -31,7 +31,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T152841Z",
+  "generated_at_utc": "20260601T153952Z",
   "hypothesis": "A bounded offtrack/recovery/corridor repair design can address M2244's dominant failure mode more directly than another checkpoint-selection or budget escalation.",
   "lineage": {
     "blocked_by": [
@@ -67,7 +67,7 @@
   "milestone": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
   "next_blocker": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_repair_design_admit_reward_extension_materialization",
   "public_gates": [
     "M2246 must design an offtrack/recovery/corridor repair without executing training or rollout",
     "M2246 must preserve the human-view/no-privileged actor input contract",
@@ -78,9 +78,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_repair_design_admit_reward_extension_materialization",
     "milestone": "m2246-paper-route-current-sim-offtrack-recovery-corridor-repair-design",
-    "reason": "M2246 pending offtrack/recovery/corridor repair design no training/ranking claims",
+    "reason": "M2246 designs default-preserving road-margin/offtrack reward extension and matched repaired config materialization route no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

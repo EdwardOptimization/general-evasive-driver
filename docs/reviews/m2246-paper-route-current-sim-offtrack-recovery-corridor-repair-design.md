@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T152841Z
+- Generated at UTC: 20260601T153952Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2246 pending offtrack/recovery/corridor repair design no training/ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_repair_design_admit_reward_extension_materialization
+- Decision reason: M2246 designs default-preserving road-margin/offtrack reward extension and matched repaired config materialization route no training/ranking claims
 
 ## Hypothesis
 
@@ -90,8 +90,8 @@ A bounded offtrack/recovery/corridor repair design can address M2244's dominant 
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2246 pending offtrack/recovery/corridor repair design no training/ranking claims
+- decision: current_sim_offtrack_recovery_corridor_repair_design_admit_reward_extension_materialization
+- reason: M2246 designs default-preserving road-margin/offtrack reward extension and matched repaired config materialization route no training/ranking claims
 
 ## Next Blocker
 

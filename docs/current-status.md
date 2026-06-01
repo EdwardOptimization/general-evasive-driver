@@ -198,7 +198,17 @@ design. The active interpretation is not profile ranking: it is that selected
 checkpoints are blocked primarily by offtrack/recovery/corridor failure, with
 collision/clearance retained as a secondary guardrail. M2246 must now freeze a
 bounded repair design before any task/reward implementation, rollout, ranking,
-finite-window-vs-GRU verdict, paper claim, or self-ID claim.
+finite-window-vs-GRU verdict, paper claim, or self-ID claim. M2246 completes
+that design: do not widen `track_width` or relax obstacle geometry as the
+primary repair; instead add default-preserving configurable reward hooks for
+road-margin cost and offtrack-specific penalty, then materialize a matched
+5-profile x 3-seed repaired config matrix. The workflow cadence then requires
+M2247 branch synthesis before implementation. M2247 synthesizes M2236-M2246 and
+decides `continue`: infrastructure and selected-checkpoint evidence are strong
+enough to try one bounded reward-extension materialization, while ranking,
+paper-level, finite-window-vs-GRU, and self-ID claims remain blocked. M2248
+must implement those hooks and materialize configs without training, rollout,
+ranking, finite-window-vs-GRU verdict, paper claim, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
