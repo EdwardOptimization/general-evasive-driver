@@ -1,0 +1,7 @@
+claim,admissible,reason
+terminal_boundary_reset_sampling_classification,True,classification is admissible only for the single diagnosed terminal-boundary row
+full_panel_reset_validity,False,diagnostic is not a repaired 40-spec reset-validation rerun
+measured_controller_performance,False,policy actions and measured rollout remain blocked
+controller_family_ranking,False,reset diagnostic does not compare controller-family outcomes
+finite_window_vs_gru_conclusion,False,reset diagnostic does not compare controller-family outcomes
+level3_self_identification,False,reset diagnostic does not test history necessity

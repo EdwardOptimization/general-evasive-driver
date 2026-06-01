@@ -16,19 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis
+m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run
+m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit
 ```
 
-Immediate route: M2157 synthesizes M2147-M2156 and chooses `continue`, but only
-to the bounded reset-only diagnostic for `m2151-current-sim-t5-03`. M2158 must
-run exactly `6` diagnostic reset attempts: eval seeds `215335` and `219103`
-crossed with attempt budgets `200`, `800`, and `1600`. Rollout, measured
+Immediate route: M2158 completes the bounded reset-only diagnostic for
+`m2151-current-sim-t5-03`. Classification is `seed_local_sampling_failure`: the
+original reset-validation seed `215335` fails at budgets `200`, `800`, and
+`1600`, while the materialized spec's `eval_seed_override=219103` passes at
+budget `200`. M2159 must audit this seed-source mismatch before changing the
+reset validator or rerunning the full 40-spec reset gate. Rollout, measured
 execution, controller ranking, paper claims, finite-window vs GRU verdicts, and
 self-ID claims remain blocked until audited evidence supports them.
 

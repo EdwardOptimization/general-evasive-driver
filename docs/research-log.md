@@ -38245,3 +38245,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - falsified claims: full panel reset-validity is false until T5 blocker is repaired and rerun
 - public gate overfit risk: medium; continue only to bounded reset diagnostic, not measured execution
 - next decision: continue to `m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run`
+
+## M2158 Paper-Route Current-Sim Terminal-Boundary Reset-Sampling Diagnostic Implementation and Run
+
+- status: completed
+- decision: `terminal_boundary_reset_sampling_diagnostic_complete_route_to_result_audit`
+- manifest: `experiments/manifests/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic.py`
+- tests: `tests/test_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic.py`
+- run artifact: `runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json`
+- environment reset started: `true`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `2 passed`
+- result_class: `current_sim_terminal_boundary_reset_sampling_diagnostic_complete`
+- diagnostic attempts/success/failure: `6` / `3` / `3`
+- diagnostic_classification: `seed_local_sampling_failure`
+- original reset seed `215335`: fails at attempt budgets `200`, `800`, `1600`
+- materialized eval_seed_override `219103`: passes at attempt budgets `200`, `800`, `1600`
+- contract_violation_count / metadata_missing_count / forbidden_key_violation_count / guardrail_violation_count: `0` / `0` / `0` / `0`
+- follow-up manifest: `experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json`
+- next: `m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit`

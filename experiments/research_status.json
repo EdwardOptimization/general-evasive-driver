@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2165,
+    "completed": 2166,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+    "command_log": "docs/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+    "run_dir": "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic",
     "status": "completed",
-    "task_id": "m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis"
+    "task_id": "m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.json",
-    "hypothesis": "The bounded diagnostic can classify the M2154 terminal-boundary reset failure as seed-local, attempt-budget limited, template brittle, or inconclusive without changing actor inputs or controller profiles.",
-    "id": "m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run targeted reset-only diagnostic for m2151-current-sim-t5-03",
-    "priority": 21530,
+    "command": "see experiments/manifests/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.json",
+    "hypothesis": "M2158 shows the M2154 blocker is a reset-validation seed-source artifact: sequential eval_seed_base+index fails, while the materialized spec's eval_seed_override succeeds at the original attempt budget.",
+    "id": "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit seed-local reset diagnostic before repair or full reset rerun",
+    "priority": 21540,
     "status": "pending",
-    "success_artifact": "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json"
+    "success_artifact": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md"
   },
-  "updated_at_utc": "20260601T060944Z"
+  "updated_at_utc": "20260601T061702Z"
 }
