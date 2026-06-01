@@ -39043,3 +39043,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to required branch synthesis before candidate audit or materialization
 - follow-up manifest: `experiments/manifests/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.json`
 - next: `m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis`
+
+## M2191 Paper-Route Current-Sim Offtrack-Support Repair Branch Synthesis
+
+- status: completed
+- decision: `current_sim_offtrack_support_repair_branch_synthesis_continue_to_candidate_artifact_audit`
+- manifest: `experiments/manifests/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.json`
+- synthesis artifact: `docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md`
+- synthesis window: `M2181-M2190`
+- latest measured panel: `runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json`
+- candidate artifact: `runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json`
+- combined episodes: `960`
+- combined success count: `163`
+- combined offtrack count: `741`
+- comparison_ready: `false`
+- seed_diversity_status: `suspicious_identical_repeat_outcome_vectors`
+- M2190 candidate_count: `288`
+- M2190 guardrail violation count: `0`
+- result: continue to post-synthesis candidate artifact audit only
+- follow-up manifest: `experiments/manifests/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.json`
+- next: `m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit`

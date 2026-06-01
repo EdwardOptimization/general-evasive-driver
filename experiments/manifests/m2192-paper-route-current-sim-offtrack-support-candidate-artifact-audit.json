@@ -1,0 +1,167 @@
+{
+  "id": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+      "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json",
+      "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/repair_candidate_rows.csv",
+      "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/parent_task_support_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout offtrack-support candidate artifact before materialization"
+    ],
+    "derived_from": [
+      "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation",
+      "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis"
+    ],
+    "blocked_by": [
+      "candidate artifact must be audited after synthesis before materialization"
+    ],
+    "supersedes": [
+      "direct candidate materialization without candidate artifact audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+  "public_gates": [
+    "M2192 must audit M2190 summary and candidate config after M2191 synthesis",
+    "M2192 must confirm candidate count, axis quotas, split quotas, duplicate ID count, and guardrail flags",
+    "M2192 must decide whether no-rollout materialization design is admitted",
+    "M2192 must not materialize candidates, reset environments, run measured execution, or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not materialize candidates",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_candidate_artifact_audit",
+    "evidence_increment": "audits the M2190 repair candidate artifact after branch synthesis",
+    "claim_scope": "candidate artifact audit only; no materialization reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if candidate artifact counts or quotas fail",
+      "stop if guardrail flags are nonzero",
+      "stop if artifact audit cannot map to materialization requirements",
+      "stop if audit would rank profiles from candidate metadata"
+    ],
+    "fallback_plan": [
+      "route to candidate generator repair if artifact checks fail",
+      "route to no-rollout materialization design if artifact checks pass",
+      "route to branch synthesis if more public repair loops accumulate without executable evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2191 synthesis continues branch to candidate artifact audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-rollout offtrack-support repair candidate artifact",
+    "admission_evidence": [
+      "M2191 synthesis continues the branch to candidate artifact audit",
+      "M2190 generated 288 candidates with exact quotas",
+      "M2190 guardrail violation count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no materialization in audit",
+      "no reset or rollout in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+      "M2192 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "candidate artifact pass/fail is explicit",
+      "materialization admission decision is explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2192 audits task candidates and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2192."
+    ],
+    "temporal_evidence_window": "M2190 candidate artifact and M2191 synthesis.",
+    "negative_result_policy": "If candidate artifact fails guardrails, repair generator before materialization.",
+    "allowed_claims": [
+      "task-quality/offtrack support candidate artifact audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a post-synthesis candidate panel before materialization",
+    "paper_verdict_delta": "can admit materialization design but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2192 cannot classify candidate artifact",
+      "M2192 would run reset or rollout",
+      "M2192 would rank profiles",
+      "another support-repair loop is proposed without materialized executable evidence"
+    ]
+  },
+  "hypothesis": "The post-synthesis M2190 candidate artifact is clean enough to admit no-rollout materialization design while keeping reset/rollout/ranking blocked.",
+  "success_criteria": [
+    "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md exists",
+    "M2190 summary and candidate config are audited",
+    "candidate count and quotas are accepted",
+    "guardrail flags are accepted",
+    "next route is explicit",
+    "no materialization reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2190 artifact is not audited",
+    "candidate guardrails fail",
+    "audit materializes candidates",
+    "audit runs reset or rollout",
+    "audit ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+    "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json",
+    "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json"
+  ],
+  "decision_rule": "M2192 passes if it audits M2190 and chooses a next route without materialization, reset, rollout, or ranking.",
+  "next_blocker": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit"
+}

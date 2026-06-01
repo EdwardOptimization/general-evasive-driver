@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation
+m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis
+m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit
 ```
 
-Immediate route: M2190 implements and runs the no-rollout support repair
-candidate generator. It produces a deterministic `288`-candidate artifact with
-exact axis/split quotas, duplicate candidate IDs `0`, guardrail violations `0`,
-profile-specific candidates `0`, and actor input changes `0`. The validator now
-requires M2191 to synthesize the current-sim repeat/offtrack-support branch
-before any candidate audit or materialization. New rollout, controller ranking,
-paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked
-until later audited evidence supports them.
+Immediate route: M2191 synthesizes the M2181-M2190 current-sim
+repeat/offtrack-support branch and decides to continue, but only to M2192
+candidate artifact audit. The latest durable evidence is still task-quality
+readiness, not controller comparison: M2187 found the 960-episode panel
+not-comparison-ready (`success=163`, `offtrack=741`,
+`combined_success_rate=0.16979166666666667`, `combined_offtrack_rate=0.771875`)
+and M2190 produced a clean deterministic `288`-candidate repair artifact.
+New rollout, controller ranking, paper claims, finite-window vs GRU verdicts,
+and self-ID claims remain blocked until later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

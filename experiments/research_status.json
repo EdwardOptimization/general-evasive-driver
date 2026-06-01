@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2198,
+    "completed": 2199,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
+    "command_log": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates",
+    "run_dir": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation"
+    "task_id": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "write docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
-    "hypothesis": "The current-sim repeat/offtrack-support branch can be synthesized into a clear continue/pivot/stop decision before candidate audit or materialization.",
-    "id": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis",
+    "command": "write docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+    "hypothesis": "The post-synthesis M2190 candidate artifact is clean enough to admit no-rollout materialization design while keeping reset/rollout/ranking blocked.",
+    "id": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit",
     "kind": "gate",
-    "notes": "Pending: synthesize M2181-M2190 before candidate audit or materialization",
-    "priority": 21860,
+    "notes": "Pending: audit M2190 candidate artifact after M2191 synthesis before materialization",
+    "priority": 21870,
     "status": "pending",
-    "success_artifact": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md"
+    "success_artifact": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md"
   },
-  "updated_at_utc": "20260601T095718Z"
+  "updated_at_utc": "20260601T100630Z"
 }
