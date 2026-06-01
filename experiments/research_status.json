@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2302,
+    "completed": 2303,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit",
+    "task_id": "m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md"
+    "run_dir": "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis",
+    "command_log": "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json"
   },
   "next_task": {
-    "id": "m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation",
-    "kind": "infrastructure",
-    "priority": 22900,
+    "id": "m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit",
+    "kind": "gate",
+    "priority": 22910,
     "status": "pending",
-    "hypothesis": "Artifact-only failure-slice diagnosis can localize the M2293 offtrack/collision dominated result enough to choose the next non-ranking repair or synthesis route.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_failure_slice_diagnosis --summary runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json --episode-rows runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv --output-dir runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis --next-blocker m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit",
-    "success_artifact": "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json",
-    "notes": "Pending: reproduce M2293 global counts and write role/timing/lateral/hidden/profile/outcome slices; no rerun training ranking or paper claims"
+    "hypothesis": "M2295 failure-slice diagnosis can be audited to choose an offtrack-primary collision-guardrail next route without rerun, ranking, or paper/self-ID claims.",
+    "command": "manual result audit over runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json and dominant_slices.csv",
+    "success_artifact": "docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md",
+    "notes": "Pending: verify M2295 count reproduction and route recommendation; no rerun training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T205300Z"
+  "updated_at_utc": "20260601T205956Z"
 }

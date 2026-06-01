@@ -41192,3 +41192,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.json`
 - next: `m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation`
+
+## M2295 Paper-Route Current-Sim Scenario Task-Family Failure-Slice Diagnosis Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_failure_slice_diagnosis_pass`
+- manifest: `experiments/manifests/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.json`
+- implementation doc: `docs/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.md`
+- summary: `runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_failure_slice_diagnosis.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis.py`
+- input_episode_count: `1080`
+- count reproduction: `episode/success/offtrack/collision/max_step all true`
+- global_success_rate: `0.06388888888888888`
+- global_offtrack_rate: `0.7268518518518519`
+- global_collision_rate: `0.1935185185185185`
+- dominant_slice_count: `56`
+- top slice: `termination_reason=off_track`, offtrack_count `785`
+- primary_route: `offtrack_primary_collision_guardrail_failure_slice_result_audit`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.json`
+- next: `m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit`
