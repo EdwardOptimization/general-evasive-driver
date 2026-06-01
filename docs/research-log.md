@@ -38082,3 +38082,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass gate: materialization failure, contract violation, profile tuning, and guardrail counts must all be `0`
 - follow-up manifest: `experiments/manifests/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.json`
 - next: `m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation`
+
+## M2151 Paper-Route Current-Sim Controlled Comparison Executable Spec Materialization Implementation
+
+- status: completed
+- decision: `current_sim_controlled_comparison_executable_spec_materialization_pass_route_to_audit`
+- manifest: `experiments/manifests/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_executable_spec_materialization.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_executable_spec_materialization.py`
+- run artifact: `runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json`
+- reset/rollout/measured execution in M2151: `false`
+- policy actions executed in M2151: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `current_sim_controlled_comparison_executable_spec_materialization_pass`
+- executable specs / task families / profiles / workload rows: `40` / `5` / `8` / `320`
+- materialization_failure_count / contract_violation_count / forbidden_key_violation_count / guardrail_violation_count: `0` / `0` / `0` / `0`
+- note: workload checkpoint paths are deferred for measured execution and do not block reset validation
+- follow-up manifest: `experiments/manifests/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.json`
+- next: `m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit`

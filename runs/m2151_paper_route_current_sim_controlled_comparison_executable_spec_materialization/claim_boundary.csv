@@ -1,0 +1,8 @@
+claim,admissible,reason
+current_sim_controlled_comparison_executable_spec_materialized,True,M2151 writes no-rollout executable specs and planned workload rows only
+reset_validity,False,M2151 does not run environment reset
+controller_family_ranking,False,M2151 does not execute or compare controllers
+winner_selection,False,M2151 does not choose a winning profile
+finite_window_vs_gru_conclusion,False,M2151 materializes comparison inputs but does not execute comparison
+paper_level_benchmark_result,False,M2151 is not measured evidence
+level3_self_identification,False,M2151 preserves T4/T5 metadata but does not run history interventions

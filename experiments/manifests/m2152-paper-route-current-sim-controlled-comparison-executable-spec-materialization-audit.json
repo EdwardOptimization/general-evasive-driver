@@ -1,0 +1,175 @@
+{
+  "id": "m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_executable_spec_materialization_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit executable spec materialization before reset-validation command design"
+    ],
+    "derived_from": [
+      "m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2151 must materialize executable specs before audit"
+    ],
+    "supersedes": [
+      "direct reset validation without materialization audit",
+      "direct measured execution without reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+  "public_gates": [
+    "M2152 must audit executable_spec_count 40 and planned_workload_row_count 320",
+    "M2152 must audit T1-T5 task-family coverage",
+    "M2152 must audit contract guardrails and materialization failures",
+    "M2152 must keep checkpoint-path gaps separate from reset validation",
+    "M2152 must decide reset-validation command design or repair"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_executable_spec_materialization_audit",
+    "evidence_increment": "audits no-rollout executable specs and decides whether reset validation is admitted",
+    "claim_scope": "executable spec audit only; no reset rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if audit treats materialization as reset-validity",
+      "stop if audit ignores checkpoint-path gaps before measured execution",
+      "stop if audit ranks profiles",
+      "stop if audit routes to measured execution before reset validation"
+    ],
+    "fallback_plan": [
+      "route to reset-validation command design if materialization is clean",
+      "route to schema repair if executable specs are incomplete",
+      "route to task-family redesign if reset validation is not meaningful"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2151 materializes no-rollout executable specs and planned workload rows",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim executable spec materialization audit",
+    "admission_evidence": [
+      "M2151 result_class current_sim_controlled_comparison_executable_spec_materialization_pass",
+      "M2151 executable_spec_count 40",
+      "M2151 planned_workload_row_count 320",
+      "M2151 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2152",
+      "do not run measured execution in M2152",
+      "do not rank controller families in M2152"
+    ],
+    "allowed_updates": [
+      "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+      "M2152 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design or repair"
+    ],
+    "next_stage_criteria": [
+      "materialization result is audited",
+      "checkpoint-path limitation is recorded",
+      "reset-validation admission or repair route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2152 audits executable specs and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2152."
+    ],
+    "temporal_evidence_window": "M2151 executable spec materialization artifacts.",
+    "negative_result_policy": "If T4/T5 specs are only metadata and not reset-validatable, repair the spec path before self-ID experiments.",
+    "allowed_claims": [
+      "executable spec materialization audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new executable spec panel before allowing reset validation",
+    "paper_verdict_delta": "can admit reset validation route but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2152 cannot choose reset-validation design or repair route",
+      "M2152 finds the executable spec panel is still abstract",
+      "M2152 would require another process-only milestone without new evidence"
+    ]
+  },
+  "hypothesis": "M2151 executable spec materialization is clean enough to admit reset-validation command design, while checkpoint gaps remain deferred for measured execution.",
+  "success_criteria": [
+    "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md exists",
+    "M2151 materialization summary is audited",
+    "checkpoint-path gap is recorded",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2151 artifacts are not audited",
+    "checkpoint-path gap is ignored",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_executable_spec_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.md",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json"
+  ],
+  "decision_rule": "M2152 passes if it audits M2151 and chooses a bounded next route without reset or ranking.",
+  "next_blocker": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design"
+}

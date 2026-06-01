@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2159,
+    "completed": 2160,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+    "command_log": "docs/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+    "run_dir": "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization",
     "status": "completed",
-    "task_id": "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design"
+    "task_id": "m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.json",
-    "hypothesis": "The M2150 design can be implemented as a no-rollout executable-spec materialization with 40 specs and 320 workload rows.",
-    "id": "m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize executable current-sim scenario specs and workload rows",
-    "priority": 21460,
+    "command": "see experiments/manifests/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.json",
+    "hypothesis": "M2151 executable spec materialization is clean enough to admit reset-validation command design, while checkpoint gaps remain deferred for measured execution.",
+    "id": "m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit",
+    "kind": "gate",
+    "notes": "Pending: audit executable specs before reset-validation command design",
+    "priority": 21470,
     "status": "pending",
-    "success_artifact": "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json"
+    "success_artifact": "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md"
   },
-  "updated_at_utc": "20260601T052155Z"
+  "updated_at_utc": "20260601T053130Z"
 }

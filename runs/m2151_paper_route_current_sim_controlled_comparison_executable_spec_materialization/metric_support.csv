@@ -1,0 +1,19 @@
+metric,reason,support_status,supported_after_measured_execution
+success_rate,episode outcome rows can support this after measured execution,supported_after_measured_audit,True
+collision_rate,episode outcome rows can support this after measured execution,supported_after_measured_audit,True
+road_departure_rate,offtrack outcome rows can support this after measured execution,supported_after_measured_audit,True
+spin_rate,requires explicit spin metric support or terminal reason audit before paper use,deferred_explicit_gap,False
+clearance_margin_tail,min_clearance_margin rows can support tails after measured execution,supported_after_measured_audit,True
+terminal_margin_tail,requires terminal-margin logging or explicit mapping before paper use,deferred_explicit_gap,False
+recovery_after_maneuver,M1746 instrumentation adds recovery hooks; still requires measured audit,supported_after_measured_audit,True
+control_smoothness,action-rate metrics can support this after measured execution,supported_after_measured_audit,True
+first_critical_action_gap,requires teacher/local target or paired-action artifact,deferred_explicit_gap,False
+short_horizon_maneuver_gap,requires trajectory-intent or short-horizon target artifact,deferred_explicit_gap,False
+future_braking_authority_prediction,requires auxiliary probe or authority-label artifact,deferred_explicit_gap,False
+future_yaw_authority_prediction,requires auxiliary probe or authority-label artifact,deferred_explicit_gap,False
+adaptation_latency,requires timed response/intervention instrumentation,deferred_explicit_gap,False
+wrong_history_margin_gap,requires wrong-history intervention execution,deferred_explicit_gap,False
+delayed_history_margin_gap,requires delayed-history intervention execution,deferred_explicit_gap,False
+reset_or_truncated_history_margin_gap,requires reset/truncation intervention execution,deferred_explicit_gap,False
+source_diversity,source metadata can support this after spec materialization and measured execution,supported_after_measured_audit,True
+max_single_source_share,source metadata can support this after spec materialization and measured execution,supported_after_measured_audit,True
