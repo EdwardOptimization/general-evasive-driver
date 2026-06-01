@@ -40172,3 +40172,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2240-paper-route-current-sim-training-stability-repair-design.json`
 - next: `m2240-paper-route-current-sim-training-stability-repair-design`
+
+## M2240 Paper-Route Current-Sim Training-Stability Repair Design
+
+- status: completed
+- decision: `current_sim_training_stability_repair_design_admit_candidate_checkpoint_execution`
+- manifest: `experiments/manifests/m2240-paper-route-current-sim-training-stability-repair-design.json`
+- design artifact: `docs/m2240-paper-route-current-sim-training-stability-repair-design.md`
+- evidence basis: M2238 late regression rows `18/30`
+- repair target: final-checkpoint late regression and missing intermediate checkpoint evaluation
+- existing trainer support: `checkpoint_interval_steps`
+- prior matched-budget configs: `checkpoint_interval_steps=0`
+- admitted execution: same five profiles and three seeds, total_steps `32768`, checkpoint_interval_steps `4096`
+- candidate checkpoints per run: `8`
+- expected candidate eval rows: `120`
+- expected selected checkpoint rows: `15`
+- selection rule: readiness pass, lower termination, higher return, lower lateral RMSE, earlier step
+- actor input contract changes: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits controlled same-budget candidate-checkpoint execution in M2241
+- follow-up manifest: `experiments/manifests/m2241-paper-route-current-sim-training-stability-repair-execution.json`
+- next: `m2241-paper-route-current-sim-training-stability-repair-execution`

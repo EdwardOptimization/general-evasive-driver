@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit
+m2240-paper-route-current-sim-training-stability-repair-design
 ```
 
 Current next task:
 
 ```text
-m2240-paper-route-current-sim-training-stability-repair-design
+m2241-paper-route-current-sim-training-stability-repair-execution
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -163,9 +163,14 @@ M2239 audits this result and routes to M2240 training-stability repair design.
 The audit rejects near-floor calibration as the primary route
 (`medium_near_floor_count=0`), rejects a seed-only explanation as primary
 (medium seed pass counts `2/5`, `0/5`, `2/5`), and blocks another blind budget
-increase. M2240 must design a checkpoint-retention/best-checkpoint or
-early-stop repair route before any new rollout, training, measured execution,
-ranking, finite-window-vs-GRU verdict, or self-ID claim.
+increase. M2240 completes that design: keep the same five profiles and three
+seeds, keep total steps `32768`, enable `checkpoint_interval_steps=4096`, and
+evaluate `8` candidate checkpoints per run for `120` candidate eval rows and
+`15` selected checkpoint rows. Selection is per profile/seed only by fixed
+lexicographic rule: readiness pass, lower termination, higher return, lower
+lateral RMSE, earlier step. M2241 may now implement and run this same-budget
+candidate-checkpoint execution, still with no controller-family ranking,
+finite-window-vs-GRU verdict, paper claim, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

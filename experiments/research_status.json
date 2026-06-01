@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2247,
+    "completed": 2248,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
+    "command_log": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md",
+    "run_dir": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
     "status": "completed",
-    "task_id": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit"
+    "task_id": "m2240-paper-route-current-sim-training-stability-repair-design"
   },
   "next_task": {
-    "command": "manual design over M2238/M2239 diagnosis artifacts",
-    "hypothesis": "A training-stability repair design can address M2238 late-regression evidence more directly than another blind budget increase.",
-    "id": "m2240-paper-route-current-sim-training-stability-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design checkpoint retention/best-checkpoint repair route from M2238 late-regression evidence no training/ranking claims",
-    "priority": 22350,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --output-dir runs/m2241_paper_route_current_sim_training_stability_repair_execution",
+    "hypothesis": "Same-budget periodic checkpoint retention can recover readiness lost by final-checkpoint late regression without changing actor inputs or profile fairness.",
+    "id": "m2241-paper-route-current-sim-training-stability-repair-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run same-budget periodic checkpoint training/eval selection panel no ranking claims",
+    "priority": 22360,
     "status": "pending",
-    "success_artifact": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md"
+    "success_artifact": "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json"
   },
-  "updated_at_utc": "20260601T143102Z"
+  "updated_at_utc": "20260601T143809Z"
 }

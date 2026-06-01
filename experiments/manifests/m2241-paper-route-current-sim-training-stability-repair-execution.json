@@ -1,0 +1,183 @@
+{
+  "id": "m2241-paper-route-current-sim-training-stability-repair-execution",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "seed_fragility",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_new_training_execution"
+    ],
+    "parent_dataset": [
+      "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
+      "configs/paper_route_profiles/m2233_matched_budget_medium_v1/*.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2240-paper-route-current-sim-training-stability-repair-design.json"
+    ],
+    "parent_objective": [
+      "execute same-budget checkpoint-retention repair with periodic candidate checkpoint evaluation"
+    ],
+    "derived_from": [
+      "m2240-paper-route-current-sim-training-stability-repair-design"
+    ],
+    "blocked_by": [
+      "M2240 admits candidate-checkpoint execution while keeping ranking and self-ID claims blocked"
+    ],
+    "supersedes": [
+      "blindly increasing total_steps again",
+      "using final checkpoint only after late-regression evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2241-paper-route-current-sim-training-stability-repair-execution.md",
+  "public_gates": [
+    "M2241 must keep the same five trainable profiles and three seeds",
+    "M2241 must keep total_steps at 32768 and add checkpoint_interval_steps 4096",
+    "M2241 must evaluate exactly 8 candidate checkpoints per profile/seed run",
+    "M2241 must select one checkpoint per profile/seed with the pre-registered lexicographic rule",
+    "M2241 must keep ranking, winner selection, paper, finite-window-vs-GRU, and self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change actor input contract",
+    "do not drop profiles",
+    "do not drop seeds",
+    "do not change total_steps",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_training_stability_candidate_checkpoint_execution",
+    "evidence_increment": "generates new same-budget training data with periodic checkpoint candidates and selected-checkpoint diagnostics",
+    "claim_scope": "training-protocol repair evidence only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if candidate checkpoint evals are incomplete",
+      "stop if guardrails are violated",
+      "stop if selected checkpoints still cannot change readiness route"
+    ],
+    "fallback_plan": [
+      "route to reward/curriculum repair if selected checkpoints improve final but stay below floor",
+      "route to task/curriculum repair if selected checkpoints do not improve final",
+      "route to result audit and measured-readiness design if selected checkpoints meet floor for at least one profile"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2240 admits controlled candidate-checkpoint execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run same-budget training-stability repair with candidate checkpoint evaluation",
+    "admission_evidence": [
+      "M2238 late_regression_row_count is 18/30",
+      "M2240 freezes checkpoint_interval_steps 4096 and candidate-selection rule",
+      "train_ppo already supports periodic checkpoint writing"
+    ],
+    "blocked_shortcuts": [
+      "do not change actor input contract",
+      "do not drop profiles or seeds",
+      "do not rank profiles",
+      "do not claim paper or self-ID evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_training_stability_repair_execution.py",
+      "tests/test_paper_route_current_sim_training_stability_repair_execution.py",
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/*",
+      "docs/m2241-paper-route-current-sim-training-stability-repair-execution.md",
+      "M2241 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "15 train/eval runs complete",
+      "120 candidate checkpoint evals complete",
+      "15 selected checkpoint rows exist",
+      "result route is selected without ranking or paper claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2241 is a training-protocol repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2241; no wrong-history, reset-hidden, or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "Public matched-budget training/eval seeds with periodic candidate checkpoints.",
+    "negative_result_policy": "If selected checkpoints still fail readiness, route to reward/task/curriculum repair rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "same-budget training-stability repair result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds new same-budget training/eval evidence with candidate checkpoints rather than continuing artifact-only local search",
+    "paper_verdict_delta": "can determine whether final-checkpoint late regression was blocking comparison readiness",
+    "must_synthesize_if": [
+      "M2241 still yields profile_floor_pass_count 0 without selected-checkpoint improvement",
+      "M2241 exposes the same below-floor failure under the repaired protocol",
+      "M2241 would require another narrow execution before changing route"
+    ]
+  },
+  "hypothesis": "Same-budget periodic checkpoint retention can recover readiness lost by final-checkpoint late regression without changing actor inputs or profile fairness.",
+  "success_criteria": [
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json exists",
+    "15/15 training runs complete",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "all selected metrics are finite",
+    "guardrail_violation_count is 0",
+    "ranking_admissible_count is 0",
+    "winner_selected is false",
+    "finite_window_vs_gru_conclusion_made is false",
+    "paper_level_claim_made is false",
+    "level3_self_id_claim_made is false"
+  ],
+  "failure_criteria": [
+    "any profile/seed training run fails",
+    "candidate checkpoint evals are missing",
+    "selected checkpoint rows are missing",
+    "metrics are non-finite",
+    "actor input contract changes",
+    "profiles or seeds are dropped",
+    "M2241 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --output-dir runs/m2241_paper_route_current_sim_training_stability_repair_execution"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2241_paper_route_current_sim_training_stability_repair_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2241-paper-route-current-sim-training-stability-repair-execution.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_new_training_execution"
+  ],
+  "baseline_artifacts": [
+    "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
+    "configs/paper_route_profiles/m2233_matched_budget_medium_v1"
+  ],
+  "decision_rule": "M2241 passes if it completes same-budget candidate-checkpoint execution and produces selected-checkpoint diagnostics without ranking claims.",
+  "next_blocker": "m2241-paper-route-current-sim-training-stability-repair-execution"
+}

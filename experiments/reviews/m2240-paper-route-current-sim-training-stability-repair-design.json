@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2240 pending training-stability repair design no training/ranking claims",
+  "decision_reason": "M2240 freezes same-budget periodic checkpoint repair checkpoint_interval 4096 candidate count 120 selected rows 15 no ranking claims",
   "failure_criteria": [
     "design requires actor input contract changes",
     "design is just another total_steps increase",
@@ -31,7 +31,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T143535Z",
+  "generated_at_utc": "20260601T144316Z",
   "hypothesis": "A training-stability repair design can address M2238 late-regression evidence more directly than another blind budget increase.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2240-paper-route-current-sim-training-stability-repair-design",
   "next_blocker": "m2240-paper-route-current-sim-training-stability-repair-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_training_stability_repair_design_admit_candidate_checkpoint_execution",
   "public_gates": [
     "M2240 must design a training-stability repair without executing training",
     "M2240 must preserve the human-view/no-privileged actor input contract",
@@ -76,9 +76,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2240-paper-route-current-sim-training-stability-repair-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_training_stability_repair_design_admit_candidate_checkpoint_execution",
     "milestone": "m2240-paper-route-current-sim-training-stability-repair-design",
-    "reason": "M2240 pending training-stability repair design no training/ranking claims",
+    "reason": "M2240 freezes same-budget periodic checkpoint repair checkpoint_interval 4096 candidate count 120 selected rows 15 no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

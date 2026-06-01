@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T143535Z
+- Generated at UTC: 20260601T144316Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2240 pending training-stability repair design no training/ranking claims
+- Promotion decision: current_sim_training_stability_repair_design_admit_candidate_checkpoint_execution
+- Decision reason: M2240 freezes same-budget periodic checkpoint repair checkpoint_interval 4096 candidate count 120 selected rows 15 no ranking claims
 
 ## Hypothesis
 
@@ -89,8 +89,8 @@ A training-stability repair design can address M2238 late-regression evidence mo
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2240 pending training-stability repair design no training/ranking claims
+- decision: current_sim_training_stability_repair_design_admit_candidate_checkpoint_execution
+- reason: M2240 freezes same-budget periodic checkpoint repair checkpoint_interval 4096 candidate count 120 selected rows 15 no ranking claims
 
 ## Next Blocker
 
