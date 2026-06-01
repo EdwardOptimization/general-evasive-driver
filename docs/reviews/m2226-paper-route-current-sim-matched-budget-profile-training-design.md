@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T125925Z
+- Generated at UTC: 20260601T130300Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims
+- Promotion decision: current_sim_matched_budget_profile_training_design_admit_config_materialization
+- Decision reason: M2226 freezes matched-budget primary profile training design L0 L1 L2_25 L2_50 L3_online 3 seeds 8192 steps quality floors and post-training gates no training/ranking claims
 
 ## Hypothesis
 
@@ -85,8 +85,8 @@ A matched-budget training design can remove the weak-smoke checkpoint blocker wi
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims
+- decision: current_sim_matched_budget_profile_training_design_admit_config_materialization
+- reason: M2226 freezes matched-budget primary profile training design L0 L1 L2_25 L2_50 L3_online 3 seeds 8192 steps quality floors and post-training gates no training/ranking claims
 
 ## Next Blocker
 

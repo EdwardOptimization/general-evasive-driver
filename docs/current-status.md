@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit
+m2226-paper-route-current-sim-matched-budget-profile-training-design
 ```
 
 Current next task:
 
 ```text
-m2226-paper-route-current-sim-matched-budget-profile-training-design
+m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -71,7 +71,14 @@ finite-window-vs-GRU evidence from weak smoke checkpoints. M2226 must now
 freeze a fair L0/L1/L2/L3 matched-budget training plan with seed policy,
 quality floors, checkpoint materialization, readiness, and reset/runtime smoke
 admission gates before any training, rerun, ranking, paper claims,
-finite-window vs GRU verdict, or self-ID claim.
+finite-window vs GRU verdict, or self-ID claim. M2226 completes that design:
+train primary profiles `L0_current_masked`, `L1_one_step`, `L2_window_25`,
+`L2_window_50`, and `L3_online_gru`; keep `L3_reset_control` as an alias
+control; use `3` seeds per profile (`222601/222602/222603`), `8192` steps per
+seed, rollout steps `128`, `4` envs, `2` update epochs, and `32` eval episodes;
+admit profiles only if at least `2/3` seeds meet eval termination `<=0.4` and
+eval return `>=50.0`. M2227 must now materialize configs and a training command
+matrix without running training.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

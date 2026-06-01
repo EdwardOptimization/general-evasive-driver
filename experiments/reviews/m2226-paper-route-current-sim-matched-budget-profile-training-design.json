@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims",
+  "decision_reason": "M2226 freezes matched-budget primary profile training design L0 L1 L2_25 L2_50 L3_online 3 seeds 8192 steps quality floors and post-training gates no training/ranking claims",
   "failure_criteria": [
     "design document is missing",
     "design trains only L3 without matched profile budgets",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T125925Z",
+  "generated_at_utc": "20260601T130300Z",
   "hypothesis": "A matched-budget training design can remove the weak-smoke checkpoint blocker without overclaiming finite-window or GRU evidence.",
   "lineage": {
     "blocked_by": [
@@ -62,7 +62,7 @@
   "milestone": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
   "next_blocker": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_profile_training_design_admit_config_materialization",
   "public_gates": [
     "M2226 must define a matched-budget L0/L1/L2/L3 training matrix",
     "M2226 must preserve the P0 human-view no-wheel no-oracle actor contract",
@@ -73,9 +73,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_profile_training_design_admit_config_materialization",
     "milestone": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
-    "reason": "M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims",
+    "reason": "M2226 freezes matched-budget primary profile training design L0 L1 L2_25 L2_50 L3_online 3 seeds 8192 steps quality floors and post-training gates no training/ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

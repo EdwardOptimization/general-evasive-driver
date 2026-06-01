@@ -39812,3 +39812,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits matched-budget L0/L1/L2/L3 training design before any new training rerun ranking or paper/self-ID claim
 - follow-up manifest: `experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json`
 - next: `m2226-paper-route-current-sim-matched-budget-profile-training-design`
+
+## M2226 Paper-Route Current-Sim Matched-Budget Profile Training Design
+
+- status: completed
+- decision: `current_sim_matched_budget_profile_training_design_admit_config_materialization`
+- manifest: `experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json`
+- design artifact: `docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md`
+- primary trainable profiles: `L0_current_masked`, `L1_one_step`, `L2_window_25`, `L2_window_50`, `L3_online_gru`
+- alias/control profile: `L3_reset_control`
+- deferred diagnostic profiles: `L2_window_13`, `L2_window_100`
+- seeds_per_profile: `3`
+- seed_ids: `222601`, `222602`, `222603`
+- total_steps_per_seed: `8192`
+- rollout_steps: `128`
+- num_envs: `4`
+- update_epochs: `2`
+- eval_episodes: `32`
+- quality floors: eval termination rate `<=0.4` and eval return `>=50.0` for at least `2/3` seeds
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits no-training config materialization for matched-budget short v0
+- follow-up manifest: `experiments/manifests/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.json`
+- next: `m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization`

@@ -1,0 +1,184 @@
+{
+  "id": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
+      "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json",
+      "configs/paper_route_profiles/m1190_l1_one_step_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_25_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_50_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_online_gru_smoke.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json"
+    ],
+    "parent_objective": [
+      "materialize matched-budget profile training configs and command matrix without running training"
+    ],
+    "derived_from": [
+      "m2226-paper-route-current-sim-matched-budget-profile-training-design"
+    ],
+    "blocked_by": [
+      "M2226 design must freeze profile matrix, budgets, seeds, quality floors, and admission route"
+    ],
+    "supersedes": [
+      "manual profile-specific training config edits",
+      "single-profile recurrent retraining configs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.md",
+  "public_gates": [
+    "M2227 must materialize exactly the M2226 primary trainable profile matrix",
+    "M2227 must use the same total_steps, rollout_steps, num_envs, update_epochs, minibatch_size, learning_rate, clip_coef, max_grad_norm, eval_episodes, and seed set for every trained profile",
+    "M2227 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2227 must write a training command matrix and claim boundary",
+    "M2227 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "Q_matched_budget_profile_training_config_materialization",
+    "evidence_increment": "turns matched-budget design into deterministic config and command artifacts",
+    "claim_scope": "config materialization only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if budgets differ across trainable profiles",
+      "stop if generated configs violate actor input contract",
+      "stop if materialization starts training or rollout"
+    ],
+    "fallback_plan": [
+      "route to config repair if materialization fails",
+      "route to training execution design if materialization is clean",
+      "route to synthesis if matched-budget matrix is too expensive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2226 admits config materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-training matched-budget profile configs",
+    "admission_evidence": [
+      "M2226 matched-budget design completed",
+      "M2226 primary profile matrix and budget fields are explicit"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_matched_budget_profile_training_configs.py",
+      "tests/test_paper_route_current_sim_matched_budget_profile_training_configs.py",
+      "configs/paper_route_profiles/m2227_matched_budget_short_v0/*.json",
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/*",
+      "docs/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.md",
+      "M2227 status queue scoreboard research log and review",
+      "one follow-up manifest selected by materialization"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "training_matrix.csv exists",
+      "profile/seed/budget counts match design",
+      "contract violation count is 0",
+      "training_started false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2227 materializes configs and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2227."
+    ],
+    "temporal_evidence_window": "M2226 matched-budget training design.",
+    "negative_result_policy": "Materialized configs must support fair finite-window and GRU outcomes without assuming a winner.",
+    "allowed_claims": [
+      "matched-budget config materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates deterministic matched-budget training artifacts",
+    "paper_verdict_delta": "enables fair profile training before comparison",
+    "must_synthesize_if": [
+      "M2227 cannot materialize equal budgets",
+      "M2227 would require profile-specific config tuning",
+      "M2227 starts training"
+    ]
+  },
+  "hypothesis": "M2226 matched-budget design can be materialized into contract-clean config and command artifacts without running training.",
+  "success_criteria": [
+    "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json exists",
+    "training_matrix.csv exists",
+    "generated configs exist for each trainable profile and seed",
+    "all trained profiles use matched budgets and seeds",
+    "contract_violation_count is 0",
+    "training_started is false",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "training matrix is missing",
+    "budget fields differ across profiles",
+    "contract violations are nonzero",
+    "new rollout or training is performed"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_configs --output-dir runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs --config-output-dir configs/paper_route_profiles/m2227_matched_budget_short_v0"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md"
+  ],
+  "decision_rule": "M2227 passes if it materializes matched-budget configs and command matrix without training or contract violations.",
+  "next_blocker": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization"
+}

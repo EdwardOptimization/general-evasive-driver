@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M2227 pending no-training matched-budget config and command materialization no ranking claims",
+  "failure_criteria": [
+    "summary is missing",
+    "training matrix is missing",
+    "budget fields differ across profiles",
+    "contract violations are nonzero",
+    "new rollout or training is performed"
+  ],
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T130300Z",
+  "hypothesis": "M2226 matched-budget design can be materialized into contract-clean config and command artifacts without running training.",
+  "lineage": {
+    "blocked_by": [
+      "M2226 design must freeze profile matrix, budgets, seeds, quality floors, and admission route"
+    ],
+    "derived_from": [
+      "m2226-paper-route-current-sim-matched-budget-profile-training-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_config_materialization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
+      "configs/paper_route_profiles/m1190_l0_current_masked_smoke.json",
+      "configs/paper_route_profiles/m1190_l1_one_step_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_25_smoke.json",
+      "configs/paper_route_profiles/m1190_l2_window_50_smoke.json",
+      "configs/paper_route_profiles/m1190_l3_online_gru_smoke.json"
+    ],
+    "parent_objective": [
+      "materialize matched-budget profile training configs and command matrix without running training"
+    ],
+    "supersedes": [
+      "manual profile-specific training config edits",
+      "single-profile recurrent retraining configs"
+    ]
+  },
+  "milestone": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization",
+  "next_blocker": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2227 must materialize exactly the M2226 primary trainable profile matrix",
+    "M2227 must use the same total_steps, rollout_steps, num_envs, update_epochs, minibatch_size, learning_rate, clip_coef, max_grad_norm, eval_episodes, and seed set for every trained profile",
+    "M2227 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2227 must write a training command matrix and claim boundary",
+    "M2227 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization",
+    "reason": "M2227 pending no-training matched-budget config and command materialization no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json exists",
+    "training_matrix.csv exists",
+    "generated configs exist for each trainable profile and seed",
+    "all trained profiles use matched budgets and seeds",
+    "contract_violation_count is 0",
+    "training_started is false",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

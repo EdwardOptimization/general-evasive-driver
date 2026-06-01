@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2233,
+    "completed": 2234,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
+    "command_log": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
+    "run_dir": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
     "status": "completed",
-    "task_id": "m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit"
+    "task_id": "m2226-paper-route-current-sim-matched-budget-profile-training-design"
   },
   "next_task": {
-    "command": "write docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
-    "hypothesis": "A matched-budget training design can remove the weak-smoke checkpoint blocker without overclaiming finite-window or GRU evidence.",
-    "id": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
-    "kind": "gate",
-    "notes": "Pending: freeze matched-budget L0/L1/L2/L3 profile training design with quality floors and admission gates",
-    "priority": 22210,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_configs --output-dir runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs --config-output-dir configs/paper_route_profiles/m2227_matched_budget_short_v0",
+    "hypothesis": "M2226 matched-budget design can be materialized into contract-clean config and command artifacts without running training.",
+    "id": "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize matched-budget training configs and command matrix without training",
+    "priority": 22220,
     "status": "pending",
-    "success_artifact": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md"
+    "success_artifact": "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json"
   },
-  "updated_at_utc": "20260601T125736Z"
+  "updated_at_utc": "20260601T130052Z"
 }
