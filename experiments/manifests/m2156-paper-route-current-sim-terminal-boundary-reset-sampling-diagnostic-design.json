@@ -1,0 +1,173 @@
+{
+  "id": "m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_terminal_boundary_reset_sampling_diagnostic_design"
+    ],
+    "parent_dataset": [
+      "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded reset-only diagnostic for the M2154 terminal-boundary sampling failure"
+    ],
+    "derived_from": [
+      "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2154 reset validation failed on m2151-current-sim-t5-03"
+    ],
+    "supersedes": [
+      "unregistered reset reruns with different seeds",
+      "dropping or repairing the failing terminal-boundary row without a diagnostic"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+  "public_gates": [
+    "M2156 must freeze a bounded reset-only diagnostic command for m2151-current-sim-t5-03",
+    "M2156 must not run reset rollout measured execution policy actions or ranking",
+    "M2156 must compare frozen reset seed and materialized eval seed against explicit attempt budgets",
+    "M2156 must preserve actor-input and current-sim metadata claim boundaries"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_terminal_boundary_reset_sampling_diagnostic_design",
+    "evidence_increment": "freezes a diagnostic to determine whether the M2154 failure is seed-local or attempt-budget/template brittleness",
+    "claim_scope": "diagnostic command design only; no reset rerun rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design reruns reset in M2156",
+      "stop if design omits the original failing row",
+      "stop if design changes actor inputs or controller profiles",
+      "stop if design routes directly to measured execution"
+    ],
+    "fallback_plan": [
+      "route to diagnostic implementation if the command is exact",
+      "route to branch synthesis if another design-only milestone would be needed",
+      "route to executable-spec repair design if the diagnostic cannot be scoped without changing the panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2155 routes from reset failure audit to diagnostic design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "terminal-boundary reset-sampling diagnostic design",
+    "admission_evidence": [
+      "M2155 localizes the reset failure to m2151-current-sim-t5-03",
+      "M2155 blocks repair or measured execution until a reset-sampling diagnostic is designed"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2156",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+      "M2156 status queue scoreboard research log and review",
+      "one follow-up manifest for diagnostic implementation and run"
+    ],
+    "next_stage_criteria": [
+      "exact diagnostic command is frozen",
+      "target row and attempt budgets are explicit",
+      "planned artifacts and pass/fail classifications are explicit",
+      "next implementation/run route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2156 designs a reset-sampling diagnostic and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2156."
+    ],
+    "temporal_evidence_window": "M2154-M2155 reset-validation artifacts.",
+    "negative_result_policy": "If the diagnostic later shows terminal-boundary brittleness, repair scenario sampling before any controller comparison.",
+    "allowed_claims": [
+      "reset-sampling diagnostic command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a targeted diagnostic that can convert the M2154 reset failure into seed-local versus template-brittleness evidence",
+    "paper_verdict_delta": "can enable reset-sampling repair design but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2156 cannot freeze an exact diagnostic command",
+      "M2156 would require another design-only milestone",
+      "M2156 discovers that the diagnostic would need controller profile tuning"
+    ]
+  },
+  "hypothesis": "A bounded reset-only diagnostic command can determine whether the M2154 T5 reset failure is seed-local, attempt-budget limited, or terminal-boundary template brittleness without changing actor inputs or controller profiles.",
+  "success_criteria": [
+    "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md exists",
+    "target task_source_id m2151-current-sim-t5-03 is explicit",
+    "frozen reset seed and materialized eval seed are explicit",
+    "attempt budgets are explicit",
+    "planned artifacts and pass/fail classifications are explicit",
+    "next implementation/run route is explicit",
+    "no reset rerun rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "target row or seeds are ambiguous",
+    "attempt budgets are missing",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_terminal_boundary_reset_sampling_diagnostic_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+    "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2156 passes if it freezes an exact diagnostic command without running reset or overclaiming.",
+  "next_blocker": "m2157-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2162,
+    "completed": 2163,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.md",
-    "returncode": 1,
-    "run_dir": "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight",
-    "status": "failed",
-    "task_id": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run"
+    "command_log": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+    "returncode": 0,
+    "run_dir": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+    "status": "completed",
+    "task_id": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json",
-    "hypothesis": "M2154's fail result is localized to one terminal-boundary reset-sampling failure rather than a contract metadata forbidden-key or guardrail failure.",
-    "id": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit",
+    "command": "see experiments/manifests/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.json",
+    "hypothesis": "A bounded reset-only diagnostic command can determine whether the M2154 T5 reset failure is seed-local, attempt-budget limited, or terminal-boundary template brittleness without changing actor inputs or controller profiles.",
+    "id": "m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design",
     "kind": "gate",
-    "notes": "Pending: audit M2154 39/40 reset result before repair or rerun",
-    "priority": 21500,
+    "notes": "Pending: design targeted diagnostic for the M2154 terminal-boundary reset-sampling failure",
+    "priority": 21510,
     "status": "pending",
-    "success_artifact": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md"
+    "success_artifact": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md"
   },
-  "updated_at_utc": "20260601T055316Z"
+  "updated_at_utc": "20260601T055905Z"
 }

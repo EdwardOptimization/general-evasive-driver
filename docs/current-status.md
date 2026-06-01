@@ -16,24 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design
+m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit
+m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design
 ```
 
-Immediate route: M2154 implemented and ran the frozen current-sim reset-only
-validator. It failed closed with `39/40` reset successes: one
-`T5_terminal_boundary_near_constraint` row
-(`m2151-current-sim-t5-03`, eval seed `215335`) could not sample an obstacle
-scenario matching its configured filters. Contract, metadata, forbidden-key,
-task/source quota, and guardrail counts are all `0`. M2155 must audit this
-sampling failure before any repair or rerun. Rollout, measured execution,
-controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
-claims remain blocked until audited evidence supports them.
+Immediate route: M2155 audits the M2154 reset-validation failure as one
+localized `scenario_sampling_failure`, not a schema, actor-input contract,
+metadata, forbidden-key, quota, or guardrail issue. The failing row is
+`m2151-current-sim-t5-03`, a `T5_terminal_boundary_near_constraint` spec with
+reset seed `215335` and obstacle `max_sample_attempts=200`. M2156 must design a
+bounded reset-only diagnostic to distinguish seed-local sampling miss from
+attempt-budget/template brittleness. Rollout, measured execution, controller
+ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
+blocked until audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

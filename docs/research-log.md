@@ -38175,3 +38175,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - task_family_quota_pass / source_family_template_quota_pass: `true` / `true`
 - follow-up manifest: `experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json`
 - next: `m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit`
+
+## M2155 Paper-Route Current-Sim Controlled Comparison Reset Validation Result Audit
+
+- status: completed
+- decision: `current_sim_reset_validation_audit_route_to_terminal_boundary_sampling_diagnostic_design`
+- manifest: `experiments/manifests/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.json`
+- audit artifact: `docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md`
+- audited summary: `runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json`
+- reset rerun in M2155: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- failure taxonomy: `scenario_sampling_failure`
+- audit result: M2154 fail is localized to one T5 terminal-boundary reset-sampling failure, not schema, contract, metadata, forbidden-key, quota, or guardrail failure
+- failing row: `m2151-current-sim-t5-03`, `eval_seed=215335`, `max_sample_attempts=200`
+- route: design a bounded reset-only diagnostic comparing frozen reset seed, materialized eval seed, and attempt budgets `200/800/1600`
+- follow-up manifest: `experiments/manifests/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.json`
+- next: `m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design`
