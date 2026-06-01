@@ -38198,3 +38198,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design a bounded reset-only diagnostic comparing frozen reset seed, materialized eval seed, and attempt budgets `200/800/1600`
 - follow-up manifest: `experiments/manifests/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.json`
 - next: `m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design`
+
+## M2156 Paper-Route Current-Sim Terminal-Boundary Reset-Sampling Diagnostic Design
+
+- status: completed
+- decision: `terminal_boundary_reset_sampling_diagnostic_design_admit_branch_synthesis_before_implementation`
+- manifest: `experiments/manifests/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.json`
+- design artifact: `docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md`
+- reset rerun in M2156: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- target row: `m2151-current-sim-t5-03`
+- eval seeds: `215335`, `219103`
+- attempt budgets: `200`, `800`, `1600`
+- planned diagnostic attempts: `6`
+- classification options: `seed_local_sampling_failure`, `attempt_budget_limited`, `terminal_boundary_template_brittle`, `original_seed_passes_at_200`, `mixed_or_inconclusive`
+- note: harness cadence requires branch synthesis before implementation
+- follow-up manifest: `experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json`
+- next: `m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis`

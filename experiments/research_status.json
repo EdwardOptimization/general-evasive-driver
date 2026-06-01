@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2163,
+    "completed": 2164,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+    "command_log": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit.md",
+    "run_dir": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
     "status": "completed",
-    "task_id": "m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit"
+    "task_id": "m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.json",
-    "hypothesis": "A bounded reset-only diagnostic command can determine whether the M2154 T5 reset failure is seed-local, attempt-budget limited, or terminal-boundary template brittleness without changing actor inputs or controller profiles.",
-    "id": "m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design",
+    "command": "see experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json",
+    "hypothesis": "M2147-M2156 produced enough current-sim setup and reset evidence to choose a bounded next step, while keeping measured execution, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims blocked.",
+    "id": "m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design targeted diagnostic for the M2154 terminal-boundary reset-sampling failure",
-    "priority": 21510,
+    "notes": "Pending: synthesize current-sim controlled-comparison branch before diagnostic implementation",
+    "priority": 21520,
     "status": "pending",
-    "success_artifact": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md"
+    "success_artifact": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T055905Z"
+  "updated_at_utc": "20260601T060308Z"
 }

@@ -16,24 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2155-paper-route-current-sim-controlled-comparison-reset-validation-result-audit
+m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design
 ```
 
 Current next task:
 
 ```text
-m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design
+m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis
 ```
 
-Immediate route: M2155 audits the M2154 reset-validation failure as one
-localized `scenario_sampling_failure`, not a schema, actor-input contract,
-metadata, forbidden-key, quota, or guardrail issue. The failing row is
-`m2151-current-sim-t5-03`, a `T5_terminal_boundary_near_constraint` spec with
-reset seed `215335` and obstacle `max_sample_attempts=200`. M2156 must design a
-bounded reset-only diagnostic to distinguish seed-local sampling miss from
-attempt-budget/template brittleness. Rollout, measured execution, controller
-ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
-blocked until audited evidence supports them.
+Immediate route: M2156 freezes a bounded reset-only diagnostic for the failing
+T5 row `m2151-current-sim-t5-03`, but the branch has reached the harness
+synthesis cadence before implementation. M2157 must synthesize M2147-M2156 and
+decide whether to continue to the `6`-attempt diagnostic, pivot, stop, or
+promote to a new branch. Rollout, measured execution, controller ranking, paper
+claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
+audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
