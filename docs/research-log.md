@@ -37872,3 +37872,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: ranking, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
 - follow-up manifest: `experiments/manifests/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.json`
 - next: `m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit`
+
+## M2142 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Source Inventory Audit
+
+- status: completed
+- decision: `denominator_source_inventory_audit_admit_denominator_backed_comparison_protocol_design`
+- manifest: `experiments/manifests/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.json`
+- audit artifact: `docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md`
+- audited summary: `runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json`
+- reset/rollout/measured execution in M2142: `false`
+- policy actions executed in M2142: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: complete denominator inventory, no missing duplicate or nonfinite denominator rows
+- denominator rows: `30/30` available
+- profile universe: `L0_current_masked`, `L1_one_step`, `L2_window_50`, `L3_online_gru`, `L3_reset_control_corrected`
+- profile totals: L0 `3/60`, L1 `5/60`, L2 `0/60`, L3 online `22/60`, L3 reset `26/60`
+- interpretation: denominator inventory admits diagnostic comparison protocol design, not ranking or FW-vs-GRU/self-ID claim
+- follow-up manifest: `experiments/manifests/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.json`
+- next: `m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design`

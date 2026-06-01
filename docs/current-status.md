@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization
+m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit
 ```
 
 Current next task:
 
 ```text
-m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit
+m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design
 ```
 
-Immediate route: M2141 materializes the no-rerun denominator-source inventory.
-It passes with `30/30` denominator rows available across `6` panel source kinds
-and `5` measured profiles. M2142 must audit this before any denominator-backed
-comparison design. Ranking, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked.
+Immediate route: M2142 audits M2141 as a clean complete denominator inventory:
+`30/30` denominator rows available across `6` panel source kinds and `5`
+measured profiles. M2143 may design a denominator-backed diagnostic comparison
+protocol, but ranking, winner selection, paper claims, finite-window vs GRU
+conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
