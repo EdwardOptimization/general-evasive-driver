@@ -1,0 +1,163 @@
+{
+  "id": "m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/training_repeat_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rerun combined repeat outcome and seed-diversity audit before comparison"
+    ],
+    "derived_from": [
+      "m2185-paper-route-current-sim-repeat-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2185 blocks ranking until outcome support and seed diversity are audited"
+    ],
+    "supersedes": [
+      "direct profile ranking from M2184 descriptive aggregate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+  "public_gates": [
+    "M2186 must design a no-rerun audit over M2174 and M2184 artifacts",
+    "M2186 must include combined outcome support checks",
+    "M2186 must include seed/profile diversity checks",
+    "M2186 must include a rule for identical repeat-level aggregates",
+    "M2186 must not run new rollouts or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_seed_diversity_combined_outcome_audit_design",
+    "evidence_increment": "designs no-rerun audit needed before treating repeat execution as comparison-ready evidence",
+    "claim_scope": "audit design only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if no-rerun artifacts are insufficient to assess seed diversity",
+      "stop if combined outcome support remains too low for any comparison",
+      "stop if design would rank profiles",
+      "stop if design would require new rollout"
+    ],
+    "fallback_plan": [
+      "route to no-rerun audit implementation if design is clear",
+      "route to task-quality/offtrack repair design if outcome support is the blocker",
+      "route to repeat training/materialization audit if seed diversity is invalid"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2185 result audit requires seed-diversity and combined-outcome audit design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design repeat seed-diversity and combined-outcome audit",
+    "admission_evidence": [
+      "M2184 complete repeat measured execution exists",
+      "M2185 audits execution as complete but not comparison-ready",
+      "M2185 identifies low-support offtrack dominance and identical repeat aggregates"
+    ],
+    "blocked_shortcuts": [
+      "no rollout in design",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+      "M2186 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rerun audit implementation"
+    ],
+    "next_stage_criteria": [
+      "audit inputs are explicit",
+      "audit metrics are explicit",
+      "pass/fail route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2186 designs outcome/seed-diversity audit and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2186."
+    ],
+    "temporal_evidence_window": "M2174 and M2184 measured execution artifacts.",
+    "negative_result_policy": "If seed diversity or support is insufficient, record it and route repair instead of ranking.",
+    "allowed_claims": [
+      "repeat seed-diversity and combined-outcome audit design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a no-rerun audit of new closed-loop repeat data quality",
+    "paper_verdict_delta": "can decide what audit must run before comparison but cannot decide comparison",
+    "must_synthesize_if": [
+      "M2186 cannot define seed-diversity checks",
+      "M2186 would rank profiles",
+      "M2186 would request new rollout before no-rerun audit"
+    ]
+  },
+  "hypothesis": "A no-rerun audit can determine whether M2174+M2184 provide seed-diverse, comparison-ready current-sim evidence or need repair.",
+  "success_criteria": [
+    "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md exists",
+    "combined outcome audit inputs are explicit",
+    "seed-diversity checks are explicit",
+    "identical repeat aggregate handling is explicit",
+    "next route is explicit",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "audit metrics are ambiguous",
+    "design ranks profiles",
+    "design runs new measured execution"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+    "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2186 passes if it freezes a no-rerun audit design for combined outcome support and seed diversity without ranking.",
+  "next_blocker": "m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design"
+}

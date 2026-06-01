@@ -38891,3 +38891,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to result audit before comparison or ranking
 - follow-up manifest: `experiments/manifests/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.json`
 - next: `m2185-paper-route-current-sim-repeat-measured-execution-result-audit`
+
+## M2185 Paper-Route Current-Sim Repeat Measured Execution Result Audit
+
+- status: completed
+- decision: `current_sim_repeat_measured_execution_audit_route_to_seed_diversity_and_combined_outcome_audit_design`
+- manifest: `experiments/manifests/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.json`
+- audit artifact: `docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md`
+- audited M2184 summary: `runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json`
+- M2184 accepted: complete execution and metadata-clean repeat data
+- M2184 counts: `640` episodes, `0` failures, `0` metadata missing, `0` metric completeness failures, guardrail `0`
+- M2184 outcomes: `100` success, `36` collision, `504` offtrack noncollision noncompletion
+- M2174 context outcomes: `63` success, `20` collision, `237` offtrack noncollision noncompletion
+- blocker: data are not comparison-ready because outcome support is low/offtrack-dominated and repeat_1/repeat_2 aggregates are identical
+- training: `false`
+- additional measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to no-rerun seed-diversity and combined-outcome audit design before comparison
+- follow-up manifest: `experiments/manifests/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.json`
+- next: `m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design`

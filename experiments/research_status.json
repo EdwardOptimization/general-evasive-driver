@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2192,
+    "completed": 2193,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run.md",
+    "command_log": "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2184_paper_route_current_sim_repeat_measured_execution",
+    "run_dir": "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run"
+    "task_id": "m2185-paper-route-current-sim-repeat-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
-    "hypothesis": "The M2184 repeat measured execution is complete and metadata-clean, but must be audited for outcome support before comparison.",
-    "id": "m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
+    "command": "write docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+    "hypothesis": "A no-rerun audit can determine whether M2174+M2184 provide seed-diverse, comparison-ready current-sim evidence or need repair.",
+    "id": "m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design",
     "kind": "gate",
-    "notes": "Pending: audit M2184 repeat measured execution before comparison",
-    "priority": 21800,
+    "notes": "Pending: design no-rerun seed-diversity and combined-outcome audit before comparison",
+    "priority": 21810,
     "status": "pending",
-    "success_artifact": "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md"
+    "success_artifact": "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md"
   },
-  "updated_at_utc": "20260601T092211Z"
+  "updated_at_utc": "20260601T092552Z"
 }

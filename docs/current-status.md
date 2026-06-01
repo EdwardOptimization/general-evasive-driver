@@ -16,23 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run
+m2185-paper-route-current-sim-repeat-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2185-paper-route-current-sim-repeat-measured-execution-result-audit
+m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design
 ```
 
-Immediate route: M2184 runs the frozen repeat measured-execution command and
-passes execution/metadata gates: `640` episodes, `0` runner failures,
-metadata-missing `0`, metric-completeness failures `0`, guardrail `0`, and
-quota pass. Raw outcomes are still low-support and offtrack-dominated:
-`100` success, `36` collision, `504` offtrack noncollision noncompletion.
-M2185 must audit this result before any comparison. Controller ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
-later audited evidence supports them.
+Immediate route: M2185 audits M2184 as complete execution and metadata-clean
+repeat data, but not comparison-ready. M2184 has `640` episodes, `0` failures,
+metadata-missing `0`, metric-completeness failures `0`, and guardrail `0`, but
+raw outcomes remain low-support/offtrack-dominated: `100` success, `36`
+collision, `504` offtrack. The two new repeat groups also have identical
+repeat-level aggregates. M2186 must design a no-rerun seed-diversity and
+combined-outcome audit before any comparison. Controller ranking, paper claims,
+finite-window vs GRU verdicts, and self-ID claims remain blocked until later
+audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
