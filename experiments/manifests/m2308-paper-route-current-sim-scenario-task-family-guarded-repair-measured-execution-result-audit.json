@@ -1,0 +1,191 @@
+{
+  "id": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/episode_rows.csv",
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/aggregate_by_role_family.csv",
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/aggregate_by_profile.csv",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json",
+      "docs/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.json"
+    ],
+    "parent_objective": [
+      "audit guarded-v2 measured execution against M2293 and M2298 target/guardrail slices"
+    ],
+    "derived_from": [
+      "m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution"
+    ],
+    "blocked_by": [
+      "M2307 completed measured execution but global outcome does not show clear improvement and collision count increased versus M2293"
+    ],
+    "supersedes": [
+      "interpreting M2307 global aggregate as final repair verdict",
+      "ranking profiles from M2307 aggregates",
+      "running another repair before target/guardrail slice audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2308 must audit M2307 completeness and claim boundary",
+    "M2308 must compare M2307 global outcome against M2293 without ranking profiles",
+    "M2308 must audit M2298 offtrack target and collision guardrail slices before route decision",
+    "M2308 must select a concrete non-ranking next route",
+    "M2308 must not run training reset rollout measured execution replay PPO or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_measured_execution_result_audit",
+    "evidence_increment": "audits M2307 measured outcome against M2293 and the M2298 repair gate spec",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2307 artifacts are incomplete",
+      "stop if M2298 target/guardrail slices cannot be audited",
+      "stop if audit would treat global return or profile aggregate as final ranking",
+      "stop if the next route would be another training run without slice diagnosis or synthesis"
+    ],
+    "fallback_plan": [
+      "route to artifact-only target/guardrail slice diagnosis if direct audit needs row-level comparison",
+      "route to branch synthesis if M2307 clearly fails to improve scenario-task quality",
+      "route to bounded repair design only if audit identifies a new non-local-search blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2307 measured execution completed with near-flat global success and higher collision count versus M2293",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2307 guarded-v2 measured execution result and choose next route",
+    "admission_evidence": [
+      "M2307 result_class is current_sim_scenario_task_family_measured_execution_pass",
+      "M2307 episode_count is 1080",
+      "M2307 failure_count is 0",
+      "M2307 guardrail_violation_count is 0",
+      "M2307 global success/offtrack/collision is 68/786/218 versus M2293 69/785/209"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
+      "M2308 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2307 completeness and guardrails are audited",
+      "M2307 versus M2293 global deltas are recorded",
+      "M2298 target and guardrail slice audit route is selected or completed",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2308 audits measured outcomes and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2308; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2307 measured execution outputs and M2293/M2298 reference artifacts.",
+    "negative_result_policy": "If guarded-v2 measured outcome is flat or worse, route to slice diagnosis or synthesis; do not lower self-ID standards.",
+    "allowed_claims": [
+      "guarded-v2 measured execution result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns guarded-v2 measured outcome data into a route decision before further local search",
+    "paper_verdict_delta": "can decide whether guarded-v2 repair changed M2293 offtrack/collision slices or should synthesize/pivot",
+    "must_synthesize_if": [
+      "M2308 cannot select a route",
+      "M2308 would recommend another training run without slice diagnosis",
+      "M2308 would rank profiles despite diagnostic-only aggregates"
+    ]
+  },
+  "hypothesis": "M2307 provides enough measured outcome evidence to decide whether guarded-v2 repair merits target/guardrail slice diagnosis, branch synthesis, or bounded repair.",
+  "success_criteria": [
+    "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md exists",
+    "M2307 result_class is current_sim_scenario_task_family_measured_execution_pass",
+    "episode_count is 1080",
+    "failure_count is 0",
+    "guardrail_violation_count is 0",
+    "M2307 versus M2293 global success/offtrack/collision deltas are audited",
+    "M2298 target/guardrail slice route is decided",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2307 artifacts are missing",
+    "M2308 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2308 ranks profiles or selects a winner",
+    "M2308 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2308 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json and M2293/M2298 references"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
+    "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/episode_rows.csv",
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/summary.json"
+  ],
+  "decision_rule": "M2308 passes if it audits M2307 completeness and measured outcome deltas then selects a non-ranking follow-up route.",
+  "next_blocker": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit"
+}

@@ -41497,3 +41497,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.json`
 - next: `m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution`
+
+## M2307 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Measured Execution
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_measured_execution_pass`
+- manifest: `experiments/manifests/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.json`
+- implementation doc: `docs/m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution.md`
+- summary: `runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json`
+- episode_count: `1080`
+- scenario_spec_count: `72`
+- selected_checkpoint_count: `15`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- global success/offtrack/collision: `68/786/218`
+- M2293 reference success/offtrack/collision: `69/785/209`
+- global deltas vs M2293 success/offtrack/collision: `-1/+1/+9`
+- mean_min_clearance_margin: `6.461206859204371`
+- dominant_failure_mode: `offtrack_dominated_failure`
+- training/replay/PPO: `false`
+- measured rollout/policy action: `true`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.json`
+- next: `m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit`

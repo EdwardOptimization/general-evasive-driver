@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2314,
+    "completed": 2315,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design",
+    "task_id": "m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md"
+    "run_dir": "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution",
+    "command_log": "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json"
   },
   "next_task": {
-    "id": "m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution",
-    "kind": "infrastructure",
-    "priority": 23020,
+    "id": "m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
+    "kind": "gate",
+    "priority": 23030,
     "status": "pending",
-    "hypothesis": "The M2304 guarded-v2 selected checkpoints can be evaluated over the 72-spec scenario-task-family panel without metadata, metric, or claim-boundary violations.",
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_measured_execution --config configs/paper_route_current_sim_scenario_task_family_v0.json --selected-rows runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv --config-root runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/configs --output-dir runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution --eval-seed-base 230700 --target-scenario-spec-count 72 --target-selected-checkpoint-count 15 --target-episode-count 1080 --device cpu --next-blocker m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit",
-    "success_artifact": "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
-    "notes": "Pending: run frozen 1080-episode measured execution over M2304 selected rows; no ranking/promotion/paper claims"
+    "hypothesis": "M2307 provides enough measured outcome evidence to decide whether guarded-v2 repair merits target/guardrail slice diagnosis, branch synthesis, or bounded repair.",
+    "command": "manual artifact audit of runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json and M2293/M2298 references",
+    "success_artifact": "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
+    "notes": "Pending: audit M2307 pass 1080 episodes global success/offtrack/collision 68/786/218 vs M2293 69/785/209; choose non-ranking route"
   },
-  "updated_at_utc": "20260601T220452Z"
+  "updated_at_utc": "20260601T221228Z"
 }
