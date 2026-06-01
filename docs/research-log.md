@@ -39122,3 +39122,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to materialization result audit before reset-validation design
 - follow-up manifest: `experiments/manifests/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.json`
 - next: `m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit`
+
+## M2195 Paper-Route Current-Sim Offtrack-Support Candidate Materialization Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_candidate_materialization_audit_admit_reset_validation_command_design`
+- manifest: `experiments/manifests/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.json`
+- audit artifact: `docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md`
+- audited summary: `runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json`
+- repaired specs: `288`
+- planned workload rows: `2304`
+- contract violations: `0`
+- guardrail violations: `0`
+- materialization failures: `0`
+- runner compatibility note: current reset validator expects M2151 semantics and must be made compatible with M2194 semantics before reset
+- result: admit reset-validation command design only
+- follow-up manifest: `experiments/manifests/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.json`
+- next: `m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design`

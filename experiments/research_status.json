@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2202,
+    "completed": 2203,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md",
+    "command_log": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization",
+    "run_dir": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run"
+    "task_id": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
-    "hypothesis": "The M2194 no-rollout materialization result is clean enough to admit reset-validation command design while keeping rollout/ranking blocked.",
-    "id": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit",
+    "command": "write docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+    "hypothesis": "The M2194 repaired task panel can be reset-validated with an explicit compatibility design for its materialization semantics without rollout or ranking shortcuts.",
+    "id": "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2194 materialization before reset-validation command design",
-    "priority": 21900,
+    "notes": "Pending: design compatible reset-validation command for M2194 repaired specs",
+    "priority": 21910,
     "status": "pending",
-    "success_artifact": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md"
+    "success_artifact": "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md"
   },
-  "updated_at_utc": "20260601T102149Z"
+  "updated_at_utc": "20260601T102559Z"
 }

@@ -1,0 +1,160 @@
+{
+  "id": "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design compatible reset-validation command for M2194 repaired executable specs"
+    ],
+    "derived_from": [
+      "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2194 repaired specs use new materialization semantics that old reset validator must explicitly accept"
+    ],
+    "supersedes": [
+      "direct old-reset-validator run with M2151-only semantics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+  "public_gates": [
+    "M2196 must design reset validation over M2194 repaired executable specs",
+    "M2196 must account for M2194 materialization semantics and paper validity status",
+    "M2196 must define target count 288, expected observation dim 72, and seed_source_mode prefer_spec_eval_seed_override",
+    "M2196 must not reset environments, run measured execution, or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_reset_validation_command_design",
+    "evidence_increment": "freezes reset-validation command requirements for the repaired executable task panel",
+    "claim_scope": "reset-validation command design only; no reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if reset validator cannot accept M2194 materialization semantics without weakening contract checks",
+      "stop if target count or seed-source semantics are ambiguous",
+      "stop if command design would run policy actions or compare profiles"
+    ],
+    "fallback_plan": [
+      "route to reset-validator compatibility implementation if design passes",
+      "route to materialization metadata repair if M2194 semantics are insufficient",
+      "route to branch synthesis if reset validation cannot support repaired task panel"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2195 audit admits reset-validation command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design reset-validation command for repaired specs",
+    "admission_evidence": [
+      "M2195 accepts M2194 materialization result",
+      "M2194 repaired specs count is 288",
+      "M2194 workload count is 2304",
+      "M2194 contract and guardrail violations are zero"
+    ],
+    "blocked_shortcuts": [
+      "no reset in design",
+      "no rollout",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+      "M2196 status queue scoreboard research log and review",
+      "one follow-up manifest for compatible reset-validation implementation or run"
+    ],
+    "next_stage_criteria": [
+      "reset validation command is explicit",
+      "validator compatibility requirements are explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2196 designs reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2196."
+    ],
+    "temporal_evidence_window": "M2194 materialized task panel and M2195 audit.",
+    "negative_result_policy": "If reset validation command cannot be made compatible, repair metadata or validator before reset.",
+    "allowed_claims": [
+      "reset-validation command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares the repaired executable panel for reset-validation evidence",
+    "paper_verdict_delta": "can admit reset-validation implementation but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2196 cannot define compatible reset validation",
+      "M2196 would run reset or rollout",
+      "M2196 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2194 repaired task panel can be reset-validated with an explicit compatibility design for its materialization semantics without rollout or ranking shortcuts.",
+  "success_criteria": [
+    "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md exists",
+    "reset-validation command inputs and outputs are specified",
+    "M2194 semantics/status compatibility is specified",
+    "target count, expected observation dim, and seed source mode are specified",
+    "next implementation route is explicit",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "reset-validation command is ambiguous",
+    "M2194 semantics/status compatibility is ambiguous",
+    "design starts reset or rollout",
+    "design ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json"
+  ],
+  "decision_rule": "M2196 passes if it freezes a compatible reset-validation command design and pre-registers implementation without reset, rollout, or ranking.",
+  "next_blocker": "m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design"
+}

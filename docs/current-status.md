@@ -16,20 +16,19 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run
+m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit
+m2196-paper-route-current-sim-offtrack-support-reset-validation-command-design
 ```
 
-Immediate route: M2194 implements and runs the no-rollout materializer. It
-passes with `288` repaired executable specs, `2304` planned workload rows,
-materialization failures `0`, contract violations `0`, forbidden-key violations
-`0`, and guardrail violations `0`. M2195 must audit this materialization before
-reset-validation command design. This remains task-quality readiness, not
+Immediate route: M2195 audits the M2194 materialization as clean and admits
+M2196 reset-validation command design. The next design must account for the
+M2194-specific materialization semantics/status instead of blindly using the
+old M2151-only reset validator. This remains task-quality readiness, not
 controller comparison; new rollout, controller ranking, paper claims,
 finite-window vs GRU verdicts, and self-ID claims remain blocked until later
 audited evidence supports them.
