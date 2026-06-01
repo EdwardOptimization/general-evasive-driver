@@ -1,0 +1,164 @@
+{
+  "id": "m2175-paper-route-current-sim-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_audit_uses_existing_m2174_outputs"
+    ],
+    "parent_dataset": [
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/profile_aggregate.csv",
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/history_representation_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2174-paper-route-current-sim-measured-execution-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit current-sim measured execution completeness and raw outcome distribution before interpretation"
+    ],
+    "derived_from": [
+      "m2174-paper-route-current-sim-measured-execution-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2174 measured execution must be audited before comparison design or repair"
+    ],
+    "supersedes": [
+      "direct profile ranking from raw aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2175 must audit M2174 summary and aggregates without rerun",
+    "M2175 must classify execution completeness and raw outcome support",
+    "M2175 must decide next route without ranking controller families",
+    "M2175 must not claim paper-level evidence or finite-window vs GRU verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not rerun measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_execution_result_audit",
+    "evidence_increment": "audits full 320-cell measured execution output and chooses comparison or repair route",
+    "claim_scope": "result audit only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2174 completeness gates are not audited",
+      "stop if raw aggregates are used to rank profiles",
+      "stop if outcome support is too low for comparison but route ignores repair",
+      "stop if audit claims paper-level result"
+    ],
+    "fallback_plan": [
+      "route to denominator-backed comparison protocol if comparison-ready",
+      "route to outcome/task repair if offtrack or collision dominance blocks comparison",
+      "route to synthesis if the branch has reached a broader verdict point"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2174 measured execution result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit current-sim measured execution result",
+    "admission_evidence": [
+      "M2174 summary reports current_sim_controlled_comparison_measured_execution_pass",
+      "M2174 writes full episode rows and aggregates"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no ranking",
+      "no paper-level claims"
+    ],
+    "allowed_updates": [
+      "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+      "M2175 status queue scoreboard research log and review",
+      "one follow-up manifest for comparison protocol, repair, or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2174 pass/fail is classified",
+      "raw outcome support is classified",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2175 audits measured outcomes but does not run history-necessity interventions.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2175."
+    ],
+    "temporal_evidence_window": "M2174 measured execution outputs.",
+    "negative_result_policy": "If outcomes are low-support or offtrack-dominated, route to repair or task-quality work instead of ranking profiles.",
+    "allowed_claims": [
+      "measured execution result audit",
+      "raw outcome support classification",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns new M2174 closed-loop data into a route decision",
+    "paper_verdict_delta": "can decide whether the current-sim panel is comparison-ready or needs repair, but cannot decide final ranking",
+    "must_synthesize_if": [
+      "M2175 cannot classify the result",
+      "M2175 needs another measured execution rerun",
+      "M2175 would directly claim a winner"
+    ]
+  },
+  "hypothesis": "The M2174 measured execution can be audited into a clear next route without overclaiming raw aggregate profile differences.",
+  "success_criteria": [
+    "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md exists",
+    "M2174 completeness gates are audited",
+    "raw outcome support is classified",
+    "next route is explicit",
+    "no rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2174 result is not audited",
+    "raw aggregate values are turned into profile ranking",
+    "outcome support blocker is ignored",
+    "rerun or training starts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2175-paper-route-current-sim-measured-execution-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/profile_aggregate.csv",
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/history_representation_aggregate.csv"
+  ],
+  "decision_rule": "M2175 passes if it audits M2174 and chooses a comparison/repair/synthesis route without ranking or paper-level claims.",
+  "next_blocker": "m2175-paper-route-current-sim-measured-execution-result-audit"
+}

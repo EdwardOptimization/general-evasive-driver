@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2181,
+    "completed": 2182,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+    "command_log": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+    "run_dir": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution",
     "status": "completed",
-    "task_id": "m2173-paper-route-current-sim-measured-execution-command-design"
+    "task_id": "m2174-paper-route-current-sim-measured-execution-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution --eval-seed-base 217400 --device cpu --no-resume --target-episode-count 320 --target-spec-count 40 --target-profile-count 8 --next-blocker m2175-paper-route-current-sim-measured-execution-result-audit",
-    "hypothesis": "The frozen M2173 measured execution command can run the 320-cell current-sim panel over the materialized workload without validation failures or claim-boundary violations.",
-    "id": "m2174-paper-route-current-sim-measured-execution-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: run frozen current-sim measured execution command",
-    "priority": 21690,
+    "command": "see experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json",
+    "hypothesis": "The M2174 measured execution can be audited into a clear next route without overclaiming raw aggregate profile differences.",
+    "id": "m2175-paper-route-current-sim-measured-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit current-sim measured execution result",
+    "priority": 21700,
     "status": "pending",
-    "success_artifact": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json"
+    "success_artifact": "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T081852Z"
+  "updated_at_utc": "20260601T082313Z"
 }

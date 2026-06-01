@@ -38635,3 +38635,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: measured execution command is frozen for M2174
 - follow-up manifest: `experiments/manifests/m2174-paper-route-current-sim-measured-execution-implementation-and-run.json`
 - next: `m2174-paper-route-current-sim-measured-execution-implementation-and-run`
+
+## M2174 Paper-Route Current-Sim Measured Execution Implementation and Run
+
+- status: completed
+- decision: `current_sim_measured_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2174-paper-route-current-sim-measured-execution-implementation-and-run.json`
+- run artifact: `runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json`
+- result class: `current_sim_controlled_comparison_measured_execution_pass`
+- episode count: `320`
+- failure count: `0`
+- spec/profile counts: `40/8`
+- metadata missing count: `0`
+- metric completeness failure count: `0`
+- task/profile/history quotas pass: `true/true/true`
+- all selected metrics finite: `true`
+- guardrail violation count: `0`
+- raw outcome counts: `success_obstacle_pass=63`, `collision_failure=20`, `off_track_noncollision_noncompletion=237`
+- environment rollout started: `true`
+- policy actions executed: `true`
+- measured rollout started: `true`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: complete measured execution evidence exists, but raw outcomes require audit before comparison or repair routing
+- follow-up manifest: `experiments/manifests/m2175-paper-route-current-sim-measured-execution-result-audit.json`
+- next: `m2175-paper-route-current-sim-measured-execution-result-audit`
