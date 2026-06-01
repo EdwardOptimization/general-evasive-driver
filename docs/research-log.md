@@ -41583,3 +41583,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.json`
 - next: `m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit`
+
+## M2310 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Target/Guardrail Slice Diagnosis Result Audit
+
+- status: completed
+- decision: `guarded_repair_slice_diagnosis_audit_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.json`
+- audit doc: `docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md`
+- parent summary: `runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json`
+- M2309 result_class: `current_sim_scenario_task_family_guarded_repair_slice_diagnosis_pass`
+- slice_delta_row_count: `31`
+- repair_gate_pass: `false`
+- global offtrack/collision deltas vs M2293: `+1/+9`
+- offtrack target nonincrease/increase: `9/20` / `11/20`
+- collision guardrail nonincrease/increase: `4/11` / `7/11`
+- interpretation: broad guarded-v2 repair failure confirmed; another same-support scalar repair would be local search
+- route: branch synthesis over M2300-M2310
+- reset/rollout/policy action in M2310: `false`
+- training/replay/PPO in M2310: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.json`
+- next: `m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis`

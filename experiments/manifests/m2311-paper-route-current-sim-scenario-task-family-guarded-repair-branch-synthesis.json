@@ -1,0 +1,221 @@
+{
+  "id": "m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
+      "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+      "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+      "docs/m2306-paper-route-current-sim-scenario-task-family-guarded-repair-selected-checkpoint-measured-execution-design.md",
+      "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
+      "docs/m2308-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution-result-audit.md",
+      "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
+      "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize guarded-v2 repair branch evidence and decide whether to pivot away from same-support scalar repair"
+    ],
+    "derived_from": [
+      "m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis",
+      "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution",
+      "m2307-paper-route-current-sim-scenario-task-family-guarded-repair-measured-execution",
+      "m2309-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-implementation",
+      "m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit"
+    ],
+    "blocked_by": [
+      "M2310 confirms broad guarded-v2 repair failure: global offtrack +1, global collision +9, offtrack target increases 11/20, collision guardrail increases 7/11",
+      "local-search guard requires synthesis before another same-support repair route"
+    ],
+    "supersedes": [
+      "another guarded-v2 scalar reward tweak",
+      "another selected-checkpoint training run on the same repair support",
+      "profile ranking from failed repair evidence",
+      "paper-level current-sim comparison before scenario task-family repair is resolved"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+  "public_gates": [
+    "M2311 must answer the standard synthesis questions",
+    "M2311 must classify evidence under engineering performance, history mechanism, task quality, high-fidelity readiness, and workflow complexity axes",
+    "M2311 must decide continue pivot stop or promote_to_next_branch",
+    "M2311 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims",
+    "M2311 must decide whether guarded-v2 same-support repair is closed, pivoted, or admitted only through a materially different evidence axis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not reduce repair gates after the negative result"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_branch_synthesis_after_negative_execution",
+    "evidence_increment": "synthesizes M2300-M2310 guarded repair evidence after durable target/guardrail failure",
+    "claim_scope": "branch synthesis and next-route decision only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot choose a decision",
+      "stop if synthesis recommends another scalar reward tweak without a new evidence axis",
+      "stop if synthesis ranks profiles from failed repair-gate evidence",
+      "stop if synthesis weakens the target/guardrail gate to make guarded-v2 pass"
+    ],
+    "fallback_plan": [
+      "pivot to a new evidence axis if same-support guarded-v2 repair is closed",
+      "continue only if a materially different non-local route is specified with new evidence pressure",
+      "stop for user review if current-sim task-family repair is not actionable without changing task definitions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2310 confirms broad guarded-v2 repair failure and local-search guard requires synthesis",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize guarded-v2 repair branch after negative measured target/guardrail result",
+    "admission_evidence": [
+      "M2304 executed 15 guarded repair training runs cleanly",
+      "M2305 found selected profile floor pass count 0",
+      "M2307 measured execution worsened success/offtrack/collision by -1/+1/+9 versus M2293",
+      "M2309 materialized 31 target/guardrail slice deltas and repair_gate_pass false",
+      "M2310 routes to synthesis instead of another scalar repair attempt"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "M2311 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis decision is one of continue pivot stop promote_to_next_branch",
+      "supported and falsified claims are explicit",
+      "next route is selected without experiment execution"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2311 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2311; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2300-M2310 guarded repair branch artifacts.",
+    "negative_result_policy": "If guarded-v2 repair is negative, pivot or stop without weakening self-ID criteria.",
+    "allowed_claims": [
+      "guarded repair branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates training execution, measured execution, and target/guardrail slice failure before choosing a new route",
+    "paper_verdict_delta": "can close the guarded-v2 same-support repair branch and pivot the paper route to a new evidence axis",
+    "must_synthesize_if": [
+      "M2311 is completed",
+      "the next proposed task is another scalar reward tweak",
+      "the next proposed task reuses M2298 support without a new evidence axis"
+    ]
+  },
+  "hypothesis": "Synthesizing M2300-M2310 will show whether guarded-v2 same-support repair should be closed and the paper route pivoted to a new evidence axis.",
+  "success_criteria": [
+    "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis blocks ranking paper-level finite-window-vs-GRU and level3 self-ID claims unless explicitly supported",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2311 omits a required synthesis question",
+    "M2311 recommends another scalar reward tweak without a new evidence axis",
+    "M2311 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2311 ranks profiles or selects a winner",
+    "M2311 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesize",
+      "command": "manual synthesis artifact over M2300-M2310 guarded repair branch evidence"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit.md",
+    "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/summary.json",
+    "runs/m2307_paper_route_current_sim_scenario_task_family_guarded_repair_measured_execution/summary.json",
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+    "docs/m2300-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis.md",
+    "docs/current-status.md",
+    "experiments/research_status.json"
+  ],
+  "decision_rule": "M2311 passes if it writes the required synthesis and selects a non-ranking follow-up route.",
+  "next_blocker": "m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis"
+}

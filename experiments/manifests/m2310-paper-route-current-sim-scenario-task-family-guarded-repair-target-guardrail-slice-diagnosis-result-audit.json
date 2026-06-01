@@ -177,5 +177,5 @@
     "runs/m2309_paper_route_current_sim_scenario_task_family_guarded_repair_slice_diagnosis/slice_delta_rows.csv"
   ],
   "decision_rule": "M2310 passes if it audits M2309 and selects a non-ranking follow-up route before any further repair.",
-  "next_blocker": "m2310-paper-route-current-sim-scenario-task-family-guarded-repair-target-guardrail-slice-diagnosis-result-audit"
+  "next_blocker": "m2311-paper-route-current-sim-scenario-task-family-guarded-repair-branch-synthesis"
 }
