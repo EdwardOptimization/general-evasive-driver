@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T150928Z
+- Generated at UTC: 20260601T151917Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2244 pending selected-checkpoint outcome localization no ranking claims
+- Promotion decision: current_sim_selected_checkpoint_outcome_localization_pass_route_to_result_audit
+- Decision reason: M2244 pass 480 episodes success 277 offtrack 110 collision 93 dominant offtrack route offtrack_recovery_reward_and_corridor_repair_design no ranking claims
 
 ## Hypothesis
 
@@ -85,15 +85,15 @@ Episode-level outcome localization over selected checkpoints can identify the ne
 - milestone: m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation
 - type: infrastructure
 - checkpoint: runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json
-- success_rate: None
+- success_rate: 0.5770833333333333
 - termination_rate: None
 - clearance_margin_mean: None
 - reset_success: None
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2244 pending selected-checkpoint outcome localization no ranking claims
+- decision: current_sim_selected_checkpoint_outcome_localization_pass_route_to_result_audit
+- reason: M2244 pass 480 episodes success 277 offtrack 110 collision 93 dominant offtrack route offtrack_recovery_reward_and_corridor_repair_design no ranking claims
 
 ## Next Blocker
 

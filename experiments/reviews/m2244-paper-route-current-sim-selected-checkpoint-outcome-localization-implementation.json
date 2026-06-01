@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2244 pending selected-checkpoint outcome localization no ranking claims",
+  "decision_reason": "M2244 pass 480 episodes success 277 offtrack 110 collision 93 dominant offtrack route offtrack_recovery_reward_and_corridor_repair_design no ranking claims",
   "failure_criteria": [
     "selected checkpoint rows are missing",
     "episode rows are incomplete",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T150928Z",
+  "generated_at_utc": "20260601T151917Z",
   "hypothesis": "Episode-level outcome localization over selected checkpoints can identify the next repair target without ranking profiles.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation",
   "next_blocker": "m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_selected_checkpoint_outcome_localization_pass_route_to_result_audit",
   "public_gates": [
     "M2244 must evaluate exactly the 15 M2241 selected checkpoints",
     "M2244 must emit 480 episode rows with outcome_bucket and termination_reason",
@@ -71,11 +71,11 @@
   "scoreboard": {
     "checkpoint": "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_selected_checkpoint_outcome_localization_pass_route_to_result_audit",
     "milestone": "m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation",
-    "reason": "M2244 pending selected-checkpoint outcome localization no ranking claims",
+    "reason": "M2244 pass 480 episodes success 277 offtrack 110 collision 93 dominant offtrack route offtrack_recovery_reward_and_corridor_repair_design no ranking claims",
     "reset_success": "",
-    "success_rate": "",
+    "success_rate": "0.5770833333333333",
     "termination_rate": "",
     "type": "infrastructure",
     "wheel_gain_mu": "",

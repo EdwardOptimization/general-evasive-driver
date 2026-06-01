@@ -1,0 +1,180 @@
+{
+  "id": "m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "training_instability",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_seed_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/repair_route_candidates.csv",
+      "docs/m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit selected-checkpoint outcome localization result and select next repair route"
+    ],
+    "derived_from": [
+      "m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "M2244 classifies global dominant failure mode as offtrack_dominated_failure"
+    ],
+    "supersedes": [
+      "unknown aggregate readiness failure",
+      "direct reward/curriculum training without outcome audit",
+      "another checkpoint-selection-only run"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M2245 must audit M2244 result_class, episode row count, profile-seed support, and guardrails",
+    "M2245 must audit global and profile dominant failure modes",
+    "M2245 must select a concrete non-ranking repair route",
+    "M2245 must not run training, reset, rollout, measured execution, replay, PPO, or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_selected_checkpoint_outcome_localization_result_audit",
+    "evidence_increment": "audits selected-checkpoint outcome localization and turns failure mode into repair route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2244 episode rows are incomplete",
+      "stop if dominant failure mode is inconsistent",
+      "stop if repair route would be another checkpoint-selection loop"
+    ],
+    "fallback_plan": [
+      "route to offtrack/recovery/corridor repair if offtrack dominance holds",
+      "route to collision/clearance repair if collision dominance is stronger than summary indicates",
+      "route to branch synthesis if localization is inconclusive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2244 completed selected-checkpoint outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2244 outcome-localization result and choose repair route",
+    "admission_evidence": [
+      "M2244 result_class is current_sim_selected_checkpoint_outcome_localization_pass",
+      "M2244 episode_row_count is 480",
+      "M2244 global dominant failure mode is offtrack_dominated_failure"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+      "M2245 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2244 completeness and guardrails are audited",
+      "failure-mode classification is accepted, refined, or rejected",
+      "next repair design route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2245 audits selected-checkpoint outcome localization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2245; no wrong-history, reset-hidden, or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2244 selected-checkpoint public outcome localization.",
+    "negative_result_policy": "Use failure-mode evidence to repair task/reward design; do not lower self-ID standards.",
+    "allowed_claims": [
+      "selected-checkpoint outcome-localization result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns new episode-level evidence into a repair route instead of repeating diagnostics",
+    "paper_verdict_delta": "can route current-sim repair toward offtrack/recovery/corridor objectives",
+    "must_synthesize_if": [
+      "M2245 cannot select a repair route",
+      "M2245 would propose another diagnostic without repair design",
+      "M2245 would rank profiles despite diagnostic-only evidence"
+    ]
+  },
+  "hypothesis": "M2244 provides enough outcome evidence to route the next repair toward offtrack/recovery/corridor design.",
+  "success_criteria": [
+    "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md exists",
+    "M2244 result_class is current_sim_selected_checkpoint_outcome_localization_pass",
+    "episode_row_count is 480",
+    "profile_seed_groups_complete is true",
+    "global dominant failure mode is audited",
+    "primary repair route is audited",
+    "guardrails remain false for training, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims",
+    "a follow-up repair design route is selected"
+  ],
+  "failure_criteria": [
+    "M2244 artifacts are missing",
+    "episode rows or aggregates are incomplete",
+    "dominant failure mode is ignored",
+    "M2245 starts new training, reset, rollout, measured execution, replay, PPO, or private holdout",
+    "M2245 ranks profiles or selects a winner",
+    "M2245 makes finite-window-vs-GRU, paper-level, or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json and aggregates"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2241_paper_route_current_sim_training_stability_repair_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_aggregate.csv",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/repair_route_candidates.csv"
+  ],
+  "decision_rule": "M2245 passes if it audits M2244 and selects a non-ranking repair design route.",
+  "next_blocker": "m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit"
+}

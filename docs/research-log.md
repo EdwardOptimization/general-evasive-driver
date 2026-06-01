@@ -40265,3 +40265,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation.json`
 - next: `m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation`
+
+## M2244 Paper-Route Current-Sim Selected-Checkpoint Outcome Localization Implementation
+
+- status: completed
+- decision: `current_sim_selected_checkpoint_outcome_localization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation.json`
+- result artifact: `runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json`
+- selected checkpoint count: `15`
+- episode row count: `480`
+- profile seed groups complete: `true`
+- missing input count: `0`
+- guardrail violation count: `0`
+- global success: `277/480` (`0.57708`)
+- global offtrack: `110/480` (`0.22917`)
+- global collision: `93/480` (`0.19375`)
+- max-step noncompletion: `0`
+- dominant failure mode: `offtrack_dominated_failure`
+- primary repair route: `offtrack_recovery_reward_and_corridor_repair_design`
+- all profiles labeled `offtrack_dominated_failure`
+- local exception: `L1_one_step|222602` is `collision_dominated_failure`
+- training/replay/PPO/private holdout: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit.json`
+- next: `m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit`
