@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit
+m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design
 ```
 
 Current next task:
 
 ```text
-m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design
+m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation
 ```
 
-Immediate route: M2149 audits M2148 as a clean no-rollout benchmark contract:
-`8` profiles, `5` task families, `18` metric rows, `10` explicit deferred gaps,
-and guardrail `0`. It also corrects the route: M2148 task rows are benchmark
-contract rows, not executable env specs, so reset validation remains blocked
-until M2150 designs no-rollout executable-spec materialization. Ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
+Immediate route: M2150 designs no-rollout executable-spec materialization from
+the M2148 benchmark contract. M2151 must write `40` executable current-sim specs
+(`8` per T1-T5 family) and `320` planned workload rows across the 8-profile
+matrix, with contract checks, metric-gap preservation, and guardrail `0`. Reset
+validation, measured execution, ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked until these executable specs exist
+and are audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

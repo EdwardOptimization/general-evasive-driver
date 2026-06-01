@@ -38062,3 +38062,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route correction: M2148 task rows are benchmark-family contract rows, not executable env specs; reset validation is blocked until executable-spec materialization exists
 - follow-up manifest: `experiments/manifests/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.json`
 - next: `m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design`
+
+## M2150 Paper-Route Current-Sim Controlled Comparison Executable Spec Materialization Design
+
+- status: completed
+- decision: `current_sim_controlled_comparison_executable_spec_materialization_design_admit_implementation`
+- manifest: `experiments/manifests/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.json`
+- design artifact: `docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md`
+- reset/rollout/measured execution in M2150: `false`
+- policy actions executed in M2150: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- materialization target: `40` executable specs, `5` task families, `8` profiles, `320` planned workload rows
+- source/seed rules: deterministic `source_seed` and `eval_seed_override` from task family index and source index
+- pass gate: materialization failure, contract violation, profile tuning, and guardrail counts must all be `0`
+- follow-up manifest: `experiments/manifests/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.json`
+- next: `m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation`

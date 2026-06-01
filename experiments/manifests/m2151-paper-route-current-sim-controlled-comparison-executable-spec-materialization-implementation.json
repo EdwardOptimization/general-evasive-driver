@@ -1,0 +1,179 @@
+{
+  "id": "m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_executable_spec_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+      "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/profile_matrix.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/task_family_specs.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/metric_support.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.json"
+    ],
+    "parent_objective": [
+      "materialize no-rollout executable scenario specs and planned workload from the M2150 design"
+    ],
+    "derived_from": [
+      "m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design"
+    ],
+    "blocked_by": [
+      "M2150 must freeze executable spec schema, quotas, and source rules before implementation"
+    ],
+    "supersedes": [
+      "manual executable-spec construction",
+      "direct reset validation without executable-spec artifact"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2151-paper-route-current-sim-controlled-comparison-executable-spec-materialization-implementation.md",
+  "public_gates": [
+    "M2151 must materialize 40 executable specs from T1-T5 contract rows",
+    "M2151 must materialize 320 planned workload rows across 8 profiles",
+    "M2151 must preserve P0 actor contract and no-profile-tuning guardrails",
+    "M2151 must write materialization failures and claim-boundary artifacts",
+    "M2151 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_executable_spec_materialization",
+    "evidence_increment": "materializes concrete no-rollout executable specs and workload rows required before reset validation",
+    "claim_scope": "executable spec materialization only; no reset rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if materialization runs reset or rollout",
+      "stop if profile-specific tuning appears",
+      "stop if T1-T5 quotas or 8-profile workload are incomplete",
+      "stop if claim boundaries are missing",
+      "stop if contract violations are nonzero"
+    ],
+    "fallback_plan": [
+      "route to audit if materialization passes",
+      "route to schema repair if fields are missing",
+      "route to task-family redesign if T4/T5 cannot be materialized without unsupported shortcuts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2150 admits executable-spec materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "current-sim controlled comparison executable spec materialization",
+    "admission_evidence": [
+      "M2150 specifies 40 executable specs",
+      "M2150 specifies 320 planned workload rows",
+      "M2150 specifies no-reset no-rollout pass gates"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2151",
+      "do not run measured execution in M2151",
+      "do not rank controller families in M2151"
+    ],
+    "allowed_updates": [
+      "executable spec materializer if needed",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization artifacts",
+      "M2151 status queue scoreboard research log and review",
+      "one follow-up manifest for audit or repair"
+    ],
+    "next_stage_criteria": [
+      "executable specs are written",
+      "planned workload is written",
+      "profile matrix and claim boundary are preserved",
+      "next audit or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2151 materializes executable specs only and does not test history necessity.",
+    "history_necessity_tests": [
+      "M2151 must preserve T4/T5 mechanism metadata but does not execute interventions."
+    ],
+    "temporal_evidence_window": "M2150 design and M2148 benchmark contract artifacts.",
+    "negative_result_policy": "If T4/T5 specs cannot be materialized without unsupported metric shortcuts, record the blocker and route to design repair before any self-ID execution.",
+    "allowed_claims": [
+      "executable spec materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates executable current-sim scenario specs and planned workload rows from the benchmark contract",
+    "paper_verdict_delta": "can admit reset validation after audit but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2151 cannot materialize executable specs without profile-specific tuning",
+      "M2151 reveals T4/T5 are not materializable in the current simulator",
+      "M2151 produces only another abstract contract artifact"
+    ]
+  },
+  "hypothesis": "The M2150 design can be implemented as a no-rollout executable-spec materialization with 40 specs, 320 workload rows, complete guardrails, and explicit claim boundaries.",
+  "success_criteria": [
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json exists",
+    "executable_spec_count is 40",
+    "planned_workload_row_count is 320",
+    "materialization_failure_count is 0",
+    "contract_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "executable spec or workload counts are incomplete",
+    "contract violations are nonzero",
+    "profile-specific tuning appears",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "materialize no-rollout executable specs and planned workload from M2148/M2150 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_executable_spec_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2150-paper-route-current-sim-controlled-comparison-executable-spec-materialization-design.md",
+    "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+    "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json"
+  ],
+  "decision_rule": "M2151 passes if it writes complete no-rollout executable spec and workload artifacts with guardrail 0.",
+  "next_blocker": "m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit"
+}
