@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2137,
+    "completed": 2138,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation.md",
+    "command_log": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization",
+    "run_dir": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md",
     "status": "completed",
-    "task_id": "m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation"
+    "task_id": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.json",
-    "hypothesis": "M2128 localization found enough comparison-ready/support candidates to admit bounded candidate qualification, but not direct ranking or paper claims.",
-    "id": "m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit",
+    "command": "see experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json",
+    "hypothesis": "A bounded no-rerun candidate qualification design can separate interpretable comparison-support slices from diagnostic-only slices before any controller ranking.",
+    "id": "m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design",
     "kind": "gate",
-    "notes": "Pending: audit M2128 localization support candidates before candidate qualification or ranking",
-    "priority": 21240,
+    "notes": "Pending: design candidate qualification criteria over M2128 support artifacts without rerun or ranking",
+    "priority": 21250,
     "status": "pending",
-    "success_artifact": "docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md"
+    "success_artifact": "docs/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.md"
   },
-  "updated_at_utc": "20260601T030900Z"
+  "updated_at_utc": "20260601T031800Z"
 }

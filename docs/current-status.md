@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2128-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-implementation
+m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit
+m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design
 ```
 
-Immediate route: M2128 implemented and ran no-rerun localization over M2125
-artifacts. It reproduced M2125 outcome counts exactly and found `15`
-comparison-ready candidates plus `37` candidate-support slices, with
-guardrail `0`. M2129 must audit these support artifacts and decide the bounded
-next route. Ranking, comparison, paper claims, finite-window vs GRU
-conclusions, and self-ID claims remain blocked.
+Immediate route: M2129 audits M2128 as a clean no-rerun localization result:
+outcome counts reproduce M2125 exactly, guardrail is `0`, and support is
+nonzero (`15` comparison-ready candidates and `37` candidate-support slices).
+This admits M2130 candidate qualification design only. Ranking, comparison,
+paper claims, finite-window vs GRU conclusions, and self-ID claims remain
+blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

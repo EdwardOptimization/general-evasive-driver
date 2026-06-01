@@ -37561,3 +37561,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: localization result only; candidate rows need M2129 audit before qualification, no ranking/paper/FW-vs-GRU/self-ID claims
 - follow-up manifest: `experiments/manifests/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.json`
 - next: `m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit`
+
+## M2129 Paper-Route Outcome-Supported Decisive Comparison-Support Outcome Localization Result Audit
+
+- status: completed
+- decision: `comparison_support_outcome_localization_audit_admit_candidate_qualification_design`
+- manifest: `experiments/manifests/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.json`
+- audit artifact: `docs/m2129-paper-route-outcome-supported-decisive-comparison-support-outcome-localization-result-audit.md`
+- audited summary: `runs/m2128_paper_route_outcome_supported_decisive_comparison_support_outcome_localization/summary.json`
+- reset/rollout/measured execution in M2129: `false`
+- policy actions executed in M2129: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2128 is a clean no-rerun localization artifact and is valid for candidate qualification design
+- completeness: episode `1200`, profile `5`, spec `240`, intent `4`, support_tier `4`, outcome-count match `true`, missing schema `[]`, finite metrics `true`, guardrail `0`
+- localized support: comparison-ready candidates `15`, candidate-support slices `37`, success rows `188`, offtrack-dominance slices `92`, collision-dominance slices `27`
+- claim boundary: generated smoke-proxy support only; no ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design.json`
+- next: `m2130-paper-route-outcome-supported-decisive-comparison-support-candidate-qualification-design`
