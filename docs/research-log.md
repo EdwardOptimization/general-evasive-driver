@@ -41732,3 +41732,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.json`
 - next: `m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit`
+
+## M2316 Paper-Route Current-Sim Scenario Task-Family Metric Semantics Conflict Diagnosis Result Audit
+
+- status: completed
+- decision: `route_to_role_success_semantics_repair_design`
+- manifest: `experiments/manifests/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.json`
+- audit doc: `docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md`
+- parent summary: `runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json`
+- M2315 result_class: `current_sim_scenario_task_family_metric_semantics_conflict_diagnosis_pass`
+- input_episode_count/scenario_count: `1080/72`
+- guardrail_violation_count: `0`
+- R0 safe-stop scenario/episode/AEB-episode count: `12/62/60`
+- R0 safe-stop clearance min/mean/max: `10.96082732487428/25.993928793681416/43.58735902844862`
+- residual_support_blocked_scenario_count: `18`
+- interpretation: R0 requires bounded safe-stop success semantics repair before training comparison or ranking
+- reset/rollout/policy action in M2316: `false`
+- training/replay/PPO in M2316: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.json`
+- next: `m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design`

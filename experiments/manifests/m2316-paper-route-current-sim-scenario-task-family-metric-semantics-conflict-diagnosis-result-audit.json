@@ -175,5 +175,5 @@
     "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/scenario_metric_semantics_diagnosis.csv"
   ],
   "decision_rule": "M2316 passes if it audits M2315 metric semantics evidence and selects a non-ranking follow-up route.",
-  "next_blocker": "selected_by_m2316_result_audit"
+  "next_blocker": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design"
 }

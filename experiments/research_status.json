@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2323,
+    "completed": 2324,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation",
+    "task_id": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis",
-    "command_log": "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md"
   },
   "next_task": {
-    "id": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+    "id": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design",
     "kind": "gate",
-    "priority": 23110,
+    "priority": 23120,
     "status": "pending",
-    "hypothesis": "M2315 provides enough metric-semantics evidence to route to role-specific safe-stop success semantics repair before any training or ranking.",
-    "command": "manual artifact audit of runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json role_metric_semantics_summary.csv and scenario_metric_semantics_diagnosis.csv",
-    "success_artifact": "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
-    "notes": "Pending: audit M2315 safe-stop semantics evidence and residual support-blocked roles; no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "A bounded role-success semantics repair can define R0 safe-stop success without weakening P0 actor contract or turning support policies into ranked controllers.",
+    "command": "manual design of role-specific success semantics repair from M2315/M2316 artifacts",
+    "success_artifact": "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+    "notes": "Pending: freeze R0 safe-stop success semantics and implementation boundary no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T231418Z"
+  "updated_at_utc": "20260601T231823Z"
 }

@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2316 audits M2315 safe-stop semantics evidence R0 AEB safe-stop episodes 60 residual support-blocked scenarios 18 and routes to bounded role-success semantics design no ranking claims",
+  "failure_criteria": [
+    "M2315 artifacts are missing",
+    "M2316 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2316 ranks support policies or selects a winner",
+    "M2316 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2316 cannot select a next route"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T232408Z",
+  "hypothesis": "M2315 provides enough metric-semantics evidence to route to role-specific safe-stop success semantics repair before any training or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "R0 requires safe-stop success semantics repair before training or comparison",
+      "R2-R5 contain residual support-blocked or mixed support rows after safe-stop separation"
+    ],
+    "derived_from": [
+      "m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_diagnosis"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/role_metric_semantics_summary.csv",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/scenario_metric_semantics_diagnosis.csv",
+      "docs/m2315-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-implementation.md"
+    ],
+    "parent_objective": [
+      "audit no-rerun metric semantics conflict diagnosis and choose the next non-ranking route"
+    ],
+    "supersedes": [
+      "direct training from current obstacle-pass semantics",
+      "treating R0 as support-blocked",
+      "controller-family ranking before role-specific success semantics are repaired"
+    ]
+  },
+  "milestone": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+  "next_blocker": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_role_success_semantics_repair_design",
+  "public_gates": [
+    "M2316 must audit M2315 artifact completeness and guardrails",
+    "M2316 must classify R0 safe-stop semantics repair evidence",
+    "M2316 must classify residual support-blocked roles after safe-stop separation",
+    "M2316 must select a non-ranking follow-up route",
+    "M2316 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "route_to_role_success_semantics_repair_design",
+    "milestone": "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit",
+    "reason": "M2316 audits M2315 safe-stop semantics evidence R0 AEB safe-stop episodes 60 residual support-blocked scenarios 18 and routes to bounded role-success semantics design no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md exists",
+    "M2315 result_class is audited",
+    "R0 safe-stop evidence is audited",
+    "residual support-blocked scenario count is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "type": "gate"
+}

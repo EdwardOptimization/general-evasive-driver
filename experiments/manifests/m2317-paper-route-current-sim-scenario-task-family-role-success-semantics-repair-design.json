@@ -1,0 +1,177 @@
+{
+  "id": "m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/role_metric_semantics_summary.csv",
+      "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/scenario_metric_semantics_diagnosis.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze role-specific success semantics repair before implementation"
+    ],
+    "derived_from": [
+      "m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit"
+    ],
+    "blocked_by": [
+      "R0 obstacle-pass-only success semantics misclassifies safe stop as non-success",
+      "current-sim scenario task-family comparison is blocked until role success semantics are explicit"
+    ],
+    "supersedes": [
+      "implicit obstacle-pass-only success semantics for R0",
+      "direct implementation without a role-success contract",
+      "training or ranking before metric semantics repair"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+  "public_gates": [
+    "M2317 must freeze a reusable role-success semantics contract",
+    "M2317 must specify R0 safe-stop success semantics",
+    "M2317 must specify artifact-only rescore and rerun boundaries for implementation",
+    "M2317 must select an implementation route",
+    "M2317 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_feasibility_calibration",
+    "evidence_axis": "Q_role_success_semantics_repair_design",
+    "evidence_increment": "freezes a role-success semantics repair design for R0 safe-stop before any implementation or comparison",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the design broadens into controller-family ranking",
+      "stop if safe-stop semantics are used as a global success rule without role boundary",
+      "stop if residual support-blocked roles are silently treated as solved",
+      "stop if the design edits actor inputs or training objectives"
+    ],
+    "fallback_plan": [
+      "route to schema repair if role metadata is insufficient",
+      "route to artifact-only rescore implementation if the semantics contract is explicit",
+      "route to branch synthesis if the design cannot separate R0 semantics from R2-R5 support redesign"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2316 routes to role-specific success semantics repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design role-specific success semantics repair",
+    "admission_evidence": [
+      "M2316 routes R0 to safe-stop semantics repair",
+      "M2315 reports r0_aeb_safe_stop_episode_count 60",
+      "M2315 reports residual_support_blocked_scenario_count 18"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+      "M2317 status queue scoreboard research log and review",
+      "one implementation manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "R0 safe-stop success semantics are defined",
+      "role-boundary rules are defined",
+      "artifact-only rescore and implementation boundaries are defined",
+      "next implementation route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2317 designs metric semantics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2317; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2313/M2315 support-policy diagnostic artifacts.",
+    "negative_result_policy": "Repair metric semantics before interpreting driver failure or mechanism evidence.",
+    "allowed_claims": [
+      "role-success semantics design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts R0 safe-stop diagnostic evidence into an explicit semantics repair contract",
+    "paper_verdict_delta": "can unblock current-sim role-family comparison by fixing success labels before training",
+    "must_synthesize_if": [
+      "M2317 cannot define a bounded role-success contract",
+      "M2317 routes directly to training",
+      "the feasibility branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded role-success semantics repair can define R0 safe-stop success without weakening P0 actor contract or turning support policies into ranked controllers.",
+  "success_criteria": [
+    "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md exists",
+    "R0 safe-stop success semantics are defined",
+    "safe-stop semantics are role-bounded and do not globally redefine success",
+    "artifact-only rescore and implementation boundaries are defined",
+    "a follow-up implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2317 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2317 ranks support policies or selects a winner",
+    "M2317 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2317 cannot define bounded R0 safe-stop semantics",
+    "M2317 silently treats residual support-blocked roles as solved"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design of role-specific success semantics repair from M2315/M2316 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2317-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2316-paper-route-current-sim-scenario-task-family-metric-semantics-conflict-diagnosis-result-audit.md",
+    "runs/m2315_paper_route_current_sim_scenario_task_family_metric_semantics_conflict_diagnosis/summary.json"
+  ],
+  "decision_rule": "M2317 passes if it freezes bounded R0 safe-stop success semantics and routes to implementation.",
+  "next_blocker": "m2318-paper-route-current-sim-scenario-task-family-role-success-semantics-repair-implementation"
+}
