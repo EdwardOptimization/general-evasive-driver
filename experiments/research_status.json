@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2199,
+    "completed": 2200,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+    "command_log": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+    "run_dir": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
     "status": "completed",
-    "task_id": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis"
+    "task_id": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit"
   },
   "next_task": {
-    "command": "write docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
-    "hypothesis": "The post-synthesis M2190 candidate artifact is clean enough to admit no-rollout materialization design while keeping reset/rollout/ranking blocked.",
-    "id": "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit",
+    "command": "write docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+    "hypothesis": "The audited M2190 candidate artifact can be converted into a fail-closed no-rollout materialization design without actor-input or ranking shortcuts.",
+    "id": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2190 candidate artifact after M2191 synthesis before materialization",
-    "priority": 21870,
+    "notes": "Pending: design no-rollout materialization rules for audited support-repair candidates",
+    "priority": 21880,
     "status": "pending",
-    "success_artifact": "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md"
+    "success_artifact": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md"
   },
-  "updated_at_utc": "20260601T100630Z"
+  "updated_at_utc": "20260601T100958Z"
 }

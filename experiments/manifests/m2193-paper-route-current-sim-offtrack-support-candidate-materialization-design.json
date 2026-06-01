@@ -1,0 +1,164 @@
+{
+  "id": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+      "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rollout materialization of offtrack-support repair candidates into executable task specs"
+    ],
+    "derived_from": [
+      "m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit"
+    ],
+    "blocked_by": [
+      "candidate materialization rules must be frozen before implementation"
+    ],
+    "supersedes": [
+      "ad hoc candidate materialization without explicit delta and validation rules"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+  "public_gates": [
+    "M2193 must design candidate materialization from M2190 config and M2151 executable specs",
+    "M2193 must define delta application and fail-closed validation rules",
+    "M2193 must define output artifacts and metadata required for reset validation",
+    "M2193 must not implement materialization, reset environments, run measured execution, or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not implement materialization",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_candidate_materialization_design",
+    "evidence_increment": "freezes no-rollout materialization rules for the audited repair candidate artifact",
+    "claim_scope": "materialization design only; no implementation reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if candidate deltas cannot be mapped to executable task specs",
+      "stop if materialization would require actor input changes",
+      "stop if output validation rules are ambiguous",
+      "stop if design would rank profiles before repaired execution"
+    ],
+    "fallback_plan": [
+      "route to candidate config repair if deltas are not materializable",
+      "route to implementation if design is complete and fail-closed",
+      "route to branch synthesis if materialization cannot change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2192 audit admits materialization design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rollout candidate materialization",
+    "admission_evidence": [
+      "M2192 accepts M2190 candidate artifact",
+      "M2190 candidate IDs and quotas are clean",
+      "M2151 executable specs are the current materialization base"
+    ],
+    "blocked_shortcuts": [
+      "no implementation in design",
+      "no reset or rollout",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+      "M2193 status queue scoreboard research log and review",
+      "one follow-up manifest for implementation if design passes"
+    ],
+    "next_stage_criteria": [
+      "materialization input/output contract is explicit",
+      "delta rules are explicit",
+      "validation and fail-closed behavior are explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2193 designs task materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2193."
+    ],
+    "temporal_evidence_window": "M2190-M2192 candidate artifact evidence.",
+    "negative_result_policy": "If materialization cannot preserve history/task-family metadata, repair the design before implementation.",
+    "allowed_claims": [
+      "candidate materialization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares the audited candidate panel to become executable task data",
+    "paper_verdict_delta": "can admit no-rollout implementation but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2193 cannot define executable materialization",
+      "M2193 would run reset or rollout",
+      "M2193 would rank profiles"
+    ]
+  },
+  "hypothesis": "The audited M2190 candidate artifact can be converted into a fail-closed no-rollout materialization design without actor-input or ranking shortcuts.",
+  "success_criteria": [
+    "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md exists",
+    "input and output artifacts are specified",
+    "delta application rules are specified",
+    "validation and fail-closed rules are specified",
+    "next implementation route is explicit",
+    "no implementation reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "materialization rules are ambiguous",
+    "output artifacts are ambiguous",
+    "design requires actor input changes",
+    "design starts reset or rollout",
+    "design ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md",
+    "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+  ],
+  "decision_rule": "M2193 passes if it freezes a complete no-rollout materialization design and pre-registers implementation without reset, rollout, or ranking.",
+  "next_blocker": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design"
+}

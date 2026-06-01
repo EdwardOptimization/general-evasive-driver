@@ -39063,3 +39063,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: continue to post-synthesis candidate artifact audit only
 - follow-up manifest: `experiments/manifests/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.json`
 - next: `m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit`
+
+## M2192 Paper-Route Current-Sim Offtrack-Support Candidate Artifact Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_candidate_artifact_audit_admit_materialization_design`
+- manifest: `experiments/manifests/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.json`
+- audit artifact: `docs/m2192-paper-route-current-sim-offtrack-support-candidate-artifact-audit.md`
+- audited config: `configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json`
+- candidate_count: `288`
+- exact axis quotas: `true`
+- exact split quotas: `true`
+- duplicate candidate id count: `0`
+- boolean guardrail violation count: `0`
+- profile-specific candidate count: `0`
+- actor input contract change count: `0`
+- reset: `false`
+- measured execution: `false`
+- result: admit no-rollout materialization design only
+- follow-up manifest: `experiments/manifests/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.json`
+- next: `m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design`
