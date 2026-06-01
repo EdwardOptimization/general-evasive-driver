@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2270,
+    "completed": 2271,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+    "command_log": "docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+    "run_dir": "docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution"
+    "task_id": "m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json and profile aggregates",
-    "hypothesis": "M2262 provides enough targeted training evidence to decide whether the next route should be selected-checkpoint outcome localization or branch synthesis.",
-    "id": "m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit",
+    "command": "manual design of M2265 selected-checkpoint outcome localization over M2262 selected checkpoints",
+    "hypothesis": "A bounded selected-checkpoint localization design can test whether M2262 targeted containment repaired the M2256 midcourse/mild offtrack slices.",
+    "id": "m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2262 targeted training result before outcome localization or synthesis no ranking claims",
-    "priority": 22580,
+    "notes": "Pending: freeze M2262 selected-checkpoint outcome localization protocol no rollout/ranking claims",
+    "priority": 22590,
     "status": "pending",
-    "success_artifact": "docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md"
+    "success_artifact": "docs/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260601T174659Z"
+  "updated_at_utc": "20260601T175029Z"
 }

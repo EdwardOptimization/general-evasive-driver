@@ -40717,3 +40717,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.json`
 - next: `m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit`
+
+## M2263 Paper-Route Current-Sim Midcourse Corridor-Containment Training Execution Result Audit
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_training_audit_route_to_selected_checkpoint_outcome_localization_design`
+- manifest: `experiments/manifests/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.json`
+- audit artifact: `docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md`
+- parent result: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json`
+- result class: `current_sim_training_stability_repair_execution_pass`
+- completed/failed runs: `15/0`
+- candidate eval count: `120`
+- selected checkpoint count: `15`
+- selected profile floor pass count: `0`
+- selected readiness floor pass count: `4/15`
+- selected beats final count: `11/15`
+- comparison to M2250: lower selected return `58.81669` vs `64.21352`, lower selected termination `0.42083` vs `0.43958`
+- interpretation: runnable targeted repair panel but outcome slices unknown
+- route decision: `m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design.json`
+- next: `m2264-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-design`

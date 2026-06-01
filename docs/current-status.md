@@ -282,7 +282,11 @@ The result is not yet a repair success: selected profile floor pass remains
 `0`, selected beats final is `11/15`, and selected aggregate return is lower
 than M2250 while selected termination is slightly lower. M2263 is the next
 blocker: audit the targeted training result before outcome localization,
-synthesis, or any further repair.
+synthesis, or any further repair. M2263 completes that audit and routes to
+M2264 selected-checkpoint outcome localization design. The reason is that M2262
+is runnable and guardrail clean, but only an M2244/M2253-style `480`-episode
+localization can test the M2258 acceptance slices: `mid_offtrack_delta`,
+`mild_overshoot_delta`, global offtrack, and collision guardrail.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
