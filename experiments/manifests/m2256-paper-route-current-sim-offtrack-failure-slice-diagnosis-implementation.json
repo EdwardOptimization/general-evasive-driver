@@ -1,0 +1,189 @@
+{
+  "id": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "metric_artifact",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_diagnosis"
+    ],
+    "parent_dataset": [
+      "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/profile_seed_aggregate.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv",
+      "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/profile_seed_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rerun offtrack failure-slice diagnosis over M2244 and M2253 episode rows"
+    ],
+    "derived_from": [
+      "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design"
+    ],
+    "blocked_by": [
+      "M2255 admits no-rerun failure-slice diagnosis before any further repair"
+    ],
+    "supersedes": [
+      "another blind reward tweak",
+      "another repaired training run before failure-slice diagnosis",
+      "aggregate-only outcome interpretation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.md",
+  "public_gates": [
+    "M2256 must read only existing M2244 and M2253 episode row artifacts",
+    "M2256 must emit slice deltas for offtrack timing severity clearance and profile/seed roles",
+    "M2256 must emit failure_slice_routes.csv with diagnostic route support",
+    "M2256 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_offtrack_failure_slice_diagnosis",
+    "evidence_axis": "Q_offtrack_failure_slice_diagnosis_implementation",
+    "evidence_increment": "turns existing episode rows into actionable failure-slice deltas",
+    "claim_scope": "no-rerun diagnosis only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if input artifacts are incomplete",
+      "stop if implementation repeats aggregate counts only",
+      "stop if no route can be classified"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if episode rows are incomplete",
+      "route to repair design if actionable slice dominates",
+      "route to branch synthesis or stop if deltas are diffuse"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2255 admits implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "run no-rerun offtrack failure-slice diagnosis",
+    "admission_evidence": [
+      "M2255 freezes input artifacts and slice axes",
+      "M2244 and M2253 have complete 480-row episode artifacts",
+      "M2253 worsened offtrack from 110 to 118 while return improved"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_offtrack_failure_slice_diagnosis.py",
+      "tests/test_paper_route_current_sim_offtrack_failure_slice_diagnosis.py",
+      "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/*",
+      "docs/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.md",
+      "M2256 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "input support is complete",
+      "slice delta outputs exist",
+      "route candidates exist",
+      "ranking and paper claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2256 analyzes outcome slices and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2256; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2244 and M2253 episode rows.",
+    "negative_result_policy": "Use slice evidence to choose repair or stop; do not lower self-ID standards.",
+    "allowed_claims": [
+      "failure-slice diagnosis result",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts outcome rows into slice-level repair evidence instead of more reward tuning",
+    "paper_verdict_delta": "can select repair design or stop current branch based on actionable slice support",
+    "must_synthesize_if": [
+      "M2256 only repeats aggregate counts",
+      "M2256 cannot choose repair or stop",
+      "M2256 suggests another training run without route support"
+    ]
+  },
+  "hypothesis": "No-rerun failure-slice diagnosis can identify the actionable source of the M2253 offtrack regression.",
+  "success_criteria": [
+    "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json exists",
+    "baseline and repaired episode counts are 480 each",
+    "offtrack timing severity clearance and profile_seed delta artifacts exist",
+    "failure_slice_routes.csv exists",
+    "guardrail_violation_count is 0",
+    "ranking_admissible_count is 0",
+    "winner_selected is false",
+    "paper_level_claim_made is false",
+    "finite_window_vs_gru_conclusion_made is false",
+    "level3_self_id_claim_made is false"
+  ],
+  "failure_criteria": [
+    "input episode rows are missing or incomplete",
+    "slice delta outputs are missing",
+    "route candidates are ambiguous",
+    "M2256 runs reset rollout measured execution training replay PPO or private holdout",
+    "M2256 ranks profiles or selects a winner",
+    "M2256 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "diagnose",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_failure_slice_diagnosis --baseline-episodes runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv --repaired-episodes runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv --output-dir runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis --next-blocker m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_diagnosis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv"
+  ],
+  "decision_rule": "M2256 passes if it emits complete no-rerun failure-slice artifacts and route candidates without overclaiming.",
+  "next_blocker": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation"
+}

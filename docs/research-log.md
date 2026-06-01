@@ -40543,3 +40543,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.json`
 - next: `m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design`
+
+## M2255 Paper-Route Current-Sim Offtrack Failure-Slice Diagnosis Design
+
+- status: completed
+- decision: `current_sim_offtrack_failure_slice_diagnosis_design_admit_no_rerun_implementation`
+- manifest: `experiments/manifests/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.json`
+- design artifact: `docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md`
+- parent synthesis: `docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md`
+- baseline input: `runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv`
+- repaired input: `runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv`
+- expected baseline/repaired rows: `480/480`
+- designed slice axes: global profile profile_seed outcome termination obstacle_label timing severity clearance sideslip recovery
+- materiality threshold: absolute count delta `>=5` or relative count increase `>=20%`
+- execution started in M2255: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.json`
+- next: `m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation`

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2255 pending no-rerun failure-slice diagnosis design over M2244/M2253 episode rows",
+  "decision_reason": "M2255 freezes no-rerun failure-slice diagnosis over M2244/M2253 episode rows no ranking claims",
   "failure_criteria": [
     "M2255 ignores M2253 outcome-worse result",
     "M2255 repeats aggregate counts without slice axes",
@@ -30,7 +30,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T165130Z",
+  "generated_at_utc": "20260601T165555Z",
   "hypothesis": "A no-rerun failure-slice diagnosis design can identify why the bounded reward repair worsened offtrack outcomes before any further training.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design",
   "next_blocker": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_failure_slice_diagnosis_design_admit_no_rerun_implementation",
   "public_gates": [
     "M2255 must design a no-rerun diagnosis over existing M2244 and M2253 episode rows",
     "M2255 must identify failure-slice axes for offtrack timing severity clearance and profile/seed roles",
@@ -75,9 +75,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_failure_slice_diagnosis_design_admit_no_rerun_implementation",
     "milestone": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design",
-    "reason": "M2255 pending no-rerun failure-slice diagnosis design over M2244/M2253 episode rows",
+    "reason": "M2255 freezes no-rerun failure-slice diagnosis over M2244/M2253 episode rows no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

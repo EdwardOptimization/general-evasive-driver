@@ -1,29 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2262,
+    "completed": 2263,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+    "command_log": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis.md",
+    "run_dir": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
     "status": "completed",
-    "synthesis_decision": "pivot",
-    "task_id": "m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis"
+    "task_id": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design"
   },
   "next_task": {
-    "command": "manual design of no-rerun offtrack failure-slice diagnosis",
-    "hypothesis": "A no-rerun failure-slice diagnosis design can identify why the bounded reward repair worsened offtrack outcomes before any further training.",
-    "id": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun diagnosis over M2244 and M2253 episode rows before further repair or ranking",
-    "priority": 22500,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_failure_slice_diagnosis --baseline-episodes runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv --repaired-episodes runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv --output-dir runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis --next-blocker m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
+    "hypothesis": "No-rerun failure-slice diagnosis can identify the actionable source of the M2253 offtrack regression.",
+    "id": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rerun failure-slice diagnosis over M2244 and M2253 episode rows no ranking claims",
+    "priority": 22510,
     "status": "pending",
-    "success_artifact": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md"
+    "success_artifact": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json"
   },
-  "updated_at_utc": "20260601T164004Z"
+  "updated_at_utc": "20260601T165325Z"
 }

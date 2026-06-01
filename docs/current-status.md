@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2254-paper-route-current-sim-offtrack-recovery-corridor-branch-synthesis
+m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design
 ```
 
 Current next task:
 
 ```text
-m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design
+m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -249,7 +249,11 @@ return-improved but outcome-worse before choosing stronger repair, pivot, or
 branch synthesis. M2254 completes that synthesis and pivots: the bounded
 road-margin/offtrack scalar reward branch is now closed as outcome-worse, and
 the next branch is a no-rerun offtrack failure-slice diagnosis over existing
-M2244/M2253 episode rows before any further repair or ranking.
+M2244/M2253 episode rows before any further repair or ranking. M2255 freezes
+that design: compare exactly the two complete `480`-row episode panels, slice
+the offtrack regression by timing, severity, clearance risk, profile/seed,
+sideslip, and recovery proxies, then route to stronger repair, guardrail repair,
+synthesis, or stop.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

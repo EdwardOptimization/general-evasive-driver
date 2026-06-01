@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T165130Z
+- Generated at UTC: 20260601T165555Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2255 pending no-rerun failure-slice diagnosis design over M2244/M2253 episode rows
+- Promotion decision: current_sim_offtrack_failure_slice_diagnosis_design_admit_no_rerun_implementation
+- Decision reason: M2255 freezes no-rerun failure-slice diagnosis over M2244/M2253 episode rows no ranking claims
 
 ## Hypothesis
 
@@ -87,8 +87,8 @@ A no-rerun failure-slice diagnosis design can identify why the bounded reward re
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2255 pending no-rerun failure-slice diagnosis design over M2244/M2253 episode rows
+- decision: current_sim_offtrack_failure_slice_diagnosis_design_admit_no_rerun_implementation
+- reason: M2255 freezes no-rerun failure-slice diagnosis over M2244/M2253 episode rows no ranking claims
 
 ## Next Blocker
 
