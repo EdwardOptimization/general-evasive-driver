@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2152,
+    "completed": 2153,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
+    "command_log": "docs/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md",
     "returncode": 0,
-    "run_dir": "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
+    "run_dir": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison",
     "status": "completed",
-    "task_id": "m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design"
+    "task_id": "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json",
-    "hypothesis": "The M2143 protocol can be materialized as denominator-backed diagnostic comparison artifacts without ranking or paper claims.",
-    "id": "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize denominator-backed diagnostic comparison artifacts without ranking",
-    "priority": 21390,
+    "command": "see experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json",
+    "hypothesis": "M2144 diagnostic comparison is clean enough to support a bounded route decision, but not ranking or paper claims.",
+    "id": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2144 diagnostics before route decision",
+    "priority": 21400,
     "status": "pending",
-    "success_artifact": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json"
+    "success_artifact": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md"
   },
-  "updated_at_utc": "20260601T044500Z"
+  "updated_at_utc": "20260601T045000Z"
 }

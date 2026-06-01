@@ -1,0 +1,176 @@
+{
+  "id": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_denominator_backed_comparison_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/profile_outcome_summary.csv",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/diagnostic_contrast_rows.csv",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/metric_contract.csv",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json"
+    ],
+    "parent_objective": [
+      "audit denominator-backed diagnostic comparison before any interpretation"
+    ],
+    "derived_from": [
+      "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization"
+    ],
+    "blocked_by": [
+      "M2144 must materialize diagnostic comparison artifacts before audit"
+    ],
+    "supersedes": [
+      "direct interpretation of descriptive rates as ranking",
+      "direct finite-window-vs-GRU or self-ID conclusion from generated-proxy diagnostics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+  "public_gates": [
+    "M2145 must audit M2144 materialization completeness and guardrails",
+    "M2145 must summarize diagnostics without ranking profiles",
+    "M2145 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2145 must decide a bounded next route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_denominator_backed_comparison_result_audit",
+    "evidence_increment": "audits descriptive denominator-backed diagnostics and decides whether to synthesize or redesign",
+    "claim_scope": "diagnostic comparison audit only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if audit ranks profiles",
+      "stop if audit selects a winner",
+      "stop if audit treats generated-proxy diagnostics as paper evidence",
+      "stop if audit issues finite-window-vs-GRU or self-ID verdicts"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if diagnostics are sufficient for route decision",
+      "route to scenario redesign if generated-proxy diagnostic panel is not sufficient",
+      "route to controlled current-sim comparison design only if audit justifies it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2144 materializes denominator-backed diagnostics and requires audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "denominator-backed diagnostic comparison result audit",
+    "admission_evidence": [
+      "M2144 result_class comparison_support_denominator_backed_diagnostic_comparison_pass",
+      "M2144 profile_count 5",
+      "M2144 source_kind_count 6",
+      "M2144 diagnostic_contrast_row_count 6"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2145",
+      "do not run measured execution in M2145",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+      "M2145 status queue scoreboard research log and review",
+      "one follow-up manifest for synthesis scenario redesign or controlled comparison design"
+    ],
+    "next_stage_criteria": [
+      "M2144 artifacts are audited",
+      "diagnostics and blocked claims are summarized",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2145 audits diagnostic comparison and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2145."
+    ],
+    "temporal_evidence_window": "M2144 diagnostic comparison artifacts.",
+    "negative_result_policy": "If diagnostics do not justify more process work, route to synthesis or scenario redesign instead of extending the local loop.",
+    "allowed_claims": [
+      "denominator-backed diagnostic comparison audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a newly materialized descriptive comparison artifact and should decide whether to synthesize or redesign",
+    "paper_verdict_delta": "can inform route decision but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2145 cannot choose a bounded next route",
+      "M2145 finds diagnostics insufficient for controlled comparison design",
+      "M2145 would require another process-only milestone without new evidence"
+    ]
+  },
+  "hypothesis": "M2144 diagnostic comparison is clean enough to support a bounded route decision, but not ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md exists",
+    "M2144 summary and diagnostic rows are audited",
+    "descriptive diagnostics and blocked claims are summarized",
+    "next route is explicit",
+    "no reset rollout measured execution ranking winner paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2144 artifacts are not audited",
+    "next route is ambiguous",
+    "ranking winner or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md from M2144 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_denominator_backed_comparison_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md",
+    "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json",
+    "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/profile_outcome_summary.csv"
+  ],
+  "decision_rule": "M2145 passes if it audits diagnostics and selects a bounded next route without ranking.",
+  "next_blocker": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis"
+}

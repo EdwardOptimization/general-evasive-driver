@@ -1,0 +1,29 @@
+{
+  "blocked_verdicts": [
+    "winner",
+    "rank",
+    "finite_window_vs_gru_verdict",
+    "paper_level_benchmark_result",
+    "level3_self_identification"
+  ],
+  "claim_scope": "descriptive diagnostics only; no ranking, winner, paper, finite-window-vs-GRU, or self-ID claim",
+  "denominator_rows_path": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/denominator_inventory_rows.csv",
+  "diagnostic_contrasts": [
+    "L1_minus_L0_current_response_increment",
+    "L2_minus_L1_finite_window_increment",
+    "L3_online_minus_L1_recurrent_vs_one_step",
+    "L3_online_minus_L2_recurrent_vs_window",
+    "L3_reset_minus_L3_online_reset_control_gap",
+    "L3_reset_minus_L2_reset_vs_window"
+  ],
+  "generated_at_utc": "20260601T044649Z",
+  "inventory_summary_path": "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+  "profiles": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_50",
+    "L3_online_gru",
+    "L3_reset_control_corrected"
+  ],
+  "protocol_name": "m2144_denominator_backed_diagnostic_comparison"
+}

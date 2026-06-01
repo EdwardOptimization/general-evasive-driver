@@ -16,19 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design
+m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization
 ```
 
 Current next task:
 
 ```text
-m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization
+m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit
 ```
 
-Immediate route: M2143 designs a bounded denominator-backed diagnostic
-comparison protocol. M2144 may materialize descriptive profile/source-kind rates
-and pre-registered diagnostic deltas from M2141 only. It must not rank profiles,
-select a winner, or claim paper/FW-vs-GRU/self-ID evidence.
+Immediate route: M2144 materializes denominator-backed descriptive diagnostics:
+`5` profiles, `6` source kinds, `30` denominator rows, `6` diagnostic contrasts,
+guardrail `0`. M2145 must audit these diagnostics before any route decision.
+Ranking, winner selection, paper claims, finite-window vs GRU conclusions, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

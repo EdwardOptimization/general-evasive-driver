@@ -1,0 +1,8 @@
+metric,admissible,reason
+profile_success_rate,True,"descriptive rate over complete denominator inventory, not a ranking"
+source_kind_profile_success_rate,True,"descriptive per-source-kind profile rate, not a ranking"
+diagnostic_pairwise_delta,True,pre-registered diagnostic delta for audit routing only
+winner_or_rank,False,materialization does not choose winners or sort rankings
+finite_window_vs_gru_verdict,False,generated-proxy diagnostic deltas are not a verdict
+paper_level_benchmark_verdict,False,generated proxy rows remain paper_validity_claim false
+level3_self_id_verdict,False,"materialization does not test wrong, delayed, or reset history outcome interventions"

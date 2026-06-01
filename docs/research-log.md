@@ -37915,3 +37915,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked fields: rank, winner, best_profile, beats, outperforms, finite-window-vs-GRU verdict, GRU advantage claim, self-ID claim, paper result
 - follow-up manifest: `experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json`
 - next: `m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization`
+
+## M2144 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Backed Comparison Materialization
+
+- status: completed
+- decision: `denominator_backed_diagnostic_comparison_pass_route_to_audit`
+- manifest: `experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json`
+- implementation: `src/autodrift/paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison.py`
+- tests: `tests/test_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison.py`
+- run artifact: `runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json`
+- documentation: `docs/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md`
+- reset/rollout/measured execution in M2144: `false`
+- policy actions executed in M2144: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `2 passed`
+- result_class: `comparison_support_denominator_backed_diagnostic_comparison_pass`
+- profile_count: `5`
+- source_kind_count: `6`
+- denominator_row_count: `30`
+- diagnostic_contrast_row_count: `6`
+- guardrail_violation_count: `0`
+- descriptive diagnostics: L0 success `0.0500`; L1 `0.0833`; L2 `0.0000`; L3 online `0.3667`; L3 reset `0.4333`
+- interpretation boundary: descriptive generated-proxy diagnostics only; no ranking or verdict
+- follow-up manifest: `experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json`
+- next: `m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit`
