@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2151,
+    "completed": 2152,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md",
+    "command_log": "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md",
+    "run_dir": "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
     "status": "completed",
-    "task_id": "m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit"
+    "task_id": "m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.json",
-    "hypothesis": "A bounded denominator-backed diagnostic comparison protocol can be designed from M2141 inventory without ranking or paper claims.",
-    "id": "m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design",
-    "kind": "gate",
-    "notes": "Pending: design denominator-backed diagnostic comparison protocol without ranking",
-    "priority": 21380,
+    "command": "see experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json",
+    "hypothesis": "The M2143 protocol can be materialized as denominator-backed diagnostic comparison artifacts without ranking or paper claims.",
+    "id": "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize denominator-backed diagnostic comparison artifacts without ranking",
+    "priority": 21390,
     "status": "pending",
-    "success_artifact": "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md"
+    "success_artifact": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json"
   },
-  "updated_at_utc": "20260601T044000Z"
+  "updated_at_utc": "20260601T044500Z"
 }

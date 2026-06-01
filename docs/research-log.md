@@ -37894,3 +37894,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: denominator inventory admits diagnostic comparison protocol design, not ranking or FW-vs-GRU/self-ID claim
 - follow-up manifest: `experiments/manifests/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.json`
 - next: `m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design`
+
+## M2143 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Backed Comparison Protocol Design
+
+- status: completed
+- decision: `denominator_backed_comparison_protocol_design_admit_materialization`
+- manifest: `experiments/manifests/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.json`
+- design artifact: `docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md`
+- reset/rollout/measured execution in M2143: `false`
+- policy actions executed in M2143: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- design result: denominator-backed descriptive profile/source-kind rates plus pre-registered diagnostic deltas
+- included profiles: all five measured profiles
+- included panel source kinds: all six controlled panel source kinds
+- diagnostic contrasts: L1-L0, L2-L1, L3_online-L1, L3_online-L2, L3_reset-L3_online, L3_reset-L2
+- blocked fields: rank, winner, best_profile, beats, outperforms, finite-window-vs-GRU verdict, GRU advantage claim, self-ID claim, paper result
+- follow-up manifest: `experiments/manifests/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.json`
+- next: `m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization`

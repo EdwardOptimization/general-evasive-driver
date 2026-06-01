@@ -1,0 +1,186 @@
+{
+  "id": "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_denominator_backed_comparison_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/denominator_inventory_rows.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/profile_denominator_summary.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/source_kind_denominator_summary.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.json"
+    ],
+    "parent_objective": [
+      "materialize denominator-backed diagnostic comparison artifacts without ranking"
+    ],
+    "derived_from": [
+      "m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design"
+    ],
+    "blocked_by": [
+      "M2143 must design bounded diagnostic comparison protocol before materialization"
+    ],
+    "supersedes": [
+      "manual denominator summary interpretation",
+      "direct ranking from denominator rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md",
+  "public_gates": [
+    "M2144 must materialize denominator-backed diagnostic comparison artifacts from existing inventory only",
+    "M2144 must include all profiles and source kinds",
+    "M2144 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2144 must not rank profiles or select a winner"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit RL implementation code except the diagnostic comparison materializer if needed",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_denominator_backed_comparison_materialization",
+    "evidence_increment": "materializes denominator-backed descriptive diagnostic comparison artifacts",
+    "claim_scope": "diagnostic comparison materialization only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if materialization ranks profiles",
+      "stop if materialization selects a winner",
+      "stop if materialization treats generated-proxy diagnostics as paper evidence",
+      "stop if materialization computes finite-window-vs-GRU or self-ID verdicts"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifacts are clean",
+      "route to synthesis if diagnostics do not change the branch verdict",
+      "route to scenario redesign if generated-proxy boundary blocks useful next evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2143 admits denominator-backed diagnostic comparison materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "denominator-backed diagnostic comparison materialization",
+    "admission_evidence": [
+      "M2143 designs bounded diagnostic comparison protocol",
+      "M2141 denominator_inventory_row_count 30",
+      "M2141 available_denominator_row_count 30"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2144",
+      "do not run measured execution in M2144",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "diagnostic comparison materializer if needed",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison artifacts",
+      "M2144 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit or synthesis"
+    ],
+    "next_stage_criteria": [
+      "diagnostic comparison artifacts are written",
+      "blocked verdict fields are checked",
+      "claim boundary is machine-readable",
+      "next audit or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2144 materializes diagnostic comparison artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2144."
+    ],
+    "temporal_evidence_window": "M2141 denominator inventory and M2143 protocol design.",
+    "negative_result_policy": "If materialization cannot avoid ranking or verdict fields, record the blocker and route to synthesis or scenario redesign.",
+    "allowed_claims": [
+      "denominator-backed diagnostic comparison materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_baseline_comparison",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns denominator inventory into a bounded descriptive baseline comparison artifact without ranking",
+    "paper_verdict_delta": "can inform scenario-redesign or comparison-route decisions but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2144 produces ranking fields",
+      "M2144 cannot materialize diagnostics without verdict language",
+      "M2144 diagnostics do not change the next route"
+    ]
+  },
+  "hypothesis": "The M2143 protocol can be materialized as denominator-backed diagnostic comparison artifacts without ranking or paper claims.",
+  "success_criteria": [
+    "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json exists",
+    "profile outcome summary exists",
+    "source-kind profile matrix exists",
+    "diagnostic contrast rows exist",
+    "claim boundary exists",
+    "no reset rollout measured execution ranking winner paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "required artifacts are missing",
+    "materialization route requires rerun",
+    "diagnostic rows are missing",
+    "ranking winner or paper-level claims are made",
+    "claim boundary is missing or violated"
+  ],
+  "commands": [
+    {
+      "name": "materialize",
+      "command": "write M2144 denominator-backed diagnostic comparison artifacts from M2141 inventory"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/profile_outcome_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/diagnostic_contrast_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_denominator_backed_comparison_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design.md",
+    "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+    "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/denominator_inventory_rows.csv"
+  ],
+  "decision_rule": "M2144 passes if it writes diagnostic comparison artifacts without ranking or verdict fields.",
+  "next_blocker": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit"
+}
