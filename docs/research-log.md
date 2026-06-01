@@ -40808,3 +40808,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.json`
 - next: `m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design`
+
+## M2267 Paper-Route Current-Sim Midcourse Corridor-Containment Failure-Slice Diagnosis Design
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_failure_slice_diagnosis_design_route_to_branch_synthesis_before_implementation`
+- manifest: `experiments/manifests/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.json`
+- design artifact: `docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md`
+- input panels: M2244 baseline, M2265 targeted containment, M2253 generic-repair reference
+- primary comparison: `baseline_m2244` vs `targeted_m2265`
+- reference comparisons: `baseline_m2244` vs `generic_m2253`, `generic_m2253` vs `targeted_m2265`
+- required slices: global, profile, profile_seed, outcome, termination, obstacle, offtrack timing, offtrack severity, clearance risk, sideslip, recovery
+- label guardrail: do not reuse stale `repaired_m2253` label for M2265
+- execution started in M2267: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.json`
+- next: `m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis`
+
+## M2268 Paper-Route Current-Sim Midcourse Corridor-Containment Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- manifest: `experiments/manifests/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.json`
+- synthesis artifact: `docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md`
+- synthesis window: `M2258-M2267`
+- evidence summary: targeted containment improves aggregate outcome vs M2253 but does not prove strict offtrack repair vs M2244
+- supported claim: targeted containment branch is executable and guardrail clean
+- falsified/unsupported claim: aggregate `278/110/92` alone proves M2258 slice repair
+- public-gate overfit risk: medium-high if the next step is another reward/training tweak
+- next branch decision: continue only to no-rerun slice diagnosis with accurate labels
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation.json`
+- next: `m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation`

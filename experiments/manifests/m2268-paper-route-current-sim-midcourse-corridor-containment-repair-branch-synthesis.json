@@ -1,0 +1,201 @@
+{
+  "id": "m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "objective_overfit",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design.md",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+      "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+      "docs/m2266-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-result-audit.md",
+      "docs/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M2258-M2267 targeted containment branch before no-rerun slice diagnosis implementation"
+    ],
+    "derived_from": [
+      "m2258-paper-route-current-sim-midcourse-corridor-containment-repair-design",
+      "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution",
+      "m2265-paper-route-current-sim-midcourse-corridor-containment-selected-checkpoint-outcome-localization-implementation",
+      "m2267-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached before M2268 implementation",
+      "M2265 aggregate outcome is improved vs M2253 but slice evidence is missing"
+    ],
+    "supersedes": [
+      "direct M2268 implementation without synthesis",
+      "another reward/training tweak before slice diagnosis",
+      "aggregate-only targeted repair success interpretation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+  "public_gates": [
+    "M2268 must synthesize M2258-M2267",
+    "M2268 must separate aggregate improvement from strict slice repair",
+    "M2268 must classify public-gate overfit and local-search risk",
+    "M2268 must decide continue pivot stop or promote_to_next_branch",
+    "M2268 must not run reset rollout measured execution training replay PPO or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_branch_synthesis",
+    "evidence_increment": "synthesizes targeted repair materialization training localization and slice-diagnosis design into a bounded continue decision",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis treats aggregate 278/110/92 as strict repair success",
+      "stop if next route continues reward/training local search before slice evidence",
+      "stop if public-gate overfit risk is ignored"
+    ],
+    "fallback_plan": [
+      "continue only to no-rerun slice diagnosis",
+      "pivot or synthesize if slice diagnosis cannot answer M2258 acceptance metrics",
+      "stop current-sim repair branch if no actionable slice remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "workflow cadence reached after M2258-M2267 targeted containment repair branch",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize targeted containment repair branch",
+    "admission_evidence": [
+      "M2259 materialized targeted configs cleanly",
+      "M2262 trained 15 targeted runs and selected 15 checkpoints",
+      "M2265 completed 480 selected-checkpoint episodes",
+      "M2265 global success/offtrack/collision is 278/110/92",
+      "M2267 designs no-rerun slice diagnosis with accurate panel labels"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout in synthesis",
+      "no measured execution in synthesis",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+      "M2268 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "supported and falsified claims are explicit",
+      "public overfit/local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2268 synthesizes outcome repair evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2268."
+    ],
+    "temporal_evidence_window": "M2258-M2267 branch artifacts.",
+    "negative_result_policy": "If slice diagnosis fails, synthesize or pivot without weakening paper or self-ID standards.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "turns targeted repair aggregate evidence into a bounded no-rerun slice-diagnosis decision",
+    "paper_verdict_delta": "decides that targeted containment is aggregate-supported but slice-incomplete, so only no-rerun slice diagnosis is admitted",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "M2258-M2267 evidence can be synthesized into a bounded continue decision that avoids reward/training local search.",
+  "success_criteria": [
+    "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "aggregate improvement is separated from strict slice repair",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "M2265 aggregate improvement is overclaimed as strict repair",
+    "next route is another reward/training tweak before slice diagnosis",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md from M2258-M2267 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2268-paper-route-current-sim-midcourse-corridor-containment-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2265_paper_route_current_sim_midcourse_corridor_containment_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/summary.json",
+    "runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2268 passes if it synthesizes M2258-M2267 and continues only to no-rerun slice diagnosis without overclaiming.",
+  "next_blocker": "m2269-paper-route-current-sim-midcourse-corridor-containment-failure-slice-diagnosis-implementation"
+}

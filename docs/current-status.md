@@ -301,6 +301,13 @@ aggregate-improved but slice-incomplete: M2265 fixes the M2253 regression at
 aggregate level, yet strict offtrack improvement is not proven. The next task is
 M2267: design a no-rerun M2244/M2265/M2253 slice diagnosis focused on
 mid_offtrack, mild_overshoot, clearance-risk, and profile-seed regressions.
+M2267 completes that design and admits M2268 implementation. The implementation
+must use accurate panel labels (`baseline_m2244`, `targeted_m2265`,
+`generic_m2253`) and produce primary, reference, and repair-delta slice tables
+without any reset, rollout, training, ranking, or paper/self-ID claim. The
+workflow cadence then triggers M2268 synthesis before implementation. M2268
+continues the branch only to that no-rerun slice diagnosis; another reward or
+training tweak is explicitly blocked until slice evidence exists.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
