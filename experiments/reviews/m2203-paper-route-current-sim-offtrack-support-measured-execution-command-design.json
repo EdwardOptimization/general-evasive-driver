@@ -1,0 +1,91 @@
+{
+  "decision_reason": "M2203 freezes measured-execution command over M2194 specs and M2200 workload target 2304 episodes 288 specs 8 profiles output M2204 no execution ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "design document is missing",
+    "command uses stale empty-checkpoint workload",
+    "command omits output directory or target counts",
+    "measured execution is run"
+  ],
+  "failure_types": [],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T110018Z",
+  "hypothesis": "The audited and synthesized repaired workload can be converted into a precise current-sim measured execution command without running it or making comparison claims.",
+  "lineage": {
+    "blocked_by": [
+      "Measured execution command must be designed before running the 2304-cell repaired workload"
+    ],
+    "derived_from": [
+      "m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L0_current_masked/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L1_one_step/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_13/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_25/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_50/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_100/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.md",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv"
+    ],
+    "parent_objective": [
+      "freeze measured-execution command over the repaired reset-valid checkpoint-complete workload"
+    ],
+    "supersedes": [
+      "ad hoc measured execution command over repaired workload"
+    ]
+  },
+  "milestone": "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design",
+  "next_blocker": "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_offtrack_support_measured_execution_command_design_admit_implementation_and_run",
+  "public_gates": [
+    "M2203 must freeze a command over M2194 repaired specs and M2200 materialized workload",
+    "M2203 must set target episode/spec/profile counts",
+    "M2203 must define output directory and next-blocker audit id",
+    "M2203 must not run measured execution or rank controller families"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_offtrack_support_measured_execution_command_design_admit_implementation_and_run",
+    "milestone": "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design",
+    "reason": "M2203 freezes measured-execution command over M2194 specs and M2200 workload target 2304 episodes 288 specs 8 profiles output M2204 no execution ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md exists",
+    "command references M2194 repaired executable specs and M2200 materialized workload",
+    "output directory, eval seed base, device, resume policy, target episode count, target spec count, target profile count, and next blocker are explicit",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

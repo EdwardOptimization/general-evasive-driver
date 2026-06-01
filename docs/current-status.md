@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis
+m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design
+m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2202 synthesizes M2192-M2201 and chooses `continue` to
-measured-execution command design. The repaired offtrack-support panel now has
-`288` reset-valid specs and a checkpoint-complete `2304`-row workload across
-`8` profiles with guardrail `0`. M2203 must freeze the measured-execution
-command; it must not execute policies. Controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked.
+Immediate route: M2203 freezes the measured-execution command over the repaired
+offtrack-support panel. M2204 may run only that command over M2194 repaired
+specs and the M2200 checkpoint-complete workload: `2304` episodes, `288` specs,
+`8` profiles, output `runs/m2204_paper_route_current_sim_offtrack_support_measured_execution`.
+Controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
+claims remain blocked until result audit and denominator-backed comparison.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

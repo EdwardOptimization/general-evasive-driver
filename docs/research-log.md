@@ -39290,3 +39290,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: continue to measured-execution command design only
 - follow-up manifest: `experiments/manifests/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.json`
 - next: `m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design`
+
+## M2203 Paper-Route Current-Sim Offtrack-Support Measured-Execution Command Design
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_execution_command_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.json`
+- design artifact: `docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md`
+- executable specs: `runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json`
+- materialized workload: `runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv`
+- output dir: `runs/m2204_paper_route_current_sim_offtrack_support_measured_execution`
+- eval seed base: `220400`
+- target episodes: `2304`
+- target specs: `288`
+- target profiles: `8`
+- measured execution: `false`
+- policy action executed: `false`
+- result: admit frozen command implementation/run
+- follow-up manifest: `experiments/manifests/m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run.json`
+- next: `m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run`
