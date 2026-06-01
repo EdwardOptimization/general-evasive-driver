@@ -39840,3 +39840,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits no-training config materialization for matched-budget short v0
 - follow-up manifest: `experiments/manifests/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.json`
 - next: `m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization`
+
+## M2227 Paper-Route Current-Sim Matched-Budget Profile Training Config Materialization
+
+- status: completed
+- decision: `current_sim_matched_budget_profile_training_config_materialization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.json`
+- run artifact: `runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_matched_budget_profile_training_configs.py`
+- focused tests: `2 passed`
+- generated_config_count: `15`
+- expected_config_count: `15`
+- training_matrix_row_count: `15`
+- trainable_profile_count: `5`
+- trainable profiles: `L0_current_masked`, `L1_one_step`, `L2_window_25`, `L2_window_50`, `L3_online_gru`
+- alias/control profile: `L3_reset_control`
+- alias source profile: `L3_online_gru`
+- seeds_per_profile: `3`
+- seed_ids: `222601`, `222602`, `222603`
+- budget_matched: `true`
+- seed_policy_matched: `true`
+- contract_violation_count: `0`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- replay/PPO/training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: materializes matched-budget short-v0 configs and training command matrix without training or rollout
+- follow-up manifest: `experiments/manifests/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.json`
+- next: `m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit`

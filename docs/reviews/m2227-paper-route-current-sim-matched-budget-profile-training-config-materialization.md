@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T130300Z
+- Generated at UTC: 20260601T131442Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2227 pending no-training matched-budget config and command materialization no ranking claims
+- Promotion decision: current_sim_matched_budget_profile_training_config_materialization_pass
+- Decision reason: M2227 no-training materialization pass 15 configs 15 command rows 5 profiles 3 seeds budget matched true contract 0 guardrail 0 no reset rollout training ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -88,8 +88,8 @@ M2226 matched-budget design can be materialized into contract-clean config and c
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2227 pending no-training matched-budget config and command materialization no ranking claims
+- decision: current_sim_matched_budget_profile_training_config_materialization_pass
+- reason: M2227 no-training materialization pass 15 configs 15 command rows 5 profiles 3 seeds budget matched true contract 0 guardrail 0 no reset rollout training ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

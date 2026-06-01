@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2226-paper-route-current-sim-matched-budget-profile-training-design
+m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization
 ```
 
 Current next task:
 
 ```text
-m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization
+m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -77,8 +77,14 @@ train primary profiles `L0_current_masked`, `L1_one_step`, `L2_window_25`,
 control; use `3` seeds per profile (`222601/222602/222603`), `8192` steps per
 seed, rollout steps `128`, `4` envs, `2` update epochs, and `32` eval episodes;
 admit profiles only if at least `2/3` seeds meet eval termination `<=0.4` and
-eval return `>=50.0`. M2227 must now materialize configs and a training command
-matrix without running training.
+eval return `>=50.0`. M2227 materializes that plan into `15` generated configs
+and `15` training command rows for the five trainable profiles and three seeds.
+The materialization result is clean: `budget_matched=true`,
+`seed_policy_matched=true`, `contract_violation_count=0`,
+`guardrail_violation_count=0`, and no reset, rollout, measured execution,
+policy action, replay, PPO, or training started. M2228 must now audit those
+artifacts before any training-execution command design; ranking, paper-level
+claims, finite-window-vs-GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

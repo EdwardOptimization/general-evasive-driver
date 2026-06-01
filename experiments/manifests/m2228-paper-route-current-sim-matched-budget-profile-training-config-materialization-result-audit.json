@@ -1,0 +1,181 @@
+{
+  "id": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+      "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+      "configs/paper_route_profiles/m2227_matched_budget_short_v0"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization.json"
+    ],
+    "parent_objective": [
+      "audit matched-budget config materialization before any training execution design"
+    ],
+    "derived_from": [
+      "m2227-paper-route-current-sim-matched-budget-profile-training-config-materialization"
+    ],
+    "blocked_by": [
+      "M2227 generated configs and command matrix must be audited before training execution"
+    ],
+    "supersedes": [
+      "directly running generated training commands without result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
+  "public_gates": [
+    "M2228 must audit M2227 summary result_class and counts",
+    "M2228 must verify generated_config_count=15 and training_matrix_row_count=15",
+    "M2228 must verify all trained profiles share the same seed set and budget signature",
+    "M2228 must verify contract_violation_count=0 and guardrail_violation_count=0",
+    "M2228 must verify training_started=false and no reset rollout replay PPO measured execution or policy action occurred",
+    "M2228 must decide whether a separate training-execution command design is admissible"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "Q_matched_budget_profile_training_config_materialization_audit",
+    "evidence_increment": "audits deterministic matched-budget config and command artifacts before admitting training execution",
+    "claim_scope": "process audit only; no training rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if generated counts do not match M2226 design",
+      "stop if budgets or seeds differ across trainable profiles",
+      "stop if M2227 guardrails show training, reset, rollout, replay, PPO, measured execution, or policy action"
+    ],
+    "fallback_plan": [
+      "route to config materialization repair if counts, budgets, or seeds fail",
+      "route to contract repair if actor input guardrails fail",
+      "route to training-execution command design if the audit is clean"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2227 materialization completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-training matched-budget profile config materialization",
+    "admission_evidence": [
+      "M2227 summary result_class is current_sim_matched_budget_profile_training_config_materialization_pass",
+      "M2227 generated 15 trainable profile/seed configs and 15 training command rows"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
+      "M2228 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2227 result_class pass",
+      "generated_config_count equals 15",
+      "training_matrix_row_count equals 15",
+      "budget_matched true",
+      "seed_policy_matched true",
+      "contract_violation_count is 0",
+      "guardrail_violation_count is 0",
+      "training_started false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2228 audits config artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2228."
+    ],
+    "temporal_evidence_window": "M2227 matched-budget config materialization artifacts.",
+    "negative_result_policy": "Audit must preserve blocked ranking and self-ID claims even when config artifacts are clean.",
+    "allowed_claims": [
+      "matched-budget config materialization audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "checks whether matched-budget training artifacts are admissible for a separate execution design",
+    "paper_verdict_delta": "protects fair profile training setup before comparison data exists",
+    "must_synthesize_if": [
+      "M2228 cannot admit training execution design",
+      "M2228 finds profile-specific budget drift",
+      "M2228 finds training or rollout already happened during materialization"
+    ]
+  },
+  "hypothesis": "M2227 materialization artifacts are clean enough to admit a separate matched-budget training-execution command design, while still blocking direct training and ranking claims.",
+  "success_criteria": [
+    "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md exists",
+    "M2227 summary result_class is current_sim_matched_budget_profile_training_config_materialization_pass",
+    "generated_config_count is 15",
+    "training_matrix_row_count is 15",
+    "budget_matched is true",
+    "seed_policy_matched is true",
+    "contract_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "training_started is false",
+    "no reset rollout measured execution training replay PPO ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "M2227 summary is missing",
+    "M2227 config or command counts differ from M2226 design",
+    "budget or seed signatures differ across profiles",
+    "contract or guardrail violations are nonzero",
+    "training execution design is admitted despite artifact inconsistencies"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json and generated configs"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/summary.json",
+    "runs/m2227_paper_route_current_sim_matched_budget_profile_training_configs/training_matrix.csv",
+    "configs/paper_route_profiles/m2227_matched_budget_short_v0"
+  ],
+  "decision_rule": "M2228 passes if M2227 artifacts are count-, budget-, seed-, contract-, and guardrail-clean, and routes only to a separate training-execution command design.",
+  "next_blocker": "m2228-paper-route-current-sim-matched-budget-profile-training-config-materialization-result-audit"
+}
