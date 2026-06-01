@@ -1,0 +1,196 @@
+{
+  "id": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repair_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+      "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md",
+      "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement focused materializer repair for friction-step timing filter edge and rerun reset validation"
+    ],
+    "derived_from": [
+      "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design"
+    ],
+    "blocked_by": [
+      "M2289 admits focused filter-edge implementation"
+    ],
+    "supersedes": [
+      "direct reset rerun without filter repair",
+      "measured execution after 71/72 reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.md",
+  "public_gates": [
+    "M2290 must remove implicit low_mu friction_step from the v0 reset-valid role-family pack",
+    "M2290 must add materializer-side reset-filter compatibility checks",
+    "M2290 must rerun materialization and reset-only validation",
+    "M2290 must not run rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not repair and rerun again inside M2290 after validation"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_filter_edge_repair_data",
+    "evidence_increment": "implements focused filter-edge repair and produces reset-only validation evidence for the repaired pack",
+    "claim_scope": "materialization and reset-only public diagnostic evidence; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repaired materialization still has execution blockers",
+      "stop if reset validation still fails",
+      "stop if any actor-contract or guardrail violation appears"
+    ],
+    "fallback_plan": [
+      "route to result audit for pass or fail",
+      "repair again only after result audit localizes any remaining failure",
+      "synthesize if reset validity still cannot be recovered after the focused filter repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2289 freezes focused filter-edge repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "focused materializer filter-edge repair plus reset validation",
+    "admission_evidence": [
+      "M2289 freezes removal of implicit low_mu friction_step from v0 reset-valid pack",
+      "M2288 localizes M2287's one-row failure to friction-step timing filter compatibility"
+    ],
+    "blocked_shortcuts": [
+      "no rollout or measured execution",
+      "no policy actions",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_config_materialization.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_config_materialization.py",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization/summary.json",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
+      "docs/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.md",
+      "M2290 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "materialization artifact exists",
+      "reset-validation artifact exists",
+      "contract and guardrails remain clean",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2290 repairs scenario materialization and runs reset validation; it does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2290."
+    ],
+    "temporal_evidence_window": "M2287-M2289 reset-validation failure and filter repair artifacts.",
+    "negative_result_policy": "Treat repaired reset validation as scenario-quality evidence only.",
+    "allowed_claims": [
+      "scenario task-family materialization filter-edge repair and reset-validation evidence",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "creates a reset-valid candidate scenario pack or a concrete failure artifact after a focused filter repair",
+    "paper_verdict_delta": "can admit result audit and then measured execution design if reset validation passes",
+    "must_synthesize_if": [
+      "M2290 still cannot produce reset-valid R4/low_mu rows",
+      "M2290 requires changing role semantics",
+      "M2290 output lacks a result-audit route"
+    ]
+  },
+  "hypothesis": "Removing implicit low_mu friction_step from the v0 reset-valid role-family pack and adding filter-aware precheck can produce a 72-spec pack that passes reset validation under the P0 actor contract.",
+  "success_criteria": [
+    "focused tests pass",
+    "materialization summary exists and passes",
+    "reset-validation summary exists",
+    "reset_success_count equals 72",
+    "lateral_bucket_mismatch_count equals 0",
+    "actor_contract_violation_count equals 0",
+    "guardrail_violation_count equals 0",
+    "a result audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "materialization summary is missing",
+    "reset-validation summary is missing",
+    "any reset fails",
+    "any contract label lateral-offset or guardrail violation appears",
+    "rollout policy action measured execution ranking training or paper-level claims are made",
+    "M2290 repairs and reruns again after validation instead of routing to audit"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_scenario_task_family_config_materialization.py tests/test_paper_route_current_sim_scenario_task_family_reset_validation.py tests/test_obstacle_lateral_offset_instrumentation.py"
+    },
+    {
+      "name": "materialization",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization --next-blocker m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation --eval-seed-base 229000 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repair_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
+    "runs/m2287_paper_route_current_sim_reset_sampling_lateral_sign_repair/reset_validation/summary.json",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2290 passes if repaired materialization and reset validation both pass, then routes to result audit.",
+  "next_blocker": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit"
+}

@@ -41057,3 +41057,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.json`
 - next: `m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design`
+
+## M2289 Paper-Route Current-Sim Scenario Task-Family Reset Filter-Edge Repair Design
+
+- status: completed
+- decision: `current_sim_scenario_task_family_filter_edge_repair_design_admit_implementation`
+- manifest: `experiments/manifests/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.json`
+- design artifact: `docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md`
+- parent audit: `docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md`
+- design decision: v0 reset-valid pack disables friction_step for all specs; sudden friction changes remain a future explicit scenario family
+- required implementation: remove implicit low_mu friction_step and add materializer reset-filter compatibility helper
+- reset execution in M2289: `false`
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.json`
+- next: `m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation`

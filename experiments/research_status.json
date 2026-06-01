@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2296,
+    "completed": 2297,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit",
+    "task_id": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2288-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-result-audit.md"
+    "command_log": "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md"
   },
   "next_task": {
-    "id": "m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design",
-    "kind": "gate",
-    "priority": 22840,
+    "id": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
+    "kind": "infrastructure",
+    "priority": 22850,
     "status": "pending",
-    "hypothesis": "A focused design can make materializer precheck match reset sampler friction-step filters without changing actor inputs or role semantics.",
-    "command": "manual focused filter-edge repair design artifact",
-    "success_artifact": "docs/m2289-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-design.md",
-    "notes": "Pending: design focused filter-edge repair before implementation/reset rerun; no reset rollout training ranking or paper claims"
+    "hypothesis": "Removing implicit low_mu friction_step from the v0 reset-valid role-family pack and adding filter-aware precheck can produce a 72-spec pack that passes reset validation under the P0 actor contract.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_config_materialization --config-output configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization --next-blocker m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation && PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation --eval-seed-base 229000 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+    "success_artifact": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
+    "notes": "Pending: remove implicit low_mu friction_step, add filter-aware precheck, rerun materialization and reset-only validation; no rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T201402Z"
+  "updated_at_utc": "20260601T201721Z"
 }
