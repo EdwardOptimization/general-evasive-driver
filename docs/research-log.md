@@ -39788,3 +39788,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: L3 online/reset share a weak smoke-scale checkpoint; route to result audit before matched-budget training design
 - follow-up manifest: `experiments/manifests/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.json`
 - next: `m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit`
+
+## M2225 Paper-Route Current-Sim Recurrent Profile Checkpoint Quality Result Audit
+
+- status: completed
+- decision: `current_sim_checkpoint_quality_audit_route_to_matched_budget_training_design`
+- manifest: `experiments/manifests/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.json`
+- audit artifact: `docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md`
+- parent result: `runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json`
+- l3_online_weak_eval_flag: `true`
+- l3_online_weak_train_flag: `true`
+- l3_weak_checkpoint_plausible: `true`
+- matched_budget_training_needed: `true`
+- ranking_admissible_count: `0`
+- winner_selected: `false`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits matched-budget L0/L1/L2/L3 training design before any new training rerun ranking or paper/self-ID claim
+- follow-up manifest: `experiments/manifests/m2226-paper-route-current-sim-matched-budget-profile-training-design.json`
+- next: `m2226-paper-route-current-sim-matched-budget-profile-training-design`

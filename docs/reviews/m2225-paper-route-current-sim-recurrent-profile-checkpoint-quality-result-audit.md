@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T125600Z
+- Generated at UTC: 20260601T125925Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2225 pending result audit over M2224 weak-L3 checkpoint evidence no rerun ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_checkpoint_quality_audit_route_to_matched_budget_training_design
+- Decision reason: M2225 audits M2224 weak L3 checkpoint evidence and admits matched-budget profile training design only no training rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -83,8 +83,8 @@ M2224 checkpoint-quality artifacts can be audited into a matched-budget training
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2225 pending result audit over M2224 weak-L3 checkpoint evidence no rerun ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_checkpoint_quality_audit_route_to_matched_budget_training_design
+- reason: M2225 audits M2224 weak L3 checkpoint evidence and admits matched-budget profile training design only no training rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

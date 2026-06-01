@@ -1,0 +1,94 @@
+{
+  "decision_reason": "M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims",
+  "failure_criteria": [
+    "design document is missing",
+    "design trains only L3 without matched profile budgets",
+    "design allows hidden/oracle inputs",
+    "design allows ranking before admission gates",
+    "new rollout or training is performed"
+  ],
+  "failure_types": [
+    "seed_fragility",
+    "training_instability",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T125925Z",
+  "hypothesis": "A matched-budget training design can remove the weak-smoke checkpoint blocker without overclaiming finite-window or GRU evidence.",
+  "lineage": {
+    "blocked_by": [
+      "M2224 confirms L3 smoke checkpoint is weak and matched-budget training is needed"
+    ],
+    "derived_from": [
+      "m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_training_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
+      "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "freeze matched-budget L0/L1/L2/L3 training design before any new training or comparison"
+    ],
+    "supersedes": [
+      "single-profile L3 retraining without matched-budget controller matrix",
+      "direct measured rerun from weak smoke checkpoints"
+    ]
+  },
+  "milestone": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
+  "next_blocker": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2226 must define a matched-budget L0/L1/L2/L3 training matrix",
+    "M2226 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2226 must specify seed policy, training budget, quality floors, checkpoint materialization, readiness, and reset/runtime smoke admission gates",
+    "M2226 must explicitly block profile-specific tuning, ranking, paper claims, finite-window-vs-GRU verdicts, and self-ID claims",
+    "M2226 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
+    "reason": "M2226 pending fair L0/L1/L2/L3 matched-budget training design with quality floors and admission gates no training/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md exists",
+    "design defines profile matrix, budgets, seeds, quality floors, checkpoint materialization, readiness, reset/runtime smoke, and post-training route",
+    "design preserves actor input contract",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

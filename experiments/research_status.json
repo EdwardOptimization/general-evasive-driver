@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2232,
+    "completed": 2233,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json",
+    "command_log": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit",
+    "run_dir": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
     "status": "completed",
-    "task_id": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit"
+    "task_id": "m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md",
-    "hypothesis": "M2224 checkpoint-quality artifacts can be audited into a matched-budget training or stop decision without rerun or ranking.",
-    "id": "m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit",
+    "command": "write docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md",
+    "hypothesis": "A matched-budget training design can remove the weak-smoke checkpoint blocker without overclaiming finite-window or GRU evidence.",
+    "id": "m2226-paper-route-current-sim-matched-budget-profile-training-design",
     "kind": "gate",
-    "notes": "Pending: audit M2224 weak L3 checkpoint evidence and route to matched-budget training design or other bounded next step",
-    "priority": 22200,
+    "notes": "Pending: freeze matched-budget L0/L1/L2/L3 profile training design with quality floors and admission gates",
+    "priority": 22210,
     "status": "pending",
-    "success_artifact": "docs/m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit.md"
+    "success_artifact": "docs/m2226-paper-route-current-sim-matched-budget-profile-training-design.md"
   },
-  "updated_at_utc": "20260601T125359Z"
+  "updated_at_utc": "20260601T125736Z"
 }

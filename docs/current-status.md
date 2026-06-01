@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit
+m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit
 ```
 
 Current next task:
 
 ```text
-m2225-paper-route-current-sim-recurrent-profile-checkpoint-quality-result-audit
+m2226-paper-route-current-sim-matched-budget-profile-training-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -65,9 +65,13 @@ evidence: `8` profiles joined, `L3_online_gru` and `L3_reset_control` success
 `0/0`, reset aliases the online checkpoint, `L3_online_gru` weak eval/train
 flags are true, `L2_window_25` diagnostic success count is `360`,
 `matched_budget_training_needed=true`, `ranking_admissible_count=0`, and
-guardrail `0`. M2225 must audit this result before any matched-budget training
-design, rerun, ranking, paper claims, finite-window vs GRU verdict, or self-ID
-claim.
+guardrail `0`. M2225 audits this result and admits only matched-budget training
+design: do not train only L3, do not rerun M2209, and do not claim
+finite-window-vs-GRU evidence from weak smoke checkpoints. M2226 must now
+freeze a fair L0/L1/L2/L3 matched-budget training plan with seed policy,
+quality floors, checkpoint materialization, readiness, and reset/runtime smoke
+admission gates before any training, rerun, ranking, paper claims,
+finite-window vs GRU verdict, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
