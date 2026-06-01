@@ -36901,3 +36901,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: complete execution, ranking, paper evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.json`
 - next: `m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design`
+
+## M2103 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Repair Design
+
+- status: completed
+- decision: `public_gate_core_measured_execution_repair_design_admit_no_rollout_implementation`
+- parent audit: `docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md`
+- reset/rollout/measured execution in M2103: `false`
+- policy actions executed in M2103: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- metadata repair mapping: `source_role_semantics := task_role_semantics`; `parent_feasibility_tier_id := tier_not_applicable_outcome_supported_decisive`; `normalized_surface_variant := outcome_supported_decisive_public_gate_core`; `sampled_obstacle_label := M2091 reset_sampled_obstacle_label`
+- sampling repair mapping: add optional `eval_seed_override`, set only two failed workload cells to M2091 reset-success seeds `210260` and `210333`
+- default measured-runner behavior must remain unchanged when override is absent
+- follow-up manifest: `experiments/manifests/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.json`
+- next: `m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation`

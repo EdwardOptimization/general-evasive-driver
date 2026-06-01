@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit
+m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design
 ```
 
 Current next task:
 
 ```text
-m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design
+m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation
 ```
 
-Immediate route: M2102 audits M2101 as an incomplete measured-execution result:
-two obstacle scenario sampling failures plus a full `480`-row metadata
-completeness gap. Metric completeness failures are `0` and guardrail is `0`,
-but complete execution, ranking, paper evidence, finite-window vs GRU claims,
-and self-ID claims remain blocked. M2103 must design a bounded no-rollout repair
-for metadata completeness and the two sampling failures before any rerun.
+Immediate route: M2103 freezes a bounded no-rollout repair for the incomplete
+M2101 measured execution. It will fill full metadata completeness fields from
+existing spec/M2091 reset provenance and add optional `eval_seed_override` only
+for the two failed workload cells, using known M2091 reset-success seeds
+`210260` and `210333`. M2104 must implement this repair and preserve default
+measured-runner behavior when no override is present. Measured rerun, ranking,
+paper claims, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

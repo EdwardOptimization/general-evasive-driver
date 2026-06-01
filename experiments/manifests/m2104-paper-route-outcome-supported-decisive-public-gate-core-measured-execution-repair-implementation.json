@@ -1,0 +1,195 @@
+{
+  "id": "m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_repair"
+    ],
+    "parent_dataset": [
+      "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv",
+      "runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rollout repair for M2101 metadata completeness and two sampling failures"
+    ],
+    "derived_from": [
+      "m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design"
+    ],
+    "blocked_by": [
+      "M2103 must freeze exact metadata mappings and eval_seed_override semantics"
+    ],
+    "supersedes": [
+      "direct rerun without repairing metadata completeness",
+      "manual seed changes outside workload provenance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.md",
+  "public_gates": [
+    "M2104 must implement no-rollout repair artifacts",
+    "M2104 must support optional eval_seed_override without changing default measured-runner behavior",
+    "M2104 must preserve env configs workload keys and controller profiles",
+    "M2104 must not run measured execution or policy actions"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_repair_implementation",
+    "evidence_increment": "implements bounded no-rollout repair before measured execution rerun",
+    "claim_scope": "repair implementation only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if metadata completeness cannot be repaired from existing provenance",
+      "stop if eval_seed_override would change default runner behavior",
+      "stop if repair mutates env configs or controller profiles",
+      "stop if measured execution starts"
+    ],
+    "fallback_plan": [
+      "route to synthesis if repair scope expands beyond bounded metadata/sampling repair",
+      "route to runner adapter design if optional seed override cannot be added safely",
+      "route to task distribution redesign if two sampling failures cannot be repaired from known reset-success seeds"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2103 freezes bounded repair route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "public-gate core measured execution repair implementation",
+    "admission_evidence": [
+      "M2103 maps metadata completeness fields",
+      "M2103 specifies exactly two eval_seed_override rows",
+      "M2101 metric completeness and guardrail are clean"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M2104",
+      "do not rank controller families",
+      "do not weaken runner validation"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair.py",
+      "src/autodrift/paper_route_controlled_routing_smoke_measured_runner.py",
+      "tests/test_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair.py",
+      "tests/test_paper_route_controlled_routing_smoke_measured_runner.py",
+      "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/*",
+      "docs/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.md",
+      "M2104 status queue scoreboard research log and review",
+      "one follow-up manifest for repair result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "metadata completeness failure count is zero",
+      "eval_seed_override_count is two",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2104 repairs execution artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2104."
+    ],
+    "temporal_evidence_window": "M2101 measured execution and M2103 repair design.",
+    "negative_result_policy": "If repair fails, synthesize before another local metadata bridge.",
+    "allowed_claims": [
+      "measured execution repair implementation",
+      "no measured execution, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "repairs the measured execution artifact path before rerun",
+    "paper_verdict_delta": "can admit a repaired measured execution command but cannot change ranking or paper verdict before rerun and audit",
+    "must_synthesize_if": [
+      "M2104 cannot repair metadata completeness",
+      "M2104 creates new runner behavior beyond optional seed override",
+      "M2104 requires another schema bridge after M2098"
+    ]
+  },
+  "hypothesis": "A no-rollout repair can produce metadata-complete measured-execution artifacts and targeted eval_seed_override rows for the two M2101 sampling failures without changing default runner behavior.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json exists",
+    "compatible_spec_count is 96",
+    "compatible_workload_count is 480",
+    "metadata_missing_count is 0",
+    "validation_failure_count is 0",
+    "eval_seed_override_count is 2",
+    "env_config_changed_count is 0",
+    "guardrail_violation_count is 0",
+    "environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "metadata missing rows remain",
+    "validation failures remain",
+    "eval_seed overrides are not exactly two",
+    "env configs or controller profiles are mutated",
+    "reset rollout measured execution ranking or paper claims are performed"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair.py tests/test_paper_route_controlled_routing_smoke_measured_runner.py"
+    },
+    {
+      "name": "repair",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair --executable-task-specs runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json --workload runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv --reset-rows runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv --failure-rows runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv --output-dir runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair --target-spec-count 96 --target-workload-count 480 --target-profile-count 5 --target-eval-seed-override-count 2 --next-blocker m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_repair"
+  ],
+  "baseline_artifacts": [
+    "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+    "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2104 passes if it writes metadata-complete repaired artifacts and exactly two eval seed overrides without running measured execution.",
+  "next_blocker": "m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit"
+}

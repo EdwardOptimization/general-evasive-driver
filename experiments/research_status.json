@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2111,
+    "completed": 2112,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+    "command_log": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+    "run_dir": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
     "status": "completed",
-    "task_id": "m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit"
+    "task_id": "m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.json",
-    "hypothesis": "A bounded no-rollout repair can be designed for the M2101 full metadata completeness gap and two scenario-sampling failures without weakening validation or changing claim boundaries.",
-    "id": "m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded metadata completeness and two-row sampling repair before rerun",
-    "priority": 20980,
+    "command": "see experiments/manifests/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.json",
+    "hypothesis": "A no-rollout repair can produce metadata-complete measured-execution artifacts and targeted eval_seed_override rows for the two M2101 sampling failures without changing default runner behavior.",
+    "id": "m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rollout measured-execution metadata and seed-override repair",
+    "priority": 20990,
     "status": "pending",
-    "success_artifact": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md"
+    "success_artifact": "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json"
   },
-  "updated_at_utc": "20260601T001528Z"
+  "updated_at_utc": "20260601T002041Z"
 }
