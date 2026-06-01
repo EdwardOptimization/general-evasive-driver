@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2115,
+    "completed": 2116,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "command_log": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "run_dir": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
+    "task_id": "m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.json",
-    "hypothesis": "An exact repaired measured-execution route can be designed for the M2104 metadata-complete public-gate core workload while preserving the two audited eval seed overrides and claim boundaries.",
-    "id": "m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: freeze repaired measured execution command over M2104 artifacts without rollout or ranking",
-    "priority": 21020,
+    "command": "see experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json",
+    "hypothesis": "The frozen M2107 command can run the 480-cell repaired public-gate core measured execution workload and produce complete artifacts without guardrail violations.",
+    "id": "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run only the frozen M2107 repaired measured execution command and defer interpretation to audit",
+    "priority": 21030,
     "status": "pending",
-    "success_artifact": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md"
+    "success_artifact": "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260601T004257Z"
+  "updated_at_utc": "20260601T004704Z"
 }

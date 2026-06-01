@@ -16,26 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
+m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design
+m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2106 synthesizes the public-gate core measured-execution
-branch and chooses `continue`. The branch has a repaired 96-spec / 480-workload
-artifact set with metadata missing count `0`, validation failure count `0`,
-exactly two targeted `eval_seed_override` rows (`210260`, `210333`),
-env_config changed count `0`, and guardrail `0`. The synthesis explicitly
-keeps the scope narrow: these are generated smoke proxy rows, not paper-valid
-generated tasks, and the incomplete M2101 outcome distribution cannot support
-ranking. M2107 must now freeze the repaired measured-execution command over
-M2104 artifacts without rollout. Measured rerun, ranking, paper claims,
-finite-window vs GRU conclusions, and self-ID claims remain blocked until a
-future rerun and result audit.
+Immediate route: M2107 freezes the exact repaired measured-execution command
+over M2104 artifacts. M2108 may run only that command: target `480` episodes,
+`96` specs, `5` profiles, CPU device, eval seed base `210100`, output
+`runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution`,
+and the two audited seed overrides preserved from the repaired workload. M2107
+does not run rollout or policy actions. Outcome interpretation, ranking, paper
+claims, finite-window vs GRU conclusions, and self-ID claims remain blocked
+until M2108 runs and M2109 audits the result.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

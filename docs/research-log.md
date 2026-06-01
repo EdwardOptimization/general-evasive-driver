@@ -36996,3 +36996,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: continue only to repaired command design; do not add another local repair before the rerun route is frozen
 - follow-up manifest: `experiments/manifests/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.json`
 - next: `m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design`
+
+## M2107 Paper-Route Outcome-Supported Decisive Public-Gate Core Repaired Measured Execution Command Design
+
+- status: completed
+- decision: `public_gate_core_repaired_measured_command_design_route_to_frozen_execution`
+- manifest: `experiments/manifests/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.json`
+- command artifact: `docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md`
+- reset/rollout/measured execution in M2107: `false`
+- policy actions executed in M2107: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command: runs `autodrift.paper_route_controlled_routing_smoke_measured_runner` over M2104 repaired specs/workload
+- output dir: `runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution`
+- targets: `480` episodes, `96` specs, `5` profiles, eval seed base `210100`, device `cpu`
+- seed override preservation: two audited workload rows keep overrides `210260` and `210333`; all other cells use default `eval_seed_base + cell_index`
+- pass gates: episode `480`, failure `0`, metadata missing `0`, metric completeness failure `0`, guardrail `0`
+- unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json`
+- next: `m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run`
