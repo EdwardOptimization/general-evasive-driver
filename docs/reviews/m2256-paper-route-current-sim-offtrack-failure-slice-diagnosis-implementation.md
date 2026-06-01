@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T165555Z
+- Generated at UTC: 20260601T170405Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2256 pending no-rerun failure-slice diagnosis implementation no ranking claims
+- Promotion decision: current_sim_offtrack_failure_slice_diagnosis_pass_route_to_result_audit
+- Decision reason: M2256 pass no-rerun 480/480 rows mid offtrack +14 mild overshoot +11 route stronger offtrack repair no ranking claims
 
 ## Hypothesis
 
@@ -92,8 +92,8 @@ No-rerun failure-slice diagnosis can identify the actionable source of the M2253
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2256 pending no-rerun failure-slice diagnosis implementation no ranking claims
+- decision: current_sim_offtrack_failure_slice_diagnosis_pass_route_to_result_audit
+- reason: M2256 pass no-rerun 480/480 rows mid offtrack +14 mild overshoot +11 route stronger offtrack repair no ranking claims
 
 ## Next Blocker
 

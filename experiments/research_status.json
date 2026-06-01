@@ -1,28 +1,32 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2263,
+    "completed": 2264,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
+    "baseline_episode_count": 480,
+    "guardrail_violation_count": 0,
+    "primary_route": "stronger_offtrack_recovery_corridor_repair_design",
+    "repaired_episode_count": 480,
     "returncode": 0,
-    "run_dir": "docs/m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design.md",
+    "run_dir": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis",
     "status": "completed",
-    "task_id": "m2255-paper-route-current-sim-offtrack-failure-slice-diagnosis-design"
+    "summary": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
+    "task_id": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_failure_slice_diagnosis --baseline-episodes runs/m2244_paper_route_current_sim_selected_checkpoint_outcome_localization/episode_rows.csv --repaired-episodes runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization/episode_rows.csv --output-dir runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis --next-blocker m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
-    "hypothesis": "No-rerun failure-slice diagnosis can identify the actionable source of the M2253 offtrack regression.",
-    "id": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rerun failure-slice diagnosis over M2244 and M2253 episode rows no ranking claims",
-    "priority": 22510,
+    "command": "manual artifact audit of runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json and slice deltas",
+    "hypothesis": "M2256 provides enough slice-level evidence to select a targeted current-sim repair route or stop the branch.",
+    "id": "m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2256 midcourse mild containment regression and choose repair synthesis or stop route",
+    "priority": 22520,
     "status": "pending",
-    "success_artifact": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json"
+    "success_artifact": "docs/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.md"
   },
-  "updated_at_utc": "20260601T165325Z"
+  "updated_at_utc": "20260601T170151Z"
 }

@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2256 pending no-rerun failure-slice diagnosis implementation no ranking claims",
+  "decision_reason": "M2256 pass no-rerun 480/480 rows mid offtrack +14 mild overshoot +11 route stronger offtrack repair no ranking claims",
   "failure_criteria": [
     "input episode rows are missing or incomplete",
     "slice delta outputs are missing",
@@ -31,7 +31,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T165555Z",
+  "generated_at_utc": "20260601T170405Z",
   "hypothesis": "No-rerun failure-slice diagnosis can identify the actionable source of the M2253 offtrack regression.",
   "lineage": {
     "blocked_by": [
@@ -66,7 +66,7 @@
   "milestone": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
   "next_blocker": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_failure_slice_diagnosis_pass_route_to_result_audit",
   "public_gates": [
     "M2256 must read only existing M2244 and M2253 episode row artifacts",
     "M2256 must emit slice deltas for offtrack timing severity clearance and profile/seed roles",
@@ -76,9 +76,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_failure_slice_diagnosis_pass_route_to_result_audit",
     "milestone": "m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation",
-    "reason": "M2256 pending no-rerun failure-slice diagnosis implementation no ranking claims",
+    "reason": "M2256 pass no-rerun 480/480 rows mid offtrack +14 mild overshoot +11 route stronger offtrack repair no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

@@ -40563,3 +40563,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.json`
 - next: `m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation`
+
+## M2256 Paper-Route Current-Sim Offtrack Failure-Slice Diagnosis Implementation
+
+- status: completed
+- decision: `current_sim_offtrack_failure_slice_diagnosis_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2256-paper-route-current-sim-offtrack-failure-slice-diagnosis-implementation.json`
+- result artifact: `runs/m2256_paper_route_current_sim_offtrack_failure_slice_diagnosis/summary.json`
+- result class: `current_sim_offtrack_failure_slice_diagnosis_pass`
+- baseline/repaired rows: `480/480`
+- support complete: `true`
+- global success/offtrack/collision delta: `-8/+8/0`
+- mean return delta: `+14.37612`
+- offtrack timing delta: mid `+14`, late `-6`
+- offtrack severity delta: mild `+11`, severe `0`, trace `-3`
+- clearance risk delta: safe-clearance offtrack `+7`, collision `0`
+- local guardrail concern: `L3_online_gru|222602` success `-4`, collision `+4`
+- primary classification: `midcourse_mild_boundary_containment_regression`
+- primary route: `stronger_offtrack_recovery_corridor_repair_design`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit.json`
+- next: `m2257-paper-route-current-sim-offtrack-failure-slice-diagnosis-result-audit`
