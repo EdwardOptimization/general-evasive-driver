@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2221,
+    "completed": 2222,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+    "command_log": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+    "run_dir": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
     "status": "completed",
-    "task_id": "m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis"
+    "task_id": "m2214-paper-route-current-sim-support-slice-validity-audit-design"
   },
   "next_task": {
-    "command": "write docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
-    "hypothesis": "A no-rerun support-slice validity audit can separate scene-backed comparison candidates from profile-only artifacts before any repair or ranking.",
-    "id": "m2214-paper-route-current-sim-support-slice-validity-audit-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun audit over M2212 support slices selected by M2213 synthesis pivot",
-    "priority": 22090,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_slice_validity_audit --group-support runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv --summary runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --output-dir runs/m2215_paper_route_current_sim_support_slice_validity_audit",
+    "hypothesis": "M2212 support slices can be validity-classified without rerun, preventing profile-only candidate labels from being overclaimed.",
+    "id": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-rerun support-slice validity audit over M2212 artifacts",
+    "priority": 22100,
     "status": "pending",
-    "success_artifact": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md"
+    "success_artifact": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json"
   },
-  "updated_at_utc": "20260601T114850Z"
+  "updated_at_utc": "20260601T115730Z"
 }

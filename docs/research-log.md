@@ -39505,3 +39505,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: M2209/M2212 are complete and useful as blocker localization, but not comparison-ready; candidate slices are diagnostic only
 - follow-up manifest: `experiments/manifests/m2214-paper-route-current-sim-support-slice-validity-audit-design.json`
 - next: `m2214-paper-route-current-sim-support-slice-validity-audit-design`
+
+## M2214 Paper-Route Current-Sim Support-Slice Validity Audit Design
+
+- status: completed
+- decision: `current_sim_support_slice_validity_audit_design_admit_no_rerun_implementation`
+- manifest: `experiments/manifests/m2214-paper-route-current-sim-support-slice-validity-audit-design.json`
+- design artifact: `docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md`
+- parent synthesis: `docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md`
+- validity labels: `scene_backed_candidate`, `history_family_diagnostic`, `profile_only_candidate`, `denominator_imbalanced`, `global_or_scene_blocker`, `low_sample_or_unresolved`, `invalid_for_ranking`
+- ranking_admissible in M2215: `false`
+- reset: `false`
+- rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits no-rerun support-slice validity audit implementation
+- follow-up manifest: `experiments/manifests/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.json`
+- next: `m2215-paper-route-current-sim-support-slice-validity-audit-implementation`

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T115326Z
+- Generated at UTC: 20260601T115852Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2214 pending design for no-rerun slice validity audit over M2212 support artifacts before any repair ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_support_slice_validity_audit_design_admit_no_rerun_implementation
+- Decision reason: M2214 freezes no-rerun validity audit design with scene-backed history-family profile-only denominator-imbalanced blocker labels and ranking_admissible false no rollout ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -82,8 +82,8 @@ A no-rerun support-slice validity audit can separate scene-backed comparison can
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2214 pending design for no-rerun slice validity audit over M2212 support artifacts before any repair ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_support_slice_validity_audit_design_admit_no_rerun_implementation
+- reason: M2214 freezes no-rerun validity audit design with scene-backed history-family profile-only denominator-imbalanced blocker labels and ranking_admissible false no rollout ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

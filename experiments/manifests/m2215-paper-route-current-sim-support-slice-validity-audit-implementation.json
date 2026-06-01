@@ -1,0 +1,178 @@
+{
+  "id": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/comparison_ready_candidate_slices.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2214-paper-route-current-sim-support-slice-validity-audit-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rerun support-slice validity audit"
+    ],
+    "derived_from": [
+      "m2214-paper-route-current-sim-support-slice-validity-audit-design"
+    ],
+    "blocked_by": [
+      "M2214 design must freeze labels, denominator checks, and claim boundary"
+    ],
+    "supersedes": [
+      "manual interpretation of M2212 candidate labels",
+      "direct ranking from profile-containing candidate slices"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
+  "public_gates": [
+    "M2215 must use only M2209/M2212 artifacts",
+    "M2215 must write slice validity artifacts",
+    "M2215 must keep ranking_admissible false",
+    "M2215 must not run reset, rollout, measured execution, policy action, or training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_slice_validity",
+    "evidence_axis": "Q_current_sim_support_slice_validity_audit",
+    "evidence_increment": "classifies M2212 support slices into scene-backed, history-family diagnostic, profile-only, and invalid denominator categories",
+    "claim_scope": "no-rerun validity audit only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation ranks profiles",
+      "stop if it runs environment or policy code",
+      "stop if ranking_admissible_count is nonzero",
+      "stop if validity labels do not match M2214 design"
+    ],
+    "fallback_plan": [
+      "route to result audit if validity artifacts are complete",
+      "route to task-quality repair if no scene-backed support exists",
+      "route to branch synthesis if implementation does not change decision evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2214 design admits no-rerun implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement no-rerun support-slice validity audit",
+    "admission_evidence": [
+      "M2214 freezes exact labels, denominator checks, and outputs",
+      "M2212 localization artifacts exist"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_support_slice_validity_audit.py",
+      "tests/test_paper_route_current_sim_support_slice_validity_audit.py",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/*",
+      "docs/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
+      "M2215 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "slice_validity.csv exists",
+      "validity label counts are reported",
+      "ranking_admissible_count is 0",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2215 classifies outcome slices and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2215."
+    ],
+    "temporal_evidence_window": "M2209 and M2212 no-rerun artifacts.",
+    "negative_result_policy": "If valid scene-backed support is absent, record it as task/panel evidence rather than weakening comparison or self-ID standards.",
+    "allowed_claims": [
+      "support-slice validity audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2212 support labels into claim-validity labels",
+    "paper_verdict_delta": "can decide whether M2212 support can feed a bounded comparison design or only repair diagnostics",
+    "must_synthesize_if": [
+      "M2215 produces only profile-local artifacts",
+      "M2215 would lead to another blind repair",
+      "ranking_admissible_count is nonzero"
+    ]
+  },
+  "hypothesis": "M2212 support slices can be validity-classified without rerun, preventing profile-only candidate labels from being overclaimed.",
+  "success_criteria": [
+    "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json exists",
+    "slice_validity.csv exists",
+    "scene_backed, history-family, profile-only, denominator-imbalanced, and blocker counts are reported",
+    "ranking_admissible_count is 0",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "slice_validity.csv is missing",
+    "validity labels are ambiguous",
+    "ranking_admissible_count is nonzero",
+    "implementation runs environment or policy code"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_slice_validity_audit --group-support runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv --summary runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --output-dir runs/m2215_paper_route_current_sim_support_slice_validity_audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2215-paper-route-current-sim-support-slice-validity-audit-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+    "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv"
+  ],
+  "decision_rule": "M2215 passes if it writes no-rerun validity artifacts and keeps ranking blocked.",
+  "next_blocker": "m2215-paper-route-current-sim-support-slice-validity-audit-implementation"
+}
