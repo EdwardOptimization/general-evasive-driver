@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2107,
+    "completed": 2108,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation.md",
+    "command_log": "docs/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair",
+    "run_dir": "docs/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.md",
     "status": "completed",
-    "task_id": "m2098-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-implementation"
+    "task_id": "m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.json",
-    "hypothesis": "M2098's compatibility repair artifact is clean enough to admit public-gate core measured-execution command design.",
-    "id": "m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit",
+    "command": "see experiments/manifests/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json",
+    "hypothesis": "An exact measured-execution route can be designed for the M2098 metadata-compatible public-gate core workload while preserving metadata and claim boundaries.",
+    "id": "m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit M2098 compatibility repair before measured-execution command design",
-    "priority": 20940,
+    "notes": "Pending: design exact public-gate core measured-execution command without running rollout",
+    "priority": 20950,
     "status": "pending",
-    "success_artifact": "docs/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.md"
+    "success_artifact": "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260531T235711Z"
+  "updated_at_utc": "20260601T000047Z"
 }

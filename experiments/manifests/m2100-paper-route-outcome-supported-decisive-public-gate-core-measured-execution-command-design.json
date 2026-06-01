@@ -1,0 +1,176 @@
+{
+  "id": "m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.md",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution route for the metadata-compatible M2098 public-gate core workload"
+    ],
+    "derived_from": [
+      "m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M2099 must audit compatibility repair before command design"
+    ],
+    "supersedes": [
+      "direct measured execution without command design",
+      "measured execution with schema-incomplete M2094 artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+  "public_gates": [
+    "M2100 must freeze target episode count 480 spec count 96 profile count 5",
+    "M2100 must use M2098 measured-compatible artifacts",
+    "M2100 must not run measured execution or policy actions",
+    "M2100 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change env configs",
+    "do not change obstacle filters",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_command_design",
+    "evidence_increment": "freezes the measured-execution command for the metadata-compatible public-gate core panel",
+    "claim_scope": "measured execution command design only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if command does not use M2098 compatibility artifacts",
+      "stop if target counts are ambiguous",
+      "stop if command design would execute rollout or policy actions",
+      "stop if smoke proxy rows would be treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "freeze existing focused runner command if compatible",
+      "route to runner adapter repair if M2098 artifacts are still incompatible",
+      "route to synthesis if another adapter-only loop would not change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2099 admits measured-execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured execution command design",
+    "admission_evidence": [
+      "M2098 compatibility repair pass",
+      "M2098 measured_runner_validation_failure_count 0",
+      "M2098 env_config_changed_count 0",
+      "M2099 admits measured-execution command design"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M2100",
+      "do not rank controller families",
+      "do not interpret command design as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+      "M2100 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution implementation/run or fallback"
+    ],
+    "next_stage_criteria": [
+      "measured execution command is exact",
+      "target counts and output directory are explicit",
+      "pass/fail gates are explicit",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2100 designs measured execution only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2100."
+    ],
+    "temporal_evidence_window": "M2098 compatible artifacts and M2099 audit.",
+    "negative_result_policy": "If runner compatibility is still blocked, route to adapter repair before execution; do not rank or weaken claim standards.",
+    "allowed_claims": [
+      "public-gate core measured execution command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares measured closed-loop evidence for the public-gate core panel",
+    "paper_verdict_delta": "can admit measured execution but cannot change driver or paper verdict by itself",
+    "must_synthesize_if": [
+      "M2100 cannot freeze an exact route",
+      "M2100 finds another schema bridge is required after M2098",
+      "next action would rank controllers before measured execution audit"
+    ]
+  },
+  "hypothesis": "An exact measured-execution route can be designed for the M2098 metadata-compatible public-gate core workload while preserving metadata and claim boundaries.",
+  "success_criteria": [
+    "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md exists",
+    "target episode count is 480",
+    "target spec count is 96",
+    "target profile count is 5",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "measured command is ambiguous",
+    "target counts are ambiguous",
+    "metadata preservation is not specified",
+    "measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit.md",
+    "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json",
+    "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv"
+  ],
+  "decision_rule": "M2100 passes if it freezes an exact measured-execution command design or cleanly routes to fallback without running rollout or ranking.",
+  "next_blocker": "m2101-selected-by-m2100-design"
+}
