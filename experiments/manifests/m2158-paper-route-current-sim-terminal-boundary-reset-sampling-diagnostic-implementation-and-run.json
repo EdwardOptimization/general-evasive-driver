@@ -1,0 +1,202 @@
+{
+  "id": "m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_terminal_boundary_reset_sampling_diagnostic"
+    ],
+    "parent_dataset": [
+      "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+      "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "implement and run a bounded reset-only diagnostic for the M2154 terminal-boundary sampling failure"
+    ],
+    "derived_from": [
+      "m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2157 synthesis chose continue to the M2156 bounded diagnostic"
+    ],
+    "supersedes": [
+      "unregistered reset reruns with different seeds",
+      "repairing the terminal-boundary spec before diagnostic classification"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.md",
+  "public_gates": [
+    "M2158 must implement the reset-only diagnostic from M2156/M2157",
+    "M2158 must run exactly 6 diagnostic reset attempts for 2 seeds x 3 attempt budgets",
+    "M2158 must not run rollout measured execution policy actions or ranking",
+    "M2158 must preserve actor-input and current-sim metadata claim boundaries"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_terminal_boundary_reset_sampling_diagnostic",
+    "evidence_increment": "runs a bounded reset-only diagnostic over the single failing T5 row after branch synthesis",
+    "claim_scope": "reset-sampling diagnostic only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if diagnostic runs rollout or policy actions",
+      "stop if diagnostic changes actor inputs or controller profiles",
+      "stop if target row or attempt budget counts do not match M2156",
+      "stop if classification is missing"
+    ],
+    "fallback_plan": [
+      "route to result audit if diagnostic completes or fails closed",
+      "route to diagnostic implementation repair if schema handling fails",
+      "route to branch synthesis if diagnostic cannot classify the failure"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2157 synthesis_decision continue admits diagnostic implementation-and-run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "terminal-boundary reset-sampling diagnostic implementation and run",
+    "admission_evidence": [
+      "M2156 freezes target task_source_id m2151-current-sim-t5-03",
+      "M2156 freezes eval seeds 215335 and 219103",
+      "M2156 freezes attempt budgets 200 800 1600",
+      "M2157 synthesis_decision continue"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout",
+      "do not rank",
+      "do not treat reset diagnostic as measured policy evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic.py",
+      "tests/test_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic.py",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/diagnostic_rows.csv",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/reset_failure_rows.csv",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/contract_rows.csv",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/classification_rows.csv",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/claim_boundary.csv",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/run_state.json",
+      "docs/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.md",
+      "M2158 status queue scoreboard research log and review",
+      "one follow-up manifest for diagnostic result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "6 diagnostic attempts are recorded",
+      "classification is explicit",
+      "claim boundary is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2158 reset-sampling diagnostic does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2158."
+    ],
+    "temporal_evidence_window": "M2154-M2157 reset-validation artifacts.",
+    "negative_result_policy": "If the diagnostic shows terminal-boundary brittleness, repair scenario sampling before any controller comparison.",
+    "allowed_claims": [
+      "terminal-boundary reset-sampling diagnostic result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies the M2154 reset-sampling failure with bounded reset-only attempts",
+    "paper_verdict_delta": "can admit a targeted reset-sampling repair design if audited but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2158 diagnostic cannot classify the failure",
+      "M2158 requires repeated local diagnostic reruns",
+      "M2158 routes directly to measured comparison without audit"
+    ]
+  },
+  "hypothesis": "The bounded diagnostic can classify the M2154 terminal-boundary reset failure as seed-local, attempt-budget limited, template brittle, or inconclusive without changing actor inputs or controller profiles.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json exists",
+    "result_class is current_sim_terminal_boundary_reset_sampling_diagnostic_complete",
+    "target_task_source_id is m2151-current-sim-t5-03",
+    "target_spec_count is 1",
+    "diagnostic_attempt_count is 6",
+    "observed_eval_seed_count is 2",
+    "observed_attempt_budget_count is 3",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "diagnostic_classification is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "target row is missing or duplicated",
+    "diagnostic attempt count is wrong",
+    "contract metadata claim or guardrail checks fail",
+    "policy action or rollout is performed",
+    "classification is missing",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic.py"
+    },
+    {
+      "name": "diagnostic",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --target-task-source-id m2151-current-sim-t5-03 --output-dir runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic --eval-seeds 215335,219103 --attempt-budgets 200,800,1600 --expected-observation-dim 72 --next-blocker m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_terminal_boundary_reset_sampling_diagnostic"
+  ],
+  "baseline_artifacts": [
+    "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
+    "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2158 passes if it runs the frozen reset-only diagnostic with exact counts and zero metadata contract or guardrail failures.",
+  "next_blocker": "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit"
+}

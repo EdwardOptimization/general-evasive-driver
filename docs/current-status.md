@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design
+m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis
+m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run
 ```
 
-Immediate route: M2156 freezes a bounded reset-only diagnostic for the failing
-T5 row `m2151-current-sim-t5-03`, but the branch has reached the harness
-synthesis cadence before implementation. M2157 must synthesize M2147-M2156 and
-decide whether to continue to the `6`-attempt diagnostic, pivot, stop, or
-promote to a new branch. Rollout, measured execution, controller ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
-audited evidence supports them.
+Immediate route: M2157 synthesizes M2147-M2156 and chooses `continue`, but only
+to the bounded reset-only diagnostic for `m2151-current-sim-t5-03`. M2158 must
+run exactly `6` diagnostic reset attempts: eval seeds `215335` and `219103`
+crossed with attempt budgets `200`, `800`, and `1600`. Rollout, measured
+execution, controller ranking, paper claims, finite-window vs GRU verdicts, and
+self-ID claims remain blocked until audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

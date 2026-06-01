@@ -38222,3 +38222,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - note: harness cadence requires branch synthesis before implementation
 - follow-up manifest: `experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json`
 - next: `m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis`
+
+## M2157 Paper-Route Current-Sim Controlled-Comparison Benchmark Branch Synthesis
+
+- status: completed
+- decision: `current_sim_controlled_comparison_branch_synthesis_continue_to_terminal_boundary_diagnostic`
+- synthesis_decision: `continue`
+- synthesis window: `M2147-M2156`
+- manifest: `experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json`
+- synthesis artifact: `docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md`
+- reset rerun in M2157: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: current-sim branch produced 40 executable specs and 320 planned workload rows; reset validation reached 39/40 success; the only blocker is one localized T5 terminal-boundary scenario-sampling failure
+- supported claims: executable current-sim panel exists; actor-input/metadata contract clean; 39 specs reset with finite 72-dim observations
+- falsified claims: full panel reset-validity is false until T5 blocker is repaired and rerun
+- public gate overfit risk: medium; continue only to bounded reset diagnostic, not measured execution
+- next decision: continue to `m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run`

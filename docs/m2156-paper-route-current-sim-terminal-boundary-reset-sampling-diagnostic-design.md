@@ -48,18 +48,17 @@ mixed_or_inconclusive:
 
 ## Frozen Command
 
-The implementation/run milestone after the required branch synthesis must run
-exactly:
+M2158, after required branch synthesis, must implement and run exactly:
 
 ```bash
 PYTHONPATH=src python -m autodrift.paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic \
   --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json \
   --target-task-source-id m2151-current-sim-t5-03 \
-  --output-dir runs/m2157_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic \
+  --output-dir runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic \
   --eval-seeds 215335,219103 \
   --attempt-budgets 200,800,1600 \
   --expected-observation-dim 72 \
-  --next-blocker m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit
+  --next-blocker m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit
 ```
 
 Focused tests:

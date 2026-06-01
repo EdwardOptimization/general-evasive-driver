@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2164,
+    "completed": 2165,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+    "command_log": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design.md",
+    "run_dir": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2156-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-design"
+    "task_id": "m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.json",
-    "hypothesis": "M2147-M2156 produced enough current-sim setup and reset evidence to choose a bounded next step, while keeping measured execution, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims blocked.",
-    "id": "m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize current-sim controlled-comparison branch before diagnostic implementation",
-    "priority": 21520,
+    "command": "see experiments/manifests/m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run.json",
+    "hypothesis": "The bounded diagnostic can classify the M2154 terminal-boundary reset failure as seed-local, attempt-budget limited, template brittle, or inconclusive without changing actor inputs or controller profiles.",
+    "id": "m2158-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run targeted reset-only diagnostic for m2151-current-sim-t5-03",
+    "priority": 21530,
     "status": "pending",
-    "success_artifact": "docs/m2157-paper-route-current-sim-controlled-comparison-benchmark-branch-synthesis.md"
+    "success_artifact": "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json"
   },
-  "updated_at_utc": "20260601T060308Z"
+  "updated_at_utc": "20260601T060944Z"
 }
