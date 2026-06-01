@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2121,
+    "completed": 2122,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.md",
+    "command_log": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.md",
+    "run_dir": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit"
+    "task_id": "m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json",
-    "hypothesis": "M2106-M2112 show the public-gate core panel is execution-ready but not comparison-ready; M2113 should close this branch and pivot to comparison-support scenario redesign rather than continuing local repair.",
-    "id": "m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis",
+    "command": "see experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json",
+    "hypothesis": "A new scenario-redesign branch can target comparison-support evidence directly, avoiding same-panel public-gate local search after M2111 found zero candidate-support slices.",
+    "id": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2106-M2112 and pivot away from same-panel local repair if zero comparison support holds",
-    "priority": 21080,
+    "notes": "Pending: design non-local-repair scenario branch with explicit comparison-support gates",
+    "priority": 21090,
     "status": "pending",
-    "success_artifact": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md"
+    "success_artifact": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md"
   },
-  "updated_at_utc": "20260601T011047Z"
+  "updated_at_utc": "20260601T011847Z"
 }

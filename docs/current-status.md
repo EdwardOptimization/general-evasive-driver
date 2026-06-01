@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit
+m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
+m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design
 ```
 
-Immediate route: M2112 audits the M2111 no-rerun localization result and blocks
-comparison. The current public-gate smoke panel is execution-ready but not
-comparison-ready: `comparison_ready_candidate_count=0`,
-`comparison_support_candidate_count=0`, `111` collision-dominance slices, and
-`1` offtrack-dominance slice. M2113 must synthesize the branch and choose a
-non-local-repair next route, likely comparison-support scenario redesign.
-Direct controller comparison remains blocked.
+Immediate route: M2113 synthesizes M2106-M2112 and pivots away from the fixed
+public-gate smoke panel. The branch is successful as execution infrastructure
+but failed as comparison evidence: M2111 found `0` comparison-ready candidates,
+`0` candidate-support slices, and broad collision dominance. M2114 must design
+a new comparison-support scenario branch with explicit support gates before any
+measured rerun or controller comparison. Direct comparison, paper claims,
+finite-window vs GRU conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,171 @@
+{
+  "id": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_scenario_redesign_design"
+    ],
+    "parent_dataset": [
+      "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json",
+      "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/collision_dominance_slices.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a new comparison-support scenario branch after the fixed public-gate core panel fails comparison readiness"
+    ],
+    "derived_from": [
+      "m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2113 pivots away from same-panel local repair"
+    ],
+    "supersedes": [
+      "same-panel public-gate repair loop",
+      "direct aggregate profile ranking from M2108 or M2111"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+  "public_gates": [
+    "M2114 must design a scenario redesign branch focused on comparison support",
+    "M2114 must keep generated smoke proxy and paper-valid claims separate",
+    "M2114 must define pre-comparison support criteria before any measured rerun",
+    "M2114 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat generated smoke proxy rows as paper-valid tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_scenario_redesign_design",
+    "evidence_increment": "starts a new branch to redesign scenarios for measurable comparison support after zero-support localization",
+    "claim_scope": "scenario redesign design only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if design is just another same-panel repair",
+      "stop if comparison support criteria are missing",
+      "stop if design requires ranking before support gates",
+      "stop if generated rows are treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "design a no-rollout candidate generator if feasible",
+      "design a measured-support preflight if existing artifacts are reusable",
+      "stop if comparison support cannot be targeted without changing the research question"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2113 pivots to comparison-support scenario redesign",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support scenario redesign design",
+    "admission_evidence": [
+      "M2111 comparison_ready_candidate_count 0",
+      "M2111 comparison_support_candidate_count 0",
+      "M2113 synthesis decision pivot"
+    ],
+    "blocked_shortcuts": [
+      "do not use same-panel local repair",
+      "do not rank before support gates",
+      "do not treat generated rows as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+      "M2114 status queue scoreboard research log and review",
+      "one follow-up manifest for candidate generation implementation or fallback"
+    ],
+    "next_stage_criteria": [
+      "scenario redesign axes are specified",
+      "comparison support gates are specified",
+      "claim boundary is explicit",
+      "next implementation or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2114 designs scenario support and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2114."
+    ],
+    "temporal_evidence_window": "M2111 localization and M2113 synthesis.",
+    "negative_result_policy": "If support-targeted scenario design is not possible, stop or redefine the comparison question rather than ranking unsupported aggregates.",
+    "allowed_claims": [
+      "comparison-support scenario redesign design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new scenario-distribution branch after closing the fixed public-gate panel as comparison evidence",
+    "paper_verdict_delta": "can define how to obtain comparison-support evidence but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2114 proposes same-panel public-gate repair",
+      "M2114 lacks measurable support gates",
+      "M2114 routes directly to ranking"
+    ]
+  },
+  "hypothesis": "A new scenario-redesign branch can target comparison-support evidence directly, avoiding same-panel public-gate local search after M2111 found zero candidate-support slices.",
+  "success_criteria": [
+    "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md exists",
+    "scenario redesign axes are explicit",
+    "comparison support gates are explicit",
+    "next implementation or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "scenario redesign is just same-panel local repair",
+    "support gates are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_scenario_redesign_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2114 passes if it freezes a non-local-repair scenario redesign route with measurable support gates.",
+  "next_blocker": "m2115-paper-route-outcome-supported-decisive-comparison-support-candidate-generation-implementation"
+}

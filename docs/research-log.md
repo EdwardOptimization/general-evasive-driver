@@ -37138,3 +37138,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: block direct controller comparison; route to branch synthesis rather than same-panel repair
 - follow-up manifest: `experiments/manifests/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
 - next: `m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis`
+
+## M2113 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Branch Synthesis
+
+- status: completed
+- decision: `public_gate_core_measured_execution_synthesis_pivot_to_comparison_support_scenario_redesign`
+- synthesis_decision: `pivot`
+- manifest: `experiments/manifests/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
+- synthesis artifact: `docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md`
+- reset/rollout/measured execution in M2113: `false`
+- policy actions executed in M2113: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2108 proved complete repaired execution but M2111/M2112 found zero comparison-ready and zero candidate-support slices
+- supported claim: public-gate core measured-execution infrastructure is repaired and complete
+- falsified/rejected claim: the fixed public-gate smoke-proxy panel can support controller-family comparison
+- failure taxonomy: promotion gate failure for comparison readiness plus public-gate/objective overfit risk
+- next branch decision: pivot to comparison-support scenario redesign, not same-panel local repair
+- follow-up manifest: `experiments/manifests/m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design.json`
+- next: `m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design`
