@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2282,
+    "completed": 2283,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation",
+    "task_id": "m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit",
-    "command_log": "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md"
   },
   "next_task": {
-    "id": "m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit",
+    "id": "m2276-paper-route-current-sim-scenario-task-family-generation-design",
     "kind": "gate",
-    "priority": 22700,
+    "priority": 22710,
     "status": "pending",
-    "hypothesis": "M2274 support gaps justify scenario task-family generation design before new training or ranking.",
-    "command": "manual artifact audit of runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json and support tables",
-    "success_artifact": "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md",
-    "notes": "Pending: audit missing R1 explicit role labels proxy R3/R5 and missing obstacle timing/lateral axes no training/ranking claims"
+    "hypothesis": "Explicit role-family generation and metadata instrumentation can close the task-quality support gaps found by M2274.",
+    "command": "manual scenario task-family generation design artifact",
+    "success_artifact": "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+    "notes": "Pending: freeze role-family targets scenario metadata schema and materialization route; no rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T184954Z"
+  "updated_at_utc": "20260601T185407Z"
 }

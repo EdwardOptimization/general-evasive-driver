@@ -1,0 +1,175 @@
+{
+  "id": "m2276-paper-route-current-sim-scenario-task-family-generation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit",
+    "seed_fragility",
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md",
+      "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json",
+      "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/support_gap_report.csv",
+      "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.json"
+    ],
+    "parent_objective": [
+      "design explicit current-sim scenario task-family generation before any rollout/training"
+    ],
+    "derived_from": [
+      "m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit"
+    ],
+    "blocked_by": [
+      "M2275 accepts scenario_task_family_generation_design"
+    ],
+    "supersedes": [
+      "training from incomplete role support",
+      "controller ranking from aggregate labels",
+      "scenario generation without explicit metadata schema"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+  "public_gates": [
+    "M2276 must define explicit role families target support counts and metadata schema",
+    "M2276 must freeze obstacle timing lateral-offset recovery-window and hidden-dynamics role instrumentation",
+    "M2276 must choose a config/materialization route without running rollout or training",
+    "M2276 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_generation_design",
+    "evidence_increment": "designs explicit scenario family generation after support audit gaps",
+    "claim_scope": "design only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design omits any high-severity M2274 gap",
+      "stop if design admits training before config/materialization audit",
+      "stop if design uses actor-forbidden labels as deployable inputs"
+    ],
+    "fallback_plan": [
+      "route to config materialization if design is complete",
+      "route to metadata schema repair if instrumentation is incomplete",
+      "route to synthesis if role targets cannot be made explicit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2275 admits scenario task-family generation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design scenario task-family generation and metadata instrumentation",
+    "admission_evidence": [
+      "M2274 support audit pass",
+      "M2275 accepts scenario_task_family_generation_design route",
+      "M2274 primary metrics are present but role and direct scenario axes are incomplete"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+      "M2276 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "role-family generation targets are frozen",
+      "scenario metadata schema is frozen",
+      "materialization outputs and acceptance criteria are frozen",
+      "next materialization route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2276 designs scenario metadata and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2276; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2274/M2275 support audit artifacts.",
+    "negative_result_policy": "Scenario generation labels are for task construction/evaluation only and must not enter actor input.",
+    "allowed_claims": [
+      "scenario task-family generation design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns support gaps into a new scenario-generation branch",
+    "paper_verdict_delta": "can admit config materialization for a role-supported benchmark pack",
+    "must_synthesize_if": [
+      "M2276 cannot define role targets",
+      "M2276 cannot define metadata schema",
+      "M2276 would route directly to training"
+    ]
+  },
+  "hypothesis": "Explicit role-family generation and metadata instrumentation can close the task-quality support gaps found by M2274.",
+  "success_criteria": [
+    "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md exists",
+    "role-family generation targets are defined",
+    "scenario metadata schema is defined",
+    "materialization artifacts and acceptance gates are defined",
+    "a non-ranking materialization route is selected"
+  ],
+  "failure_criteria": [
+    "M2276 ignores M2274 high-severity gaps",
+    "M2276 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2276 ranks profiles or selects a winner",
+    "M2276 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual scenario task-family generation design artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md",
+    "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/support_gap_report.csv"
+  ],
+  "decision_rule": "M2276 passes if it freezes role-family generation, metadata schema, materialization outputs, and a non-ranking next route.",
+  "next_blocker": "m2277-paper-route-current-sim-scenario-task-family-config-materialization"
+}

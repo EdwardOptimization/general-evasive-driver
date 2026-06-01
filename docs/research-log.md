@@ -60,6 +60,16 @@ Last updated: 2026-06-01
 - key gaps: explicit role labels only `3/6`; `R1_aeb_infeasible_stable_aes` missing; `R3_recovery_after_limit` and `R5_hidden_dynamics_robustness` are proxy-only; direct obstacle timing and lateral offset axes are missing.
 - decision: route to M2275 result audit with primary route `scenario_task_family_generation_design`; no rollout/training/ranking claims.
 
+
+## 20260601T185407Z m2275-scenario-task-quality-support-audit-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md`
+- result: M2274 is complete and guardrail clean; actor-contract matrix support remains clean and no rollout/training/ranking claim was made.
+- key evidence: metrics are covered (`10/10`), but role/scenario support is incomplete: `R1` missing, `R3`/`R5` proxy-only, direct obstacle timing and lateral-offset axes missing, and recovery window partial.
+- decision: accept `scenario_task_family_generation_design`; M2276 must freeze role targets, scenario metadata schema, instrumentation, materialization outputs, and acceptance criteria before any training or ranking.
+
 ## Current Best
 
 - checkpoint:
