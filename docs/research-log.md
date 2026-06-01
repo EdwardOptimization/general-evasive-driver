@@ -36845,3 +36845,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked claims remain: measured execution has not run, no ranking, no paper-level evidence, no finite-window-vs-GRU conclusion, no level3 self-ID
 - follow-up manifest: `experiments/manifests/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json`
 - next: `m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design`
+
+## M2100 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Command Design
+
+- status: completed
+- decision: `public_gate_core_measured_command_design_route_to_frozen_execution`
+- manifest: `experiments/manifests/m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design.json`
+- measured execution in M2100: `false`
+- rollout/policy actions in M2100: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command target: M2098 compatible artifacts, `480` episodes, `96` specs, `5` profiles, eval seed base `210100`, device `cpu`
+- M2101 must run only the frozen measured-runner command and defer interpretation to M2102
+- follow-up manifest: `experiments/manifests/m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run.json`
+- next: `m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run`

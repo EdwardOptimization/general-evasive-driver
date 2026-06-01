@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2099-paper-route-outcome-supported-decisive-public-gate-core-measured-runner-compatibility-repair-result-audit
+m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2100-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-command-design
+m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2099 audits M2098 as a clean measured-runner-compatible
-public-gate core artifact: `96` specs, `480` workload rows, `5` profiles,
-measured-runner validation failures `0`, env_config changed `0`, duplicate
-workload ids `0`, and guardrail `0`. M2100 must freeze the exact measured
-execution command over the M2098 repaired artifacts without running rollout.
-Measured execution, ranking, paper claims, and self-ID claims remain blocked
-until the command is designed, run, and separately audited.
+Immediate route: M2100 freezes the exact measured-execution command over the
+M2098 repaired public-gate core artifacts: `480` episodes, `96` specs, `5`
+profiles, eval seed base `210100`, CPU device, and output
+`runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution`.
+M2101 may run only that frozen command. Ranking, paper claims, finite-window vs
+GRU claims, and self-ID claims remain blocked until measured execution is run
+and separately audited.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
