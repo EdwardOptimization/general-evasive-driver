@@ -39701,3 +39701,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: L3 online and reset profiles are zero-success and outcome-equivalent on the current diagnostic slices; finite-window support is visible but diagnostic-only
 - follow-up manifest: `experiments/manifests/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.json`
 - next: `m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit`
+
+## M2222 Paper-Route Current-Sim Profile/History Failure Diagnosis Result Audit
+
+- status: completed
+- decision: `current_sim_profile_history_failure_diagnosis_audit_route_to_recurrent_profile_artifact_audit`
+- manifest: `experiments/manifests/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.json`
+- audit artifact: `docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md`
+- parent result: `runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json`
+- l3_online_success_count: `0`
+- l3_reset_success_count: `0`
+- l3_zero_success_confirmed: `true`
+- l3_reset_equivalent_to_online: `true`
+- finite_window_support_visible: `true`
+- ranking_admissible_count: `0`
+- winner_selected: `false`
+- guardrail violations: `0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: routes to recurrent-profile artifact audit before any repair rerun ranking or finite-window-vs-GRU conclusion
+- follow-up manifest: `experiments/manifests/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.json`
+- next: `m2223-paper-route-current-sim-recurrent-profile-artifact-audit`

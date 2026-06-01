@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2222 audits M2221 clean L3 online/reset success 0/0 reset equivalent true finite-window support visible ranking_admissible 0 guardrail 0 routes to recurrent-profile artifact audit no rerun ranking paper FW-vs-GRU or self-ID claims",
   "failure_criteria": [
     "audit document is missing",
     "audit overclaims M2221 as ranking evidence",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T123831Z",
+  "generated_at_utc": "20260601T124229Z",
   "hypothesis": "M2221 failure diagnosis can be audited into a bounded next-route decision without rerun or ranking.",
   "lineage": {
     "blocked_by": [
@@ -62,7 +62,7 @@
   "milestone": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
   "next_blocker": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_profile_history_failure_diagnosis_audit_route_to_recurrent_profile_artifact_audit",
   "public_gates": [
     "M2222 must audit M2221 summary and claim boundary",
     "M2222 must keep ranking_admissible_count at 0",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_profile_history_failure_diagnosis_audit_route_to_recurrent_profile_artifact_audit",
     "milestone": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
-    "reason": "M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2222 audits M2221 clean L3 online/reset success 0/0 reset equivalent true finite-window support visible ranking_admissible 0 guardrail 0 routes to recurrent-profile artifact audit no rerun ranking paper FW-vs-GRU or self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

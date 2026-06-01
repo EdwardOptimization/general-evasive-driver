@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T123831Z
+- Generated at UTC: 20260601T124229Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_profile_history_failure_diagnosis_audit_route_to_recurrent_profile_artifact_audit
+- Decision reason: M2222 audits M2221 clean L3 online/reset success 0/0 reset equivalent true finite-window support visible ranking_admissible 0 guardrail 0 routes to recurrent-profile artifact audit no rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -82,8 +82,8 @@ M2221 failure diagnosis can be audited into a bounded next-route decision withou
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2222 pending result audit over M2221 L3 zero-success/reset equivalence and route decision no rerun ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_profile_history_failure_diagnosis_audit_route_to_recurrent_profile_artifact_audit
+- reason: M2222 audits M2221 clean L3 online/reset success 0/0 reset equivalent true finite-window support visible ranking_admissible 0 guardrail 0 routes to recurrent-profile artifact audit no rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 

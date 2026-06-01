@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation
+m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit
 ```
 
 Current next task:
 
 ```text
-m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit
+m2223-paper-route-current-sim-recurrent-profile-artifact-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -49,8 +49,12 @@ M2221 implements that artifact-only diagnosis: `2304` existing episode rows,
 `L3_online_gru` and `L3_reset_control` success `0/0`, L3 reset equivalent to
 online `true`, `L2_window_25` success count `360`, `L2_window_50` success count
 `153`, `ranking_admissible_count=0`, `winner_selected=false`, and guardrail
-`0`. M2222 must audit this before any recurrent-profile repair, rerun, ranking,
-paper claims, finite-window vs GRU verdicts, or self-ID claims.
+`0`. M2222 audits this as a clean diagnostic result and routes to recurrent
+profile artifact audit because L3 online/reset zero-success plus reset
+equivalence must be explained before any repair, rerun, ranking, paper claims,
+finite-window vs GRU verdicts, or self-ID claims. M2223 must now audit L3
+online/reset profile configs, checkpoint provenance, reset-control semantics,
+and recurrent hidden-state handling from existing artifacts only.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

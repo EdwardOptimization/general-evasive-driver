@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2229,
+    "completed": 2230,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/summary.json",
+    "command_log": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis",
+    "run_dir": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
     "status": "completed",
-    "task_id": "m2221-paper-route-current-sim-profile-history-failure-diagnosis-implementation"
+    "task_id": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
-    "hypothesis": "M2221 failure diagnosis can be audited into a bounded next-route decision without rerun or ranking.",
-    "id": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit",
+    "command": "write docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
+    "hypothesis": "Existing profile materialization, config, and readiness artifacts can determine whether L3 zero-success/reset equivalence is a config/provenance/evaluation issue before any rerun.",
+    "id": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit",
     "kind": "gate",
-    "notes": "Pending: audit M2221 L3 zero-success/reset equivalence and route to recurrent-profile audit or other bounded next step",
-    "priority": 22170,
+    "notes": "Pending: artifact-only audit of L3 online/reset profile configs, checkpoint provenance, reset-control semantics, and recurrent hidden-state handling",
+    "priority": 22180,
     "status": "pending",
-    "success_artifact": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md"
+    "success_artifact": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md"
   },
-  "updated_at_utc": "20260601T123548Z"
+  "updated_at_utc": "20260601T124012Z"
 }
