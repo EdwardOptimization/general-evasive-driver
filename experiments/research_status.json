@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2298,
+    "completed": 2299,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation",
+    "task_id": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation",
-    "command_log": "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md"
   },
   "next_task": {
-    "id": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+    "id": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
     "kind": "gate",
-    "priority": 22860,
+    "priority": 22870,
     "status": "pending",
-    "hypothesis": "M2290 reset-validity pass can be audited and routed to the next non-ranking current-sim scenario task-quality step.",
-    "command": "manual audit of runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair artifacts",
-    "success_artifact": "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md",
-    "notes": "Pending: audit M2290 reset-validity pass and decide measured execution design/synthesis route; no reset rollout training ranking or paper claims"
+    "hypothesis": "A focused measured execution design can use the reset-valid scenario task-family pack without changing actor inputs or making ranking claims.",
+    "command": "manual measured execution design artifact",
+    "success_artifact": "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+    "notes": "Pending: design scenario task-family measured execution panel and implementation route; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T202209Z"
+  "updated_at_utc": "20260601T202754Z"
 }

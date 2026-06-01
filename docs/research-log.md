@@ -41095,3 +41095,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.json`
 - next: `m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit`
+
+## M2291 Paper-Route Current-Sim Scenario Task-Family Reset Filter-Edge Repair Result Audit
+
+- status: completed
+- decision: `current_sim_scenario_task_family_reset_validity_audit_route_to_measured_execution_design`
+- manifest: `experiments/manifests/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.json`
+- audit artifact: `docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md`
+- parent result: `runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json`
+- audit result: accepts reset-validity only; 72/72 reset successes, label/lateral/contract/guardrail 0
+- reset rerun in M2291: `false`
+- policy actions executed: `false`
+- rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.json`
+- next: `m2292-paper-route-current-sim-scenario-task-family-measured-execution-design`

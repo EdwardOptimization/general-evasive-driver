@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2291 accepts reset-validity only 72/72 label/lateral/contract/guardrail 0 and routes to measured execution design no reset/ranking claims",
+  "failure_criteria": [
+    "M2291 ignores M2290 reset-validation result",
+    "M2291 treats reset-validity as measured execution or paper evidence",
+    "M2291 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2291 ranks profiles or selects a winner",
+    "M2291 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T202936Z",
+  "hypothesis": "M2290 reset-validity pass can be audited and routed to the next non-ranking current-sim scenario task-quality step.",
+  "lineage": {
+    "blocked_by": [
+      "M2290 reset validation passes and requires result audit before measured execution design"
+    ],
+    "derived_from": [
+      "m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.md",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/materialization/summary.json",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_objective": [
+      "audit M2290 reset-valid scenario pack result and select the next non-ranking route"
+    ],
+    "supersedes": [
+      "direct measured execution without reset-validity result audit",
+      "another filter repair after reset-validity pass"
+    ]
+  },
+  "milestone": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+  "next_blocker": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_reset_validity_audit_route_to_measured_execution_design",
+  "public_gates": [
+    "M2291 must audit M2290 materialization and reset-validation artifacts",
+    "M2291 must confirm claim boundary is reset-validity only",
+    "M2291 must select measured execution design, synthesis, or another non-ranking diagnostic route",
+    "M2291 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_reset_validity_audit_route_to_measured_execution_design",
+    "milestone": "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit",
+    "reason": "M2291 accepts reset-validity only 72/72 label/lateral/contract/guardrail 0 and routes to measured execution design no reset/ranking claims",
+    "reset_success": "1.0",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md exists",
+    "M2290 materialization pass is audited",
+    "M2290 reset-validation pass is audited",
+    "claim boundary is recorded",
+    "a non-ranking follow-up route is selected"
+  ],
+  "type": "gate"
+}

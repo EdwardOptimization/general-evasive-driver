@@ -1,0 +1,176 @@
+{
+  "id": "m2292-paper-route-current-sim-scenario-task-family-measured-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md",
+      "docs/m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation.md",
+      "runs/m2290_paper_route_current_sim_scenario_task_family_filter_edge_repair/reset_validation/summary.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design measured execution panel for the reset-valid current-sim scenario task-family pack"
+    ],
+    "derived_from": [
+      "m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit"
+    ],
+    "blocked_by": [
+      "M2291 accepts reset-validity and routes to measured execution design"
+    ],
+    "supersedes": [
+      "direct measured execution without a frozen panel design",
+      "controller-family ranking before measured execution artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+  "public_gates": [
+    "M2292 must design the measured execution panel before any policy action is run",
+    "M2292 must define scenario coverage, checkpoint/profile source, seeds, metrics, and result-audit route",
+    "M2292 must preserve the P0 actor contract and no-ranking claim boundary",
+    "M2292 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_measured_execution_design",
+    "evidence_increment": "designs the first measured execution route for the reset-valid six-role scenario pack",
+    "claim_scope": "execution design only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if no existing or focused runner can consume the scenario_specs pack",
+      "stop if design would rank controller families before outcome localization",
+      "stop if design would change actor inputs or scenario metadata to get better results"
+    ],
+    "fallback_plan": [
+      "route to focused runner implementation if an existing runner cannot consume the pack",
+      "route to branch synthesis if measured execution design exposes broad scenario-quality issues",
+      "stop for user review if checkpoint/profile source is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2291 accepts reset-validity and routes to measured execution design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design measured execution for reset-valid scenario pack",
+    "admission_evidence": [
+      "M2290 reset validation passes with 72/72 successes",
+      "M2291 accepts claim boundary as reset-validity only",
+      "M2291 routes to measured execution design rather than direct ranking"
+    ],
+    "blocked_shortcuts": [
+      "no reset in design",
+      "no rollout or measured execution",
+      "no policy actions",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+      "M2292 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "runner/source choice is specified",
+      "coverage and budget are specified",
+      "metrics and claim boundary are specified",
+      "next non-ranking implementation route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2292 designs measured execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2292."
+    ],
+    "temporal_evidence_window": "M2290/M2291 reset-valid scenario pack artifacts.",
+    "negative_result_policy": "Treat measured execution design as scenario/task-quality workflow evidence, not self-ID evidence.",
+    "allowed_claims": [
+      "scenario task-family measured execution design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from reset-valid scenario pack to planned measured execution evidence",
+    "paper_verdict_delta": "can admit first measured execution implementation over explicit role-family scenarios",
+    "must_synthesize_if": [
+      "M2292 cannot define a runner or checkpoint source",
+      "M2292 requires changing the scenario pack before execution",
+      "M2292 would route directly to ranking or paper claims"
+    ]
+  },
+  "hypothesis": "A focused measured execution design can use the reset-valid scenario task-family pack without changing actor inputs or making ranking claims.",
+  "success_criteria": [
+    "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md exists",
+    "scenario coverage is specified",
+    "runner/checkpoint source is specified",
+    "metrics and claim boundary are specified",
+    "a non-ranking implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2292 starts reset rollout measured execution policy actions training replay PPO or private holdout",
+    "M2292 ranks profiles or selects a winner",
+    "M2292 changes the deployable actor contract",
+    "M2292 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2292 cannot choose an implementation route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual measured execution design artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2292-paper-route-current-sim-scenario-task-family-measured-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit.md",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2292 passes if it freezes measured execution design and selects a non-ranking implementation route.",
+  "next_blocker": "m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation"
+}

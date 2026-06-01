@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2290-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-implementation
+m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit
 ```
 
 Current next task:
 
 ```text
-m2291-paper-route-current-sim-scenario-task-family-reset-filter-edge-repair-result-audit
+m2292-paper-route-current-sim-scenario-task-family-measured-execution-design
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -59,9 +59,11 @@ actor_contract_violation_count: 0
 guardrail_violation_count: 0
 ```
 
-M2291 must audit this reset-validity result before any measured execution
-design. Policy actions, measured rollout, training, ranking, finite-window vs
-GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
+M2291 accepts this as reset-validity only and routes to M2292 measured execution
+design. M2292 must freeze scenario coverage, runner/checkpoint source, metrics,
+budget, and result-audit route before any policy action is run. Policy actions,
+measured rollout, training, ranking, finite-window vs GRU verdict, paper-level
+claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 
