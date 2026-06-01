@@ -1,0 +1,89 @@
+{
+  "decision_reason": "M2212 no-rerun localization pass 2304 rows 212 groups candidate labels comparison-ready 13 candidate support 27 offtrack dominated 112 low sample 60 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "summary is missing",
+    "group support rows are missing",
+    "support labels are ambiguous",
+    "implementation ranks profiles",
+    "implementation reruns measured execution"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T115326Z",
+  "hypothesis": "M2209 outcomes can be localized into comparison-candidate and blocker slices without rerun or profile ranking.",
+  "lineage": {
+    "blocked_by": [
+      "M2211 design must freeze localization keys and thresholds"
+    ],
+    "derived_from": [
+      "m2211-paper-route-current-sim-offtrack-support-outcome-localization-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-rerun outcome localization over M2209 artifacts"
+    ],
+    "supersedes": [
+      "ranking profiles directly from M2209 raw aggregates",
+      "launching another task repair without blocker localization"
+    ]
+  },
+  "milestone": "m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation",
+  "next_blocker": "m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_offtrack_support_outcome_localization_pass_route_to_required_branch_synthesis",
+  "public_gates": [
+    "M2212 must use only M2209 artifacts",
+    "M2212 must write group outcome support and blocker slice artifacts",
+    "M2212 must enforce no-ranking claim boundary",
+    "M2212 must not run measured execution or policy actions"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_offtrack_support_outcome_localization_pass_route_to_required_branch_synthesis",
+    "milestone": "m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation",
+    "reason": "M2212 no-rerun localization pass 2304 rows 212 groups candidate labels comparison-ready 13 candidate support 27 offtrack dominated 112 low sample 60 guardrail 0 no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "0.1623263888888889",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json exists",
+    "group_outcome_support.csv exists",
+    "support label counts are reported",
+    "claim boundary reports no ranking or paper-level claim",
+    "no measured execution rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,170 @@
+{
+  "id": "m2214-paper-route-current-sim-support-slice-validity-audit-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_design"
+    ],
+    "parent_dataset": [
+      "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/comparison_ready_candidate_slices.csv",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/offtrack_dominated_slices.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a no-rerun validity audit for M2212 support slices before comparison or repair"
+    ],
+    "derived_from": [
+      "m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2212 candidate slices are diagnostic only",
+      "M2213 pivots to support-slice validity before any comparison"
+    ],
+    "supersedes": [
+      "direct finite-window vs GRU conclusion from M2212",
+      "direct broad task repair without auditing candidate-slice validity"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+  "public_gates": [
+    "M2214 must design a no-rerun audit over M2212 artifacts",
+    "M2214 must distinguish scene-backed support from profile-only support",
+    "M2214 must define denominator-balance checks across profiles/history groups",
+    "M2214 must keep ranking and finite-window-vs-GRU claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_slice_validity",
+    "evidence_axis": "Q_current_sim_support_slice_validity_design",
+    "evidence_increment": "designs the no-rerun validity audit that decides whether M2212 candidate slices are usable diagnostics or profile-only artifacts",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the design ranks profiles",
+      "stop if denominator-balance checks are absent",
+      "stop if profile-containing candidate slices are treated as paper evidence"
+    ],
+    "fallback_plan": [
+      "route to no-rerun implementation if the audit design is complete",
+      "pivot to task-quality repair if no scene-backed support criteria can be defined",
+      "stop comparison route if support is only profile-local and non-general"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2213 pivot selects support-slice validity branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rerun support-slice validity audit",
+    "admission_evidence": [
+      "M2212 writes support localization artifacts",
+      "M2213 pivots to support-slice validity before ranking or repair"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+      "M2214 status queue scoreboard research log and review",
+      "one follow-up manifest for no-rerun implementation"
+    ],
+    "next_stage_criteria": [
+      "audit inputs and outputs are explicit",
+      "scene-backed versus profile-only criteria are explicit",
+      "denominator-balance checks are explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2214 designs outcome-support audit and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity intervention is run in M2214."
+    ],
+    "temporal_evidence_window": "M2212 no-rerun localization artifacts.",
+    "negative_result_policy": "If slice validity cannot be established, route to task-quality repair or stop instead of weakening comparison standards.",
+    "allowed_claims": [
+      "support-slice validity audit design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "starts a new slice-validity branch selected by M2213 synthesis",
+    "paper_verdict_delta": "can decide what evidence M2212 candidates are allowed to support before any comparison",
+    "must_synthesize_if": [
+      "the branch accumulates 10 non-synthesis milestones",
+      "the design cannot define denominator-balance checks",
+      "implementation produces only profile-local artifacts"
+    ]
+  },
+  "hypothesis": "A no-rerun support-slice validity audit can separate scene-backed comparison candidates from profile-only artifacts before any repair or ranking.",
+  "success_criteria": [
+    "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md exists",
+    "design lists exact M2212 input artifacts",
+    "design defines scene-backed, profile-only, denominator-balanced, and invalid slice labels",
+    "design preserves no-ranking claim boundary",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "design does not define denominator-balance checks",
+    "design treats M2212 candidate labels as comparison result",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2214-paper-route-current-sim-support-slice-validity-audit-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_design"
+  ],
+  "baseline_artifacts": [
+    "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+    "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/group_outcome_support.csv",
+    "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md"
+  ],
+  "decision_rule": "M2214 passes if it freezes a bounded no-rerun slice-validity audit design without ranking or execution.",
+  "next_blocker": "m2214-paper-route-current-sim-support-slice-validity-audit-design"
+}

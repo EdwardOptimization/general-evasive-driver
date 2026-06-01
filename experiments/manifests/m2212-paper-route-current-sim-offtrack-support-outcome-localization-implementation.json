@@ -66,7 +66,7 @@
       "stop if implementation runs measured execution"
     ],
     "fallback_plan": [
-      "route to result audit if localization writes all artifacts",
+      "route to required branch synthesis if localization writes all artifacts",
       "route to task-quality repair design if offtrack-dominated slices are clear",
       "route to branch synthesis if localization does not change next decision"
     ],
@@ -92,7 +92,7 @@
       "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/*",
       "docs/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.md",
       "M2212 status queue scoreboard research log and review",
-      "one follow-up manifest for result audit"
+      "one follow-up manifest for required branch synthesis"
     ],
     "next_stage_criteria": [
       "localization summary exists",

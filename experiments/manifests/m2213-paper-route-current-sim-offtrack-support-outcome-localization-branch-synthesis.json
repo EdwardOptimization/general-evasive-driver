@@ -1,0 +1,210 @@
+{
+  "id": "m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design.md",
+      "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json",
+      "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
+      "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
+      "docs/m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation.md",
+      "docs/m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit.md",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+      "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+      "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+      "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+      "docs/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2202-paper-route-current-sim-offtrack-support-readiness-branch-synthesis.json",
+      "experiments/manifests/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize M2203-M2212 measured-execution and localization branch before further local repair or comparison"
+    ],
+    "derived_from": [
+      "m2203-paper-route-current-sim-offtrack-support-measured-execution-command-design",
+      "m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run",
+      "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit",
+      "m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design",
+      "m2207-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-implementation",
+      "m2208-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-result-audit",
+      "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun",
+      "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
+      "m2211-paper-route-current-sim-offtrack-support-outcome-localization-design",
+      "m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2212",
+      "M2212 still leaves broad panel offtrack dominated"
+    ],
+    "supersedes": [
+      "ordinary M2212 result audit as the next step",
+      "direct controller-family ranking from M2212 candidate labels",
+      "another blind offtrack-support repair before slice validity audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+  "public_gates": [
+    "M2213 must synthesize M2203-M2212",
+    "M2213 must separate execution completeness from comparison readiness",
+    "M2213 must audit whether M2212 candidate slices are claim-worthy or only diagnostic",
+    "M2213 must decide continue, pivot, stop, or promote_to_next_branch",
+    "M2213 must not run reset, rollout, measured execution, training, or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_localization_synthesis",
+    "evidence_increment": "synthesizes measured execution repair, repaired rerun, outcome audit, and no-rerun localization into the next branch decision",
+    "claim_scope": "branch synthesis only; no new rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis overclaims M2212 candidate labels",
+      "stop if execution completeness is mixed with comparison readiness",
+      "stop if next route continues blind offtrack repair without slice-validity evidence",
+      "stop if branch ignores repeated scenario_sampling_failure"
+    ],
+    "fallback_plan": [
+      "pivot to support-slice validity audit if candidates exist but global panel remains offtrack dominated",
+      "pivot to task-quality repair if no valid candidate denominator remains",
+      "stop current-sim comparison branch if no actionable evidence remains",
+      "continue only if a new branch creates evidence beyond process overhead"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "validator cadence reached after M2212 and M2212 leaves unresolved offtrack support",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current-sim offtrack-support measured-execution and localization branch",
+    "admission_evidence": [
+      "M2209 complete measured execution pass 2304 episodes failure 0",
+      "M2210 classifies the panel as not comparison-ready due offtrack dominance",
+      "M2212 localizes support and blocker slices with guardrail 0",
+      "workflow cadence requires synthesis before another local milestone"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout in synthesis",
+      "no measured execution in synthesis",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+      "M2213 status queue scoreboard research log and review",
+      "one follow-up manifest for selected next branch"
+    ],
+    "next_stage_criteria": [
+      "synthesis answers required questions",
+      "supported and unsupported claims are explicit",
+      "public overfit/local-search risks are assessed",
+      "next branch decision is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2213 synthesizes outcome support and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2213."
+    ],
+    "temporal_evidence_window": "M2203-M2212 branch artifacts.",
+    "negative_result_policy": "If outcome support remains public/localized, pivot to slice validity audit or task-quality repair instead of weakening paper or self-ID standards.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "turns complete measured execution and localization into a branch decision rather than another blind repair",
+    "paper_verdict_delta": "decides that the current panel still cannot support comparison and must pivot to slice validity audit",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "M2203-M2212 evidence can be synthesized into a clear branch decision that avoids direct ranking or another blind offtrack repair.",
+  "success_criteria": [
+    "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "M2212 candidate slices are treated as diagnostic only",
+    "next branch decision is explicit",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "M2212 candidate labels are overclaimed as comparison evidence",
+    "next route is ambiguous",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md from M2203-M2212 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+    "runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json",
+    "docs/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.md"
+  ],
+  "decision_rule": "M2213 passes if it synthesizes M2203-M2212 and pivots to a bounded support-slice validity branch without overclaiming.",
+  "next_blocker": "m2214-paper-route-current-sim-support-slice-validity-audit-design"
+}

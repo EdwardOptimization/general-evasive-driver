@@ -39463,3 +39463,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit no-rerun localization implementation
 - follow-up manifest: `experiments/manifests/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.json`
 - next: `m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation`
+
+## M2212 Paper-Route Current-Sim Offtrack-Support Outcome Localization Implementation
+
+- status: completed
+- decision: `current_sim_offtrack_support_outcome_localization_pass_route_to_required_branch_synthesis`
+- manifest: `experiments/manifests/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.json`
+- run artifact: `runs/m2212_paper_route_current_sim_offtrack_support_outcome_localization/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_offtrack_support_outcome_localization.py`
+- focused tests: `2 passed`
+- input_episode_count: `2304`
+- group_row_count: `212`
+- comparison_ready_candidate_count: `13`
+- candidate_support_count: `27`
+- offtrack_dominated_count: `112`
+- low_sample_count: `60`
+- overall_success_rate: `0.1623263888888889`
+- overall_offtrack_rate: `0.81640625`
+- guardrail violations: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: no-rerun localization succeeded but global support remains offtrack dominated
+- follow-up manifest: `experiments/manifests/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.json`
+- next: `m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis`
+
+## M2213 Paper-Route Current-Sim Offtrack-Support Outcome Localization Branch Synthesis
+
+- status: completed
+- decision: `current_sim_offtrack_support_localization_synthesis_pivot_to_support_slice_validity`
+- synthesis decision: `pivot`
+- synthesis window: `M2203-M2212`
+- manifest: `experiments/manifests/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.json`
+- synthesis artifact: `docs/m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis.md`
+- primary failure taxonomy: `scenario_sampling_failure`
+- measured execution in M2213: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: M2209/M2212 are complete and useful as blocker localization, but not comparison-ready; candidate slices are diagnostic only
+- follow-up manifest: `experiments/manifests/m2214-paper-route-current-sim-support-slice-validity-audit-design.json`
+- next: `m2214-paper-route-current-sim-support-slice-validity-audit-design`

@@ -16,20 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2211-paper-route-current-sim-offtrack-support-outcome-localization-design
+m2213-paper-route-current-sim-offtrack-support-outcome-localization-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation
+m2214-paper-route-current-sim-support-slice-validity-audit-design
 ```
 
-Immediate route: M2211 freezes a no-rerun outcome localization design over
-M2209 artifacts, with group keys, support labels, thresholds, and no-ranking
-claim boundary. M2212 may implement and run that localization without measured
-execution. Controller ranking, paper claims, finite-window vs GRU verdicts, and
-self-ID claims remain blocked.
+Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
+artifacts. It found `2304` input episodes, `212` grouped support rows, `13`
+comparison-ready candidate slices, `27` candidate-support slices, `112`
+offtrack-dominated slices, and guardrail `0`, but the global panel remains
+offtrack dominated (`0.81640625` offtrack rate). M2213 synthesizes M2203-M2212
+and pivots to a new support-slice validity branch. M2214 must design a no-rerun
+audit that separates scene-backed support from profile-only artifacts before
+any repair, ranking, paper claim, finite-window vs GRU verdict, or self-ID
+claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
