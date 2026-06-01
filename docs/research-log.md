@@ -39576,3 +39576,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: scene-backed support justifies a bounded diagnostic comparison design, not ranking or paper conclusion
 - follow-up manifest: `experiments/manifests/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.json`
 - next: `m2217-paper-route-current-sim-bounded-diagnostic-comparison-design`
+
+## M2217 Paper-Route Current-Sim Bounded Diagnostic Comparison Design
+
+- status: completed
+- decision: `current_sim_bounded_diagnostic_comparison_design_admit_no_rerun_implementation`
+- manifest: `experiments/manifests/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.json`
+- design artifact: `docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md`
+- parent audit: `docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md`
+- scene-backed candidate count admitted: `9`
+- required tables: `scene_candidate_summary`, `scene_candidate_profile_matrix`, `scene_candidate_history_matrix`, `scene_candidate_profile_history_matrix`, `diagnostic_claim_boundary`
+- diagnostic_only: `true`
+- ranking_admissible: `false`
+- winner_selected: `false`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits no-rerun diagnostic comparison implementation over scene-backed candidates only
+- follow-up manifest: `experiments/manifests/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.json`
+- next: `m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation`

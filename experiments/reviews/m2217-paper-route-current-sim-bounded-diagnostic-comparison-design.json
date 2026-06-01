@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2217 pending no-rerun bounded diagnostic comparison design over scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2217 freezes no-rerun diagnostic comparison design over scene-backed candidates with diagnostic-only tables and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims",
   "failure_criteria": [
     "design document is missing",
     "design lacks scene-backed filtering",
@@ -26,7 +26,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T120834Z",
+  "generated_at_utc": "20260601T121155Z",
   "hypothesis": "A bounded diagnostic comparison design can use scene-backed M2215 candidates without creating ranking or paper-level claims.",
   "lineage": {
     "blocked_by": [
@@ -61,7 +61,7 @@
   "milestone": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
   "next_blocker": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_bounded_diagnostic_comparison_design_admit_no_rerun_implementation",
   "public_gates": [
     "M2217 must design a bounded diagnostic comparison over scene-backed candidates only",
     "M2217 must keep ranking_admissible false",
@@ -71,9 +71,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_bounded_diagnostic_comparison_design_admit_no_rerun_implementation",
     "milestone": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
-    "reason": "M2217 pending no-rerun bounded diagnostic comparison design over scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2217 freezes no-rerun diagnostic comparison design over scene-backed candidates with diagnostic-only tables and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

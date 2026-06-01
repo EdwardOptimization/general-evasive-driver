@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "summary is missing",
+    "diagnostic matrices are missing",
+    "scene-backed filtering is missing",
+    "ranking_admissible_count is nonzero",
+    "winner_selected is true",
+    "new rollout or ranking is performed"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T121155Z",
+  "hypothesis": "Scene-backed M2215 candidates can be converted into diagnostic matrices without ranking or rerun.",
+  "lineage": {
+    "blocked_by": [
+      "M2217 design must freeze diagnostic tables, labels, and claim boundary"
+    ],
+    "derived_from": [
+      "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_diagnostic"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/history_family_diagnostic_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/profile_only_candidates.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_objective": [
+      "implement no-rerun bounded diagnostic comparison over scene-backed candidates"
+    ],
+    "supersedes": [
+      "manual profile ranking from M2215 support slices"
+    ]
+  },
+  "milestone": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
+  "next_blocker": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2218 must use only M2209 and M2215 artifacts",
+    "M2218 must write bounded diagnostic tables",
+    "M2218 must keep ranking_admissible false and winner_selected false",
+    "M2218 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "pending",
+    "milestone": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
+    "reason": "M2218 pending no-rerun diagnostic matrices over M2215 scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json exists",
+    "scene_candidate_summary.csv exists",
+    "scene_candidate_profile_matrix.csv exists",
+    "scene_candidate_history_matrix.csv exists",
+    "ranking_admissible_count is 0",
+    "winner_selected is false",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "infrastructure"
+}

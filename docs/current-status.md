@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2216-paper-route-current-sim-support-slice-validity-audit-result-audit
+m2217-paper-route-current-sim-bounded-diagnostic-comparison-design
 ```
 
 Current next task:
 
 ```text
-m2217-paper-route-current-sim-bounded-diagnostic-comparison-design
+m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -34,8 +34,10 @@ and pivots to a new support-slice validity branch. M2215 implements that
 no-rerun audit and finds `9` scene-backed candidates, `13` history-family
 diagnostic candidates, `18` profile-only candidates, `7` scene blockers, and
 `ranking_admissible_count=0`. M2216 audits this as sufficient only for a
-bounded public diagnostic comparison design. M2217 must design that no-rerun
-diagnostic route over scene-backed candidates only. Reset, rollout, measured
+bounded public diagnostic comparison design. M2217 freezes that no-rerun
+diagnostic route over scene-backed candidates only, with diagnostic tables,
+`ranking_admissible=false`, and `winner_selected=false`. M2218 may implement the
+diagnostic matrices from existing artifacts only. Reset, rollout, measured
 execution, repair, ranking, paper claims, finite-window vs GRU verdicts, and
 self-ID claims remain blocked.
 

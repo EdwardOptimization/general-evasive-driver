@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T120834Z
+- Generated at UTC: 20260601T121155Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2217 pending no-rerun bounded diagnostic comparison design over scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_bounded_diagnostic_comparison_design_admit_no_rerun_implementation
+- Decision reason: M2217 freezes no-rerun diagnostic comparison design over scene-backed candidates with diagnostic-only tables and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims
 
 ## Hypothesis
 
@@ -82,8 +82,8 @@ A bounded diagnostic comparison design can use scene-backed M2215 candidates wit
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2217 pending no-rerun bounded diagnostic comparison design over scene-backed candidates no ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_bounded_diagnostic_comparison_design_admit_no_rerun_implementation
+- reason: M2217 freezes no-rerun diagnostic comparison design over scene-backed candidates with diagnostic-only tables and blocked ranking/winner/paper/FW-vs-GRU/self-ID claims
 
 ## Next Blocker
 

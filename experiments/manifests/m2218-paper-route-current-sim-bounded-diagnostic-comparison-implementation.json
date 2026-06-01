@@ -1,0 +1,182 @@
+{
+  "id": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rerun_diagnostic"
+    ],
+    "parent_dataset": [
+      "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/history_family_diagnostic_candidates.csv",
+      "runs/m2215_paper_route_current_sim_support_slice_validity_audit/profile_only_candidates.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.json"
+    ],
+    "parent_objective": [
+      "implement no-rerun bounded diagnostic comparison over scene-backed candidates"
+    ],
+    "derived_from": [
+      "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design"
+    ],
+    "blocked_by": [
+      "M2217 design must freeze diagnostic tables, labels, and claim boundary"
+    ],
+    "supersedes": [
+      "manual profile ranking from M2215 support slices"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.md",
+  "public_gates": [
+    "M2218 must use only M2209 and M2215 artifacts",
+    "M2218 must write bounded diagnostic tables",
+    "M2218 must keep ranking_admissible false and winner_selected false",
+    "M2218 must not run reset, rollout, measured execution, policy action, training, replay, or PPO"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit driver behavior",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_slice_validity",
+    "evidence_axis": "Q_current_sim_bounded_diagnostic_comparison",
+    "evidence_increment": "turns scene-backed candidates into diagnostic matrices without ranking",
+    "claim_scope": "no-rerun diagnostic tables only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation ranks profiles",
+      "stop if winner_selected is true",
+      "stop if scene-backed filtering is ignored",
+      "stop if policy or environment code executes"
+    ],
+    "fallback_plan": [
+      "route to result audit if diagnostic tables are complete",
+      "route to task/profile repair if all support is concentrated",
+      "route to synthesis if diagnostics do not change route evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2217 design admits no-rerun implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement no-rerun bounded diagnostic comparison",
+    "admission_evidence": [
+      "M2217 freezes scene-backed candidate filter",
+      "M2215 scene_backed_candidate_count 9",
+      "M2215 ranking_admissible_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_bounded_diagnostic_comparison.py",
+      "tests/test_paper_route_current_sim_bounded_diagnostic_comparison.py",
+      "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/*",
+      "docs/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.md",
+      "M2218 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary exists",
+      "diagnostic matrices exist",
+      "ranking_admissible_count is 0",
+      "winner_selected is false",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2218 reanalyzes outcome diagnostics and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2218."
+    ],
+    "temporal_evidence_window": "M2209 and M2215 no-rerun artifacts.",
+    "negative_result_policy": "If diagnostic support is profile/history concentrated, record that as diagnostic evidence rather than claiming self-ID or ranking.",
+    "allowed_claims": [
+      "bounded diagnostic comparison artifact",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts scene-backed support into diagnostic matrices",
+    "paper_verdict_delta": "can decide whether public current-sim support is diagnostic only or worth a later comparison route",
+    "must_synthesize_if": [
+      "M2218 produces only profile-concentrated support",
+      "M2218 would lead to another blind repair",
+      "ranking_admissible_count is nonzero"
+    ]
+  },
+  "hypothesis": "Scene-backed M2215 candidates can be converted into diagnostic matrices without ranking or rerun.",
+  "success_criteria": [
+    "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json exists",
+    "scene_candidate_summary.csv exists",
+    "scene_candidate_profile_matrix.csv exists",
+    "scene_candidate_history_matrix.csv exists",
+    "ranking_admissible_count is 0",
+    "winner_selected is false",
+    "no reset rollout measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "diagnostic matrices are missing",
+    "scene-backed filtering is missing",
+    "ranking_admissible_count is nonzero",
+    "winner_selected is true",
+    "new rollout or ranking is performed"
+  ],
+  "commands": [
+    {
+      "name": "diagnostic",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_bounded_diagnostic_comparison --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --scene-backed-candidates runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv --validity-summary runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json --output-dir runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rerun_diagnostic"
+  ],
+  "baseline_artifacts": [
+    "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
+    "runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv"
+  ],
+  "decision_rule": "M2218 passes if it writes no-rerun diagnostic matrices while keeping ranking and winner selection blocked.",
+  "next_blocker": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation"
+}

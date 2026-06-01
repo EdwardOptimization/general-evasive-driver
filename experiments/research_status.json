@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2224,
+    "completed": 2225,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+    "command_log": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2216-paper-route-current-sim-support-slice-validity-audit-result-audit.md",
+    "run_dir": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
     "status": "completed",
-    "task_id": "m2216-paper-route-current-sim-support-slice-validity-audit-result-audit"
+    "task_id": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design"
   },
   "next_task": {
-    "command": "write docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md",
-    "hypothesis": "A bounded diagnostic comparison design can use scene-backed M2215 candidates without creating ranking or paper-level claims.",
-    "id": "m2217-paper-route-current-sim-bounded-diagnostic-comparison-design",
-    "kind": "gate",
-    "notes": "Pending: design no-rerun bounded diagnostic comparison over M2215 scene-backed candidates",
-    "priority": 22120,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_bounded_diagnostic_comparison --episode-rows runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv --scene-backed-candidates runs/m2215_paper_route_current_sim_support_slice_validity_audit/scene_backed_candidates.csv --validity-summary runs/m2215_paper_route_current_sim_support_slice_validity_audit/summary.json --output-dir runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison",
+    "hypothesis": "Scene-backed M2215 candidates can be converted into diagnostic matrices without ranking or rerun.",
+    "id": "m2218-paper-route-current-sim-bounded-diagnostic-comparison-implementation",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rerun diagnostic matrices over M2215 scene-backed candidates",
+    "priority": 22130,
     "status": "pending",
-    "success_artifact": "docs/m2217-paper-route-current-sim-bounded-diagnostic-comparison-design.md"
+    "success_artifact": "runs/m2218_paper_route_current_sim_bounded_diagnostic_comparison/summary.json"
   },
-  "updated_at_utc": "20260601T120559Z"
+  "updated_at_utc": "20260601T120917Z"
 }
