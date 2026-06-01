@@ -1,0 +1,178 @@
+{
+  "id": "m2147-paper-route-current-sim-controlled-comparison-benchmark-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_benchmark_design"
+    ],
+    "parent_dataset": [
+      "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json"
+    ],
+    "parent_objective": [
+      "design a current-simulator controlled comparison benchmark branch after generated-proxy scaffolding reaches its claim boundary"
+    ],
+    "derived_from": [
+      "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis"
+    ],
+    "blocked_by": [
+      "M2146 pivots away from generated-proxy support scaffolding",
+      "paper route requires fair L0/L1/L2/L3 current-simulator comparison before ranking or self-ID verdicts"
+    ],
+    "supersedes": [
+      "further generated-proxy denominator/support-matrix local process milestones",
+      "direct finite-window-vs-GRU or recurrent-memory claims from M2144 diagnostics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
+  "public_gates": [
+    "M2147 must design a current-simulator controlled comparison benchmark branch",
+    "M2147 must define controller-family matrix L0/L1/L2/L3 and reset/truncated controls",
+    "M2147 must define task families and metrics before any measured execution",
+    "M2147 must preserve the deployable actor input and actuator-level output contract",
+    "M2147 must not run reset rollout measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_benchmark_design",
+    "evidence_increment": "starts a new branch to design a paper-route current-simulator controlled comparison benchmark after generated-proxy scaffolding is closed",
+    "claim_scope": "benchmark design only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks controller families before execution",
+      "stop if design treats generated-proxy rows as paper-valid evidence",
+      "stop if design omits L0/L1/L2/L3 fairness controls",
+      "stop if design omits reset/truncated controls for recurrent-memory interpretation",
+      "stop if design changes actor inputs or action contract"
+    ],
+    "fallback_plan": [
+      "design a no-rollout benchmark-spec schema preflight if direct execution is not ready",
+      "design a task-family materialization preflight if task semantics need repair",
+      "stop and run a complexity-pruning audit if the required benchmark becomes too broad for current simulator evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2146 pivot opens a new current-simulator controlled comparison benchmark branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim controlled comparison benchmark design",
+    "admission_evidence": [
+      "M2146 synthesis decision pivot",
+      "self-id paper route requires L0/L1/L2/L3 fair matrix",
+      "finite-window-vs-GRU plan requires current-response and reset controls",
+      "M2144 generated-proxy diagnostics are insufficient for ranking or self-ID"
+    ],
+    "blocked_shortcuts": [
+      "do not run the benchmark in M2147",
+      "do not rank controller families from generated-proxy artifacts",
+      "do not claim recurrent-belief advantage without reset/truncated and finite-window controls"
+    ],
+    "allowed_updates": [
+      "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
+      "M2147 status queue scoreboard research log and review",
+      "one follow-up manifest for benchmark-spec preflight or materialization design"
+    ],
+    "next_stage_criteria": [
+      "controller-family matrix is specified",
+      "task families and metrics are specified",
+      "claim ladder and stop conditions are specified",
+      "next preflight or fallback route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2147 designs the fair comparison route and does not test history necessity.",
+    "history_necessity_tests": [
+      "M2147 must design wrong/delayed/reset/truncated history tests as future gates, but does not execute them."
+    ],
+    "temporal_evidence_window": "M2146 synthesis and governing paper-route plans.",
+    "negative_result_policy": "If finite-window or reset controls match online GRU in later execution, record that as valid engineering evidence and weaken self-ID claims instead of repairing toward GRU.",
+    "allowed_claims": [
+      "current-simulator controlled comparison benchmark design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new paper-route branch outside the generated-proxy comparison-support local loop",
+    "paper_verdict_delta": "can define the route to paper-valid current-sim evidence but cannot make a verdict by itself",
+    "must_synthesize_if": [
+      "M2147 proposes another generated-proxy support-matrix refinement",
+      "M2147 cannot define fair L0/L1/L2/L3 controls",
+      "M2147 routes directly to ranking or self-ID verdict"
+    ]
+  },
+  "hypothesis": "A current-simulator controlled comparison benchmark can be designed around the paper-route L0/L1/L2/L3 matrix and decisive task families, avoiding another generated-proxy local loop.",
+  "success_criteria": [
+    "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md exists",
+    "controller-family matrix is explicit",
+    "task families and metrics are explicit",
+    "next preflight or fallback route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "controller-family matrix is missing",
+    "task families or metrics are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_benchmark_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2147 passes if it freezes a benchmark design route with fair controller-family controls and explicit next preflight without execution or ranking.",
+  "next_blocker": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-design"
+}

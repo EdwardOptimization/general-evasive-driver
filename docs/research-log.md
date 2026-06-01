@@ -37968,3 +37968,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: generated-proxy diagnostics are useful for route synthesis only; L3 reset outperforming L3 online blocks naive recurrent-memory or self-ID claims
 - follow-up manifest: `experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json`
 - next: `m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis`
+
+## M2146 Paper-Route Outcome-Supported Decisive Comparison-Support Post-Diagnostic Synthesis
+
+- status: completed
+- decision: `comparison_support_post_diagnostic_synthesis_pivot_to_current_sim_controlled_comparison_benchmark_design`
+- synthesis_decision: `pivot`
+- manifest: `experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json`
+- synthesis artifact: `docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md`
+- synthesis window: `M2136-M2145`
+- reset/rollout/measured execution in M2146: `false`
+- policy actions executed in M2146: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2136-M2145 completed controlled-panel audit, support-matrix protocol/materialization, denominator inventory, denominator-backed diagnostic materialization, and audit
+- supported: generated-proxy comparison-support branch is clean scaffolding with explicit claim boundaries
+- unsupported: ranking, paper-level benchmark, finite-window-vs-GRU verdict, level3 self-ID
+- mechanism warning: M2144 has `L3_reset_control_corrected` descriptively stronger than `L3_online_gru` on success/offtrack, so the branch cannot support naive recurrent-memory claims
+- next branch: `paper_route_current_sim_controlled_comparison_benchmark`
+- follow-up manifest: `experiments/manifests/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.json`
+- next: `m2147-paper-route-current-sim-controlled-comparison-benchmark-design`

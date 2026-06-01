@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2154,
+    "completed": 2155,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+    "command_log": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+    "run_dir": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
     "status": "completed",
-    "task_id": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit"
+    "task_id": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json",
-    "hypothesis": "M2136-M2145 produced enough denominator-backed diagnostic evidence to choose a bounded next branch, while still blocking ranking and paper claims.",
-    "id": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis",
+    "command": "see experiments/manifests/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.json",
+    "hypothesis": "A current-simulator controlled comparison benchmark can be designed around the paper-route L0/L1/L2/L3 matrix and decisive task families.",
+    "id": "m2147-paper-route-current-sim-controlled-comparison-benchmark-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2136-M2145 post-diagnostic loop before extending branch",
-    "priority": 21410,
+    "notes": "Pending: design current-sim controlled comparison benchmark after M2146 pivot",
+    "priority": 21420,
     "status": "pending",
-    "success_artifact": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md"
+    "success_artifact": "docs/m2147-paper-route-current-sim-controlled-comparison-benchmark-design.md"
   },
-  "updated_at_utc": "20260601T045516Z"
+  "updated_at_utc": "20260601T045956Z"
 }
