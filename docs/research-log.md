@@ -37043,3 +37043,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims remain: controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.json`
 - next: `m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit`
+
+## M2109 Paper-Route Outcome-Supported Decisive Public-Gate Core Repaired Measured Execution Result Audit
+
+- status: completed
+- decision: `public_gate_core_repaired_measured_execution_audit_route_to_no_rerun_outcome_localization`
+- manifest: `experiments/manifests/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.json`
+- audited artifact: `runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json`
+- reset/rollout/measured execution in M2109: `false`
+- policy actions executed in M2109: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2108 is a complete repaired measured execution artifact with episodes `480/480`, failure `0`, metadata missing `0`, metric completeness failure `0`, guardrail `0`
+- raw outcomes: success_obstacle_pass `41`, collision_failure `415`, off_track_noncollision_noncompletion `24`
+- diagnostic profile success counts only: L0 `5/96`, L1 `6/96`, L2 `2/96`, L3 online GRU `16/96`, L3 reset-control `12/96`
+- ranking readiness: blocked because aggregate support is low collision-dominated and the panel is fixed public-gate smoke proxy with no paper-valid generated-task or private-holdout claim
+- next route: no-rerun outcome localization over M2108 artifacts before any comparison route
+- follow-up manifest: `experiments/manifests/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.json`
+- next: `m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design`

@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2109 audits M2108 complete artifact as ranking-blocked low-support collision-dominated 41 success 415 collision 24 offtrack and routes to no-rerun outcome localization",
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2108 result is not classified",
+    "ranking readiness is ambiguous",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T005759Z",
+  "hypothesis": "M2108 produced a complete repaired public-gate core measured execution artifact that can be audited for ranking readiness and routed without overclaiming.",
+  "lineage": {
+    "blocked_by": [
+      "M2108 measured execution result must be audited before ranking or route selection"
+    ],
+    "derived_from": [
+      "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_repaired_measured_execution_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.json"
+    ],
+    "parent_dataset": [
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/outcome_aggregate.csv",
+      "docs/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.md"
+    ],
+    "parent_objective": [
+      "audit the complete repaired measured execution artifact before any ranking or outcome-support route"
+    ],
+    "supersedes": [
+      "direct ranking from M2108 raw outcomes",
+      "paper-level claim from generated smoke proxy rows"
+    ]
+  },
+  "milestone": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit",
+  "next_blocker": "m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "public_gate_core_repaired_measured_execution_audit_route_to_no_rerun_outcome_localization",
+  "public_gates": [
+    "M2109 must audit M2108 execution completeness and raw outcomes",
+    "M2109 must classify whether the complete artifact is ranking-ready or needs outcome localization",
+    "M2109 must not rerun measured execution or rank controller families",
+    "M2109 must keep paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "public_gate_core_repaired_measured_execution_audit_route_to_no_rerun_outcome_localization",
+    "milestone": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit",
+    "reason": "M2109 audits M2108 complete artifact as ranking-blocked low-support collision-dominated 41 success 415 collision 24 offtrack and routes to no-rerun outcome localization",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md exists",
+    "M2108 summary is audited",
+    "M2108 raw outcome distribution is recorded",
+    "ranking readiness is classified",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

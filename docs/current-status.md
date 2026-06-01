@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run
+m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit
+m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design
 ```
 
-Immediate route: M2108 ran the frozen repaired measured-execution command and
-passed the execution gate: `480/480` episodes, failure count `0`, metadata
-missing count `0`, metric completeness failure count `0`, guardrail `0`, and
-all family/source/profile quotas passed. Raw outcomes are recorded as `41`
-successes, `415` collisions, and `24` off-track noncollision noncompletions,
-but no ranking or interpretation is made in M2108. M2109 must audit the
-complete repaired measured artifact and decide whether to localize outcomes or
-admit any comparison-readiness route. Paper claims, finite-window vs GRU
-conclusions, and self-ID claims remain blocked.
+Immediate route: M2109 audits the complete M2108 repaired measured artifact and
+blocks ranking readiness. M2108 is execution-complete (`480/480` episodes,
+failure `0`, metadata missing `0`, metric completeness failure `0`, guardrail
+`0`), but the raw outcomes are low-support and collision-dominated: `41`
+successes, `415` collisions, and `24` off-track noncollision noncompletions.
+M2110 must design a no-rerun outcome localization over M2108 artifacts before
+any comparison route. Paper claims, finite-window vs GRU conclusions, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

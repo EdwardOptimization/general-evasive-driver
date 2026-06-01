@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2117,
+    "completed": 2118,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run.md",
+    "command_log": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution",
+    "run_dir": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run"
+    "task_id": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.json",
-    "hypothesis": "M2108 produced a complete repaired public-gate core measured execution artifact that can be audited for ranking readiness and routed without overclaiming.",
-    "id": "m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit",
+    "command": "see experiments/manifests/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.json",
+    "hypothesis": "A no-rerun outcome localization design can classify the low-support collision-dominated M2108 artifact and decide the next route before any controller-family comparison.",
+    "id": "m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: audit complete M2108 artifact and classify ranking readiness without rerun or ranking",
-    "priority": 21040,
+    "notes": "Pending: design no-rerun outcome localization over M2108 artifacts before any comparison route",
+    "priority": 21050,
     "status": "pending",
-    "success_artifact": "docs/m2109-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-result-audit.md"
+    "success_artifact": "docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260601T005141Z"
+  "updated_at_utc": "20260601T005527Z"
 }
