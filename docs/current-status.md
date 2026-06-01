@@ -16,26 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2273-paper-route-current-sim-scenario-task-quality-redesign-design
+m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation
 ```
 
 Current next task:
 
 ```text
-m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation
+m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit
 ```
 
-Immediate route: M2273 defines role-specific current-sim task families, metrics,
-readiness floors, and an artifact-only support-audit route before any new
-rollout or training. The task families are stable avoidable AES, AEB-infeasible
-stable AES, handling-limit/drift-capable avoidance, recovery-after-limit,
-unavoidable mitigation, and hidden-dynamics robustness.
+Immediate route: M2274 completes a no-rerun support audit over `1440` existing
+episode rows and `60` training-matrix rows. Contracts are clean and primary
+metrics are computable (`10/10`), but role/scenario support is incomplete:
+explicit role labels cover only `3/6` families, `R1_aeb_infeasible_stable_aes`
+is missing, `R3` and `R5` are proxy-only, and direct obstacle timing/lateral
+offset axes are missing.
 
-Active interpretation: current-sim task quality is now a role-support and metric
-coverage problem. M2274 must audit existing M2244/M2253/M2265 episode rows and
-M2227/M2233/M2248/M2259 training matrices without running environments,
-training, measured execution, replay, PPO, ranking, finite-window vs GRU
-verdicts, paper-level claims, or level3 self-ID claims.
+Active interpretation: the next likely branch is scenario task-family generation
+design, pending M2275 audit. No new rollout, training, measured execution,
+ranking, finite-window vs GRU verdict, paper-level claim, or level3 self-ID
+claim is admitted yet.
 
 ## Actor Contract
 

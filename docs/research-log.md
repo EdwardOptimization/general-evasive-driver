@@ -50,6 +50,16 @@ Last updated: 2026-06-01
 - result: defines six role-specific task families, scenario axes, primary/diagnostic metrics, readiness floors, and the M2274 artifact-only support audit route.
 - decision: next is M2274 no-rerun support audit over existing episode rows and training matrices; reward tuning, rollout, training, ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked.
 
+
+## 20260601T184725Z m2274-scenario-task-quality-support-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json`
+- result: no-rerun support audit pass over `1440` episode rows and `60` matrix rows. Actor-contract matrix support is clean; primary metrics are `10/10` present.
+- key gaps: explicit role labels only `3/6`; `R1_aeb_infeasible_stable_aes` missing; `R3_recovery_after_limit` and `R5_hidden_dynamics_robustness` are proxy-only; direct obstacle timing and lateral offset axes are missing.
+- decision: route to M2275 result audit with primary route `scenario_task_family_generation_design`; no rollout/training/ranking claims.
+
 ## Current Best
 
 - checkpoint:
