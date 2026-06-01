@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit
+m2173-paper-route-current-sim-measured-execution-command-design
 ```
 
 Current next task:
 
 ```text
-m2173-paper-route-current-sim-measured-execution-command-design
+m2174-paper-route-current-sim-measured-execution-implementation-and-run
 ```
 
-Immediate route: M2172 audits M2171 checkpoint/profile materialization as
-clean: 8 profile rows, 320 workload rows, no missing or nonexistent checkpoint
-paths, `L3_reset_control` aliases the `L3_online_gru` checkpoint, and
-guardrail `0`. M2173 must now design the real measured execution command over
-the M2151 specs and M2171 materialized workload. Real M2151 measured execution,
-controller ranking, paper claims, finite-window vs GRU verdicts, and self-ID
-claims remain blocked until later audited evidence supports them.
+Immediate route: M2173 freezes the real measured execution command over the
+M2151 executable specs and M2171 materialized workload. M2174 may run only that
+320-cell command with output
+`runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution`,
+eval seed base `217400`, and targets `320/40/8`. Controller ranking, paper
+claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
+later audited evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

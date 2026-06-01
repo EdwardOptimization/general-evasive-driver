@@ -38612,3 +38612,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: clean materialization audit admits measured execution command design
 - follow-up manifest: `experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json`
 - next: `m2173-paper-route-current-sim-measured-execution-command-design`
+
+## M2173 Paper-Route Current-Sim Measured Execution Command Design
+
+- status: completed
+- decision: `current_sim_measured_execution_command_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json`
+- design artifact: `docs/m2173-paper-route-current-sim-measured-execution-command-design.md`
+- executable specs: `runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json`
+- workload: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv`
+- output dir: `runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution`
+- eval seed base: `217400`
+- target episode/spec/profile counts: `320/40/8`
+- real measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: measured execution command is frozen for M2174
+- follow-up manifest: `experiments/manifests/m2174-paper-route-current-sim-measured-execution-implementation-and-run.json`
+- next: `m2174-paper-route-current-sim-measured-execution-implementation-and-run`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2180,
+    "completed": 2181,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+    "command_log": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+    "run_dir": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
     "status": "completed",
-    "task_id": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit"
+    "task_id": "m2173-paper-route-current-sim-measured-execution-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json",
-    "hypothesis": "The audited M2171 materialized workload can be converted into a precise current-sim measured execution command without running it or making comparison claims.",
-    "id": "m2173-paper-route-current-sim-measured-execution-command-design",
-    "kind": "gate",
-    "notes": "Pending: design current-sim measured execution command",
-    "priority": 21680,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution --eval-seed-base 217400 --device cpu --no-resume --target-episode-count 320 --target-spec-count 40 --target-profile-count 8 --next-blocker m2175-paper-route-current-sim-measured-execution-result-audit",
+    "hypothesis": "The frozen M2173 measured execution command can run the 320-cell current-sim panel over the materialized workload without validation failures or claim-boundary violations.",
+    "id": "m2174-paper-route-current-sim-measured-execution-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: run frozen current-sim measured execution command",
+    "priority": 21690,
     "status": "pending",
-    "success_artifact": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md"
+    "success_artifact": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json"
   },
-  "updated_at_utc": "20260601T081548Z"
+  "updated_at_utc": "20260601T081852Z"
 }

@@ -1,0 +1,177 @@
+{
+  "id": "m2174-paper-route-current-sim-measured-execution-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L0_current_masked/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L1_one_step/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_13/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_25/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_50/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_100/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json"
+    ],
+    "parent_objective": [
+      "run the frozen current-sim measured execution command and preserve the result for audit"
+    ],
+    "derived_from": [
+      "m2173-paper-route-current-sim-measured-execution-command-design"
+    ],
+    "blocked_by": [
+      "M2173 freezes measured execution command"
+    ],
+    "supersedes": [
+      "manual measured execution command"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2174-paper-route-current-sim-measured-execution-implementation-and-run.md",
+  "public_gates": [
+    "M2174 must run only the frozen M2173 command",
+    "M2174 must use M2171 materialized workload",
+    "M2174 must target 320 episodes, 40 specs, and 8 profiles",
+    "M2174 must not rank controller families or claim paper-level evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not change actor inputs",
+    "do not change profile configs",
+    "do not change task specs",
+    "do not change materialized workload rows",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_execution",
+    "evidence_increment": "runs the current-sim 320-cell measured execution panel after audited materialization",
+    "claim_scope": "measured execution completeness only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if validation fails before rollout",
+      "stop if any episode failure is recorded",
+      "stop if target counts or quotas fail",
+      "stop if measured execution output tries to rank profiles"
+    ],
+    "fallback_plan": [
+      "route to result audit regardless of pass/fail",
+      "route to measured-run repair only after audit classifies the failure",
+      "route to synthesis if command run reveals broader branch design issue"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2173 command design admits measured execution run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "run current-sim measured execution without training or ranking",
+    "admission_evidence": [
+      "M2173 freezes the command",
+      "M2172 audits materialization as clean",
+      "M2168 measured runner adapter is implemented"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no ranking",
+      "no paper-level claims"
+    ],
+    "allowed_updates": [
+      "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/*",
+      "docs/m2174-paper-route-current-sim-measured-execution-implementation-and-run.md",
+      "M2174 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "episode/failure counts are recorded",
+      "guardrail violation count is recorded",
+      "next blocker is result audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2174 measures controller outcomes but does not run history-necessity interventions.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2174."
+    ],
+    "temporal_evidence_window": "M2171 materialized workload and M2174 measured execution outputs.",
+    "negative_result_policy": "M2174 outcomes must be audited before any comparison or self-ID interpretation.",
+    "allowed_claims": [
+      "measured execution completeness or failure",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces real current-sim measured rollout data over the full 320-cell panel",
+    "paper_verdict_delta": "can admit result audit and later comparison protocol if complete, but cannot directly decide ranking",
+    "must_synthesize_if": [
+      "M2174 does not produce closed-loop data",
+      "M2174 fails before any rollout",
+      "M2174 attempts ranking instead of execution"
+    ]
+  },
+  "hypothesis": "The frozen M2173 measured execution command can run the 320-cell current-sim panel over the materialized workload without validation failures or claim-boundary violations.",
+  "success_criteria": [
+    "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json exists",
+    "episode_count == 320",
+    "failure_count == 0",
+    "spec_count == 40",
+    "profile_count == 8",
+    "metadata_missing_count == 0",
+    "metric_completeness_failure_count == 0",
+    "guardrail_violation_count == 0",
+    "no ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "validation fails before rollout",
+    "episode_count != 320",
+    "failure_count > 0",
+    "metadata or metric completeness failures occur",
+    "guardrail violations occur",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_measured_runner --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --workload runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv --output-dir runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution --eval-seed-base 217400 --device cpu --no-resume --target-episode-count 320 --target-spec-count 40 --target-profile-count 8 --next-blocker m2175-paper-route-current-sim-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_evaluation_run_uses_materialized_profile_checkpoints"
+  ],
+  "baseline_artifacts": [
+    "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+  ],
+  "decision_rule": "M2174 passes if the frozen 320-cell measured execution completes with zero failures and zero guardrail violations; pass/fail still routes to result audit before interpretation.",
+  "next_blocker": "m2174-paper-route-current-sim-measured-execution-implementation-and-run"
+}
