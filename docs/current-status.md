@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2282-paper-route-current-sim-scenario-task-family-reset-validation-design
+m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis
+m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation
 ```
 
 Immediate route: M2282 freezes a focused reset-only validation design for
@@ -36,12 +36,12 @@ execution_admissible_without_instrumentation: true
 primary_route: scenario_task_family_result_audit_route_to_reset_validation_design
 ```
 
-Active interpretation: workflow cadence is reached, so M2283 must synthesize
-M2273-M2282 before reset-validation implementation. The frozen reset-validation
-route must fail closed on reset, actor-contract, label, or lateral-offset bucket
-mismatch. Environment reset, policy actions, measured rollout, training,
+Active interpretation: M2283 synthesizes M2273-M2282 and continues only to the
+frozen reset-validation implementation route. M2284 may run reset-only
+validation, but it must fail closed on reset, actor-contract, label, or
+lateral-offset bucket mismatch. Policy actions, measured rollout, training,
 ranking, finite-window vs GRU verdict, paper-level claim, and level3 self-ID
-claim remain blocked in M2283.
+claim remain blocked.
 
 ## Actor Contract
 

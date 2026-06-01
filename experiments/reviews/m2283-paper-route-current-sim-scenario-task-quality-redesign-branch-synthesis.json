@@ -1,0 +1,111 @@
+{
+  "decision_reason": "M2283 synthesizes M2273-M2282 and continues only to reset-validation implementation with fail-closed lateral sign gate no rollout/training claims",
+  "failure_criteria": [
+    "M2283 omits a required synthesis question",
+    "M2283 ignores the M2282 lateral-offset sign gate",
+    "M2283 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2283 ranks profiles or selects a winner",
+    "M2283 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T194435Z",
+  "hypothesis": "Synthesizing M2273-M2282 will identify whether the scenario/task-quality redesign should continue to reset validation or pivot to schema repair.",
+  "lineage": {
+    "blocked_by": [
+      "workflow synthesis cadence reached before reset-validation implementation",
+      "M2282 freezes reset-validation design and exposes a lateral-offset sign gate"
+    ],
+    "derived_from": [
+      "m2273-paper-route-current-sim-scenario-task-quality-redesign-design",
+      "m2274-paper-route-current-sim-scenario-task-quality-support-audit-implementation",
+      "m2277-paper-route-current-sim-scenario-task-family-config-materialization",
+      "m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation",
+      "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2273-paper-route-current-sim-scenario-task-quality-redesign-design.md",
+      "runs/m2274_paper_route_current_sim_scenario_task_quality_support_audit/summary.json",
+      "docs/m2275-paper-route-current-sim-scenario-task-quality-support-audit-result-audit.md",
+      "docs/m2276-paper-route-current-sim-scenario-task-family-generation-design.md",
+      "runs/m2277_paper_route_current_sim_scenario_task_family_config_materialization/summary.json",
+      "docs/m2278-paper-route-current-sim-scenario-task-family-config-materialization-result-audit.md",
+      "docs/m2279-paper-route-current-sim-obstacle-lateral-offset-instrumentation-design.md",
+      "docs/m2280-paper-route-current-sim-obstacle-lateral-offset-instrumentation-implementation.md",
+      "docs/m2281-paper-route-current-sim-obstacle-lateral-offset-instrumentation-result-audit.md",
+      "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize M2273-M2282 scenario/task-quality redesign before reset-validation implementation"
+    ],
+    "supersedes": [
+      "direct reset-validation implementation after cadence",
+      "continuing scenario task-quality redesign without branch synthesis"
+    ]
+  },
+  "milestone": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
+  "next_blocker": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_quality_redesign_synthesis_continue_to_reset_validation",
+  "public_gates": [
+    "M2283 must synthesize M2273-M2282 scenario/task-quality redesign evidence",
+    "M2283 must answer the standard synthesis questions",
+    "M2283 must explicitly decide whether to continue to reset-validation implementation",
+    "M2283 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_quality_redesign_synthesis_continue_to_reset_validation",
+    "milestone": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
+    "reason": "M2283 synthesizes M2273-M2282 and continues only to reset-validation implementation with fail-closed lateral sign gate no rollout/training claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "lateral-offset sign-gate risk is explicitly handled",
+    "a follow-up non-ranking route is selected"
+  ],
+  "type": "gate"
+}

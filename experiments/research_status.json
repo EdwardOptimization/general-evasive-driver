@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2290,
+    "completed": 2291,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2282-paper-route-current-sim-scenario-task-family-reset-validation-design",
+    "task_id": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md"
+    "command_log": "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
-    "kind": "gate",
-    "priority": 22780,
+    "id": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
+    "kind": "infrastructure",
+    "priority": 22790,
     "status": "pending",
-    "hypothesis": "Synthesizing M2273-M2282 will identify whether the scenario/task-quality redesign should continue to reset validation or pivot to schema repair.",
-    "command": "manual synthesis artifact over M2273-M2282 scenario/task-quality redesign evidence",
-    "success_artifact": "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md",
-    "notes": "Pending: cadence synthesis before reset-validation implementation; handle lateral sign-gate risk and choose continue/pivot/stop; no reset rollout training ranking or paper claims"
+    "hypothesis": "The refreshed 72-spec role-family scenario pack is reset-valid under the current simulator and strict P0 human-view contract.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation --eval-seed-base 228300 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+    "success_artifact": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+    "notes": "Pending: implement focused validator and run reset-only 72-spec validation; fail closed on reset contract label or lateral mismatch; no rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T193506Z"
+  "updated_at_utc": "20260601T194216Z"
 }

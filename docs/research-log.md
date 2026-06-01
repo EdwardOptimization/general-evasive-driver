@@ -137,6 +137,16 @@ Last updated: 2026-06-01
 - design note: the frozen reset-validation implementation must enforce the M2279/M2280 sign convention (`positive -> frame-left`, `negative -> frame-right`) and fail closed if current config bucket labels disagree with sampled offsets.
 - decision: route to M2283 scenario/task-quality branch synthesis before reset-validation implementation because workflow cadence is reached. Reset, policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
+
+## 20260601T194216Z m2283-scenario-task-quality-redesign-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- synthesis decision: `continue`
+- artifact: `docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md`
+- result: synthesizes M2273-M2282 as a scenario/task-quality positive but incomplete branch: a 72-spec role-family pack and obstacle lateral-offset instrumentation now exist, but reset validity and left/right signed bucket consistency are untested.
+- decision: continue only to M2284 reset-validation implementation using the frozen fail-closed M2282 gates. Policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
+
 ## Current Best
 
 - checkpoint:
