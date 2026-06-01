@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2231 pending audit of complete M2230 training result and readiness-floor failure no ranking claims",
+  "decision_reason": "M2231 audits M2230 clean execution but quality floor profile pass count 0 routes to medium-v1 matched-budget design no ranking claims",
   "failure_criteria": [
     "M2230 artifacts are missing",
     "completion or finite-metric fields are inconsistent",
@@ -27,7 +27,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T133413Z",
+  "generated_at_utc": "20260601T133744Z",
   "hypothesis": "M2230 produced complete finite training artifacts but did not meet readiness floors, so M2231 can classify the result and select a repair or synthesis route without rerunning or ranking.",
   "lineage": {
     "blocked_by": [
@@ -60,7 +60,7 @@
   "milestone": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
   "next_blocker": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_matched_budget_training_complete_but_below_floor_route_to_medium_budget_design",
   "public_gates": [
     "M2231 must audit M2230 completion, failure counts, finite metrics, contract guardrails, and quality-floor profile pass count",
     "M2231 must explicitly block controller-family ranking and finite-window-vs-GRU conclusions",
@@ -70,9 +70,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_matched_budget_training_complete_but_below_floor_route_to_medium_budget_design",
     "milestone": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
-    "reason": "M2231 pending audit of complete M2230 training result and readiness-floor failure no ranking claims",
+    "reason": "M2231 audits M2230 clean execution but quality floor profile pass count 0 routes to medium-v1 matched-budget design no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

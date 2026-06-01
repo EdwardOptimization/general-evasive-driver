@@ -39957,3 +39957,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: training execution is complete and finite, but no profile is ready for downstream comparison by the pre-registered floor
 - follow-up manifest: `experiments/manifests/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.json`
 - next: `m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit`
+
+## M2231 Paper-Route Current-Sim Matched-Budget Profile Training Execution Result Audit
+
+- status: completed
+- decision: `current_sim_matched_budget_training_complete_but_below_floor_route_to_medium_budget_design`
+- manifest: `experiments/manifests/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.json`
+- audit artifact: `docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md`
+- parent result: `runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json`
+- parent aggregate: `runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/profile_aggregate.csv`
+- M2230 result_class: `current_sim_matched_budget_profile_training_execution_pass`
+- completed_run_count: `15`
+- failed_run_count: `0`
+- all_selected_metrics_finite: `true`
+- contract_violation_count: `0`
+- guardrail violations: `0`
+- quality_floor_profile_pass_count: `0`
+- classification: clean execution but training-readiness floor failure
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: routes to medium-v1 matched-budget training design with unchanged profiles/seeds/readiness floor
+- follow-up manifest: `experiments/manifests/m2232-paper-route-current-sim-matched-budget-medium-training-design.json`
+- next: `m2232-paper-route-current-sim-matched-budget-medium-training-design`

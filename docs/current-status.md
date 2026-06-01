@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run
+m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit
+m2232-paper-route-current-sim-matched-budget-medium-training-design
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -107,6 +107,13 @@ passing the pre-registered eval termination/return floor. M2231 must audit this
 as a complete-but-not-ready training result before any repair, rerun,
 measured-execution, ranking, finite-window-vs-GRU verdict, paper claim, or
 self-ID claim.
+M2231 audits this as a clean execution but training-readiness floor failure:
+`completed_run_count=15`, `failed_run_count=0`, finite metrics true, contract
+`0`, guardrail `0`, but `quality_floor_profile_pass_count=0`. It blocks
+measured execution and all ranking/FW-vs-GRU/self-ID claims, then routes to
+M2232 medium-v1 matched-budget design: same five profiles, same three seeds,
+unchanged readiness floor, no actor input changes, and `32768` steps per seed
+to test whether M2230 was simply undertrained.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

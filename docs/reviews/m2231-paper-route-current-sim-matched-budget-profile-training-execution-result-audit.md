@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T133413Z
+- Generated at UTC: 20260601T133744Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2231 pending audit of complete M2230 training result and readiness-floor failure no ranking claims
+- Promotion decision: current_sim_matched_budget_training_complete_but_below_floor_route_to_medium_budget_design
+- Decision reason: M2231 audits M2230 clean execution but quality floor profile pass count 0 routes to medium-v1 matched-budget design no ranking claims
 
 ## Hypothesis
 
@@ -86,8 +86,8 @@ M2230 produced complete finite training artifacts but did not meet readiness flo
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2231 pending audit of complete M2230 training result and readiness-floor failure no ranking claims
+- decision: current_sim_matched_budget_training_complete_but_below_floor_route_to_medium_budget_design
+- reason: M2231 audits M2230 clean execution but quality floor profile pass count 0 routes to medium-v1 matched-budget design no ranking claims
 
 ## Next Blocker
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2238,
+    "completed": 2239,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json",
+    "command_log": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution",
+    "run_dir": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2230-paper-route-current-sim-matched-budget-profile-training-execution-implementation-and-run"
+    "task_id": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit"
   },
   "next_task": {
-    "command": "manual artifact audit of runs/m2230_paper_route_current_sim_matched_budget_profile_training_execution/summary.json and profile_aggregate.csv",
-    "hypothesis": "M2230 produced complete finite training artifacts but did not meet readiness floors, so M2231 can classify the result and select a repair or synthesis route without rerunning or ranking.",
-    "id": "m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit",
+    "command": "manual medium-budget training design based on M2230 readiness-floor audit",
+    "hypothesis": "A medium-v1 matched-budget plan with 32768 steps per seed can test whether M2230 short-v0 readiness failure is undertraining, without profile-specific tuning or claim expansion.",
+    "id": "m2232-paper-route-current-sim-matched-budget-medium-training-design",
     "kind": "gate",
-    "notes": "Pending: audit M2230 complete training result and quality-floor failure before any comparison route",
-    "priority": 22260,
+    "notes": "Pending: freeze medium-v1 matched-budget profile training design after short-v0 readiness failure",
+    "priority": 22270,
     "status": "pending",
-    "success_artifact": "docs/m2231-paper-route-current-sim-matched-budget-profile-training-execution-result-audit.md"
+    "success_artifact": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md"
   },
-  "updated_at_utc": "20260601T133206Z"
+  "updated_at_utc": "20260601T133537Z"
 }
