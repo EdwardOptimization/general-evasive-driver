@@ -41162,3 +41162,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.json`
 - next: `m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit`
+
+## M2294 Paper-Route Current-Sim Scenario Task-Family Measured Execution Result Audit
+
+- status: completed
+- synthesis_decision: `continue`
+- decision: `scenario_task_family_measured_execution_audit_continue_to_failure_slice_diagnosis`
+- manifest: `experiments/manifests/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.json`
+- synthesis artifact: `docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md`
+- parent summary: `runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json`
+- rerun/reset/rollout/policy action: `false`
+- verified M2293 episode_count: `1080 / 1080`
+- verified M2293 failure_count: `0`
+- verified M2293 metadata_missing_count: `0`
+- verified M2293 metric_completeness_failure_count: `0`
+- verified M2293 guardrail_violation_count: `0`
+- global_success_rate: `0.06388888888888888`
+- global_offtrack_rate: `0.7268518518518519`
+- global_collision_rate: `0.1935185185185185`
+- global_dominant_failure_mode: `offtrack_dominated_failure`
+- supported claim: complete measured execution data exists for the role-family scenario pack
+- falsified/blocked claim: current M2262 selected checkpoints are not strong across the full role-family pack
+- next branch decision: continue only to artifact-only failure-slice diagnosis
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.json`
+- next: `m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation`

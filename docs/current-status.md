@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2293-paper-route-current-sim-scenario-task-family-measured-execution-implementation
+m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit
+m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -83,11 +83,12 @@ collision_rate: 0.1935185185185185
 dominant_failure_mode: offtrack_dominated_failure
 ```
 
-M2294 must audit this result as the scenario task-quality branch cadence
-synthesis before any repair, ranking, comparison, or paper-route
-interpretation. Training, replay, PPO, promotion, ranking, winner selection,
-finite-window vs GRU verdict, paper-level claim, and level3 self-ID claim remain
-blocked.
+M2294 audits this result as the scenario task-quality branch cadence synthesis
+and continues only to artifact-only failure-slice diagnosis. M2295 must consume
+existing M2293 artifacts without rerun, training, ranking, comparison, or
+paper-route interpretation. Training, replay, PPO, promotion, ranking, winner
+selection, finite-window vs GRU verdict, paper-level claim, and level3 self-ID
+claim remain blocked.
 
 ## Actor Contract
 

@@ -1,0 +1,180 @@
+{
+  "id": "m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_diagnosis"
+    ],
+    "parent_dataset": [
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv",
+      "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/aggregate_by_role_family.csv",
+      "docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "run artifact-only failure-slice diagnosis over the complete M2293 measured panel"
+    ],
+    "derived_from": [
+      "m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2294 classifies M2293 as offtrack/collision dominated and blocks direct repair/ranking"
+    ],
+    "supersedes": [
+      "direct reward repair from global success rate",
+      "direct profile ranking from M2293 aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.md",
+  "public_gates": [
+    "M2295 must consume existing M2293 artifacts only",
+    "M2295 must not rerun environment reset or rollout",
+    "M2295 must produce slice diagnostics across role, timing, lateral, hidden dynamics, profile, outcome, and termination axes",
+    "M2295 must select a result-audit route without ranking profiles or claiming paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not change profile configs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_failure_slice_diagnosis",
+    "evidence_increment": "adds artifact-only failure slicing over the first complete 1080-episode role-family measured panel",
+    "claim_scope": "failure-slice diagnosis only; no rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2293 artifacts are missing or incomplete",
+      "stop if diagnosis cannot reproduce the M2293 global counts",
+      "stop if diagnosis attempts to rank profiles",
+      "stop if no dominant failure slice or next route can be identified"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if input counts cannot be reproduced",
+      "route to branch synthesis if failure slices are contradictory",
+      "route to offtrack or collision-focused design only after result audit accepts the diagnosis"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2294 cadence synthesis continues to artifact-only failure-slice diagnosis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and run artifact-only failure-slice diagnosis",
+    "admission_evidence": [
+      "M2293 measured execution pass produced 1080 complete episode rows",
+      "M2294 blocks direct repair/ranking and routes to failure-slice diagnosis"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_failure_slice_diagnosis.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis.py",
+      "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/*",
+      "docs/m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation.md",
+      "M2295 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "summary.json exists",
+      "input episode count is reproduced",
+      "dominant slices are recorded",
+      "next blocker is result audit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2295 slices measured outcomes but does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2295."
+    ],
+    "temporal_evidence_window": "M2293 measured execution artifacts.",
+    "negative_result_policy": "Treat failure slices as task-performance diagnosis, not self-ID evidence.",
+    "allowed_claims": [
+      "failure-slice diagnosis over M2293 artifacts",
+      "non-ranking result-audit route selection"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns a global offtrack-dominated result into slice-level failure evidence before repair",
+    "paper_verdict_delta": "can decide which current-sim task-quality repair route is evidence-backed",
+    "must_synthesize_if": [
+      "M2295 cannot identify a dominant failure slice",
+      "M2295 recommends another broad repair without new slice evidence",
+      "M2295 repeats the same global finding without narrower route selection"
+    ]
+  },
+  "hypothesis": "Artifact-only failure-slice diagnosis can localize the M2293 offtrack/collision dominated result enough to choose the next non-ranking repair or synthesis route.",
+  "success_criteria": [
+    "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json exists",
+    "input_episode_count equals 1080",
+    "global success/offtrack/collision counts match M2293",
+    "slice artifacts exist for role, timing, lateral, hidden dynamics, profile, outcome, and termination axes",
+    "no rollout, training, ranking, paper-level, finite-window-vs-GRU, or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2295 reruns reset or rollout",
+    "M2295 cannot reproduce M2293 global counts",
+    "M2295 omits required slice axes",
+    "M2295 ranks profiles or selects a winner",
+    "M2295 makes paper-level finite-window-vs-GRU or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_failure_slice_diagnosis --summary runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json --episode-rows runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv --output-dir runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis --next-blocker m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_diagnosis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/summary.json",
+    "runs/m2293_paper_route_current_sim_scenario_task_family_measured_execution/episode_rows.csv",
+    "docs/m2294-paper-route-current-sim-scenario-task-family-measured-execution-result-audit.md"
+  ],
+  "decision_rule": "M2295 passes if it reproduces M2293 global counts, writes required slice diagnostics, and routes to result audit without rerun/ranking claims.",
+  "next_blocker": "m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit"
+}
