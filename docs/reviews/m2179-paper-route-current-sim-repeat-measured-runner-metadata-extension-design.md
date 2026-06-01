@@ -1,0 +1,84 @@
+# m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260601T085528Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: current_sim_repeat_metadata_extension_design_admit_required_branch_synthesis
+- Decision reason: M2179 designs optional repeat metadata preservation and backward compatibility rule for measured runner then routes to required synthesis before implementation no measured execution ranking paper FW-vs-GRU or self-ID claims
+
+## Hypothesis
+
+A narrow measured-runner metadata extension can preserve repeat fields as first-class episode/failure metadata before repeat rollout.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_design_only
+- parent_dataset: docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md, runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/combined_new_repeat_materialized_workload.csv, src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py
+- parent_config: experiments/manifests/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.json
+- parent_objective: design measured-runner metadata extension before repeat measured execution
+- derived_from: m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit
+- blocked_by: M2178 identifies repeat metadata preservation gap in measured runner
+- supersedes: repeat measured execution relying on workload_id parsing
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md exists
+- repeat metadata fields are listed
+- implementation and focused test scope are listed
+- no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made
+
+## Failure Criteria
+
+- design document is missing
+- repeat metadata fields are ambiguous
+- design relies only on workload_id parsing
+- measured execution starts
+- ranking or paper-level claims are made
+
+## Evidence Gates
+
+- M2179 must design a metadata-preserving measured-runner extension
+- M2179 must enumerate repeat metadata fields
+- M2179 must define focused fake-rollout tests
+- M2179 must not run measured execution or rank profiles
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run measured execution
+- do not change actor inputs
+- do not rank controller families
+- do not select a winner
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- None recorded.
+
+## Scoreboard
+
+- milestone: m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design
+- type: gate
+- checkpoint: docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: current_sim_repeat_metadata_extension_design_admit_required_branch_synthesis
+- reason: M2179 designs optional repeat metadata preservation and backward compatibility rule for measured runner then routes to required synthesis before implementation no measured execution ranking paper FW-vs-GRU or self-ID claims
+
+## Next Blocker
+
+m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design

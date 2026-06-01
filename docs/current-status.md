@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit
+m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design
 ```
 
 Current next task:
 
 ```text
-m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design
+m2180-paper-route-current-sim-repeat-readiness-branch-synthesis
 ```
 
-Immediate route: M2178 audits repeat materialization as clean but blocks repeat
-measured execution command design until the measured runner preserves repeat
-metadata (`training_repeat_id`, seed group, profile seed, checkpoint source,
-materialization mode, and base workload id) as first-class episode/failure
-columns. M2179 must design that narrow runner metadata extension. Measured
+Immediate route: M2179 designs the repeat metadata extension for the measured
+runner. The fields are optional for non-repeat workloads, but when present they
+must be complete and preserved: `training_repeat_id`, seed group, profile seed,
+checkpoint source, materialization mode, and base workload id. The workflow
+synthesis cadence is now reached, so M2180 must synthesize the repeat-readiness
+branch before any runner implementation continues. Real repeat measured
 execution, controller ranking, paper claims, finite-window vs GRU verdicts, and
 self-ID claims remain blocked until later audited evidence supports them.
 

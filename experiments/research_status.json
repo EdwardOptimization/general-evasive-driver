@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2186,
+    "completed": 2187,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+    "command_log": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+    "run_dir": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md",
     "status": "completed",
-    "task_id": "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit"
+    "task_id": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json",
-    "hypothesis": "A narrow measured-runner metadata extension can preserve repeat fields as first-class episode/failure metadata before repeat rollout.",
-    "id": "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design",
+    "command": "see experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json",
+    "hypothesis": "The current-sim repeat-readiness branch can be synthesized into a clear continue/pivot/stop decision before further implementation.",
+    "id": "m2180-paper-route-current-sim-repeat-readiness-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: design repeat metadata-preserving measured runner extension",
-    "priority": 21740,
+    "notes": "Pending: required branch synthesis before metadata implementation",
+    "priority": 21750,
     "status": "pending",
-    "success_artifact": "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md"
+    "success_artifact": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T084524Z"
+  "updated_at_utc": "20260601T084918Z"
 }

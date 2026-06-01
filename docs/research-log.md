@@ -38759,3 +38759,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to repeat metadata-preserving runner design before repeat measured execution command design
 - follow-up manifest: `experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json`
 - next: `m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design`
+
+## M2179 Paper-Route Current-Sim Repeat Measured-Runner Metadata Extension Design
+
+- status: completed
+- decision: `current_sim_repeat_metadata_extension_design_admit_required_branch_synthesis`
+- manifest: `experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json`
+- design artifact: `docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md`
+- repeat metadata fields: `training_repeat_id`, `training_seed_group`, `profile_training_seed`, `profile_checkpoint_source_profile`, `checkpoint_materialization_mode`, `base_workload_id`
+- compatibility rule: repeat fields are optional for non-repeat workloads but must be complete when present
+- implementation target: `src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py`
+- training: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to required branch synthesis before focused measured-runner metadata extension implementation
+- follow-up manifest: `experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json`
+- next: `m2180-paper-route-current-sim-repeat-readiness-branch-synthesis`

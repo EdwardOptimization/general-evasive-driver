@@ -1,0 +1,171 @@
+{
+  "id": "m2180-paper-route-current-sim-repeat-readiness-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+      "docs/m2176-paper-route-current-sim-training-seed-repeat-design.md",
+      "runs/m2177_paper_route_current_sim_training_seed_repeat_materialization/summary.json",
+      "docs/m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit.md",
+      "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.json"
+    ],
+    "parent_objective": [
+      "synthesize current-sim repeat-readiness branch before further implementation"
+    ],
+    "derived_from": [
+      "m2175-paper-route-current-sim-measured-execution-result-audit",
+      "m2176-paper-route-current-sim-training-seed-repeat-design",
+      "m2177-paper-route-current-sim-training-seed-repeat-materialization-implementation-and-run",
+      "m2178-paper-route-current-sim-training-seed-repeat-materialization-result-audit",
+      "m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached before implementation can continue"
+    ],
+    "supersedes": [
+      "direct metadata extension implementation without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
+  "public_gates": [
+    "M2180 must synthesize M2175-M2179",
+    "M2180 must decide whether to continue, pivot, stop, or promote the branch",
+    "M2180 must not implement metadata changes",
+    "M2180 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not implement runner changes",
+    "do not run measured execution",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_readiness_synthesis",
+    "evidence_increment": "synthesizes one-seed measured execution, repeat materialization, and metadata-readiness blockers",
+    "claim_scope": "synthesis decision only; no implementation measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repeat branch lacks a clear next capability change",
+      "stop if the next step would only repair a fixed public row",
+      "stop if metadata gap implies broader runner redesign",
+      "stop if comparison route remains underpowered after repeat materialization"
+    ],
+    "fallback_plan": [
+      "continue to metadata extension implementation if synthesis supports it",
+      "pivot to task/outcome support repair if offtrack dominance makes repeats low-value",
+      "stop branch if current-sim evidence is insufficient for paper route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "validator cadence reached after M2179",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current-sim repeat-readiness branch",
+    "admission_evidence": [
+      "M2175 audits M2174 as complete but one-seed and offtrack-dominated",
+      "M2177 materializes two new repeat seed groups",
+      "M2178 identifies repeat metadata preservation gap",
+      "M2179 designs metadata extension",
+      "research validator requires synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "no implementation in synthesis",
+      "no measured execution in synthesis",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
+      "M2180 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2180 synthesizes current-sim repeat readiness and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2180."
+    ],
+    "temporal_evidence_window": "M2175-M2179 branch evidence.",
+    "negative_result_policy": "If synthesis finds offtrack dominance or metadata gaps block useful comparison, pivot rather than rank profiles.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the branch before any further local implementation",
+    "paper_verdict_delta": "can choose the next branch step but cannot decide comparison",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "The current-sim repeat-readiness branch can be synthesized into a clear continue/pivot/stop decision before further implementation.",
+  "success_criteria": [
+    "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "next branch decision is explicit",
+    "no implementation measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "next blocker is ambiguous",
+    "implementation or measured execution starts"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2175-paper-route-current-sim-measured-execution-result-audit.md",
+    "docs/m2179-paper-route-current-sim-repeat-measured-runner-metadata-extension-design.md"
+  ],
+  "decision_rule": "M2180 passes if it makes a durable branch synthesis decision and pre-registers the next blocker without implementation.",
+  "next_blocker": "m2180-paper-route-current-sim-repeat-readiness-branch-synthesis"
+}
