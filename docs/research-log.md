@@ -39447,3 +39447,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to no-rerun outcome localization design
 - follow-up manifest: `experiments/manifests/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.json`
 - next: `m2211-paper-route-current-sim-offtrack-support-outcome-localization-design`
+
+## M2211 Paper-Route Current-Sim Offtrack-Support Outcome Localization Design
+
+- status: completed
+- decision: `current_sim_offtrack_support_outcome_localization_design_admit_implementation`
+- manifest: `experiments/manifests/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.json`
+- design artifact: `docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md`
+- input summary: `runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json`
+- input episode rows: `runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv`
+- group keys: `overall`, `task_family`, `source_family_template`, `capability_pair`, `profile_name`, `history_representation`, `profile_level`, and selected cross groups
+- support labels: `comparison_ready_candidate`, `candidate_support`, `offtrack_dominated`, `collision_dominated`, `low_success_support`, `low_sample_count`, `mixed_unresolved`
+- measured execution: `false`
+- policy action executed: `false`
+- result: admit no-rerun localization implementation
+- follow-up manifest: `experiments/manifests/m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation.json`
+- next: `m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation`

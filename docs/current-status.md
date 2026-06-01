@@ -16,21 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit
+m2211-paper-route-current-sim-offtrack-support-outcome-localization-design
 ```
 
 Current next task:
 
 ```text
-m2211-paper-route-current-sim-offtrack-support-outcome-localization-design
+m2212-paper-route-current-sim-offtrack-support-outcome-localization-implementation
 ```
 
-Immediate route: M2210 audits M2209 as execution-complete but not
-comparison-ready. Raw outcomes remain offtrack dominated: success `374`
-(`0.1623263888888889`), collision `49`, offtrack noncompletion `1881`
-(`0.81640625`). M2211 must design a no-rerun outcome localization over M2209
-artifacts before any repair or comparison. Controller ranking, paper claims,
-finite-window vs GRU verdicts, and self-ID claims remain blocked.
+Immediate route: M2211 freezes a no-rerun outcome localization design over
+M2209 artifacts, with group keys, support labels, thresholds, and no-ranking
+claim boundary. M2212 may implement and run that localization without measured
+execution. Controller ranking, paper claims, finite-window vs GRU verdicts, and
+self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
