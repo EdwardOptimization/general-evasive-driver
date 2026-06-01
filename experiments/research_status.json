@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2161,
+    "completed": 2162,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+    "command_log": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+    "run_dir": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md",
     "status": "completed",
-    "task_id": "m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit"
+    "task_id": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.json",
-    "hypothesis": "A current-sim-specific reset validator command can be frozen over the M2151 executable specs without running reset or changing claims.",
-    "id": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design",
-    "kind": "gate",
-    "notes": "Pending: design exact reset-validation command over M2151 executable specs",
-    "priority": 21480,
+    "command": "see experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json",
+    "hypothesis": "A current-sim reset validator can validate all 40 M2151 executable specs with finite 72-dimensional observations, initialized obstacles, and zero claim or contract violations.",
+    "id": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run frozen reset-only validation over M2151 executable specs",
+    "priority": 21490,
     "status": "pending",
-    "success_artifact": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md"
+    "success_artifact": "runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T053617Z"
+  "updated_at_utc": "20260601T054236Z"
 }

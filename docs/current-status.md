@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit
+m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design
 ```
 
 Current next task:
 
 ```text
-m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design
+m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run
 ```
 
-Immediate route: M2152 audits M2151 as a clean no-rollout executable-spec
-materialization: `40` specs, `320` planned workload rows, balanced T1-T5
-coverage, contract `0`, guardrail `0`. Checkpoint paths remain deferred for
-measured execution and do not block reset validation. M2153 must freeze the
-exact current-sim reset-validation command over M2151 artifacts. Ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
+Immediate route: M2153 freezes the current-sim reset-only validator command
+over M2151 executable specs. M2154 must implement and run that exact command:
+`40` reset attempts, expected observation dimension `72`, eval seed base
+`215300`, and zero reset, contract, metadata, forbidden-key, or guardrail
+failures. Rollout, measured execution, controller ranking, paper claims,
+finite-window vs GRU verdicts, and self-ID claims remain blocked until audited
+evidence supports them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

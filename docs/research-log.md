@@ -38127,3 +38127,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - note: checkpoint paths remain deferred for measured execution and do not block reset validation
 - follow-up manifest: `experiments/manifests/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.json`
 - next: `m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design`
+
+## M2153 Paper-Route Current-Sim Controlled Comparison Reset Validation Command Design
+
+- status: completed
+- decision: `current_sim_reset_validation_command_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.json`
+- design artifact: `docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md`
+- reset/rollout/measured execution in M2153: `false`
+- policy actions executed in M2153: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- frozen command target: M2154 reset-only validation over M2151 executable specs
+- target executable specs / expected observation dim / eval seed base: `40` / `72` / `215300`
+- planned result artifact: `runs/m2154_paper_route_current_sim_controlled_comparison_reset_validation_preflight/summary.json`
+- pass gates: reset attempts/successes `40/40`, reset failure `0`, observation-dimension failure `0`, finite observations `40`, obstacle initialized `40`, contract/metadata/forbidden/guardrail violations `0`
+- follow-up manifest: `experiments/manifests/m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run.json`
+- next: `m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run`

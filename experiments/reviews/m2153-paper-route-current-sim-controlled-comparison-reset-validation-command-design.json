@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2153 freezes current-sim reset validator command over M2151 executable specs target 40 obs dim 72 eval seed base 215300 no reset executed no ranking paper FW-vs-GRU or self-ID claims",
+  "failure_criteria": [
+    "design document is missing",
+    "exact command is missing",
+    "pass gates are missing",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T054508Z",
+  "hypothesis": "A current-sim-specific reset validator command can be frozen over the M2151 executable specs without running reset or changing claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2152 must audit executable specs before reset-validation command design"
+    ],
+    "derived_from": [
+      "m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_reset_validation_command_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2152-paper-route-current-sim-controlled-comparison-executable-spec-materialization-audit.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/summary.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/claim_boundary.csv"
+    ],
+    "parent_objective": [
+      "design exact current-sim reset-validation command over M2151 executable specs"
+    ],
+    "supersedes": [
+      "direct use of validators with incompatible materialization semantics",
+      "reset validation without exact command design"
+    ]
+  },
+  "milestone": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design",
+  "next_blocker": "m2154-paper-route-current-sim-controlled-comparison-reset-validation-implementation-and-run",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_reset_validation_command_design_admit_implementation_and_run",
+  "public_gates": [
+    "M2153 must freeze the exact reset-validation implementation/run command",
+    "M2153 must preserve M2151 materialization semantics and metadata",
+    "M2153 must define pass gates for 40 reset attempts and 72-dim observations",
+    "M2153 must not run reset rollout measured execution or rank controller families"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_reset_validation_command_design_admit_implementation_and_run",
+    "milestone": "m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design",
+    "reason": "M2153 freezes current-sim reset validator command over M2151 executable specs target 40 obs dim 72 eval seed base 215300 no reset executed no ranking paper FW-vs-GRU or self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2153-paper-route-current-sim-controlled-comparison-reset-validation-command-design.md exists",
+    "exact reset-validation command is frozen",
+    "planned artifacts and pass gates are explicit",
+    "next implementation/run route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}
