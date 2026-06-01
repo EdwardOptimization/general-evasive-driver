@@ -38316,3 +38316,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - frozen command target: `runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight`
 - follow-up manifest: `experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json`
 - next: `m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run`
+
+## M2161 Paper-Route Current-Sim Reset-Validator Seed-Source Repair Implementation and Run
+
+- status: completed
+- decision: `seed_source_repaired_reset_validation_preflight_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_reset_validation_preflight.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_reset_validation_preflight.py`
+- summary: `runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json`
+- focused tests: `4 passed`
+- result class: `current_sim_controlled_comparison_reset_validation_preflight_pass`
+- seed source mode: `prefer_spec_eval_seed_override`
+- seed source counts: `eval_seed_override: 40`
+- reset attempts: `40`
+- reset successes: `40`
+- reset failures: `0`
+- observation dimension failures: `0`
+- finite observations: `40`
+- obstacles initialized: `40`
+- contract violations: `0`
+- metadata missing rows: `0`
+- forbidden-key violations: `0`
+- task-family quota pass: `true`
+- source-family-template quota pass: `true`
+- seed-source quota pass: `true`
+- seed-source parse failures: `0`
+- guardrail violation count: `0`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.json`
+- next: `m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit`

@@ -24,6 +24,9 @@ EXPECTED_OBSERVATION_DIM = 72
 EXPECTED_MATERIALIZATION_SEMANTICS = "current_sim_executable_spec_v0"
 EXPECTED_PAPER_VALIDITY_STATUS = "current_sim_executable_candidate_not_reset_validated"
 EXPECTED_ACTOR_INPUT_CONTRACT = "P0_human_view_no_wheel_no_oracle"
+SEED_SOURCE_MODE_BASE_PLUS_INDEX = "eval_seed_base_plus_index"
+SEED_SOURCE_MODE_PREFER_SPEC_OVERRIDE = "prefer_spec_eval_seed_override"
+SEED_SOURCE_MODES = (SEED_SOURCE_MODE_BASE_PLUS_INDEX, SEED_SOURCE_MODE_PREFER_SPEC_OVERRIDE)
 
 METADATA_FIELDS = [
     "task_source_id",
@@ -72,7 +75,12 @@ CONTRACT_FIELDNAMES = [
 ]
 RESET_FIELDNAMES = [
     *METADATA_FIELDS,
+    "row_index",
+    "eval_seed_base",
     "eval_seed",
+    "actual_eval_seed",
+    "seed_source",
+    "seed_source_parse_error",
     "reset_success",
     "error_type",
     "error_message",
@@ -159,6 +167,52 @@ def _count_by(rows: Iterable[Mapping[str, Any]], key: str) -> dict[str, int]:
 
 def _aggregate_rows(counts: Mapping[str, int]) -> list[dict[str, Any]]:
     return [{"key": key, "reset_count": int(value)} for key, value in sorted(counts.items())]
+
+
+def _parse_int(value: Any) -> int | None:
+    if isinstance(value, bool) or value is None:
+        return None
+    if isinstance(value, int):
+        return int(value)
+    if isinstance(value, float):
+        return int(value) if value.is_integer() else None
+    text = str(value).strip()
+    if text == "":
+        return None
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
+
+def _eval_seed_for_spec(
+    *,
+    spec: Mapping[str, Any],
+    row_index: int,
+    eval_seed_base: int,
+    seed_source_mode: str,
+) -> tuple[int, str, str]:
+    if seed_source_mode not in SEED_SOURCE_MODES:
+        raise ValueError(f"unsupported seed_source_mode: {seed_source_mode}")
+    if seed_source_mode == SEED_SOURCE_MODE_PREFER_SPEC_OVERRIDE:
+        raw_override = spec.get("eval_seed_override")
+        parsed_override = _parse_int(raw_override)
+        if parsed_override is not None:
+            return parsed_override, "eval_seed_override", ""
+        if str(raw_override or "").strip():
+            parse_error = f"invalid_eval_seed_override:{raw_override}"
+        else:
+            parse_error = "missing_eval_seed_override"
+        return int(eval_seed_base) + int(row_index), "eval_seed_base_plus_index", parse_error
+    return int(eval_seed_base) + int(row_index), "eval_seed_base_plus_index", ""
+
+
+def _expected_seed_source_counts(*, seed_source_mode: str, spec_count: int) -> dict[str, int]:
+    if seed_source_mode == SEED_SOURCE_MODE_PREFER_SPEC_OVERRIDE:
+        return {"eval_seed_override": int(spec_count)}
+    if seed_source_mode == SEED_SOURCE_MODE_BASE_PLUS_INDEX:
+        return {"eval_seed_base_plus_index": int(spec_count)}
+    raise ValueError(f"unsupported seed_source_mode: {seed_source_mode}")
 
 
 def load_executable_task_specs(path: Path | str = DEFAULT_EXECUTABLE_TASK_SPECS) -> list[dict[str, Any]]:
@@ -328,19 +382,36 @@ def run_current_sim_reset_validation_preflight(
     eval_seed_base: int = DEFAULT_EVAL_SEED_BASE,
     target_spec_count: int | None = TARGET_EXECUTABLE_SPEC_COUNT,
     expected_observation_dim: int | None = EXPECTED_OBSERVATION_DIM,
+    seed_source_mode: str = SEED_SOURCE_MODE_BASE_PLUS_INDEX,
     next_blocker: str = DEFAULT_NEXT_BLOCKER,
 ) -> dict[str, Any]:
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     specs = load_executable_task_specs(executable_task_specs_path)
-    reset_rows = [
-        reset_current_sim_spec(
+    reset_rows: list[dict[str, Any]] = []
+    for index, spec in enumerate(specs):
+        actual_eval_seed, seed_source, seed_source_parse_error = _eval_seed_for_spec(
             spec=spec,
-            eval_seed=int(eval_seed_base) + index,
+            row_index=index,
+            eval_seed_base=int(eval_seed_base),
+            seed_source_mode=seed_source_mode,
+        )
+        row = reset_current_sim_spec(
+            spec=spec,
+            eval_seed=actual_eval_seed,
             expected_observation_dim=expected_observation_dim,
         )
-        for index, spec in enumerate(specs)
-    ]
+        row.update(
+            {
+                "row_index": int(index),
+                "eval_seed_base": int(eval_seed_base),
+                "eval_seed": int(actual_eval_seed),
+                "actual_eval_seed": int(actual_eval_seed),
+                "seed_source": seed_source,
+                "seed_source_parse_error": seed_source_parse_error,
+            }
+        )
+        reset_rows.append(row)
     contract_rows = [contract_row_for_spec(spec) for spec in specs]
     failure_rows = [dict(row) for row in reset_rows if not _bool_value(row.get("reset_success"))]
     missing_rows = metadata_missing_rows(specs)
@@ -361,8 +432,17 @@ def run_current_sim_reset_validation_preflight(
     expected_task_family_counts = _count_by(specs, "task_family")
     source_family_template_counts = _count_by(reset_rows, "source_family_template")
     expected_source_family_template_counts = _count_by(specs, "source_family_template")
+    seed_source_counts = _count_by(reset_rows, "seed_source")
+    expected_seed_source_counts = _expected_seed_source_counts(
+        seed_source_mode=seed_source_mode,
+        spec_count=len(specs),
+    )
+    seed_source_parse_failure_count = sum(
+        1 for row in reset_rows if str(row.get("seed_source_parse_error", "")).strip()
+    )
     task_family_quota_pass = task_family_counts == expected_task_family_counts
     source_family_template_quota_pass = source_family_template_counts == expected_source_family_template_counts
+    seed_source_quota_pass = seed_source_counts == expected_seed_source_counts and seed_source_parse_failure_count == 0
     passes = (
         target_count_matches
         and len(reset_rows) == len(specs)
@@ -376,6 +456,7 @@ def run_current_sim_reset_validation_preflight(
         and not forbidden_key_hits
         and task_family_quota_pass
         and source_family_template_quota_pass
+        and seed_source_quota_pass
         and guardrail_violation_count == 0
     )
     result_class = (
@@ -397,6 +478,11 @@ def run_current_sim_reset_validation_preflight(
         _aggregate_rows(source_family_template_counts),
         AGGREGATE_FIELDNAMES,
     )
+    write_csv_rows(
+        output / "reset_distribution_by_seed_source.csv",
+        _aggregate_rows(seed_source_counts),
+        AGGREGATE_FIELDNAMES,
+    )
     write_csv_rows(output / "metadata_missing_rows.csv", missing_rows, fieldnames=METADATA_MISSING_FIELDNAMES)
     write_csv_rows(
         output / "claim_boundary.csv",
@@ -411,6 +497,7 @@ def run_current_sim_reset_validation_preflight(
         "executable_task_specs_path": str(executable_task_specs_path),
         "input_executable_spec_count": len(specs),
         "target_executable_spec_count": target_spec_count,
+        "seed_source_mode": seed_source_mode,
         "reset_attempt_count": len(reset_rows),
         "reset_success_count": int(reset_success_count),
         "reset_failure_count": len(failure_rows),
@@ -427,6 +514,10 @@ def run_current_sim_reset_validation_preflight(
         "expected_source_family_template_counts": expected_source_family_template_counts,
         "source_family_template_counts": source_family_template_counts,
         "source_family_template_quota_pass": source_family_template_quota_pass,
+        "expected_seed_source_counts": expected_seed_source_counts,
+        "seed_source_counts": seed_source_counts,
+        "seed_source_quota_pass": seed_source_quota_pass,
+        "seed_source_parse_failure_count": int(seed_source_parse_failure_count),
         "guardrail_flags": guardrail_flags,
         "guardrail_violation_count": guardrail_violation_count,
         "environment_reset_started": True,
@@ -454,6 +545,7 @@ def run_current_sim_reset_validation_preflight(
             "reset_distribution_by_source_family_template": str(
                 output / "reset_distribution_by_source_family_template.csv"
             ),
+            "reset_distribution_by_seed_source": str(output / "reset_distribution_by_seed_source.csv"),
             "metadata_missing_rows": str(output / "metadata_missing_rows.csv"),
             "claim_boundary": str(output / "claim_boundary.csv"),
             "run_state": str(output / "run_state.json"),
@@ -480,6 +572,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--eval-seed-base", type=int, default=DEFAULT_EVAL_SEED_BASE)
     parser.add_argument("--target-spec-count", type=int, default=TARGET_EXECUTABLE_SPEC_COUNT)
     parser.add_argument("--expected-observation-dim", type=int, default=EXPECTED_OBSERVATION_DIM)
+    parser.add_argument("--seed-source-mode", choices=SEED_SOURCE_MODES, default=SEED_SOURCE_MODE_BASE_PLUS_INDEX)
     parser.add_argument("--next-blocker", default=DEFAULT_NEXT_BLOCKER)
     return parser
 
@@ -492,6 +585,7 @@ def main() -> int:
         eval_seed_base=int(args.eval_seed_base),
         target_spec_count=int(args.target_spec_count),
         expected_observation_dim=args.expected_observation_dim,
+        seed_source_mode=str(args.seed_source_mode),
         next_blocker=str(args.next_blocker),
     )
     print(f"summary={args.output_dir / 'summary.json'}")
@@ -499,6 +593,9 @@ def main() -> int:
     print(f"reset_attempt_count={summary['reset_attempt_count']}")
     print(f"reset_success_count={summary['reset_success_count']}")
     print(f"reset_failure_count={summary['reset_failure_count']}")
+    print(f"seed_source_mode={summary['seed_source_mode']}")
+    print(f"seed_source_counts={summary['seed_source_counts']}")
+    print(f"seed_source_quota_pass={summary['seed_source_quota_pass']}")
     print(f"contract_violation_count={summary['contract_violation_count']}")
     print(f"metadata_missing_count={summary['metadata_missing_count']}")
     print(f"guardrail_violation_count={summary['guardrail_violation_count']}")

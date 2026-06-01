@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2168,
+    "completed": 2169,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+    "command_log": "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+    "run_dir": "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight",
     "status": "completed",
-    "task_id": "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design"
+    "task_id": "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json",
-    "hypothesis": "Using per-spec eval_seed_override for reset validation will repair the M2154 seed-source artifact and validate all 40 current-sim executable specs without rollout or policy actions.",
-    "id": "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement seed-source repair and rerun full reset-only validation",
-    "priority": 21560,
+    "command": "see experiments/manifests/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.json",
+    "hypothesis": "M2161 cleanly repaired the reset-validation seed-source artifact and all 40 current-sim executable specs reset under materialized eval_seed_override seeds with clean contract, metadata, quota, and guardrail counts.",
+    "id": "m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2161 seed-source repaired reset-validation pass before measured execution command design",
+    "priority": 21570,
     "status": "pending",
-    "success_artifact": "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json"
+    "success_artifact": "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md"
   },
-  "updated_at_utc": "20260601T062953Z"
+  "updated_at_utc": "20260601T065023Z"
 }

@@ -1,0 +1,176 @@
+{
+  "id": "m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_seed_source_repaired_reset_validation_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.md",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_rows.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_distribution_by_seed_source.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit seed-source repaired full current-sim reset validation before measured execution design"
+    ],
+    "derived_from": [
+      "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2161 result must be audited before measured execution command design"
+    ],
+    "supersedes": [
+      "direct measured execution after reset repair without audit",
+      "claiming controller performance from reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2162 must audit M2161 artifacts without rerunning reset",
+    "M2162 must verify seed_source_mode prefer_spec_eval_seed_override",
+    "M2162 must verify seed_source_counts eval_seed_override equals 40",
+    "M2162 must decide whether measured execution command design is admissible",
+    "M2162 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_seed_source_repaired_reset_validation_audit",
+    "evidence_increment": "audits whether the M2151 current-sim panel is reset-valid under materialized per-spec eval seeds",
+    "claim_scope": "reset-validation result audit only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2161 summary is missing",
+      "stop if seed_source distribution is not exactly eval_seed_override:40",
+      "stop if reset metadata contract quota or guardrail counts are nonzero",
+      "stop if audit routes directly to measured execution run without command design"
+    ],
+    "fallback_plan": [
+      "route to reset-validator repair audit if seed-source logging is inconsistent",
+      "route to terminal-boundary spec repair if reset failures remain",
+      "route to measured execution command design only after clean audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2161 repaired reset validation produced a full-panel result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "seed-source repaired reset-validation result audit",
+    "admission_evidence": [
+      "M2161 reset validation passed 40/40",
+      "M2161 seed_source_counts equals eval_seed_override:40",
+      "M2161 metadata contract forbidden-key quota and guardrail counts are clean"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun reset in audit",
+      "do not run measured execution",
+      "do not rank controller families"
+    ],
+    "allowed_updates": [
+      "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
+      "M2162 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution command design or repair"
+    ],
+    "next_stage_criteria": [
+      "M2161 result is summarized",
+      "seed-source repair is audited",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2162 reset-validation audit does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2162."
+    ],
+    "temporal_evidence_window": "M2161 reset-validation artifacts.",
+    "negative_result_policy": "If reset validation is clean, audit before measured execution; if not clean, route to repair without weakening self-ID standards.",
+    "allowed_claims": [
+      "seed-source repaired reset-validation result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns M2161 reset output into an audited current-sim panel reset-validity decision",
+    "paper_verdict_delta": "can admit measured execution command design but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2162 finds the repaired reset result is not clean",
+      "M2162 would require another seed-source repair",
+      "M2162 routes directly to measured execution without command design"
+    ]
+  },
+  "hypothesis": "M2161 cleanly repaired the reset-validation seed-source artifact: all 40 current-sim executable specs reset under their materialized eval_seed_override seeds with clean contract, metadata, quota, and guardrail counts.",
+  "success_criteria": [
+    "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md exists",
+    "M2161 result is summarized",
+    "seed_source_mode prefer_spec_eval_seed_override is verified",
+    "seed_source_counts eval_seed_override equals 40 is verified",
+    "reset_success_count 40 and reset_failure_count 0 are verified",
+    "contract metadata forbidden-key quota and guardrail counts are verified clean",
+    "next route is explicit",
+    "no reset rerun rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2161 result is not summarized",
+    "seed-source result is ambiguous",
+    "next route is ambiguous",
+    "reset rerun rollout measured execution ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_seed_source_repaired_reset_validation_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.md",
+    "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2162 passes if it audits M2161 as clean seed-source repaired reset-validity evidence and chooses a next route without rerun or overclaiming.",
+  "next_blocker": "m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit"
+}

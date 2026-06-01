@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2160-paper-route-current-sim-reset-validator-seed-source-repair-design
+m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run
 ```
 
 Current next task:
 
 ```text
-m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run
+m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit
 ```
 
-Immediate route: M2160 freezes the reset-validator seed-source repair. M2161
-must update the current-sim reset validator to prefer per-spec
-`eval_seed_override`, log `seed_source` and `actual_eval_seed`, and rerun the
-full `40`-spec reset-only gate into
-`runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight`.
-Rollout, measured execution, controller ranking, paper claims, finite-window vs
-GRU verdicts, and self-ID claims remain blocked until audited evidence supports
+Immediate route: M2161 repaired the current-sim reset validator to prefer
+per-spec `eval_seed_override`, logged `seed_source` and `actual_eval_seed`, and
+passed the full `40`-spec reset-only gate with `40/40` successes,
+`seed_source_counts = eval_seed_override:40`, and clean metadata, contract,
+forbidden-key, quota, and guardrail counts. M2162 must audit this repaired
+reset-validation pass before any measured execution command design. Rollout,
+measured execution, controller ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked until audited evidence supports
 them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
