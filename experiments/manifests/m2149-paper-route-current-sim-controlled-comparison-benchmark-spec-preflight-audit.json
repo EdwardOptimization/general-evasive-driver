@@ -1,0 +1,180 @@
+{
+  "id": "m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_benchmark_spec_preflight_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.md",
+      "configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/profile_matrix.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/task_family_specs.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/metric_support.csv",
+      "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit current-sim controlled comparison benchmark spec preflight before reset-validation design"
+    ],
+    "derived_from": [
+      "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation"
+    ],
+    "blocked_by": [
+      "M2148 must materialize preflight artifacts before audit"
+    ],
+    "supersedes": [
+      "direct reset validation without preflight audit",
+      "silent metric-gap acceptance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+  "public_gates": [
+    "M2149 must audit M2148 profile matrix completeness",
+    "M2149 must audit T1-T5 task-family coverage",
+    "M2149 must audit explicit metric gaps",
+    "M2149 must audit claim-boundary and guardrail fields",
+    "M2149 must decide reset-validation command design, schema repair, or synthesis"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_controlled_comparison_benchmark_spec_preflight_audit",
+    "evidence_increment": "audits the no-rollout benchmark spec preflight and decides whether reset validation is admitted",
+    "claim_scope": "preflight audit only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if audit ranks profiles",
+      "stop if audit ignores unsupported metric gaps",
+      "stop if audit treats preflight as measured evidence",
+      "stop if audit routes to execution without reset validation"
+    ],
+    "fallback_plan": [
+      "route to reset-validation command design if preflight is clean",
+      "route to metric-support repair if deferred gaps block reset validation",
+      "route to schema repair if profile matrix or T1-T5 coverage is incomplete",
+      "route to synthesis if branch scope is too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2148 materializes current-sim benchmark spec preflight artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim benchmark spec preflight audit",
+    "admission_evidence": [
+      "M2148 result_class current_sim_controlled_comparison_benchmark_spec_preflight_pass",
+      "M2148 profile_count 8",
+      "M2148 task_family_count 5",
+      "M2148 unsupported_metric_gap_count 10",
+      "M2148 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run reset in M2149",
+      "do not run measured execution in M2149",
+      "do not rank controller families in M2149"
+    ],
+    "allowed_updates": [
+      "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+      "M2149 status queue scoreboard research log and review",
+      "one follow-up manifest for reset-validation command design schema repair or synthesis"
+    ],
+    "next_stage_criteria": [
+      "profile matrix completeness is audited",
+      "task-family coverage is audited",
+      "metric gaps are accepted or routed to repair",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2149 audits benchmark preflight only and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2149."
+    ],
+    "temporal_evidence_window": "M2148 benchmark spec preflight artifacts.",
+    "negative_result_policy": "If metric gaps prevent mechanism claims, keep them as explicit deferred gaps or repair instrumentation before any self-ID claim.",
+    "allowed_claims": [
+      "benchmark spec preflight audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new benchmark contract artifact before allowing reset-validation design",
+    "paper_verdict_delta": "can admit reset validation route but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2149 cannot choose reset-validation design or repair route",
+      "M2149 would require another process-only milestone without new evidence",
+      "M2149 finds benchmark scope too broad for current simulator"
+    ]
+  },
+  "hypothesis": "M2148 preflight artifacts are clean enough to admit reset-validation command design, while metric gaps remain explicit and non-silent.",
+  "success_criteria": [
+    "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md exists",
+    "profile matrix completeness is audited",
+    "T1-T5 coverage is audited",
+    "unsupported metric gaps are audited",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "preflight artifacts are not audited",
+    "metric gaps are ignored",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md from M2148 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_benchmark_spec_preflight_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.md",
+    "runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json"
+  ],
+  "decision_rule": "M2149 passes if it audits M2148 and chooses a bounded next route without reset or ranking.",
+  "next_blocker": "m2150-paper-route-current-sim-controlled-comparison-benchmark-reset-validation-command-design"
+}

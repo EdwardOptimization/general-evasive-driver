@@ -56,7 +56,7 @@ L2_window_25
 L2_window_50
 L2_window_100
 L3_online_gru
-L3_reset_control_corrected
+L3_reset_control
 ```
 
 Profile roles:

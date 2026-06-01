@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2147-paper-route-current-sim-controlled-comparison-benchmark-design
+m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation
 ```
 
 Current next task:
 
 ```text
-m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation
+m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit
 ```
 
-Immediate route: M2147 designs the current-simulator controlled comparison
-benchmark branch. The first benchmark pack must preserve the deployable actor
-contract and compare `L0_current_masked`, `L1_one_step`, L2 windows
-`13/25/50/100`, `L3_online_gru`, and `L3_reset_control_corrected` over T1-T5
-task families. M2148 must materialize this into a no-rollout benchmark spec
-preflight and profile matrix before any reset validation, measured execution,
-ranking, paper claim, finite-window vs GRU verdict, or self-ID interpretation.
+Immediate route: M2148 materializes the no-rollout current-sim benchmark spec
+preflight. It writes a config artifact and run summary with `8` profiles, `5`
+task families, `18` metric rows, `10` explicit deferred metric gaps, and
+guardrail `0`. The profile matrix preserves the P0 human-view/no-wheel/no-oracle
+actor contract and actuator-level `steer_throttle_brake` action contract.
+M2149 must audit the preflight before reset-validation command design. Ranking,
+paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,0 +1,444 @@
+{
+  "benchmark_id": "paper_route_current_sim_controlled_comparison_benchmark_v0",
+  "claim_boundary": [
+    {
+      "admissible": true,
+      "claim": "current_sim_controlled_comparison_benchmark_spec_preflight_completed",
+      "reason": "M2148 writes no-rollout benchmark contract artifacts only"
+    },
+    {
+      "admissible": false,
+      "claim": "controller_family_ranking",
+      "reason": "preflight does not execute or rank controllers"
+    },
+    {
+      "admissible": false,
+      "claim": "winner_selection",
+      "reason": "preflight does not choose a winning profile"
+    },
+    {
+      "admissible": false,
+      "claim": "finite_window_vs_gru_conclusion",
+      "reason": "preflight defines controls but does not execute comparison"
+    },
+    {
+      "admissible": false,
+      "claim": "paper_level_benchmark_result",
+      "reason": "preflight is not measured evidence"
+    },
+    {
+      "admissible": false,
+      "claim": "level3_self_identification",
+      "reason": "preflight does not run history interventions"
+    }
+  ],
+  "claim_scope": "no_rollout_benchmark_spec_preflight_only",
+  "generated_at_utc": "20260601T051302Z",
+  "guardrails": {
+    "actor_input_contract_changed": false,
+    "controller_family_ranking_claim_made": false,
+    "environment_reset_started": false,
+    "environment_rollout_started": false,
+    "finite_window_vs_gru_conclusion_made": false,
+    "level3_self_id_claim_made": false,
+    "measured_rollout_started": false,
+    "paper_level_claim_made": false,
+    "policy_action_executed": false,
+    "ppo_used": false,
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "promoted": false,
+    "replay_started": false,
+    "training_started": false
+  },
+  "metric_support": [
+    {
+      "metric": "success_rate",
+      "reason": "episode outcome rows can support this after measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "collision_rate",
+      "reason": "episode outcome rows can support this after measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "road_departure_rate",
+      "reason": "offtrack outcome rows can support this after measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "spin_rate",
+      "reason": "requires explicit spin metric support or terminal reason audit before paper use",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "clearance_margin_tail",
+      "reason": "min_clearance_margin rows can support tails after measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "terminal_margin_tail",
+      "reason": "requires terminal-margin logging or explicit mapping before paper use",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "recovery_after_maneuver",
+      "reason": "M1746 instrumentation adds recovery hooks; still requires measured audit",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "control_smoothness",
+      "reason": "action-rate metrics can support this after measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "first_critical_action_gap",
+      "reason": "requires teacher/local target or paired-action artifact",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "short_horizon_maneuver_gap",
+      "reason": "requires trajectory-intent or short-horizon target artifact",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "future_braking_authority_prediction",
+      "reason": "requires auxiliary probe or authority-label artifact",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "future_yaw_authority_prediction",
+      "reason": "requires auxiliary probe or authority-label artifact",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "adaptation_latency",
+      "reason": "requires timed response/intervention instrumentation",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "wrong_history_margin_gap",
+      "reason": "requires wrong-history intervention execution",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "delayed_history_margin_gap",
+      "reason": "requires delayed-history intervention execution",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "reset_or_truncated_history_margin_gap",
+      "reason": "requires reset/truncation intervention execution",
+      "support_status": "deferred_explicit_gap",
+      "supported_after_measured_execution": false
+    },
+    {
+      "metric": "source_diversity",
+      "reason": "source metadata can support this after spec materialization and measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    },
+    {
+      "metric": "max_single_source_share",
+      "reason": "source metadata can support this after spec materialization and measured execution",
+      "support_status": "supported_after_measured_audit",
+      "supported_after_measured_execution": true
+    }
+  ],
+  "profile_matrix": [
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "mlp",
+      "env_history_length": 1,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "current_response",
+      "history_transform": "none",
+      "history_window_seconds": 0.02,
+      "history_window_steps": 1,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 72,
+      "observation_mask": "zero_previous_command_fields",
+      "profile_level": "L0_current_observation",
+      "profile_name": "L0_current_masked",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "not_applicable",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": false,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "mlp",
+      "env_history_length": 1,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "one_step_command_response",
+      "history_transform": "none",
+      "history_window_seconds": 0.02,
+      "history_window_steps": 1,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 72,
+      "observation_mask": "none",
+      "profile_level": "L1_one_step_feedback",
+      "profile_name": "L1_one_step",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "not_applicable",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": false,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "temporal_gru",
+      "env_history_length": 13,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "explicit_finite_window",
+      "history_transform": "none",
+      "history_window_seconds": 0.26,
+      "history_window_steps": 13,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 936,
+      "observation_mask": "none",
+      "profile_level": "L2_finite_window",
+      "profile_name": "L2_window_13",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "per_decision_window",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": true,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "temporal_gru",
+      "env_history_length": 25,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "explicit_finite_window",
+      "history_transform": "none",
+      "history_window_seconds": 0.5,
+      "history_window_steps": 25,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 1800,
+      "observation_mask": "none",
+      "profile_level": "L2_finite_window",
+      "profile_name": "L2_window_25",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "per_decision_window",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": true,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "temporal_gru",
+      "env_history_length": 50,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "explicit_finite_window",
+      "history_transform": "none",
+      "history_window_seconds": 1.0,
+      "history_window_steps": 50,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 3600,
+      "observation_mask": "none",
+      "profile_level": "L2_finite_window",
+      "profile_name": "L2_window_50",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "per_decision_window",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": true,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "temporal_gru",
+      "env_history_length": 100,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "explicit_finite_window",
+      "history_transform": "none",
+      "history_window_seconds": 2.0,
+      "history_window_steps": 100,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 7200,
+      "observation_mask": "none",
+      "profile_level": "L2_finite_window",
+      "profile_name": "L2_window_100",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "per_decision_window",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": true,
+      "uses_recurrent_state": false
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "human_view_online_gru",
+      "env_history_length": 1,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "online_recurrent_hidden",
+      "history_transform": "none",
+      "history_window_seconds": 0.02,
+      "history_window_steps": 1,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 72,
+      "observation_mask": "none",
+      "profile_level": "L3_online_gru",
+      "profile_name": "L3_online_gru",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "episode_persistent",
+      "reset_or_truncated_control": false,
+      "uses_finite_window": false,
+      "uses_recurrent_state": true
+    },
+    {
+      "action_contract": "steer_throttle_brake",
+      "actor_encoder": "human_view_online_gru",
+      "env_history_length": 1,
+      "forbidden_actor_input_violation": false,
+      "history_representation": "online_recurrent_hidden",
+      "history_transform": "none",
+      "history_window_seconds": 0.02,
+      "history_window_steps": 1,
+      "input_contract": "P0_human_view_no_wheel_no_oracle",
+      "observation_dim": 72,
+      "observation_mask": "none",
+      "profile_level": "L3_online_gru_reset_control",
+      "profile_name": "L3_reset_control",
+      "profile_specific_tuning": false,
+      "reset_hidden_policy": "every_step_control",
+      "reset_or_truncated_control": true,
+      "uses_finite_window": false,
+      "uses_recurrent_state": true
+    }
+  ],
+  "profile_order": [
+    "L0_current_masked",
+    "L1_one_step",
+    "L2_window_13",
+    "L2_window_25",
+    "L2_window_50",
+    "L2_window_100",
+    "L3_online_gru",
+    "L3_reset_control"
+  ],
+  "source_milestone": "m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation",
+  "task_families": [
+    {
+      "benchmark_spec_id": "current_sim_benchmark_v0_t1",
+      "claim_level_target": "Claim_A_deployable_feedback_driver",
+      "difficulty_band": "ordinary_to_near_boundary",
+      "dynamics_band": "randomized_hidden_dynamics",
+      "forbidden_actor_input_flags": "none",
+      "generated_proxy_source": false,
+      "history_requirement": "current_response_expected_strong",
+      "measured_execution_required": true,
+      "mechanism_metrics": "none_primary_engineering_family",
+      "obstacle_timing_band": "immediate_or_short_notice",
+      "paper_validity_status": "current_sim_benchmark_candidate_not_executed",
+      "primary_metrics": "success_rate;collision_rate;road_departure_rate;clearance_margin_tail;control_smoothness",
+      "private_holdout_policy": "promotion_only_after_public_audit",
+      "profile_specific_tuning": false,
+      "reset_validation_required": true,
+      "road_geometry_band": "current_sim_road_geometry",
+      "scenario_source": "current_sim_benchmark_contract",
+      "source_kind": "reactive_avoidance",
+      "task_family": "T1_reactive_emergency_avoidance"
+    },
+    {
+      "benchmark_spec_id": "current_sim_benchmark_v0_t2",
+      "claim_level_target": "Claim_B_history_conditioned_output_feedback",
+      "difficulty_band": "delayed_or_weak_response",
+      "dynamics_band": "actuator_delay_and_hidden_dynamics",
+      "forbidden_actor_input_flags": "none",
+      "generated_proxy_source": false,
+      "history_requirement": "multi_step_command_response_may_help",
+      "measured_execution_required": true,
+      "mechanism_metrics": "adaptation_latency;first_critical_action_gap",
+      "obstacle_timing_band": "short_to_medium_notice",
+      "paper_validity_status": "current_sim_benchmark_candidate_not_executed",
+      "primary_metrics": "success_rate;collision_rate;road_departure_rate;terminal_margin_tail",
+      "private_holdout_policy": "promotion_only_after_public_audit",
+      "profile_specific_tuning": false,
+      "reset_validation_required": true,
+      "road_geometry_band": "current_sim_road_geometry",
+      "scenario_source": "current_sim_benchmark_contract",
+      "source_kind": "delayed_response",
+      "task_family": "T2_delayed_actuator_response"
+    },
+    {
+      "benchmark_spec_id": "current_sim_benchmark_v0_t3",
+      "claim_level_target": "Claim_B_or_C_history_value",
+      "difficulty_band": "warmup_then_reveal",
+      "dynamics_band": "hidden_dynamics_randomized_before_reveal",
+      "forbidden_actor_input_flags": "none",
+      "generated_proxy_source": false,
+      "history_requirement": "warmup_response_history_available",
+      "measured_execution_required": true,
+      "mechanism_metrics": "future_braking_authority_prediction;future_yaw_authority_prediction;adaptation_latency",
+      "obstacle_timing_band": "late_reveal_after_warmup",
+      "paper_validity_status": "current_sim_benchmark_candidate_not_executed",
+      "primary_metrics": "success_rate;collision_rate;recovery_after_maneuver;terminal_margin_tail",
+      "private_holdout_policy": "promotion_only_after_public_audit",
+      "profile_specific_tuning": false,
+      "reset_validation_required": true,
+      "road_geometry_band": "current_sim_road_geometry",
+      "scenario_source": "current_sim_benchmark_contract",
+      "source_kind": "diagnostic_warmup",
+      "task_family": "T3_diagnostic_warmup_obstacle_reveal"
+    },
+    {
+      "benchmark_spec_id": "current_sim_benchmark_v0_t4",
+      "claim_level_target": "Claim_C_recurrent_belief_advantage",
+      "difficulty_band": "matched_current_different_history",
+      "dynamics_band": "history_ambiguous_hidden_dynamics",
+      "forbidden_actor_input_flags": "none",
+      "generated_proxy_source": false,
+      "history_requirement": "older_history_must_matter_beyond_recent_window",
+      "measured_execution_required": true,
+      "mechanism_metrics": "wrong_history_margin_gap;delayed_history_margin_gap;source_diversity;max_single_source_share",
+      "obstacle_timing_band": "decision_after_alignment",
+      "paper_validity_status": "current_sim_benchmark_candidate_not_executed",
+      "primary_metrics": "terminal_margin_tail;first_critical_action_gap;short_horizon_maneuver_gap",
+      "private_holdout_policy": "promotion_only_after_public_audit",
+      "profile_specific_tuning": false,
+      "reset_validation_required": true,
+      "road_geometry_band": "current_sim_road_geometry",
+      "scenario_source": "current_sim_benchmark_contract",
+      "source_kind": "same_current_older_history",
+      "task_family": "T4_same_current_different_older_history"
+    },
+    {
+      "benchmark_spec_id": "current_sim_benchmark_v0_t5",
+      "claim_level_target": "Claim_D_strong_self_identification",
+      "difficulty_band": "near_constraint",
+      "dynamics_band": "hidden_dynamics_terminal_boundary",
+      "forbidden_actor_input_flags": "none",
+      "generated_proxy_source": false,
+      "history_requirement": "history_intervention_must_change_outcome",
+      "measured_execution_required": true,
+      "mechanism_metrics": "wrong_history_margin_gap;reset_or_truncated_history_margin_gap;source_diversity;max_single_source_share",
+      "obstacle_timing_band": "critical_decision_window",
+      "paper_validity_status": "current_sim_benchmark_candidate_not_executed",
+      "primary_metrics": "terminal_margin_tail;collision_rate;road_departure_rate;recovery_after_maneuver",
+      "private_holdout_policy": "promotion_only_after_public_audit",
+      "profile_specific_tuning": false,
+      "reset_validation_required": true,
+      "road_geometry_band": "current_sim_road_geometry",
+      "scenario_source": "current_sim_benchmark_contract",
+      "source_kind": "terminal_boundary",
+      "task_family": "T5_terminal_boundary_near_constraint"
+    }
+  ]
+}

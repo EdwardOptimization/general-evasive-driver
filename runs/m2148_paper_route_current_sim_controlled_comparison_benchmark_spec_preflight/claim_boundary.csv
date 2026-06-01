@@ -1,0 +1,7 @@
+claim,admissible,reason
+current_sim_controlled_comparison_benchmark_spec_preflight_completed,True,M2148 writes no-rollout benchmark contract artifacts only
+controller_family_ranking,False,preflight does not execute or rank controllers
+winner_selection,False,preflight does not choose a winning profile
+finite_window_vs_gru_conclusion,False,preflight defines controls but does not execute comparison
+paper_level_benchmark_result,False,preflight is not measured evidence
+level3_self_identification,False,preflight does not run history interventions

@@ -38007,8 +38007,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - finite-window vs GRU conclusion made: `false`
 - paper-level claim made: `false`
 - level3 self-ID claim made: `false`
-- controller matrix: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, `L3_online_gru`, `L3_reset_control_corrected`
+- controller matrix: `L0_current_masked`, `L1_one_step`, `L2_window_13`, `L2_window_25`, `L2_window_50`, `L2_window_100`, `L3_online_gru`, `L3_reset_control`
 - task families: `T1_reactive_emergency_avoidance`, `T2_delayed_actuator_response`, `T3_diagnostic_warmup_obstacle_reveal`, `T4_same_current_different_older_history`, `T5_terminal_boundary_near_constraint`
 - design boundary: M2148 must materialize a no-rollout benchmark spec preflight before any reset validation measured execution comparison or ranking
 - follow-up manifest: `experiments/manifests/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.json`
 - next: `m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation`
+
+## M2148 Paper-Route Current-Sim Controlled Comparison Benchmark Spec Preflight Implementation
+
+- status: completed
+- decision: `current_sim_controlled_comparison_benchmark_spec_preflight_pass_route_to_audit`
+- manifest: `experiments/manifests/m2148-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_benchmark_spec_preflight.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight.py`
+- config artifact: `configs/paper_route_current_sim_controlled_comparison_benchmark_v0.json`
+- run artifact: `runs/m2148_paper_route_current_sim_controlled_comparison_benchmark_spec_preflight/summary.json`
+- reset/rollout/measured execution in M2148: `false`
+- policy actions executed in M2148: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `current_sim_controlled_comparison_benchmark_spec_preflight_pass`
+- profile_count / task_family_count / metric_count: `8` / `5` / `18`
+- unsupported_metric_gap_count: `10`
+- forbidden_profile_violation_count / profile_specific_tuning_count / guardrail_violation_count: `0` / `0` / `0`
+- profile matrix: L0, L1, L2 windows `13/25/50/100`, L3 online, L3 reset-control
+- task families: T1 reactive, T2 delayed-response, T3 warmup-reveal, T4 same-current older-history, T5 terminal-boundary
+- follow-up manifest: `experiments/manifests/m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit.json`
+- next: `m2149-paper-route-current-sim-controlled-comparison-benchmark-spec-preflight-audit`
