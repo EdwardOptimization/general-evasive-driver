@@ -1,0 +1,222 @@
+{
+  "controller_profile": {
+    "actor_encoder": "temporal_gru",
+    "actor_history_length": 50,
+    "allowed_inputs": [
+      "ego_kinematics_and_imu_like_response",
+      "steering_throttle_brake_actuator_state",
+      "previous_physical_commands",
+      "road_boundary_geometry_in_ego_frame",
+      "obstacle_geometry_in_ego_frame"
+    ],
+    "config_generation_only": false,
+    "description": "Finite-window command-response profile with no online recurrent hidden state.",
+    "env_history_length": 50,
+    "finite_window_vs_gru_conclusion_made": false,
+    "forbidden_inputs": [
+      "hidden_physical_params",
+      "wheel_or_slip_observations",
+      "oracle_feasibility_labels",
+      "controller_mode_or_reference_errors",
+      "ttc_required_clearance_or_stopping_distance",
+      "success_collision_progress_labels"
+    ],
+    "history_baseline_level": "L2_finite_window",
+    "input_contract": "P0_human_view_no_wheel_no_oracle",
+    "is_training_profile": true,
+    "level": "L2_finite_window",
+    "level3_self_id_claim_made": false,
+    "matched_budget_profile_training_config": true,
+    "matched_budget_seed_id": 222603,
+    "matched_budget_stage": "matched_budget_medium_v1",
+    "name": "L2_window_50",
+    "observation_dim": 3600,
+    "observation_mask": "none",
+    "paper_level_claim_made": false,
+    "previous_command_mask_indices": [],
+    "private_holdout_used": false,
+    "profile_specific_tuning": false,
+    "ranking_admissible": false,
+    "reset_hidden_policy": "per_decision_window",
+    "source_config_path": "configs/paper_route_profiles/m2227_matched_budget_short_v0/m2227_matched_budget_short_v0_l2_window_50_seed222603.json",
+    "training_enabled": true,
+    "uses_finite_window": true,
+    "uses_hidden_oracle_actor_inputs": false,
+    "uses_recurrent_hidden": false,
+    "uses_reference_or_ttc_inputs": false,
+    "uses_wheel_or_slip_inputs": false,
+    "window_seconds": 1.0,
+    "window_steps": 50,
+    "winner_selected": false
+  },
+  "env": {
+    "action_history_mode": "full",
+    "beta_target_range": [
+      0.04,
+      0.32
+    ],
+    "dt": 0.02,
+    "friction_limited_speed": false,
+    "friction_speed_margin": 0.92,
+    "friction_step": {
+      "enabled": true,
+      "mu_range": [
+        0.3,
+        1.15
+      ],
+      "resample_speed_ref": false,
+      "step_range": [
+        8,
+        40
+      ]
+    },
+    "history_length": 50,
+    "include_privileged_params": false,
+    "max_steps": 800,
+    "obstacle": {
+      "allowed_labels": [
+        "aes_feasible",
+        "drift_required",
+        "unavoidable"
+      ],
+      "brake_mu_fraction": 0.9,
+      "clearance_margin_reward_clip": 0.25,
+      "clearance_margin_reward_scale": 0.0,
+      "collision_penalty": 25.0,
+      "conventional_lateral_mu_fraction": 0.42,
+      "dense_clearance_margin_reward_clip": 0.25,
+      "dense_clearance_margin_reward_scale": 0.0,
+      "dense_clearance_margin_reward_window": 8.0,
+      "distance_range": [
+        3.0,
+        25.0
+      ],
+      "drift_lateral_mu_fraction": 0.85,
+      "ego_half_width": 0.9,
+      "enabled": true,
+      "finish_on_pass": true,
+      "finish_pass_distance": 2.0,
+      "half_width_range": [
+        0.45,
+        1.15
+      ],
+      "max_sample_attempts": 10000,
+      "max_threshold_score": 0.25,
+      "min_time_after_friction_step": 0.1,
+      "pass_reward": 12.0,
+      "perception_reveal_distance": null,
+      "perception_reveal_step": 0,
+      "require_aeb_infeasible": true,
+      "safety_margin": 0.3,
+      "stable_aes_beta_limit": 0.2,
+      "stable_aes_drift_bonus_scale": 0.18,
+      "stable_aes_sideslip_penalty": 2.8
+    },
+    "obstacle_relative_velocity_mode": "zero",
+    "obstacle_slots": 4,
+    "privileged_observation_mode": "basic",
+    "randomization": {
+      "actuator_tau_scale_range": [
+        0.55,
+        2.85
+      ],
+      "brake_scale_range": [
+        0.55,
+        1.35
+      ],
+      "cg_shift_range": [
+        -0.14,
+        0.14
+      ],
+      "drive_scale_range": [
+        0.6,
+        1.3
+      ],
+      "inertia_scale_range": [
+        0.8,
+        1.3
+      ],
+      "mass_scale_range": [
+        0.8,
+        1.28
+      ],
+      "mu_range": [
+        0.25,
+        0.75
+      ],
+      "tire_stiffness_scale_range": [
+        0.58,
+        1.42
+      ]
+    },
+    "road_lookahead_count": 8,
+    "road_lookahead_spacing": 5.0,
+    "speed_range": [
+      11.0,
+      16.0
+    ],
+    "termination_penalty": 8.0,
+    "track_kind": "circle",
+    "track_radius": 60.0,
+    "track_width": 8.5,
+    "wheel_observation_mode": "none"
+  },
+  "matched_budget_training_protocol": {
+    "budget_overrides": {
+      "checkpoint_interval_steps": 0,
+      "clip_coef": 0.1,
+      "device": "cpu",
+      "eval_episodes": 32,
+      "learning_rate": 0.0001,
+      "max_grad_norm": 0.25,
+      "minibatch_size": 256,
+      "num_envs": 4,
+      "rollout_steps": 128,
+      "total_steps": 32768,
+      "update_epochs": 2,
+      "vector_env_mode": "sync"
+    },
+    "primary_trainable_profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_25",
+      "L2_window_50",
+      "L3_online_gru"
+    ],
+    "ranking_admissible": false,
+    "readiness_floor": {
+      "max_eval_termination_rate": 0.4,
+      "min_eval_return_mean": 50.0,
+      "min_passing_seeds_per_profile": 2
+    },
+    "seed_ids": [
+      222601,
+      222602,
+      222603
+    ],
+    "source_stage": "matched_budget_short_v0",
+    "stage": "matched_budget_medium_v1",
+    "training_started": false,
+    "winner_selected": false
+  },
+  "ppo": {
+    "actor_encoder": "temporal_gru",
+    "actor_history_length": 50,
+    "checkpoint_interval_steps": 0,
+    "clip_coef": 0.1,
+    "device": "cpu",
+    "eval_episodes": 32,
+    "hidden_size": 64,
+    "history_baseline_level": "L2_finite_window",
+    "learning_rate": 0.0001,
+    "max_grad_norm": 0.25,
+    "minibatch_size": 256,
+    "num_envs": 4,
+    "recurrent_sequence_training": false,
+    "rollout_steps": 128,
+    "seed": 222603,
+    "total_steps": 32768,
+    "update_epochs": 2,
+    "vector_env_mode": "sync"
+  }
+}

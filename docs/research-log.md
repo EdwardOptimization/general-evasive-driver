@@ -40005,3 +40005,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits medium-v1 config materialization only
 - follow-up manifest: `experiments/manifests/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.json`
 - next: `m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization`
+
+## M2233 Paper-Route Current-Sim Matched-Budget Medium Training Config Materialization
+
+- status: completed
+- decision: `current_sim_matched_budget_medium_training_config_materialization_pass_route_to_execution`
+- manifest: `experiments/manifests/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.json`
+- run artifact: `runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_matched_budget_medium_training_configs.py`
+- focused tests: `2 passed`
+- result_class: `current_sim_matched_budget_medium_training_config_materialization_pass`
+- generated_config_count: `15`
+- training_matrix_row_count: `15`
+- medium_total_steps_count: `15`
+- budget_signature_count: `1`
+- budget_matched: `true`
+- contract_violation_count: `0`
+- guardrail violations: `0`
+- training started: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: admits medium-v1 execution implementation-and-run
+- follow-up manifest: `experiments/manifests/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.json`
+- next: `m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run`

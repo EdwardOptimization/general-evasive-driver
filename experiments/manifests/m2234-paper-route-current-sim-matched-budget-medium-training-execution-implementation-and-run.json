@@ -1,0 +1,218 @@
+{
+  "id": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid",
+    "contract_violation",
+    "training_instability",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "none"
+    ],
+    "parent_dataset": [
+      "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv",
+      "configs/paper_route_profiles/m2233_matched_budget_medium_v1",
+      "docs/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.json"
+    ],
+    "parent_objective": [
+      "adapt runner for medium-v1 expected budget and run exactly 15 matched-budget profile training jobs"
+    ],
+    "derived_from": [
+      "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization"
+    ],
+    "blocked_by": [
+      "M2233 materialized medium-v1 configs and command matrix without training"
+    ],
+    "supersedes": [
+      "manual train_ppo execution for medium-v1 profile comparison"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.md",
+  "public_gates": [
+    "M2234 may adapt the focused execution adapter to accept expected total_steps 32768 and run exactly the 15 M2233 profile/seed configs",
+    "M2234 must preserve frozen profiles, seeds, budgets, and actor input contract",
+    "M2234 must fail closed on missing configs, contract violations, nonzero train_ppo return codes, missing checkpoints, missing eval summaries, or non-finite selected metrics",
+    "M2234 must write run rows, profile aggregates, summary, command matrix, and run_state",
+    "M2234 must not rank controller families, select a winner, promote a checkpoint, claim paper-level evidence, claim finite-window-vs-GRU evidence, or claim level3 self-identification"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not change profile-specific budgets",
+    "do not change seed policy",
+    "do not add hidden or oracle actor inputs",
+    "do not use private holdout",
+    "do not run measured execution",
+    "do not run replay gates",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_matched_budget_profile_training",
+    "evidence_axis": "G_matched_budget_medium_training_execution",
+    "evidence_increment": "runs medium-v1 matched-budget public training seeds to test whether short-v0 readiness failure was undertraining",
+    "claim_scope": "public training data only; no ranking paper finite-window-vs-GRU or self-ID claim before result audit",
+    "stop_condition": [
+      "stop if any train_ppo job fails",
+      "stop if any contract or budget guard fails",
+      "stop after the 15 fixed jobs and route to result audit"
+    ],
+    "fallback_plan": [
+      "if runner adaptation fails, route to implementation repair",
+      "if one or more profile/seed runs fail, record partial rows and route to failure audit",
+      "if all runs complete, route to result audit before any comparison or measured execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2233 admits medium execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "medium-v1 matched-budget profile training execution",
+    "admission_evidence": [
+      "M2230 provides pretrain capability evidence for this branch by showing short-v0 matched training completes but quality_floor_profile_pass_count is 0",
+      "M2234 is the admitted posttrain capability evidence collection step for the medium-v1 budget; interpretation remains blocked until the following result audit",
+      "M2231 and M2233 provide exact/proof gates for the below-floor audit, medium design, config counts, budget signature, total_steps 32768, actor contract, and guardrail-clean materialization",
+      "M2233 provides rollback or repair protection by preserving no-training materialization artifacts and requiring fail-closed medium execution with a result-audit route"
+    ],
+    "blocked_shortcuts": [
+      "do not tune profiles after seeing results",
+      "do not use private holdout",
+      "do not rank profiles before result audit",
+      "do not promote",
+      "do not claim finite-window-vs-GRU or self-ID"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_matched_budget_profile_training_execution.py",
+      "tests/test_paper_route_current_sim_matched_budget_profile_training_execution.py",
+      "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/*",
+      "docs/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.md",
+      "M2234 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "all 15 medium-v1 profile/seed train_ppo runs complete or failures are recorded",
+      "run rows and profile aggregates are written",
+      "quality-floor pass/fail counts are recorded without ranking claims",
+      "next result-audit milestone is selected"
+    ]
+  },
+  "matched_budget_training_protocol": {
+    "profiles": [
+      "L0_current_masked",
+      "L1_one_step",
+      "L2_window_25",
+      "L2_window_50",
+      "L3_online_gru"
+    ],
+    "seed_ids": [
+      222601,
+      222602,
+      222603
+    ],
+    "training_matrix": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv",
+    "execution_root": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution",
+    "expected_runs": 15,
+    "total_steps_per_seed": 32768,
+    "rollout_steps": 128,
+    "num_envs": 4,
+    "update_epochs": 2,
+    "minibatch_size": 256,
+    "eval_episodes": 32,
+    "device": "cpu",
+    "vector_env_mode": "sync",
+    "quality_floor": {
+      "min_passing_seeds_per_profile": 2,
+      "max_eval_termination_rate": 0.4,
+      "min_eval_return_mean": 50.0
+    }
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2234 trains public matched-budget medium profiles but does not run causal history interventions.",
+    "history_necessity_tests": [
+      "None in M2234; L3 reset-control and finite-window comparisons remain blocked until result audit and later measured execution."
+    ],
+    "temporal_evidence_window": "Three public medium training seeds per profile with 32 public eval episodes per checkpoint.",
+    "negative_result_policy": "If medium training also fails floors, record it and route to task/curriculum synthesis rather than lowering self-ID standards.",
+    "allowed_claims": [
+      "medium matched-budget public training completion and readiness-floor status",
+      "no architecture ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim before audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces medium-v1 matched-budget public trained checkpoints for five profile families",
+    "paper_verdict_delta": "tests whether increasing budget can make the current-sim profile panel comparison-ready",
+    "must_synthesize_if": [
+      "M2234 cannot complete all 15 runs",
+      "M2234 produces non-finite metrics",
+      "M2234 also produces quality_floor_profile_pass_count 0"
+    ]
+  },
+  "hypothesis": "The M2233 medium-v1 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, testing whether short-v0 was undertrained.",
+  "success_criteria": [
+    "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json exists",
+    "run_rows.csv exists",
+    "profile_aggregate.csv exists",
+    "command_matrix.csv exists",
+    "expected_run_count is 15",
+    "completed_run_count is 15",
+    "failed_run_count is 0",
+    "budget_signature_count is 1",
+    "contract_violation_count is 0",
+    "all_selected_metrics_finite is true",
+    "private_holdout_used is false",
+    "profile_specific_tuning is false",
+    "winner_selected is false",
+    "no promotion, ranking, paper-level finite-window-vs-GRU or level3 self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "any train_ppo subprocess fails",
+    "any expected checkpoint or eval summary is missing",
+    "budget/profile/seed/contract drift is detected",
+    "metrics are non-finite",
+    "failed profile/seed rows are omitted",
+    "results are framed as architecture ranking or self-identification evidence before audit"
+  ],
+  "commands": [
+    {
+      "name": "implement_and_run",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --output-dir runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --execution-root runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --device cpu --expected-total-steps 32768 --fail-fast"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "none"
+  ],
+  "baseline_artifacts": [
+    "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv",
+    "docs/m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization.md"
+  ],
+  "decision_rule": "M2234 passes if the focused adapter executes exactly the 15 fixed medium-v1 profile/seed jobs, records failures if any, and keeps all ranking and paper-level claims blocked.",
+  "next_blocker": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run"
+}

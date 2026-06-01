@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2232-paper-route-current-sim-matched-budget-medium-training-design
+m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization
 ```
 
 Current next task:
 
 ```text
-m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization
+m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -117,7 +117,11 @@ to test whether M2230 was simply undertrained. M2232 completes that design:
 same five profiles, same `222601/222602/222603` seeds, unchanged readiness
 floor, `32768` steps per seed, rollout `128`, `4` envs, `2` update epochs,
 eval episodes `32`, CPU/sync, and no ranking/self-ID/paper claims. M2233 must
-now materialize medium-v1 configs and command matrix without training.
+now materialize medium-v1 configs and command matrix without training. M2233
+passes that materialization: `15` configs, `15` matrix rows, `32768` total
+steps in every generated config, one budget signature, contract `0`, guardrail
+`0`, and no training/ranking claims. M2234 may adapt the focused runner for
+expected `32768`-step matrices and run the fixed 15 medium-v1 training jobs.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

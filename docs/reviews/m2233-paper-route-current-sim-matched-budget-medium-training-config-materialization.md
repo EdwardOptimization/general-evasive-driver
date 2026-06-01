@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T134052Z
+- Generated at UTC: 20260601T134848Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2233 pending medium-v1 config materialization no training/ranking claims
+- Promotion decision: current_sim_matched_budget_medium_training_config_materialization_pass_route_to_execution
+- Decision reason: M2233 medium-v1 materialization pass 15 configs 15 rows total_steps 32768 contract 0 guardrail 0 no training/ranking claims
 
 ## Hypothesis
 
@@ -90,8 +90,8 @@ M2232 medium-v1 design can be materialized into contract-clean configs and comma
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2233 pending medium-v1 config materialization no training/ranking claims
+- decision: current_sim_matched_budget_medium_training_config_materialization_pass_route_to_execution
+- reason: M2233 medium-v1 materialization pass 15 configs 15 rows total_steps 32768 contract 0 guardrail 0 no training/ranking claims
 
 ## Next Blocker
 

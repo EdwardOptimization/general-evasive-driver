@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2240,
+    "completed": 2241,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
+    "command_log": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2232-paper-route-current-sim-matched-budget-medium-training-design.md",
+    "run_dir": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs",
     "status": "completed",
-    "task_id": "m2232-paper-route-current-sim-matched-budget-medium-training-design"
+    "task_id": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_medium_training_configs --output-dir runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs --config-output-dir configs/paper_route_profiles/m2233_matched_budget_medium_v1",
-    "hypothesis": "M2232 medium-v1 design can be materialized into contract-clean configs and command artifacts without running training.",
-    "id": "m2233-paper-route-current-sim-matched-budget-medium-training-config-materialization",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_matched_budget_profile_training_execution --training-matrix runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/training_matrix.csv --output-dir runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --execution-root runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution --device cpu --expected-total-steps 32768 --fail-fast",
+    "hypothesis": "The M2233 medium-v1 matched-budget profile configs can be executed as 15 fixed train_ppo jobs with clean contract checks and finite post-training metrics, testing whether short-v0 was undertrained.",
+    "id": "m2234-paper-route-current-sim-matched-budget-medium-training-execution-implementation-and-run",
     "kind": "infrastructure",
-    "notes": "Pending: materialize medium-v1 matched-budget configs and command matrix without training",
-    "priority": 22280,
+    "notes": "Pending: adapt focused runner for 32768-step expected budget and execute 15 medium-v1 profile/seed training jobs",
+    "priority": 22290,
     "status": "pending",
-    "success_artifact": "runs/m2233_paper_route_current_sim_matched_budget_medium_training_configs/summary.json"
+    "success_artifact": "runs/m2234_paper_route_current_sim_matched_budget_medium_training_execution/summary.json"
   },
-  "updated_at_utc": "20260601T133908Z"
+  "updated_at_utc": "20260601T134641Z"
 }
