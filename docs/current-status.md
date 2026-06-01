@@ -16,20 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design
+m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation
 ```
 
 Current next task:
 
 ```text
-m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation
+m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis
 ```
 
-Immediate route: M2189 designs the current-sim task-quality/offtrack support
-repair branch. The next step is M2190: generate a deterministic no-rollout
-`288`-candidate repair wave with exact quotas across offtrack saturation
-relief, terminal-boundary support, older-history support, diagnostic warmup
-support, and positive-support preservation. New rollout, controller ranking,
+Immediate route: M2190 implements and runs the no-rollout support repair
+candidate generator. It produces a deterministic `288`-candidate artifact with
+exact axis/split quotas, duplicate candidate IDs `0`, guardrail violations `0`,
+profile-specific candidates `0`, and actor input changes `0`. The validator now
+requires M2191 to synthesize the current-sim repeat/offtrack-support branch
+before any candidate audit or materialization. New rollout, controller ranking,
 paper claims, finite-window vs GRU verdicts, and self-ID claims remain blocked
 until later audited evidence supports them.
 

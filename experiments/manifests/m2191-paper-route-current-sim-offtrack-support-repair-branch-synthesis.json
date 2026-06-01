@@ -1,0 +1,188 @@
+{
+  "id": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_synthesis_only"
+    ],
+    "parent_dataset": [
+      "docs/m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation.md",
+      "docs/m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit.md",
+      "docs/m2183-paper-route-current-sim-repeat-measured-execution-command-design.md",
+      "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+      "docs/m2185-paper-route-current-sim-repeat-measured-execution-result-audit.md",
+      "docs/m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design.md",
+      "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json",
+      "docs/m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit.md",
+      "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+      "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json",
+      "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2180-paper-route-current-sim-repeat-readiness-branch-synthesis.json",
+      "experiments/manifests/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.json"
+    ],
+    "parent_objective": [
+      "synthesize current-sim repeat/offtrack-support branch before any candidate materialization or audit continuation"
+    ],
+    "derived_from": [
+      "m2181-paper-route-current-sim-repeat-measured-runner-metadata-extension-implementation",
+      "m2182-paper-route-current-sim-repeat-measured-runner-metadata-extension-result-audit",
+      "m2183-paper-route-current-sim-repeat-measured-execution-command-design",
+      "m2184-paper-route-current-sim-repeat-measured-execution-implementation-and-run",
+      "m2185-paper-route-current-sim-repeat-measured-execution-result-audit",
+      "m2186-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-design",
+      "m2187-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-implementation-and-run",
+      "m2188-paper-route-current-sim-repeat-seed-diversity-and-combined-outcome-audit-result-audit",
+      "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design",
+      "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached after M2190"
+    ],
+    "supersedes": [
+      "direct candidate artifact audit or materialization without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+  "public_gates": [
+    "M2191 must synthesize M2181-M2190",
+    "M2191 must decide whether to continue, pivot, stop, or promote the branch",
+    "M2191 must classify offtrack-support and seed-diversity blockers",
+    "M2191 must not materialize candidates, reset environments, run measured execution, or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not materialize candidates",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_repeat_and_offtrack_support_synthesis",
+    "evidence_increment": "synthesizes repeat metadata support, repeat measured execution, combined outcome audit, offtrack-support repair design, and no-rollout candidate generation",
+    "claim_scope": "branch synthesis decision only; no reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if offtrack-support repair is still only local process overhead",
+      "stop if the next step would rank profiles before task-quality support improves",
+      "stop if seed-diversity suspicion invalidates the current repair path",
+      "stop if candidate panel cannot create new executable task evidence"
+    ],
+    "fallback_plan": [
+      "continue to candidate artifact audit or materialization design if synthesis supports it",
+      "pivot to scenario-distribution redesign if offtrack-support repair is insufficient",
+      "pivot to seed-diversity instrumentation if repeat metadata remains suspect",
+      "stop current-sim comparison branch if evidence cannot support paper-route comparison"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "validator cadence reached after M2190",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize current-sim repeat/offtrack-support branch before continuing",
+    "admission_evidence": [
+      "M2181 implements repeat metadata preservation",
+      "M2184 completes repeat measured execution",
+      "M2187 finds current comparison not ready due offtrack support and seed-diversity suspicion",
+      "M2189 designs a 288-candidate offtrack-support repair wave",
+      "M2190 generates the candidate artifact with exact quotas and zero guardrail violations",
+      "research validator requires synthesis before the next non-synthesis milestone"
+    ],
+    "blocked_shortcuts": [
+      "no implementation in synthesis",
+      "no reset or rollout in synthesis",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+      "M2191 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis decision is explicit",
+      "supported and unsupported claims are explicit",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2191 synthesizes current-sim task-quality workflow and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2191."
+    ],
+    "temporal_evidence_window": "M2181-M2190 branch evidence.",
+    "negative_result_policy": "If synthesis finds that task-quality repair cannot change evidence, pivot or stop instead of adding local audit/materialization steps.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the repeat/offtrack-support branch before continuing candidate repair",
+    "paper_verdict_delta": "can choose whether repaired task candidates are worth materializing but cannot compare profiles",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "The current-sim repeat/offtrack-support branch can be synthesized into a clear continue/pivot/stop decision before candidate audit or materialization.",
+  "success_criteria": [
+    "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md exists",
+    "synthesis answers required questions",
+    "next branch decision is explicit",
+    "no implementation reset rollout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis document is missing",
+    "synthesis decision is ambiguous",
+    "next blocker is ambiguous",
+    "implementation, reset, or measured execution starts"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_synthesis_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2184_paper_route_current_sim_repeat_measured_execution/summary.json",
+    "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json",
+    "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json"
+  ],
+  "decision_rule": "M2191 passes if it makes a durable branch synthesis decision and pre-registers the next blocker without implementation.",
+  "next_blocker": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis"
+}

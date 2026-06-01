@@ -64,7 +64,7 @@
       "stop if branch cadence requires synthesis before further implementation"
     ],
     "fallback_plan": [
-      "route to candidate generation audit if artifact passes",
+      "route to required branch synthesis if artifact passes and cadence is reached",
       "route to repair design revision if quotas or guardrails fail",
       "route to branch synthesis if support repair design conflicts with paper-route constraints"
     ],
@@ -92,7 +92,7 @@
       "configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
       "docs/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
       "M2190 status queue scoreboard research log and review",
-      "one follow-up manifest for candidate result audit"
+      "one follow-up manifest for required branch synthesis"
     ],
     "next_stage_criteria": [
       "candidate artifact exists",
@@ -174,5 +174,5 @@
     "runs/m2187_paper_route_current_sim_repeat_seed_diversity_combined_outcome_audit/summary.json"
   ],
   "decision_rule": "M2190 passes if it writes a quota-balanced no-rollout candidate artifact without ranking or actor-input shortcuts.",
-  "next_blocker": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation"
+  "next_blocker": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis"
 }

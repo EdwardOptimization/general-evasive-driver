@@ -39014,3 +39014,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to deterministic no-rollout candidate generation
 - follow-up manifest: `experiments/manifests/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.json`
 - next: `m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation`
+
+## M2190 Paper-Route Current-Sim Task-Quality Offtrack Support Repair Candidate Generation
+
+- status: completed
+- decision: `current_sim_task_quality_offtrack_support_repair_candidate_generation_pass_route_to_required_synthesis`
+- manifest: `experiments/manifests/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.json`
+- implementation: `src/autodrift/paper_route_current_sim_task_quality_offtrack_support_repair_candidates.py`
+- focused tests: `2 passed`
+- summary: `runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json`
+- candidate config: `configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json`
+- result_class: `current_sim_task_quality_offtrack_support_repair_candidate_generation_pass`
+- candidate_count: `288`
+- axis quotas pass: `true`
+- split quotas pass: `true`
+- duplicate candidate id count: `0`
+- boolean guardrail violation count: `0`
+- profile-specific candidate count: `0`
+- actor input contract change count: `0`
+- training: `false`
+- reset: `false`
+- measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: route to required branch synthesis before candidate audit or materialization
+- follow-up manifest: `experiments/manifests/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.json`
+- next: `m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis`

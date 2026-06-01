@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2197,
+    "completed": 2198,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+    "command_log": "docs/m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation.md",
     "returncode": 0,
-    "run_dir": "docs/m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design.md",
+    "run_dir": "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates",
     "status": "completed",
-    "task_id": "m2189-paper-route-current-sim-task-quality-offtrack-support-repair-design"
+    "task_id": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_quality_offtrack_support_repair_candidates --original-episodes runs/m2174_paper_route_current_sim_controlled_comparison_measured_execution/episode_rows.csv --repeat-episodes runs/m2184_paper_route_current_sim_repeat_measured_execution/episode_rows.csv --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json",
-    "hypothesis": "A deterministic no-rollout generator can create a quota-balanced 288-candidate task-quality/offtrack support repair wave without actor-input or ranking shortcuts.",
-    "id": "m2190-paper-route-current-sim-task-quality-offtrack-support-repair-candidate-generation",
-    "kind": "infrastructure",
-    "notes": "Pending: generate no-rollout support repair candidates",
-    "priority": 21850,
+    "command": "write docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md",
+    "hypothesis": "The current-sim repeat/offtrack-support branch can be synthesized into a clear continue/pivot/stop decision before candidate audit or materialization.",
+    "id": "m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize M2181-M2190 before candidate audit or materialization",
+    "priority": 21860,
     "status": "pending",
-    "success_artifact": "runs/m2190_paper_route_current_sim_task_quality_offtrack_support_repair_candidates/summary.json"
+    "success_artifact": "docs/m2191-paper-route-current-sim-offtrack-support-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T094856Z"
+  "updated_at_utc": "20260601T095718Z"
 }
