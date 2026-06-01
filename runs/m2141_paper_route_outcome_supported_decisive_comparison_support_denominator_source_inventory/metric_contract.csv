@@ -1,0 +1,9 @@
+metric,admissible,reason
+episode_count,True,denominator field copied from existing profile-source-kind aggregate
+success_count,True,row-level numerator copied for later audited comparison design
+collision_count,True,row-level numerator copied for later audited comparison design
+success_rate,True,row-level aggregate is copied but not ranked
+winner_or_rank,False,inventory does not compare or rank profiles
+finite_window_vs_gru_verdict,False,inventory is not a controlled family comparison
+paper_level_benchmark_verdict,False,generated proxy rows remain paper_validity_claim false
+level3_self_id_verdict,False,inventory does not test history necessity

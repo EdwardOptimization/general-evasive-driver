@@ -1,0 +1,6 @@
+profile_label,expected_source_kind_count,available_denominator_count,missing_denominator_count,duplicate_denominator_count,nonfinite_denominator_count,episode_count_sum,success_count_sum,collision_count_sum,offtrack_outcome_count_sum
+L0_current_masked,6,6,0,0,0,60,3,15,42
+L1_one_step,6,6,0,0,0,60,5,18,37
+L2_window_50,6,6,0,0,0,60,0,0,60
+L3_online_gru,6,6,0,0,0,60,22,8,30
+L3_reset_control_corrected,6,6,0,0,0,60,26,10,24

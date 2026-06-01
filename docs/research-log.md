@@ -37843,3 +37843,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: ranking, family superiority, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
 - follow-up manifest: `experiments/manifests/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.json`
 - next: `m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization`
+
+## M2141 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Source Inventory Materialization
+
+- status: completed
+- decision: `denominator_source_inventory_pass_route_to_audit`
+- manifest: `experiments/manifests/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.json`
+- implementation: `src/autodrift/paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory.py`
+- tests: `tests/test_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory.py`
+- run artifact: `runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json`
+- documentation: `docs/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.md`
+- reset/rollout/measured execution in M2141: `false`
+- policy actions executed in M2141: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- focused tests: `3 passed`
+- result_class: `comparison_support_denominator_source_inventory_pass`
+- panel_unit_count: `6`
+- measured_profile_count: `5`
+- denominator_inventory_row_count: `30`
+- available_denominator_row_count: `30`
+- missing/duplicate/nonfinite denominator rows: `0` / `0` / `0`
+- claim_boundary_violation_count: `0`
+- guardrail_violation_count: `0`
+- blocked: ranking, finite-window-vs-GRU verdict, paper verdict, level3 self-ID verdict
+- follow-up manifest: `experiments/manifests/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.json`
+- next: `m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit`

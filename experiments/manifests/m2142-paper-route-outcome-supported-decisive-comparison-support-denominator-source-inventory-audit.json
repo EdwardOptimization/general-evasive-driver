@@ -1,0 +1,175 @@
+{
+  "id": "m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_denominator_source_inventory_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.md",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/denominator_inventory_rows.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/profile_denominator_summary.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/metric_contract.csv",
+      "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.json"
+    ],
+    "parent_objective": [
+      "audit denominator-source inventory before denominator-backed comparison design"
+    ],
+    "derived_from": [
+      "m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization"
+    ],
+    "blocked_by": [
+      "M2141 must materialize denominator inventory before audit"
+    ],
+    "supersedes": [
+      "direct ranking from denominator counts",
+      "comparison design without denominator inventory audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md",
+  "public_gates": [
+    "M2142 must audit M2141 denominator inventory completeness and guardrails",
+    "M2142 must decide the next route without ranking profiles",
+    "M2142 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2142 must not execute comparison or policy rollouts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_denominator_source_inventory_audit",
+    "evidence_increment": "audits denominator availability evidence and chooses a bounded next route",
+    "claim_scope": "denominator inventory audit only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if audit ranks controller profiles",
+      "stop if audit treats denominator inventory as comparison result",
+      "stop if audit ignores generated-proxy paper-validity boundary",
+      "stop if audit cannot choose a bounded next route"
+    ],
+    "fallback_plan": [
+      "route to denominator-backed comparison protocol design if inventory is clean",
+      "route to scenario redesign if generated-proxy boundary blocks meaningful comparison",
+      "route to synthesis if the branch should be closed before more local process work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2141 materializes denominator inventory and requires audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "comparison-support denominator-source inventory audit",
+    "admission_evidence": [
+      "M2141 result_class comparison_support_denominator_source_inventory_pass",
+      "M2141 denominator_inventory_row_count 30",
+      "M2141 available_denominator_row_count 30",
+      "M2141 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "do not rank profiles in M2142",
+      "do not run measured execution in M2142",
+      "do not treat generated smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md",
+      "M2142 status queue scoreboard research log and review",
+      "one follow-up manifest for denominator-backed comparison design scenario redesign or synthesis"
+    ],
+    "next_stage_criteria": [
+      "M2141 artifacts are audited",
+      "denominator coverage and blocked claims are summarized",
+      "claim boundary is explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2142 audits denominator inventory and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2142."
+    ],
+    "temporal_evidence_window": "M2141 denominator inventory.",
+    "negative_result_policy": "If denominator inventory is insufficient for controlled comparison design, record the blocker and route to synthesis or scenario redesign.",
+    "allowed_claims": [
+      "denominator-source inventory audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits newly materialized denominator availability evidence and can route away from support-only local work",
+    "paper_verdict_delta": "can decide whether denominator-backed comparison design is possible but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "M2142 proposes direct ranking",
+      "M2142 cannot choose a bounded next route",
+      "M2142 finds denominator inventory cannot support any comparison design"
+    ]
+  },
+  "hypothesis": "M2141 denominator inventory is complete enough to admit denominator-backed comparison protocol design, but not ranking or paper claims.",
+  "success_criteria": [
+    "docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md exists",
+    "M2141 summary and denominator inventory are audited",
+    "denominator coverage and blocked metrics are summarized",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit doc is missing",
+    "M2141 artifacts are not audited",
+    "next route is ambiguous",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md from M2141 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2142-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_denominator_source_inventory_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2141-paper-route-outcome-supported-decisive-comparison-support-denominator-source-inventory-materialization.md",
+    "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/summary.json",
+    "runs/m2141_paper_route_outcome_supported_decisive_comparison_support_denominator_source_inventory/profile_denominator_summary.csv"
+  ],
+  "decision_rule": "M2142 passes if it audits denominator inventory and selects a bounded next route without ranking.",
+  "next_blocker": "m2143-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-protocol-design"
+}

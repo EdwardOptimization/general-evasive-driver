@@ -1,0 +1,7 @@
+source_kind,expected_profile_count,available_denominator_count,missing_denominator_count,duplicate_denominator_count,nonfinite_denominator_count,episode_count_sum,success_count_sum,collision_count_sum,offtrack_outcome_count_sum
+actuator_delay_collision_relief,5,5,0,0,0,50,7,9,34
+gru_memory_discriminative_boundary,5,5,0,0,0,50,9,9,32
+late_boundary_collision_relief,5,5,0,0,0,50,8,8,34
+near_zero_margin_collision_relief,5,5,0,0,0,50,6,11,33
+nominal_delay_support_boundary,5,5,0,0,0,50,13,11,26
+profile_diversity_support,5,5,0,0,0,50,13,3,34
