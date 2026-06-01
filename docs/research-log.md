@@ -37115,3 +37115,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - conclusion boundary: localization blocks immediate controller comparison but does not itself choose the final route
 - follow-up manifest: `experiments/manifests/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.json`
 - next: `m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit`
+
+## M2112 Paper-Route Outcome-Supported Decisive Public-Gate Core Repaired Outcome Localization Result Audit
+
+- status: completed
+- decision: `public_gate_core_repaired_outcome_localization_audit_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.json`
+- audited artifact: `runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json`
+- reset/rollout/measured execution in M2112: `false`
+- policy actions executed in M2112: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: M2111 localization is clean but comparison support is zero
+- comparison_ready_candidate_count: `0`
+- comparison_support_candidate_count: `0`
+- success_row_count: `41`
+- collision_dominance_slice_count: `111`
+- offtrack_dominance_slice_count: `1`
+- decision: block direct controller comparison; route to branch synthesis rather than same-panel repair
+- follow-up manifest: `experiments/manifests/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
+- next: `m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis`

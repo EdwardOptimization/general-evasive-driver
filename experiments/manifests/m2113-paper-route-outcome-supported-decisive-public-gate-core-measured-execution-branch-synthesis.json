@@ -1,0 +1,190 @@
+{
+  "id": "m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "promotion_gate_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+      "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json",
+      "docs/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize the public-gate core measured-execution branch after zero comparison-support localization"
+    ],
+    "derived_from": [
+      "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis",
+      "m2108-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-implementation-and-run",
+      "m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation",
+      "m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M2111 found zero comparison-ready and zero candidate-support slices"
+    ],
+    "supersedes": [
+      "continuing local repair on the same fixed public-gate smoke-proxy panel",
+      "direct controller comparison after zero support"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+  "public_gates": [
+    "M2113 must synthesize M2106-M2112 branch evidence",
+    "M2113 must answer synthesis questions and choose continue pivot stop or promote_to_next_branch",
+    "M2113 must not run reset rollout measured execution or policy actions",
+    "M2113 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_branch_synthesis_after_zero_support",
+    "evidence_increment": "synthesizes repaired execution and localization evidence after zero comparison-support outcome localization",
+    "claim_scope": "branch synthesis only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis questions are not answered",
+      "stop if next route continues same-panel local repair",
+      "stop if profiles are ranked despite zero candidates",
+      "stop if smoke proxy rows are treated as paper-valid tasks"
+    ],
+    "fallback_plan": [
+      "pivot to comparison-support scenario redesign if zero support is treated as a panel-quality blocker",
+      "stop public-gate core panel as comparison evidence if no redesign is admitted",
+      "promote only execution infrastructure if branch evidence supports no comparison claim"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2112 audits zero comparison-ready and zero candidate-support slices",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured execution branch synthesis after zero support",
+    "admission_evidence": [
+      "M2108 complete measured execution artifact",
+      "M2111 outcome localization pass",
+      "M2111 comparison_ready_candidate_count 0",
+      "M2111 comparison_support_candidate_count 0",
+      "M2112 routes to branch synthesis"
+    ],
+    "blocked_shortcuts": [
+      "do not rank after zero support",
+      "do not run another local repair before synthesis",
+      "do not treat smoke proxies as paper-valid tasks"
+    ],
+    "allowed_updates": [
+      "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "M2113 status queue scoreboard research log and review",
+      "one follow-up manifest for scenario redesign stop or next branch"
+    ],
+    "next_stage_criteria": [
+      "M2106-M2112 evidence is synthesized",
+      "supported and falsified claims are explicit",
+      "next branch decision is explicit",
+      "local repair loop is closed"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2113 synthesizes outcome/execution infrastructure and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2113."
+    ],
+    "temporal_evidence_window": "M2106-M2112 branch artifacts.",
+    "negative_result_policy": "If zero support blocks comparison, pivot or stop rather than ranking aggregate profiles.",
+    "allowed_claims": [
+      "public-gate core measured execution branch synthesis",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "closes the current fixed public-gate panel as comparison evidence after repaired execution and zero-support localization",
+    "paper_verdict_delta": "can pivot toward scenario redesign but cannot support paper-level comparison by itself",
+    "must_synthesize_if": [
+      "M2113 attempts to continue same-panel local repair",
+      "M2113 cannot decide between stop and scenario redesign",
+      "M2113 would rank profiles despite zero support"
+    ]
+  },
+  "hypothesis": "M2106-M2112 show the public-gate core panel is execution-ready but not comparison-ready; M2113 should close this branch and pivot to comparison-support scenario redesign rather than continuing local repair.",
+  "success_criteria": [
+    "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md exists",
+    "M2106-M2112 branch evidence is synthesized",
+    "synthesis questions are answered",
+    "synthesis decision is explicit",
+    "next route is explicit and is not same-panel local repair",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "branch evidence is not summarized",
+    "synthesis questions are not answered",
+    "next route is ambiguous",
+    "next route is same-panel local repair",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+    "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json",
+    "docs/m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit.md"
+  ],
+  "decision_rule": "M2113 passes if it answers synthesis questions and selects a bounded non-local-repair next route without rerun or ranking.",
+  "next_blocker": "m2114-paper-route-outcome-supported-decisive-comparison-support-scenario-redesign-design"
+}

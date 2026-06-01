@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation
+m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit
+m2113-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
 ```
 
-Immediate route: M2111 ran no-rerun localization over M2108 artifacts and
-passed: outcome counts match M2108 exactly, missing schema fields are empty,
-selected metrics are finite, guardrail is `0`, and no environment or policy
-execution occurred. The result is decisive for the current public-gate smoke
-panel: `comparison_ready_candidate_count=0` and
-`comparison_support_candidate_count=0`, with `111` collision-dominance slices
-and `1` offtrack-dominance slice. M2112 must audit this and choose the next
-route; direct controller comparison remains blocked.
+Immediate route: M2112 audits the M2111 no-rerun localization result and blocks
+comparison. The current public-gate smoke panel is execution-ready but not
+comparison-ready: `comparison_ready_candidate_count=0`,
+`comparison_support_candidate_count=0`, `111` collision-dominance slices, and
+`1` offtrack-dominance slice. M2113 must synthesize the branch and choose a
+non-local-repair next route, likely comparison-support scenario redesign.
+Direct controller comparison remains blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
