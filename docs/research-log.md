@@ -41334,3 +41334,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.json`
 - next: `m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design`
+
+## M2301 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Design
+
+- status: completed
+- decision: `guarded_repair_design_admit_config_materialization`
+- manifest: `experiments/manifests/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.json`
+- design doc: `docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md`
+- source_config_root: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs`
+- target config_count: `15`
+- target profile_count: `5`
+- target seed_count: `3`
+- allowed repair knobs: shared reward/config knobs only
+- blocked repair knobs: actor inputs, scenario specs, track widening, profile-specific tuning
+- offtrack target slices carried forward: `20`
+- collision guardrail slices carried forward: `11`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.json`
+- next: `m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization`

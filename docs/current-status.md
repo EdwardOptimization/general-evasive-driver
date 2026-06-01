@@ -22,7 +22,7 @@ m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-gu
 Current next task:
 
 ```text
-m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design
+m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -126,9 +126,20 @@ synthesis_decision: continue
 decision: continue_to_guarded_repair_design_with_new_evidence_pressure
 ```
 
-M2301 must design the guarded repair route before any repair/training. It must
-freeze allowed repair knobs, target improvement gates, collision guardrails, and
-the next implementation route.
+M2301 designs the guarded repair route and admits config materialization:
+
+```text
+decision: guarded_repair_design_admit_config_materialization
+source_config_root: runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs
+target config_count: 15
+target profile_count: 5
+target seed_count: 3
+allowed repair: shared reward/config knobs only
+blocked repair: actor input changes, scenario spec changes, track widening, profile-specific tuning
+```
+
+M2302 must materialize the guarded repair config pack and carry the M2298
+repair gate spec forward. It must not train.
 
 Training, replay, PPO, promotion, ranking, winner selection, finite-window vs
 GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.

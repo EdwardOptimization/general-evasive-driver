@@ -1,0 +1,192 @@
+{
+  "id": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "behavior_regression",
+    "objective_overfit",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+      "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json",
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize shared guarded repair configs with M2298 target/guardrail gates"
+    ],
+    "derived_from": [
+      "m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design"
+    ],
+    "blocked_by": [
+      "M2301 freezes guarded repair config materialization route"
+    ],
+    "supersedes": [
+      "direct training before guarded repair config materialization",
+      "profile-specific reward tuning"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.md",
+  "public_gates": [
+    "M2302 must not run reset or rollout",
+    "M2302 must not train or run PPO",
+    "M2302 must materialize exactly 15 configs across 5 profiles and 3 seeds",
+    "M2302 must preserve P0 actor input contract and not widen track_width",
+    "M2302 must copy or encode the M2298 repair_gate_spec",
+    "M2302 must not rank profiles, select a winner, or claim paper/self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change scenario specs",
+    "do not widen track_width",
+    "do not use profile_name or profile_seed as repair targets",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_config_materialization",
+    "evidence_increment": "materializes executable guarded repair configs and matrix for later measured evidence",
+    "claim_scope": "config materialization only; no rollout training ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if source configs are missing",
+      "stop if actor contract violations appear",
+      "stop if track_width is widened",
+      "stop if the M2298 gate spec cannot be copied or encoded"
+    ],
+    "fallback_plan": [
+      "route to source-config audit if source configs are missing",
+      "route to design repair if contract or track-width gates fail",
+      "route to guarded repair training execution design if materialization passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2301 admits guarded repair config materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "materialize guarded repair configs and matrix without executing training",
+    "admission_evidence": [
+      "M2301 freezes allowed repair knobs",
+      "M2298 repair_gate_spec exists",
+      "M2262 source configs exist"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization.py",
+      "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/*",
+      "docs/m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization.md",
+      "M2302 status queue scoreboard research log and review",
+      "one follow-up manifest selected by materialization"
+    ],
+    "next_stage_criteria": [
+      "15 configs are materialized",
+      "budget signature count is one",
+      "actor contract violation count is zero",
+      "track_width_widened count is zero",
+      "repair gate spec is copied or encoded",
+      "next non-ranking training execution route is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2302 materializes configs and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2302."
+    ],
+    "temporal_evidence_window": "M2301 guarded repair design.",
+    "negative_result_policy": "Treat config materialization as infrastructure, not self-ID evidence.",
+    "allowed_claims": [
+      "guarded repair config materialization",
+      "target and guardrail gate encoding",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates an executable config pack that can produce new measured evidence in the next route",
+    "paper_verdict_delta": "can enable guarded repair training and measured execution but cannot improve verdict by itself",
+    "must_synthesize_if": [
+      "M2302 cannot materialize configs",
+      "M2302 changes actor inputs or scenario specs",
+      "M2302 does not route to measured evidence"
+    ]
+  },
+  "hypothesis": "M2301 guarded repair design can be materialized as a 15-config shared-reward config pack without actor-contract, track-width, profile-tuning, or claim-boundary violations.",
+  "success_criteria": [
+    "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json exists",
+    "config_count equals 15",
+    "profile_count equals 5",
+    "seed_count equals 3",
+    "budget_signature_count equals 1",
+    "actor_contract_violation_count equals 0",
+    "track_width_widened_count equals 0",
+    "repair_gate_spec_copied is true",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2302 runs reset or rollout",
+    "M2302 trains or runs PPO",
+    "M2302 changes actor inputs or scenario specs",
+    "M2302 widens track_width",
+    "M2302 uses profile_name/profile_seed as repair targets",
+    "M2302 ranks profiles or selects a winner",
+    "M2302 makes paper-level finite-window-vs-GRU or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "implementation_and_run",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_guarded_repair_config_materialization --source-config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --repair-gate-spec runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json --output-dir runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs --training-output-root runs/m2303_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --next-blocker m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2301-paper-route-current-sim-scenario-task-family-guarded-repair-design.md",
+    "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json",
+    "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs"
+  ],
+  "decision_rule": "M2302 passes if it materializes a clean guarded repair config pack and pre-registers the next non-ranking execution route.",
+  "next_blocker": "m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design"
+}

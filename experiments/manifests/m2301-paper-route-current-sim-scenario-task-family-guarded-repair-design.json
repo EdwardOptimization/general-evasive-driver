@@ -182,5 +182,5 @@
     "runs/m2298_paper_route_current_sim_scenario_task_family_offtrack_primary_collision_guardrail/repair_gate_spec.json"
   ],
   "decision_rule": "M2301 passes if it freezes a bounded guarded repair implementation route without training or ranking.",
-  "next_blocker": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-implementation"
+  "next_blocker": "m2302-paper-route-current-sim-scenario-task-family-guarded-repair-config-materialization"
 }
