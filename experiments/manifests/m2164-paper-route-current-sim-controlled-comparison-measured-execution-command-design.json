@@ -1,0 +1,175 @@
+{
+  "id": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_controlled_comparison_measured_execution_command_design"
+    ],
+    "parent_dataset": [
+      "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "freeze a measured execution command design for the reset-valid current-sim controlled comparison panel"
+    ],
+    "derived_from": [
+      "m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2163 must synthesize the post-reset branch before measured execution command design"
+    ],
+    "supersedes": [
+      "running measured execution directly from reset validation without command design",
+      "using old measured runner schemas without current-sim metadata compatibility audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+  "public_gates": [
+    "M2164 must not run measured execution",
+    "M2164 must preserve the current-sim 40-spec and 320-workload panel identity",
+    "M2164 must state whether an existing runner is compatible or a current-sim-specific runner is required",
+    "M2164 must freeze the next implementation command only if metadata preservation is explicit",
+    "M2164 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_execution_command_design",
+    "evidence_increment": "designs the measured execution command path for the reset-valid current-sim controlled comparison panel",
+    "claim_scope": "measured-execution command design only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if runner compatibility is not checked",
+      "stop if the design cannot preserve M2151 metadata",
+      "stop if the design would execute measured rollout in M2164",
+      "stop if the design ranks controller families before measured evidence"
+    ],
+    "fallback_plan": [
+      "route to current-sim-specific measured runner implementation design if old runners are incompatible",
+      "route to metadata repair if M2151 planned workload lacks required runner fields",
+      "route to branch synthesis if command design would exceed the current branch scope"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2163 synthesis continues to measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim measured execution command design",
+    "admission_evidence": [
+      "M2163 synthesis chooses continue",
+      "M2162 audits reset validation as clean",
+      "M2151 materialized 40 executable specs and 320 workload rows",
+      "paper-route plans require fair L0/L1/L2/L3 comparison without premature GRU or self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in the design milestone",
+      "do not rank controller families",
+      "do not claim paper evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+      "M2164 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution implementation or runner compatibility repair"
+    ],
+    "next_stage_criteria": [
+      "runner compatibility is stated",
+      "frozen command or repair route is explicit",
+      "planned artifacts and pass gates are explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2164 command design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2164."
+    ],
+    "temporal_evidence_window": "M2151 panel and M2161 reset-validation artifacts.",
+    "negative_result_policy": "Measured execution is a prerequisite for later comparison but cannot by itself claim self-ID.",
+    "allowed_claims": [
+      "measured execution command design for reset-valid current-sim panel",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from post-reset synthesis to measured-execution command readiness",
+    "paper_verdict_delta": "can admit measured data generation but cannot decide controller comparison",
+    "must_synthesize_if": [
+      "M2164 cannot identify a compatible measured runner path",
+      "M2164 needs another non-evidence metadata repair",
+      "M2164 would be the tenth branch milestone since M2163 synthesis"
+    ]
+  },
+  "hypothesis": "The clean M2163 synthesis admits a measured-execution command design over the M2151 current-sim 40-spec and 320-workload panel, provided the runner preserves current-sim metadata and does not rank controller families.",
+  "success_criteria": [
+    "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md exists",
+    "runner compatibility is checked",
+    "the next implementation command or repair route is explicit",
+    "planned artifacts and pass gates are explicit",
+    "claim boundary is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "runner compatibility is not checked",
+    "next route is ambiguous",
+    "measured execution or policy action is run",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_controlled_comparison_measured_execution_command_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+    "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv",
+    "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2164 passes if it freezes a compatible command design or explicit repair route without running measured execution or overclaiming.",
+  "next_blocker": "m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design"
+}

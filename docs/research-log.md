@@ -38375,3 +38375,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims: measured execution, controller-family ranking, paper-level evidence, finite-window vs GRU verdict, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.json`
 - next: `m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis`
+
+## M2163 Paper-Route Current-Sim Controlled-Comparison Post-Reset Branch Synthesis
+
+- status: completed
+- decision: `current_sim_post_reset_branch_synthesis_continue_to_measured_execution_command_design`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.json`
+- synthesis artifact: `docs/m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis.md`
+- synthesis window: `M2158-M2162`
+- reset rerun in M2163: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- supported setup claim: M2151 panel is reset-valid under materialized per-spec eval seeds after M2161/M2162
+- falsified setup claim: M2154 failure was not intrinsic terminal-boundary unresettability; it was a seed-source protocol artifact
+- public-gate overfit risk: `medium-low`
+- next branch decision: continue to measured execution command design with runner compatibility check
+- follow-up manifest: `experiments/manifests/m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design.json`
+- next: `m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design`

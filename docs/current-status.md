@@ -16,22 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit
+m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2163-paper-route-current-sim-controlled-comparison-post-reset-branch-synthesis
+m2164-paper-route-current-sim-controlled-comparison-measured-execution-command-design
 ```
 
-Immediate route: M2162 audits the M2161 seed-source repaired reset pass as clean:
-`40/40` resets succeeded, `seed_source_counts = eval_seed_override:40`, and
-metadata, contract, forbidden-key, quota, and guardrail counts are clean. The
-local-search guard requires M2163 to synthesize the post-reset branch before
-measured execution command design. If the synthesis chooses `continue`, the
-following milestone should design the current-sim measured execution command or
-a compatibility repair route for the M2151 `40`-spec / `320`-workload panel.
+Immediate route: M2163 synthesizes the post-reset repair segment and chooses
+`continue`: the current-sim panel is now reset-valid under materialized
+per-spec eval seeds, and the next evidence increment should be measured rollout
+data. M2164 must design the current-sim measured execution command or a
+compatibility repair route for the M2151 `40`-spec / `320`-workload panel.
 Rollout, controller ranking, paper claims, finite-window vs GRU verdicts, and
 self-ID claims remain blocked until audited measured evidence supports them.
 
