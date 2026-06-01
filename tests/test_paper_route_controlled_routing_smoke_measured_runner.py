@@ -156,6 +156,35 @@ def test_controlled_routing_smoke_measured_runner_preserves_failures(tmp_path: P
     assert summary_json["level3_self_id_claim_made"] is False
 
 
+def test_controlled_routing_smoke_measured_runner_uses_optional_eval_seed_override(tmp_path: Path) -> None:
+    specs_path, workload_path = _write_inputs(tmp_path)
+    rows = runner.load_workload_rows(workload_path)
+    rows[1]["eval_seed_override"] = "999001"
+    write_csv_rows(workload_path, rows)
+    seen: dict[str, int] = {}
+
+    def rollout_with_seed_capture(workload_row, executable_spec, eval_seed):
+        seen[str(workload_row["workload_id"])] = int(eval_seed)
+        return _fake_rollout(workload_row, executable_spec, eval_seed)
+
+    summary = runner.run_controlled_routing_smoke_measured_execution(
+        output_dir=tmp_path / "out",
+        executable_task_specs_path=specs_path,
+        workload_path=workload_path,
+        eval_seed_base=203900,
+        target_episode_count=4,
+        target_spec_count=2,
+        target_profile_count=2,
+        rollout_fn=rollout_with_seed_capture,
+    )
+
+    assert summary["result_class"] == "controlled_routing_smoke_measured_execution_pass"
+    sorted_ids = [row["workload_id"] for row in runner.load_workload_rows(workload_path)]
+    assert seen[sorted_ids[0]] == 203900
+    assert seen[sorted_ids[1]] == 999001
+    assert seen[sorted_ids[2]] == 203902
+
+
 def test_controlled_routing_smoke_measured_runner_fails_closed_on_schema_mismatch(tmp_path: Path) -> None:
     specs_path = tmp_path / "specs.json"
     workload_path = tmp_path / "workload.csv"

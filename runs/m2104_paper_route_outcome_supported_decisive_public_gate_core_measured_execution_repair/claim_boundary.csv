@@ -1,0 +1,7 @@
+claim,admissible,reason
+public_gate_core_measured_execution_repair,True,admissible only if repaired artifacts are metadata-complete without rollout
+measured_execution_rerun_readiness_before_audit,False,M2104 repairs artifacts only; rerun remains blocked until audit
+controller_family_ranking,False,no measured rerun or ranking is performed
+paper_level_benchmark_evidence,False,metadata and seed repair is not paper-level performance evidence
+finite_window_vs_gru_conclusion,False,no controller-family comparison is interpreted
+level3_self_identification,False,artifact repair does not test history necessity

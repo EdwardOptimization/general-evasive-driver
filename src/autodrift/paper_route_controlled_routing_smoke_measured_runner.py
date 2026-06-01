@@ -149,6 +149,13 @@ def load_workload_rows(path: Path | str = DEFAULT_WORKLOAD) -> list[dict[str, An
     return sorted([dict(row) for row in read_csv_rows(path)], key=lambda row: str(row.get("workload_id", "")))
 
 
+def eval_seed_for_workload(*, workload_row: Mapping[str, Any], eval_seed_base: int, cell_index: int) -> int:
+    override = str(workload_row.get("eval_seed_override", "")).strip()
+    if override:
+        return int(override)
+    return int(eval_seed_base) + int(cell_index)
+
+
 def controlled_metadata_row(workload_row: Mapping[str, Any], spec: Mapping[str, Any]) -> dict[str, Any]:
     row = {field: str(workload_row.get(field, spec.get(field, ""))) for field in METADATA_FIELDS}
     row["generated_source_row"] = _string_bool(row.get("generated_source_row"))
@@ -566,7 +573,11 @@ def run_controlled_routing_smoke_measured_execution(
         workload_id = str(workload_row["workload_id"])
         if workload_id in completed:
             continue
-        eval_seed = int(eval_seed_base) + int(cell_index)
+        eval_seed = eval_seed_for_workload(
+            workload_row=workload_row,
+            eval_seed_base=int(eval_seed_base),
+            cell_index=int(cell_index),
+        )
         executable_spec = spec_by_id[str(workload_row["task_source_id"])]
         try:
             if rollout_fn is None:

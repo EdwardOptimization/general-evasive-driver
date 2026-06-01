@@ -16,22 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design
+m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation
 ```
 
 Current next task:
 
 ```text
-m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation
+m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit
 ```
 
-Immediate route: M2103 freezes a bounded no-rollout repair for the incomplete
-M2101 measured execution. It will fill full metadata completeness fields from
-existing spec/M2091 reset provenance and add optional `eval_seed_override` only
-for the two failed workload cells, using known M2091 reset-success seeds
-`210260` and `210333`. M2104 must implement this repair and preserve default
-measured-runner behavior when no override is present. Measured rerun, ranking,
-paper claims, and self-ID claims remain blocked.
+Immediate route: M2104 implements the bounded no-rollout repair for the
+incomplete M2101 measured execution. The repaired artifacts have `96` specs,
+`480` workload rows, metadata missing count `0`, validation failure count `0`,
+exactly two `eval_seed_override` rows for the M2101 sampling failures
+(`210260`, `210333`), env_config changed count `0`, and guardrail `0`.
+Default measured-runner seed behavior remains unchanged when no override is
+present. M2105 must audit these repaired artifacts before any repaired measured
+rerun command design. Measured rerun, ranking, paper claims, finite-window vs
+GRU conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

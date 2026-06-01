@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2112,
+    "completed": 2113,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+    "command_log": "docs/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+    "run_dir": "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair",
     "status": "completed",
-    "task_id": "m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design"
+    "task_id": "m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.json",
-    "hypothesis": "A no-rollout repair can produce metadata-complete measured-execution artifacts and targeted eval_seed_override rows for the two M2101 sampling failures without changing default runner behavior.",
-    "id": "m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement no-rollout measured-execution metadata and seed-override repair",
-    "priority": 20990,
+    "command": "see experiments/manifests/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.json",
+    "hypothesis": "M2104's repaired artifacts are clean enough to admit repaired public-gate measured-execution rerun command design.",
+    "id": "m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2104 repaired artifacts before rerun command design",
+    "priority": 21000,
     "status": "pending",
-    "success_artifact": "runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json"
+    "success_artifact": "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md"
   },
-  "updated_at_utc": "20260601T002041Z"
+  "updated_at_utc": "20260601T002932Z"
 }

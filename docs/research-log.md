@@ -36919,3 +36919,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - default measured-runner behavior must remain unchanged when override is absent
 - follow-up manifest: `experiments/manifests/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.json`
 - next: `m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation`
+
+## M2104 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Repair Implementation
+
+- status: completed
+- decision: `public_gate_core_measured_execution_repair_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation.json`
+- run artifact: `runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json`
+- focused tests: `5 passed`
+- reset/rollout/measured execution in M2104: `false`
+- policy actions executed in M2104: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- implementation: adds a no-rollout repair artifact writer and extends the measured runner with optional `eval_seed_override`
+- default runner behavior: unchanged when no override is present (`eval_seed_base + cell_index`)
+- result: `public_gate_core_measured_execution_repair_pass`, specs `96`, workload rows `480`, profile count `5`
+- metadata_missing_count: `0`
+- validation_failure_count: `0`
+- eval_seed_override_count: `2`
+- override rows: `m2063-osd-osd_v0_0162_t3::L2_window_50 -> 210260`; `m2063-osd-osd_v0_0235_t5::L3_online_gru -> 210333`
+- env_config_changed_count: `0`
+- duplicate_workload_id_count: `0`
+- guardrail_violation_count: `0`
+- supported claim: repaired public-gate measured-execution artifacts are metadata-complete and include exactly two targeted eval seed overrides
+- unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.json`
+- next: `m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit`

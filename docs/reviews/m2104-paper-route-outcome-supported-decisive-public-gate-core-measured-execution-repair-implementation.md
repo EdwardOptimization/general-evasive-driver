@@ -1,0 +1,102 @@
+# m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260601T003251Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: public_gate_core_measured_execution_repair_pass_route_to_result_audit
+- Decision reason: M2104 focused tests 5 passed and no-rollout repair pass metadata_missing 0 validation_failure 0 eval_seed_override 2 env_config changed 0 guardrail 0
+
+## Hypothesis
+
+A no-rollout repair can produce metadata-complete measured-execution artifacts and targeted eval_seed_override rows for the two M2101 sampling failures without changing default runner behavior.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_public_gate_core_measured_execution_repair
+- parent_dataset: docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md, runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json, runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv, runs/m2091_paper_route_outcome_supported_decisive_reset_valid_core_reset_validation_preflight/reset_rows.csv, runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv
+- parent_config: experiments/manifests/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.json
+- parent_objective: implement no-rollout repair for M2101 metadata completeness and two sampling failures
+- derived_from: m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design
+- blocked_by: M2103 must freeze exact metadata mappings and eval_seed_override semantics
+- supersedes: direct rerun without repairing metadata completeness, manual seed changes outside workload provenance
+- invalidates: None
+
+## Success Criteria
+
+- focused tests pass
+- runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json exists
+- compatible_spec_count is 96
+- compatible_workload_count is 480
+- metadata_missing_count is 0
+- validation_failure_count is 0
+- eval_seed_override_count is 2
+- env_config_changed_count is 0
+- guardrail_violation_count is 0
+- environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started are false
+- no ranking paper finite-window-vs-GRU or level3 claim is made
+
+## Failure Criteria
+
+- focused tests fail
+- summary artifact is missing
+- metadata missing rows remain
+- validation failures remain
+- eval_seed overrides are not exactly two
+- env configs or controller profiles are mutated
+- reset rollout measured execution ranking or paper claims are performed
+
+## Evidence Gates
+
+- M2104 must implement no-rollout repair artifacts
+- M2104 must support optional eval_seed_override without changing default measured-runner behavior
+- M2104 must preserve env configs workload keys and controller profiles
+- M2104 must not run measured execution or policy actions
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not tune controller profiles
+- do not weaken measured runner validation
+- do not rank controller families
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not treat smoke proxy rows as paper-valid generated tasks
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m2104-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-implementation
+- type: infrastructure
+- checkpoint: runs/m2104_paper_route_outcome_supported_decisive_public_gate_core_measured_execution_repair/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: public_gate_core_measured_execution_repair_pass_route_to_result_audit
+- reason: M2104 focused tests 5 passed and no-rollout repair pass metadata_missing 0 validation_failure 0 eval_seed_override 2 env_config changed 0 guardrail 0
+
+## Next Blocker
+
+m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit
