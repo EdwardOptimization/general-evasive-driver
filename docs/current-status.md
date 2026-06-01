@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2295-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-implementation
+m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit
 ```
 
 Current next task:
 
 ```text
-m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit
+m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design
 ```
 
 Immediate route: M2287 implemented the combined materializer repair for
@@ -90,10 +90,11 @@ global counts exactly. The primary diagnostic route is:
 offtrack_primary_collision_guardrail_failure_slice_result_audit
 ```
 
-M2296 must audit this route before any repair, ranking, comparison, or
-paper-route interpretation. Training, replay, PPO, promotion, ranking, winner
-selection, finite-window vs GRU verdict, paper-level claim, and level3 self-ID
-claim remain blocked.
+M2296 accepts this route and blocks direct broad repair/ranking. M2297 must
+design the next offtrack-primary collision-guardrail implementation route before
+any repair, training, comparison, or paper-route interpretation. Training,
+replay, PPO, promotion, ranking, winner selection, finite-window vs GRU verdict,
+paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

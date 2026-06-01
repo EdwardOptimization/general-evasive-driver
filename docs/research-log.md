@@ -41219,3 +41219,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.json`
 - next: `m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit`
+
+## M2296 Paper-Route Current-Sim Scenario Task-Family Failure-Slice Diagnosis Result Audit
+
+- status: completed
+- decision: `accept_offtrack_primary_collision_guardrail_route_design`
+- manifest: `experiments/manifests/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.json`
+- audit doc: `docs/m2296-paper-route-current-sim-scenario-task-family-failure-slice-diagnosis-result-audit.md`
+- parent summary: `runs/m2295_paper_route_current_sim_scenario_task_family_failure_slice_diagnosis/summary.json`
+- M2295 count reproduction accepted: `true`
+- primary_route accepted: `offtrack_primary_collision_guardrail_failure_slice_result_audit`
+- reset/rollout/policy action: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design.json`
+- next: `m2297-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-route-design`
