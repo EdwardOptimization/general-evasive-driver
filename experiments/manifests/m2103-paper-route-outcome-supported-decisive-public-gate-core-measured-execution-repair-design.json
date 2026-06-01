@@ -1,0 +1,175 @@
+{
+  "id": "m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_measured_execution_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/failure_rows.csv",
+      "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/metadata_missing_rows.csv",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_executable_task_specs.json",
+      "runs/m2098_paper_route_outcome_supported_decisive_public_gate_core_measured_runner_compatibility_repair/public_gate_core_measured_compatible_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded repair for M2101 metadata completeness and two scenario-sampling failures"
+    ],
+    "derived_from": [
+      "m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit"
+    ],
+    "blocked_by": [
+      "M2101 measured execution incomplete: failure_count 2 and metadata_missing_count 480"
+    ],
+    "supersedes": [
+      "direct rerun without classifying failures",
+      "controller-family ranking from incomplete measured execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+  "public_gates": [
+    "M2103 must design exact metadata completeness mappings",
+    "M2103 must design a bounded route for the two scenario-sampling failures",
+    "M2103 must not run reset rollout measured execution or policy actions",
+    "M2103 must not weaken measured-runner validation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not weaken measured runner validation",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_measured_execution_repair_design",
+    "evidence_increment": "designs the bounded repair needed before rerunning incomplete measured execution",
+    "claim_scope": "repair design only; no rollout driver performance ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if metadata fields cannot be mapped without weakening validation",
+      "stop if scenario-sampling repair would require broad task-distribution redesign",
+      "stop if next action would rerun measured execution before repaired artifacts are validated",
+      "stop if audit would rank controllers from M2101"
+    ],
+    "fallback_plan": [
+      "route to metadata-only repair if sampling failures are deferred",
+      "route to scenario-sampling repair if metadata mapping is straightforward",
+      "route to branch synthesis if combined repair would become another local loop"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2102 classifies M2101 blockers",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "public-gate core measured execution repair design",
+    "admission_evidence": [
+      "M2102 classifies M2101 failure_count 2 as scenario_sampling_failure",
+      "M2102 classifies M2101 metadata_missing_count 480 as full metadata completeness gap",
+      "M2101 metric_completeness_failure_count 0 and guardrail 0"
+    ],
+    "blocked_shortcuts": [
+      "do not run measured execution in M2103",
+      "do not rank controller families",
+      "do not treat repair design as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+      "M2103 status queue scoreboard research log and review",
+      "one follow-up manifest for repair implementation or synthesis"
+    ],
+    "next_stage_criteria": [
+      "exact metadata mappings are specified",
+      "two-row sampling repair or deferral route is explicit",
+      "next implementation or synthesis route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2103 designs execution artifact repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2103."
+    ],
+    "temporal_evidence_window": "M2101 measured execution and M2102 audit.",
+    "negative_result_policy": "If repair scope expands beyond bounded metadata/sampling repair, synthesize before continuing.",
+    "allowed_claims": [
+      "measured execution repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a bounded repair for incomplete measured execution instead of continuing blind reruns",
+    "paper_verdict_delta": "can admit repaired execution artifacts but cannot change ranking or paper verdict before rerun and audit",
+    "must_synthesize_if": [
+      "M2103 cannot keep repair bounded",
+      "M2103 would require another broad schema bridge after M2098",
+      "M2103 proposes rerun without repairing metadata completeness"
+    ]
+  },
+  "hypothesis": "A bounded no-rollout repair can be designed for the M2101 full metadata completeness gap and two scenario-sampling failures without weakening validation or changing claim boundaries.",
+  "success_criteria": [
+    "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md exists",
+    "metadata completeness mappings are explicit",
+    "two-row sampling repair or deferral route is explicit",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design doc is missing",
+    "metadata mappings are ambiguous",
+    "sampling repair route is ambiguous",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_measured_execution_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.md",
+    "runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2103 passes if it freezes a bounded repair route or chooses synthesis without running measured execution or ranking.",
+  "next_blocker": "m2104-selected-by-m2103-design"
+}

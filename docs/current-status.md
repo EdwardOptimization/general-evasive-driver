@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2101-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-implementation-and-run
+m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit
+m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design
 ```
 
-Immediate route: M2101 ran the frozen public-gate core measured execution and
-failed the pass gate: `478/480` episodes completed, `failure_count=2` from
-obstacle scenario sampling failures, `metadata_missing_count=480`,
-metric-completeness failures `0`, and guardrail `0`. Rollout/policy actions did
-run, but ranking and interpretation remain blocked. M2102 must audit the
-failure rows and metadata-missing rows before any rerun, repair, ranking, or
-paper claim.
+Immediate route: M2102 audits M2101 as an incomplete measured-execution result:
+two obstacle scenario sampling failures plus a full `480`-row metadata
+completeness gap. Metric completeness failures are `0` and guardrail is `0`,
+but complete execution, ranking, paper evidence, finite-window vs GRU claims,
+and self-ID claims remain blocked. M2103 must design a bounded no-rollout repair
+for metadata completeness and the two sampling failures before any rerun.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

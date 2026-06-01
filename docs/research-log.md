@@ -36882,3 +36882,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - clean fields: validation failure rows header-only, metric completeness failures `0`, guardrail `0`
 - follow-up manifest: `experiments/manifests/m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit.json`
 - next: `m2102-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-result-audit`
+
+## M2102 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Result Audit
+
+- status: completed
+- decision: `public_gate_core_measured_execution_audit_route_to_metadata_and_sampling_repair_design`
+- audited artifact: `runs/m2101_paper_route_outcome_supported_decisive_public_gate_core_measured_execution/summary.json`
+- reset/rollout/measured execution in M2102: `false`
+- policy actions executed in M2102: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- classification: scenario_sampling_failure for two workload cells and full metadata completeness gap for all `480` workload rows
+- audit decision: no rerun yet; design bounded repair for metadata completeness and two-row scenario sampling first
+- supported claim: M2101 is a partial measured artifact with `478/480` completed cells, metric completeness `0`, guardrail `0`
+- unsupported claims: complete execution, ranking, paper evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design.json`
+- next: `m2103-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-design`
