@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2292,
+    "completed": 2293,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
+    "task_id": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation",
-    "command_log": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+    "id": "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design",
     "kind": "gate",
-    "priority": 22800,
+    "priority": 22810,
     "status": "pending",
-    "hypothesis": "M2284 reset-validation failure can be classified into reset-sampling and lateral-sign blockers and routed to a non-ranking repair path.",
-    "command": "manual audit of runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation artifacts",
-    "success_artifact": "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
-    "notes": "Pending: classify reset-sampling failures and lateral sign mismatches before repair; no reset rollout training ranking or paper claims"
+    "hypothesis": "A combined design can repair lateral sign metadata and make R1-R5 materialization sampler-aware without changing the actor contract.",
+    "command": "manual combined repair design artifact",
+    "success_artifact": "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
+    "notes": "Pending: specify sampler-aware R1-R5 repair and lateral sign correction; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T194927Z"
+  "updated_at_utc": "20260601T195245Z"
 }

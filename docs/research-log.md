@@ -157,6 +157,16 @@ Last updated: 2026-06-01
 - failure shape: all successful resets are `R0_stable_avoidable`; R1-R5 all fail obstacle sampling under current config filters. Successful R0 left/right rows also confirm the signed bucket mismatch anticipated by M2282.
 - decision: route to M2285 result audit before any repair. No policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
 
+
+## 20260601T195245Z m2285-scenario-task-family-reset-validation-result-audit
+
+- status: `completed`
+- kind: `gate`
+- artifact: `docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md`
+- result: audits M2284 as a scenario/config failure, not controller-performance evidence. R1-R5 have `0/60` reset successes due obstacle-sampler filter failure; R0 has `12/12` reset successes but `6/6` left/right signed-bucket mismatches.
+- contract/guardrail status: actor contract violations `0`, labels entering actor input `0`, ranking rows `0`, guardrail violations `0`.
+- decision: route to M2286 combined reset-sampling and lateral-sign repair design. No reset rerun, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
+
 ## Current Best
 
 - checkpoint:

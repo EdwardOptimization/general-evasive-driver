@@ -1,0 +1,179 @@
+{
+  "id": "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design"
+    ],
+    "parent_dataset": [
+      "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+      "docs/m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation.md",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/reset_failures.csv",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/lateral_offset_consistency_rows.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design combined reset-sampling and lateral-sign repair for scenario task-family materialization"
+    ],
+    "derived_from": [
+      "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2285 audits M2284 reset-validation failure as R1-R5 sampling failure plus lateral sign mismatch"
+    ],
+    "supersedes": [
+      "separate sign-only repair before sampler audit",
+      "direct reset rerun without materialization repair design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
+  "public_gates": [
+    "M2286 must design a combined repair for reset sampling and lateral sign mismatch",
+    "M2286 must preserve the P0 actor contract and metadata-only role labels",
+    "M2286 must define implementation tests and validation commands before code changes",
+    "M2286 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_reset_sampling_lateral_sign_repair_design",
+    "evidence_increment": "designs the local materialization repair required after first reset-validation failure",
+    "claim_scope": "repair design only; no reset rerun rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design cannot preserve role semantics and reset validity together",
+      "stop if design would change deployable actor inputs",
+      "stop if design routes directly to rollout or training"
+    ],
+    "fallback_plan": [
+      "route to repair implementation if design is complete",
+      "route to branch synthesis if repair requires broad role-family redesign",
+      "stop for user review if sampler feasibility contradicts role definitions"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2285 routes failed reset validation to combined repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design materializer repair after reset-validation failure",
+    "admission_evidence": [
+      "M2284 reset_success_count is 12/72",
+      "M2284 reset failures are localized to R1-R5",
+      "M2284 successful R0 left/right rows expose lateral sign mismatch"
+    ],
+    "blocked_shortcuts": [
+      "no reset in design",
+      "no rollout or measured execution",
+      "no policy actions",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
+      "M2286 status queue scoreboard research log and review",
+      "one follow-up manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "lateral sign repair is specified",
+      "sampler-aware R1-R5 repair is specified",
+      "implementation and validation commands are frozen",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2286 designs scenario materialization repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2286."
+    ],
+    "temporal_evidence_window": "M2284/M2285 reset-validation failure artifacts.",
+    "negative_result_policy": "Treat reset repair as scenario-quality work, not controller or self-ID evidence.",
+    "allowed_claims": [
+      "scenario task-family reset-sampling and lateral-sign repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "prepares one combined repair for the first reset-validation blockers",
+    "paper_verdict_delta": "can admit reset-valid materialization repair before measured execution",
+    "must_synthesize_if": [
+      "M2286 cannot define a combined repair",
+      "M2286 would split into multiple narrow local repairs without justification",
+      "M2286 discovers R1-R5 are not sampler-feasible under current role definitions"
+    ]
+  },
+  "hypothesis": "A combined design can repair lateral sign metadata and make R1-R5 materialization sampler-aware without changing the actor contract.",
+  "success_criteria": [
+    "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md exists",
+    "lateral bucket sign correction is specified",
+    "sampler-aware R1-R5 materialization repair is specified",
+    "implementation tests and validation commands are specified",
+    "a non-ranking implementation route is selected"
+  ],
+  "failure_criteria": [
+    "M2286 ignores either reset-sampling failure or lateral sign mismatch",
+    "M2286 changes the deployable actor contract",
+    "M2286 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2286 ranks profiles or selects a winner",
+    "M2286 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual combined repair design artifact"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+    "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2286 passes if it freezes a combined repair plan and selects a non-ranking follow-up implementation route.",
+  "next_blocker": "m2287-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-implementation"
+}
