@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2153,
+    "completed": 2154,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization.md",
+    "command_log": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison",
+    "run_dir": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
     "status": "completed",
-    "task_id": "m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization"
+    "task_id": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json",
-    "hypothesis": "M2144 diagnostic comparison is clean enough to support a bounded route decision, but not ranking or paper claims.",
-    "id": "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit",
+    "command": "see experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json",
+    "hypothesis": "M2136-M2145 produced enough denominator-backed diagnostic evidence to choose a bounded next branch, while still blocking ranking and paper claims.",
+    "id": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2144 diagnostics before route decision",
-    "priority": 21400,
+    "notes": "Pending: synthesize M2136-M2145 post-diagnostic loop before extending branch",
+    "priority": 21410,
     "status": "pending",
-    "success_artifact": "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md"
+    "success_artifact": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md"
   },
-  "updated_at_utc": "20260601T045000Z"
+  "updated_at_utc": "20260601T045516Z"
 }

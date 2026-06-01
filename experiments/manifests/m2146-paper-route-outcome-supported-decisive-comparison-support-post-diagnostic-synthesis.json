@@ -1,0 +1,191 @@
+{
+  "id": "m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_comparison_support_post_diagnostic_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+      "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/profile_outcome_summary.csv",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/diagnostic_contrast_rows.csv",
+      "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/claim_boundary.csv",
+      "docs/research-log.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2136-M2145 comparison-support post-diagnostic evidence before extending the branch"
+    ],
+    "derived_from": [
+      "m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit"
+    ],
+    "blocked_by": [
+      "M2136-M2145 completes a ten-milestone post-M2135 diagnostic loop",
+      "M2145 routes to synthesis before further process-only work"
+    ],
+    "supersedes": [
+      "continuing local denominator-backed comparison process milestones without synthesis",
+      "direct profile ranking or paper interpretation from M2144 diagnostics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+  "public_gates": [
+    "M2146 must synthesize M2136-M2145 evidence before further branch work",
+    "M2146 must answer the required synthesis questions",
+    "M2146 must decide continue pivot stop or promote_to_next_branch",
+    "M2146 must preserve generated-proxy and paper-validity claim boundaries",
+    "M2146 must not rank profiles or claim finite-window-vs-GRU or level3 self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat comparison-support smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_comparison_support_scenario_redesign",
+    "evidence_axis": "Q_comparison_support_post_diagnostic_synthesis",
+    "evidence_increment": "synthesizes controlled-panel audit, comparison protocol, support matrix, denominator inventory, and denominator-backed diagnostic comparison evidence since M2135",
+    "claim_scope": "branch synthesis decision only; no controller ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis ranks profiles",
+      "stop if synthesis selects a winner",
+      "stop if synthesis treats generated-proxy diagnostics as paper evidence",
+      "stop if synthesis issues finite-window-vs-GRU or self-ID verdicts",
+      "stop if synthesis ignores that L3_reset_control_corrected is descriptively stronger than L3_online_gru on M2144 success/offtrack"
+    ],
+    "fallback_plan": [
+      "pivot to current-sim controlled comparison benchmark design if generated-proxy diagnostics are useful only as scaffolding",
+      "pivot to scenario redesign if panel evidence remains too proxy-bound or too small",
+      "stop this local comparison-support branch if no paper-verdict distance changed",
+      "continue only if synthesis identifies a concrete non-local evidence increment"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2136-M2145 completes a post-M2135 ten-milestone diagnostic loop",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "post-diagnostic branch synthesis",
+    "admission_evidence": [
+      "M2134 controlled panel has 6 units",
+      "M2138 support matrix has 24 support rows",
+      "M2141 denominator inventory has 30/30 available rows",
+      "M2144 denominator-backed diagnostics have 5 profiles, 6 source kinds, and 6 diagnostic contrasts",
+      "M2145 blocks ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "do not continue process-only local work without synthesis",
+      "do not rank profiles in M2146",
+      "do not claim paper-level evidence from generated proxy diagnostics"
+    ],
+    "allowed_updates": [
+      "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+      "M2146 status queue scoreboard research log and review",
+      "one follow-up manifest consistent with the synthesis decision"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact answers all required questions",
+      "decision is continue pivot stop or promote_to_next_branch",
+      "supported and unsupported claims are explicit",
+      "next route is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2146 synthesizes generated-proxy comparison artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2146.",
+      "M2144 reset-control diagnostics are treated as a blocker for naive recurrent-memory claims."
+    ],
+    "temporal_evidence_window": "M2136-M2145 comparison-support post-diagnostic artifacts.",
+    "negative_result_policy": "If evidence remains generated-proxy-only or reset-control contradicts a recurrent-memory claim, record the blocker and pivot or stop rather than extending local process milestones.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "closes the M2136-M2145 post-diagnostic loop and decides whether the branch should pivot from generated-proxy support artifacts",
+    "paper_verdict_delta": "can decide route direction but cannot make a paper verdict directly",
+    "must_synthesize_if": [
+      "always: this milestone is the required synthesis"
+    ]
+  },
+  "hypothesis": "M2136-M2145 produced enough denominator-backed diagnostic evidence to choose a bounded next branch, while still blocking ranking, paper-level, finite-window-vs-GRU, and level3 self-ID claims.",
+  "success_criteria": [
+    "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md exists",
+    "synthesis artifact answers all required synthesis questions",
+    "synthesis_decision is continue pivot stop or promote_to_next_branch",
+    "next route is explicit",
+    "no reset rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "synthesis doc is missing",
+    "required synthesis questions are unanswered",
+    "next route is ambiguous",
+    "new reset or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_comparison_support_post_diagnostic_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2135-paper-route-outcome-supported-decisive-comparison-support-branch-synthesis.md",
+    "docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md",
+    "runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json"
+  ],
+  "decision_rule": "M2146 passes if it writes the required synthesis artifact and selects a bounded next route without rerun or ranking.",
+  "next_blocker": "m2147-paper-route-current-sim-controlled-comparison-benchmark-design"
+}

@@ -16,20 +16,24 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2144-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-materialization
+m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit
 ```
 
 Current next task:
 
 ```text
-m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit
+m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis
 ```
 
-Immediate route: M2144 materializes denominator-backed descriptive diagnostics:
-`5` profiles, `6` source kinds, `30` denominator rows, `6` diagnostic contrasts,
-guardrail `0`. M2145 must audit these diagnostics before any route decision.
-Ranking, winner selection, paper claims, finite-window vs GRU conclusions, and
-self-ID claims remain blocked.
+Immediate route: M2145 audits M2144 as a clean denominator-backed diagnostic
+comparison artifact: `5` profiles, `6` source kinds, `30` denominator rows, `6`
+diagnostic contrasts, guardrail `0`, and no ranking/winner/verdict fields.
+Diagnostics show L3-family profiles have higher descriptive success than
+L0/L1/L2 on this generated-proxy panel, but
+`L3_reset_control_corrected` is descriptively stronger than `L3_online_gru` on
+success and offtrack rate. M2146 must synthesize M2136-M2145 before any further
+branch work. Ranking, winner selection, paper claims, finite-window vs GRU
+conclusions, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -37944,3 +37944,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation boundary: descriptive generated-proxy diagnostics only; no ranking or verdict
 - follow-up manifest: `experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json`
 - next: `m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit`
+
+## M2145 Paper-Route Outcome-Supported Decisive Comparison-Support Denominator-Backed Comparison Result Audit
+
+- status: completed
+- decision: `denominator_backed_diagnostic_comparison_audit_route_to_post_diagnostic_synthesis`
+- manifest: `experiments/manifests/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.json`
+- audit artifact: `docs/m2145-paper-route-outcome-supported-decisive-comparison-support-denominator-backed-comparison-result-audit.md`
+- audited summary: `runs/m2144_paper_route_outcome_supported_decisive_comparison_support_denominator_backed_comparison/summary.json`
+- reset/rollout/measured execution in M2145: `false`
+- policy actions executed in M2145: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- audit result: clean denominator-backed diagnostic comparison materialization
+- result_class: `comparison_support_denominator_backed_diagnostic_comparison_pass`
+- profile/source-kind/denominator/contrast rows: `5` / `6` / `30` / `6`
+- guardrail_violation_count: `0`
+- descriptive diagnostics: L0 success `0.0500`; L1 `0.0833`; L2 `0.0000`; L3 online `0.3667`; L3 reset `0.4333`
+- interpretation: generated-proxy diagnostics are useful for route synthesis only; L3 reset outperforming L3 online blocks naive recurrent-memory or self-ID claims
+- follow-up manifest: `experiments/manifests/m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis.json`
+- next: `m2146-paper-route-outcome-supported-decisive-comparison-support-post-diagnostic-synthesis`
