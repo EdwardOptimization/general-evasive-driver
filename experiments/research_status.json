@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2114,
+    "completed": 2115,
     "failed": 1,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md",
+    "command_log": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
     "returncode": 0,
-    "run_dir": "docs/m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit.md",
+    "run_dir": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md",
     "status": "completed",
-    "task_id": "m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit"
+    "task_id": "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json",
-    "hypothesis": "M2094-M2105 have accumulated enough public-gate core measured-execution branch evidence that the cadence requires synthesis before continuing; the clean M2104/M2105 repair supports continuing to repaired measured command design while preserving claim boundaries.",
-    "id": "m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis",
+    "command": "see experiments/manifests/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.json",
+    "hypothesis": "An exact repaired measured-execution route can be designed for the M2104 metadata-complete public-gate core workload while preserving the two audited eval seed overrides and claim boundaries.",
+    "id": "m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2094-M2105 branch before repaired measured command design",
-    "priority": 21010,
+    "notes": "Pending: freeze repaired measured execution command over M2104 artifacts without rollout or ranking",
+    "priority": 21020,
     "status": "pending",
-    "success_artifact": "docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md"
+    "success_artifact": "docs/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T003449Z"
+  "updated_at_utc": "20260601T004257Z"
 }

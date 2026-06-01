@@ -36974,3 +36974,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - unsupported claims remain: measured rerun completion, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
 - follow-up manifest: `experiments/manifests/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
 - next: `m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis`
+
+## M2106 Paper-Route Outcome-Supported Decisive Public-Gate Core Measured Execution Branch Synthesis
+
+- status: completed
+- decision: `public_gate_core_measured_execution_branch_synthesis_continue_to_repaired_command_design`
+- synthesis_decision: `continue`
+- manifest: `experiments/manifests/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.json`
+- synthesis artifact: `docs/m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis.md`
+- reset/rollout/measured execution in M2106: `false`
+- policy actions executed in M2106: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- evidence summary: M2094 produced a 96-spec / 480-workload public-gate core panel with 12 axes x8 rows and dynamics counts 24 each; M2101 ran 478/480 cells but exposed two sampling failures and 480 strict metadata gaps; M2104 repaired those blockers without rollout; M2105 audited the repair as clean
+- supported claim: the public-gate core branch is ready for repaired measured-execution command design over M2104 artifacts
+- falsified/rejected claim: incomplete M2101 outcomes are sufficient for controller ranking or paper-level comparison
+- public-gate overfit risk: still meaningful because this is a fixed public-gate smoke-proxy panel with no private holdout and no paper-valid generated-task claim
+- next route: continue only to repaired command design; do not add another local repair before the rerun route is frozen
+- follow-up manifest: `experiments/manifests/m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design.json`
+- next: `m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design`

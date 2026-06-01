@@ -16,26 +16,26 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2105-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-repair-result-audit
+m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2106-paper-route-outcome-supported-decisive-public-gate-core-measured-execution-branch-synthesis
+m2107-paper-route-outcome-supported-decisive-public-gate-core-repaired-measured-execution-command-design
 ```
 
-Immediate route: M2105 audits the M2104 bounded no-rollout repair as clean:
-`96` specs, `480` workload rows, metadata missing count `0`, validation failure
-count `0`, exactly two targeted `eval_seed_override` rows for the M2101
-sampling failures (`210260`, `210333`), env_config changed count `0`, and
-guardrail `0`. Default measured-runner seed behavior remains unchanged when no
-override is present. The branch has reached the workflow synthesis cadence, so
-M2106 must synthesize the public-gate core measured-execution branch before any
-repaired rerun command design. The M2105 audit itself did not run reset,
-rollout, measured execution, or policy actions. Measured rerun, ranking, paper
-claims, finite-window vs GRU conclusions, and self-ID claims remain blocked
-until a future rerun and result audit.
+Immediate route: M2106 synthesizes the public-gate core measured-execution
+branch and chooses `continue`. The branch has a repaired 96-spec / 480-workload
+artifact set with metadata missing count `0`, validation failure count `0`,
+exactly two targeted `eval_seed_override` rows (`210260`, `210333`),
+env_config changed count `0`, and guardrail `0`. The synthesis explicitly
+keeps the scope narrow: these are generated smoke proxy rows, not paper-valid
+generated tasks, and the incomplete M2101 outcome distribution cannot support
+ranking. M2107 must now freeze the repaired measured-execution command over
+M2104 artifacts without rollout. Measured rerun, ranking, paper claims,
+finite-window vs GRU conclusions, and self-ID claims remain blocked until a
+future rerun and result audit.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
