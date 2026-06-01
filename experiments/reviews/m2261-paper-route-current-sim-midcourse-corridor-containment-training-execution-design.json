@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2261 freezes M2262 command over M2259 matrix using candidate-checkpoint runner no training/ranking claims",
+  "failure_criteria": [
+    "design starts training",
+    "design uses a matrix other than M2259",
+    "candidate checkpoint retention is omitted",
+    "design ranks profiles or selects a winner",
+    "design changes actor input contract or widens track_width"
+  ],
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO outside the pre-registered training runner",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260601T173748Z",
+  "hypothesis": "A controlled execution design can run the M2259 targeted containment config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2260 admits execution design only no training"
+    ],
+    "derived_from": [
+      "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv"
+    ],
+    "parent_objective": [
+      "design a controlled training execution over M2259 targeted containment configs"
+    ],
+    "supersedes": [
+      "direct training without execution design",
+      "running targeted configs without candidate checkpoint evaluation",
+      "ranking before outcome localization"
+    ]
+  },
+  "milestone": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design",
+  "next_blocker": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_midcourse_corridor_containment_training_execution_design_admit_execution",
+  "public_gates": [
+    "M2261 must design training execution without running training",
+    "M2261 must use exactly the M2259 training matrix",
+    "M2261 must keep the 5-profile x 3-seed matched panel",
+    "M2261 must keep candidate-checkpoint retention and selected-checkpoint evaluation",
+    "M2261 must keep ranking winner selection paper claims finite-window-vs-GRU and self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_midcourse_corridor_containment_training_execution_design_admit_execution",
+    "milestone": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design",
+    "reason": "M2261 freezes M2262 command over M2259 matrix using candidate-checkpoint runner no training/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md exists",
+    "design references the M2259 training matrix",
+    "design fixes output dir task id next blocker and guardrails",
+    "design keeps candidate checkpoint evaluation",
+    "no reset rollout measured execution training replay private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "type": "gate"
+}

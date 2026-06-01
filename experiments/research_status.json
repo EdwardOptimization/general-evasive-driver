@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2268,
+    "completed": 2269,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+    "command_log": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md",
+    "run_dir": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
     "status": "completed",
-    "task_id": "m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit"
+    "task_id": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design"
   },
   "next_task": {
-    "command": "manual design over M2259 materialization artifacts",
-    "hypothesis": "A controlled execution design can run the M2259 targeted containment config matrix through the existing candidate-checkpoint runner without ranking or paper claims.",
-    "id": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design",
-    "kind": "gate",
-    "notes": "Pending: freeze bounded M2259 training execution command no training/ranking claims",
-    "priority": 22560,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv --output-dir runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --execution-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --task-id m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution --next-blocker m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit --device cpu",
+    "hypothesis": "The M2259 targeted containment repair can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
+    "id": "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution",
+    "kind": "infrastructure",
+    "notes": "Pending: run fixed 15-job candidate-checkpoint training over M2259 matrix no ranking claims",
+    "priority": 22570,
     "status": "pending",
-    "success_artifact": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md"
+    "success_artifact": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json"
   },
-  "updated_at_utc": "20260601T173203Z"
+  "updated_at_utc": "20260601T173558Z"
 }

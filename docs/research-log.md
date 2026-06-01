@@ -40670,3 +40670,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.json`
 - next: `m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design`
+
+## M2261 Paper-Route Current-Sim Midcourse Corridor-Containment Training Execution Design
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_training_execution_design_admit_execution`
+- manifest: `experiments/manifests/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.json`
+- design artifact: `docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md`
+- parent audit: `docs/m2260-paper-route-current-sim-midcourse-corridor-containment-config-materialization-result-audit.md`
+- training matrix: `runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv`
+- execution output dir: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution`
+- planned train_ppo jobs: `15`
+- planned candidate checkpoint eval rows: `120`
+- planned selected checkpoint rows: `15`
+- candidate checkpoint runner: `autodrift.paper_route_current_sim_training_stability_repair_execution`
+- execution started in M2261: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution.json`
+- next: `m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution`

@@ -1,0 +1,177 @@
+{
+  "id": "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_training_from_scratch"
+    ],
+    "parent_dataset": [
+      "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/summary.json",
+      "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.json"
+    ],
+    "parent_objective": [
+      "execute targeted containment training matrix through candidate-checkpoint runner"
+    ],
+    "derived_from": [
+      "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design"
+    ],
+    "blocked_by": [
+      "M2261 designs execution but does not run training"
+    ],
+    "supersedes": [
+      "manual ad-hoc targeted training",
+      "running without candidate checkpoint retention",
+      "ranking before result audit or outcome localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution.md",
+  "public_gates": [
+    "M2262 must use exactly the M2259 training matrix",
+    "M2262 must run exactly 15 train_ppo jobs if validation passes",
+    "M2262 must evaluate exactly 120 candidate checkpoints and 15 selected checkpoints",
+    "M2262 must preserve actor input contract and track_width repair guardrail",
+    "M2262 must not rank profiles select a winner or make paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use a matrix other than M2259",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not change actor observation contract",
+    "do not widen track_width",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_midcourse_corridor_containment_repair",
+    "evidence_axis": "Q_midcourse_corridor_containment_training_execution",
+    "evidence_increment": "runs the bounded targeted containment config matrix and produces candidate-checkpoint evidence",
+    "claim_scope": "training execution only; no ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if matrix validation fails",
+      "stop if any training job fails and fail-fast exits",
+      "stop if candidate checkpoint evaluation is incomplete"
+    ],
+    "fallback_plan": [
+      "route to result audit if execution completes",
+      "route to materialization repair if matrix validation fails",
+      "route to training failure audit if any job fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2261 admits targeted containment training execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "guarded_rl",
+    "stage_objective": "execute targeted containment M2259 profile/seed training matrix with candidate checkpoint retention",
+    "admission_evidence": [
+      "Pretrain capability evidence: M2241/M2250 showed candidate-checkpoint retention can produce complete 15-run panels and improve selected checkpoint returns, but M2253/M2256 showed the prior repair worsened offtrack outcomes and therefore needs targeted containment training evidence",
+      "Posttrain capability evidence target: M2262 is admitted only to collect complete targeted-containment candidate-checkpoint evidence for M2263 audit and later M2256-style outcome localization, not to rank profiles or claim paper-level success",
+      "Exact/proof gates: M2259 and M2260 provide exact config-count 15, training-matrix row-count 15, budget signature 1, target mismatch 0, actor contract 0, track_width_widened 0, and guardrail 0 evidence",
+      "Rollback or repair protection: M2261 preserves candidate-checkpoint retention, fail-closed matrix validation, fixed output/task id, and a required M2263 result-audit route before any interpretation",
+      "The target repair remains tied to M2256 midcourse mild boundary-containment regression"
+    ],
+    "blocked_shortcuts": [
+      "no private holdout",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+      "docs/m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution.md",
+      "M2262 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "completed_run_count is 15",
+      "candidate_eval_count is 120",
+      "selected_checkpoint_count is 15",
+      "guardrail_violation_count is 0",
+      "result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2262 trains/evaluates closed-loop policies but does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2262; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2259 targeted containment training matrix only.",
+    "negative_result_policy": "If execution does not improve readiness or later outcome localization, record negative result and route to audit; do not lower self-ID standards.",
+    "allowed_claims": [
+      "targeted containment training execution result",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces targeted-containment closed-loop training and candidate-checkpoint evidence",
+    "paper_verdict_delta": "can test whether targeted containment shaping improves current-sim readiness before outcome localization",
+    "must_synthesize_if": [
+      "M2262 repeats below-floor result without clearer failure localization",
+      "M2262 generates incomplete candidate checkpoint evidence",
+      "M2262 result audit cannot select a route"
+    ]
+  },
+  "hypothesis": "The M2259 targeted containment repair can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
+  "success_criteria": [
+    "summary artifact exists under runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution",
+    "completed_run_count is 15",
+    "failed_run_count is 0",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "all run candidate and selected metrics are finite",
+    "guardrail_violation_count is 0",
+    "no private holdout ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "matrix validation fails",
+    "completed_run_count is less than 15",
+    "candidate_eval_count is not 120",
+    "selected_checkpoint_count is not 15",
+    "any metrics are non-finite",
+    "guardrail_violation_count is nonzero",
+    "M2262 ranks profiles or selects a winner"
+  ],
+  "commands": [
+    {
+      "name": "execute",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv --output-dir runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --execution-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --task-id m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution --next-blocker m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_training_from_scratch"
+  ],
+  "baseline_artifacts": [
+    "runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv"
+  ],
+  "decision_rule": "M2262 passes if it completes all targeted-containment training jobs and candidate checkpoint evaluation without guardrail violations.",
+  "next_blocker": "m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit"
+}

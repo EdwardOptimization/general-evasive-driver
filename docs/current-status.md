@@ -271,8 +271,11 @@ one budget signature, target mismatch `0`, contract violation `0`,
 ranking, finite-window-vs-GRU verdict, paper-level claim, or level3
 self-identification claim is admitted. M2260 audits M2259 as clean and routes
 to M2261: design the bounded training execution over the M2259 matrix using the
-candidate-checkpoint runner pattern. Training and interpretation remain blocked
-until that design is written and later audited.
+candidate-checkpoint runner pattern. M2261 completes that design and admits
+M2262 execution only: run exactly `15` train_ppo jobs from the M2259 matrix,
+evaluate `120` candidate checkpoints, select `15` checkpoints, and keep ranking,
+finite-window-vs-GRU verdicts, paper-level claims, and level3 self-ID claims
+blocked until post-execution audit and later outcome localization.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before
