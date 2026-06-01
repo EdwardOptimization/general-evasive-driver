@@ -275,7 +275,14 @@ candidate-checkpoint runner pattern. M2261 completes that design and admits
 M2262 execution only: run exactly `15` train_ppo jobs from the M2259 matrix,
 evaluate `120` candidate checkpoints, select `15` checkpoints, and keep ranking,
 finite-window-vs-GRU verdicts, paper-level claims, and level3 self-ID claims
-blocked until post-execution audit and later outcome localization.
+blocked until post-execution audit and later outcome localization. M2262
+completes that execution cleanly: `15/0` completed/failed runs, `120`
+candidate eval rows, `15` selected checkpoint rows, guardrail violation `0`.
+The result is not yet a repair success: selected profile floor pass remains
+`0`, selected beats final is `11/15`, and selected aggregate return is lower
+than M2250 while selected termination is slightly lower. M2263 is the next
+blocker: audit the targeted training result before outcome localization,
+synthesis, or any further repair.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

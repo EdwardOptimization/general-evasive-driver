@@ -40691,3 +40691,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution.json`
 - next: `m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution`
+
+## M2262 Paper-Route Current-Sim Midcourse Corridor-Containment Training Execution
+
+- status: completed
+- decision: `current_sim_midcourse_corridor_containment_training_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution.json`
+- result artifact: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json`
+- result class: `current_sim_training_stability_repair_execution_pass`
+- completed/failed runs: `15/0`
+- candidate eval count: `120`
+- selected checkpoint count: `15`
+- selected beats final count: `11/15`
+- selected checkpoint profile floor pass count: `0`
+- final checkpoint profile floor pass count: `0`
+- selected aggregate return mean: `58.81669`
+- selected aggregate termination mean: `0.42083`
+- all run/candidate/selected metrics finite: `true/true/true`
+- guardrail violation count: `0`
+- ranking admissible count: `0`
+- winner selected: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.json`
+- next: `m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit`

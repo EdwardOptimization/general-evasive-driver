@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2269,
+    "completed": 2270,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
+    "command_log": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design.md",
+    "run_dir": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json",
     "status": "completed",
-    "task_id": "m2261-paper-route-current-sim-midcourse-corridor-containment-training-execution-design"
+    "task_id": "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2259_paper_route_current_sim_midcourse_corridor_containment_configs/training_matrix.csv --output-dir runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --execution-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution --task-id m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution --next-blocker m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit --device cpu",
-    "hypothesis": "The M2259 targeted containment repair can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
-    "id": "m2262-paper-route-current-sim-midcourse-corridor-containment-training-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run fixed 15-job candidate-checkpoint training over M2259 matrix no ranking claims",
-    "priority": 22570,
+    "command": "manual artifact audit of runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json and profile aggregates",
+    "hypothesis": "M2262 provides enough targeted training evidence to decide whether the next route should be selected-checkpoint outcome localization or branch synthesis.",
+    "id": "m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2262 targeted training result before outcome localization or synthesis no ranking claims",
+    "priority": 22580,
     "status": "pending",
-    "success_artifact": "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/summary.json"
+    "success_artifact": "docs/m2263-paper-route-current-sim-midcourse-corridor-containment-training-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T173558Z"
+  "updated_at_utc": "20260601T174659Z"
 }
