@@ -39333,3 +39333,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to failure audit before repair or rerun
 - follow-up manifest: `experiments/manifests/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.json`
 - next: `m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit`
+
+## M2205 Paper-Route Current-Sim Offtrack-Support Measured-Execution Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_execution_audit_route_to_repeat_metadata_activation_repair_design`
+- manifest: `experiments/manifests/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.json`
+- audit artifact: `docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md`
+- audited summary: `runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json`
+- result_class: `current_sim_controlled_comparison_measured_execution_incomplete_or_fail`
+- episode_count: `0`
+- metadata_missing_count: `2304`
+- guardrail violations: `0`
+- environment rollout started: `false`
+- policy action executed: `false`
+- classification: `measured_runner_repeat_metadata_activation_overreach`
+- trigger field: `checkpoint_materialization_mode`
+- rejected repair: fake repeat IDs in non-repeat workload
+- selected route: measured-runner repeat activation repair design
+- follow-up manifest: `experiments/manifests/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.json`
+- next: `m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design`

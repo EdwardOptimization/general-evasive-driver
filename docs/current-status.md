@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run
+m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit
+m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design
 ```
 
-Immediate route: M2204 ran the frozen measured-execution command but failed
-closed before rollout: `episode_count=0`, `metadata_missing_count=2304`, no
-policy action executed, and guardrail `0`. The failure is missing repeat
-metadata fields (`training_repeat_id`, `training_seed_group`,
-`profile_training_seed`, `profile_checkpoint_source_profile`,
-`base_workload_id`) in the non-repeat repaired workload. M2205 must audit and
-classify this schema/validation issue before any repair or rerun. Controller
-ranking, paper claims, finite-window vs GRU verdicts, and self-ID claims remain
-blocked.
+Immediate route: M2205 audits the M2204 zero-rollout failure as measured-runner
+repeat metadata activation overreach. `checkpoint_materialization_mode` is
+valid checkpoint provenance in the non-repeat repaired workload, but it
+currently triggers partial-repeat validation and blocks rollout. M2206 must
+design the runner repair: repeat mode should be activated by repeat identity
+fields, while `checkpoint_materialization_mode` alone remains allowed for
+non-repeat workloads. Controller ranking, paper claims, finite-window vs GRU
+verdicts, and self-ID claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

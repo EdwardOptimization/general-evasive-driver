@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2212,
+    "completed": 2213,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution/summary.json",
+    "command_log": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2204_paper_route_current_sim_offtrack_support_measured_execution",
+    "run_dir": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
     "status": "completed",
-    "task_id": "m2204-paper-route-current-sim-offtrack-support-measured-execution-implementation-and-run"
+    "task_id": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md",
-    "hypothesis": "M2204 failed closed before rollout because the measured runner requires repeat metadata fields that are absent from the non-repeat repaired workload, and the failure can be classified before repair or rerun.",
-    "id": "m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit",
+    "command": "write docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md",
+    "hypothesis": "The M2204 failure can be repaired by changing repeat-mode activation in the measured runner so checkpoint_materialization_mode alone is accepted for non-repeat workloads while partial repeat identity metadata still fails closed.",
+    "id": "m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2204 pre-rollout missing repeat metadata validation failure before repair or rerun",
-    "priority": 22000,
+    "notes": "Pending: design repeat metadata activation repair before implementation or rerun",
+    "priority": 22010,
     "status": "pending",
-    "success_artifact": "docs/m2205-paper-route-current-sim-offtrack-support-measured-execution-result-audit.md"
+    "success_artifact": "docs/m2206-paper-route-current-sim-measured-runner-repeat-metadata-activation-repair-design.md"
   },
-  "updated_at_utc": "20260601T110243Z"
+  "updated_at_utc": "20260601T110623Z"
 }
