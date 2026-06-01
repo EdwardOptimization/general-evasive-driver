@@ -1,0 +1,193 @@
+{
+  "id": "m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_public_gate_core_repaired_outcome_localization"
+    ],
+    "parent_dataset": [
+      "docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md",
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+      "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.json"
+    ],
+    "parent_objective": [
+      "run the frozen no-rerun outcome localization command over M2108 artifacts"
+    ],
+    "derived_from": [
+      "m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design"
+    ],
+    "blocked_by": [
+      "M2110 must freeze no-rerun localization command before implementation"
+    ],
+    "supersedes": [
+      "manual aggregate inspection without localization artifacts",
+      "controller ranking from M2108 aggregate rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.md",
+  "public_gates": [
+    "M2111 must run only the M2110 no-rerun localization command",
+    "M2111 must reproduce M2108 outcome counts exactly",
+    "M2111 must not reset rollout execute policies or run measured execution",
+    "M2111 must not rank controller families or claim paper finite-window-vs-GRU or level3 self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not alter command targets",
+    "do not edit code",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not treat smoke proxy rows as paper-valid generated tasks"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_outcome_supported_decisive_public_gate_core_measured_execution",
+    "evidence_axis": "Q_public_gate_core_repaired_outcome_localization_artifact",
+    "evidence_increment": "runs no-rerun localization over the complete M2108 artifact to identify support and dominance slices",
+    "claim_scope": "localization artifact only; no controller ranking paper or self-ID claim",
+    "stop_condition": [
+      "stop if localization changes M2108 outcome counts",
+      "stop if localization requires rollout",
+      "stop if missing schema fields remain",
+      "stop if guardrail violation occurs"
+    ],
+    "fallback_plan": [
+      "route to result audit for all pass or fail-closed outcomes",
+      "route to adapter design if M2108 schema is incompatible",
+      "route to synthesis if localization cannot support a next decision"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2110 freezes no-rerun localization command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "public-gate core repaired outcome localization implementation",
+    "admission_evidence": [
+      "M2110 freezes exact no-rerun localization command",
+      "M2108 summary and episode rows exist",
+      "M2109 blocks ranking readiness pending localization"
+    ],
+    "blocked_shortcuts": [
+      "do not rerun measured execution in M2111",
+      "do not rank profiles from localizer output",
+      "do not treat localization as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/*",
+      "docs/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.md",
+      "M2111 status queue scoreboard research log and review",
+      "one follow-up manifest for localization result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "outcome counts match M2108",
+      "comparison support candidate counts are recorded",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2111 localizes outcomes and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2111."
+    ],
+    "temporal_evidence_window": "M2108 measured execution artifact.",
+    "negative_result_policy": "If localization finds no comparison-ready slice, route to scenario redesign or synthesis before comparison.",
+    "allowed_claims": [
+      "no-rerun outcome localization artifact",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts M2108 complete raw outcomes into slice-level support and dominance evidence without rerun",
+    "paper_verdict_delta": "can identify whether comparison-ready slices exist but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2111 cannot reproduce source outcome counts",
+      "M2111 finds no support and proposes another local repair",
+      "M2112 audit cannot select localization comparison scenario redesign or synthesis"
+    ]
+  },
+  "hypothesis": "The existing no-rerun localization tool can analyze M2108 artifacts with target counts 480 episodes 5 profiles 96 specs and 3 families while reproducing outcome counts exactly.",
+  "success_criteria": [
+    "focused localization tests pass",
+    "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json exists",
+    "result_class is controlled_routing_smoke_outcome_localization_pass",
+    "episode_count is 480",
+    "profile_count is 5",
+    "spec_count is 96",
+    "family_count is 3",
+    "outcome_counts_match_source_summary is true",
+    "missing_schema_fields is empty",
+    "all_selected_metrics_finite is true",
+    "guardrail_violation_count is 0",
+    "environment_reset_started environment_rollout_started policy_action_executed measured_rollout_started are false",
+    "no ranking paper finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary artifact is missing",
+    "localizer fails closed",
+    "outcome counts do not match M2108",
+    "missing schema fields remain",
+    "guardrail violation occurs",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_controlled_routing_smoke_outcome_localization.py"
+    },
+    {
+      "name": "localize_outcomes",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_controlled_routing_smoke_outcome_localization --summary runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json --episode-rows runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/episode_rows.csv --output-dir runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization --target-episode-count 480 --target-profile-count 5 --target-spec-count 96 --target-family-count 3 --next-blocker m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_public_gate_core_repaired_outcome_localization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md",
+    "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/summary.json",
+    "runs/m2108_paper_route_outcome_supported_decisive_public_gate_core_repaired_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M2111 passes if it writes a no-rerun localization artifact that reproduces M2108 outcome counts exactly and keeps all guardrails clean.",
+  "next_blocker": "m2112-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-result-audit"
+}

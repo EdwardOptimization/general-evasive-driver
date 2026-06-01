@@ -37064,3 +37064,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: no-rerun outcome localization over M2108 artifacts before any comparison route
 - follow-up manifest: `experiments/manifests/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.json`
 - next: `m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design`
+
+## M2110 Paper-Route Outcome-Supported Decisive Public-Gate Core Repaired Outcome Localization Design
+
+- status: completed
+- decision: `public_gate_core_repaired_outcome_localization_design_route_to_no_rerun_implementation`
+- manifest: `experiments/manifests/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.json`
+- design artifact: `docs/m2110-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-design.md`
+- reset/rollout/measured execution in M2110: `false`
+- policy actions executed in M2110: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- localization tool: reuse `src/autodrift/paper_route_controlled_routing_smoke_outcome_localization.py`
+- frozen command inputs: M2108 summary and episode rows only
+- targets: `480` episodes, `5` profiles, `96` specs, `3` families
+- output dir: `runs/m2111_paper_route_outcome_supported_decisive_public_gate_core_repaired_outcome_localization`
+- comparison-ready criteria: episode_count >= `24`, success_count >= `6`, success_profile_count >= `3`, success_source_count >= `3`, collision_rate < `0.30`, offtrack_outcome_rate < `0.70`
+- candidate-support criteria: episode_count >= `12`, success_count >= `3`, success_profile_count >= `2`, collision_rate < `0.40`, offtrack_outcome_rate < `0.85`
+- unsupported claims remain: localization run complete, controller ranking, paper-level benchmark evidence, finite-window-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation.json`
+- next: `m2111-paper-route-outcome-supported-decisive-public-gate-core-repaired-outcome-localization-implementation`
