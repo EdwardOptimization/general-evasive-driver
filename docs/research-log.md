@@ -39726,3 +39726,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: routes to recurrent-profile artifact audit before any repair rerun ranking or finite-window-vs-GRU conclusion
 - follow-up manifest: `experiments/manifests/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.json`
 - next: `m2223-paper-route-current-sim-recurrent-profile-artifact-audit`
+
+## M2223 Paper-Route Current-Sim Recurrent Profile Artifact Audit
+
+- status: completed
+- decision: `current_sim_recurrent_profile_artifact_audit_route_to_checkpoint_quality_audit`
+- manifest: `experiments/manifests/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.json`
+- audit artifact: `docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md`
+- L3_online_gru checkpoint: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt`
+- L3_reset_control checkpoint source: `L3_online_gru`
+- reset_control_checkpoint_source_profile: `L3_online_gru`
+- reset_control_alias_pass: `true`
+- checkpoint_exists: `true`
+- L3 checkpoint obs_dim: `72`
+- L3 checkpoint actor_encoder: `human_view_online_gru`
+- L3 checkpoint recurrent_sequence_training: `true`
+- L3 checkpoint total_steps: `1024`
+- L3 eval termination_rate: `0.6`
+- L3 final train termination_rate: `1.0`
+- reset/rollout/measured execution: `false`
+- policy action executed: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: profile/provenance/alias/hidden-reset routing is structurally clean; route to checkpoint-quality/training-lineage audit because L3 checkpoint is smoke-scale and weak
+- follow-up manifest: `experiments/manifests/m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit.json`
+- next: `m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit`

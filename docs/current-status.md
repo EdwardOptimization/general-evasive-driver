@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit
+m2223-paper-route-current-sim-recurrent-profile-artifact-audit
 ```
 
 Current next task:
 
 ```text
-m2223-paper-route-current-sim-recurrent-profile-artifact-audit
+m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -52,9 +52,17 @@ online `true`, `L2_window_25` success count `360`, `L2_window_50` success count
 `0`. M2222 audits this as a clean diagnostic result and routes to recurrent
 profile artifact audit because L3 online/reset zero-success plus reset
 equivalence must be explained before any repair, rerun, ranking, paper claims,
-finite-window vs GRU verdicts, or self-ID claims. M2223 must now audit L3
-online/reset profile configs, checkpoint provenance, reset-control semantics,
-and recurrent hidden-state handling from existing artifacts only.
+finite-window vs GRU verdicts, or self-ID claims. M2223 audits L3 online/reset
+profile configs, checkpoint provenance, reset-control semantics, and recurrent
+hidden-state handling from existing artifacts only. It finds the mapping and
+runtime routing structurally clean: `L3_reset_control` intentionally aliases
+`L3_online_gru` weights and uses `every_step_control`; the loaded checkpoint is
+`human_view_online_gru`, obs dim `72`, and recurrent. The remaining blocker is
+checkpoint quality/training lineage: the L3 checkpoint is smoke-scale
+(`1024` steps) with eval termination rate `0.6` and final train termination
+rate `1.0`. M2224 must now aggregate per-profile checkpoint-quality and
+failure-metric evidence before any training design, rerun, ranking, paper
+claims, finite-window vs GRU verdict, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

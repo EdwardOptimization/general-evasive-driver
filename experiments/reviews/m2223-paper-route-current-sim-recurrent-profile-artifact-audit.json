@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2223 pending artifact-only audit of L3 online/reset profile configs checkpoint provenance reset-control semantics and recurrent hidden-state handling no rerun ranking paper FW-vs-GRU or self-ID claims",
+  "decision_reason": "M2223 finds L3 profile/provenance/alias/hidden reset routing structurally clean but L3 checkpoint smoke-scale weak route to checkpoint-quality audit no rerun ranking paper FW-vs-GRU or self-ID claims",
   "failure_criteria": [
     "audit document is missing",
     "audit cannot locate required L3 artifacts",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T124229Z",
+  "generated_at_utc": "20260601T124834Z",
   "hypothesis": "Existing profile materialization, config, and readiness artifacts can determine whether L3 zero-success/reset equivalence is a config/provenance/evaluation issue before any rerun.",
   "lineage": {
     "blocked_by": [
@@ -66,7 +66,7 @@
   "milestone": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit",
   "next_blocker": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_recurrent_profile_artifact_audit_route_to_checkpoint_quality_audit",
   "public_gates": [
     "M2223 must audit L3 online/reset profile config and checkpoint provenance",
     "M2223 must check reset-control alias/correction semantics",
@@ -77,9 +77,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_recurrent_profile_artifact_audit_route_to_checkpoint_quality_audit",
     "milestone": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit",
-    "reason": "M2223 pending artifact-only audit of L3 online/reset profile configs checkpoint provenance reset-control semantics and recurrent hidden-state handling no rerun ranking paper FW-vs-GRU or self-ID claims",
+    "reason": "M2223 finds L3 profile/provenance/alias/hidden reset routing structurally clean but L3 checkpoint smoke-scale weak route to checkpoint-quality audit no rerun ranking paper FW-vs-GRU or self-ID claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

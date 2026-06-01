@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2230,
+    "completed": 2231,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+    "command_log": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
     "returncode": 0,
-    "run_dir": "docs/m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit.md",
+    "run_dir": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
     "status": "completed",
-    "task_id": "m2222-paper-route-current-sim-profile-history-failure-diagnosis-result-audit"
+    "task_id": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit"
   },
   "next_task": {
-    "command": "write docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md",
-    "hypothesis": "Existing profile materialization, config, and readiness artifacts can determine whether L3 zero-success/reset equivalence is a config/provenance/evaluation issue before any rerun.",
-    "id": "m2223-paper-route-current-sim-recurrent-profile-artifact-audit",
-    "kind": "gate",
-    "notes": "Pending: artifact-only audit of L3 online/reset profile configs, checkpoint provenance, reset-control semantics, and recurrent hidden-state handling",
-    "priority": 22180,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_recurrent_profile_checkpoint_quality_audit --checkpoint-materialization-dir runs/m2171_paper_route_current_sim_checkpoint_profile_materialization --failure-metrics runs/m2221_paper_route_current_sim_profile_history_failure_diagnosis/profile_failure_metric_summary.csv --output-dir runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit",
+    "hypothesis": "Existing checkpoint train/eval artifacts can explain whether L3 zero-success is driven by weak smoke checkpoint quality before any rerun or ranking.",
+    "id": "m2224-paper-route-current-sim-recurrent-profile-checkpoint-quality-audit",
+    "kind": "infrastructure",
+    "notes": "Pending: implement no-rerun checkpoint-quality/failure-metric audit for recurrent-profile blocker",
+    "priority": 22190,
     "status": "pending",
-    "success_artifact": "docs/m2223-paper-route-current-sim-recurrent-profile-artifact-audit.md"
+    "success_artifact": "runs/m2224_paper_route_current_sim_recurrent_profile_checkpoint_quality_audit/summary.json"
   },
-  "updated_at_utc": "20260601T124012Z"
+  "updated_at_utc": "20260601T124629Z"
 }

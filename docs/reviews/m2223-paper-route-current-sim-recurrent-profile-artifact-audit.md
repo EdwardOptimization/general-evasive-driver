@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T124229Z
+- Generated at UTC: 20260601T124834Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2223 pending artifact-only audit of L3 online/reset profile configs checkpoint provenance reset-control semantics and recurrent hidden-state handling no rerun ranking paper FW-vs-GRU or self-ID claims
+- Promotion decision: current_sim_recurrent_profile_artifact_audit_route_to_checkpoint_quality_audit
+- Decision reason: M2223 finds L3 profile/provenance/alias/hidden reset routing structurally clean but L3 checkpoint smoke-scale weak route to checkpoint-quality audit no rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Hypothesis
 
@@ -84,8 +84,8 @@ Existing profile materialization, config, and readiness artifacts can determine 
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2223 pending artifact-only audit of L3 online/reset profile configs checkpoint provenance reset-control semantics and recurrent hidden-state handling no rerun ranking paper FW-vs-GRU or self-ID claims
+- decision: current_sim_recurrent_profile_artifact_audit_route_to_checkpoint_quality_audit
+- reason: M2223 finds L3 profile/provenance/alias/hidden reset routing structurally clean but L3 checkpoint smoke-scale weak route to checkpoint-quality audit no rerun ranking paper FW-vs-GRU or self-ID claims
 
 ## Next Blocker
 
