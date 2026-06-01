@@ -41409,3 +41409,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.json`
 - next: `m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution`
+
+## M2304 Paper-Route Current-Sim Scenario Task-Family Guarded-Repair Training Execution
+
+- status: completed
+- decision: `current_sim_scenario_task_family_guarded_repair_training_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.json`
+- implementation doc: `docs/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.md`
+- summary: `runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json`
+- result_class: `current_sim_training_stability_repair_execution_pass`
+- runtime_seconds: `644.463307607919`
+- device: `cuda`
+- completed_run_count: `15`
+- failed_run_count: `0`
+- candidate_eval_count: `120`
+- selected_checkpoint_count: `15`
+- selected_beats_final_count: `10`
+- final_checkpoint_profile_floor_pass_count: `0`
+- selected_checkpoint_profile_floor_pass_count: `0`
+- selected_readiness_floor_pass_count: `5/15`
+- final_readiness_floor_pass_count: `4/15`
+- all_run_metrics_finite: `true`
+- all_candidate_metrics_finite: `true`
+- all_selected_metrics_finite: `true`
+- source_contract_violation_count: `0`
+- source_budget_violation_count: `0`
+- guardrail_violation_count: `0`
+- training/ppo/rollout/policy action: `true`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- interpretation: clean execution but below profile readiness floor; no ranking or repair-success claim
+- follow-up manifest: `experiments/manifests/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.json`
+- next: `m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit`

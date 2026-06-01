@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2311,
+    "completed": 2312,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design",
+    "task_id": "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2303-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-design.md"
+    "run_dir": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution",
+    "command_log": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json"
   },
   "next_task": {
-    "id": "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution",
-    "kind": "infrastructure",
-    "priority": 22990,
+    "id": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit",
+    "kind": "gate",
+    "priority": 23000,
     "status": "pending",
-    "hypothesis": "The M2302 guarded repair config matrix can complete 15 CUDA training runs and 120 candidate evaluations without guardrail or claim-boundary violations.",
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2302_paper_route_current_sim_scenario_task_family_guarded_repair_configs/training_matrix.csv --output-dir runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --execution-root runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution --device cuda --task-id m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution --fail-fast --next-blocker m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit",
-    "success_artifact": "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
-    "notes": "Pending: execute frozen CUDA training expected runs 15 candidates 120 selected 15; no ranking promotion paper or self-ID claims"
+    "hypothesis": "M2304 provides enough guarded-v2 training evidence to decide whether the next route should be selected-checkpoint outcome localization, branch synthesis, or bounded repair audit.",
+    "command": "manual artifact audit of runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json and profile aggregates",
+    "success_artifact": "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+    "notes": "Pending: audit M2304 clean execution pass 15 runs 120 candidates 15 selected but selected profile floor pass count 0; choose non-ranking route"
   },
-  "updated_at_utc": "20260601T213931Z"
+  "updated_at_utc": "20260601T215442Z"
 }

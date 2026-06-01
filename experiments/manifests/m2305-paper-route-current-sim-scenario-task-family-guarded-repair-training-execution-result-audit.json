@@ -1,0 +1,187 @@
+{
+  "id": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/profile_aggregate.csv",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv",
+      "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/candidate_eval_rows.csv",
+      "docs/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution.json"
+    ],
+    "parent_objective": [
+      "audit guarded-v2 repair training execution and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution"
+    ],
+    "blocked_by": [
+      "M2304 completed guarded-v2 repair training but selected_checkpoint_profile_floor_pass_count remains 0"
+    ],
+    "supersedes": [
+      "interpreting selected checkpoint return movement as repair success",
+      "directly ranking guarded-v2 profiles",
+      "running another guarded repair training panel before result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+  "public_gates": [
+    "M2305 must audit M2304 execution completeness candidate count selected checkpoint count and guardrails",
+    "M2305 must audit selected versus final checkpoint evidence without ranking profiles",
+    "M2305 must explicitly record that selected_checkpoint_profile_floor_pass_count remains 0",
+    "M2305 must decide whether to route to selected-checkpoint measured localization, synthesis, or bounded repair audit",
+    "M2305 must not run training reset rollout measured execution replay PPO or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_guarded_repair_training_result_audit",
+    "evidence_increment": "audits guarded-v2 repair training execution and converts selected-checkpoint evidence into a next-route decision",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2304 artifacts are incomplete",
+      "stop if selected_checkpoint_profile_floor_pass_count remains 0 and no outcome-localization or synthesis route is selected",
+      "stop if audit would treat return or termination movement as comparison readiness",
+      "stop if the next route would be another narrow training run without new measured evidence"
+    ],
+    "fallback_plan": [
+      "route to selected-checkpoint outcome localization if clean execution is sufficient but outcome slices are unknown",
+      "route to branch synthesis if guarded repair remains below-floor without localization support",
+      "route to bounded repair only if audit identifies a new non-local-search blocker"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2304 completed guarded-v2 repair training with selected profile floor pass count 0",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2304 guarded-v2 repair training execution and choose next route",
+    "admission_evidence": [
+      "M2304 result_class is current_sim_training_stability_repair_execution_pass",
+      "M2304 completed_run_count is 15",
+      "M2304 candidate_eval_count is 120",
+      "M2304 selected_checkpoint_count is 15",
+      "M2304 selected_beats_final_count is 10",
+      "M2304 selected_checkpoint_profile_floor_pass_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+      "M2305 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2304 completeness and guardrails are audited",
+      "M2304 selected versus final checkpoint evidence is classified",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2305 audits training artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2305; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2304 public guarded-v2 training and candidate-checkpoint artifacts.",
+    "negative_result_policy": "If guarded repair remains below floor route to localization or synthesis; do not lower self-ID standards.",
+    "allowed_claims": [
+      "guarded repair training execution result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns guarded-v2 closed-loop training data into a route decision before further local search",
+    "paper_verdict_delta": "can decide whether guarded-v2 repair merits outcome localization or branch synthesis",
+    "must_synthesize_if": [
+      "M2305 cannot select a route",
+      "M2305 would recommend another training run without new localization evidence",
+      "M2305 would rank profiles despite below-floor readiness"
+    ]
+  },
+  "hypothesis": "M2304 provides enough guarded-v2 training evidence to decide whether the next route should be selected-checkpoint outcome localization, branch synthesis, or bounded repair audit.",
+  "success_criteria": [
+    "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md exists",
+    "M2304 result_class is current_sim_training_stability_repair_execution_pass",
+    "completed_run_count is 15",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "selected_beats_final_count is audited",
+    "selected_checkpoint_profile_floor_pass_count is audited",
+    "guardrails remain false for training ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2304 artifacts are missing",
+    "M2304 selected checkpoint result is ignored",
+    "M2305 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2305 ranks profiles or selects a winner",
+    "M2305 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json and profile aggregates"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/summary.json",
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/profile_aggregate.csv",
+    "runs/m2304_paper_route_current_sim_scenario_task_family_guarded_repair_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2305 passes if it audits M2304 completeness and selected-checkpoint evidence then selects a non-ranking follow-up route.",
+  "next_blocker": "m2305-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution-result-audit"
+}
