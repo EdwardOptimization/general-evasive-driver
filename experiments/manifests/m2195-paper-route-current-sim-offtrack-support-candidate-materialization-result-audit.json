@@ -1,0 +1,161 @@
+{
+  "id": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_materialization_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/repaired_executable_task_specs.json",
+      "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv",
+      "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit no-rollout support candidate materialization result before reset validation design"
+    ],
+    "derived_from": [
+      "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2194 materialization must be audited before reset validation command design"
+    ],
+    "supersedes": [
+      "direct reset validation command design without materialization audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+  "public_gates": [
+    "M2195 must audit M2194 summary and materialized specs",
+    "M2195 must confirm 288 repaired specs and 2304 workload rows",
+    "M2195 must confirm zero materialization, contract, forbidden-key, and guardrail violations",
+    "M2195 must decide whether reset-validation command design is admitted",
+    "M2195 must not reset environments, run measured execution, or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not reset environments",
+    "do not run measured execution",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_candidate_materialization_audit",
+    "evidence_increment": "audits the repaired executable task panel before reset validation",
+    "claim_scope": "materialization result audit only; no reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repaired spec count or workload count is wrong",
+      "stop if materialization, contract, forbidden-key, or guardrail violations are nonzero",
+      "stop if reset validation command design would rank profiles"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if audit fails",
+      "route to reset-validation command design if audit passes",
+      "route to branch synthesis if materialization cannot support reset validation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2194 materialization requires result audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-rollout repaired task materialization",
+    "admission_evidence": [
+      "M2194 summary reports materialization pass",
+      "M2194 writes repaired executable specs",
+      "M2194 writes planned workload rows"
+    ],
+    "blocked_shortcuts": [
+      "no reset or rollout in audit",
+      "no ranking",
+      "no paper claim"
+    ],
+    "allowed_updates": [
+      "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+      "M2195 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit"
+    ],
+    "next_stage_criteria": [
+      "materialization result pass/fail is explicit",
+      "reset validation admission is explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2195 audits task materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2195."
+    ],
+    "temporal_evidence_window": "M2194 materialized task panel.",
+    "negative_result_policy": "If materialization result fails, repair materialization before reset validation.",
+    "allowed_claims": [
+      "materialization result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits newly materialized executable task data",
+    "paper_verdict_delta": "can admit reset validation design but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2195 cannot classify materialization result",
+      "M2195 would run reset or rollout",
+      "M2195 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2194 no-rollout materialization result is clean enough to admit reset-validation command design while keeping rollout/ranking blocked.",
+  "success_criteria": [
+    "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md exists",
+    "M2194 summary is audited",
+    "288 repaired specs and 2304 workload rows are accepted",
+    "materialization, contract, forbidden-key, and guardrail violation counts are accepted as zero",
+    "next route is explicit",
+    "no reset rollout training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2194 result is not audited",
+    "materialization result has nonzero violations",
+    "audit runs reset or rollout",
+    "audit ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_materialization_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json",
+    "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md"
+  ],
+  "decision_rule": "M2195 passes if it audits M2194 and chooses a next route without reset, rollout, or ranking.",
+  "next_blocker": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2201,
+    "completed": 2202,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+    "command_log": "docs/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.md",
     "returncode": 0,
-    "run_dir": "docs/m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design.md",
+    "run_dir": "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization",
     "status": "completed",
-    "task_id": "m2193-paper-route-current-sim-offtrack-support-candidate-materialization-design"
+    "task_id": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_candidate_materialization --candidate-config configs/paper_route_current_sim_task_quality_offtrack_support_repair_candidates_v0.json --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization",
-    "hypothesis": "The M2193 design can be implemented as a fail-closed no-rollout materializer that creates 288 repaired specs and 2304 workload rows without actor-input or ranking shortcuts.",
-    "id": "m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-rollout materialization of audited support-repair candidates",
-    "priority": 21890,
+    "command": "write docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md",
+    "hypothesis": "The M2194 no-rollout materialization result is clean enough to admit reset-validation command design while keeping rollout/ranking blocked.",
+    "id": "m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2194 materialization before reset-validation command design",
+    "priority": 21900,
     "status": "pending",
-    "success_artifact": "runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json"
+    "success_artifact": "docs/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260601T101331Z"
+  "updated_at_utc": "20260601T102149Z"
 }

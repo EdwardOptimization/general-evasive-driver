@@ -39100,3 +39100,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit no-rollout materialization implementation
 - follow-up manifest: `experiments/manifests/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.json`
 - next: `m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run`
+
+## M2194 Paper-Route Current-Sim Offtrack-Support Candidate Materialization Implementation And Run
+
+- status: completed
+- decision: `current_sim_offtrack_support_candidate_materialization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2194-paper-route-current-sim-offtrack-support-candidate-materialization-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_offtrack_support_candidate_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/summary.json`
+- result_class: `current_sim_offtrack_support_candidate_materialization_pass`
+- repaired executable specs: `288`
+- planned workload rows: `2304`
+- materialization failures: `0`
+- contract violations: `0`
+- forbidden-key violations: `0`
+- guardrail violations: `0`
+- reset: `false`
+- measured execution: `false`
+- policy action executed: `false`
+- result: route to materialization result audit before reset-validation design
+- follow-up manifest: `experiments/manifests/m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit.json`
+- next: `m2195-paper-route-current-sim-offtrack-support-candidate-materialization-result-audit`
