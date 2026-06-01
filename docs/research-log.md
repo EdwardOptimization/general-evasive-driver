@@ -40411,3 +40411,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.json`
 - next: `m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution`
+
+## M2250 Paper-Route Current-Sim Offtrack/Recovery/Corridor Training Execution
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_training_execution_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.json`
+- result artifact: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json`
+- parent matrix: `runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv`
+- result class: `current_sim_training_stability_repair_execution_pass`
+- completed runs: `15`
+- failed runs: `0`
+- candidate eval rows: `120`
+- selected checkpoint rows: `15`
+- all run/candidate/selected metrics finite: `true`
+- profile set matched: `true`
+- seed set matched: `true`
+- source contract violations: `0`
+- source budget violations: `0`
+- guardrail violation count: `0`
+- final checkpoint profile floor pass count: `0`
+- selected checkpoint profile floor pass count: `0`
+- selected beats final count: `15/15`
+- local selected readiness rows: `4/15`
+- aggregate return movement vs M2241 selected panel: improved for all five profiles
+- aggregate termination movement vs M2241 selected panel: mixed and still below route floor
+- classification: `offtrack_recovery_corridor_training_execution_complete_but_readiness_still_below_floor`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.json`
+- next: `m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit`

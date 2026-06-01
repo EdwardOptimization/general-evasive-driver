@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
+  "decision_reason": "M2250 pass 15 runs 120 candidates 15 selected selected_beats_final 15/15 selected profile floor pass 0 guardrail 0 no ranking claims",
   "failure_criteria": [
     "matrix validation fails",
     "completed_run_count is less than 15",
@@ -28,7 +28,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "infrastructure",
-  "generated_at_utc": "20260601T160230Z",
+  "generated_at_utc": "20260601T162239Z",
   "hypothesis": "The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
   "lineage": {
     "blocked_by": [
@@ -59,9 +59,9 @@
     ]
   },
   "milestone": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
-  "next_blocker": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
+  "next_blocker": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_training_execution_pass_route_to_result_audit",
   "public_gates": [
     "M2250 must use exactly the M2248 training matrix",
     "M2250 must run exactly 15 train_ppo jobs if validation passes",
@@ -72,9 +72,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_training_execution_pass_route_to_result_audit",
     "milestone": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
-    "reason": "M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
+    "reason": "M2250 pass 15 runs 120 candidates 15 selected selected_beats_final 15/15 selected profile floor pass 0 guardrail 0 no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

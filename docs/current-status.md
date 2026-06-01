@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2244-paper-route-current-sim-selected-checkpoint-outcome-localization-implementation
+m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution
 ```
 
 Current next task:
 
 ```text
-m2245-paper-route-current-sim-selected-checkpoint-outcome-localization-result-audit
+m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -216,6 +216,21 @@ or make ranking, finite-window-vs-GRU, paper, or self-ID claims. M2249
 completes that design and admits M2250: run exactly `15` repaired training jobs
 from the M2248 matrix, evaluate `120` candidate checkpoints, select `15`
 checkpoints, and route to M2251 result audit before any interpretation.
+M2250 completes that repaired training execution: `15/15` runs complete,
+`120` candidate checkpoints are evaluated, `15` selected checkpoints are
+written, all run/candidate/selected metrics are finite, source contract and
+budget violations are `0`, and guardrail violations are `0`. Candidate
+selection beats final in `15/15` rows, and selected aggregate return improves
+relative to the earlier M2241 selected panel across all five profiles. However
+the pre-registered route floor still does not pass:
+`selected_checkpoint_profile_floor_pass_count=0`; local selected readiness rows
+are only `4/15`, and termination movement is mixed. M2251 must audit this as a
+clean execution but not a comparison-ready result. The likely next evidence gap
+is whether the reward extension reduced offtrack or merely shifted termination
+mode, so selected-checkpoint outcome localization over the M2250 selected rows
+is the leading non-ranking route unless M2251 finds a stronger repair blocker.
+Ranking, finite-window-vs-GRU verdicts, paper-level claims, and level3
+self-identification claims remain blocked.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

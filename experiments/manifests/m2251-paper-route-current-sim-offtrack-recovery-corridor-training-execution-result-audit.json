@@ -1,0 +1,185 @@
+{
+  "id": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "behavior_regression",
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/profile_aggregate.csv",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv",
+      "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/candidate_eval_rows.csv",
+      "docs/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution.json"
+    ],
+    "parent_objective": [
+      "audit repaired training execution and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution"
+    ],
+    "blocked_by": [
+      "M2250 completed repaired training but selected_checkpoint_profile_floor_pass_count remains 0"
+    ],
+    "supersedes": [
+      "interpreting return-only improvement as repair success",
+      "directly ranking repaired profiles",
+      "running another repaired training panel before result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
+  "public_gates": [
+    "M2251 must audit M2250 execution completeness candidate count selected checkpoint count and guardrails",
+    "M2251 must compare final vs selected checkpoint evidence without ranking profiles",
+    "M2251 must compare M2250 against M2241 only as repair evidence not as a controller-family result",
+    "M2251 must select a concrete non-ranking next route",
+    "M2251 must not run training reset rollout measured execution replay PPO or private holdout"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_task_curriculum_readiness_diagnosis",
+    "evidence_axis": "Q_offtrack_recovery_corridor_training_execution_result_audit",
+    "evidence_increment": "audits repaired training execution and turns return/termination evidence into a next-route decision",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2250 artifacts are incomplete",
+      "stop if selected_checkpoint_profile_floor_pass_count remains 0 and no failure localization route is selected",
+      "stop if audit would treat return-only improvement as comparison readiness"
+    ],
+    "fallback_plan": [
+      "route to selected-checkpoint outcome localization if execution is clean but outcome mode is unknown",
+      "route to reward/curriculum repair if audit finds a clear residual training blocker",
+      "route to branch synthesis if repeated below-floor training cannot select a next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2250 completed repaired training with selected profile floor pass count 0",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2250 repaired training execution and choose next route",
+    "admission_evidence": [
+      "M2250 result_class is current_sim_training_stability_repair_execution_pass",
+      "M2250 completed_run_count is 15",
+      "M2250 candidate_eval_count is 120",
+      "M2250 selected_checkpoint_count is 15",
+      "M2250 selected_beats_final_count is 15",
+      "M2250 selected_checkpoint_profile_floor_pass_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no rollout",
+      "no measured execution",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
+      "M2251 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2250 completeness and guardrails are audited",
+      "M2250 return and termination movement is classified",
+      "next non-ranking route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "level1_closed_loop_reactive",
+    "current_frame_substitution_risk": "M2251 audits repaired training artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2251; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2250 public repaired training and candidate-checkpoint artifacts.",
+    "negative_result_policy": "If repaired training remains below floor route to localization or synthesis; do not lower self-ID standards.",
+    "allowed_claims": [
+      "repaired training execution result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns repaired closed-loop training data into a route decision before further local search",
+    "paper_verdict_delta": "can decide whether offtrack reward repair merits outcome localization or a pivot",
+    "must_synthesize_if": [
+      "M2251 cannot select a route",
+      "M2251 would recommend another training run without new localization evidence",
+      "M2251 would rank profiles despite below-floor readiness"
+    ]
+  },
+  "hypothesis": "M2250 provides enough repaired training evidence to decide whether the next route should be selected-checkpoint outcome localization or another bounded repair.",
+  "success_criteria": [
+    "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md exists",
+    "M2250 result_class is current_sim_training_stability_repair_execution_pass",
+    "completed_run_count is 15",
+    "candidate_eval_count is 120",
+    "selected_checkpoint_count is 15",
+    "selected_beats_final_count is audited",
+    "selected_checkpoint_profile_floor_pass_count is audited",
+    "guardrails remain false for training ranking paper-level finite-window-vs-GRU and level3 self-ID claims",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2250 artifacts are missing",
+    "M2250 selected checkpoint result is ignored",
+    "M2251 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2251 ranks profiles or selects a winner",
+    "M2251 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json and profile aggregates"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/profile_aggregate.csv",
+    "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "decision_rule": "M2251 passes if it audits M2250 completeness and selected-checkpoint evidence then selects a non-ranking follow-up route.",
+  "next_blocker": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit"
+}

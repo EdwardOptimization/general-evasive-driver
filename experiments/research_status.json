@@ -1,28 +1,35 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2257,
+    "completed": 2258,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+    "candidate_eval_count": 120,
+    "completed_run_count": 15,
+    "failed_run_count": 0,
+    "guardrail_violation_count": 0,
     "returncode": 0,
-    "run_dir": "docs/m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design.md",
+    "run_dir": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution",
+    "selected_beats_final_count": 15,
+    "selected_checkpoint_count": 15,
+    "selected_checkpoint_profile_floor_pass_count": 0,
     "status": "completed",
-    "task_id": "m2249-paper-route-current-sim-offtrack-recovery-corridor-training-execution-design"
+    "summary": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json",
+    "task_id": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_training_stability_repair_execution --training-matrix runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv --output-dir runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --execution-root runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution --task-id m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution --next-blocker m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit --device cpu",
-    "hypothesis": "The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run panel and produce complete candidate-checkpoint evidence for audit.",
-    "id": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution",
-    "kind": "infrastructure",
-    "notes": "Pending: run 15 repaired training jobs with candidate checkpoint evaluation no ranking claims",
-    "priority": 22450,
+    "command": "manual artifact audit of runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json and profile aggregates",
+    "hypothesis": "M2250 provides enough repaired training evidence to decide whether the next route should be selected-checkpoint outcome localization or another bounded repair.",
+    "id": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2250 clean execution return movement and below-floor readiness then select non-ranking next route",
+    "priority": 22460,
     "status": "pending",
-    "success_artifact": "runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/summary.json"
+    "success_artifact": "docs/m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit.md"
   },
-  "updated_at_utc": "20260601T155640Z"
+  "updated_at_utc": "20260601T161549Z"
 }

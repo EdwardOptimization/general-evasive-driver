@@ -172,5 +172,5 @@
     "runs/m2248_paper_route_current_sim_offtrack_recovery_corridor_reward_extension_materialization/training_matrix.csv"
   ],
   "decision_rule": "M2250 passes if it completes all repaired training jobs and candidate checkpoint evaluation without guardrail violations.",
-  "next_blocker": "m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution"
+  "next_blocker": "m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit"
 }

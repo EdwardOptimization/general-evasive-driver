@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T160230Z
+- Generated at UTC: 20260601T162239Z
 - Type: infrastructure
 - Gate tier: infrastructure
-- Promotion decision: pending
-- Decision reason: M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_training_execution_pass_route_to_result_audit
+- Decision reason: M2250 pass 15 runs 120 candidates 15 selected selected_beats_final 15/15 selected profile floor pass 0 guardrail 0 no ranking claims
 
 ## Hypothesis
 
@@ -88,9 +88,9 @@ The M2248 offtrack/recovery/corridor reward extension can train a matched 15-run
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2250 pending 15 repaired training jobs with candidate checkpoint evaluation no ranking claims
+- decision: current_sim_offtrack_recovery_corridor_training_execution_pass_route_to_result_audit
+- reason: M2250 pass 15 runs 120 candidates 15 selected selected_beats_final 15/15 selected profile floor pass 0 guardrail 0 no ranking claims
 
 ## Next Blocker
 
-m2250-paper-route-current-sim-offtrack-recovery-corridor-training-execution
+m2251-paper-route-current-sim-offtrack-recovery-corridor-training-execution-result-audit
