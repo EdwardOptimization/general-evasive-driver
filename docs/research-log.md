@@ -40469,3 +40469,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.json`
 - next: `m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design`
+
+## M2252 Paper-Route Current-Sim Offtrack/Recovery/Corridor Selected-Checkpoint Outcome Localization Design
+
+- status: completed
+- decision: `current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design_admit_execution`
+- manifest: `experiments/manifests/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.json`
+- design artifact: `docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md`
+- selected checkpoint source: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/selected_checkpoint_rows.csv`
+- config root: `runs/m2250_paper_route_current_sim_offtrack_recovery_corridor_training_execution/configs`
+- output dir: `runs/m2253_paper_route_current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization`
+- selected checkpoints: `15`
+- episodes per selected checkpoint: `32`
+- expected episode rows: `480`
+- baseline repair evidence: M2244 selected panel success/offtrack/collision `277/110/93` over `480`
+- execution started in M2252: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation.json`
+- next: `m2253-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-implementation`

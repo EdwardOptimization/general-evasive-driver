@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims",
+  "decision_reason": "M2252 freezes M2253 480-row outcome localization over M2250 selected checkpoints no ranking claims",
   "failure_criteria": [
     "M2252 ignores M2250 selected checkpoint source",
     "M2252 changes actor inputs or training configs",
@@ -32,7 +32,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T163125Z",
+  "generated_at_utc": "20260601T163552Z",
   "hypothesis": "A fixed selected-checkpoint outcome-localization design over M2250 can determine whether the reward repair changed the offtrack-dominated failure mode.",
   "lineage": {
     "blocked_by": [
@@ -67,7 +67,7 @@
   "milestone": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design",
   "next_blocker": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design_admit_execution",
   "public_gates": [
     "M2252 must design localization over exactly the 15 M2250 selected checkpoints",
     "M2252 must require 32 public episodes per selected checkpoint for 480 expected rows",
@@ -78,9 +78,9 @@
   "scoreboard": {
     "checkpoint": "docs/m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design.md",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design_admit_execution",
     "milestone": "m2252-paper-route-current-sim-offtrack-recovery-corridor-selected-checkpoint-outcome-localization-design",
-    "reason": "M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims",
+    "reason": "M2252 freezes M2253 480-row outcome localization over M2250 selected checkpoints no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

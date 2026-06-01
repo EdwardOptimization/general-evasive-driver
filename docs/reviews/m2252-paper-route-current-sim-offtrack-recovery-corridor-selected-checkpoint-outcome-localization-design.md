@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T163125Z
+- Generated at UTC: 20260601T163552Z
 - Type: gate
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims
+- Promotion decision: current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design_admit_execution
+- Decision reason: M2252 freezes M2253 480-row outcome localization over M2250 selected checkpoints no ranking claims
 
 ## Hypothesis
 
@@ -93,8 +93,8 @@ A fixed selected-checkpoint outcome-localization design over M2250 can determine
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2252 pending design 480-row outcome localization over M2250 selected checkpoints no ranking claims
+- decision: current_sim_offtrack_recovery_corridor_selected_checkpoint_outcome_localization_design_admit_execution
+- reason: M2252 freezes M2253 480-row outcome localization over M2250 selected checkpoints no ranking claims
 
 ## Next Blocker
 
