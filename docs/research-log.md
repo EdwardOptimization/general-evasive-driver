@@ -38586,3 +38586,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: materialized current-sim checkpoint/workload panel is ready for result audit
 - follow-up manifest: `experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json`
 - next: `m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit`
+
+## M2172 Paper-Route Current-Sim Checkpoint/Profile Materialization Result Audit
+
+- status: completed
+- decision: `current_sim_checkpoint_profile_materialization_audit_admit_measured_execution_command_design`
+- manifest: `experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json`
+- audit artifact: `docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md`
+- audited summary: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json`
+- profile rows audited: `8`
+- workload rows audited: `320`
+- missing checkpoint paths: `0`
+- nonexistent checkpoint paths: `0`
+- reset-control aliases online-GRU checkpoint: `true`
+- reset-control training started: `false`
+- unique checkpoint paths: `7`
+- real M2151 measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO in audit: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: clean materialization audit admits measured execution command design
+- follow-up manifest: `experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json`
+- next: `m2173-paper-route-current-sim-measured-execution-command-design`

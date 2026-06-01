@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2179,
+    "completed": 2180,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json",
+    "command_log": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization",
+    "run_dir": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run"
+    "task_id": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json",
-    "hypothesis": "The M2171 materialized checkpoint/profile panel is clean enough to admit a measured-execution command design, while keeping ranking and paper claims blocked.",
-    "id": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit",
+    "command": "see experiments/manifests/m2173-paper-route-current-sim-measured-execution-command-design.json",
+    "hypothesis": "The audited M2171 materialized workload can be converted into a precise current-sim measured execution command without running it or making comparison claims.",
+    "id": "m2173-paper-route-current-sim-measured-execution-command-design",
     "kind": "gate",
-    "notes": "Pending: audit checkpoint/profile materialization result",
-    "priority": 21670,
+    "notes": "Pending: design current-sim measured execution command",
+    "priority": 21680,
     "status": "pending",
-    "success_artifact": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md"
+    "success_artifact": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md"
   },
-  "updated_at_utc": "20260601T081114Z"
+  "updated_at_utc": "20260601T081548Z"
 }

@@ -1,0 +1,165 @@
+{
+  "id": "m2173-paper-route-current-sim-measured-execution-command-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L0_current_masked/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L1_one_step/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_13/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_25/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_50/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_100/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "freeze measured-execution command over audited current-sim materialized workload"
+    ],
+    "derived_from": [
+      "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "Measured execution command must be designed before running the 320-cell workload"
+    ],
+    "supersedes": [
+      "ad hoc measured execution command"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2173-paper-route-current-sim-measured-execution-command-design.md",
+  "public_gates": [
+    "M2173 must freeze a command over M2151 specs and M2171 materialized workload",
+    "M2173 must set target episode/spec/profile counts",
+    "M2173 must define output directory and next-blocker audit id",
+    "M2173 must not run measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_execution_command_design",
+    "evidence_increment": "freezes a measured-execution command after audited checkpoint materialization",
+    "claim_scope": "command design only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if command does not use M2171 materialized workload",
+      "stop if output directory or seed base is ambiguous",
+      "stop if command omits target counts",
+      "stop if measured execution is run in design milestone"
+    ],
+    "fallback_plan": [
+      "route to command repair if design is incomplete",
+      "route to measured execution run if command design is complete",
+      "route to synthesis if validation blocks continuation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2172 audit admits measured execution command design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze current-sim measured execution command without running it",
+    "admission_evidence": [
+      "M2172 audits M2171 as clean checkpoint/profile materialization evidence",
+      "M2168 measured runner adapter is implemented and focused-test covered"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in command design",
+      "no ranking or paper-level claims"
+    ],
+    "allowed_updates": [
+      "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+      "M2173 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution implementation/run or branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "command is explicit",
+      "output directory and seed policy are explicit",
+      "target counts are explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2173 designs measured execution and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2173."
+    ],
+    "temporal_evidence_window": "M2171 materialized workload and M2172 audit.",
+    "negative_result_policy": "If command design is incomplete, repair command design before running any workload.",
+    "allowed_claims": [
+      "measured execution command design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from materialization audit to executable measured-run command readiness",
+    "paper_verdict_delta": "can admit measured execution run but cannot decide controller comparison",
+    "must_synthesize_if": [
+      "M2173 cannot freeze a complete command",
+      "M2173 needs another readiness audit",
+      "M2173 would run measured execution directly"
+    ]
+  },
+  "hypothesis": "The audited M2171 materialized workload can be converted into a precise current-sim measured execution command without running it or making comparison claims.",
+  "success_criteria": [
+    "docs/m2173-paper-route-current-sim-measured-execution-command-design.md exists",
+    "command references M2151 executable specs and M2171 materialized workload",
+    "output directory, eval seed base, device, resume policy, target episode count, target spec count, target profile count, and next blocker are explicit",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "command uses stale M2151 empty-checkpoint workload",
+    "command omits output directory or target counts",
+    "measured execution is run"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2173-paper-route-current-sim-measured-execution-command-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2173-paper-route-current-sim-measured-execution-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_command_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+  ],
+  "decision_rule": "M2173 passes if it freezes a complete measured execution command and keeps execution/ranking blocked.",
+  "next_blocker": "m2173-paper-route-current-sim-measured-execution-command-design"
+}
