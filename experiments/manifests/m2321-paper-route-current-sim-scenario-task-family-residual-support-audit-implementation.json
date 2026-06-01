@@ -1,0 +1,190 @@
+{
+  "id": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/scenario_support_labels_rescored.csv",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/role_support_summary_rescored.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only residual-support audit"
+    ],
+    "derived_from": [
+      "m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design"
+    ],
+    "blocked_by": [
+      "residual R2-R5 support structure must be classified before training or ranking"
+    ],
+    "supersedes": [
+      "manual inspection of residual support rows",
+      "direct training from repaired labels without residual audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.md",
+  "public_gates": [
+    "M2321 must implement artifact-only residual-support audit",
+    "M2321 must consume M2318 rescored support artifacts",
+    "M2321 must write residual scenario/role/axis/route summaries",
+    "M2321 must show R0/R1 residual count 0 and R2-R5 residual count 48",
+    "M2321 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_residual_support_audit",
+    "evidence_axis": "Q_residual_support_audit_implementation",
+    "evidence_increment": "materializes residual-support classification over M2318 repaired artifacts",
+    "claim_scope": "artifact-only residual support diagnosis; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation starts environment reset or rollout",
+      "stop if support policies are ranked",
+      "stop if R0/R1 residual counts are nonzero",
+      "stop if residual rows are claimed solved"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifacts are complete",
+      "route to schema repair if M2318 fields are insufficient",
+      "route to branch synthesis if route labels are contradictory"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2320 admits artifact-only residual-support audit implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement residual-support artifact audit",
+    "admission_evidence": [
+      "M2320 freezes groupings and route labels",
+      "M2318 provides repaired support artifacts",
+      "M2319 blocks training/ranking until residual support is classified"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_scenario_task_family_residual_support_audit.py",
+      "tests/test_paper_route_current_sim_scenario_task_family_residual_support_audit.py",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "docs/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.md",
+      "M2321 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary and residual CSV artifacts are written",
+      "expected residual counts match",
+      "guardrail_violation_count is 0",
+      "next result audit is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2321 audits scenario/support artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2321; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2318 repaired support artifacts.",
+    "negative_result_policy": "Residual support audit results remain task-support evidence until result audit chooses a route.",
+    "allowed_claims": [
+      "artifact-only residual support audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies residual support structure instead of running another repair/training step",
+    "paper_verdict_delta": "can decide whether residual support requires scenario redesign support-policy coverage or role semantics work",
+    "must_synthesize_if": [
+      "M2321 routes directly to training",
+      "M2321 claims residual support solved",
+      "the residual-support branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Artifact-only residual-support audit will classify all 48 remaining non-clear scenarios into actionable non-ranking route labels.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_residual_support_audit.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_residual_support_audit.py passes",
+    "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json exists",
+    "residual_scenario_count is 48",
+    "r0_residual_count and r1_residual_count are 0",
+    "guardrail_violation_count is 0",
+    "a follow-up result-audit manifest is selected"
+  ],
+  "failure_criteria": [
+    "M2321 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2321 ranks support policies or selects a winner",
+    "M2321 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2321 cannot classify residual rows"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_scenario_task_family_residual_support_audit.py"
+    },
+    {
+      "name": "audit",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_residual_support_audit --episode-rows runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv --scenario-support-labels runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/scenario_support_labels_rescored.csv --role-support-summary runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/role_support_summary_rescored.csv --output-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --target-scenario-count 72 --target-residual-scenario-count 48 --next-blocker m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv",
+    "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/scenario_support_labels_rescored.csv"
+  ],
+  "decision_rule": "M2321 passes if it writes residual-support artifacts and pre-registers result audit.",
+  "next_blocker": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit"
+}

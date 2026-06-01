@@ -41827,3 +41827,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.json`
 - next: `m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design`
+
+## M2320 Paper-Route Current-Sim Scenario Task-Family Residual Support Audit Design
+
+- status: completed
+- decision: `residual_support_audit_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.json`
+- design doc: `docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md`
+- parent synthesis: `docs/m2319-paper-route-current-sim-scenario-task-family-feasibility-calibration-branch-synthesis.md`
+- target residual scenario count: `48`
+- expected support labels clear/mixed/blocked/metric: `24/26/21/1`
+- route labels: `metric_semantics_audit_candidate`, `support_policy_coverage_candidate`, `scenario_or_support_redesign_candidate`, `mitigation_semantics_or_support_redesign_candidate`
+- reset/rollout/policy action in M2320: `false`
+- training/replay/PPO in M2320: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.json`
+- next: `m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation`
