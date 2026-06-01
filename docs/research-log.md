@@ -40122,3 +40122,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admits artifact-only implementation in M2238
 - follow-up manifest: `experiments/manifests/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.json`
 - next: `m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation`
+
+## M2238 Paper-Route Current-Sim Task/Curriculum Readiness Diagnosis Implementation
+
+- status: completed
+- decision: `current_sim_task_curriculum_readiness_diagnosis_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation.json`
+- result artifact: `runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json`
+- row diagnosis count: `30`
+- seed diagnosis count: `6`
+- budget delta count: `15`
+- training plateau row count: `30`
+- missing artifact count: `0`
+- profile_floor_pass_count short-v0/medium-v1: `0/0`
+- floor transitions: unchanged fail `11`, unchanged pass `4`, fail-to-pass `0`, pass-to-fail `0`
+- floor fail reasons: pass `8`, return_and_termination `21`, termination_only `1`
+- budget response: return improved `10/15`, termination improved `10/15`, but no readiness transition
+- late regression rows: `18/30`
+- route classification: `training_plateau_or_late_regression`
+- secondary route: `task_curriculum_repair`
+- reset/rollout/measured execution/training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: another blind budget escalation remains blocked; route to result audit
+- follow-up manifest: `experiments/manifests/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.json`
+- next: `m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit`

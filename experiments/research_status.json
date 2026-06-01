@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2245,
+    "completed": 2246,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+    "command_log": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design.md",
+    "run_dir": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis",
     "status": "completed",
-    "task_id": "m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design"
+    "task_id": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_task_curriculum_readiness_diagnosis --output-dir runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis",
-    "hypothesis": "Existing M2230/M2234 artifacts are sufficient to classify the repeated below-floor readiness failure into seed/task, plateau, floor, or reward/curriculum routes without rerun.",
-    "id": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement artifact-only readiness diagnosis over M2230/M2234 training artifacts",
-    "priority": 22330,
+    "command": "manual artifact audit of runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json and diagnostic CSVs",
+    "hypothesis": "M2238 provides enough artifact-only evidence to audit the repeated below-floor result and route away from blind budget escalation.",
+    "id": "m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2238 route classification and select next non-training repair route",
+    "priority": 22340,
     "status": "pending",
-    "success_artifact": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json"
+    "success_artifact": "docs/m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit.md"
   },
-  "updated_at_utc": "20260601T141219Z"
+  "updated_at_utc": "20260601T142544Z"
 }

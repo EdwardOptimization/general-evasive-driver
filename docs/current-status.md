@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2237-paper-route-current-sim-task-curriculum-readiness-diagnosis-design
+m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation
 ```
 
 Current next task:
 
 ```text
-m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation
+m2239-paper-route-current-sim-task-curriculum-readiness-diagnosis-result-audit
 ```
 
 Immediate route: M2212 implemented the no-rerun outcome localizer over M2209
@@ -150,6 +150,18 @@ short-v0-to-medium-v1 budget response, training plateau/late regression, and
 profile-independent task difficulty. M2238 may now implement that no-rerun
 diagnosis and classify the next route without ranking profiles or claiming
 finite-window-vs-GRU/self-ID evidence.
+M2238 implements that diagnosis and completes cleanly with no artifact gaps:
+`row_diagnosis_count=30`, `seed_diagnosis_count=6`, `budget_delta_count=15`,
+and `training_plateau_row_count=30`. The route-level readiness state remains
+below floor: `profile_floor_pass_count` is `0` for both short-v0 and medium-v1,
+with `11` unchanged-fail and `4` unchanged-pass profile/seed rows. Medium-v1
+improves return and termination in `10/15` rows but produces `0` fail-to-pass
+readiness transitions. The primary route classification is
+`training_plateau_or_late_regression` because `18/30` training traces show late
+return or termination regression; secondary route is `task_curriculum_repair`.
+M2239 must audit this result and select the next non-training repair route
+before any new rollout, training, measured execution, ranking,
+finite-window-vs-GRU verdict, or self-ID claim.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

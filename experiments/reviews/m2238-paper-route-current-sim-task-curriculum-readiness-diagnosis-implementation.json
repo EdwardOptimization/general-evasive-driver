@@ -1,5 +1,5 @@
 {
-  "decision_reason": "M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims",
+  "decision_reason": "M2238 artifact-only diagnosis pass route training_plateau_or_late_regression late regression 18/30 unchanged fail 11/15 no ranking claims",
   "failure_criteria": [
     "required artifacts are missing",
     "diagnosis outputs are missing",
@@ -29,7 +29,7 @@
     "do not claim level3 self-identification"
   ],
   "gate_tier": "process",
-  "generated_at_utc": "20260601T141446Z",
+  "generated_at_utc": "20260601T143013Z",
   "hypothesis": "Existing M2230/M2234 artifacts are sufficient to classify the repeated below-floor readiness failure into seed/task, plateau, floor, or reward/curriculum routes without rerun.",
   "lineage": {
     "blocked_by": [
@@ -65,7 +65,7 @@
   "milestone": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
   "next_blocker": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "current_sim_task_curriculum_readiness_diagnosis_pass_route_to_result_audit",
   "public_gates": [
     "M2238 must operate only on existing M2230/M2234 artifacts",
     "M2238 must emit row, seed, budget-delta, and training-plateau diagnostics",
@@ -76,9 +76,9 @@
   "scoreboard": {
     "checkpoint": "runs/m2238_paper_route_current_sim_task_curriculum_readiness_diagnosis/summary.json",
     "clearance_margin_mean": "",
-    "decision": "pending",
+    "decision": "current_sim_task_curriculum_readiness_diagnosis_pass_route_to_result_audit",
     "milestone": "m2238-paper-route-current-sim-task-curriculum-readiness-diagnosis-implementation",
-    "reason": "M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims",
+    "reason": "M2238 artifact-only diagnosis pass route training_plateau_or_late_regression late regression 18/30 unchanged fail 11/15 no ranking claims",
     "reset_success": "",
     "success_rate": "",
     "termination_rate": "",

@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Generated at UTC: 20260601T141446Z
+- Generated at UTC: 20260601T143013Z
 - Type: infrastructure
 - Gate tier: process
-- Promotion decision: pending
-- Decision reason: M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims
+- Promotion decision: current_sim_task_curriculum_readiness_diagnosis_pass_route_to_result_audit
+- Decision reason: M2238 artifact-only diagnosis pass route training_plateau_or_late_regression late regression 18/30 unchanged fail 11/15 no ranking claims
 
 ## Hypothesis
 
@@ -88,8 +88,8 @@ Existing M2230/M2234 artifacts are sufficient to classify the repeated below-flo
 - zero_wheel_success: None
 - zero_all_success: None
 - wheel_gain_mu: None
-- decision: pending
-- reason: M2238 pending artifact-only readiness diagnosis implementation no rerun/ranking claims
+- decision: current_sim_task_curriculum_readiness_diagnosis_pass_route_to_result_audit
+- reason: M2238 artifact-only diagnosis pass route training_plateau_or_late_regression late regression 18/30 unchanged fail 11/15 no ranking claims
 
 ## Next Blocker
 
