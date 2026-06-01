@@ -1,0 +1,201 @@
+{
+  "id": "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_seed_source_repaired_reset_validation"
+    ],
+    "parent_dataset": [
+      "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement seed-source repair and rerun full current-sim reset validation"
+    ],
+    "derived_from": [
+      "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design"
+    ],
+    "blocked_by": [
+      "M2160 must freeze the seed-source repair command before implementation"
+    ],
+    "supersedes": [
+      "full reset rerun with eval_seed_base_plus_index seeds",
+      "terminal-boundary attempt-budget repair as primary fix"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.md",
+  "public_gates": [
+    "M2161 must implement the seed-source repair from M2160",
+    "M2161 must run the full 40-spec reset-only validation using prefer_spec_eval_seed_override",
+    "M2161 must log seed_source and actual_eval_seed for each reset row",
+    "M2161 must not run rollout measured execution policy actions or ranking"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_seed_source_repaired_reset_validation",
+    "evidence_increment": "reruns full current-sim reset validation with per-spec eval_seed_override handling",
+    "claim_scope": "reset validation only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if repaired validator runs rollout or policy actions",
+      "stop if seed_source or actual_eval_seed fields are missing",
+      "stop if reset validation still fails",
+      "stop if result is routed directly to measured execution without audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if full reset validation passes or fails closed",
+      "route to seed-source repair audit if seed_source logging is wrong",
+      "route to terminal-boundary spec repair if eval_seed_override still fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2160 admits seed-source repair implementation-and-run",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "current-sim seed-source repaired reset validation",
+    "admission_evidence": [
+      "M2160 freezes seed_source_mode prefer_spec_eval_seed_override",
+      "M2158 shows eval_seed_override 219103 passes for the previously failing T5 row"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout",
+      "do not rank",
+      "do not treat reset validation as measured policy evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_controlled_comparison_reset_validation_preflight.py",
+      "tests/test_paper_route_current_sim_controlled_comparison_reset_validation_preflight.py",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_rows.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_failure_rows.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/contract_rows.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_distribution_by_task_family.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_distribution_by_source_family_template.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/reset_distribution_by_seed_source.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/metadata_missing_rows.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/claim_boundary.csv",
+      "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/run_state.json",
+      "docs/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.md",
+      "M2161 status queue scoreboard research log and review",
+      "one follow-up manifest for seed-source repaired reset-validation result audit"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "summary exists",
+      "40 reset attempts are recorded",
+      "seed_source and actual_eval_seed are recorded",
+      "claim boundary is explicit",
+      "next audit is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2161 reset validation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2161."
+    ],
+    "temporal_evidence_window": "M2151 and M2158 artifacts.",
+    "negative_result_policy": "If repaired reset validation fails, audit before repair; do not weaken self-ID standards.",
+    "allowed_claims": [
+      "seed-source repaired reset validation result",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "runs the full current-sim reset gate with repaired seed-source semantics",
+    "paper_verdict_delta": "can make the current-sim panel reset-valid if audited but cannot make a paper verdict by itself",
+    "must_synthesize_if": [
+      "M2161 repaired reset validation still fails",
+      "M2161 needs repeated local reset repair",
+      "M2161 routes directly to measured comparison without audit"
+    ]
+  },
+  "hypothesis": "Using per-spec eval_seed_override for reset validation will repair the M2154 seed-source artifact and validate all 40 current-sim executable specs without rollout or policy actions.",
+  "success_criteria": [
+    "focused tests pass",
+    "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json exists",
+    "result_class is current_sim_controlled_comparison_reset_validation_preflight_pass",
+    "seed_source_mode is prefer_spec_eval_seed_override",
+    "reset_attempt_count is 40",
+    "reset_success_count is 40",
+    "reset_failure_count is 0",
+    "seed_source_quota_pass is true",
+    "contract_violation_count is 0",
+    "metadata_missing_count is 0",
+    "forbidden_key_violation_count is 0",
+    "guardrail_violation_count is 0",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "focused tests fail",
+    "summary is missing",
+    "reset failures appear",
+    "seed_source or actual_eval_seed is missing",
+    "contract metadata claim or guardrail checks fail",
+    "policy action or rollout is performed",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_controlled_comparison_reset_validation_preflight.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_controlled_comparison_reset_validation_preflight --executable-task-specs runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json --output-dir runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight --eval-seed-base 215300 --target-spec-count 40 --expected-observation-dim 72 --seed-source-mode prefer_spec_eval_seed_override --next-blocker m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_seed_source_repaired_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
+    "runs/m2158_paper_route_current_sim_terminal_boundary_reset_sampling_diagnostic/summary.json"
+  ],
+  "decision_rule": "M2161 passes if it runs the full reset-only validation with repaired seed-source semantics and zero reset metadata contract or guardrail failures.",
+  "next_blocker": "m2162-paper-route-current-sim-seed-source-repaired-reset-validation-result-audit"
+}

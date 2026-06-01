@@ -16,24 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit
+m2160-paper-route-current-sim-reset-validator-seed-source-repair-design
 ```
 
 Current next task:
 
 ```text
-m2160-paper-route-current-sim-reset-validator-seed-source-repair-design
+m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run
 ```
 
-Immediate route: M2159 audits the terminal-boundary diagnostic as a
-seed-source protocol artifact. The sequential reset-validation seed `215335`
-fails at budgets `200/800/1600`, but the materialized spec's
-`eval_seed_override=219103` passes at the original budget `200`. M2160 must
-design a reset-validator repair that uses per-spec `eval_seed_override` when
-present, logs `seed_source` and `actual_eval_seed`, and only then admits a full
-40-spec reset rerun. Rollout, measured execution, controller ranking, paper
-claims, finite-window vs GRU verdicts, and self-ID claims remain blocked until
-audited evidence supports them.
+Immediate route: M2160 freezes the reset-validator seed-source repair. M2161
+must update the current-sim reset validator to prefer per-spec
+`eval_seed_override`, log `seed_source` and `actual_eval_seed`, and rerun the
+full `40`-spec reset-only gate into
+`runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight`.
+Rollout, measured execution, controller ranking, paper claims, finite-window vs
+GRU verdicts, and self-ID claims remain blocked until audited evidence supports
+them.
 
 Historical route context follows. Earlier, the branch repaired executable-v2
 active-safety task quality before

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2167,
+    "completed": 2168,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
+    "command_log": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
     "returncode": 0,
-    "run_dir": "docs/m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit.md",
+    "run_dir": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md",
     "status": "completed",
-    "task_id": "m2159-paper-route-current-sim-terminal-boundary-reset-sampling-diagnostic-result-audit"
+    "task_id": "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json",
-    "hypothesis": "A reset-validator seed-source repair can preserve M2151 materialization semantics by using per-spec eval_seed_override when present and falling back to eval_seed_base+index only when missing.",
-    "id": "m2160-paper-route-current-sim-reset-validator-seed-source-repair-design",
-    "kind": "gate",
-    "notes": "Pending: design reset-validator seed-source repair before full reset rerun",
-    "priority": 21550,
+    "command": "see experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json",
+    "hypothesis": "Using per-spec eval_seed_override for reset validation will repair the M2154 seed-source artifact and validate all 40 current-sim executable specs without rollout or policy actions.",
+    "id": "m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run",
+    "kind": "infrastructure",
+    "notes": "Pending: implement seed-source repair and rerun full reset-only validation",
+    "priority": 21560,
     "status": "pending",
-    "success_artifact": "docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md"
+    "success_artifact": "runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260601T062104Z"
+  "updated_at_utc": "20260601T062953Z"
 }

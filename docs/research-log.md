@@ -38294,3 +38294,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: design reset-validator repair to use per-spec `eval_seed_override` when present and log `seed_source` / `actual_eval_seed`
 - follow-up manifest: `experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json`
 - next: `m2160-paper-route-current-sim-reset-validator-seed-source-repair-design`
+
+## M2160 Paper-Route Current-Sim Reset-Validator Seed-Source Repair Design
+
+- status: completed
+- decision: `reset_validator_seed_source_repair_design_admit_implementation_and_run`
+- manifest: `experiments/manifests/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.json`
+- design artifact: `docs/m2160-paper-route-current-sim-reset-validator-seed-source-repair-design.md`
+- reset rerun in M2160: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- repair rule: prefer per-spec `eval_seed_override`; fall back to `eval_seed_base+row_index` only when missing
+- required new row fields: `seed_source`, `actual_eval_seed`
+- expected M2151 seed source distribution: `eval_seed_override: 40`
+- frozen command target: `runs/m2161_paper_route_current_sim_seed_source_repaired_reset_validation_preflight`
+- follow-up manifest: `experiments/manifests/m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run.json`
+- next: `m2161-paper-route-current-sim-reset-validator-seed-source-repair-implementation-and-run`
