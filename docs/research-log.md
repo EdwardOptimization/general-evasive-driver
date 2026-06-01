@@ -38453,3 +38453,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.json`
 - next: `m2166-paper-route-current-sim-measured-readiness-inventory-result-audit`
+
+## M2166 Paper-Route Current-Sim Measured Readiness Inventory Result Audit
+
+- status: completed
+- decision: `current_sim_readiness_inventory_audit_route_to_runner_adapter_design_first`
+- manifest: `experiments/manifests/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.json`
+- audit artifact: `docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md`
+- audited summary: `runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json`
+- inventory rerun in M2166: `false`
+- rollout/measured execution: `false`
+- policy actions executed: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- blocker A: all `320` workload rows lack required checkpoint paths
+- blocker B: old measured runner schema is incompatible with `12` missing required fields
+- repair order: design/implement current-sim measured runner adapter first, then checkpoint/profile materialization, then real measured command
+- follow-up manifest: `experiments/manifests/m2167-paper-route-current-sim-measured-runner-adapter-design.json`
+- next: `m2167-paper-route-current-sim-measured-runner-adapter-design`

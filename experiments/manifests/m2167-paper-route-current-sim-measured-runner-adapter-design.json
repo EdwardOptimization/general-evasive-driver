@@ -1,0 +1,173 @@
+{
+  "id": "m2167-paper-route-current-sim-measured-runner-adapter-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_measured_runner_adapter_design"
+    ],
+    "parent_dataset": [
+      "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+      "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/executable_task_specs.json",
+      "runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a current-sim-specific measured runner adapter before checkpoint repair"
+    ],
+    "derived_from": [
+      "m2166-paper-route-current-sim-measured-readiness-inventory-result-audit"
+    ],
+    "blocked_by": [
+      "M2166 chooses runner adapter design before checkpoint materialization"
+    ],
+    "supersedes": [
+      "reusing old measured runner schemas",
+      "training checkpoints before runner output contract is fixed"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+  "public_gates": [
+    "M2167 must not implement or run measured execution",
+    "M2167 must define current-sim runner metadata fields and aggregates",
+    "M2167 must define fake-rollout focused tests before real rollout",
+    "M2167 must keep ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not edit implementation code",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_measured_runner_adapter_design",
+    "evidence_increment": "designs a current-sim measured runner adapter output contract and implementation route",
+    "claim_scope": "runner adapter design only; no rollout driver performance ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if metadata fields are not enumerated",
+      "stop if fake-rollout tests are not specified",
+      "stop if design would run real measured execution before checkpoints",
+      "stop if design ranks controller families"
+    ],
+    "fallback_plan": [
+      "route to implementation if adapter design is complete",
+      "route to schema audit if required metadata cannot be reconciled",
+      "route to branch synthesis if measured-readiness repair fragments further"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2166 audits readiness blockers and chooses runner adapter first",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim measured runner adapter design",
+    "admission_evidence": [
+      "M2166 classifies old-runner schema mismatch",
+      "M2166 chooses runner adapter before checkpoint materialization",
+      "M2165 provides M2151 workload/profile/schema readiness counts"
+    ],
+    "blocked_shortcuts": [
+      "do not implement code in design milestone",
+      "do not run measured execution",
+      "do not train checkpoints"
+    ],
+    "allowed_updates": [
+      "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+      "M2167 status queue scoreboard research log and review",
+      "one follow-up manifest for runner adapter implementation"
+    ],
+    "next_stage_criteria": [
+      "runner metadata fields are frozen",
+      "planned artifacts are listed",
+      "focused tests are listed",
+      "next implementation command is explicit",
+      "claim boundary is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2167 runner design does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2167."
+    ],
+    "temporal_evidence_window": "M2151 panel and M2165 readiness inventory artifacts.",
+    "negative_result_policy": "Runner design must preserve L0/L1/L2/L3 metadata without declaring a winner.",
+    "allowed_claims": [
+      "current-sim measured runner adapter design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns schema mismatch into an implementation-ready adapter contract",
+    "paper_verdict_delta": "can unblock future measured data generation but cannot decide the paper verdict",
+    "must_synthesize_if": [
+      "M2167 cannot freeze runner fields",
+      "M2167 needs another schema inventory",
+      "M2167 would route directly to measured execution"
+    ]
+  },
+  "hypothesis": "A focused current-sim measured runner adapter can preserve M2151 metadata and provide fake-rollout-tested infrastructure before expensive checkpoint materialization.",
+  "success_criteria": [
+    "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md exists",
+    "metadata fields are enumerated",
+    "planned artifacts and pass gates are explicit",
+    "focused fake-rollout tests are specified",
+    "next implementation route is explicit",
+    "no rollout measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "metadata fields are ambiguous",
+    "next route is ambiguous",
+    "measured execution or policy action is run",
+    "ranking or paper-level claims are made"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_measured_runner_adapter_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2166-paper-route-current-sim-measured-readiness-inventory-result-audit.md",
+    "runs/m2165_paper_route_current_sim_controlled_comparison_measured_readiness_inventory/summary.json"
+  ],
+  "decision_rule": "M2167 passes if it freezes the runner adapter design and next implementation route without code edits or rollout.",
+  "next_blocker": "m2167-paper-route-current-sim-measured-runner-adapter-design"
+}
