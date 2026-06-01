@@ -1,0 +1,176 @@
+{
+  "id": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation.md",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/reset_failures.csv",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/lateral_offset_consistency_rows.csv",
+      "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/label_consistency_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2284 reset-validation failure and select the next non-ranking route"
+    ],
+    "derived_from": [
+      "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation"
+    ],
+    "blocked_by": [
+      "M2284 reset-validation fails with 60 reset failures and 66 lateral bucket mismatches"
+    ],
+    "supersedes": [
+      "direct repair before result audit",
+      "measured rollout after failed reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2285 must audit M2284 reset-validation failure artifacts",
+    "M2285 must separate reset-sampling failure from lateral-offset sign mismatch",
+    "M2285 must select repair, synthesis, or stop before any rerun",
+    "M2285 must not run reset rollout measured execution policy actions training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_quality_redesign",
+    "evidence_axis": "Q_scenario_task_family_reset_validation_result_audit",
+    "evidence_increment": "audits reset-validation failure before any repair or measured execution",
+    "claim_scope": "result audit only; no reset rerun rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2284 artifacts are incomplete",
+      "stop if audit conflates reset-sampling failure with controller performance",
+      "stop if audit routes directly to rollout or training"
+    ],
+    "fallback_plan": [
+      "route to materialization repair design if failures are schema/config issues",
+      "route to branch synthesis if failures are broad and not locally repairable",
+      "stop for user review if failure attribution is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2284 reset-validation failed and requires result audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit reset-validation failure",
+    "admission_evidence": [
+      "M2284 summary exists",
+      "M2284 reset_failure_count is 60",
+      "M2284 lateral_bucket_mismatch_count is 66",
+      "M2284 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout or measured execution",
+      "no policy actions",
+      "no training",
+      "no ranking",
+      "no paper claim",
+      "no finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+      "M2285 status queue scoreboard research log and review",
+      "one follow-up manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "failure classes are separated",
+      "repair or synthesis route is selected",
+      "no controller-performance claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2285 audits reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden or zero-history intervention is run in M2285."
+    ],
+    "temporal_evidence_window": "M2284 reset-validation artifacts.",
+    "negative_result_policy": "Treat reset-validation failure as scenario-quality evidence, not controller performance or self-ID evidence.",
+    "allowed_claims": [
+      "scenario task-family reset-validation failure audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies the first real reset-validation result for the role-family scenario pack",
+    "paper_verdict_delta": "can route to schema repair before measured execution",
+    "must_synthesize_if": [
+      "M2285 cannot attribute reset failures",
+      "M2285 would route directly to rollout/training",
+      "M2285 discovers broad scenario redesign failure beyond local repair"
+    ]
+  },
+  "hypothesis": "M2284 reset-validation failure can be classified into reset-sampling and lateral-sign blockers and routed to a non-ranking repair path.",
+  "success_criteria": [
+    "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md exists",
+    "M2284 reset failures are audited",
+    "M2284 lateral-offset mismatches are audited",
+    "actor-contract and guardrail status are audited",
+    "a non-ranking follow-up route is selected"
+  ],
+  "failure_criteria": [
+    "M2285 ignores reset failures or lateral sign mismatches",
+    "M2285 starts reset rollout measured execution training replay PPO or private holdout",
+    "M2285 ranks profiles or selects a winner",
+    "M2285 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation.md",
+    "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json"
+  ],
+  "decision_rule": "M2285 passes if it audits M2284 failures and selects a non-ranking follow-up route.",
+  "next_blocker": "m2286-paper-route-current-sim-scenario-task-family-reset-sampling-and-lateral-sign-repair-design"
+}

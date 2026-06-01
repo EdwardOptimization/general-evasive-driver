@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2291,
+    "completed": 2292,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis",
+    "task_id": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md"
+    "run_dir": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation",
+    "command_log": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json"
   },
   "next_task": {
-    "id": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
-    "kind": "infrastructure",
-    "priority": 22790,
+    "id": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+    "kind": "gate",
+    "priority": 22800,
     "status": "pending",
-    "hypothesis": "The refreshed 72-spec role-family scenario pack is reset-valid under the current simulator and strict P0 human-view contract.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_reset_validation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation --eval-seed-base 228300 --target-spec-count 72 --expected-observation-dim 72 --next-blocker m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
-    "success_artifact": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
-    "notes": "Pending: implement focused validator and run reset-only 72-spec validation; fail closed on reset contract label or lateral mismatch; no rollout training ranking or paper claims"
+    "hypothesis": "M2284 reset-validation failure can be classified into reset-sampling and lateral-sign blockers and routed to a non-ranking repair path.",
+    "command": "manual audit of runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation artifacts",
+    "success_artifact": "docs/m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit.md",
+    "notes": "Pending: classify reset-sampling failures and lateral sign mismatches before repair; no reset rollout training ranking or paper claims"
   },
-  "updated_at_utc": "20260601T194216Z"
+  "updated_at_utc": "20260601T194927Z"
 }

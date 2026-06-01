@@ -147,6 +147,16 @@ Last updated: 2026-06-01
 - result: synthesizes M2273-M2282 as a scenario/task-quality positive but incomplete branch: a 72-spec role-family pack and obstacle lateral-offset instrumentation now exist, but reset validity and left/right signed bucket consistency are untested.
 - decision: continue only to M2284 reset-validation implementation using the frozen fail-closed M2282 gates. Policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, and level3 self-ID claims remain blocked.
 
+
+## 20260601T194927Z m2284-scenario-task-family-reset-validation-implementation
+
+- status: `completed`
+- kind: `infrastructure`
+- artifact: `runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json`
+- result: reset-validation fails closed with `12/72` reset successes, `60` reset failures, `66` lateral bucket mismatches, actor contract violations `0`, and guardrail violations `0`.
+- failure shape: all successful resets are `R0_stable_avoidable`; R1-R5 all fail obstacle sampling under current config filters. Successful R0 left/right rows also confirm the signed bucket mismatch anticipated by M2282.
+- decision: route to M2285 result audit before any repair. No policy actions, rollout, measured execution, training, ranking, finite-window-vs-GRU, paper-level, or level3 self-ID claims.
+
 ## Current Best
 
 - checkpoint:

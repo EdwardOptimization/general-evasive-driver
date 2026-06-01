@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis
+m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation
 ```
 
 Current next task:
 
 ```text
-m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation
+m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit
 ```
 
 Immediate route: M2282 freezes a focused reset-only validation design for
@@ -36,12 +36,20 @@ execution_admissible_without_instrumentation: true
 primary_route: scenario_task_family_result_audit_route_to_reset_validation_design
 ```
 
-Active interpretation: M2283 synthesizes M2273-M2282 and continues only to the
-frozen reset-validation implementation route. M2284 may run reset-only
-validation, but it must fail closed on reset, actor-contract, label, or
-lateral-offset bucket mismatch. Policy actions, measured rollout, training,
-ranking, finite-window vs GRU verdict, paper-level claim, and level3 self-ID
-claim remain blocked.
+Active interpretation: M2284 implemented the focused reset validator and ran the
+frozen reset-only command. The result is a fail-closed negative:
+
+```text
+reset_success_count: 12 / 72
+reset_failure_count: 60
+lateral_bucket_mismatch_count: 66
+actor_contract_violation_count: 0
+guardrail_violation_count: 0
+```
+
+M2285 must audit reset-sampling failures and the lateral sign mismatch before
+any repair. Policy actions, measured rollout, training, ranking, finite-window
+vs GRU verdict, paper-level claim, and level3 self-ID claim remain blocked.
 
 ## Actor Contract
 

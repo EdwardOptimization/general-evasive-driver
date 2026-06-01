@@ -1,0 +1,101 @@
+{
+  "decision_reason": "M2284 reset-validation fail 12/72 reset successes reset failures 60 lateral bucket mismatches 66 actor contract 0 guardrail 0 no rollout/training claims",
+  "failure_criteria": [
+    "summary is missing",
+    "reset_attempt_count differs from 72",
+    "any reset fails",
+    "any contract label lateral-offset or guardrail violation appears",
+    "rollout policy action measured execution ranking training or paper-level claims are made",
+    "materialization is repaired and rerun inside M2284"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not repair and rerun materialization inside M2284"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260601T195123Z",
+  "hypothesis": "The refreshed 72-spec role-family scenario pack is reset-valid under the current simulator and strict P0 human-view contract.",
+  "lineage": {
+    "blocked_by": [
+      "M2283 synthesis continues to reset-validation implementation"
+    ],
+    "derived_from": [
+      "m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_reset_validation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2283-paper-route-current-sim-scenario-task-quality-redesign-branch-synthesis.md",
+      "docs/m2282-paper-route-current-sim-scenario-task-family-reset-validation-design.md",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "runs/m2280_paper_route_current_sim_obstacle_lateral_offset_instrumentation/summary.json"
+    ],
+    "parent_objective": [
+      "implement and run reset-only validation over the refreshed scenario task-family config"
+    ],
+    "supersedes": [
+      "claiming reset validity from no-reset materialization alone"
+    ]
+  },
+  "milestone": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
+  "next_blocker": "m2285-paper-route-current-sim-scenario-task-family-reset-validation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_scenario_task_family_reset_validation_fail_route_to_result_audit",
+  "public_gates": [
+    "M2284 must implement the focused reset validator and tests",
+    "M2284 must run exactly the frozen reset-only command over 72 specs",
+    "M2284 must preserve reset, contract, label, and lateral-offset failure rows",
+    "M2284 must fail closed on lateral-bucket sign mismatches",
+    "M2284 must keep rollout measured execution policy action training ranking paper and level3 claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_scenario_task_family_reset_validation_fail_route_to_result_audit",
+    "milestone": "m2284-paper-route-current-sim-scenario-task-family-reset-validation-implementation",
+    "reason": "M2284 reset-validation fail 12/72 reset successes reset failures 60 lateral bucket mismatches 66 actor contract 0 guardrail 0 no rollout/training claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_scenario_task_family_reset_validation.py exists",
+    "tests/test_paper_route_current_sim_scenario_task_family_reset_validation.py exists",
+    "runs/m2284_paper_route_current_sim_scenario_task_family_reset_validation/summary.json exists",
+    "reset_attempt_count equals 72",
+    "reset_failure_count equals 0",
+    "actor_contract_violation_count equals 0",
+    "lateral_bucket_mismatch_count equals 0",
+    "guardrail_violation_count equals 0",
+    "a result audit follow-up manifest is registered"
+  ],
+  "type": "infrastructure"
+}
