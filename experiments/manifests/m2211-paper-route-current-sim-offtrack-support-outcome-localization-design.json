@@ -1,0 +1,163 @@
+{
+  "id": "m2211-paper-route-current-sim-offtrack-support-outcome-localization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_localization_design"
+    ],
+    "parent_dataset": [
+      "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/profile_aggregate.csv",
+      "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/task_family_aggregate.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "design no-rerun outcome localization before any repair or comparison"
+    ],
+    "derived_from": [
+      "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "M2210 classifies M2209 as execution-complete but not comparison-ready due offtrack dominance"
+    ],
+    "supersedes": [
+      "ranking profiles directly from M2209 raw aggregates",
+      "launching another task repair without localizing the outcome support blocker"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+  "public_gates": [
+    "M2211 must design a no-rerun localization over M2209 artifacts",
+    "M2211 must define group keys and support thresholds",
+    "M2211 must preserve no-ranking claim boundary",
+    "M2211 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_outcome_localization_design",
+    "evidence_increment": "designs no-rerun localization of offtrack-dominated measured execution before repair or comparison",
+    "claim_scope": "localization design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design would rank profiles",
+      "stop if design omits offtrack-dominance support thresholds",
+      "stop if design requires rerun before localization"
+    ],
+    "fallback_plan": [
+      "route to localization implementation if design is complete",
+      "route to branch synthesis if localization would not change evidence",
+      "route to task-quality repair design only after localization identifies blocker slices"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2210 audit routes to outcome localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design no-rerun outcome localization",
+    "admission_evidence": [
+      "M2210 finds M2209 execution complete but offtrack dominated",
+      "M2209 episode rows and aggregates exist"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution",
+      "no profile ranking",
+      "no paper-level claims"
+    ],
+    "allowed_updates": [
+      "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+      "M2211 status queue scoreboard research log and review",
+      "one follow-up manifest for localization implementation"
+    ],
+    "next_stage_criteria": [
+      "localization group keys are explicit",
+      "support thresholds are explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2211 designs outcome localization and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2211."
+    ],
+    "temporal_evidence_window": "M2209 measured execution output.",
+    "negative_result_policy": "If localization shows no comparison-ready slices, route to task-quality repair or synthesis rather than ranking profiles.",
+    "allowed_claims": [
+      "outcome localization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares to localize new measured outcome support instead of launching another blind repair",
+    "paper_verdict_delta": "can identify whether comparison-ready slices exist, but cannot compare profiles yet",
+    "must_synthesize_if": [
+      "M2211 cannot define a localization that changes the decision",
+      "M2211 would become another local repair without new evidence",
+      "outcome support remains offtrack-dominated after localization"
+    ]
+  },
+  "hypothesis": "A no-rerun localization design can turn the M2209 offtrack-dominated measured execution into a clear blocker map before task repair or comparison.",
+  "success_criteria": [
+    "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md exists",
+    "group keys and support thresholds are specified",
+    "output artifacts are specified",
+    "no rerun ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "design document is missing",
+    "support thresholds are ambiguous",
+    "design ranks profiles directly",
+    "design reruns measured execution"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_localization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
+    "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/episode_rows.csv"
+  ],
+  "decision_rule": "M2211 passes if it freezes a no-rerun localization design and keeps comparison/ranking blocked.",
+  "next_blocker": "m2211-paper-route-current-sim-offtrack-support-outcome-localization-design"
+}

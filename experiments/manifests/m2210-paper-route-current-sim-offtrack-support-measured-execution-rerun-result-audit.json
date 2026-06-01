@@ -3,7 +3,9 @@
   "type": "gate",
   "gate_tier": "process",
   "promotion_decision": "not_applicable",
-  "failure_types": [],
+  "failure_types": [
+    "scenario_sampling_failure"
+  ],
   "lineage": {
     "parent_checkpoint": [
       "not_applicable_measured_execution_result_audit"

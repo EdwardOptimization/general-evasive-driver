@@ -39427,3 +39427,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: route to result audit before comparison or rerun
 - follow-up manifest: `experiments/manifests/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.json`
 - next: `m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit`
+
+## M2210 Paper-Route Current-Sim Offtrack-Support Measured-Execution Rerun Result Audit
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_execution_audit_not_comparison_ready_route_to_outcome_localization_design`
+- manifest: `experiments/manifests/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.json`
+- audit artifact: `docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md`
+- audited summary: `runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json`
+- execution complete: `true`
+- success_obstacle_pass: `374`
+- collision_failure: `49`
+- off_track_noncollision_noncompletion: `1881`
+- success_rate: `0.1623263888888889`
+- collision_rate: `0.021267361111111112`
+- offtrack_rate: `0.81640625`
+- comparison_ready: `false`
+- failure type: `scenario_sampling_failure`
+- result: route to no-rerun outcome localization design
+- follow-up manifest: `experiments/manifests/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.json`
+- next: `m2211-paper-route-current-sim-offtrack-support-outcome-localization-design`

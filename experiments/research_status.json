@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2217,
+    "completed": 2218,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun/summary.json",
+    "command_log": "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2209_paper_route_current_sim_offtrack_support_measured_execution_rerun",
+    "run_dir": "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
     "status": "completed",
-    "task_id": "m2209-paper-route-current-sim-offtrack-support-measured-execution-rerun"
+    "task_id": "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit"
   },
   "next_task": {
-    "command": "write docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md",
-    "hypothesis": "The M2209 repaired measured execution is complete enough to audit outcome support before any controller-family comparison.",
-    "id": "m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit",
+    "command": "write docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md",
+    "hypothesis": "A no-rerun localization design can turn the M2209 offtrack-dominated measured execution into a clear blocker map before task repair or comparison.",
+    "id": "m2211-paper-route-current-sim-offtrack-support-outcome-localization-design",
     "kind": "gate",
-    "notes": "Pending: audit M2209 measured execution result before comparison or rerun",
-    "priority": 22050,
+    "notes": "Pending: design no-rerun outcome localization over M2209 artifacts",
+    "priority": 22060,
     "status": "pending",
-    "success_artifact": "docs/m2210-paper-route-current-sim-offtrack-support-measured-execution-rerun-result-audit.md"
+    "success_artifact": "docs/m2211-paper-route-current-sim-offtrack-support-outcome-localization-design.md"
   },
-  "updated_at_utc": "20260601T113112Z"
+  "updated_at_utc": "20260601T113420Z"
 }
