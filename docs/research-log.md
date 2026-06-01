@@ -39220,3 +39220,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - result: admit no-rollout measured-readiness implementation
 - follow-up manifest: `experiments/manifests/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.json`
 - next: `m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation`
+
+## M2200 Paper-Route Current-Sim Offtrack-Support Measured-Readiness Implementation
+
+- status: completed
+- decision: `current_sim_offtrack_support_measured_readiness_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_offtrack_support_measured_readiness.py`
+- focused tests: `2 passed`
+- summary: `runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json`
+- result_class: `current_sim_offtrack_support_measured_readiness_pass`
+- materialized workload rows: `2304`
+- checkpoint paths existing: `2304`
+- checkpoint paths missing: `0`
+- profile count: `8`
+- rows per profile: `288`
+- reset-control alias pass: `true`
+- profile shortcut violations: `0`
+- profile-specific tuning count: `0`
+- claim violations: `0`
+- guardrail violations: `0`
+- measured execution: `false`
+- policy action executed: `false`
+- result: route to readiness result audit before measured-execution command design
+- follow-up manifest: `experiments/manifests/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.json`
+- next: `m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit`

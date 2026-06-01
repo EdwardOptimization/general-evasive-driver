@@ -1,0 +1,173 @@
+{
+  "id": "m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_no_rollout_readiness_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv",
+      "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/profile_checkpoint_join_rows.csv",
+      "docs/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.json"
+    ],
+    "parent_objective": [
+      "audit checkpoint-complete readiness before measured-execution command design"
+    ],
+    "derived_from": [
+      "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation"
+    ],
+    "blocked_by": [
+      "M2200 readiness result must be audited before measured execution command design",
+      "branch synthesis cadence is close after M2191"
+    ],
+    "supersedes": [
+      "direct measured-execution command design after readiness materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md",
+  "public_gates": [
+    "M2201 must audit M2200 summary and workload artifacts",
+    "M2201 must confirm 2304 materialized workload rows",
+    "M2201 must confirm 2304 existing checkpoint paths and 0 missing paths",
+    "M2201 must confirm 8 profiles with 288 rows each",
+    "M2201 must confirm L3 reset-control alias preservation",
+    "M2201 must confirm zero shortcut, tuning, claim, and guardrail violations",
+    "M2201 must not run measured execution or rank profiles"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run measured execution",
+    "do not execute policy actions",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_offtrack_support_measured_readiness_audit",
+    "evidence_increment": "audits checkpoint-complete measured workload readiness before execution design",
+    "claim_scope": "readiness result audit only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2200 is not readiness pass",
+      "stop if checkpoint coverage is incomplete",
+      "stop if reset-control alias is broken",
+      "stop if any shortcut, tuning, claim, or guardrail violation appears",
+      "stop if audit would run policy actions or rank profiles"
+    ],
+    "fallback_plan": [
+      "route to readiness repair if artifacts are incomplete",
+      "route to checkpoint materialization repair if paths are missing",
+      "route to required branch synthesis if audit passes and cadence is reached"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2200 readiness result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit no-rollout measured-readiness result",
+    "admission_evidence": [
+      "M2200 summary reports readiness pass",
+      "M2200 checkpoint_path_exists_count is 2304",
+      "M2200 guardrail violation count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no measured execution in audit",
+      "no policy action execution in audit",
+      "no ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md",
+      "M2201 status queue scoreboard research log and review",
+      "one follow-up manifest chosen by audit or required synthesis"
+    ],
+    "next_stage_criteria": [
+      "readiness pass/fail is audited",
+      "measured-execution design admission or synthesis route is explicit",
+      "claim boundary remains blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2201 audits readiness and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history, reset-hidden, or zero-history intervention is run in M2201."
+    ],
+    "temporal_evidence_window": "M2200 readiness artifact over M2194 repaired workload.",
+    "negative_result_policy": "If readiness audit fails, repair checkpoint/workload materialization before measured execution.",
+    "allowed_claims": [
+      "measured-readiness result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits checkpoint-complete repaired measured workload readiness",
+    "paper_verdict_delta": "can admit measured-execution command design or required synthesis but cannot compare profiles",
+    "must_synthesize_if": [
+      "M2201 passes and branch cadence reaches its limit",
+      "M2201 cannot classify readiness result",
+      "M2201 would run measured execution",
+      "M2201 would rank profiles"
+    ]
+  },
+  "hypothesis": "The M2200 readiness artifact is clean enough to admit measured-execution command design after audit, while ranking and paper claims remain blocked.",
+  "success_criteria": [
+    "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md exists",
+    "M2200 summary is audited",
+    "materialized_workload_count == 2304",
+    "checkpoint_path_exists_count == 2304",
+    "checkpoint_path_missing_count == 0",
+    "profile_count == 8",
+    "rows_per_profile_pass == true",
+    "reset_control_alias_pass == true",
+    "shortcut, tuning, claim, and guardrail counts are 0",
+    "next route is explicit",
+    "no measured execution training ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "readiness result is not audited",
+    "workload, checkpoint, alias, or guardrail checks fail",
+    "audit runs measured execution",
+    "audit ranks profiles"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_no_rollout_readiness_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
+    "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/materialized_workload.csv",
+    "docs/m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation.md"
+  ],
+  "decision_rule": "M2201 passes if it audits M2200 as checkpoint-complete and chooses a next route without measured execution or ranking.",
+  "next_blocker": "m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit"
+}

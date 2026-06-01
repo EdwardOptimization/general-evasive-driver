@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2207,
+    "completed": 2208,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+    "command_log": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2199-paper-route-current-sim-offtrack-support-measured-readiness-design.md",
+    "run_dir": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness",
     "status": "completed",
-    "task_id": "m2199-paper-route-current-sim-offtrack-support-measured-readiness-design"
+    "task_id": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_offtrack_support_measured_readiness --planned-workload runs/m2194_paper_route_current_sim_offtrack_support_candidate_materialization/planned_workload.csv --profile-checkpoints runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv --output-dir runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness",
-    "hypothesis": "The M2194 repaired workload can be joined with M2171 profile checkpoints into 2304 checkpoint-complete measured workload rows without measured execution or ranking.",
-    "id": "m2200-paper-route-current-sim-offtrack-support-measured-readiness-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement checkpoint/workload readiness materialization for reset-valid repaired panel",
-    "priority": 21950,
+    "command": "write docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md",
+    "hypothesis": "The M2200 readiness artifact is clean enough to admit measured-execution command design after audit, while ranking and paper claims remain blocked.",
+    "id": "m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit checkpoint-complete readiness before measured-execution command design or required synthesis",
+    "priority": 21960,
     "status": "pending",
-    "success_artifact": "runs/m2200_paper_route_current_sim_offtrack_support_measured_readiness/summary.json"
+    "success_artifact": "docs/m2201-paper-route-current-sim-offtrack-support-measured-readiness-result-audit.md"
   },
-  "updated_at_utc": "20260601T104036Z"
+  "updated_at_utc": "20260601T104836Z"
 }
