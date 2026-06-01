@@ -38493,3 +38493,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - design result: current-sim adapter must preserve M2151 spec/workload fields, aggregate by profile/history/task/source/capability/outcome, support fake-rollout focused tests, and fail closed if required checkpoints are missing in real mode
 - follow-up manifest: `experiments/manifests/m2168-paper-route-current-sim-measured-runner-adapter-implementation.json`
 - next: `m2168-paper-route-current-sim-measured-runner-adapter-implementation`
+
+## M2168 Paper-Route Current-Sim Measured Runner Adapter Implementation
+
+- status: completed
+- decision: `current_sim_measured_runner_adapter_implementation_pass_route_to_audit`
+- manifest: `experiments/manifests/m2168-paper-route-current-sim-measured-runner-adapter-implementation.json`
+- implementation: `src/autodrift/paper_route_current_sim_controlled_comparison_measured_runner.py`
+- tests: `tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py`
+- focused tests: `2 passed`
+- real M2151 measured execution: `false`
+- policy actions on M2151 panel: `false`
+- training/replay/PPO: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- covered path: fake-rollout metadata preservation and aggregates pass
+- covered path: real-mode missing-checkpoint validation fails closed before rollout
+- follow-up manifest: `experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json`
+- next: `m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis`

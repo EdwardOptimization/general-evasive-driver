@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2175,
+    "completed": 2176,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+    "command_log": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
     "returncode": 0,
-    "run_dir": "docs/m2167-paper-route-current-sim-measured-runner-adapter-design.md",
+    "run_dir": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
     "status": "completed",
-    "task_id": "m2167-paper-route-current-sim-measured-runner-adapter-design"
+    "task_id": "m2168-paper-route-current-sim-measured-runner-adapter-implementation"
   },
   "next_task": {
-    "command": "see experiments/manifests/m2168-paper-route-current-sim-measured-runner-adapter-implementation.json",
-    "hypothesis": "The current-sim measured runner adapter can be implemented and fake-rollout tested while preserving M2151 metadata and failing closed on missing checkpoints.",
-    "id": "m2168-paper-route-current-sim-measured-runner-adapter-implementation",
-    "kind": "infrastructure",
-    "notes": "Pending: implement current-sim measured runner adapter with focused tests",
-    "priority": 21630,
+    "command": "see experiments/manifests/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.json",
+    "hypothesis": "M2164-M2168 repaired the runner-schema blocker enough to continue to checkpoint/profile materialization design, while keeping real measured execution and ranking blocked.",
+    "id": "m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis",
+    "kind": "gate",
+    "notes": "Pending: synthesize measured-readiness repair branch before checkpoint/profile materialization",
+    "priority": 21640,
     "status": "pending",
-    "success_artifact": "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md"
+    "success_artifact": "docs/m2169-paper-route-current-sim-measured-readiness-repair-branch-synthesis.md"
   },
-  "updated_at_utc": "20260601T074145Z"
+  "updated_at_utc": "20260601T075003Z"
 }

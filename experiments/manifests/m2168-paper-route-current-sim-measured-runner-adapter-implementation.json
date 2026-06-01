@@ -92,7 +92,7 @@
       "tests/test_paper_route_current_sim_controlled_comparison_measured_runner.py",
       "docs/m2168-paper-route-current-sim-measured-runner-adapter-implementation.md",
       "M2168 status queue scoreboard research log and review",
-      "one follow-up manifest for adapter implementation audit"
+      "one follow-up manifest for required branch synthesis before checkpoint/profile materialization"
     ],
     "next_stage_criteria": [
       "focused tests pass",
@@ -121,11 +121,12 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0,
     "evidence_expansion": "removes runner-schema blocker before checkpoint materialization",
-    "paper_verdict_delta": "enables later measured data generation but cannot decide controller comparison",
+    "paper_verdict_delta": "enables branch synthesis before checkpoint/profile materialization but cannot decide controller comparison",
     "must_synthesize_if": [
       "M2168 cannot preserve metadata",
       "M2168 requires another schema design milestone",
-      "M2168 routes directly to measured execution"
+      "M2168 routes directly to measured execution",
+      "local-search guard requires synthesis before checkpoint/profile materialization"
     ]
   },
   "hypothesis": "The current-sim measured runner adapter can be implemented and fake-rollout tested while preserving M2151 metadata and failing closed on missing checkpoints.",
