@@ -38558,3 +38558,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - target workload fill: 320 checkpoint paths present and existing
 - follow-up manifest: `experiments/manifests/m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run.json`
 - next: `m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run`
+
+## M2171 Paper-Route Current-Sim Checkpoint/Profile Materialization Implementation and Run
+
+- status: completed
+- decision: `current_sim_checkpoint_profile_materialization_pass_route_to_result_audit`
+- manifest: `experiments/manifests/m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run.json`
+- implementation: `src/autodrift/paper_route_current_sim_checkpoint_profile_materialization.py`
+- tests: `tests/test_paper_route_current_sim_checkpoint_profile_materialization.py`
+- focused tests: `2 passed`
+- run artifact: `runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json`
+- profile count: `8`
+- trainable profile checkpoints: `7`
+- alias profile count: `1`
+- successful training commands: `7`
+- checkpoint path present/existing: `320/320`
+- checkpoint path missing: `0`
+- guardrail violation count: `0`
+- real M2151 measured execution: `false`
+- measured rollout started: `false`
+- policy actions executed for measured execution: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- finite-window vs GRU conclusion made: `false`
+- paper-level claim made: `false`
+- level3 self-ID claim made: `false`
+- result: materialized current-sim checkpoint/workload panel is ready for result audit
+- follow-up manifest: `experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json`
+- next: `m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit`

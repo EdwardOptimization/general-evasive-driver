@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2178,
+    "completed": 2179,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md",
+    "command_log": "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2170-paper-route-current-sim-checkpoint-profile-materialization-design.md",
+    "run_dir": "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization",
     "status": "completed",
-    "task_id": "m2170-paper-route-current-sim-checkpoint-profile-materialization-design"
+    "task_id": "m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run"
   },
   "next_task": {
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_checkpoint_profile_materialization --workload runs/m2151_paper_route_current_sim_controlled_comparison_executable_spec_materialization/planned_workload.csv --output-dir runs/m2171_paper_route_current_sim_checkpoint_profile_materialization --device cpu",
-    "hypothesis": "The frozen M2170 route can materialize fair profile checkpoints for all 8 current-sim comparison profiles while keeping measured execution and ranking blocked.",
-    "id": "m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run",
-    "kind": "infrastructure",
-    "notes": "Pending: implement materializer train 7 frozen profile checkpoints and alias reset-control",
-    "priority": 21660,
+    "command": "see experiments/manifests/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.json",
+    "hypothesis": "The M2171 materialized checkpoint/profile panel is clean enough to admit a measured-execution command design, while keeping ranking and paper claims blocked.",
+    "id": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit checkpoint/profile materialization result",
+    "priority": 21670,
     "status": "pending",
-    "success_artifact": "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json"
+    "success_artifact": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260601T080520Z"
+  "updated_at_utc": "20260601T081114Z"
 }

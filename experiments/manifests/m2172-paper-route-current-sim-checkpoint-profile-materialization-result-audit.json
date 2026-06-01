@@ -1,0 +1,168 @@
+{
+  "id": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L0_current_masked/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L1_one_step/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_13/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_25/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_50/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L2_window_100/checkpoint.pt",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/checkpoints/L3_online_gru/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv",
+      "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run.json"
+    ],
+    "parent_objective": [
+      "audit materialized current-sim checkpoint/profile panel before measured execution design"
+    ],
+    "derived_from": [
+      "m2171-paper-route-current-sim-checkpoint-profile-materialization-implementation-and-run"
+    ],
+    "blocked_by": [
+      "M2171 result must be audited before real measured execution command design"
+    ],
+    "supersedes": [
+      "direct measured execution immediately after checkpoint materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+  "public_gates": [
+    "M2172 must audit M2171 summary and profile checkpoint rows",
+    "M2172 must confirm all 320 materialized workload checkpoint paths exist",
+    "M2172 must confirm L3_reset_control aliases L3_online_gru and did not train separately",
+    "M2172 must not run measured execution or rank controller families"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run real M2151 measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_controlled_comparison_benchmark",
+    "evidence_axis": "Q_current_sim_checkpoint_profile_materialization_audit",
+    "evidence_increment": "audits whether the materialized checkpoint/workload panel is admissible for later measured-execution command design",
+    "claim_scope": "materialization audit only; no measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if any checkpoint path is missing or nonexistent",
+      "stop if reset-control alias policy is violated",
+      "stop if materialized workload loses M2151 metadata",
+      "stop if audit would route directly to measured execution without command design"
+    ],
+    "fallback_plan": [
+      "route to checkpoint materialization repair if audit fails",
+      "route to measured execution command design if audit passes",
+      "route to synthesis if the current-sim branch reaches cadence before execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2171 materialization result requires audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit current-sim checkpoint/profile materialization output",
+    "admission_evidence": [
+      "M2171 summary reports current_sim_checkpoint_profile_materialization_pass",
+      "M2171 writes profile checkpoint rows and materialized workload"
+    ],
+    "blocked_shortcuts": [
+      "no training in audit",
+      "no measured execution in audit",
+      "no controller ranking"
+    ],
+    "allowed_updates": [
+      "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+      "M2172 status queue scoreboard research log and review",
+      "one follow-up manifest for measured execution command design or materialization repair"
+    ],
+    "next_stage_criteria": [
+      "M2171 pass/fail is classified",
+      "claim boundary is audited",
+      "next blocker is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2172 audits materialized checkpoints and does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2172."
+    ],
+    "temporal_evidence_window": "M2171 materialized checkpoint/workload artifacts.",
+    "negative_result_policy": "If the materialization output is invalid, route to repair and do not compare controllers.",
+    "allowed_claims": [
+      "checkpoint/profile materialization audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits newly materialized checkpoint/workload panel before measured execution design",
+    "paper_verdict_delta": "can admit measured execution command design but cannot decide controller comparison",
+    "must_synthesize_if": [
+      "M2172 cannot classify the M2171 output",
+      "M2172 needs another materialization rerun",
+      "M2172 would claim controller ranking"
+    ]
+  },
+  "hypothesis": "The M2171 materialized checkpoint/profile panel is clean enough to admit a measured-execution command design, while keeping ranking and paper claims blocked.",
+  "success_criteria": [
+    "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md exists",
+    "M2171 summary is audited",
+    "all 320 materialized workload checkpoint paths are confirmed existing",
+    "L3_reset_control alias policy is confirmed",
+    "no measured execution ranking paper-level finite-window-vs-GRU or level3 claim is made"
+  ],
+  "failure_criteria": [
+    "audit document is missing",
+    "M2171 summary is not audited",
+    "any checkpoint path is missing or nonexistent",
+    "reset-control trained separately or does not alias L3_online_gru",
+    "measured execution or ranking starts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_audit_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/summary.json",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/profile_checkpoint_rows.csv",
+    "runs/m2171_paper_route_current_sim_checkpoint_profile_materialization/materialized_workload.csv"
+  ],
+  "decision_rule": "M2172 passes if it audits M2171 as clean materialization evidence and explicitly routes to measured execution command design without running it.",
+  "next_blocker": "m2172-paper-route-current-sim-checkpoint-profile-materialization-result-audit"
+}
