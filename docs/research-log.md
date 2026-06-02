@@ -44480,3 +44480,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.json`
 - next: `m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit`
+
+## M2448 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Outcome Localization Result Audit
+
+- status: completed
+- decision: `accept_localization_route_to_metric_selected_target_consolidation`
+- manifest: `experiments/manifests/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.json`
+- doc: `docs/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.md`
+- audited summary: `runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/summary.json`
+- accepted evidence: M2447 localization pass, `65` localization rows, global hard_offtrack_rate `0.7468571428571429`, global actual_success_rate `0.06685714285714285`, guardrail_violation_count `0`
+- decision: localization is actionable enough for artifact-only target consolidation, but not for direct repair/training
+- diagnostic-only axes: profile/pack/family/checkpoint axes remain non-ranking and no winner is selected
+- route: target consolidation separating hard-offtrack targets, collision guardrails, soft-boundary diagnostics, and monitoring-only axes
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.json`
+- next: `m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation`

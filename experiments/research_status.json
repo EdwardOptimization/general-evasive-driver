@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2453,
+    "completed": 2454,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization",
+    "task_id": "m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization",
-    "command_log": "runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/summary.json"
+    "run_dir": "docs/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.md",
+    "command_log": "docs/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.md"
   },
   "next_task": {
-    "id": "m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit",
-    "kind": "gate",
-    "priority": 24430,
+    "id": "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+    "kind": "infrastructure",
+    "priority": 24440,
     "status": "pending",
-    "hypothesis": "Auditing M2447 can decide whether the artifact-only localization is actionable enough for target consolidation, synthesis, stop, or another bounded route without rerun, repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.json",
-    "success_artifact": "docs/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.md",
-    "notes": "Pending: audit M2447 localization and choose bounded route no rerun repair training ranking winner verdict claims"
+    "hypothesis": "M2447/M2448 localization can be consolidated into compact hard-offtrack target and guardrail artifacts without rerun, repair, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.json",
+    "success_artifact": "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json",
+    "notes": "Pending: artifact-only target and guardrail consolidation from M2447/M2448 no rerun repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T211618Z"
+  "updated_at_utc": "20260602T212402Z"
 }

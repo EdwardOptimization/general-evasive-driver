@@ -16,25 +16,33 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
+m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
+m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
+m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
 ```
 
 Current route:
 
 ```text
+M2448 accepted M2447 localization as actionable enough for artifact-only target
+consolidation. The next route is not repair or training: M2449 should separate
+hard-offtrack target rows, collision guardrails, soft-boundary diagnostics, and
+monitoring-only axes while preserving profile/pack/family/checkpoint axes as
+diagnostic-only and non-ranking. No rerun, policy action, repair, training,
+ranking, winner selection, scenario redesign, paper/FW-vs-GRU/self-ID/
+training-repair verdict, or current-sim verdict is supported.
+
 M2447 localized the M2445 hard-offtrack-dominated measured outcome from
 artifacts only. It produced 65 localization rows over 5250 episodes with global
 actual_success_rate `0.06685714285714285`, hard_offtrack_rate
