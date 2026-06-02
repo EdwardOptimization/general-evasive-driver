@@ -44666,3 +44666,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.json`
 - next: `m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit`
+
+## M2459 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Reset/Static Preflight Adapter Result Audit
+
+- status: completed
+- decision: `accept_adapter_static_pass_route_to_concrete_overlay_design`
+- manifest: `experiments/manifests/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.json`
+- doc: `docs/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.md`
+- audited summary: `runs/m2458_paper_route_current_sim_dual_axis_scenario_quality_redesign_reset_static_preflight_adapter/summary.json`
+- accepted evidence: `30` work items, `246` static checks, `0` static failures, `0` guardrail violations, `6` reset-required stable/AES rows, `6` reset-blocked missing-overlay rows
+- audit finding: reset-blocked missing overlays are scenario-spec readiness blockers, not driver failures or actual-success evidence
+- decision: route to `m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design`
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.json`
+- next: `m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design`
