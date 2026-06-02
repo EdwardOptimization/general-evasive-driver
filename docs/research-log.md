@@ -43994,3 +43994,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2420 is artifact-only repair-plan materialization; it defines bounded levers/gates/stop rules but does not execute repair
 - follow-up manifest: `experiments/manifests/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.json`
 - next: `m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit`
+
+## M2421 Paper-Route Current-Sim Dual-Axis Source-Linked Bounded Repair-Plan Materialization Result Audit
+
+- status: completed
+- decision: `source_linked_bounded_repair_plan_materialization_accepted_route_to_repair_candidate_materialization`
+- manifest: `experiments/manifests/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.json`
+- doc: `docs/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.md`
+- parent summary: `runs/m2420_paper_route_current_sim_dual_axis_source_linked_bounded_repair_plan_materialization/summary.json`
+- rerun/reset rerun/rollout/repair/training/replay/PPO: `false`
+- family/profile/controller ranking and winner selection: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted plan: total `2844`, offtrack `59`, collision `30`, R4 `43`, max-step `1`, speed-too-low `1`, diagnostic `2733`, family diagnostic `110`
+- audit result: plan is complete and guardrail-separated enough to admit run-dir-only source-linked repair-candidate materialization
+- follow-up manifest: `experiments/manifests/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.json`
+- next: `m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation`

@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
+m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
+m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
+m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
 ```
 
 Current route:
@@ -144,7 +144,10 @@ rows, with 59 offtrack repair-plan rows, 30 collision guardrails, 43 R4
 mitigation rows, 1 max-step guardrail, 1 speed-too-low guardrail, 2733
 diagnostic monitoring rows, and 110 family-membership diagnostics. Repair
 execution, training, ranking, winner selection, guardrail violations, and
-verdict claims remain zero. The next task is M2421 result audit.
+verdict claims remain zero. M2421 accepted M2420 as complete and routes to
+M2422 run-dir-only source-linked repair-candidate materialization. The route is
+still artifact-only: no repair execution, training, active config overwrite,
+ranking, or verdict claim.
 ```
 
 ## Latest Evidence
