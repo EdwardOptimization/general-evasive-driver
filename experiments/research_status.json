@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2401,
+    "completed": 2402,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit",
+    "task_id": "m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md"
+    "command_log": "docs/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.md"
   },
   "next_task": {
-    "id": "m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design",
-    "kind": "gate",
-    "priority": 23910,
+    "id": "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation",
+    "kind": "infrastructure",
+    "priority": 23920,
     "status": "pending",
-    "hypothesis": "A bounded measured-validation design can evaluate M2394 reset-ready effective candidate artifacts while preserving the paper-route claim boundary, actor contract, and no-ranking discipline.",
-    "command": "see experiments/manifests/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.json",
-    "success_artifact": "docs/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.md",
-    "notes": "Pending: design only no reset rollout repair training ranking or paper/self-ID/current-sim claims"
+    "hypothesis": "The reset-ready effective candidate artifacts can be executed in a fixed 30735-episode measured-validation panel without lineage loss, actor-contract violation, metric artifacts, repair execution, training, ranking, or paper/self-ID/current-sim claims.",
+    "command": "see experiments/manifests/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.json",
+    "success_artifact": "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json",
+    "notes": "Pending: run 2049 candidate-scenario refs x 15 checkpoints no repair/training/ranking or paper/self-ID/current-sim claims"
   },
-  "updated_at_utc": "20260602T090705Z"
+  "updated_at_utc": "20260602T091403Z"
 }

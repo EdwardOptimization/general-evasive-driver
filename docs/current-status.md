@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
+m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
+m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
+m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
 ```
 
 Current route:
@@ -42,9 +42,11 @@ artifacts. All 2049 candidate-scenario references passed static validation, all
 350 unique reset targets reset successfully, and all 54 effective candidates
 passed candidate-level reset aggregation. No environment step or policy action
 occurred. M2395 accepted this as reset-readiness evidence only and routed to a
-bounded measured-validation design. The next task is M2396 design before any
-measured rollout, repair, training, ranking, or paper/self-ID/current-sim
-verdict route.
+bounded measured-validation design. M2396 froze the effective-candidate
+measured-validation protocol: 2049 candidate-scenario references times 15
+selected checkpoints, for 30735 closed-loop episodes. The next task is M2397
+implementation and run, still with no repair, training, ranking, or
+paper/self-ID/current-sim verdict route.
 ```
 
 ## Latest Evidence
@@ -160,6 +162,22 @@ blocked claims: measured performance, repair success, paper verdict,
   finite-window-vs-GRU, level3 self-ID, scenario redesign executed,
   current-sim verdict
 next task: M2396 measured-validation design
+```
+
+M2396 effective-candidate measured-validation design:
+
+```text
+decision: effective_candidate_measured_validation_design_admit_implementation
+effective candidates: 54
+candidate-scenario references: 2049
+unique reset targets: 350
+selected checkpoints: 15
+target measured episodes: 30735
+denominator: candidate_id + pack_id + scenario_spec_id + selected checkpoint
+reset/rollout/policy action in M2396: false/false/false
+blocked claims: ranking, paper verdict, finite-window-vs-GRU, level3 self-ID,
+  scenario redesign executed, training repair success, current-sim verdict
+next task: M2397 measured-validation implementation
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

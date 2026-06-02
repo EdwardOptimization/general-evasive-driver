@@ -43554,3 +43554,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: measured execution, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario redesign executed, current-sim verdict
 - follow-up manifest: `experiments/manifests/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.json`
 - next: `m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design`
+
+## M2396 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Validation Design
+
+- status: completed
+- decision: `effective_candidate_measured_validation_design_admit_implementation`
+- manifest: `experiments/manifests/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.json`
+- doc: `docs/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.md`
+- parent audit: `docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md`
+- reset/rollout/policy action in M2396: `false/false/false`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- denominator: `2049` candidate-scenario references x `15` selected checkpoints = `30735` episodes
+- uniqueness policy: measured cells are `candidate_id + pack_id + scenario_spec_id + selected_checkpoint`
+- reset targets: `350` unique pack/scenario targets remain reset-readiness evidence, not measured denominator
+- pass target for M2397: complete or fail-close the fixed measured-validation panel with full lineage and no forbidden claims
+- follow-up manifest: `experiments/manifests/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.json`
+- next: `m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation`
