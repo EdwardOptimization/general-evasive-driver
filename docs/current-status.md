@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation
+m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation
+m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit
+m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit
 ```
 
 Current route:
@@ -238,6 +238,19 @@ violations are zero. The current next task is M2432 result audit, which must
 decide task-semantics reassessment, source-coverage repair, high-fidelity/
 backend preparation, synthesis/stop, or another bounded route without rollout,
 repair, training, ranking, or verdict claims.
+M2432 accepted M2431 and routed to event-level offtrack semantics instead of
+another local repair step. M2433 implemented that panel over existing primary
+episode rows from M2362, M2397, and M2413 only. It passed as a diagnostic
+artifact: 3/3 primary panels are road-boundary dominated by the registered
+positive-clearance low-overshoot criterion. The minimum positive-clearance
+low-overshoot offtrack rate is 0.9841229193341869, the maximum is
+0.9882130888640653, the minimum high-clearance offtrack rate is
+0.895112016293279, and the maximum mean offtrack overshoot is
+0.07326005531775727 m. This does not prove driver improvement or scenario
+redesign success. The current next task is M2434 result audit: decide
+offtrack-boundary task-semantics reassessment, metric/termination threshold
+design, high-fidelity/backend preparation, synthesis/stop, or another bounded
+route, without rollout, repair, training, ranking, or verdict claims.
 ```
 
 ## Latest Evidence

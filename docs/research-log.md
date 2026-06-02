@@ -44185,3 +44185,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: repeated offtrack dominance now appears as a current-sim task-quality blocker, not a reason for another source-linked local repair
 - follow-up manifest: `experiments/manifests/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.json`
 - next: `m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit`
+
+## M2432 Paper-Route Current-Sim Dual-Axis Task-Quality Decision Panel Result Audit
+
+- status: completed
+- decision: `task_quality_panel_accepted_route_to_offtrack_semantics_panel`
+- manifest: `experiments/manifests/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.json`
+- doc: `docs/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.md`
+- audited summary: `runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json`
+- accepted evidence: M2431 panel pass, `6/6` included measured panels offtrack-dominated, c04 source coverage gap preserved, guardrail violations `0`
+- diagnosis: next useful question is what offtrack means at event level, not which source-linked local repair to try next
+- route: event-level offtrack semantics panel over existing primary episode rows
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.json`
+- next: `m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation`
+
+## M2433 Paper-Route Current-Sim Dual-Axis Offtrack Semantics Panel Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_semantics_panel_pass`
+- manifest: `experiments/manifests/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.json`
+- doc: `docs/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_semantics_panel.py`
+- focused tests: `2 passed`
+- summary: `runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json`
+- primary panels: `3`
+- road-boundary dominated panels: `3`
+- min positive-clearance low-overshoot offtrack rate: `0.9841229193341869`
+- max positive-clearance low-overshoot offtrack rate: `0.9882130888640653`
+- min high-clearance offtrack rate: `0.895112016293279`
+- max mean offtrack overshoot: `0.07326005531775727`
+- route recommendation: `route_to_offtrack_boundary_task_semantics_reassessment_audit`
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- interpretation: dominant offtrack failures are road-boundary/task-semantics dominated by positive-clearance low-overshoot events, not a basis for immediate repair/training
+- follow-up manifest: `experiments/manifests/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.json`
+- next: `m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit`

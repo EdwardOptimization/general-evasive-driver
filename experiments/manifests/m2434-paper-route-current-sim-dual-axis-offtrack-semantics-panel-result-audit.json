@@ -1,0 +1,191 @@
+{
+  "id": "m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_offtrack_semantics_panel_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.md",
+      "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json",
+      "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/panel_rows.csv",
+      "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/decision_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the event-level offtrack semantics panel and choose the next task-semantics route"
+    ],
+    "derived_from": [
+      "m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation"
+    ],
+    "blocked_by": [
+      "M2433 confirms 3/3 primary panels are road-boundary dominated by positive-clearance low-overshoot offtrack",
+      "current-sim offtrack semantics must be reassessed before more repair/training",
+      "M2433 does not execute scenario redesign or current-sim verdict"
+    ],
+    "supersedes": [
+      "direct repair/training/PPO from road-boundary dominated offtrack panel",
+      "candidate/controller ranking from offtrack semantics diagnostics",
+      "claiming current-sim verdict from M2433 alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+  "public_gates": [
+    "M2434 must audit M2433 result_class and panel rows",
+    "M2434 must preserve that 3/3 primary panels are road-boundary dominated by the registered criterion",
+    "M2434 must choose offtrack-boundary task-semantics reassessment, metric/threshold design, high-fidelity/backend preparation, synthesis/stop, or bounded next evidence",
+    "M2434 must not rerun measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2433",
+    "do not run new measured rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_quality_decision",
+    "evidence_axis": "E_current_sim_offtrack_semantics_panel_result_audit",
+    "evidence_increment": "audits event-level offtrack semantics and chooses whether to route to task-boundary reassessment or another bounded branch",
+    "claim_scope": "result audit only; no new measured rollout, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if the audit treats M2433 as driver improvement",
+      "stop if the audit ranks candidates or controllers",
+      "stop if the audit claims scenario redesign was executed",
+      "stop if the audit routes to training before task semantics are reassessed"
+    ],
+    "fallback_plan": [
+      "route to offtrack-boundary task-semantics reassessment if M2433 is accepted",
+      "route to metric lineage repair if M2433 fields are unreliable",
+      "route to high-fidelity/backend preparation if current-sim semantics are judged exhausted",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "audit required after M2433 offtrack semantics panel result",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack semantics panel result audit",
+    "admission_evidence": [
+      "M2433 result_class is current_sim_dual_axis_offtrack_semantics_panel_pass",
+      "M2433 panel_row_count is 3",
+      "M2433 road_boundary_dominated_panel_count is 3",
+      "M2433 min positive-clearance low-overshoot offtrack rate is 0.9841229193341869",
+      "M2433 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+      "M2434 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit accepts or rejects M2433 explicitly",
+      "road-boundary dominated offtrack evidence is classified",
+      "a bounded next route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2434 audits task-quality outcomes and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2434; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2433 offtrack semantics panel.",
+    "negative_result_policy": "If road-boundary dominated offtrack is accepted, route to task-boundary reassessment before more local repair or training.",
+    "allowed_claims": [
+      "M2433 result audit",
+      "road-boundary dominated offtrack classification",
+      "next route decision",
+      "no controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits episode-level offtrack semantics before selecting task-boundary route",
+    "paper_verdict_delta": "can decide task-boundary reassessment route; cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "M2434 cannot select a clear bounded next route",
+      "another local source-linked repair is proposed without task-boundary reassessment",
+      "the task-quality branch accumulates another artifact-only step"
+    ]
+  },
+  "hypothesis": "Auditing M2433 will determine whether road-boundary dominated offtrack should route to task-boundary semantics reassessment, metric/threshold design, high-fidelity/backend preparation, synthesis, or stop.",
+  "success_criteria": [
+    "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md exists",
+    "the audit accepts or rejects M2433 explicitly",
+    "road-boundary dominated offtrack evidence is classified",
+    "a bounded non-ranking next route is selected or the branch is stopped",
+    "no measured rollout repair training ranking or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2434 reruns measured validation",
+    "M2434 executes repair or training",
+    "M2434 ranks candidate families or controllers",
+    "M2434 hides road-boundary dominated offtrack evidence",
+    "M2434 claims scenario redesign success",
+    "M2434 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md from M2433 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_offtrack_semantics_panel_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.md",
+    "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json"
+  ],
+  "decision_rule": "M2434 passes if it audits M2433 task-semantics evidence and selects a bounded non-ranking next route or stops without measured rollout, repair, training, ranking, or verdict claims.",
+  "next_blocker": "m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit"
+}
