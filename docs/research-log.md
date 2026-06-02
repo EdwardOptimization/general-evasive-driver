@@ -44441,3 +44441,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.json`
 - next: `m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit`
+
+## M2446 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Result Audit
+
+- status: completed
+- decision: `accept_metric_selected_measured_artifact_route_to_outcome_localization`
+- manifest: `experiments/manifests/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.json`
+- doc: `docs/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.md`
+- audited summary: `runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/summary.json`
+- accepted artifact: M2445 completed `5250/5250` episodes with failure/validation/metadata/metric-completeness/actor-contract/guardrail counts all `0`
+- raw measured actual_success_rate: `0.06685714285714285`
+- raw measured hard_offtrack_failure_rate: `0.7468571428571429`
+- raw measured soft_offtrack_violation_rate: `0.0032380952380952383`
+- raw measured boundary_tolerated_success_rate: `0.0`
+- M2438 contrast: old-row relabel `min_counterfactual_soft_success_rate_at_0_20m` was `0.7827777777777778`, but M2445 fresh execution did not convert to soft-boundary success
+- audit classification: old-row relabel diagnosed boundary-metric dominance but was not predictive of continued closed-loop recovery under true soft-boundary execution
+- route: artifact-only outcome localization before any repair/training/scenario-quality route
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization.json`
+- next: `m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization`

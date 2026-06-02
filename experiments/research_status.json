@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2451,
+    "completed": 2452,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation",
+    "task_id": "m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation",
-    "command_log": "runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/summary.json"
+    "run_dir": "docs/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.md",
+    "command_log": "docs/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit",
-    "kind": "gate",
-    "priority": 24410,
+    "id": "m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization",
+    "kind": "infrastructure",
+    "priority": 24420,
     "status": "pending",
-    "hypothesis": "Auditing M2445 can classify the fresh metric-selected measured-validation result and choose a bounded next route without rerun, repair, training, ranking, or paper/self-ID verdict claims.",
-    "command": "see experiments/manifests/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.json",
-    "success_artifact": "docs/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.md",
-    "notes": "Pending: audit M2445 measured results and explain old diagnostic relabel versus fresh soft-boundary execution mismatch no rerun repair training ranking verdict claims"
+    "hypothesis": "M2445 hard-offtrack dominance can be localized into diagnostic slices from artifacts only, enabling a bounded next route without rerun, repair, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization.json",
+    "success_artifact": "runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/summary.json",
+    "notes": "Pending: artifact-only localization of M2445 hard-offtrack-dominated measured outcomes no rerun repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T205856Z"
+  "updated_at_utc": "20260602T210844Z"
 }

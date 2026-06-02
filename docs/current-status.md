@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
+m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
+m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
+m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
 ```
 
 Current route:
 
 ```text
+M2446 accepted M2445 as a complete measured artifact but classified the fresh
+soft-boundary execution as hard-offtrack dominated. The important correction is
+that M2438 old-row relabel was diagnostic, not predictive: old hard-termination
+rows stop at first boundary crossing, so relabeling them cannot prove the
+closed-loop policy will recover or stay within the new 0.20 m tolerance once
+termination is removed. M2445 is the fresh execution test and measured
+actual_success_rate `0.06685714285714285`, hard_offtrack_failure_rate
+`0.7468571428571429`, soft_offtrack_violation_rate
+`0.0032380952380952383`, boundary_tolerated_success_rate `0.0`. The next task
+is M2447 artifact-only outcome localization over M2445 rows before any repair,
+training, scenario-quality route, ranking, winner selection, paper/FW-vs-GRU/
+self-ID/training-repair verdict, or current-sim verdict claim.
+
 M2445 executed the audited M2443 metric-selected workload as fresh closed-loop
 measured validation under `soft_offtrack_metric_enabled=true` and
 `soft_offtrack_tolerance_m=0.20`. It completed 5250/5250 episodes with
