@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis
+m2346-paper-route-current-sim-dual-axis-redesign-calibration-design
 ```
 
 Current next task:
 
 ```text
-m2346-paper-route-current-sim-dual-axis-redesign-calibration-design
+m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -132,7 +132,20 @@ decision: continue_to_dual_axis_redesign_calibration_design
 
 M2346 should design geometry/timing and hidden-dynamics candidate
 transformations without executing rollouts or modifying the active benchmark
-pack. Training, replay, PPO, support-policy ranking, controller-family ranking,
+pack. M2346 is now complete:
+
+```text
+result_class: dual_axis_redesign_calibration_design_admit_artifact_only_materializer
+G axis: geometry/timing candidate transforms
+H axis: hidden-dynamics range candidate transforms
+GH axis: minimal combined candidates when both signals are present
+secondary coverage rows: 9 tracked as inactive
+```
+
+M2347 should implement the artifact-only materializer and focused tests. It
+must preserve the 13/13 split and inactive 9-row secondary bucket while writing
+candidate artifacts under `runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization`.
+Training, replay, PPO, support-policy ranking, controller-family ranking,
 winner selection, paper-level claims, finite-window vs GRU conclusions, and
 level3 self-ID claims remain blocked.
 

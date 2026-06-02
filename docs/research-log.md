@@ -42416,3 +42416,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.json`
 - next: `m2346-paper-route-current-sim-dual-axis-redesign-calibration-design`
+
+## M2346 Paper-Route Current-Sim Dual-Axis Redesign Calibration Design
+
+- status: completed
+- result_class: `dual_axis_redesign_calibration_design_admit_artifact_only_materializer`
+- manifest: `experiments/manifests/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.json`
+- doc: `docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md`
+- parent synthesis: `docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md`
+- parent artifacts: `runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation`
+- admitted follow-up: `artifact-only materializer`
+- preserved input split: `geometry/timing 13`, `hidden-dynamics range 13`, `secondary coverage inactive 9`
+- designed axes: `G geometry/timing`, `H hidden range`, `GH minimal combined`
+- reset/rollout/measured execution in M2346: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.json`
+- next: `m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation`

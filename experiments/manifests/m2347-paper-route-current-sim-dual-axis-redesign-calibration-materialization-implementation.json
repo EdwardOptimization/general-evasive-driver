@@ -1,0 +1,237 @@
+{
+  "id": "m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_redesign_calibration_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/consolidated_redesign_rows.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/secondary_coverage_materialization_rows.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only dual-axis redesign calibration candidate materialization"
+    ],
+    "derived_from": [
+      "m2346-paper-route-current-sim-dual-axis-redesign-calibration-design",
+      "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation"
+    ],
+    "blocked_by": [
+      "M2346 designs candidate transforms but does not materialize artifacts",
+      "controller comparison remains blocked until candidate materialization and later validation"
+    ],
+    "supersedes": [
+      "manual dual-axis calibration spreadsheet",
+      "direct active config edit before materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.md",
+  "public_gates": [
+    "M2347 must implement an artifact-only materializer from M2346 design",
+    "M2347 must preserve 13 geometry/timing and 13 hidden-range input counts",
+    "M2347 must track the 9 secondary coverage rows as inactive",
+    "M2347 must emit candidate CSV, candidate JSON, summary, and claim-boundary artifacts",
+    "M2347 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_redesign_calibration",
+    "evidence_axis": "Q_dual_axis_redesign_calibration_materialization",
+    "evidence_increment": "materializes bounded dual-axis candidate artifacts without executing validation",
+    "claim_scope": "artifact materialization only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if input rows are not 26 with 13/13 axis split",
+      "stop if secondary coverage rows become active",
+      "stop if implementation starts reset rollout training replay PPO or ranking",
+      "stop if output claims scenario redesign executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if candidate artifacts pass",
+      "repair materializer schema if required fields are missing",
+      "return to M2346 design if either axis cannot be represented",
+      "stop for user review if the active config cannot be read safely as reference"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2346 admits artifact-only dual-axis materialization implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement dual-axis redesign calibration materializer",
+    "admission_evidence": [
+      "M2346 defines G/H/GH candidate transforms and output schema",
+      "M2343 provides 26 consolidated redesign rows and 9 secondary coverage rows",
+      "M2345 blocks direct single-axis redesign"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no active config overwrite",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_redesign_calibration_materialization.py",
+      "tests/test_paper_route_current_sim_dual_axis_redesign_calibration_materialization.py",
+      "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/*",
+      "docs/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.md",
+      "M2347 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "candidate materializer exists",
+      "focused tests pass",
+      "required artifacts exist",
+      "axis counts and secondary coverage counts match M2346 design",
+      "guardrail flags remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2347 materializes task-quality calibration artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2347; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2343/M2345/M2346 task-quality artifacts.",
+    "negative_result_policy": "Dual-axis materialization must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "artifact-only dual-axis redesign calibration materialization",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the 26-row dual-axis blocker into explicit candidate artifacts instead of optimizing one public slice",
+    "paper_verdict_delta": "can prepare current-sim task-pack redesign candidates for later validation without ranking controllers",
+    "must_synthesize_if": [
+      "M2347 cannot preserve both axes",
+      "M2347 output suggests direct active benchmark edits",
+      "the dual-axis calibration branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "An artifact-only materializer can convert the M2346 dual-axis design into bounded candidate rows while preserving the 13/13 axis split and 9 inactive secondary coverage rows.",
+  "success_criteria": [
+    "summary.json exists",
+    "calibration_candidate_rows.csv exists",
+    "geometry_timing_candidate_rows.csv exists",
+    "hidden_range_candidate_rows.csv exists",
+    "combined_axis_candidate_rows.csv exists",
+    "secondary_coverage_rows.csv exists",
+    "calibration_config_candidates.json exists",
+    "claim_boundary.csv exists",
+    "input_redesign_row_count == 26",
+    "geometry_timing_input_row_count == 13",
+    "hidden_range_input_row_count == 13",
+    "secondary_coverage_input_row_count == 9",
+    "secondary coverage rows remain inactive",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "M2347 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2347 ranks support policies or controller families",
+    "M2347 overwrites the active scenario config",
+    "M2347 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2347 claims scenario redesign executed",
+    "required artifacts or counts are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_paper_route_current_sim_dual_axis_redesign_calibration_materialization.py -q"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_redesign_calibration_materialization --input-dir runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/calibration_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/geometry_timing_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/hidden_range_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/combined_axis_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/secondary_coverage_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/calibration_config_candidates.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/claim_boundary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_redesign_calibration_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/consolidated_redesign_rows.csv",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/secondary_coverage_materialization_rows.csv"
+  ],
+  "decision_rule": "M2347 passes if it emits bounded dual-axis calibration artifacts with the expected counts and no execution, ranking, or claim-boundary violations.",
+  "next_blocker": "selected_by_m2347_result"
+}
