@@ -1,0 +1,181 @@
+{
+  "id": "m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_pack_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.md",
+      "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json",
+      "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/reset_rows.csv",
+      "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/repair_action_reset_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2359 repaired-pack reset-validation pass before any measured execution design"
+    ],
+    "derived_from": [
+      "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation",
+      "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design"
+    ],
+    "blocked_by": [
+      "M2359 produces reset evidence but interpretation is deferred to a result audit",
+      "measured execution design is blocked until reset pass and claim boundary are audited"
+    ],
+    "supersedes": [
+      "direct measured execution after reset validation without audit",
+      "claiming paper-level evidence from reset-only validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2360 must audit M2359 summary and reset artifacts without rerunning reset",
+    "M2360 must verify 360/360 reset success, zero contract violations, and repair metadata preservation",
+    "M2360 must keep rollout measured execution ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repaired_pack_reset_validation",
+    "evidence_axis": "Q_repaired_pack_reset_validation_result_audit",
+    "evidence_increment": "audits the repaired-pack reset-validation pass and decides the next bounded paper-route step",
+    "claim_scope": "result audit only; no rerun, rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if M2359 summary is missing or internally inconsistent",
+      "stop if reset success, contract, repair metadata, or guardrail counts do not match M2358 gates",
+      "stop if audit routes directly to controller ranking or paper-level conclusion"
+    ],
+    "fallback_plan": [
+      "route to failure audit or validator repair if M2359 artifacts are inconsistent",
+      "route to bounded measured-execution design if M2359 artifacts are accepted",
+      "route to branch synthesis if the reset-validation branch should close before measured execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2359 produced a repaired-pack reset-validation pass",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired pack reset-validation result audit",
+    "admission_evidence": [
+      "M2359 result_class is current_sim_dual_axis_repaired_pack_reset_validation_pass",
+      "M2359 reset_success_count is 360/360",
+      "M2359 repair_action_rows_preserved is true"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md",
+      "M2360 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2359 reset pass is accepted or rejected",
+      "claim boundary is restated",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2360 audits task-quality reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2360; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2359 repaired-pack reset-validation artifacts.",
+    "negative_result_policy": "If M2359 artifacts fail audit, classify the failure before repair or rerun.",
+    "allowed_claims": [
+      "repaired-pack reset-validation result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "audits new reset evidence over repaired candidate config packs before measured execution design",
+    "paper_verdict_delta": "can admit bounded measured-execution design if M2359 artifacts are accepted, but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2360 cannot decide the next route from the M2359 artifacts",
+      "M2360 proposes direct ranking or paper conclusion",
+      "the repaired-pack reset-validation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2359 repaired-pack reset-validation artifacts can decide whether the reset-valid repaired packs are eligible for a bounded measured-execution design.",
+  "success_criteria": [
+    "docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md exists",
+    "M2359 summary counts are audited",
+    "repair-action metadata preservation is audited",
+    "claim boundary remains blocked for ranking paper finite-window-vs-GRU and level3 self-ID claims",
+    "a bounded non-ranking follow-up route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2360 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2360 ranks support policies or controller families",
+    "M2360 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2360 claims scenario redesign executed",
+    "M2360 routes directly to controller comparison without measured-execution design"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2359 repaired-pack reset-validation artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_pack_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.md",
+    "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
+  ],
+  "decision_rule": "M2360 passes if it audits M2359 artifacts and selects a bounded non-ranking follow-up route or stops the branch.",
+  "next_blocker": "selected_by_m2360_audit"
+}

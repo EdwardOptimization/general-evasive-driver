@@ -42734,3 +42734,42 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - required repair metadata: `32 fallback actions`, `27 timing`, `3 hidden`, `2 lateral-hidden`
 - follow-up manifest: `experiments/manifests/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.json`
 - next: `m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation`
+
+## M2359 Paper-Route Current-Sim Dual-Axis Repaired Pack Reset Validation Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_repaired_pack_reset_validation_pass`
+- manifest: `experiments/manifests/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.json`
+- doc: `docs/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_repaired_pack_reset_validation.py`
+- focused tests: `3 passed`
+- summary: `runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json`
+- input_config_pack_count: `5`
+- scenario_specs_per_pack_count: `72`
+- reset_attempt_count: `360`
+- reset_success_count: `360`
+- reset_failure_count: `0`
+- observation_finite_count: `360`
+- observation_dimension_failure_count: `0`
+- obstacle_initialized_count: `360`
+- contract_violation_count: `0`
+- forbidden_key_violation_count: `0`
+- baseline_env_config_fallback_count: `32`
+- repair_action_rows_preserved: `true`
+- metadata_caveat_rows_preserved: `true`
+- metadata_only_patch_count: `37`
+- effective modified selections: `G 4`, `H 12`, `G+H 16`, `GH-minimal 14`
+- active_config_overwritten: `false`
+- guardrail_violation_count: `0`
+- reset/rollout distinction: reset only
+- policy action executed: `false`
+- measured execution in M2359: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- decision: `repaired_pack_reset_validation_pass_route_to_result_audit`
+- follow-up manifest: `experiments/manifests/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.json`
+- next: `m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit`

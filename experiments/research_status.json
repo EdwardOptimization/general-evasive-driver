@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2365,
+    "completed": 2366,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design",
+    "task_id": "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md"
+    "run_dir": "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation",
+    "command_log": "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
   },
   "next_task": {
-    "id": "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation",
-    "kind": "infrastructure",
-    "priority": 23540,
+    "id": "m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit",
+    "kind": "gate",
+    "priority": 23550,
     "status": "pending",
-    "hypothesis": "The five M2356 repaired candidate config packs are reset-valid under the current simulator and strict human-view observation contract.",
-    "command": "run frozen repaired-pack reset-only validation preserving repair-action metadata",
-    "success_artifact": "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json",
-    "notes": "Pending: implement and run repaired-pack reset-only validator no rollout/policy/ranking"
+    "hypothesis": "Auditing M2359 repaired-pack reset-validation artifacts can decide whether the reset-valid repaired packs are eligible for a bounded measured-execution design.",
+    "command": "manual audit of M2359 repaired-pack reset-validation artifacts",
+    "success_artifact": "docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md",
+    "notes": "Pending: audit M2359 360/360 reset pass and claim boundary before measured-execution design"
   },
-  "updated_at_utc": "20260602T033926Z"
+  "updated_at_utc": "20260602T035440Z"
 }

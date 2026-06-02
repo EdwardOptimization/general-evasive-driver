@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design
+m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation
 ```
 
 Current next task:
 
 ```text
-m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation
+m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -323,10 +323,40 @@ repair metadata required:
   lateral-hidden 2
 ```
 
-M2359 should implement and run the repaired-pack reset-only validator. It must
-not run rollout or execute policy actions. Controller comparison,
-support-policy ranking, paper-level evidence, and scenario redesign execution
-claims remain blocked.
+M2359 implements and runs the repaired-pack reset-only validator. It passes:
+
+```text
+result_class: current_sim_dual_axis_repaired_pack_reset_validation_pass
+input_config_pack_count: 5
+scenario_specs_per_pack_count: 72
+reset_attempt_count: 360
+reset_success_count: 360
+reset_failure_count: 0
+observation_finite_count: 360
+observation_dimension_failure_count: 0
+obstacle_initialized_count: 360
+contract_violation_count: 0
+forbidden_key_violation_count: 0
+baseline_env_config_fallback_count: 32
+repair_action_rows_preserved: true
+metadata_caveat_rows_preserved: true
+metadata_only_patch_count: 37
+guardrail_violation_count: 0
+```
+
+Effective modified selections in the reset-valid repaired pack family:
+
+```text
+g_primary_pack: 4
+h_primary_pack: 12
+g_h_primary_pack: 16
+gh_minimal_pack: 14
+```
+
+M2360 should audit the M2359 pass before any measured-execution design.
+Controller comparison, support-policy ranking, paper-level evidence,
+finite-window vs GRU conclusions, level3 self-ID claims, and scenario redesign
+execution claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
@@ -465,9 +495,10 @@ expected_selected_checkpoint_count: 15
 runner: autodrift.paper_route_current_sim_training_stability_repair_execution
 ```
 
-M2304 is the next actual training execution. It may train through the frozen
-runner, but ranking, promotion, paper-level claim, finite-window vs GRU verdict,
-and level3 self-ID claim remain blocked.
+In that historical guarded-repair branch, M2304 was the next actual training
+execution. It is not the current next task while the paper-route reset-validation
+branch is active. Ranking, promotion, paper-level claim, finite-window vs GRU
+verdict, and level3 self-ID claim remain blocked.
 
 Promotion, ranking, winner selection, finite-window vs GRU verdict, paper-level
 claim, and level3 self-ID claim remain blocked.

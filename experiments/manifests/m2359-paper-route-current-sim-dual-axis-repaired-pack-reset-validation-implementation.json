@@ -194,5 +194,5 @@
     "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repair_action_rows.csv"
   ],
   "decision_rule": "M2359 passes if the frozen reset-only command validates all five repaired packs and all 360 scenario resets with zero reset failures, zero contract violations, and preserved repair-action metadata.",
-  "next_blocker": "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation"
+  "next_blocker": "m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit"
 }
