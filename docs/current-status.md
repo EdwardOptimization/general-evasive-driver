@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
+m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
-result: completed
+m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
+result: pass
 ```
 
 Current next task:
 
 ```text
-m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
+m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
 ```
 
 Current route:
@@ -37,13 +37,12 @@ Current route:
 ```text
 M2391 materialized run-dir-only effective candidate pack artifacts by joining
 M2385 overlay candidates to M2356 reset-valid repaired pack scenario specs.
-M2393 designed the reset-validation adapter for M2391 effective candidate
-artifacts. The adapter uses two layers: 2049 candidate-scenario references for
-static coverage and 350 unique `(pack_id, scenario_spec_id)` reset targets for
-future reset-only validation. The next task is M2394 implementation. It may
-load/reset environments only for the reset targets, but it may not step
-environments, execute policy actions, repair, train, rank, or make paper/self-ID
-or current-sim claims.
+M2394 implemented and ran the reset-only adapter for M2391 effective candidate
+artifacts. All 2049 candidate-scenario references passed static validation, all
+350 unique reset targets reset successfully, and all 54 effective candidates
+passed candidate-level reset aggregation. No environment step or policy action
+occurred. The next task is M2395 result audit before any measured-validation,
+repair, training, or ranking route.
 ```
 
 ## Latest Evidence
@@ -125,6 +124,27 @@ future M2394 reset scope: reset-only, no environment step and no policy action
 future pass target: 350/350 reset successes and 54/54 candidate reset passes
 still blocked: rollout/measured execution, repair execution, training, ranking,
   paper/FW-vs-GRU/level3 self-ID/current-sim verdict claims
+```
+
+M2394 reset-validation adapter result:
+
+```text
+result_class: current_sim_dual_axis_effective_candidate_reset_validation_adapter_pass
+source_candidate_config_count: 54
+candidate_scenario_reference_count: 2049
+unique_reset_target_count: 350
+static_validation_pass_count: 2049
+static_validation_failure_count: 0
+environment_load_attempt_count: 350
+environment_reset_attempt_count: 350
+environment_reset_success_count: 350
+environment_reset_failure_count: 0
+candidate_reset_pass_count: 54
+candidate_reset_failure_count: 0
+environment_step_count: 0
+policy_action_executed: false
+active_config_overwrite_count: 0
+guardrail_violation_count: 0
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

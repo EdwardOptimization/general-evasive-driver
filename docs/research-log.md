@@ -43515,3 +43515,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - future M2394 pass target: 350 reset successes and 54 candidate reset passes, no environment step or policy action
 - follow-up manifest: `experiments/manifests/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.json`
 - next: `m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation`
+
+## M2394 Paper-Route Current-Sim Dual-Axis Effective Candidate Reset Validation Adapter Implementation
+
+- status: completed
+- result class: `current_sim_dual_axis_effective_candidate_reset_validation_adapter_pass`
+- manifest: `experiments/manifests/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.json`
+- doc: `docs/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter.py`
+- focused tests: `2 passed`
+- summary: `runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json`
+- source candidates/static refs/unique reset targets: `54/2049/350`
+- static validation pass/fail: `2049/0`
+- environment load/reset attempts: `350/350`
+- environment reset success/failure: `350/0`
+- candidate reset pass/failure: `54/0`
+- environment step count/policy action: `0/false`
+- active config overwrite/guardrail violation counts: `0/0`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- decision: route to bounded reset-validation result audit before measured-validation design
+- follow-up manifest: `experiments/manifests/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.json`
+- next: `m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit`

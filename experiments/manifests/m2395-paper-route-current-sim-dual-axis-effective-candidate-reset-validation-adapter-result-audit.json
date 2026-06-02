@@ -1,0 +1,196 @@
+{
+  "id": "m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_effective_candidate_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.md",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/static_validation_rows.csv",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/reset_target_rows.csv",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/reset_validation_rows.csv",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/effective_candidate_reset_summary_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2394 reset-only adapter result and choose bounded next route"
+    ],
+    "derived_from": [
+      "m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation",
+      "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design"
+    ],
+    "blocked_by": [
+      "M2394 validates reset compatibility but does not run rollout or measured execution",
+      "repair execution, training, ranking, and current-sim verdict remain blocked"
+    ],
+    "supersedes": [
+      "direct measured execution without result audit",
+      "interpreting reset validation as driver performance or paper evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md",
+  "public_gates": [
+    "M2395 must audit M2394 summary and reset artifacts without rerunning reset validation",
+    "M2395 must classify what M2394 proves and what remains blocked",
+    "M2395 must choose a bounded next route or stop the branch",
+    "M2395 must not run rollout, execute repair, train, rank, select a winner, or make paper/self-ID/current-sim claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset validation",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_effective_candidate_reset_validation_result_audit",
+    "evidence_increment": "audits reset-only validation result and decides whether measured validation design is now justified",
+    "claim_scope": "result audit only; no rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2394 summary is missing or inconsistent",
+      "stop if forbidden execution or claim flags are present",
+      "stop if audit routes directly to training, ranking, or paper conclusions",
+      "stop if reset validation is misinterpreted as measured performance"
+    ],
+    "fallback_plan": [
+      "route to bounded measured-validation design if reset pass is accepted",
+      "route to adapter repair design if reset artifacts are incomplete",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2394 reset adapter result is available for audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "effective candidate reset-validation result audit",
+    "admission_evidence": [
+      "M2394 result_class is current_sim_dual_axis_effective_candidate_reset_validation_adapter_pass",
+      "M2394 static_validation_pass_count is 2049",
+      "M2394 environment_reset_success_count is 350",
+      "M2394 candidate_reset_pass_count is 54",
+      "M2394 environment_step_count is 0",
+      "M2394 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md",
+      "M2395 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2394 pass is accepted or rejected with failure taxonomy",
+      "a bounded next route is selected or branch stops"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2395 audits reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2395; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2394 reset adapter result.",
+    "negative_result_policy": "Reset-validation result audit remains task-quality infrastructure and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "effective candidate reset-validation result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "can accept or reject reset-only validation evidence before measured validation design",
+    "paper_verdict_delta": "can establish task-quality reset readiness but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2395 proposes another non-executable artifact step before measured validation design",
+      "M2395 repeats reset-validation audit without new route",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded audit can accept or reject M2394 reset-only adapter pass and route to measured-validation design without rerunning validation, executing repair, ranking, or making paper/self-ID/current-sim claims.",
+  "success_criteria": [
+    "docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md exists",
+    "M2394 summary counts and forbidden flags are audited",
+    "M2394 pass is accepted or rejected with failure taxonomy",
+    "a bounded next route is selected or the branch is stopped",
+    "no reset rerun rollout repair training ranking or paper/self-ID/current-sim claim occurs"
+  ],
+  "failure_criteria": [
+    "M2395 reruns reset validation, rollout, measured execution, replay, PPO, or private holdout",
+    "M2395 executes repair levers or trains",
+    "M2395 ranks support policies or controller families",
+    "M2395 overwrites the active scenario config",
+    "M2395 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2395 claims scenario redesign executed or training repair success"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write bounded M2394 effective candidate reset-validation result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_effective_candidate_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.md",
+    "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json"
+  ],
+  "decision_rule": "M2395 passes if it audits M2394 and selects a bounded next route without reset rerun, rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit"
+}
