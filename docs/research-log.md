@@ -43042,3 +43042,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked levers: actor input change, hidden/oracle features, profile-specific tuning, winner selection, R4 ordinary repair, collision-blind offtrack objective, scenario-redesign/training-repair claims
 - follow-up manifest: `experiments/manifests/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.json`
 - next: `m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization`
+
+## M2371 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Spec Materialization
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization_pass`
+- manifest: `experiments/manifests/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.json`
+- doc: `docs/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json`
+- repair_spec_row_count: `320`
+- priority_offtrack_containment_repair: `26`
+- offtrack_containment_repair: `10`
+- guarded_offtrack_containment_repair: `18`
+- collision_guardrail_constraint: `28`
+- r4_mitigation_semantics_guardrail: `48`
+- diagnostic_no_ranking_guardrail: `190`
+- profile_or_pack_repair_spec_count: `0`
+- r4_ordinary_repair_spec_count: `0`
+- collision_blind_mixed_repair_spec_count: `0`
+- guardrail_violation_count: `0`
+- repair execution/training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- follow-up manifest: `experiments/manifests/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.json`
+- next: `m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit`

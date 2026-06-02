@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2377,
+    "completed": 2378,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
+    "task_id": "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md"
+    "run_dir": "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization",
+    "command_log": "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization",
-    "kind": "infrastructure",
-    "priority": 23660,
+    "id": "m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit",
+    "kind": "gate",
+    "priority": 23670,
     "status": "pending",
-    "hypothesis": "Artifact-only materialization can turn M2368 target/guardrail rows into repair-spec artifacts without executing repair, ranking, or claiming training success.",
-    "command": "implement and run artifact-only repair-spec materialization from M2368 target rows",
-    "success_artifact": "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
-    "notes": "Pending: materialize repair specs no repair execution/training/ranking"
+    "hypothesis": "Auditing M2371 repair-spec artifacts can decide the next bounded repair implementation route without executing repair, ranking, or paper-level claims.",
+    "command": "write artifact-only result audit from M2371 repair-spec outputs",
+    "success_artifact": "docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md",
+    "notes": "Pending: audit repair-spec artifacts before implementation design no repair execution/training/ranking"
   },
-  "updated_at_utc": "20260602T054000Z"
+  "updated_at_utc": "20260602T054500Z"
 }

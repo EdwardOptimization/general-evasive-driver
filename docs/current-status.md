@@ -16,21 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design
+m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization
 ```
 
 Current next task:
 
 ```text
-m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization
+m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit
 ```
 
 Current route:
 
 ```text
-M2370 froze an offtrack guardrail repair-spec design. M2371 must materialize
-repair-spec artifacts without executing repair, scenario redesign, ranking,
-training, or paper-route interpretation.
+M2371 materialized repair-spec artifacts without executing repair. M2372 must
+audit those artifacts before any repair implementation design, scenario
+redesign, ranking, training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -150,6 +150,22 @@ blocked: actor input change, oracle features, profile-specific tuning,
   scenario-redesign-executed claim, training-repair-success claim
 ```
 
+M2371 result:
+
+```text
+repair_spec_row_count: 320
+priority_offtrack_containment_repair: 26
+offtrack_containment_repair: 10
+guarded_offtrack_containment_repair: 18
+collision_guardrail_constraint: 28
+r4_mitigation_semantics_guardrail: 48
+diagnostic_no_ranking_guardrail: 190
+profile_or_pack_repair_spec_count: 0
+r4_ordinary_repair_spec_count: 0
+collision_blind_mixed_repair_spec_count: 0
+guardrail_violation_count: 0
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -174,17 +190,17 @@ training repair success
 
 ## Immediate Next Step
 
-M2371 should materialize repair specs from consolidation outputs:
+M2372 should audit repair-spec outputs:
 
 ```text
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/consolidated_rows.csv
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/repair_spec_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/mixed_guarded_repair_spec_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/collision_guardrail_spec_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/r4_guardrail_spec_rows.csv
 ```
 
-The implementation should write repair-spec artifacts and route to result
-audit. It must not execute repair levers, run reset/rollout, train, replay, use
-PPO, rank profiles or packs, select a winner, claim scenario redesign executed,
-claim repair success, or make paper/self-ID claims.
+The audit should choose a bounded next route or stop the branch. It must not
+execute repair levers, run reset/rollout, train, replay, use PPO, rank profiles
+or packs, select a winner, claim scenario redesign executed, claim repair
+success, or make paper/self-ID claims.
