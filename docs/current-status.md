@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis
+m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
 ```
 
 Current next task:
 
 ```text
-m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
+m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation
 ```
 
 Current route:
 
 ```text
-M2386 synthesized the M2381-M2385 candidate config generation branch and
-continued to bounded candidate config safety/reset-validation design. M2387 may
-design validation only. It must not load configs, reset environments, run
-rollouts, execute repair, rank, train, or make paper/self-ID/current-sim claims.
+M2387 designed bounded candidate config safety/reset validation. M2388 may
+implement static safety checks and reset-only validation for temporary
+run-dir effective configs. It must not step the environment after reset, execute
+policy actions, run rollouts, execute repair, rank, train, or make
+paper/self-ID/current-sim claims.
 ```
 
 ## Latest Evidence
@@ -375,6 +376,20 @@ local-search guard: triggered correctly and reset by synthesis
 paper/self-ID/current-sim verdict claims: blocked
 ```
 
+M2387 safety validation design:
+
+```text
+design: static safety checks plus future reset-only validation
+source candidate configs: 54
+target static_validation_pass_count in M2388: 54
+target effective_config_written_count in M2388: 54 if schema permits
+target environment_reset_attempt_count in M2388: 54 if static checks pass
+environment_step_count target: 0
+active_config_overwrite target: 0
+policy action/rollout/repair/training/ranking: blocked
+paper/self-ID/current-sim verdict claims: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -399,19 +414,22 @@ training repair success
 
 ## Immediate Next Step
 
-M2387 should design bounded candidate config safety/reset validation from:
+M2388 should implement and run bounded candidate config reset validation from:
 
 ```text
-docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md
+docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md
 runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_generation_manifest.json
 runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv
 runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv
 runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/active_config_safety_report.json
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/claim_boundary.csv
 ```
 
-The design must specify inventory, schema/path safety checks, future reset-only
-validation scope, blocked rollout/training/ranking routes, and failure taxonomy.
-M2387 itself must not load candidate configs, run reset/rollout, execute
-repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
-scenario redesign executed, claim repair success, current-sim verdict, or
-paper/self-ID claims.
+The implementation must fail closed if static schema/path safety checks fail.
+If static checks pass, it may attempt reset-only validation through run-dir
+temporary effective configs. It must not step the environment after reset,
+execute policy actions, run rollouts, execute repair, train, replay, use PPO,
+rank profiles or packs, select a winner, claim scenario redesign executed,
+claim repair success, current-sim verdict, or paper/self-ID claims.

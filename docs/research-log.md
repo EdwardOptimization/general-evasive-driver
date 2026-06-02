@@ -43382,3 +43382,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - local-search guard: triggered and reset by synthesis
 - follow-up manifest: `experiments/manifests/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.json`
 - next: `m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design`
+
+## M2387 Paper-Route Current-Sim Dual-Axis Candidate Config Safety Validation Design
+
+- status: completed
+- decision: `candidate_config_safety_validation_design_admit_reset_only_validator`
+- manifest: `experiments/manifests/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.json`
+- doc: `docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md`
+- parent synthesis: `docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md`
+- reset/rollout/policy action in M2387: `false`
+- active config overwrite/candidate config loading in M2387: `false/false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design: future M2388 static safety checks plus reset-only validation for 54 generated candidate configs
+- future M2388 blocked: environment steps, policy actions, rollout, repair execution, training, ranking, paper/self-ID/current-sim claims
+- follow-up manifest: `experiments/manifests/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.json`
+- next: `m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation`

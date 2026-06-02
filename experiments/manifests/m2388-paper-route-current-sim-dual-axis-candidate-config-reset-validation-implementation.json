@@ -1,0 +1,216 @@
+{
+  "id": "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_config_reset_validation"
+    ],
+    "parent_dataset": [
+      "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_generation_manifest.json",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/active_config_safety_report.json",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/claim_boundary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.json"
+    ],
+    "parent_objective": [
+      "implement static safety checks and reset-only validation for generated candidate config artifacts"
+    ],
+    "derived_from": [
+      "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design",
+      "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization"
+    ],
+    "blocked_by": [
+      "M2387 designs reset-only validation but no validator has been implemented or run",
+      "generated candidate configs remain unvalidated for schema, path safety, effective config materialization, and reset compatibility"
+    ],
+    "supersedes": [
+      "direct measured rollout from generated candidate configs",
+      "direct repair execution, training, or ranking before reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md",
+  "public_gates": [
+    "M2388 must statically validate 54 generated candidate configs before any environment loading",
+    "M2388 may run reset-only validation but must not step the environment or execute policy actions",
+    "M2388 must write all temporary effective configs under its run directory",
+    "M2388 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, ranking, and claim guardrails"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not step the environment after reset",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not write effective configs outside the M2388 run directory",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_candidate_config_reset_validation",
+    "evidence_increment": "implements bounded static safety and reset-only validation for generated candidate config artifacts",
+    "claim_scope": "reset-only validation; no rollout, policy action, measured execution, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if static validation fails before environment loading",
+      "stop if effective config materialization would overwrite active config",
+      "stop if any environment step or policy action occurs",
+      "stop if reset validation cannot be completed without ranking or paper claims"
+    ],
+    "fallback_plan": [
+      "route to candidate config schema repair if static schema is insufficient",
+      "route to sampler-compatibility repair design if reset failures are sampling incompatibilities",
+      "route to result audit if reset validation passes or fails cleanly",
+      "route to branch synthesis if validation reveals process-heavy local search"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2387 admits bounded reset-only validation implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "bounded candidate config reset-only validation implementation",
+    "admission_evidence": [
+      "M2387 defines static validation and reset-only scope",
+      "M2385 candidate_config_file_written_count is 54",
+      "M2385 candidate_config_files_outside_run_dir_count is 0",
+      "M2385 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no environment step after reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_candidate_config_reset_validation.py",
+      "tests/test_paper_route_current_sim_dual_axis_candidate_config_reset_validation.py",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/*",
+      "docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md",
+      "M2388 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "static validation summary exists",
+      "effective config materialization is bounded to run dir or fails closed",
+      "reset-only validation summary exists",
+      "no forbidden execution flag is true",
+      "a result audit or schema repair route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2388 validates candidate config reset compatibility and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2388; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2385 generated candidate configs and M2387 validation design.",
+    "negative_result_policy": "Reset validation remains a task-quality preflight and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "candidate config static safety and reset-only validation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "can move from generated artifacts to executable reset compatibility evidence but not driver capability",
+    "paper_verdict_delta": "can prepare current-sim validation readiness but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2388 static validation fails for schema gaps",
+      "M2388 reset validation produces broad sampler incompatibility",
+      "M2388 attempts rollout repair training ranking or current-sim verdict",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded validator can statically validate 54 generated candidate config artifacts and, if schema permits, reset-test temporary effective configs without active config overwrite, environment steps, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json exists",
+    "source_candidate_config_count equals 54",
+    "static_validation_pass_count equals 54",
+    "effective_config_outside_run_dir_count equals 0",
+    "environment_step_count equals 0",
+    "active_config_overwrite_count equals 0",
+    "policy_action_executed rollout_started repair_execution_started training_started replay_started ppo_used are false",
+    "ranking_admissible_count and winner_selected_count are 0",
+    "paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "static validation fails and environment reset is still attempted",
+    "effective config files are written outside the run directory",
+    "active config overwrite occurs",
+    "environment step or policy action occurs",
+    "repair execution or training starts",
+    "ranking or winner selection occurs",
+    "any paper-level self-ID or current-sim verdict claim is made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_candidate_config_reset_validation.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_candidate_config_reset_validation --source-dir runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation --output-dir runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation --next-blocker m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_config_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+    "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json"
+  ],
+  "decision_rule": "M2388 passes if it statically validates 54 generated candidate configs and completes any permitted reset-only validation without active config overwrite, environment steps, repair execution, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit"
+}

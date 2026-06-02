@@ -1,0 +1,107 @@
+# m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T074816Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: candidate_config_safety_validation_design_admit_reset_only_validator
+- Decision reason: M2387 designs static safety plus reset-only validation protocol for 54 generated candidate configs no config loading reset repair training ranking or paper/self-ID claim in M2387
+
+## Hypothesis
+
+A bounded safety-validation design can convert generated candidate config artifacts into a future reset-only validation route without active config overwrite, rollout, repair execution, ranking, or training-success claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_candidate_config_safety_validation_design
+- parent_dataset: docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json
+- parent_objective: design bounded safety/reset-validation protocol for generated candidate config artifacts after M2386 synthesis
+- derived_from: m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis, m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization
+- blocked_by: generated candidate configs have not been statically safety-checked beyond M2385 counts, generated candidate configs have not been reset-tested or sampled, direct reset validation remains blocked until a bounded design specifies scope and failure taxonomy
+- supersedes: direct reset validation after M2385 without validation design, direct measured rollout, repair execution, training, or ranking from generated candidate configs
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md exists
+- candidate config inventory and static safety checks are specified
+- future reset-only validation scope is bounded
+- active config overwrite, rollout, repair execution, ranking, and training remain blocked in M2387
+- collision, R4, diagnostic, mixed guarded, actor-input, oracle-feature, ranking, paper, current-sim verdict, and self-ID guardrails remain blocked
+- a bounded follow-up route is selected or branch is stopped
+
+## Failure Criteria
+
+- M2387 reruns reset rollout measured execution replay PPO or private holdout
+- M2387 loads generated candidate configs or overwrites active config
+- M2387 executes repair levers or trains
+- M2387 changes actor inputs or injects hidden/oracle features
+- M2387 ranks support policies or controller families
+- M2387 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims
+- M2387 claims scenario redesign executed or training repair success
+
+## Evidence Gates
+
+- M2387 must design bounded candidate config safety/reset validation without running validation
+- M2387 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, collision, R4, diagnostic, ranking, and claim guardrails
+- M2387 must choose a bounded artifact-only or reset-only follow-up route or stop the branch
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not select a winner
+- do not overwrite the active scenario config
+- do not load candidate configs in M2387
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- objective_overfit
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
+- type: gate
+- checkpoint: docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: candidate_config_safety_validation_design_admit_reset_only_validator
+- reason: M2387 designs static safety plus reset-only validation protocol for 54 generated candidate configs no config loading reset repair training ranking or paper/self-ID claim in M2387
+
+## Next Blocker
+
+m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation
