@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit
+m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design
 ```
 
 Current next task:
 
 ```text
-m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design
+m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -434,6 +434,25 @@ profile aggregates: diagnostic only, no finite-window-vs-GRU conclusion
 M2364 should design artifact-only outcome localization from M2362 episode rows.
 It must preserve the 5400-episode denominator, separate offtrack target slices
 from R4 collision mitigation semantics, and avoid rerun/training/ranking.
+
+M2364 designs that localization route:
+
+```text
+decision: measured_outcome_localization_design_admit_artifact_only_implementation
+source_episode_count: 5400
+slice classes:
+  offtrack_target
+  collision_guardrail
+  r4_mitigation_semantics
+minimum_slice_episode_count: 30
+offtrack_target_threshold: 0.70
+high_priority_offtrack_threshold: 0.85
+collision_guardrail_threshold: 0.15
+```
+
+M2365 should implement artifact-only localization from M2362 `episode_rows.csv`.
+No reset, rollout, training, replay, PPO, ranking, or paper/self-ID claim is
+allowed.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

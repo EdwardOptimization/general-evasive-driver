@@ -180,5 +180,5 @@
     "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv"
   ],
   "decision_rule": "M2364 passes if it designs bounded artifact-only outcome localization without rerun, ranking, or paper/self-ID claims.",
-  "next_blocker": "selected_by_m2364_design"
+  "next_blocker": "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation"
 }

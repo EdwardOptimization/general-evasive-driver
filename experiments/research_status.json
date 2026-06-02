@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2370,
+    "completed": 2371,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
+    "task_id": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md"
+    "command_log": "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md"
   },
   "next_task": {
-    "id": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
-    "kind": "gate",
-    "priority": 23590,
+    "id": "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation",
+    "kind": "infrastructure",
+    "priority": 23600,
     "status": "pending",
-    "hypothesis": "A bounded artifact-only localization design can turn the M2362 offtrack-dominated measured panel into target and guardrail slices for later repair without ranking or paper-level claims.",
-    "command": "manual design from M2363 audit and M2362 measured artifacts",
-    "success_artifact": "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
-    "notes": "Pending: design artifact-only outcome localization no rerun/ranking"
+    "hypothesis": "Artifact-only localization can materialize offtrack targets, collision guardrails, and R4 mitigation semantics from the M2362 measured panel without rerun or ranking claims.",
+    "command": "implement and run artifact-only outcome localization from M2362 episode rows",
+    "success_artifact": "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json",
+    "notes": "Pending: materialize outcome-localization target/guardrail slices no rerun/ranking"
   },
-  "updated_at_utc": "20260602T044143Z"
+  "updated_at_utc": "20260602T044812Z"
 }

@@ -42885,3 +42885,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pack aggregates: small spread, no winner pack selected
 - follow-up manifest: `experiments/manifests/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.json`
 - next: `m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design`
+
+## M2364 Paper-Route Current-Sim Dual-Axis Measured Outcome Localization Design
+
+- status: completed
+- decision: `measured_outcome_localization_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.json`
+- doc: `docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md`
+- parent audit: `docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md`
+- reset/rollout/measured execution in M2364: `false`
+- policy action executed in M2364: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- source episode count: `5400`
+- slice classes: `offtrack_target`, `collision_guardrail`, `r4_mitigation_semantics`
+- minimum slice episode count: `30`
+- offtrack target threshold: `0.70`
+- high-priority offtrack threshold: `0.85`
+- collision guardrail threshold: `0.15`
+- follow-up manifest: `experiments/manifests/m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation.json`
+- next: `m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation`
