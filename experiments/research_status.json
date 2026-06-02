@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2375,
+    "completed": 2376,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation",
+    "task_id": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation",
-    "command_log": "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md"
   },
   "next_task": {
-    "id": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+    "id": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
     "kind": "gate",
-    "priority": 23640,
+    "priority": 23650,
     "status": "pending",
-    "hypothesis": "Auditing M2368 consolidated target artifacts can decide the next bounded repair-design route without rerun, ranking, or paper-level claims.",
-    "command": "write artifact-only result audit from M2368 consolidated target outputs",
-    "success_artifact": "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md",
-    "notes": "Pending: audit consolidated target panel before repair design no rerun/ranking"
+    "hypothesis": "A bounded repair design can target ordinary offtrack failures while preserving collision guardrails, R4 semantics, and diagnostic no-ranking boundaries.",
+    "command": "write offtrack guardrail repair design from M2369 audit",
+    "success_artifact": "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+    "notes": "Pending: design repair route before materialization no rerun/training/ranking"
   },
-  "updated_at_utc": "20260602T052500Z"
+  "updated_at_utc": "20260602T053000Z"
 }

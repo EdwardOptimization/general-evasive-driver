@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation
+m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit
+m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design
 ```
 
 Current route:
 
 ```text
-M2368 materialized the consolidated target/guardrail/R4/diagnostic panel from
-M2365 slices. M2369 must audit that panel before any repair materialization,
-scenario redesign, ranking, or paper-route interpretation.
+M2369 accepted the M2368 consolidated panel and routed to bounded offtrack
+guardrail repair design. M2370 must design repair policy before any repair
+materialization, scenario redesign, ranking, training, or paper-route
+interpretation.
 ```
 
 ## Latest Evidence
@@ -127,6 +128,18 @@ r4_ordinary_repair_target_count: 0
 guardrail_violation_count: 0
 ```
 
+M2369 audit decision:
+
+```text
+M2368 consolidation accepted: true
+next route: bounded offtrack guardrail repair design
+ordinary offtrack repair targets: 54
+collision guardrail rows: 28
+R4 mitigation semantics rows: 48
+diagnostic guardrail rows: 190
+direct training/repair-success claim: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -151,7 +164,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2369 should audit consolidation outputs:
+M2370 should design from consolidation outputs:
 
 ```text
 runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
@@ -161,6 +174,7 @@ runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/col
 runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv
 ```
 
-The audit should choose a bounded next route or stop the branch. It must not
-run reset/rollout, train, replay, use PPO, rank profiles or packs, select a
-winner, or make paper/self-ID claims.
+The design should choose a bounded repair-spec materialization route or stop
+the branch. It must not run reset/rollout, train, replay, use PPO, rank
+profiles or packs, select a winner, claim scenario redesign executed, claim
+repair success, or make paper/self-ID claims.

@@ -1,0 +1,190 @@
+{
+  "id": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded offtrack repair route with collision guardrails from consolidated target artifacts"
+    ],
+    "derived_from": [
+      "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+      "m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation"
+    ],
+    "blocked_by": [
+      "M2369 accepts target artifacts but no repair route is designed",
+      "ordinary offtrack targets require collision and R4 guardrail constraints before any repair materialization"
+    ],
+    "supersedes": [
+      "direct training from consolidated target artifacts",
+      "repair design that ignores collision guardrails or R4 semantics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+  "public_gates": [
+    "M2370 must define repair target, collision guardrail, R4, and diagnostic guardrail policies",
+    "M2370 must choose a bounded artifact-only repair-spec materialization route or stop the branch",
+    "M2370 must not run reset/rollout, train, rank, claim scenario redesign executed, or claim repair success"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "E_offtrack_guardrail_repair_design",
+    "evidence_increment": "turns audited target/guardrail artifacts into a bounded repair design route",
+    "claim_scope": "design only; no rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, or training-repair claim",
+    "stop_condition": [
+      "stop if repair targets cannot be separated from collision guardrails",
+      "stop if R4 mitigation semantics would be mixed into ordinary repair",
+      "stop if design routes directly to training or profile ranking",
+      "stop if design claims scenario redesign executed or repair success"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if repair route cannot be bounded",
+      "route to target-consolidation repair if input categories are insufficient",
+      "route to artifact-only repair-spec materializer if design is bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2369 accepts consolidated target artifacts and requires bounded repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack guardrail repair design",
+    "admission_evidence": [
+      "M2369 accepts M2368 consolidation artifacts",
+      "M2368 offtrack_repair_target_row_count is 54",
+      "M2368 collision_guardrail_row_count is 28",
+      "M2368 r4_mitigation_semantics_row_count is 48",
+      "M2368 diagnostic_axis_repair_target_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no scenario-redesign-executed claim",
+      "no training-repair-success claim"
+    ],
+    "allowed_updates": [
+      "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+      "M2370 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "ordinary offtrack repair policy is specified",
+      "collision guardrail policy is specified",
+      "R4 and diagnostic guardrail boundaries are specified",
+      "claim boundary remains blocked",
+      "a bounded artifact-only materialization route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2370 designs repair route and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2370; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2368 consolidated target artifacts and M2369 audit.",
+    "negative_result_policy": "Repair design targets weak outcomes as engineering blockers, not ranking or self-ID evidence.",
+    "allowed_claims": [
+      "artifact-only offtrack guardrail repair design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a bounded repair design from a consolidated measured target panel",
+    "paper_verdict_delta": "can admit repair-spec materialization but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2370 cannot specify a bounded repair route",
+      "M2370 proposes direct profile ranking or paper conclusion",
+      "the outcome-localization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded repair design can target ordinary offtrack failures while preserving collision guardrails, R4 semantics, and diagnostic no-ranking boundaries.",
+  "success_criteria": [
+    "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md exists",
+    "ordinary offtrack repair targets and collision guardrails are specified",
+    "R4 mitigation and diagnostic guardrails remain separate",
+    "ranking, winner selection, paper-level, finite-window-vs-GRU, scenario-redesign-executed, training-repair, and level3 self-ID claims remain blocked",
+    "a bounded artifact-only repair-spec materializer route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2370 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2370 ranks support policies or controller families",
+    "M2370 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2370 claims scenario redesign executed or training repair success",
+    "M2370 cannot separate offtrack targets from collision/R4/diagnostic guardrails"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2369 audit and M2368 consolidated target artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md",
+    "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2370 passes if it defines a bounded non-ranking repair design and selects an artifact-only materialization route or stops the branch.",
+  "next_blocker": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design"
+}

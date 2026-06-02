@@ -43004,3 +43004,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
 - follow-up manifest: `experiments/manifests/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.json`
 - next: `m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit`
+
+## M2369 Paper-Route Current-Sim Dual-Axis Actionable Target Consolidation Result Audit
+
+- status: completed
+- decision: `actionable_target_consolidation_result_accepted_route_to_offtrack_guardrail_repair_design`
+- manifest: `experiments/manifests/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.json`
+- doc: `docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md`
+- audited summary: `runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json`
+- reset/rollout/measured execution in M2369: `false`
+- policy action executed in M2369: `false`
+- training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID claims: `false`
+- M2368 consolidation accepted: `true`
+- ordinary offtrack repair targets: `54`
+- collision guardrail rows: `28`
+- R4 mitigation semantics rows: `48`
+- diagnostic guardrail rows: `190`
+- diagnostic/R4 repair-target exclusions clean: `true`
+- decision: route to bounded offtrack guardrail repair design; no direct training or repair-success claim
+- follow-up manifest: `experiments/manifests/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.json`
+- next: `m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design`

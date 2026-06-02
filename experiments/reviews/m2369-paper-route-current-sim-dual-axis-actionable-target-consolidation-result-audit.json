@@ -1,0 +1,105 @@
+{
+  "decision_reason": "M2369 accepts M2368 consolidated panel and routes to bounded offtrack guardrail repair design no rerun/training/ranking/repair-success claims",
+  "failure_criteria": [
+    "M2369 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2369 ranks support policies or controller families",
+    "M2369 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2369 claims scenario redesign executed or training repair success",
+    "M2369 cannot decide next route from complete consolidation artifacts"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T052214Z",
+  "hypothesis": "Auditing M2368 consolidated target artifacts can decide the next bounded repair-design route without rerun, ranking, or paper-level claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2368 materializes consolidated artifacts but does not choose repair design route",
+      "target and guardrail artifacts require audit before any repair"
+    ],
+    "derived_from": [
+      "m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation",
+      "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_target_consolidation_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.md",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/consolidated_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2368 consolidated target and guardrail artifacts before repair design"
+    ],
+    "supersedes": [
+      "direct repair from unreviewed consolidated target rows",
+      "profile or pack ranking from diagnostic guardrail rows"
+    ]
+  },
+  "milestone": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+  "next_blocker": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "actionable_target_consolidation_result_accepted_route_to_offtrack_guardrail_repair_design",
+  "public_gates": [
+    "M2369 must audit M2368 summary, target counts, guardrail counts, and claim boundary without rerun",
+    "M2369 must identify the next bounded route or stop the branch",
+    "M2369 must keep ranking, winner selection, paper finite-window-vs-GRU, scenario-redesign-executed, training-repair, and level3 self-ID claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "actionable_target_consolidation_result_accepted_route_to_offtrack_guardrail_repair_design",
+    "milestone": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+    "reason": "M2369 accepts M2368 consolidated panel and routes to bounded offtrack guardrail repair design no rerun/training/ranking/repair-success claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md exists",
+    "M2368 target, guardrail, R4, and diagnostic counts are audited",
+    "diagnostic-axis and R4 ordinary repair-target exclusions are verified",
+    "ranking, winner selection, paper-level, finite-window-vs-GRU, scenario-redesign-executed, training-repair, and level3 self-ID claims remain blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "type": "gate"
+}
