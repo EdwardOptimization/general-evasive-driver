@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation
+m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit
+m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -165,7 +165,19 @@ M2348 should audit the M2347 candidate artifacts and claim boundary before any
 validation rerun or active config materialization. Training, replay, PPO,
 support-policy ranking, controller-family ranking, winner selection, paper-level
 claims, finite-window vs GRU conclusions, level3 self-ID claims, and scenario
-redesign executed claims remain blocked.
+redesign executed claims remain blocked. M2348 is now complete:
+
+```text
+M2347 artifacts accepted: true
+candidate counts: total 53, G 28, H 13, GH 12
+row counts: redesign 26, geometry 13, hidden 13, secondary inactive 9
+decision: route_to_dual_axis_calibration_candidate_config_materialization_design
+```
+
+M2349 should design a bounded candidate config-pack materialization route. The
+current intent is to collapse M2347's 53 metadata patch candidates into a small
+non-ranking pack family, such as G-primary, H-primary, and GH-minimal packs,
+before any reset or measured validation.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
