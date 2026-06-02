@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2322 accepts M2321 route split and routes to role-stratified residual semantics/support redesign no ranking claims",
+  "failure_criteria": [
+    "M2321 artifacts are missing",
+    "M2322 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2322 ranks support policies or selects a winner",
+    "M2322 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2322 cannot select a next route"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T000421Z",
+  "hypothesis": "M2321 provides enough residual-support classification evidence to choose a non-ranking follow-up route.",
+  "lineage": {
+    "blocked_by": [
+      "M2321 classifies 48 residual scenarios across R2-R5",
+      "R4 mitigation semantics/support redesign must be separated from ordinary avoidance failure"
+    ],
+    "derived_from": [
+      "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_route_summary.csv",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_role_summary.csv",
+      "docs/m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation.md"
+    ],
+    "parent_objective": [
+      "audit residual-support classification and choose next non-ranking route"
+    ],
+    "supersedes": [
+      "direct training from residual labels",
+      "support-policy ranking from residual support counts",
+      "manual residual inspection without route decision"
+    ]
+  },
+  "milestone": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+  "next_blocker": "selected_by_m2322_result_audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "residual_support_audit_result_accepted_route_to_role_stratified_redesign",
+  "public_gates": [
+    "M2322 must audit M2321 completeness and guardrails",
+    "M2322 must accept or reject residual route-label classification",
+    "M2322 must choose a non-ranking follow-up route",
+    "M2322 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "residual_support_audit_result_accepted_route_to_role_stratified_redesign",
+    "milestone": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+    "reason": "M2322 accepts M2321 route split and routes to role-stratified residual semantics/support redesign no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md exists",
+    "M2321 result_class is audited",
+    "route-label counts are audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "type": "gate"
+}

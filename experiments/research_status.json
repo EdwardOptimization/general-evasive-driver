@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2329,
+    "completed": 2330,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
+    "task_id": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit",
-    "command_log": "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md"
   },
   "next_task": {
-    "id": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+    "id": "m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design",
     "kind": "gate",
-    "priority": 23170,
+    "priority": 23180,
     "status": "pending",
-    "hypothesis": "M2321 provides enough residual-support classification evidence to choose a non-ranking follow-up route.",
-    "command": "manual artifact audit of runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json and route summaries",
-    "success_artifact": "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md",
-    "notes": "Pending: audit M2321 route labels and choose non-ranking route no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "A role-stratified redesign plan can separate R4 mitigation semantics from R2/R3/R5 support-coverage and scenario-redesign blockers without training or ranking.",
+    "command": "manual design from M2321 residual route artifacts and M2322 audit",
+    "success_artifact": "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md",
+    "notes": "Pending: freeze R4 mitigation semantics and R2/R3/R5 coverage-vs-redesign artifact-only route no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260601T235323Z"
+  "updated_at_utc": "20260602T000234Z"
 }
