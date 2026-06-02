@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
+m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
+m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
+m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
 ```
 
 Current route:
@@ -51,7 +51,9 @@ task is M2399 artifact-only outcome localization over M2397 rows, with no
 rerun, repair, training, ranking, or paper/self-ID/current-sim verdict route.
 M2399 materialized localization slices; M2400 must audit whether those slices
 are actionable enough for consolidation or whether the branch should pivot,
-synthesize, or stop.
+synthesize, or stop. M2400 accepted localization as actionable but too broad for
+direct repair, and routed to M2401 artifact-only actionable target
+consolidation.
 ```
 
 ## Latest Evidence
@@ -242,6 +244,18 @@ route_class_counts: offtrack_target 796, offtrack_target_with_collision_guardrai
 ranking_admissible_count/winner_selected_count/guardrail_violation_count: 0/0/0
 top localized blockers: centerline offtrack, drift_required offtrack+collision, early_far offtrack, guarded_offtrack_containment_repair offtrack+collision, R4 collision semantics
 next task: M2400 localization result audit
+```
+
+M2400 effective-candidate measured outcome localization result audit:
+
+```text
+decision: effective_candidate_measured_outcome_localization_accepted_route_to_actionable_target_consolidation
+accepted M2399 localization: source episodes 30735, slice rows 1313
+offtrack/collision/R4/diagnostic/high-priority-offtrack counts: 1132/364/57/96/658
+route_class_counts: offtrack_target 796, offtrack_target_with_collision_guardrail 336, collision_guardrail 28, r4_mitigation_semantics 57, diagnostic_only 96
+classification: actionable enough to continue but too broad for direct repair
+blocked: raw slice ranking, candidate/profile ranking, direct repair, paper/current-sim/self-ID verdict
+next task: M2401 artifact-only actionable target consolidation implementation
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

@@ -43633,3 +43633,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - R4 mitigation semantics are collision-dominated
 - follow-up manifest: `experiments/manifests/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.json`
 - next: `m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit`
+
+## M2400 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Outcome Localization Result Audit
+
+- status: completed
+- decision: `effective_candidate_measured_outcome_localization_accepted_route_to_actionable_target_consolidation`
+- manifest: `experiments/manifests/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.json`
+- doc: `docs/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.md`
+- parent summary: `runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted localization: source episodes `30735`, slice/offtrack/collision/R4/diagnostic/high-priority-offtrack counts `1313/1132/364/57/96/658`
+- observed route classes: `offtrack_target 796`, `offtrack_target_with_collision_guardrail 336`, `collision_guardrail 28`, `r4_mitigation_semantics 57`, `diagnostic_only 96`
+- audit classification: localization is actionable enough to continue but too broad for direct repair
+- blocked: raw slice priority ranking, candidate/profile ranking, direct repair, paper/current-sim/self-ID verdict
+- decision: route directly to artifact-only actionable target consolidation implementation
+- follow-up manifest: `experiments/manifests/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.json`
+- next: `m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation`
