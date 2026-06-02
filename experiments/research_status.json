@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2376,
+    "completed": 2377,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+    "task_id": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md"
+    "command_log": "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md"
   },
   "next_task": {
-    "id": "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
-    "kind": "gate",
-    "priority": 23650,
+    "id": "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization",
+    "kind": "infrastructure",
+    "priority": 23660,
     "status": "pending",
-    "hypothesis": "A bounded repair design can target ordinary offtrack failures while preserving collision guardrails, R4 semantics, and diagnostic no-ranking boundaries.",
-    "command": "write offtrack guardrail repair design from M2369 audit",
-    "success_artifact": "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
-    "notes": "Pending: design repair route before materialization no rerun/training/ranking"
+    "hypothesis": "Artifact-only materialization can turn M2368 target/guardrail rows into repair-spec artifacts without executing repair, ranking, or claiming training success.",
+    "command": "implement and run artifact-only repair-spec materialization from M2368 target rows",
+    "success_artifact": "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
+    "notes": "Pending: materialize repair specs no repair execution/training/ranking"
   },
-  "updated_at_utc": "20260602T053000Z"
+  "updated_at_utc": "20260602T054000Z"
 }

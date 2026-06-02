@@ -43025,3 +43025,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to bounded offtrack guardrail repair design; no direct training or repair-success claim
 - follow-up manifest: `experiments/manifests/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.json`
 - next: `m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design`
+
+## M2370 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Design
+
+- status: completed
+- decision: `offtrack_guardrail_repair_design_admit_artifact_only_repair_spec_materializer`
+- manifest: `experiments/manifests/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.json`
+- doc: `docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md`
+- parent audit: `docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md`
+- reset/rollout/measured execution in M2370: `false`
+- policy action executed in M2370: `false`
+- training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- repair families: priority offtrack containment, ordinary offtrack containment, guarded offtrack containment, collision guardrail, R4 mitigation semantics guardrail, diagnostic no-ranking guardrail
+- allowed repair levers named only: offtrack margin reward, recovery window reward, boundary overshoot penalty, curriculum sampling weight, collision guardrail weight, R4 mitigation metric guard
+- blocked levers: actor input change, hidden/oracle features, profile-specific tuning, winner selection, R4 ordinary repair, collision-blind offtrack objective, scenario-redesign/training-repair claims
+- follow-up manifest: `experiments/manifests/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.json`
+- next: `m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization`

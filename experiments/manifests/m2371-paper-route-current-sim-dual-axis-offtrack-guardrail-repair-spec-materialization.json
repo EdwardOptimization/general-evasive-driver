@@ -1,0 +1,209 @@
+{
+  "id": "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_repair_spec_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/diagnostic_guardrail_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize artifact-only repair specs for offtrack targets and guardrails"
+    ],
+    "derived_from": [
+      "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
+      "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit"
+    ],
+    "blocked_by": [
+      "M2370 designs repair specs but does not materialize them",
+      "repair implementation requires explicit target/guardrail spec artifacts"
+    ],
+    "supersedes": [
+      "direct training from target rows",
+      "unbounded repair design without collision/R4/diagnostic guardrails"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.md",
+  "public_gates": [
+    "M2371 must materialize repair-spec rows from consolidated target and guardrail artifacts",
+    "M2371 must not execute repair levers, training, reset, rollout, replay, or PPO",
+    "M2371 must keep profile/pack diagnostic rows and R4 semantics out of ordinary repair specs"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "E_offtrack_guardrail_repair_spec_materialization",
+    "evidence_increment": "materializes repair-spec rows from consolidated target/guardrail artifacts without executing repair",
+    "claim_scope": "artifact-only repair-spec materialization; no rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, or training-repair claim",
+    "stop_condition": [
+      "stop if source target counts differ from M2368",
+      "stop if diagnostic profile/pack/global rows become ordinary repair specs",
+      "stop if R4 rows become ordinary repair specs",
+      "stop if mixed offtrack/collision specs lack collision guardrails",
+      "stop if any forbidden execution or ranking flag is set"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any artifact mismatch",
+      "repair repair-spec schema only after result audit localizes the issue",
+      "route to M2372 result audit if gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2370 freezes repair-spec materialization schema",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "artifact-only offtrack guardrail repair-spec materialization",
+    "admission_evidence": [
+      "M2370 defines repair families and pass gates",
+      "M2368 offtrack_repair_target_row_count is 54",
+      "M2368 collision_guardrail_row_count is 28",
+      "M2368 r4_mitigation_semantics_row_count is 48",
+      "M2368 diagnostic_guardrail_row_count is 190"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no repair-success claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization.py",
+      "tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization.py",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/*",
+      "docs/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.md",
+      "M2371 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "repair specs exist for ordinary offtrack, mixed guarded, collision, R4, and diagnostic rows",
+      "profile_or_pack_repair_spec_count is 0",
+      "r4_ordinary_repair_spec_count is 0",
+      "collision_blind_mixed_repair_spec_count is 0",
+      "guardrail_violation_count is 0",
+      "M2372 result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2371 materializes repair specs and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden zero-history or finite-window-vs-GRU verdict is run in M2371."
+    ],
+    "temporal_evidence_window": "M2368 consolidated target artifacts and M2370 repair design.",
+    "negative_result_policy": "Repair specs are engineering design artifacts and cannot be interpreted as driver capability improvements.",
+    "allowed_claims": [
+      "artifact-only repair-spec materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds repair-spec artifacts from measured target panels but does not yet test capability",
+    "paper_verdict_delta": "can admit repair implementation design after audit but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2371 cannot materialize repair specs",
+      "M2371 produces repair specs but no result audit route",
+      "the outcome-localization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Artifact-only materialization can turn M2368 target/guardrail rows into repair-spec artifacts without executing repair, ranking, or claiming training success.",
+  "success_criteria": [
+    "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json exists",
+    "source offtrack, collision, R4, and diagnostic row counts match M2368",
+    "ordinary_offtrack_repair_spec_count is greater than 0",
+    "mixed_guarded_repair_spec_count is greater than 0",
+    "collision_guardrail_spec_count is greater than 0",
+    "r4_guardrail_spec_count is greater than 0",
+    "diagnostic_guardrail_spec_count is greater than 0",
+    "profile_or_pack_repair_spec_count r4_ordinary_repair_spec_count collision_blind_mixed_repair_spec_count are 0",
+    "guardrail_violation_count equals 0",
+    "environment_rollout_started policy_action_executed training_started replay_started ppo_used are false",
+    "ranking, winner, paper-level, finite-window-vs-GRU, level3 self-ID, scenario-redesign-executed, and training-repair-success claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "source counts differ from M2368",
+    "any target family is missing",
+    "ordinary repair specs include profile/pack/global diagnostic rows or R4 rows",
+    "mixed repair specs omit collision guardrails",
+    "any forbidden execution or ranking flag is set",
+    "result audit route is missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization.py"
+    },
+    {
+      "name": "repair_spec_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization --summary runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json --offtrack-target-rows runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv --collision-guardrail-rows runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv --r4-rows runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv --diagnostic-guardrail-rows runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/diagnostic_guardrail_rows.csv --output-dir runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization --target-offtrack-row-count 54 --target-collision-guardrail-row-count 28 --target-r4-row-count 48 --target-diagnostic-guardrail-row-count 190 --next-blocker m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_repair_spec_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+    "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2371 passes if it materializes repair-spec artifacts without executing repair, ranking, or paper/self-ID claims.",
+  "next_blocker": "m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit"
+}

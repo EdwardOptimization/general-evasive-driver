@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit
+m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design
 ```
 
 Current next task:
 
 ```text
-m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design
+m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization
 ```
 
 Current route:
 
 ```text
-M2369 accepted the M2368 consolidated panel and routed to bounded offtrack
-guardrail repair design. M2370 must design repair policy before any repair
-materialization, scenario redesign, ranking, training, or paper-route
-interpretation.
+M2370 froze an offtrack guardrail repair-spec design. M2371 must materialize
+repair-spec artifacts without executing repair, scenario redesign, ranking,
+training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -140,6 +139,17 @@ diagnostic guardrail rows: 190
 direct training/repair-success claim: blocked
 ```
 
+M2370 design decision:
+
+```text
+repair families: priority offtrack, ordinary offtrack, guarded offtrack,
+  collision guardrail, R4 mitigation semantics guardrail, diagnostic guardrail
+allowed repair levers are names only; none are executed in M2370/M2371
+blocked: actor input change, oracle features, profile-specific tuning,
+  winner selection, R4 ordinary repair, collision-blind offtrack objective,
+  scenario-redesign-executed claim, training-repair-success claim
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -164,7 +174,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2370 should design from consolidation outputs:
+M2371 should materialize repair specs from consolidation outputs:
 
 ```text
 runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
@@ -174,7 +184,7 @@ runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/col
 runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv
 ```
 
-The design should choose a bounded repair-spec materialization route or stop
-the branch. It must not run reset/rollout, train, replay, use PPO, rank
-profiles or packs, select a winner, claim scenario redesign executed, claim
-repair success, or make paper/self-ID claims.
+The implementation should write repair-spec artifacts and route to result
+audit. It must not execute repair levers, run reset/rollout, train, replay, use
+PPO, rank profiles or packs, select a winner, claim scenario redesign executed,
+claim repair success, or make paper/self-ID claims.
