@@ -42584,3 +42584,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - metadata caveat required for M2353: `metadata_only_patch_count 37`, `unresolved_patch_count 0`
 - follow-up manifest: `experiments/manifests/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.json`
 - next: `m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation`
+
+## M2353 Paper-Route Current-Sim Dual-Axis Candidate Pack Reset Validation Implementation
+
+- status: failed
+- decision: `candidate_pack_reset_validation_fail_route_to_result_audit`
+- manifest: `experiments/manifests/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.json`
+- doc: `docs/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_candidate_pack_reset_validation.py`
+- focused tests: `4 passed`
+- summary: `runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json`
+- result_class: `current_sim_dual_axis_candidate_pack_reset_validation_fail`
+- reset_attempt_count: `360`
+- reset_success_count: `328`
+- reset_failure_count: `32`
+- failure type: `RuntimeError failed to sample an obstacle scenario matching the configured filters`
+- contract_violation_count: `0`
+- forbidden_key_violation_count: `0`
+- metadata_caveat_rows_preserved: `true`
+- metadata_only_patch_count: `37`
+- unresolved_patch_count: `0`
+- guardrail_violation_count: `0`
+- environment reset started: `true`
+- environment rollout/policy action/measured execution: `false`
+- training/replay/PPO: `false`
+- support-policy or controller-family ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- follow-up manifest: `experiments/manifests/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.json`
+- next: `m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit`

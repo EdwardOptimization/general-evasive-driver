@@ -1,0 +1,187 @@
+{
+  "id": "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_pack_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.md",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/pack_summary_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit the M2353 fail-closed reset-validation result before repair or rerun"
+    ],
+    "derived_from": [
+      "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation"
+    ],
+    "blocked_by": [
+      "M2353 reset validation failed 32 of 360 reset attempts",
+      "measured execution remains blocked until reset-validity is restored and audited"
+    ],
+    "supersedes": [
+      "direct repair after M2353 without failure audit",
+      "direct measured execution after failed reset validation"
+    ],
+    "invalidates": [
+      "the five M2350 candidate packs are reset-valid"
+    ]
+  },
+  "review_artifact": "docs/reviews/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2354 must audit M2353 failure distribution by pack scenario and failure type",
+    "M2354 must classify whether the next route is sampling repair patch repair schema repair branch synthesis or stop",
+    "M2354 must not rerun reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not repair and rerun",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid redesigned scenario pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_reset_validation",
+    "evidence_axis": "Q_candidate_pack_reset_validation_failure_audit",
+    "evidence_increment": "audits fail-closed reset-validation data and selects the next bounded repair or stop route",
+    "claim_scope": "result audit only; no rerun reset rollout ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if audit cannot classify the 32 reset failures",
+      "stop if audit tries to repair and rerun",
+      "stop if audit routes directly to measured execution",
+      "stop if audit claims reset-valid scenario pack"
+    ],
+    "fallback_plan": [
+      "route to seed-source sampling repair design if failures are seed/sampling specific",
+      "route to geometry/timing patch repair design if failures are caused by G-axis transforms",
+      "route to metadata/schema repair design if failures are validator or caveat-schema artifacts",
+      "stop for user review if no bounded repair is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2353 failed reset validation and requires result audit before repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "candidate pack reset-validation failure audit",
+    "admission_evidence": [
+      "M2353 reset-validation result_class is fail",
+      "M2353 reset_attempt_count is 360",
+      "M2353 reset_failure_count is 32",
+      "M2353 contract, forbidden-key, metadata-caveat, and guardrail counts are clean"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+      "M2354 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "failure distribution is summarized",
+      "failure taxonomy is assigned",
+      "reset-validity claim remains blocked",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2354 audits task-quality reset failures and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2354; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2353 reset-only candidate pack evidence.",
+    "negative_result_policy": "Failure audit must preserve the failed reset result and not convert it into controller evidence.",
+    "allowed_claims": [
+      "candidate pack reset-validation failure audit",
+      "no reset-valid pack, controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the M2353 reset failure into classified task-quality evidence before repair",
+    "paper_verdict_delta": "can decide whether the current candidate packs need sampling repair, patch repair, schema repair, or branch stop before paper-route measured evaluation",
+    "must_synthesize_if": [
+      "M2354 cannot classify the reset failures",
+      "M2354 proposes a third same-gate repair without new evidence",
+      "the reset-validation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing the M2353 fail-closed result can localize the 32 reset failures and select a bounded non-ranking repair or stop route.",
+  "success_criteria": [
+    "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md exists",
+    "M2353 result_class and reset counts are summarized",
+    "failure distribution by pack scenario and error type is summarized",
+    "failure taxonomy is assigned",
+    "a bounded follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2354 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2354 ranks support policies or controller families",
+    "M2354 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2354 claims scenario redesign executed or reset-valid redesigned scenario pack",
+    "M2354 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2353 reset-validation artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_pack_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.md",
+    "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json",
+    "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2354 passes if it preserves the failed reset result, classifies the failure, and selects a bounded non-ranking follow-up route or stops the branch.",
+  "next_blocker": "selected_by_m2354_audit"
+}

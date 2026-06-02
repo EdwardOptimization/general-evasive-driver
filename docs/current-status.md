@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design
+m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation
 ```
 
 Current next task:
 
 ```text
-m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation
+m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -233,9 +233,25 @@ metadata_only_patch_count: 37
 unresolved_patch_count: 0
 ```
 
-M2353 should implement and run the frozen reset-only validator. It must not run
-rollout, execute policy actions, rank support policies/controller families, or
-claim scenario redesign execution.
+M2353 implements and runs the frozen reset-only validator. It fails closed:
+
+```text
+result_class: current_sim_dual_axis_candidate_pack_reset_validation_fail
+reset_attempt_count: 360
+reset_success_count: 328
+reset_failure_count: 32
+failure type: RuntimeError failed to sample an obstacle scenario matching the configured filters
+contract_violation_count: 0
+forbidden_key_violation_count: 0
+metadata_caveat_rows_preserved: true
+metadata_only_patch_count: 37
+unresolved_patch_count: 0
+guardrail_violation_count: 0
+```
+
+M2354 should audit the reset failure distribution before any repair or rerun.
+Controller comparison, support-policy ranking, paper-level evidence, and
+scenario redesign execution claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

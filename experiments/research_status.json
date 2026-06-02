@@ -2,27 +2,27 @@
   "counts": {
     "blocked": 1,
     "completed": 2360,
-    "failed": 2,
+    "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design",
-    "status": "completed",
+    "task_id": "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation",
+    "status": "failed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md"
+    "run_dir": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation",
+    "command_log": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json"
   },
   "next_task": {
-    "id": "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation",
-    "kind": "infrastructure",
-    "priority": 23480,
+    "id": "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit",
+    "kind": "gate",
+    "priority": 23490,
     "status": "pending",
-    "hypothesis": "The five M2350 candidate config packs are reset-valid under the current simulator and strict human-view observation contract.",
-    "command": "run frozen reset-only validation over the five M2350 candidate config packs",
-    "success_artifact": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json",
-    "notes": "Pending: implement and run reset-only validator 5 packs x 72 specs no rollout/policy/ranking"
+    "hypothesis": "Auditing the M2353 fail-closed result can localize the 32 reset failures and select a bounded non-ranking repair or stop route.",
+    "command": "write docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md from M2353 artifacts",
+    "success_artifact": "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+    "notes": "Pending: audit M2353 328/360 reset pass 32 sampling failures no rerun/ranking"
   },
-  "updated_at_utc": "20260602T025801Z"
+  "updated_at_utc": "20260602T031045Z"
 }
