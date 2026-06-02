@@ -42507,3 +42507,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - scenario redesign executed claim made: `false`
 - follow-up manifest: `experiments/manifests/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.json`
 - next: `m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation`
+
+## M2350 Paper-Route Current-Sim Dual-Axis Candidate Config Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_candidate_config_materialization_pass`
+- manifest: `experiments/manifests/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.json`
+- doc: `docs/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.md`
+- summary: `runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_candidate_config_materialization.py`
+- tests: `tests/test_paper_route_current_sim_dual_axis_candidate_config_materialization.py`
+- candidate_input_count: `53`
+- config_pack_count: `5`
+- modified_config_pack_count: `4`
+- baseline_reference_pack_count: `1`
+- g_primary_selection_count: `13`
+- h_primary_selection_count: `13`
+- g_h_primary_selection_count: `26`
+- gh_minimal_selection_count: `26`
+- env_config_patch_count: `78`
+- metadata_only_patch_count: `37`
+- unresolved_patch_count: `0`
+- active_config_overwritten: `false`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2350: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- follow-up manifest: `experiments/manifests/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.json`
+- next: `m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis`

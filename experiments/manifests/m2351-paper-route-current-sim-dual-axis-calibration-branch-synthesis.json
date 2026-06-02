@@ -1,0 +1,219 @@
+{
+  "id": "m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_calibration_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+      "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+      "docs/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.md",
+      "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md",
+      "docs/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.md",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize dual-axis calibration branch before any further result-audit, reset-validation design, or repair milestone"
+    ],
+    "derived_from": [
+      "m2346-paper-route-current-sim-dual-axis-redesign-calibration-design",
+      "m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation",
+      "m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit",
+      "m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design",
+      "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation"
+    ],
+    "blocked_by": [
+      "local_search_guard requires synthesis after the dual-axis calibration branch reaches the non-evidence milestone limit",
+      "M2350 materializes config-pack artifacts but metadata-only caveats need branch-level interpretation before reset-validation design"
+    ],
+    "supersedes": [
+      "direct M2351 result audit",
+      "direct reset-validation design after M2350",
+      "direct patch-resolution repair after M2350"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+  "public_gates": [
+    "M2351 must answer the standard synthesis questions",
+    "M2351 must classify evidence under task-quality, high-fidelity readiness, workflow complexity, and mechanism-evidence axes",
+    "M2351 must interpret M2350 metadata-only patch caveats before choosing the next route",
+    "M2351 must decide continue pivot stop or promote_to_next_branch",
+    "M2351 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid redesigned scenario pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_redesign_calibration",
+    "evidence_axis": "Q_dual_axis_calibration_branch_synthesis",
+    "evidence_increment": "synthesizes M2346-M2350 dual-axis calibration artifacts and metadata caveats before continuing",
+    "claim_scope": "branch synthesis only; no reset rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis ignores M2350 metadata-only patch caveats",
+      "stop if synthesis routes directly to controller comparison",
+      "stop if synthesis claims scenario redesign or reset-valid pack execution"
+    ],
+    "fallback_plan": [
+      "continue to reset-validation design if config-pack artifacts are accepted as audit-ready",
+      "pivot to patch-resolution repair design if metadata-only caveats block reset validation",
+      "pivot to config-pack schema repair if artifact shape is insufficient",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local_search_guard triggered after M2350 candidate config-pack materialization",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize dual-axis calibration branch",
+    "admission_evidence": [
+      "M2346 designs dual-axis calibration",
+      "M2347 materializes 53 candidate rows",
+      "M2348 accepts M2347 artifacts and routes to config-pack design",
+      "M2349 designs a five-pack materializer",
+      "M2350 materializes five config-pack artifacts with metadata-only caveats and no guardrail violations"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no active config overwrite",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+      "M2351 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "paper-route axes are classified",
+      "M2350 metadata-only patch caveats are interpreted",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2351 synthesizes task-quality artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2351; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2346-M2350 task-quality artifacts.",
+    "negative_result_policy": "Branch synthesis must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "dual-axis calibration branch synthesis",
+      "no reset-valid scenario pack, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts the local-search guard trigger into a synthesis decision before further branch work",
+    "paper_verdict_delta": "can decide whether current-sim task-pack redesign candidates are ready for reset-validation design or need patch-resolution repair",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2346-M2350 will prevent over-local candidate-pack work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "M2350 metadata-only patch caveats are interpreted",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2351 omits a required synthesis question",
+    "M2351 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2351 ranks support policies or controller families",
+    "M2351 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2351 claims scenario redesign executed or reset-valid redesigned scenario pack",
+    "M2351 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md from M2346-M2350 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_calibration_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2351 passes if it writes synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
+  "next_blocker": "selected_by_m2351_synthesis"
+}
