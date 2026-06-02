@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
+m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
 ```
 
 Latest attempted milestone:
 
 ```text
-m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
+m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization
+m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
 ```
 
 Current route:
 
 ```text
+M2447 localized the M2445 hard-offtrack-dominated measured outcome from
+artifacts only. It produced 65 localization rows over 5250 episodes with global
+actual_success_rate `0.06685714285714285`, hard_offtrack_rate
+`0.7468571428571429`, collision_rate `0.1761904761904762`,
+soft_offtrack_violation_rate `0.0032380952380952383`, and diagnostic_pattern
+`hard_offtrack_dominated`. The highest hard-offtrack diagnostic slices include
+`termination_reason=off_track`, `outcome_bucket=off_track_noncollision_noncompletion`,
+`obstacle_lateral_offset_bucket=centerline`, `sampled_obstacle_label=drift_required`,
+and `obstacle_longitudinal_timing_bucket=early_far`. All axes remain
+diagnostic-only and non-ranking. The next task is M2448 localization result
+audit to decide target consolidation, synthesis, stop, or another bounded route
+without rerun, repair, training, ranking, winner selection, or verdict claims.
+
 M2446 accepted M2445 as a complete measured artifact but classified the fresh
 soft-boundary execution as hard-offtrack dominated. The important correction is
 that M2438 old-row relabel was diagnostic, not predictive: old hard-termination

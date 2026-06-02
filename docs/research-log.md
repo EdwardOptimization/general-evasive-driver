@@ -44460,3 +44460,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization.json`
 - next: `m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization`
+
+## M2447 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Outcome Localization
+
+- status: completed
+- result_class: `current_sim_dual_axis_metric_selected_measured_validation_outcome_localization_pass`
+- manifest: `experiments/manifests/m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization.json`
+- doc: `docs/m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization.md`
+- summary: `runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/summary.json`
+- localization rows: `65`
+- episode_count: `5250`
+- global actual_success_rate: `0.06685714285714285`
+- global hard_offtrack_rate: `0.7468571428571429`
+- global collision_rate: `0.1761904761904762`
+- global soft_offtrack_violation_rate: `0.0032380952380952383`
+- global diagnostic_pattern: `hard_offtrack_dominated`
+- top diagnostic hard-offtrack slices: `termination_reason=off_track`, `outcome_bucket=off_track_noncollision_noncompletion`, `obstacle_lateral_offset_bucket=centerline`, `sampled_obstacle_label=drift_required`, `obstacle_longitudinal_timing_bucket=early_far`
+- diagnostic axes remain non-ranking: `ranking_admissible=false`, `winner_selected=false`
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.json`
+- next: `m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit`
