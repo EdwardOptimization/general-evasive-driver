@@ -42159,3 +42159,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.json`
 - next: `m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit`
+
+## M2334 Paper-Route Current-Sim R4 Mitigation Metric Semantics Result Audit
+
+- status: completed
+- result_class: `r4_mitigation_metric_semantics_result_accepted_route_to_role_stratified_rescore_design`
+- manifest: `experiments/manifests/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.json`
+- doc: `docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md`
+- parent summary: `runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json`
+- M2333 artifacts accepted: `true`
+- scenario_count: `12`
+- impact_proxy_available_scenario_count: `12`
+- post_collision_blocked_scenario_count: `12`
+- guardrail_violation_count: `0`
+- interpretation: `proxy_metric_available_post_collision_blocked`
+- reset/rollout/measured execution in M2334: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.json`
+- next: `m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design`

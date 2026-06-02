@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation
+m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit
 ```
 
 Current next task:
 
 ```text
-m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit
+m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -53,7 +53,10 @@ winner_selected_count: 0
 guardrail_violation_count: 0
 ```
 
-M2334 is the result audit. Training, replay, PPO, support-policy ranking,
+M2334 accepts the M2333 artifacts and routes to role-stratified residual support
+rescore design. The next step should recombine R0 safe-stop semantics, R4
+impact-proxy semantics, and the older residual-support map before any controller
+comparison resumes. Training, replay, PPO, support-policy ranking,
 controller-family ranking, winner selection, paper-level claims, finite-window
 vs GRU conclusions, and level3 self-ID claims remain blocked.
 

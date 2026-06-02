@@ -1,0 +1,186 @@
+{
+  "id": "m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_residual_rescore_design"
+    ],
+    "parent_dataset": [
+      "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.json"
+    ],
+    "parent_objective": [
+      "design artifact-only role-stratified residual support rescore after R0 and R4 semantics repairs"
+    ],
+    "derived_from": [
+      "m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit"
+    ],
+    "blocked_by": [
+      "residual support map is stale after R0 safe-stop repair and R4 proxy semantics materialization",
+      "controller comparison remains blocked until role-stratified residual support is rescored",
+      "R4 post-collision continuation remains a semantic limitation"
+    ],
+    "supersedes": [
+      "using M2321 residual counts without R4 semantics",
+      "direct controller comparison after R4 proxy materialization",
+      "another support-policy rerun before artifact-only rescore"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+  "public_gates": [
+    "M2335 must design artifact-only residual rescore using existing artifacts",
+    "M2335 must incorporate R0 safe-stop and R4 proxy semantics without claiming performance",
+    "M2335 must separate role-semantics repairs, coverage gaps, scenario redesign needs, and post-collision continuation requirements",
+    "M2335 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_role_stratified_residual_rescore",
+    "evidence_axis": "Q_role_stratified_residual_rescore_design",
+    "evidence_increment": "designs artifact-only residual rescore after R0 and R4 semantics updates",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design routes directly to controller comparison",
+      "stop if design treats R4 proxy semantics as mitigation performance",
+      "stop if design ignores R2/R3/R5 coverage and redesign residuals",
+      "stop if design starts new execution"
+    ],
+    "fallback_plan": [
+      "route to post-collision continuation design if residual rescore cannot represent R4",
+      "route to artifact-only rescore implementation if inputs are sufficient",
+      "route to branch synthesis if residual categories remain ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2334 accepts R4 semantics and reopens role-stratified residual accounting",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design artifact-only role-stratified residual support rescore",
+    "admission_evidence": [
+      "M2318 repairs R0 safe-stop semantics",
+      "M2321 materializes residual support rows",
+      "M2324 identifies role-stratified residual categories",
+      "M2334 accepts R4 proxy semantics materialization"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+      "M2335 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "rescore input artifacts are listed",
+      "rescore output schema is defined",
+      "role-semantics repaired vs remaining residual categories are specified",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2335 designs residual accounting and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2335; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "Existing residual and R4 semantics artifacts.",
+    "negative_result_policy": "Residual categories must be routed as task-quality/metric-semantics issues, not self-ID evidence.",
+    "allowed_claims": [
+      "role-stratified residual support rescore design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "recombines prior R0/R4 semantics work into a broader residual support decision",
+    "paper_verdict_delta": "can decide remaining task-quality blockers before controller comparison resumes",
+    "must_synthesize_if": [
+      "M2335 cannot define residual rescore categories",
+      "M2335 routes directly to ranking",
+      "the role-stratified residual rescore branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "An artifact-only role-stratified residual support rescore can update the stale residual map after R0 and R4 semantics repairs without new execution or ranking.",
+  "success_criteria": [
+    "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md exists",
+    "R0 and R4 semantics inputs are listed",
+    "rescore output schema is specified",
+    "remaining residual route categories are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2335 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2335 ranks support policies or selects a winner",
+    "M2335 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2335 treats R4 proxy metrics as mitigation performance",
+    "M2335 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2318 M2321 M2324 and M2333 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_residual_rescore_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+    "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+    "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv"
+  ],
+  "decision_rule": "M2335 passes if it defines a bounded artifact-only residual support rescore implementation route without ranking or execution.",
+  "next_blocker": "selected_by_m2335_design"
+}
