@@ -44099,3 +44099,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2426 is clean reset-only fail-closed evidence; it does not admit all-four-family measured validation because c04 has no matched M2391 effective candidate
 - follow-up manifest: `experiments/manifests/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.json`
 - next: `m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit`
+
+## M2427 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Reset Evidence Result Audit
+
+- status: completed
+- decision: `matched_subset_reset_evidence_accepted_route_to_measured_reindex_implementation`
+- manifest: `experiments/manifests/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.json`
+- doc: `docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md`
+- audited summary: `runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json`
+- accepted reset evidence: matched subset `3/4` families, `2049` source-linked scenario refs, `350/350` reset successes, static/reset failures `0/0`, step/policy `0/false`
+- blocked evidence: all-four-family measured readiness, because c04 outcome-failure-surface containment has zero matched M2391 effective candidates
+- reset-key alignment: M2426 reset keys exactly equal M2413 measured reset keys, `350/350`, with both directional differences `0`
+- rerun/reset/rollout/repair/training/replay/PPO: `false`
+- ranking/winner/current-sim verdict: `false/false/false`
+- route: reindex existing M2413 measured rows by M2426 matched c01/c02/c03 family memberships; keep c04 excluded
+- follow-up manifest: `experiments/manifests/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.json`
+- next: `m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation`

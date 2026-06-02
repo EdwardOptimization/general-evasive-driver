@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
+m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
+m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
+m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
 ```
 
 Current route:
@@ -197,6 +197,15 @@ is M2427 result audit, which must decide source-coverage repair, matched-subset
 measured-validation design with explicit c04 exclusion, scenario-quality
 reassessment, synthesis, or stop. It must not rerun reset, run measured rollout,
 execute repair, train, rank, or make current-sim/paper/self-ID verdict claims.
+M2427 accepted M2426 as clean reset-only evidence for the matched 3-family
+subset, but rejected all-four-family measured readiness because c04 has zero
+matched effective candidates. The audit also verified that the M2426 350 reset
+targets exactly equal the already measured M2413 reset-target set, with zero
+missing keys in either direction. Therefore the next task is M2428 measured-
+result reindex: join existing M2413 measured episode rows to M2426 c01/c02/c03
+matched family memberships, explicitly exclude c04, and produce non-ranking
+diagnostic aggregates without reset rerun, measured rollout rerun, repair,
+training, ranking, winner selection, or verdict claims.
 ```
 
 ## Latest Evidence

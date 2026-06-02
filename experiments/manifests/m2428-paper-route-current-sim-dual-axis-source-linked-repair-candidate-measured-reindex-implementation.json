@@ -1,0 +1,211 @@
+{
+  "id": "m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_measured_result_reindex"
+    ],
+    "parent_dataset": [
+      "docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md",
+      "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json",
+      "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/source_linked_family_rows.csv",
+      "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/source_linked_scenario_rows.csv",
+      "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/reset_target_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_family_membership_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.json"
+    ],
+    "parent_objective": [
+      "reindex existing M2413 measured rows by the M2426 matched source-linked repair-candidate family memberships"
+    ],
+    "derived_from": [
+      "m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit",
+      "m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation"
+    ],
+    "blocked_by": [
+      "M2426 c04 has zero matched effective candidates and must remain excluded",
+      "M2427 rejected all-four-family measured-validation readiness",
+      "M2413 measured rows already cover the same 350 reset targets, so rerun would be duplicate local search"
+    ],
+    "supersedes": [
+      "measured rerun over the same 350 reset targets",
+      "candidate family ranking from reindexed diagnostic aggregates",
+      "current-sim verdict from matched-subset reindex alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md",
+  "public_gates": [
+    "M2428 must prove M2426 reset keys are exactly covered by M2413 episode rows",
+    "M2428 must reindex existing M2413 episode rows by only the matched M2426 candidate families",
+    "M2428 must explicitly exclude c04 outcome-failure-surface containment from measured aggregates",
+    "M2428 must not rerun measured rollout, reset environments, execute policy actions, train, repair, replay, PPO, rank, select winners, or make verdict claims",
+    "M2428 must preserve diagnostic-only candidate-family aggregates"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset",
+    "do not run measured rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not select a winner",
+    "do not treat c04 as measured",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence",
+    "evidence_axis": "E_source_linked_repair_candidate_measured_reindex",
+    "evidence_increment": "reuses existing measured rows to produce non-ranking outcome aggregates for the M2426 matched repair-candidate families without rerun",
+    "claim_scope": "measured-result reindex only; no new measured rollout, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2426 reset keys are not exactly covered by M2413 episode rows",
+      "stop if c04 appears in measured aggregates despite zero matched effective candidates",
+      "stop if family aggregates are ranked or a winner is selected",
+      "stop if reindexing is interpreted as new measured rollout or driver improvement"
+    ],
+    "fallback_plan": [
+      "if reset-key coverage mismatch occurs, route to lineage audit",
+      "if reindex succeeds but remains offtrack-dominated, route to branch synthesis or scenario-quality decision",
+      "if reindex reveals a bounded matched-subset signal, route to result audit before any measured rerun or repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "synthesize after M2428-M243x if the branch continues without new measured data or an explicit scenario-quality decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-linked repair-candidate measured-result reindex",
+    "admission_evidence": [
+      "M2427 verified M2426 and M2413 share the same 350 reset target keys",
+      "M2426 matched c01/c02/c03 to 54 effective candidates and 2049 scenario references",
+      "M2426 c04 has zero matched effective candidates and must remain excluded"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no environment reset rerun",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex.py",
+      "tests/test_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex.py",
+      "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/*",
+      "docs/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md",
+      "M2428 status queue scoreboard research log and review",
+      "one follow-up manifest selected by M2428"
+    ],
+    "next_stage_criteria": [
+      "reset-key coverage is exact",
+      "episode reindex rows are complete",
+      "candidate-family aggregates are diagnostic-only and non-ranking",
+      "c04 exclusion is explicit",
+      "a result audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2428 reindexes existing measured outcomes and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2428; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2413 measured rows reindexed by M2426 matched source-linked family rows.",
+    "negative_result_policy": "If reindexed outcomes remain offtrack-dominated, record that result and route to audit/synthesis instead of more local artifact repair.",
+    "allowed_claims": [
+      "source-linked repair-candidate measured-result reindex",
+      "matched-subset diagnostic aggregates",
+      "c04 exclusion caveat",
+      "no controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts M2426 reset coverage into measured diagnostic aggregates using already completed M2413 episodes",
+    "paper_verdict_delta": "can clarify whether matched repair-candidate slices are still offtrack-dominated but cannot establish a current-sim or paper verdict",
+    "must_synthesize_if": [
+      "reindex remains offtrack-dominated and another artifact-only repair step is proposed",
+      "c04 exclusion blocks interpretation",
+      "five milestones pass without new measured data or scenario-quality decision"
+    ]
+  },
+  "hypothesis": "Existing M2413 measured rows can be reindexed by the M2426 matched source-linked repair-candidate families to produce non-ranking outcome diagnostics without rerun.",
+  "success_criteria": [
+    "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json exists",
+    "M2426 reset keys are exactly covered by M2413 episode rows",
+    "reindexed episode membership rows are written",
+    "aggregate rows exist for c01 c02 and c03",
+    "c04 is explicitly excluded with matched_effective_candidate_count 0",
+    "rerun/reset/rollout counts remain 0",
+    "ranking_admissible_count and winner_selected_count are 0",
+    "guardrail_violation_count is 0"
+  ],
+  "failure_criteria": [
+    "M2428 reruns reset or measured rollout",
+    "M2428 executes repair or training",
+    "M2428 ranks candidate families or selects a winner",
+    "M2428 includes c04 as measured despite zero matched effective candidates",
+    "M2428 hides reset-key coverage mismatch",
+    "M2428 makes measured improvement, current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "implementation",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m autodrift.paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex --source-reset-dir runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence --source-measured-dir runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation --output-dir runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex --next-blocker m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_measured_result_reindex"
+  ],
+  "baseline_artifacts": [
+    "docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md",
+    "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json",
+    "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json"
+  ],
+  "decision_rule": "M2428 passes if it reindexes existing M2413 measured rows by M2426 matched candidate-family memberships without rerun, ranking, c04 overclaim, or verdict claims.",
+  "next_blocker": "m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit"
+}
