@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2326 maps R4 metric gap to logging aliases and scenario CSV field export implementation no ranking claims",
+  "failure_criteria": [
+    "M2326 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2326 ranks support policies or selects a winner",
+    "M2326 changes actor input reward or training objective",
+    "M2326 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2326 cannot select a next route"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not add any mitigation field to actor input"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T002410Z",
+  "hypothesis": "A bounded design can specify R4 mitigation severity instrumentation without changing actor input reward or training.",
+  "lineage": {
+    "blocked_by": [
+      "R4 impact speed delta-v collision angle post-event and recoverability fields are absent",
+      "mitigation performance cannot be claimed from proxy fields",
+      "current measured execution artifacts need instrumentation before R4 comparison"
+    ],
+    "derived_from": [
+      "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+      "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md"
+    ],
+    "parent_objective": [
+      "design R4 mitigation severity instrumentation before any role-family comparison"
+    ],
+    "supersedes": [
+      "mitigation-performance claims from proxy metrics",
+      "direct R4 controller comparison without severity fields",
+      "training from R4 residual rows"
+    ]
+  },
+  "milestone": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
+  "next_blocker": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "r4_mitigation_metric_instrumentation_design_admit_logging_field_implementation",
+  "public_gates": [
+    "M2326 must map each required R4 mitigation field to an instrumentation source or explicit unavailable status",
+    "M2326 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2326 must not change reward or training objective",
+    "M2326 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "r4_mitigation_metric_instrumentation_design_admit_logging_field_implementation",
+    "milestone": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
+    "reason": "M2326 maps R4 metric gap to logging aliases and scenario CSV field export implementation no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md exists",
+    "all required R4 fields are mapped to a source or unavailable status",
+    "the design forbids adding mitigation fields to actor input",
+    "the design selects a bounded implementation route"
+  ],
+  "type": "gate"
+}

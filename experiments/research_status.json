@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2333,
+    "completed": 2334,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit",
+    "task_id": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md"
+    "command_log": "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md"
   },
   "next_task": {
-    "id": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
-    "kind": "gate",
-    "priority": 23210,
+    "id": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation",
+    "kind": "infrastructure",
+    "priority": 23220,
     "status": "pending",
-    "hypothesis": "A bounded design can specify R4 mitigation severity instrumentation without changing actor input reward or training.",
-    "command": "manual instrumentation design from M2324 metric availability artifacts and measured execution code inspection",
-    "success_artifact": "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
-    "notes": "Pending: map required R4 fields to logging sources without actor reward training changes no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "A bounded logging patch can preserve canonical R4 mitigation metric aliases and availability flags in scenario task-family artifacts without running measured execution.",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_r4_mitigation_metric_instrumentation.py tests/test_paper_route_current_sim_scenario_task_family_measured_execution.py tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
+    "success_artifact": "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+    "notes": "Pending: add canonical aliases availability flags and fieldname preservation tests no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260602T001444Z"
+  "updated_at_utc": "20260602T001915Z"
 }

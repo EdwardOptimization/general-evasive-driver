@@ -1,0 +1,185 @@
+{
+  "id": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_logging_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded R4 mitigation logging field export and availability flags"
+    ],
+    "derived_from": [
+      "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design"
+    ],
+    "blocked_by": [
+      "scenario task-family CSV fieldnames drop existing outcome metric fields",
+      "canonical R4 mitigation metric aliases and availability flags are missing",
+      "true delta-v and post-collision metrics remain unavailable in current sim"
+    ],
+    "supersedes": [
+      "manual mitigation metric availability notes",
+      "proxy-only mitigation performance claims",
+      "direct R4 comparison without field export"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+  "public_gates": [
+    "M2327 must export/preserve R4 mitigation logging fields in scenario task-family episode rows",
+    "M2327 must add availability flags for unavailable canonical fields",
+    "M2327 must use focused tests with stub rollout metrics and not run measured execution",
+    "M2327 must preserve actor input reward and training objective"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not add any mitigation field to actor input",
+    "do not change reward",
+    "do not change collision termination behavior"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_r4_mitigation_metric_instrumentation",
+    "evidence_axis": "Q_r4_mitigation_metric_instrumentation_implementation",
+    "evidence_increment": "implements logging field export and availability flags needed before R4 measured diagnostics",
+    "claim_scope": "logging implementation only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation changes actor input reward or collision termination",
+      "stop if it starts measured execution",
+      "stop if true unavailable fields are filled with fabricated values",
+      "stop if mitigation performance is claimed"
+    ],
+    "fallback_plan": [
+      "route to source audit if existing outcome instrumentation cannot support aliases",
+      "route to design revision if tests show field export cannot be bounded",
+      "route to result audit if field export and availability flags pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2327 follows M2326 design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement logging-only R4 mitigation metric field export",
+    "admission_evidence": [
+      "M2326 identifies existing outcome_metric_instrumentation as the source of proxy fields",
+      "M2326 identifies scenario task-family EPISODE_FIELDNAMES as the export gap",
+      "M2326 forbids actor input reward training or termination changes"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/outcome_metric_instrumentation.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py",
+      "src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
+      "focused tests for field aliases and CSV preservation",
+      "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+      "M2327 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "canonical R4 metric fields are added or explicitly availability-false",
+      "scenario task-family measured/support CSV headers preserve those fields",
+      "focused tests pass without real rollout",
+      "actor input reward and training are unchanged"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2327 changes logging fields only and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2327; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2326 instrumentation design.",
+    "negative_result_policy": "Logging field gaps must not be interpreted as self-ID failure.",
+    "allowed_claims": [
+      "R4 mitigation metric logging/export implementation",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns missing metric evidence into durable logging fields",
+    "paper_verdict_delta": "can make future R4 diagnostics measurable without changing the controller",
+    "must_synthesize_if": [
+      "M2327 changes actor input or reward",
+      "M2327 starts measured execution",
+      "the R4 mitigation instrumentation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded logging patch can preserve canonical R4 mitigation metric aliases and availability flags in scenario task-family artifacts without running measured execution.",
+  "success_criteria": [
+    "focused tests prove canonical R4 fields are produced by outcome metric aliasing",
+    "focused tests prove scenario task-family measured execution fieldnames preserve R4 fields",
+    "focused tests prove support-policy feasibility fieldnames preserve R4 fields",
+    "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md exists",
+    "guardrail flags remain false"
+  ],
+  "failure_criteria": [
+    "M2327 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2327 ranks support policies or selects a winner",
+    "M2327 changes actor input reward or collision termination",
+    "M2327 fabricates unavailable delta-v or post-collision metrics",
+    "M2327 makes finite-window-vs-GRU paper-level or level3 self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_r4_mitigation_metric_instrumentation.py tests/test_paper_route_current_sim_scenario_task_family_measured_execution.py tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_logging_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv"
+  ],
+  "decision_rule": "M2327 passes if logging field export and availability flag tests pass without actor/reward/training changes.",
+  "next_blocker": "m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit"
+}

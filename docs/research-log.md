@@ -41964,3 +41964,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.json`
 - next: `m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design`
+
+## M2326 Paper-Route Current-Sim R4 Mitigation Metric Instrumentation Design
+
+- status: completed
+- result_class: `r4_mitigation_metric_instrumentation_design_admit_logging_field_implementation`
+- manifest: `experiments/manifests/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.json`
+- design doc: `docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md`
+- parent metric availability: `runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv`
+- code inspection: `evaluate.run_episode_with_policy` already computes outcome metrics via `outcome_metric_instrumentation`; scenario task-family CSV headers drop the fields
+- design route: add canonical R4 aliases, availability flags, and scenario task-family fieldname preservation tests
+- reset/rollout/policy action in M2326: `false`
+- training/replay/PPO in M2326: `false`
+- actor input changed: `false`
+- reward/training objective changed: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.json`
+- next: `m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation`
