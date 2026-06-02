@@ -43859,3 +43859,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - implementation route: reconstruct env configs from M2391 effective candidate payloads by reset target hash
 - follow-up manifest: `experiments/manifests/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.json`
 - next: `m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation`
+
+## M2413 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Validation Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_offtrack_containment_measured_validation_pass`
+- manifest: `experiments/manifests/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.json`
+- doc: `docs/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation.py`
+- focused tests: `4 passed`
+- summary: `runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json`
+- measured denominator: `350` reset targets x `15` selected checkpoints = `5250` episodes
+- family membership diagnostic rows: `18300`
+- failure/validation/metadata/metric/contract/guardrail counts: `0/0/0/0/0/0`
+- global role_success_rate/collision_rate/offtrack_rate: `0.06685714285714285 / 0.1761904761904762 / 0.7424761904761905`
+- dominant_failure_mode: `offtrack_dominated_failure`
+- repair/training/replay/PPO/ranking/winner in M2413: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2413 is a complete measured-validation artifact, not a driver-success or current-sim verdict; outcome remains offtrack-dominated and needs audit
+- follow-up manifest: `experiments/manifests/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.json`
+- next: `m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit`

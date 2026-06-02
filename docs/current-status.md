@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
+m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
+m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
+m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
 ```
 
 Current route:
@@ -105,6 +105,14 @@ writing one primary episode row per reset target/checkpoint and separate
 exploded family-membership diagnostic rows. It must not execute repair, train,
 rank families, select a winner, or make current-sim/paper/self-ID verdict
 claims.
+M2413 implemented and ran the bounded measured panel. It completed 5250/5250
+episodes across 350 reset targets and 15 selected checkpoints, wrote 18300
+family-membership diagnostic rows, and had zero failure, validation, metadata,
+metric, contract, or guardrail failures. The measured outcome remains
+offtrack-dominated: global role success rate 0.06685714285714285, collision
+rate 0.1761904761904762, and offtrack rate 0.7424761904761905. M2414 must
+audit this result and choose localization, consolidation, synthesis, stop, or
+pivot without rerun, repair, training, ranking, or verdict claims.
 ```
 
 ## Latest Evidence
