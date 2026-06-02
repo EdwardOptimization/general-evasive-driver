@@ -16,25 +16,34 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
+m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
+m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
+m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
 ```
 
 Current route:
 
 ```text
+M2439 accepted M2438 as a complete hard/soft offtrack metric split
+implementation and routes to metric-selected measured-validation design. The
+metric split preserved measured actual_success, kept guardrail violations at 0,
+and showed nonempty hard and soft offtrack classes. Old-row soft success remains
+diagnostic-only, so the next task is M2440 protocol design for fresh measured
+validation under the selected hard/soft metric. No rollout, repair, training,
+ranking, scenario redesign execution, paper/FW-vs-GRU/self-ID, or current-sim
+verdict claim is supported yet.
+
 M2438 implemented the hard/soft offtrack metric split panel over existing M2362,
 M2397, and M2413 episode rows. It produced 12 panel rows across 3 sources and
 the fixed 0.02/0.05/0.10/0.20 m threshold grid, preserved measured

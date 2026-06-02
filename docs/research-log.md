@@ -44312,3 +44312,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.json`
 - next: `m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit`
+
+## M2439 Paper-Route Current-Sim Dual-Axis Hard/Soft Offtrack Metric Split Result Audit
+
+- status: completed
+- decision: `accept_metric_split_route_to_metric_selected_measured_validation_design`
+- manifest: `experiments/manifests/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.json`
+- doc: `docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md`
+- audited summary: `runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json`
+- accepted evidence: M2438 result_class `current_sim_dual_axis_hard_soft_offtrack_metric_split_pass`, panel rows `12`, sources `3`, actual_success_preserved `true`, guardrail violations `0`
+- interpretation: the metric split is ready for measured-validation protocol design, but old-row soft success remains diagnostic-only
+- public gate overfit risk: `medium` because another same-data relabel panel would be process overhead
+- route: metric-selected measured-validation design before any fresh rollout
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.json`
+- next: `m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design`

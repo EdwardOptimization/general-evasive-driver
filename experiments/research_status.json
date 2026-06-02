@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2444,
+    "completed": 2445,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation",
+    "task_id": "m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json",
-    "command_log": "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json"
+    "run_dir": "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md",
+    "command_log": "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md"
   },
   "next_task": {
-    "id": "m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit",
-    "kind": "gate",
-    "priority": 24340,
+    "id": "m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design",
+    "kind": "infrastructure",
+    "priority": 24350,
     "status": "pending",
-    "hypothesis": "Auditing M2438 will determine whether the hard/soft offtrack split is ready for a bounded metric-selected measured-validation design without leaking soft success into actual success.",
-    "command": "see experiments/manifests/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.json",
-    "success_artifact": "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md",
-    "notes": "Pending: audit M2438 hard soft offtrack split panel and choose bounded route no rollout/repair/training/ranking/actual-success/verdict claims"
+    "hypothesis": "A metric-selected measured-validation design will define how to obtain executed rollout evidence under the hard/soft offtrack metric without conflating old-row soft success with actual success.",
+    "command": "see experiments/manifests/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.json",
+    "success_artifact": "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md",
+    "notes": "Pending: design metric-selected measured-validation protocol after M2439 audit no rollout/repair/training/ranking/actual-success/verdict claims"
   },
-  "updated_at_utc": "20260602T193735Z"
+  "updated_at_utc": "20260602T194337Z"
 }
