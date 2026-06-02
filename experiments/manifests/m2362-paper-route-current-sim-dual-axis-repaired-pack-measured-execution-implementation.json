@@ -1,0 +1,199 @@
+{
+  "id": "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "training_instability"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "docs/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.md",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json",
+      "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.json"
+    ],
+    "parent_objective": [
+      "implement and run frozen pack-aware measured execution over reset-valid repaired five-pack scenario family"
+    ],
+    "derived_from": [
+      "m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design",
+      "m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2361 designs measured execution but does not implement or run the pack-aware runner",
+      "closed-loop evidence over the repaired pack family is missing"
+    ],
+    "supersedes": [
+      "using the single-config M2293 runner directly on repaired packs",
+      "ranking repaired packs from reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.md",
+  "public_gates": [
+    "M2362 must implement the frozen pack-aware measured-execution runner from M2361",
+    "M2362 must run 5 packs x 72 specs x 15 selected checkpoints = 5400 episodes",
+    "M2362 must preserve pack, repair-action, role, profile, and outcome metadata",
+    "M2362 must keep ranking, winner selection, paper finite-window-vs-GRU, and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repaired_pack_measured_execution",
+    "evidence_axis": "E_measured_execution_implementation",
+    "evidence_increment": "adds closed-loop measured execution over the reset-valid repaired five-pack scenario family",
+    "claim_scope": "closed-loop measured-execution artifact only; no ranking, paper verdict, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if the pack-aware runner cannot preserve pack/repair metadata",
+      "stop if target episode count or selected checkpoint count is incomplete",
+      "stop if metric completeness or claim boundary fails",
+      "stop if execution fails before writing auditable artifacts"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any execution or metric failure",
+      "repair the runner only after audit localizes the issue",
+      "route to measured-execution result audit if frozen gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2361 freezes a pack-aware measured-execution command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "pack-aware measured execution",
+    "admission_evidence": [
+      "M2361 freezes denominator 5400 episodes",
+      "M2359 reset-validity evidence is 360/360",
+      "M2262 selected checkpoint panel has 15 rows"
+    ],
+    "blocked_shortcuts": [
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU conclusion",
+      "no level3 self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_repaired_pack_measured_execution.py",
+      "tests/test_paper_route_current_sim_dual_axis_repaired_pack_measured_execution.py",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/*",
+      "docs/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.md",
+      "M2362 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "episode_count is 5400",
+      "failure_count is 0",
+      "metadata_missing_count is 0",
+      "metric_completeness_failure_count is 0",
+      "guardrail_violation_count is 0",
+      "M2363 result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2362 measures closed-loop outcomes but does not run history interventions or finite-window-vs-GRU verdict logic.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden zero-history or direct finite-window-vs-GRU conclusion is run in M2362."
+    ],
+    "temporal_evidence_window": "M2359 reset-valid repaired packs and M2262 selected checkpoints.",
+    "negative_result_policy": "If measured execution is weak or incomplete, route to result audit before repair or interpretation.",
+    "allowed_claims": [
+      "closed-loop measured-execution artifact over reset-valid repaired five-pack family",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds a larger closed-loop measured panel after task-quality reset validation",
+    "paper_verdict_delta": "can provide measured outcome evidence for later audit but cannot by itself establish paper verdict or self-ID",
+    "must_synthesize_if": [
+      "M2362 fails due to runner schema mismatch",
+      "M2362 produces incomplete episode denominator",
+      "M2362 produces measured data but no result audit route is registered"
+    ]
+  },
+  "hypothesis": "The pack-aware measured-execution runner can complete the frozen 5400-episode panel over the M2359 reset-valid repaired five-pack scenario family while preserving metadata and claim boundaries.",
+  "success_criteria": [
+    "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json exists",
+    "episode_count equals 5400",
+    "config_pack_count equals 5",
+    "scenario_specs_per_pack_count equals 72",
+    "selected_checkpoint_count equals 15",
+    "failure_count equals 0",
+    "validation_failure_count equals 0",
+    "metadata_missing_count equals 0",
+    "metric_completeness_failure_count equals 0",
+    "guardrail_violation_count equals 0",
+    "controller_family_ranking_claim_made is false",
+    "winner_selected is false",
+    "paper_level_claim_made is false",
+    "finite_window_vs_gru_conclusion_made is false",
+    "level3_self_id_claim_made is false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "episode_count differs from 5400",
+    "any validation or rollout failure occurs",
+    "metadata or metric completeness fails",
+    "any guardrail violation appears",
+    "ranking, paper-level, finite-window-vs-GRU, or level3 self-ID claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_repaired_pack_measured_execution.py"
+    },
+    {
+      "name": "measured_execution",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_repaired_pack_measured_execution --repaired-config-pack-manifest runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json --selected-rows runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv --config-root runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/configs --output-dir runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution --eval-seed-base 236200 --target-pack-count 5 --target-scenario-specs-per-pack 72 --target-selected-checkpoint-count 15 --target-episode-count 5400 --device cpu --no-resume --next-blocker m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "docs/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.md",
+    "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
+  ],
+  "decision_rule": "M2362 passes if it implements and runs the frozen pack-aware measured-execution panel with complete metadata and zero guardrail violations.",
+  "next_blocker": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit"
+}

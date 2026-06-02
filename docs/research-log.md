@@ -42799,3 +42799,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: reset-valid repaired pack family only, no performance or mechanism claim
 - follow-up manifest: `experiments/manifests/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.json`
 - next: `m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design`
+
+## M2361 Paper-Route Current-Sim Dual-Axis Repaired Pack Measured Execution Design
+
+- status: completed
+- decision: `repaired_pack_measured_execution_design_admit_pack_aware_runner`
+- manifest: `experiments/manifests/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.json`
+- doc: `docs/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.md`
+- parent audit: `docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md`
+- reset execution in M2361: `false`
+- rollout/measured execution in M2361: `false`
+- policy action executed in M2361: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- runner route: implement pack-aware adapter `autodrift.paper_route_current_sim_dual_axis_repaired_pack_measured_execution`
+- selected checkpoint source: `runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv`
+- selected checkpoint count: `15`
+- config pack count: `5`
+- scenario specs per pack: `72`
+- target episode count: `5400`
+- eval seed rule: `236200 + pack_index*100000 + selected_checkpoint_index*1000 + scenario_spec_index`
+- device: `cpu`
+- claim boundary: measured-execution design only, no ranking/paper/self-ID claim
+- follow-up manifest: `experiments/manifests/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.json`
+- next: `m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation`

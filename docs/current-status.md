@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit
+m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
 ```
 
 Current next task:
 
 ```text
-m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
+m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -369,9 +369,24 @@ claim boundary: reset-valid repaired five-pack family only
 next: m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
 ```
 
-M2361 should design a bounded measured-execution protocol over the reset-valid
-repaired pack family. It must freeze denominator, metrics, input artifacts, and
-guardrails, but must not execute rollout or rank controllers.
+M2361 designs a bounded measured-execution protocol over the reset-valid
+repaired pack family:
+
+```text
+decision: repaired_pack_measured_execution_design_admit_pack_aware_runner
+runner route: pack-aware adapter
+config_pack_count: 5
+scenario_specs_per_pack: 72
+selected_checkpoint_count: 15
+target_episode_count: 5400
+eval_seed_base: 236200
+device: cpu
+```
+
+M2362 should implement the pack-aware measured-execution runner and run the
+frozen 5400-episode panel. Ranking, winner selection, paper-level evidence,
+finite-window vs GRU conclusions, level3 self-ID claims, and scenario redesign
+execution claims remain blocked until later audits.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

@@ -178,5 +178,5 @@
     "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
   ],
   "decision_rule": "M2361 passes if it designs a bounded measured-execution protocol without executing rollout or making ranking/paper/self-ID claims.",
-  "next_blocker": "selected_by_m2361_design"
+  "next_blocker": "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation"
 }
