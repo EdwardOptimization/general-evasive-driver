@@ -42662,3 +42662,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - expected lateral-hidden repair count: `2`
 - follow-up manifest: `experiments/manifests/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.json`
 - next: `m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation`
+
+## M2356 Paper-Route Current-Sim Dual-Axis Candidate Pack Sampling Repair Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_candidate_pack_sampling_repair_materialization_pass`
+- manifest: `experiments/manifests/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.json`
+- doc: `docs/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_candidate_pack_sampling_repair.py`
+- focused tests: `2 passed`
+- summary: `runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json`
+- output_config_pack_count: `5`
+- scenario_specs_per_pack_count: `72`
+- baseline_env_config_fallback_count: `32`
+- timing_related_repair_count: `27`
+- hidden_only_repair_count: `3`
+- lateral_hidden_repair_count: `2`
+- repair_missing_field_count: `0`
+- metadata_caveat_rows_preserved: `true`
+- metadata_only_patch_count: `37`
+- active_config_overwritten: `false`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2356: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- follow-up manifest: `experiments/manifests/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.json`
+- next: `m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit`

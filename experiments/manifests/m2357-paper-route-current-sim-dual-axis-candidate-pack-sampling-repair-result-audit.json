@@ -1,0 +1,181 @@
+{
+  "id": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_sampling_repair_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/effective_pack_summary_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2356 repaired candidate-pack artifacts before any reset validation"
+    ],
+    "derived_from": [
+      "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2356 creates repaired packs but does not run reset validation",
+      "repaired pack reset-validity remains unknown"
+    ],
+    "supersedes": [
+      "direct repaired-pack reset validation without audit",
+      "direct measured execution after repair materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+  "public_gates": [
+    "M2357 must audit M2356 repaired artifact counts and effective modification counts",
+    "M2357 must decide whether repaired packs are eligible for reset-validation design or need repair materializer changes",
+    "M2357 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid repaired pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_sampling_repair",
+    "evidence_axis": "Q_sampling_repair_result_audit",
+    "evidence_increment": "audits repaired pack materialization and chooses whether to proceed to reset-validation design",
+    "claim_scope": "result audit only; no reset rerun, rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if M2356 artifacts are incomplete",
+      "stop if effective modification counts are too low for the route to remain meaningful",
+      "stop if audit routes directly to measured execution",
+      "stop if audit claims reset-valid repaired pack"
+    ],
+    "fallback_plan": [
+      "route to repaired-pack reset-validation design if artifacts are accepted",
+      "route to repair materializer schema fix if artifacts are incomplete",
+      "stop for user review if fallback removes too much candidate signal"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2356 materializes repaired candidate packs and requires audit before reset validation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "sampling repair materialization result audit",
+    "admission_evidence": [
+      "M2356 result_class is pass",
+      "M2356 output_config_pack_count is 5",
+      "M2356 baseline_env_config_fallback_count is 32",
+      "M2356 repair_missing_field_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+      "M2357 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2356 artifacts are accepted or rejected",
+      "effective modified pack counts are interpreted",
+      "reset-validity claim remains blocked",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2357 audits task-quality repair artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2357; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2356 repaired candidate pack artifacts.",
+    "negative_result_policy": "Repair audit must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "sampling repair materialization result audit",
+      "no reset-valid repaired pack, controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "audits repaired artifacts before a new reset-validity attempt",
+    "paper_verdict_delta": "can admit repaired-pack reset-validation design if artifacts retain enough candidate signal, but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2357 cannot decide whether repaired packs are reset-validation eligible",
+      "M2357 proposes direct measured execution",
+      "the sampling repair branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2356 repaired artifacts can decide whether the repaired packs are eligible for a separate reset-validation design.",
+  "success_criteria": [
+    "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md exists",
+    "M2356 summary counts are summarized",
+    "effective modified pack counts are interpreted",
+    "reset-validity claim remains blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2357 runs reset rollout measured execution replay PPO or private holdout",
+    "M2357 ranks support policies or controller families",
+    "M2357 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2357 claims scenario redesign executed or reset-valid repaired pack",
+    "M2357 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2356 repaired artifact outputs"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_sampling_repair_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md",
+    "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json"
+  ],
+  "decision_rule": "M2357 passes if it audits repaired artifacts and selects a bounded non-ranking follow-up route or stops the branch.",
+  "next_blocker": "selected_by_m2357_audit"
+}

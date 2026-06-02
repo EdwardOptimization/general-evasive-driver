@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2362,
+    "completed": 2363,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design",
+    "task_id": "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md"
+    "run_dir": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair",
+    "command_log": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json"
   },
   "next_task": {
-    "id": "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation",
-    "kind": "infrastructure",
-    "priority": 23510,
+    "id": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+    "kind": "gate",
+    "priority": 23520,
     "status": "pending",
-    "hypothesis": "An artifact-only materializer can apply row-level baseline fallback to the 32 M2353 failed rows while preserving the five-pack structure and metadata caveat reporting.",
-    "command": "materialize repaired candidate packs from M2355 design without reset execution",
-    "success_artifact": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json",
-    "notes": "Pending: implement artifact-only sampling repair materializer no reset/ranking"
+    "hypothesis": "Auditing M2356 repaired artifacts can decide whether the repaired packs are eligible for a separate reset-validation design.",
+    "command": "write docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md from M2356 artifacts",
+    "success_artifact": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+    "notes": "Pending: audit repaired artifact counts and decide reset-validation route no reset/ranking"
   },
-  "updated_at_utc": "20260602T031847Z"
+  "updated_at_utc": "20260602T032844Z"
 }
