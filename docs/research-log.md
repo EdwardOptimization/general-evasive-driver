@@ -42616,3 +42616,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset-valid scenario pack claim made: `false`
 - follow-up manifest: `experiments/manifests/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.json`
 - next: `m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit`
+
+## M2354 Paper-Route Current-Sim Dual-Axis Candidate Pack Reset Validation Result Audit
+
+- status: completed
+- decision: `candidate_pack_reset_failure_audit_route_to_sampling_compatible_repair_design`
+- manifest: `experiments/manifests/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.json`
+- doc: `docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md`
+- audited summary: `runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json`
+- reset/rollout/measured execution in M2354: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- failure taxonomy: `scenario_sampling_failure / sampling_incompatible_candidate_transform`
+- failure distribution: `G 18`, `GH 11`, `H 3`
+- dominant transform: `late_close -> mid` timing changes explain `27/32` failures
+- patch/candidate join missing count: `0`
+- baseline_reference_pack failures: `0`
+- follow-up manifest: `experiments/manifests/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.json`
+- next: `m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design`

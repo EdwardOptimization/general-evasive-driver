@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2360,
+    "completed": 2361,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation",
-    "status": "failed",
+    "task_id": "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit",
+    "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation",
-    "command_log": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit",
+    "id": "m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design",
     "kind": "gate",
-    "priority": 23490,
+    "priority": 23500,
     "status": "pending",
-    "hypothesis": "Auditing the M2353 fail-closed result can localize the 32 reset failures and select a bounded non-ranking repair or stop route.",
-    "command": "write docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md from M2353 artifacts",
-    "success_artifact": "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
-    "notes": "Pending: audit M2353 328/360 reset pass 32 sampling failures no rerun/ranking"
+    "hypothesis": "A bounded no-reset repair design can make the M2350 dual-axis candidate pack route sampling-compatible without expanding back into raw candidate search.",
+    "command": "write docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md from M2354 audit",
+    "success_artifact": "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+    "notes": "Pending: design sampling-compatible candidate pack repair no reset/rerun/ranking"
   },
-  "updated_at_utc": "20260602T031045Z"
+  "updated_at_utc": "20260602T031436Z"
 }

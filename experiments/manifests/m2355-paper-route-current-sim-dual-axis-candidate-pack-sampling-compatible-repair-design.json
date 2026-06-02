@@ -1,0 +1,186 @@
+{
+  "id": "m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_sampling_compatible_candidate_pack_repair_design"
+    ],
+    "parent_dataset": [
+      "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/candidate_selection_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded sampling-compatible repair route for M2350 candidate packs after M2353 reset failures"
+    ],
+    "derived_from": [
+      "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit",
+      "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation"
+    ],
+    "blocked_by": [
+      "M2353 reset validation failed 32 of 360 reset attempts",
+      "M2354 localizes most failures to G/GH timing transforms"
+    ],
+    "supersedes": [
+      "direct reset rerun after M2353",
+      "direct measured execution after failed candidate-pack reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+  "public_gates": [
+    "M2355 must design a no-reset sampling-compatible repair route for the candidate packs",
+    "M2355 must address the 32 M2353 reset failures and especially the late_close to mid timing transform failures",
+    "M2355 must preserve five-pack discipline and metadata caveat reporting",
+    "M2355 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not repair and rerun",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid redesigned scenario pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_sampling_repair",
+    "evidence_axis": "Q_sampling_compatible_candidate_pack_repair_design",
+    "evidence_increment": "designs a bounded no-reset repair route for sampler-incompatible candidate transforms",
+    "claim_scope": "design only; no reset rerun, rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if design cannot address the 32 M2353 failures",
+      "stop if design expands into raw candidate search",
+      "stop if design reruns reset or routes directly to measured execution",
+      "stop if design claims reset-valid pack"
+    ],
+    "fallback_plan": [
+      "route to artifact-only repaired materializer implementation if bounded rules are sufficient",
+      "pivot to failure-source mapping implementation if repair rules are underdetermined",
+      "stop for user review if no bounded repair route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2354 routes M2353 reset failure to sampling-compatible candidate pack repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "sampling-compatible candidate pack repair design",
+    "admission_evidence": [
+      "M2354 classifies M2353 failure as sampling_incompatible_candidate_transform",
+      "27 of 32 failures include late_close to mid timing transforms",
+      "baseline pack resets 72/72 and metadata caveats are preserved"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+      "M2355 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "repair scope is bounded",
+      "failure rows and transform classes are addressed",
+      "five-pack discipline is preserved",
+      "metadata caveat reporting is preserved",
+      "a no-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2355 designs task-quality repair and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2355; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2353/M2354 reset failure artifacts.",
+    "negative_result_policy": "Candidate-pack repair design must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "sampling-compatible candidate pack repair design",
+      "no reset-valid pack, controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns a classified reset failure into bounded repair design rather than rerunning the same gate",
+    "paper_verdict_delta": "can prepare repaired candidate packs for another reset-validity attempt, but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2355 cannot bound the repair",
+      "M2355 routes to direct measured execution",
+      "the sampling repair branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded no-reset repair design can make the M2350 dual-axis candidate pack route sampling-compatible without expanding back into raw candidate search.",
+  "success_criteria": [
+    "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md exists",
+    "the 32 M2353 failures are addressed by transform class",
+    "the five-pack discipline is preserved",
+    "metadata caveat reporting is preserved",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2355 runs reset rollout measured execution replay PPO or private holdout",
+    "M2355 ranks support policies or controller families",
+    "M2355 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2355 claims scenario redesign executed or reset-valid redesigned scenario pack",
+    "M2355 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2354 audit and M2350/M2353 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_sampling_compatible_candidate_pack_repair_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md",
+    "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv"
+  ],
+  "decision_rule": "M2355 passes if it designs a bounded non-ranking repair route that addresses the M2353 reset failures without rerun or execution claims.",
+  "next_blocker": "selected_by_m2355_design"
+}

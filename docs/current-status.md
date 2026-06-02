@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation
+m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit
+m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -249,9 +249,21 @@ unresolved_patch_count: 0
 guardrail_violation_count: 0
 ```
 
-M2354 should audit the reset failure distribution before any repair or rerun.
-Controller comparison, support-policy ranking, paper-level evidence, and
-scenario redesign execution claims remain blocked.
+M2354 audits the M2353 failure without rerun. Classification:
+
+```text
+primary failure: scenario_sampling_failure
+subtype: sampling_incompatible_candidate_transform
+baseline_reference_pack failures: 0
+failure by axis: G 18, GH 11, H 3
+dominant transform: late_close -> mid timing changes explain 27/32 failures
+patch/candidate join missing count: 0
+```
+
+M2355 should design a bounded no-reset repair route that makes candidate-pack
+transforms sampling-compatible while preserving five-pack discipline and
+metadata caveat reporting. Controller comparison, support-policy ranking,
+paper-level evidence, and scenario redesign execution claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
