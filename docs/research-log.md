@@ -43240,3 +43240,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to branch synthesis before another narrow application-design milestone; no direct active config overwrite, repair execution, reset validation, training, or ranking
 - follow-up manifest: `experiments/manifests/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
 - next: `m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis`
+
+## M2380 Paper-Route Current-Sim Dual-Axis Repair Plan Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_bounded_config_patch_application_design`
+- manifest: `experiments/manifests/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
+- doc: `docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md`
+- synthesis window: `M2375-M2379`
+- reset/rollout/measured execution in M2380: `false`
+- active config overwrite/config patch application in M2380: `false/false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- actual progress: artifact capability only; no driver behavior, validation, training, paper verdict, or self-ID evidence changed
+- public gate overfit risk: `moderate`
+- local-search guard: triggered correctly and reset by synthesis
+- next route: bounded candidate config-patch application design
+- follow-up manifest: `experiments/manifests/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.json`
+- next: `m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design`

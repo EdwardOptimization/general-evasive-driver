@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2386,
+    "completed": 2387,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit",
+    "task_id": "m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md"
+    "command_log": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
+    "id": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
     "kind": "gate",
-    "priority": 23750,
+    "priority": 23760,
     "status": "pending",
-    "hypothesis": "Synthesizing M2375-M2379 will prevent over-local application-design work and select the next bounded non-ranking route.",
-    "command": "write docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md from M2375-M2379 artifacts",
-    "success_artifact": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
-    "notes": "Pending: synthesize repair-plan/config-patch branch and decide continue pivot stop or promote_to_next_branch"
+    "hypothesis": "A bounded application design can map M2378 overlay patch artifacts to candidate config-copy materialization without active config overwrite, repair execution, ranking, or training-success claims.",
+    "command": "write bounded config-patch application design",
+    "success_artifact": "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
+    "notes": "Pending: design candidate config application without active config overwrite patch application reset validation repair execution training or ranking"
   },
-  "updated_at_utc": "20260602T064354Z"
+  "updated_at_utc": "20260602T065442Z"
 }

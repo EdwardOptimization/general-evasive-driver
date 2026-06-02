@@ -1,0 +1,203 @@
+{
+  "id": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_config_patch_application_design"
+    ],
+    "parent_dataset": [
+      "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+      "docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_manifest.json",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/reward_config_patch_rows.csv",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/curriculum_config_patch_rows.csv",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/guardrail_config_patch_rows.csv",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_preview.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded candidate config-patch application route from audited overlay artifacts after M2380 synthesis"
+    ],
+    "derived_from": [
+      "m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
+      "m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit",
+      "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization"
+    ],
+    "blocked_by": [
+      "M2380 synthesis continues to application design but no bounded application schema is specified",
+      "active config overwrite and candidate materialization remain blocked until an application design is written"
+    ],
+    "supersedes": [
+      "direct active config overwrite from overlay patch artifacts",
+      "direct reset validation or training from config-patch artifacts without application design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
+  "public_gates": [
+    "M2381 must design a bounded candidate config-patch application route without applying patches",
+    "M2381 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, collision, R4, diagnostic, ranking, and claim guardrails",
+    "M2381 must choose a bounded artifact-only follow-up route or stop the branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not apply config patches",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_config_patch_application_design",
+    "evidence_increment": "designs candidate config-patch application route after M2380 branch synthesis",
+    "claim_scope": "application design only; no active config overwrite, config application, repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if design would overwrite active config",
+      "stop if design would apply patches before producing candidate config copies",
+      "stop if collision, R4, diagnostic, or mixed guarded constraints are dropped",
+      "stop if design routes directly to training or ranking"
+    ],
+    "fallback_plan": [
+      "route to config-patch schema repair if application semantics are insufficient",
+      "route to artifact-only candidate config materialization if design is accepted",
+      "route to branch synthesis if application design cannot choose a safe bounded next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2380 synthesis continues to bounded config-patch application design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded config-patch application design",
+    "admission_evidence": [
+      "M2380 synthesis decision is continue",
+      "M2379 accepts M2378 config-patch artifacts",
+      "M2378 overlay namespace counts are candidate_reward_overlay 162 candidate_curriculum_overlay 54 candidate_guardrail_overlay 284",
+      "M2378 active_config_overwrite_count is 0",
+      "M2378 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no config application in M2381",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
+      "M2381 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "candidate config application schema is specified",
+      "active config overwrite remains blocked",
+      "collision R4 diagnostic mixed guardrails are preserved",
+      "a bounded artifact-only materialization route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2381 designs config application and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2381; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2378 config-patch artifacts, M2379 audit, and M2380 synthesis.",
+    "negative_result_policy": "Config application design remains an engineering artifact until application materialization and measured validation.",
+    "allowed_claims": [
+      "bounded candidate config-patch application design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "can admit candidate config application route but does not yet test capability",
+    "paper_verdict_delta": "can prepare candidate config materialization but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2381 cannot define a safe application schema",
+      "M2381 proposes direct active config overwrite",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded application design can map M2378 overlay patch artifacts to candidate config-copy materialization without active config overwrite, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md exists",
+    "candidate config application schema is specified",
+    "active config overwrite and direct config patch application remain blocked in M2381",
+    "collision, R4, diagnostic, mixed guarded, actor-input, oracle-feature, ranking, paper, current-sim verdict, and self-ID guardrails remain blocked",
+    "a bounded follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2381 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2381 applies config patches or overwrites active config",
+    "M2381 executes repair levers or trains",
+    "M2381 changes actor inputs or injects hidden/oracle features",
+    "M2381 ranks support policies or controller families",
+    "M2381 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2381 claims scenario redesign executed or training repair success"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write bounded config-patch application design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_config_patch_application_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+    "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json"
+  ],
+  "decision_rule": "M2381 passes if it designs a bounded candidate config-patch application route without active config overwrite, repair execution, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design"
+}
