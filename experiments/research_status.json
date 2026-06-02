@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2330,
+    "completed": 2331,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit",
+    "task_id": "m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md"
+    "command_log": "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md"
   },
   "next_task": {
-    "id": "m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design",
-    "kind": "gate",
-    "priority": 23180,
+    "id": "m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation",
+    "kind": "infrastructure",
+    "priority": 23190,
     "status": "pending",
-    "hypothesis": "A role-stratified redesign plan can separate R4 mitigation semantics from R2/R3/R5 support-coverage and scenario-redesign blockers without training or ranking.",
-    "command": "manual design from M2321 residual route artifacts and M2322 audit",
-    "success_artifact": "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md",
-    "notes": "Pending: freeze R4 mitigation semantics and R2/R3/R5 coverage-vs-redesign artifact-only route no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "An artifact-only runner can materialize M2323 role-stratified residual redesign artifacts and expose whether R4 mitigation metrics are available.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign --residual-scenario-rows runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv --episode-rows runs/m2318_paper_route_current_sim_scenario_task_family_role_success_semantics_repair/episode_rows_rescored.csv --output-dir runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign --target-residual-scenario-count 48 --target-r4-mitigation-row-count 12 --target-coverage-row-count 23 --target-redesign-row-count 12 --next-blocker m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit",
+    "success_artifact": "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+    "notes": "Pending: implement artifact-only role-stratified residual redesign no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260602T000234Z"
+  "updated_at_utc": "20260602T000535Z"
 }

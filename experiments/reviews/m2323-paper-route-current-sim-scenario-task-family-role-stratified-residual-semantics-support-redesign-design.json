@@ -1,0 +1,96 @@
+{
+  "decision_reason": "M2323 freezes R4 mitigation metric availability and R2/R3/R5 coverage-vs-redesign artifact-only route no ranking claims",
+  "failure_criteria": [
+    "M2323 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2323 ranks support policies or selects a winner",
+    "M2323 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2323 cannot select an artifact-only next route"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T000738Z",
+  "hypothesis": "A role-stratified redesign plan can separate R4 mitigation semantics from R2/R3/R5 support-coverage and scenario-redesign blockers without training or ranking.",
+  "lineage": {
+    "blocked_by": [
+      "R4 unavoidable mitigation residuals need role-specific semantics",
+      "R2/R3/R5 mixed and blocked residuals need support-coverage versus scenario-redesign separation",
+      "support policies remain diagnostic bounds and must not be ranked"
+    ],
+    "derived_from": [
+      "m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_route_summary.csv",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_role_summary.csv",
+      "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md"
+    ],
+    "parent_objective": [
+      "design role-stratified residual semantics and support redesign route"
+    ],
+    "supersedes": [
+      "direct training from residual support rows",
+      "controller-family ranking from support-policy diagnostics",
+      "single-route treatment of R2-R5 residuals"
+    ]
+  },
+  "milestone": "m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design",
+  "next_blocker": "m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "role_stratified_residual_redesign_design_admit_artifact_only_implementation",
+  "public_gates": [
+    "M2323 must freeze R4 mitigation semantics/support redesign requirements",
+    "M2323 must freeze R2/R3/R5 coverage-vs-redesign separation requirements",
+    "M2323 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2323 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md",
+    "clearance_margin_mean": "",
+    "decision": "role_stratified_residual_redesign_design_admit_artifact_only_implementation",
+    "milestone": "m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design",
+    "reason": "M2323 freezes R4 mitigation metric availability and R2/R3/R5 coverage-vs-redesign artifact-only route no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md exists",
+    "the design defines R4 mitigation semantics/support redesign requirements",
+    "the design defines R2/R3/R5 coverage-vs-redesign requirements",
+    "the design selects one artifact-only follow-up implementation route"
+  ],
+  "type": "gate"
+}

@@ -41893,3 +41893,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.json`
 - next: `m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design`
+
+## M2323 Paper-Route Current-Sim Scenario Task-Family Role-Stratified Residual Semantics/Support Redesign Design
+
+- status: completed
+- result_class: `role_stratified_residual_redesign_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.json`
+- design doc: `docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md`
+- parent residual rows: `runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv`
+- R4 mitigation rows: `12`
+- R2/R3/R5 coverage rows: `23`
+- R2/R3/R5 redesign rows: `12`
+- metric edge rows: `1`
+- decision: R4 mitigation needs severity metric availability audit; R2/R3/R5 need coverage-vs-redesign materialization
+- reset/rollout/policy action in M2323: `false`
+- training/replay/PPO in M2323: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.json`
+- next: `m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation`
