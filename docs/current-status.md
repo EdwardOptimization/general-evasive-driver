@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
+m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
-result: pass
+m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
+result: completed
 ```
 
 Current next task:
 
 ```text
-m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
+m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
 ```
 
 Current route:
@@ -41,8 +41,10 @@ M2394 implemented and ran the reset-only adapter for M2391 effective candidate
 artifacts. All 2049 candidate-scenario references passed static validation, all
 350 unique reset targets reset successfully, and all 54 effective candidates
 passed candidate-level reset aggregation. No environment step or policy action
-occurred. The next task is M2395 result audit before any measured-validation,
-repair, training, or ranking route.
+occurred. M2395 accepted this as reset-readiness evidence only and routed to a
+bounded measured-validation design. The next task is M2396 design before any
+measured rollout, repair, training, ranking, or paper/self-ID/current-sim
+verdict route.
 ```
 
 ## Latest Evidence
@@ -145,6 +147,19 @@ environment_step_count: 0
 policy_action_executed: false
 active_config_overwrite_count: 0
 guardrail_violation_count: 0
+```
+
+M2395 reset-validation adapter result audit:
+
+```text
+decision: effective_candidate_reset_validation_result_accepted_route_to_measured_validation_design
+accepted evidence: M2394 reset-readiness only
+observed failure types: none
+reset rerun/rollout/policy action/repair/training/ranking: false
+blocked claims: measured performance, repair success, paper verdict,
+  finite-window-vs-GRU, level3 self-ID, scenario redesign executed,
+  current-sim verdict
+next task: M2396 measured-validation design
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

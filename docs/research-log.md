@@ -43537,3 +43537,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to bounded reset-validation result audit before measured-validation design
 - follow-up manifest: `experiments/manifests/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.json`
 - next: `m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit`
+
+## M2395 Paper-Route Current-Sim Dual-Axis Effective Candidate Reset Validation Adapter Result Audit
+
+- status: completed
+- decision: `effective_candidate_reset_validation_result_accepted_route_to_measured_validation_design`
+- manifest: `experiments/manifests/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.json`
+- doc: `docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md`
+- parent summary: `runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json`
+- reset rerun/rollout/policy action in M2395: `false/false/false`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted reset-readiness evidence: M2394 static refs `2049/2049`, unique reset targets `350/350`, candidates `54/54`
+- observed failure types: `none`
+- supported claim: M2391 effective candidates are reset-ready under the M2393 adapter
+- blocked: measured execution, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario redesign executed, current-sim verdict
+- follow-up manifest: `experiments/manifests/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.json`
+- next: `m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design`
