@@ -44065,3 +44065,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2424 is read-only adapter readiness evidence, not driver improvement or current-sim verdict
 - follow-up manifest: `experiments/manifests/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.json`
 - next: `m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis`
+
+## M2425 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Plan Materialization Branch Synthesis
+
+- status: completed
+- decision: `promote_to_source_linked_repair_candidate_reset_evidence_branch`
+- manifest: `experiments/manifests/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.json`
+- doc: `docs/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.md`
+- synthesized branch: M2420-M2424 source-linked bounded repair-plan, candidate materialization, candidate audit, and read-only adapter validation
+- supported claim: the branch produced four run-dir-only source-linked repair-candidate overlays with complete `59/59` offtrack-row assignment, `24` guardrail metadata rows, and `4/4` read-only overlay validation
+- blocked claim: no driver improvement, reset success, repair execution, training repair success, measured rollout result, ranking, winner, current-sim verdict, paper verdict, finite-window-vs-GRU conclusion, or level3 self-ID claim is supported
+- local-search guard: another same-branch artifact-only audit is blocked because it would not add driver evidence
+- new branch: `paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence`
+- follow-up manifest: `experiments/manifests/m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation.json`
+- next: `m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation`

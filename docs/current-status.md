@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
+m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
+m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
+m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
 ```
 
 Current route:
@@ -172,6 +172,18 @@ active-overwrite/ranking/guardrail failures are zero. No environment reset,
 policy action, measured rollout, repair, training, ranking, or verdict claim
 occurred. The next task is M2425 branch synthesis before another artifact-only
 step.
+M2425 synthesized M2420-M2424 and closed the source-linked repair-plan
+materialization branch with `promote_to_next_branch`. This is a workflow branch
+promotion, not a checkpoint or driver-result promotion. The branch produced four
+run-dir-only source-linked repair-candidate overlays, complete 59/59 offtrack
+assignment, 24 guardrail metadata rows, and 4/4 read-only overlay validation,
+but no reset success, measured driver improvement, repair execution, training,
+ranking, current-sim verdict, paper verdict, finite-window-vs-GRU result, or
+level3 self-ID claim. The next task is M2426: build a source-linked
+repair-candidate reset-only evidence panel by joining M2422 candidate source
+keys to M2391 reset-valid effective scenario specs. M2426 must not execute an
+environment step, policy action, repair, training, replay, PPO, ranking, winner
+selection, active config overwrite, or verdict claim.
 ```
 
 ## Latest Evidence
