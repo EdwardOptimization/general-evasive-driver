@@ -2,27 +2,27 @@
   "counts": {
     "blocked": 1,
     "completed": 2394,
-    "failed": 3,
+    "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design",
-    "status": "completed",
-    "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md"
+    "task_id": "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
+    "status": "failed",
+    "returncode": 1,
+    "run_dir": "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation",
+    "command_log": "docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md"
   },
   "next_task": {
-    "id": "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
-    "kind": "infrastructure",
-    "priority": 23830,
+    "id": "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit",
+    "kind": "gate",
+    "priority": 23840,
     "status": "pending",
-    "hypothesis": "A bounded validator can statically validate 54 generated candidate config artifacts and, if schema permits, reset-test temporary effective configs without active config overwrite, environment steps, repair execution, ranking, or training-success claims.",
-    "command": "see experiments/manifests/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.json",
-    "success_artifact": "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json",
-    "notes": "Pending: validate 54 candidate configs with static checks and reset-only scope no env step repair training ranking or paper/self-ID claims"
+    "hypothesis": "Auditing M2388 will show the failure is schema incompleteness rather than unsafe execution, and will select a bounded next route without weakening the claim boundary.",
+    "command": "see experiments/manifests/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.json",
+    "success_artifact": "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
+    "notes": "Pending: audit schema-incomplete reset validation failure no reset rerun repair training ranking or paper/self-ID claims"
   },
-  "updated_at_utc": "20260602T074717Z"
+  "updated_at_utc": "20260602T075457Z"
 }

@@ -43398,3 +43398,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - future M2388 blocked: environment steps, policy actions, rollout, repair execution, training, ranking, paper/self-ID/current-sim claims
 - follow-up manifest: `experiments/manifests/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.json`
 - next: `m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation`
+
+## M2388 Paper-Route Current-Sim Dual-Axis Candidate Config Reset Validation Implementation
+
+- status: failed
+- result class: `current_sim_dual_axis_candidate_config_reset_validation_fail`
+- manifest: `experiments/manifests/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.json`
+- doc: `docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_candidate_config_reset_validation.py`
+- focused tests: `2 passed`
+- summary: `runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json`
+- source_candidate_config_count/static_validation_pass_count: `54/54`
+- schema_incomplete_candidate_count: `54`
+- effective_config_written_count/outside_run_dir_count: `0/0`
+- environment_load_attempt_count/environment_reset_attempt_count: `0/0`
+- environment_step_count/active_config_overwrite_count/guardrail_violation_count: `0/0/0`
+- failure_types_observed: `effective_config_materialization_failure`
+- interpretation: safe negative result; M2385 candidate configs are overlay artifacts lacking reset-ready env_config
+- follow-up manifest: `experiments/manifests/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.json`
+- next: `m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit`

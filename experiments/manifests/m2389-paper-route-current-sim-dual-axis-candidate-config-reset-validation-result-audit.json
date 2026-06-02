@@ -1,0 +1,195 @@
+{
+  "id": "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_config_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/static_validation_rows.csv",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/effective_config_rows.csv",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/reset_validation_rows.csv",
+      "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2388 fail-closed reset validation result and choose schema repair, pivot, or stop route"
+    ],
+    "derived_from": [
+      "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
+      "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design"
+    ],
+    "blocked_by": [
+      "M2388 static validation passes but generated candidate configs lack env_config",
+      "reset compatibility remains untested because validator correctly stopped before environment loading"
+    ],
+    "supersedes": [
+      "direct reset rerun without auditing schema incompleteness",
+      "direct repair execution, training, or ranking from M2388 failed reset validation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2389 must audit M2388 without rerunning validation",
+    "M2389 must classify schema incompleteness versus sampler incompatibility",
+    "M2389 must choose bounded schema repair, pivot, synthesis, or stop route",
+    "M2389 must not run reset rollout repair training ranking or paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_candidate_config_reset_validation_result_audit",
+    "evidence_increment": "audits fail-closed reset validation result and decides whether schema repair is justified",
+    "claim_scope": "result audit only; no reset rerun, rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if audit treats schema incompleteness as reset success",
+      "stop if audit routes directly to rollout training ranking or paper conclusions",
+      "stop if audit ignores the local-search risk of another artifact schema repair"
+    ],
+    "fallback_plan": [
+      "route to effective-config schema repair design if schema repair is bounded and necessary",
+      "pivot to complexity-pruning synthesis if schema repair would add only local artifact work",
+      "stop for user review if reset validation is no longer the highest-leverage route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2388 fail-closed result requires audit before any schema repair or rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "candidate config reset validation result audit",
+    "admission_evidence": [
+      "M2388 result_class is current_sim_dual_axis_candidate_config_reset_validation_fail",
+      "M2388 static_validation_pass_count is 54",
+      "M2388 schema_incomplete_candidate_count is 54",
+      "M2388 environment_reset_attempt_count is 0",
+      "M2388 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
+      "M2389 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2388 schema incompleteness is classified",
+      "reset compatibility remains blocked unless reset attempts occurred",
+      "a bounded schema repair, pivot, synthesis, or stop route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2389 audits reset readiness and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2389; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2388 fail-closed static/reset-readiness result.",
+    "negative_result_policy": "Schema incompleteness must be recorded as a reset-readiness blocker, not interpreted as driver capability evidence.",
+    "allowed_claims": [
+      "candidate config reset validation result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "classifies generated candidate configs as statically clean but not reset-ready",
+    "paper_verdict_delta": "blocks current-sim validation until effective config schema is repaired or branch pivots",
+    "must_synthesize_if": [
+      "M2389 cannot choose a bounded schema repair or pivot route",
+      "M2389 proposes another artifact-only repair without executable validation path",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2388 will show the failure is schema incompleteness rather than unsafe execution, and will select a bounded next route without weakening the claim boundary.",
+  "success_criteria": [
+    "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md exists",
+    "M2388 static pass and schema incompleteness counts are recorded",
+    "reset compatibility is not claimed",
+    "no reset rerun rollout repair execution training ranking or paper/self-ID/current-sim verdict claim occurs",
+    "a bounded follow-up route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2389 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2389 treats schema incompleteness as reset success",
+    "M2389 executes repair levers or trains",
+    "M2389 ranks support policies or controller families",
+    "M2389 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2389 claims scenario redesign executed or training repair success"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write M2388 reset-validation result audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_config_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md",
+    "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json"
+  ],
+  "decision_rule": "M2389 passes if it audits the fail-closed reset validation result, preserves the claim boundary, and selects a bounded schema repair, pivot, synthesis, or stop route.",
+  "next_blocker": "m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design"
+}

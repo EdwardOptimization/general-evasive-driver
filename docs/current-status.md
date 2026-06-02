@@ -19,20 +19,27 @@ Latest completed milestone:
 m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
 ```
 
-Current next task:
+Latest attempted milestone:
 
 ```text
 m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation
+result: failed closed
+```
+
+Current next task:
+
+```text
+m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit
 ```
 
 Current route:
 
 ```text
-M2387 designed bounded candidate config safety/reset validation. M2388 may
-implement static safety checks and reset-only validation for temporary
-run-dir effective configs. It must not step the environment after reset, execute
-policy actions, run rollouts, execute repair, rank, train, or make
-paper/self-ID/current-sim claims.
+M2388 implemented a strict validator and failed closed. All 54 generated
+candidate configs passed static safety checks, but all 54 lack reset-ready
+env_config, so no environment load or reset was attempted. M2389 must audit this
+schema-incomplete result before any schema repair, reset rerun, repair,
+training, ranking, or paper/self-ID/current-sim claim.
 ```
 
 ## Latest Evidence
@@ -390,6 +397,25 @@ policy action/rollout/repair/training/ranking: blocked
 paper/self-ID/current-sim verdict claims: blocked
 ```
 
+M2388 reset validation implementation result:
+
+```text
+result_class: current_sim_dual_axis_candidate_config_reset_validation_fail
+source_candidate_config_count: 54
+static_validation_pass_count: 54
+static_validation_failure_count: 0
+schema_incomplete_candidate_count: 54
+effective_config_written_count: 0
+effective_config_outside_run_dir_count: 0
+environment_load_attempt_count: 0
+environment_reset_attempt_count: 0
+environment_reset_success_count: 0
+environment_step_count: 0
+active_config_overwrite_count: 0
+guardrail_violation_count: 0
+failure_types_observed: effective_config_materialization_failure
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -414,22 +440,18 @@ training repair success
 
 ## Immediate Next Step
 
-M2388 should implement and run bounded candidate config reset validation from:
+M2389 should audit the M2388 fail-closed result from:
 
 ```text
-docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_generation_manifest.json
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/active_config_safety_report.json
-runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/claim_boundary.csv
+docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md
+runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json
+runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/static_validation_rows.csv
+runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/effective_config_rows.csv
+runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/reset_validation_rows.csv
 ```
 
-The implementation must fail closed if static schema/path safety checks fail.
-If static checks pass, it may attempt reset-only validation through run-dir
-temporary effective configs. It must not step the environment after reset,
-execute policy actions, run rollouts, execute repair, train, replay, use PPO,
-rank profiles or packs, select a winner, claim scenario redesign executed,
-claim repair success, current-sim verdict, or paper/self-ID claims.
+The audit must classify schema incompleteness versus sampler incompatibility and
+choose bounded effective-config schema repair, pivot, synthesis, or stop. It
+must not rerun reset, execute repair, train, replay, use PPO, rank profiles or
+packs, select a winner, claim scenario redesign executed, claim repair success,
+current-sim verdict, or paper/self-ID claims.
