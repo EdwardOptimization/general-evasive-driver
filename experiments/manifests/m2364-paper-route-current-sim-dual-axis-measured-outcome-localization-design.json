@@ -1,0 +1,184 @@
+{
+  "id": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression",
+    "lineage_invalid",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_localization_design"
+    ],
+    "parent_dataset": [
+      "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/aggregate_by_role_family.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "design artifact-only outcome localization over the M2362 measured panel"
+    ],
+    "derived_from": [
+      "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
+      "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation"
+    ],
+    "blocked_by": [
+      "M2363 identifies offtrack-dominated outcome but does not materialize target slices",
+      "repair design requires localized target and guardrail slices"
+    ],
+    "supersedes": [
+      "direct training repair from global success rate",
+      "ranking profiles from raw measured aggregates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
+  "public_gates": [
+    "M2364 must design artifact-only outcome localization from M2362 episode rows without rerun",
+    "M2364 must separate offtrack target slices from collision-dominated R4 mitigation slices",
+    "M2364 must keep ranking, winner selection, paper finite-window-vs-GRU, and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "E_outcome_localization_design",
+    "evidence_increment": "designs artifact-only localization over the complete M2362 measured panel",
+    "claim_scope": "design only; no rerun, ranking, paper verdict, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if localization cannot preserve the 5400-episode denominator",
+      "stop if offtrack and R4 collision semantics are mixed",
+      "stop if design routes directly to training without target/guardrail slices",
+      "stop if design claims profile ranking"
+    ],
+    "fallback_plan": [
+      "route to artifact-only localization implementation if slice schema is bounded",
+      "route to metric semantics repair if role outcomes cannot be separated",
+      "route to branch synthesis if measured outcome is sufficient to close the branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2363 accepts M2362 and identifies offtrack-dominated failures",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "outcome localization design",
+    "admission_evidence": [
+      "M2362 episode_count is 5400",
+      "M2363 accepts M2362 measured artifact",
+      "M2363 identifies offtrack_dominated_failure as the global dominant failure mode"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU conclusion",
+      "no level3 self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
+      "M2364 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "target and guardrail slice schema is specified",
+      "denominator preservation is specified",
+      "claim boundary remains blocked",
+      "a bounded artifact-only implementation route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2364 designs outcome localization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2364; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2362 measured-execution artifact and M2363 audit.",
+    "negative_result_policy": "Localized weak outcomes should be recorded as target/guardrail slices before repair.",
+    "allowed_claims": [
+      "artifact-only outcome localization design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares slice-level evidence from a new measured panel before repair",
+    "paper_verdict_delta": "can admit outcome-localization implementation but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2364 cannot define target and guardrail slices",
+      "M2364 proposes direct training repair",
+      "the outcome-localization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded artifact-only localization design can turn the M2362 offtrack-dominated measured panel into target and guardrail slices for later repair without ranking or paper-level claims.",
+  "success_criteria": [
+    "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md exists",
+    "offtrack target and R4 collision guardrail/semantics slices are specified",
+    "denominator preservation is specified",
+    "ranking, winner selection, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2364 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2364 ranks support policies or controller families",
+    "M2364 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2364 claims scenario redesign executed",
+    "M2364 cannot specify target and guardrail slices"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2363 audit and M2362 measured artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_localization_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+    "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv"
+  ],
+  "decision_rule": "M2364 passes if it designs bounded artifact-only outcome localization without rerun, ranking, or paper/self-ID claims.",
+  "next_blocker": "selected_by_m2364_design"
+}

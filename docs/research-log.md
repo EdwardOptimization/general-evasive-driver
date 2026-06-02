@@ -42861,3 +42861,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: complete measured artifact only, no ranking/paper/self-ID claim
 - follow-up manifest: `experiments/manifests/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.json`
 - next: `m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit`
+
+## M2363 Paper-Route Current-Sim Dual-Axis Repaired Pack Measured Execution Result Audit
+
+- status: completed
+- decision: `measured_execution_result_accepted_route_to_outcome_localization_design`
+- manifest: `experiments/manifests/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.json`
+- doc: `docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md`
+- audited summary: `runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json`
+- reset/rollout rerun in M2363: `false`
+- policy action executed in M2363: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- M2362 artifact accepted: `true`
+- global success/offtrack/collision: `0.0652 / 0.7263 / 0.1996`
+- dominant_failure_mode: `offtrack_dominated_failure`
+- primary offtrack target slices: `R0`, `R2`, `R3`, `R5`
+- separate collision semantics slice: `R4_unavoidable_mitigation`
+- profile aggregates: diagnostic only, no finite-window-vs-GRU conclusion
+- pack aggregates: small spread, no winner pack selected
+- follow-up manifest: `experiments/manifests/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.json`
+- next: `m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design`

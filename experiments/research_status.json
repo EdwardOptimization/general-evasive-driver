@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2369,
+    "completed": 2370,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation",
+    "task_id": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution",
-    "command_log": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md"
   },
   "next_task": {
-    "id": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
+    "id": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
     "kind": "gate",
-    "priority": 23580,
+    "priority": 23590,
     "status": "pending",
-    "hypothesis": "Auditing M2362 measured-execution artifacts can identify the dominant failure mode and choose a bounded next route without ranking or paper-level claims.",
-    "command": "manual audit of M2362 measured-execution artifacts",
-    "success_artifact": "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
-    "notes": "Pending: audit M2362 5400-episode artifact and choose bounded non-ranking next route"
+    "hypothesis": "A bounded artifact-only localization design can turn the M2362 offtrack-dominated measured panel into target and guardrail slices for later repair without ranking or paper-level claims.",
+    "command": "manual design from M2363 audit and M2362 measured artifacts",
+    "success_artifact": "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
+    "notes": "Pending: design artifact-only outcome localization no rerun/ranking"
   },
-  "updated_at_utc": "20260602T043318Z"
+  "updated_at_utc": "20260602T044143Z"
 }

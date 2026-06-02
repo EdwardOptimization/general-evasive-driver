@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation
+m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit
 ```
 
 Current next task:
 
 ```text
-m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit
+m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -417,6 +417,23 @@ mean_min_clearance_margin: 6.79116992686492
 M2363 should audit this complete measured artifact and choose a bounded next
 route before any repair, ranking, paper verdict, finite-window vs GRU conclusion,
 or level3 self-ID claim.
+
+M2363 audits and accepts the M2362 measured artifact:
+
+```text
+decision: measured_execution_result_accepted_route_to_outcome_localization_design
+artifact accepted: true
+global success/offtrack/collision: 0.0652 / 0.7263 / 0.1996
+dominant_failure_mode: offtrack_dominated_failure
+primary offtrack targets: R0, R2, R3, R5
+separate collision semantics slice: R4_unavoidable_mitigation
+pack-level spread: small, no winner pack selected
+profile aggregates: diagnostic only, no finite-window-vs-GRU conclusion
+```
+
+M2364 should design artifact-only outcome localization from M2362 episode rows.
+It must preserve the 5400-episode denominator, separate offtrack target slices
+from R4 collision mitigation semantics, and avoid rerun/training/ranking.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

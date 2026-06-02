@@ -180,5 +180,5 @@
     "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json"
   ],
   "decision_rule": "M2363 passes if it audits the complete measured artifact and selects a bounded non-ranking follow-up route or stops the branch.",
-  "next_blocker": "selected_by_m2363_audit"
+  "next_blocker": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design"
 }
