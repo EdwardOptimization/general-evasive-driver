@@ -42010,3 +42010,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.json`
 - next: `m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit`
+
+## M2328 Paper-Route Current-Sim R4 Mitigation Metric Instrumentation Result Audit
+
+- status: completed
+- result_class: `r4_mitigation_metric_instrumentation_result_accepted_route_to_r4_diagnostic_rerun_design`
+- manifest: `experiments/manifests/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.json`
+- audit doc: `docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md`
+- M2327 accepted: `true`
+- field export implementation accepted: `true`
+- old artifacts still stale with respect to new fields: `true`
+- route: R4-only metric-instrumented support diagnostic rerun design
+- expected future diagnostic panel: `12 R4 scenarios x 3 support policies x 5 seeds = 180 episodes`
+- reset/rollout/policy action in M2328: `false`
+- measured execution in M2328: `false`
+- training/replay/PPO in M2328: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.json`
+- next: `m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design`

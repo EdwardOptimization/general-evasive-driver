@@ -1,0 +1,181 @@
+{
+  "id": "m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md",
+      "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.json"
+    ],
+    "parent_objective": [
+      "design R4-only metric-instrumented support diagnostic rerun"
+    ],
+    "derived_from": [
+      "m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit"
+    ],
+    "blocked_by": [
+      "old R4 support artifacts lack exported mitigation fields",
+      "fresh R4 diagnostic support rows are needed before R4 semantics audit",
+      "rerun must remain non-ranking and diagnostic"
+    ],
+    "supersedes": [
+      "full 72-scenario rerun as first response",
+      "controller-family ranking after field export",
+      "R4 mitigation claims from stale artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
+  "public_gates": [
+    "M2329 must freeze a bounded R4-only support diagnostic rerun design",
+    "M2329 must preserve actor input reward and training objective",
+    "M2329 must keep support policies diagnostic and non-ranking",
+    "M2329 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_r4_metric_instrumented_support_diagnostic",
+    "evidence_axis": "Q_r4_metric_instrumented_support_diagnostic_design",
+    "evidence_increment": "turns logging/export implementation into a bounded R4-only diagnostic rerun plan",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the design expands to full ranking",
+      "stop if support policies are ranked",
+      "stop if actor input reward or training objective changes",
+      "stop if mitigation performance is claimed before execution audit"
+    ],
+    "fallback_plan": [
+      "route to field-export repair if R4-only rerun cannot preserve metrics",
+      "route to post-collision continuation design if exported fields remain insufficient",
+      "route to branch synthesis if design cannot stay bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new R4 metric-instrumented support diagnostic branch starts at M2329",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze R4-only support diagnostic rerun design",
+    "admission_evidence": [
+      "M2328 accepts M2327 logging/export implementation",
+      "M2328 states old artifacts are stale with respect to new fields",
+      "config contains 12 R4_unavoidable_mitigation scenarios"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
+      "M2329 status queue scoreboard research log and review",
+      "one follow-up implementation manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "R4-only scenario selection is specified",
+      "support policies and seed repeats are specified",
+      "expected episode count is specified",
+      "result claim boundary and guardrails are frozen",
+      "an implementation route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2329 designs a support diagnostic rerun and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2329; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2327 logging/export implementation and current R4 scenario specs.",
+    "negative_result_policy": "R4 diagnostic support results must not be interpreted as self-ID evidence.",
+    "allowed_claims": [
+      "R4 metric-instrumented support diagnostic rerun design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares fresh R4 diagnostic data instead of continuing artifact-only reinterpretation",
+    "paper_verdict_delta": "can make R4 mitigation support semantics auditable with exported metrics",
+    "must_synthesize_if": [
+      "M2329 routes directly to ranking",
+      "M2329 cannot keep the rerun R4-only and diagnostic",
+      "the R4 metric-instrumented support diagnostic branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded R4-only support diagnostic rerun can be designed to refresh mitigation metric artifacts without ranking or training.",
+  "success_criteria": [
+    "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md exists",
+    "the design selects 12 R4 scenarios",
+    "the design specifies 3 diagnostic support policies and 5 seed repeats",
+    "the design specifies expected episode count 180",
+    "the design selects a bounded implementation route"
+  ],
+  "failure_criteria": [
+    "M2329 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2329 ranks support policies or selects a winner",
+    "M2329 changes actor input reward or training objective",
+    "M2329 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2329 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual R4-only metric-instrumented support diagnostic rerun design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md",
+    "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2329 passes if it freezes a bounded non-ranking R4-only diagnostic rerun design and selects an implementation route.",
+  "next_blocker": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation"
+}
