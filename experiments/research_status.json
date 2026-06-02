@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2334,
+    "completed": 2335,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
+    "task_id": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md"
+    "command_log": "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md"
   },
   "next_task": {
-    "id": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation",
-    "kind": "infrastructure",
-    "priority": 23220,
+    "id": "m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit",
+    "kind": "gate",
+    "priority": 23230,
     "status": "pending",
-    "hypothesis": "A bounded logging patch can preserve canonical R4 mitigation metric aliases and availability flags in scenario task-family artifacts without running measured execution.",
-    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_r4_mitigation_metric_instrumentation.py tests/test_paper_route_current_sim_scenario_task_family_measured_execution.py tests/test_paper_route_current_sim_scenario_task_family_feasibility_calibration.py",
-    "success_artifact": "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
-    "notes": "Pending: add canonical aliases availability flags and fieldname preservation tests no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "M2327 provides enough logging/export evidence to choose a non-ranking follow-up route.",
+    "command": "manual audit of M2327 implementation doc and focused test results",
+    "success_artifact": "docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md",
+    "notes": "Pending: audit field export implementation and choose non-ranking diagnostic rerun or instrumentation route no reset rollout training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260602T001915Z"
+  "updated_at_utc": "20260602T002917Z"
 }

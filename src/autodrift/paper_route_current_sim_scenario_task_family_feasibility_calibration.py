@@ -15,6 +15,7 @@ from autodrift.config import build_env_config
 from autodrift.controller_family_full_rollout_execution import write_run_state
 from autodrift.env import AutoDriftEnv
 from autodrift.evaluate import run_episode_with_policy
+from autodrift.outcome_metric_instrumentation import OUTCOME_METRIC_FIELDS
 from autodrift.paper_route_current_sim_scenario_task_family_role_success_semantics import (
     annotate_role_success,
     bool_value as role_bool_value,
@@ -81,7 +82,17 @@ FORBIDDEN_GUARDRAILS = [
     "paper_level_claim_made",
     "level3_self_id_claim_made",
 ]
-EPISODE_FIELDNAMES = [
+
+
+def _extend_unique(fields: Sequence[str], extras: Sequence[str]) -> list[str]:
+    output = list(fields)
+    for field in extras:
+        if field not in output:
+            output.append(field)
+    return output
+
+
+EPISODE_FIELDNAMES = _extend_unique([
     "workload_id",
     "scenario_index",
     "support_policy_index",
@@ -120,7 +131,7 @@ EPISODE_FIELDNAMES = [
     "policy_action_executed",
     "measured_rollout_started",
     *FORBIDDEN_GUARDRAILS,
-]
+], OUTCOME_METRIC_FIELDS)
 FAILURE_FIELDNAMES = [
     "workload_id",
     "scenario_index",

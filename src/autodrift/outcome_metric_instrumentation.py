@@ -18,6 +18,43 @@ DRIFT_USED_BETA_THRESHOLD = 0.35
 IMPACT_PENETRATION_WEIGHT = 5.0
 IMPACT_BETA_WEIGHT = 0.5
 IMPACT_YAW_RATE_WEIGHT = 0.1
+R4_MITIGATION_CANONICAL_FIELDS = (
+    "impact_speed_mps",
+    "impact_speed_mps_available",
+    "delta_v_at_impact_mps",
+    "delta_v_at_impact_mps_available",
+    "time_to_collision_s",
+    "time_to_collision_s_available",
+    "collision_angle_or_side",
+    "collision_angle_or_side_available",
+    "collision_side_proxy",
+    "post_event_speed_mps",
+    "post_event_speed_mps_available",
+    "post_event_yaw_rate_abs",
+    "post_event_yaw_rate_abs_available",
+    "post_event_offtrack_overshoot",
+    "post_event_offtrack_overshoot_available",
+    "recoverability_window_success",
+    "recoverability_window_success_available",
+)
+BOOLEAN_OUTCOME_METRIC_FIELDS = {
+    "recovery_success",
+    "drift_used",
+    "controlled_drift_recovery_success",
+    "impact_speed_mps_available",
+    "delta_v_at_impact_mps_available",
+    "time_to_collision_s_available",
+    "collision_angle_or_side_available",
+    "post_event_speed_mps_available",
+    "post_event_yaw_rate_abs_available",
+    "post_event_offtrack_overshoot_available",
+    "recoverability_window_success",
+    "recoverability_window_success_available",
+}
+STRING_OUTCOME_METRIC_FIELDS = {
+    "collision_angle_or_side",
+    "collision_side_proxy",
+}
 OUTCOME_METRIC_FIELDS = (
     "dt",
     "track_width",
@@ -39,6 +76,7 @@ OUTCOME_METRIC_FIELDS = (
     "max_off_track_overshoot",
     "time_to_first_off_track_s",
     "off_track_severity_proxy",
+    *R4_MITIGATION_CANONICAL_FIELDS,
 )
 
 
@@ -100,6 +138,28 @@ def _first_index(values: Iterable[bool]) -> int | None:
     return None
 
 
+def _default_outcome_metrics() -> dict[str, Any]:
+    output: dict[str, Any] = {}
+    for field in OUTCOME_METRIC_FIELDS:
+        if field in BOOLEAN_OUTCOME_METRIC_FIELDS:
+            output[field] = False
+        elif field in STRING_OUTCOME_METRIC_FIELDS:
+            output[field] = ""
+        else:
+            output[field] = float("nan")
+    return output
+
+
+def _collision_side_proxy(info: Mapping[str, Any]) -> str:
+    body_x = _finite_float(info.get("active_obstacle_body_x"), default=float("nan"))
+    body_y = _finite_float(info.get("active_obstacle_body_y"), default=float("nan"))
+    if not np.isfinite(body_x) or not np.isfinite(body_y):
+        return ""
+    if abs(body_x) >= abs(body_y):
+        return "front" if body_x >= 0.0 else "rear"
+    return "left" if body_y >= 0.0 else "right"
+
+
 def _stable_recovery_index(step_infos: list[Mapping[str, Any]], *, pass_index: int, dt: float, track_width: float) -> int | None:
     hold_steps = max(1, int(math.ceil(RECOVERY_HOLD_SECONDS / max(dt, 1e-6))))
     stable = [_stable_corridor(info, track_width=track_width) for info in step_infos]
@@ -121,7 +181,7 @@ def compute_episode_outcome_metrics(
     """Compute logging-only outcome metrics from evaluator step info rows."""
 
     if not step_infos:
-        return {field: False if field in {"recovery_success", "drift_used", "controlled_drift_recovery_success"} else float("nan") for field in OUTCOME_METRIC_FIELDS}
+        return _default_outcome_metrics()
 
     dt = _dt_from_infos(step_infos, default_dt)
     track_width = _track_width_from_infos(step_infos, default_track_width)
@@ -183,6 +243,8 @@ def compute_episode_outcome_metrics(
         impact_yaw_rate_abs = float("nan")
         impact_severity = float("nan")
         collision_mitigation_score = 0.0
+        time_to_collision = float("nan")
+        collision_side_proxy = ""
     else:
         impact_info = step_infos[collision_index]
         impact_speed = max(_finite_float(impact_info.get("speed"), default=0.0), 0.0)
@@ -196,10 +258,13 @@ def compute_episode_outcome_metrics(
             + IMPACT_YAW_RATE_WEIGHT * impact_yaw_rate_abs
         )
         collision_mitigation_score = impact_severity
+        time_to_collision = times[collision_index]
+        collision_side_proxy = _collision_side_proxy(impact_info)
 
     max_off_track_overshoot = max(overshoots) if overshoots else float("nan")
     time_to_first_off_track = times[off_track_index] if off_track_index is not None else float("nan")
     off_track_severity = max_off_track_overshoot
+    collision_available = collision_index is not None
     return {
         "dt": dt,
         "track_width": track_width,
@@ -221,6 +286,23 @@ def compute_episode_outcome_metrics(
         "max_off_track_overshoot": max_off_track_overshoot,
         "time_to_first_off_track_s": time_to_first_off_track,
         "off_track_severity_proxy": off_track_severity,
+        "impact_speed_mps": impact_speed,
+        "impact_speed_mps_available": bool(collision_available),
+        "delta_v_at_impact_mps": float("nan"),
+        "delta_v_at_impact_mps_available": False,
+        "time_to_collision_s": time_to_collision,
+        "time_to_collision_s_available": bool(collision_available),
+        "collision_angle_or_side": "",
+        "collision_angle_or_side_available": False,
+        "collision_side_proxy": collision_side_proxy,
+        "post_event_speed_mps": float("nan"),
+        "post_event_speed_mps_available": False,
+        "post_event_yaw_rate_abs": float("nan"),
+        "post_event_yaw_rate_abs_available": False,
+        "post_event_offtrack_overshoot": float("nan"),
+        "post_event_offtrack_overshoot_available": False,
+        "recoverability_window_success": False,
+        "recoverability_window_success_available": False,
     }
 
 

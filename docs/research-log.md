@@ -41985,3 +41985,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.json`
 - next: `m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation`
+
+## M2327 Paper-Route Current-Sim R4 Mitigation Metric Instrumentation Implementation
+
+- status: completed
+- result_class: `r4_mitigation_metric_logging_export_implementation_pass`
+- manifest: `experiments/manifests/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.json`
+- implementation doc: `docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md`
+- code: `src/autodrift/outcome_metric_instrumentation.py`
+- code: `src/autodrift/paper_route_current_sim_scenario_task_family_measured_execution.py`
+- code: `src/autodrift/paper_route_current_sim_scenario_task_family_feasibility_calibration.py`
+- focused tests: `tests/test_paper_route_current_sim_r4_mitigation_metric_instrumentation.py`
+- focused test result: `9 passed`
+- reset/rollout/policy action in M2327: `false`
+- measured execution in M2327: `false`
+- training/replay/PPO in M2327: `false`
+- actor input changed: `false`
+- reward/training objective changed: `false`
+- collision termination behavior changed: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.json`
+- next: `m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit`
