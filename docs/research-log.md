@@ -44327,3 +44327,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.json`
 - next: `m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design`
+
+## M2440 Paper-Route Current-Sim Dual-Axis Hard/Soft Offtrack Metric-Selected Measured-Validation Design
+
+- status: completed
+- decision: `metric_selected_validation_protocol_route_to_soft_boundary_env_support`
+- manifest: `experiments/manifests/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.json`
+- doc: `docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md`
+- parent audit: M2439
+- primary metric: `soft_offtrack_tolerance_m = 0.20`
+- sensitivity reporting thresholds: `0.02`, `0.05`, `0.10`, `0.20` m
+- primary denominator design: M2413 source-linked reset target set, `350 x 15 = 5250` executed episodes
+- env support audit: current `_termination_reason` hard-terminates at `abs(frame.lateral_error) > track_width`, so fresh metric-selected validation requires opt-in soft-boundary support first
+- route: M2441 soft-boundary env support implementation before measured validation
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.json`
+- next: `m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation`

@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
+m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
+m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
+m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
 ```
 
 Current route:
 
 ```text
+M2440 designed the metric-selected measured-validation protocol. It selects
+0.20 m as the primary soft-boundary tolerance with 0.02/0.05/0.10/0.20 m
+sensitivity reporting, and uses the M2413 350 x 15 source-linked measured panel
+as the primary fresh-validation denominator. The design found a prerequisite:
+current env offtrack termination is hard-coded at abs(lateral_error) >
+track_width, and track_width scaling would alter actor-visible road geometry.
+The next task is M2441 opt-in soft-boundary env support implementation with
+focused tests. No measured rollout, repair, training, ranking, paper/FW-vs-GRU/
+self-ID, scenario-redesign execution, or current-sim verdict claim is supported
+yet.
+
 M2439 accepted M2438 as a complete hard/soft offtrack metric split
 implementation and routes to metric-selected measured-validation design. The
 metric split preserved measured actual_success, kept guardrail violations at 0,
