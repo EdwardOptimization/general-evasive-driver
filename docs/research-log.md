@@ -43115,3 +43115,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - synthesis decision: route to outcome-localization branch synthesis before another narrow materializer
 - follow-up manifest: `experiments/manifests/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.json`
 - next: `m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis`
+
+## M2374 Paper-Route Current-Sim Dual-Axis Outcome Localization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_artifact_only_repair_plan_materialization`
+- manifest: `experiments/manifests/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.json`
+- doc: `docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md`
+- synthesis window: `M2364-M2373`
+- reset/rollout/measured execution in M2374: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- evidence summary: M2365 313 slices, M2368 consolidated 54 offtrack targets/28 collision guardrails/48 R4/190 diagnostic rows, M2371 320 repair specs, M2373 implementation design
+- supported claim: task-quality artifacts are clean enough to continue to artifact-only repair-plan materialization
+- blocked claims: repair success, scenario redesign executed, ranking, current-sim verdict, finite-window-vs-GRU, level3 self-ID
+- next branch: `paper_route_current_sim_dual_axis_repair_plan_materialization`
+- follow-up manifest: `experiments/manifests/m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization.json`
+- next: `m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization`

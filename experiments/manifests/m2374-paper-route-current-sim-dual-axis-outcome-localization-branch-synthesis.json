@@ -226,5 +226,5 @@
     "docs/paper-route-finite-window-vs-gru-plan.md"
   ],
   "decision_rule": "M2374 passes if it writes the required synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
-  "next_blocker": "selected_by_m2374_synthesis"
+  "next_blocker": "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization"
 }

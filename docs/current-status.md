@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design
+m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis
+m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization
 ```
 
 Current route:
 
 ```text
-M2373 designed a bounded artifact-only repair implementation route, but routed
-to outcome-localization branch synthesis before another narrow materializer.
-M2374 must synthesize M2364-M2373 and choose the next bounded route before any
-repair execution, scenario redesign, ranking, training, or paper-route
+M2374 synthesized M2364-M2373 and chose continue to artifact-only repair-plan
+materialization. M2375 should implement the repair-plan materializer, still
+without repair execution, scenario redesign, ranking, training, or paper-route
 interpretation.
 ```
 
@@ -198,6 +197,17 @@ repair execution/training/replay/PPO: false
 next route: outcome-localization branch synthesis
 ```
 
+M2374 branch synthesis decision:
+
+```text
+synthesis decision: continue
+next branch: paper_route_current_sim_dual_axis_repair_plan_materialization
+next route: artifact-only repair-plan materialization
+supported: task-quality artifacts are clean enough for repair-plan artifacts
+blocked: repair success, scenario redesign executed, ranking, current-sim verdict,
+  finite-window-vs-GRU, level3 self-ID
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -222,17 +232,17 @@ training repair success
 
 ## Immediate Next Step
 
-M2374 should synthesize the M2364-M2373 outcome-localization repair route:
+M2375 should implement the artifact-only repair-plan materializer:
 
 ```text
-docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json
-runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
+src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization.py
+tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization.py
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json
-docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md
 ```
 
-The synthesis should decide whether to continue to repair-plan materialization,
-pivot, stop, or promote to a new branch. It must not run reset/rollout, execute
-repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
-scenario redesign executed, claim repair success, or make paper/self-ID claims.
+The materializer should write repair-plan, reward-delta, curriculum-weight,
+guardrail-constraint, mixed-guarded-constraint, claim-boundary, and summary
+artifacts. It must not run reset/rollout, execute repair, train, replay, use
+PPO, rank profiles or packs, select a winner, claim scenario redesign executed,
+claim repair success, current-sim verdict, or paper/self-ID claims.
