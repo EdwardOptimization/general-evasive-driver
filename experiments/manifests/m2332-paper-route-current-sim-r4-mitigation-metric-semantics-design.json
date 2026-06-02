@@ -1,0 +1,187 @@
+{
+  "id": "m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_metric_semantics_design"
+    ],
+    "parent_dataset": [
+      "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md",
+      "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+      "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/episode_rows.csv",
+      "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/r4_metric_field_completeness.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.json"
+    ],
+    "parent_objective": [
+      "design bounded R4 mitigation metric semantics from available current-sim proxy fields"
+    ],
+    "derived_from": [
+      "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit"
+    ],
+    "blocked_by": [
+      "R4 unavoidable-mitigation role should not be interpreted only through obstacle-passage success",
+      "available current-sim impact proxy fields need role-specific semantics",
+      "post-collision delta-v and recoverability fields remain unavailable"
+    ],
+    "supersedes": [
+      "R4 support labels based only on obstacle-passage success",
+      "direct controller-family comparison before R4 semantics are defined",
+      "support-policy ranking from diagnostic proxy fields"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
+  "public_gates": [
+    "M2332 must design R4 metric semantics using only existing M2330 artifacts",
+    "M2332 must distinguish available impact proxies from unavailable post-collision canonical fields",
+    "M2332 must define an artifact-only implementation route",
+    "M2332 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not fabricate unavailable delta-v or post-collision recovery fields",
+    "do not add mitigation metrics to actor input",
+    "do not change reward",
+    "do not change collision termination behavior"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_r4_metric_instrumented_support_diagnostic",
+    "evidence_axis": "Q_r4_mitigation_metric_semantics_design",
+    "evidence_increment": "turns complete R4 diagnostic data into a bounded metric-semantics implementation plan",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design ranks support policies",
+      "stop if unavailable post-collision fields are treated as measured",
+      "stop if design routes directly to controller comparison without semantics audit",
+      "stop if design changes actor inputs reward or collision termination"
+    ],
+    "fallback_plan": [
+      "route to post-collision continuation design if impact proxies are insufficient",
+      "route to artifact-only metric semantics implementation if proxy semantics are bounded",
+      "route to branch synthesis if R4 semantics cannot be defined without new simulator capabilities"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2331 selected R4 mitigation metric semantics design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design R4 mitigation metric semantics audit",
+    "admission_evidence": [
+      "M2331 accepts M2330 completeness",
+      "M2330 exposes impact proxy fields for 173 collision rows",
+      "M2330 shows post-collision canonical fields are availability-false"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
+      "M2332 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "available and unavailable R4 metric fields are explicitly separated",
+      "artifact-only implementation outputs are specified",
+      "claim boundary is preserved",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2332 designs metric semantics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2332; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2330 R4 support-policy diagnostic rollouts.",
+    "negative_result_policy": "R4 metric semantics gaps must be routed as task-quality/metric issues, not self-ID falsification.",
+    "allowed_claims": [
+      "R4 mitigation metric semantics design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "defines how fresh R4 metric data can be interpreted before comparison resumes",
+    "paper_verdict_delta": "can decide whether current-sim R4 mitigation is analyzable with proxy metrics or needs post-collision continuation",
+    "must_synthesize_if": [
+      "M2332 cannot define bounded R4 metric semantics",
+      "M2332 routes directly to ranking",
+      "the R4 metric-instrumented support diagnostic branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded R4 mitigation metric semantics design can separate current-sim impact-proxy evidence from unavailable post-collision metrics before any controller comparison resumes.",
+  "success_criteria": [
+    "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md exists",
+    "available impact proxy fields are listed",
+    "unavailable canonical post-collision fields are listed",
+    "artifact-only implementation outputs are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2332 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2332 ranks support policies or selects a winner",
+    "M2332 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2332 treats unavailable fields as measured",
+    "M2332 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2331 audit and M2330 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_metric_semantics_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md",
+    "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+    "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/episode_rows.csv"
+  ],
+  "decision_rule": "M2332 passes if it defines a bounded artifact-only R4 mitigation metric semantics implementation route without ranking or new execution.",
+  "next_blocker": "selected_by_m2332_design"
+}

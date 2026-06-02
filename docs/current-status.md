@@ -16,17 +16,17 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation
+m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit
 ```
 
 Current next task:
 
 ```text
-m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit
+m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design
 ```
 
-Current route: M2330 completed the bounded R4-only metric-instrumented support
-diagnostic rerun:
+Current route: M2331 accepts M2330 as a complete bounded R4-only
+metric-instrumented support diagnostic artifact:
 
 ```text
 scenario_spec_count: 12 / 12 R4-only
@@ -41,8 +41,11 @@ support labels: support_mixed 3, support_blocked 9
 global success/collision/offtrack: 0 / 173 / 6
 ```
 
-M2331 is the next audit. It must preserve the diagnostic-only boundary and
-choose a non-ranking follow-up route. Training, replay, PPO, support-policy
+M2331 also records the main semantics issue: R4 is an unavoidable-mitigation
+role, so obstacle-passage success is not the right final role-success semantic.
+M2332 must design bounded current-sim R4 mitigation metric semantics from the
+available impact proxies while keeping unavailable post-collision delta-v and
+recoverability fields explicitly blocked. Training, replay, PPO, support-policy
 ranking, controller-family ranking, winner selection, paper-level claims,
 finite-window vs GRU conclusions, and level3 self-ID claims remain blocked.
 

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2338,
+    "completed": 2339,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
+    "task_id": "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun",
-    "command_log": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md"
   },
   "next_task": {
-    "id": "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
+    "id": "m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design",
     "kind": "gate",
-    "priority": 23260,
+    "priority": 23270,
     "status": "pending",
-    "hypothesis": "M2330 provides enough R4 metric-instrumented support diagnostic evidence to choose a bounded non-ranking follow-up route.",
-    "command": "manual audit of M2330 summary, episode rows, field completeness, support labels, and claim boundary",
-    "success_artifact": "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md",
-    "notes": "Pending: audit R4 diagnostic support rows field completeness support labels and claim boundary"
+    "hypothesis": "A bounded R4 mitigation metric semantics design can separate current-sim impact-proxy evidence from unavailable post-collision metrics before any controller comparison resumes.",
+    "command": "manual design from M2331 audit and M2330 artifacts",
+    "success_artifact": "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
+    "notes": "Pending: define available impact proxies unavailable post-collision fields and artifact-only semantics implementation route"
   },
-  "updated_at_utc": "20260602T005004Z"
+  "updated_at_utc": "20260602T005454Z"
 }

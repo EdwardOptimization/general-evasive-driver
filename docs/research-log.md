@@ -42089,3 +42089,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.json`
 - next: `m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit`
+
+## M2331 Paper-Route Current-Sim R4 Metric-Instrumented Support Diagnostic Rerun Result Audit
+
+- status: completed
+- result_class: `r4_metric_instrumented_support_diagnostic_result_accepted_route_to_r4_mitigation_semantics_design`
+- manifest: `experiments/manifests/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.json`
+- doc: `docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md`
+- parent summary: `runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json`
+- M2330 completeness accepted: `true`
+- required_r4_export_missing_field_count: `0`
+- impact proxy fields available for collision rows: `true`
+- post-collision canonical fields available: `false`
+- R4 support labels: `support_mixed 3`, `support_blocked 9`
+- global success/collision/offtrack: `0 / 173 / 6`
+- reset/rollout/measured execution in M2331: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.json`
+- next: `m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design`
