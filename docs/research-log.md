@@ -42269,3 +42269,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.json`
 - next: `m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design`
+
+## M2339 Paper-Route Current-Sim Support Coverage Gap Source Mapping Design
+
+- status: completed
+- result_class: `support_coverage_gap_source_mapping_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.json`
+- doc: `docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md`
+- parent synthesis: `docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md`
+- admitted implementation: `artifact-only`
+- target coverage rows: `23`
+- source axes: `role`, `hidden_dynamics_bucket`, `obstacle_timing_bucket`, `obstacle_lateral_bucket`, `support_policy`, `dominant_failure_mode`
+- required output: `source rows`, `axis summary`, `support-policy summary`, `recommended-route summary`, `claim boundary`, `summary.json`
+- reset/rollout/measured execution in M2339: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.json`
+- next: `m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation`

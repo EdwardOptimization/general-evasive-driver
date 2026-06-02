@@ -1,0 +1,216 @@
+{
+  "id": "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_coverage_gap_source_mapping_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+      "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only source mapping over the 23 support-policy coverage gaps"
+    ],
+    "derived_from": [
+      "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design"
+    ],
+    "blocked_by": [
+      "M2339 freezes source axes and output schema",
+      "current-sim controller comparison remains blocked until coverage gaps are source-mapped"
+    ],
+    "supersedes": [
+      "manual coverage-gap source inspection",
+      "direct support-policy materialization without source mapping"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md",
+  "public_gates": [
+    "M2340 must write all M2339-defined artifact-only output files",
+    "M2340 must process exactly 23 support-policy coverage gap rows",
+    "M2340 must classify rows without support-policy ranking or winner selection",
+    "M2340 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_coverage_gap_source_mapping",
+    "evidence_axis": "Q_support_coverage_gap_source_mapping_implementation",
+    "evidence_increment": "materializes artifact-only source mapping over the largest remaining coverage-gap bucket",
+    "claim_scope": "artifact-only implementation; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if target coverage row count is not 23",
+      "stop if any required input join field is missing",
+      "stop if implementation starts reset rollout measured execution training replay or PPO",
+      "stop if output ranks support policies or selects a winner"
+    ],
+    "fallback_plan": [
+      "route to design repair if source mapping fields are insufficient",
+      "route to result audit if artifacts are complete",
+      "stop for user review if rows cannot be classified without new execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2339 admits artifact-only source mapping implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "implement artifact-only support coverage gap source mapping",
+    "admission_evidence": [
+      "M2339 defines input artifacts and output schema",
+      "M2336 reports support_policy_coverage_gap_count 23",
+      "M2338 routes next to support coverage gap source mapping"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_support_coverage_gap_source_mapping.py",
+      "tests/test_paper_route_current_sim_support_coverage_gap_source_mapping.py",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/*",
+      "docs/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md",
+      "M2340 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the implementation"
+    ],
+    "next_stage_criteria": [
+      "coverage_gap_row_count equals 23",
+      "unclassified_count equals 0",
+      "guardrail_violation_count equals 0",
+      "all required artifacts are written"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2340 maps task-quality support coverage gaps and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2340; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2336/M2321/M2313 artifact rows only.",
+    "negative_result_policy": "Coverage-gap source mapping must not be interpreted as driver or self-ID evidence.",
+    "allowed_claims": [
+      "support coverage gap source mapping implementation",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the largest residual bucket into source-mapped task-quality evidence",
+    "paper_verdict_delta": "can decide whether coverage materialization or scenario redesign is the next blocker before current-sim controller comparison",
+    "must_synthesize_if": [
+      "M2340 cannot classify rows",
+      "M2340 produces only another label table without source mapping",
+      "the support coverage gap source mapping branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Artifact-only source mapping can classify the 23 support-policy coverage gaps by source concentration and recommended next route without new execution or ranking.",
+  "success_criteria": [
+    "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json exists",
+    "coverage_gap_row_count equals 23",
+    "unclassified_count equals 0",
+    "guardrail_violation_count equals 0",
+    "all required CSV artifacts exist",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2340 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2340 ranks support policies or selects a winner",
+    "M2340 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2340 cannot join required artifacts",
+    "M2340 cannot classify coverage gaps without new execution"
+  ],
+  "commands": [
+    {
+      "name": "test",
+      "command": "PYTHONPATH=src python -m pytest tests/test_paper_route_current_sim_support_coverage_gap_source_mapping.py -q"
+    },
+    {
+      "name": "run",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_coverage_gap_source_mapping --rescore-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --support-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --output-dir runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_axis_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_support_policy_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_recommended_route_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/claim_boundary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_coverage_gap_source_mapping_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+    "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/scenario_support_labels.csv",
+    "runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration/episode_rows.csv"
+  ],
+  "decision_rule": "M2340 passes if it writes complete source mapping artifacts for 23 coverage-gap rows without execution or ranking.",
+  "next_blocker": "selected_by_m2340_implementation"
+}

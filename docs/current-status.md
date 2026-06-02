@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2338-paper-route-current-sim-residual-task-quality-branch-synthesis
+m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design
 ```
 
 Current next task:
 
 ```text
-m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design
+m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -74,9 +74,23 @@ next branch: paper_route_current_sim_support_coverage_gap_source_mapping
 largest actionable bucket: support-policy coverage gaps 23
 ```
 
-M2339 should design an artifact-only source mapping over the 23 R2/R3/R5
-support-policy coverage gaps before any coverage materialization, scenario
-redesign, controller comparison, or training. Training, replay, PPO,
+M2339 designs the artifact-only source mapping route over the 23 R2/R3/R5
+support-policy coverage gaps. M2340 should implement the source-mapping tool
+over existing M2336/M2321/M2313 artifacts and write:
+
+```text
+coverage_gap_source_rows.csv
+coverage_gap_axis_summary.csv
+coverage_gap_support_policy_summary.csv
+coverage_gap_recommended_route_summary.csv
+claim_boundary.csv
+summary.json
+```
+
+M2340 remains artifact-only. It must not run reset, rollout, measured
+execution, training, replay, PPO, support-policy ranking, controller-family
+ranking, winner selection, paper-level claims, finite-window vs GRU
+conclusions, or level3 self-ID claims. Training, replay, PPO,
 support-policy ranking, controller-family ranking, winner selection,
 paper-level claims, finite-window vs GRU conclusions, and level3 self-ID claims
 remain blocked.

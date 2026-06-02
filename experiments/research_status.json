@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2346,
+    "completed": 2347,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
+    "task_id": "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md"
+    "command_log": "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md"
   },
   "next_task": {
-    "id": "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design",
-    "kind": "gate",
-    "priority": 23340,
+    "id": "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
+    "kind": "infrastructure",
+    "priority": 23350,
     "status": "pending",
-    "hypothesis": "A design-first source mapping over the 23 coverage gaps can separate support-policy coverage gaps from scenario/support redesign needs before current-sim controller comparison resumes.",
-    "command": "write docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md from M2338 synthesis and M2336 artifacts",
-    "success_artifact": "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
-    "notes": "Pending: design artifact-only source mapping over 23 R2/R3/R5 support-policy coverage gaps"
+    "hypothesis": "Artifact-only source mapping can classify the 23 support-policy coverage gaps by source concentration and recommended next route without new execution or ranking.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_coverage_gap_source_mapping --rescore-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --support-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --output-dir runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping",
+    "success_artifact": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
+    "notes": "Pending: implement artifact-only source mapping for coverage gaps with tests and no reset/rollout/ranking"
   },
-  "updated_at_utc": "20260602T012852Z"
+  "updated_at_utc": "20260602T013244Z"
 }
