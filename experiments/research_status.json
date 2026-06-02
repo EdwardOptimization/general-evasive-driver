@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2371,
+    "completed": 2372,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
+    "task_id": "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md"
+    "run_dir": "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization",
+    "command_log": "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json"
   },
   "next_task": {
-    "id": "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation",
-    "kind": "infrastructure",
-    "priority": 23600,
+    "id": "m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit",
+    "kind": "gate",
+    "priority": 23610,
     "status": "pending",
-    "hypothesis": "Artifact-only localization can materialize offtrack targets, collision guardrails, and R4 mitigation semantics from the M2362 measured panel without rerun or ranking claims.",
-    "command": "implement and run artifact-only outcome localization from M2362 episode rows",
-    "success_artifact": "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json",
-    "notes": "Pending: materialize outcome-localization target/guardrail slices no rerun/ranking"
+    "hypothesis": "Auditing M2365 localization artifacts can decide the next bounded repair-design route without rerun, ranking, or paper-level claims.",
+    "command": "write artifact-only result audit from M2365 localization outputs",
+    "success_artifact": "docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md",
+    "notes": "Pending: audit localization slice panel before repair design no rerun/ranking"
   },
-  "updated_at_utc": "20260602T044812Z"
+  "updated_at_utc": "20260602T050000Z"
 }

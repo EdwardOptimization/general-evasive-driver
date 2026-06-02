@@ -42908,3 +42908,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - collision guardrail threshold: `0.15`
 - follow-up manifest: `experiments/manifests/m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation.json`
 - next: `m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation`
+
+## M2365 Paper-Route Current-Sim Dual-Axis Measured Outcome Localization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_measured_outcome_localization_pass`
+- manifest: `experiments/manifests/m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation.json`
+- doc: `docs/m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_measured_outcome_localization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json`
+- source_episode_count: `5400`
+- slice_row_count: `313`
+- offtrack_target_slice_count: `198`
+- collision_guardrail_slice_count: `95`
+- r4_mitigation_semantics_slice_count: `48`
+- high_priority_offtrack_slice_count: `99`
+- ranking_admissible_count: `0`
+- winner_selected_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2365: `false`
+- policy action executed in M2365: `false`
+- training/replay/PPO: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- top high-priority offtrack targets: `early_far`, `R0_stable_avoidable`, `R0`, `aeb_feasible`
+- mixed offtrack/collision guardrail examples: `global`, `drift_required`, `L2_window_50`
+- R4 mitigation semantics examples: `R4_unavoidable_mitigation`, `scenario_family_id=R4`, `sampled_obstacle_label=unavoidable`
+- claim boundary: localization only; no ranking/paper/FW-vs-GRU/self-ID/scenario-redesign/training-repair claim
+- follow-up manifest: `experiments/manifests/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.json`
+- next: `m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit`
