@@ -42132,3 +42132,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.json`
 - next: `m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation`
+
+## M2333 Paper-Route Current-Sim R4 Mitigation Metric Semantics Implementation
+
+- status: completed
+- result_class: `current_sim_r4_mitigation_metric_semantics_audit_pass`
+- manifest: `experiments/manifests/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.json`
+- doc: `docs/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.md`
+- summary: `runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_r4_mitigation_metric_semantics_audit.py`
+- tests: `tests/test_paper_route_current_sim_r4_mitigation_metric_semantics_audit.py`
+- scenario_count: `12 / 12`
+- episode_count: `180`
+- policy_aggregate_count: `3`
+- impact_proxy_available_scenario_count: `12`
+- post_collision_blocked_scenario_count: `12`
+- obstacle_passage_success_insufficient_count: `12`
+- guardrail_violation_count: `0`
+- ranking_admissible_count: `0`
+- winner_selected_count: `0`
+- reset/rollout/measured execution: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.json`
+- next: `m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit`

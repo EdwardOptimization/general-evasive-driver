@@ -1,0 +1,188 @@
+{
+  "id": "m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_metric_semantics_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.md",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_proxy_policy_aggregate.csv",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.json"
+    ],
+    "parent_objective": [
+      "audit artifact-only R4 mitigation metric semantics result and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation"
+    ],
+    "blocked_by": [
+      "M2333 semantics artifacts need audit before role-family support redesign resumes",
+      "R4 impact-proxy semantics are descriptive only",
+      "post-collision mitigation remains unavailable in current-sim artifacts"
+    ],
+    "supersedes": [
+      "manual inspection of M2333 outputs",
+      "direct ranking after R4 semantics materialization",
+      "treating impact proxy metrics as paper-level mitigation performance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+  "public_gates": [
+    "M2334 must audit M2333 summary, scenario semantics rows, policy aggregate rows, and claim boundary rows",
+    "M2334 must preserve artifact-only and non-ranking claim scope",
+    "M2334 must choose a non-ranking follow-up route",
+    "M2334 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not fabricate unavailable delta-v or post-collision recovery fields",
+    "do not add mitigation metrics to actor input",
+    "do not change reward",
+    "do not change collision termination behavior"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_r4_metric_instrumented_support_diagnostic",
+    "evidence_axis": "Q_r4_mitigation_metric_semantics_result_audit",
+    "evidence_increment": "audits artifact-only R4 metric semantics rows and selects the next route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2333 artifacts are incomplete",
+      "stop if audit ranks support policies",
+      "stop if proxy metrics are treated as mitigation performance proof",
+      "stop if unavailable post-collision fields are treated as measured"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if M2333 outputs are incomplete",
+      "route to role-stratified residual rescore if semantics rows are accepted",
+      "route to post-collision continuation design if proxy-only semantics are insufficient"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2333 completed artifact-only semantics implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit artifact-only R4 mitigation metric semantics result",
+    "admission_evidence": [
+      "M2333 summary exists",
+      "M2333 reports scenario_count 12",
+      "M2333 reports impact_proxy_available_scenario_count 12",
+      "M2333 reports guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+      "M2334 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2333 artifacts are accepted or rejected",
+      "claim boundary is preserved",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2334 audits metric semantics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2334; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2333 artifact-only semantics rows.",
+    "negative_result_policy": "Metric semantics results must not be interpreted as self-ID evidence.",
+    "allowed_claims": [
+      "R4 mitigation metric semantics result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2333 semantics artifacts into a next-route decision",
+    "paper_verdict_delta": "can decide whether R4 residual support can be rescored or needs simulator continuation",
+    "must_synthesize_if": [
+      "M2334 routes directly to ranking",
+      "M2334 claims mitigation performance",
+      "the R4 metric-instrumented support diagnostic branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2333 provides enough R4 metric semantics evidence to choose a bounded non-ranking follow-up route.",
+  "success_criteria": [
+    "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md exists",
+    "M2333 summary is audited",
+    "M2333 semantics rows are audited",
+    "M2333 claim boundary is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2333 artifacts are missing",
+    "M2334 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2334 ranks support policies or selects a winner",
+    "M2334 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2334 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2333 summary, semantics rows, policy aggregate rows, and claim boundary rows"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_metric_semantics_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.md",
+    "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json",
+    "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv"
+  ],
+  "decision_rule": "M2334 passes if it audits M2333 and selects a non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2334_result_audit"
+}

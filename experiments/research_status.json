@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2340,
+    "completed": 2341,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design",
+    "task_id": "m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md"
+    "run_dir": "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics",
+    "command_log": "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json"
   },
   "next_task": {
-    "id": "m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation",
-    "kind": "infrastructure",
-    "priority": 23280,
+    "id": "m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit",
+    "kind": "gate",
+    "priority": 23290,
     "status": "pending",
-    "hypothesis": "An artifact-only R4 mitigation metric semantics audit can materialize proxy-available and post-collision-blocked labels without new rollouts or ranking.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_r4_mitigation_metric_semantics_audit --input-dir runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --output-dir runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics --target-scenario-count 12 --next-blocker m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit",
-    "success_artifact": "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json",
-    "notes": "Pending: materialize R4 semantics rows proxy aggregates claim boundary and summary from M2330 artifacts only"
+    "hypothesis": "M2333 provides enough R4 metric semantics evidence to choose a bounded non-ranking follow-up route.",
+    "command": "manual audit of M2333 summary, semantics rows, policy aggregate rows, and claim boundary rows",
+    "success_artifact": "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+    "notes": "Pending: audit R4 semantics rows proxy aggregates claim boundary and select next route"
   },
-  "updated_at_utc": "20260602T005755Z"
+  "updated_at_utc": "20260602T010542Z"
 }
