@@ -1,0 +1,219 @@
+{
+  "id": "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_quality_redesign_protocol_materialization_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md",
+      "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.json"
+    ],
+    "parent_objective": [
+      "materialize role-specific scenario-quality protocol artifacts and preflight guardrails without measured rollout or training"
+    ],
+    "derived_from": [
+      "m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design",
+      "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit"
+    ],
+    "blocked_by": [
+      "M2454 design requires materialized candidate and guardrail artifacts before any scenario redesign execution or repair",
+      "stable/AES feasibility groups must be nonempty and guardrailed before measured validation",
+      "handling-limit and mitigation guardrails must be preserved"
+    ],
+    "supersedes": [
+      "direct measured rollout from M2454 design",
+      "direct scenario redesign execution without materialized protocol artifacts",
+      "direct repair/training from M2452 panel rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.md",
+  "public_gates": [
+    "M2455 must materialize protocol artifacts from M2454 without measured rollout, policy action, repair, training, ranking, or winner selection",
+    "M2455 must produce nonempty stable-feasibility, stable-AES, handling-limit, hidden-dynamics, and mitigation guardrail groups",
+    "M2455 must keep labels and hidden/oracle metadata out of actor input",
+    "M2455 must select a bounded result-audit or reset/preflight next route or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank scenario candidates as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_scenario_quality_redesign_protocol_materialization_preflight",
+    "evidence_increment": "materializes M2454 protocol candidate and guardrail artifacts before any execution",
+    "claim_scope": "artifact/preflight materialization only; no rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if stable-feasibility or stable-AES groups are empty",
+      "stop if labels or hidden/oracle metadata would enter actor input",
+      "stop if handling-limit or mitigation guardrails are erased",
+      "stop if scenario candidates become rankings or winners"
+    ],
+    "fallback_plan": [
+      "route to result audit if materialization succeeds",
+      "route to branch synthesis if materialization remains broad",
+      "stop for user review if protocol groups cannot be materialized"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2454 protocol design routes to materialization/preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "scenario-quality redesign protocol materialization preflight",
+    "admission_evidence": [
+      "M2454 defined role-specific scenario-quality redesign protocol",
+      "M2453 blocked direct repair/training because stable/AES rows are hard-offtrack dominated",
+      "M2452 preserved repair candidates and monitoring guardrails"
+    ],
+    "blocked_shortcuts": [
+      "no scenario redesign execution",
+      "no measured rollout",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight.py",
+      "tests/test_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight.py",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/candidate_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/role_protocol_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/geometry_lever_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/guardrail_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/claim_boundary.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/decision_rows.csv",
+      "docs/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.md",
+      "M2455 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the materialization"
+    ],
+    "next_stage_criteria": [
+      "candidate and guardrail groups are materialized",
+      "claim boundary and actor-input guardrails pass",
+      "bounded result-audit or reset/preflight route is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2455 materializes scenario-quality protocol artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2455; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2452-M2454 scenario-quality evidence and protocol.",
+    "negative_result_policy": "If materialization cannot preserve guardrails and actor contract, fail closed and audit rather than running measured validation.",
+    "allowed_claims": [
+      "scenario-quality protocol materialization/preflight artifact",
+      "bounded next-route decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_scenario_distribution",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a role-specific scenario-quality protocol artifact instead of another relabel",
+    "paper_verdict_delta": "can decide whether current-sim scenario-quality evidence can proceed to reset/static preflight or must synthesize/stop",
+    "must_synthesize_if": [
+      "materialization remains broad",
+      "stable/AES groups are empty",
+      "the next route would execute measured rollout without result audit"
+    ]
+  },
+  "hypothesis": "M2454 protocol can be materialized into non-ranking candidate and guardrail artifacts with nonempty stable/AES support and preserved handling-limit/mitigation guardrails without rollout, repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json exists",
+    "candidate, role protocol, geometry lever, guardrail, claim boundary, and decision rows are written",
+    "stable-feasibility, stable-AES, handling-limit, hidden-dynamics, and mitigation guardrail groups are nonempty",
+    "labels_enter_actor_input_count == 0 and actor_input_contract_changed == false",
+    "no rollout repair training ranking winner scenario-redesign-executed or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2455 reruns measured validation or policy action",
+    "M2455 executes scenario redesign, repair, or training",
+    "M2455 ranks scenario candidates, candidate families, controllers, selected checkpoints, or panel rows as winners",
+    "M2455 selects a winner",
+    "M2455 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight.py"
+    },
+    {
+      "name": "implementation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/guardrail_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/claim_boundary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_quality_redesign_protocol_materialization_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md",
+    "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv"
+  ],
+  "decision_rule": "M2455 passes if it materializes non-ranking protocol artifacts and selects a bounded result-audit or reset/preflight route without rollout, scenario redesign execution, repair, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight"
+}

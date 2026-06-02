@@ -1,0 +1,112 @@
+{
+  "decision_reason": "M2454 defines design-only role-specific scenario-quality redesign protocol and routes to materialization/preflight no rollout redesign execution repair training ranking winner verdict claims",
+  "failure_criteria": [
+    "M2454 reruns measured validation or policy action",
+    "M2454 executes scenario redesign, repair, or training",
+    "M2454 ranks scenario designs, candidate families, controllers, selected checkpoints, or panel rows as winners",
+    "M2454 selects a winner",
+    "M2454 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank scenario designs as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260602T222804Z",
+  "hypothesis": "A design-only scenario-quality protocol can specify stable/AES feasibility, boundary/geometry/timing levers, and guardrails for drift-required and unavoidable roles before any redesign execution, repair, training, ranking, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "stable avoidable and stable AES rows are hard-offtrack dominated with low collision",
+      "direct repair/training is not admitted before scenario-quality protocol design",
+      "handling-limit and hidden-dynamics rows remain broad guardrail surfaces"
+    ],
+    "derived_from": [
+      "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+      "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_scenario_quality_redesign_protocol_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md",
+      "docs/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design a scenario-quality redesign protocol after M2453 accepted stable/AES task-quality blockers"
+    ],
+    "supersedes": [
+      "direct repair/training from M2452 panel rows",
+      "direct scenario redesign execution without protocol design",
+      "ranking profiles, packs, selected checkpoints, candidate families, or panel rows as winners"
+    ]
+  },
+  "milestone": "m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design",
+  "next_blocker": "m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "scenario_quality_redesign_protocol_route_to_materialization_preflight",
+  "public_gates": [
+    "M2454 must be design-only and must not modify environment configs as an executed redesign",
+    "M2454 must define role-specific scenario-quality redesign protocol for R0 stable avoidable, R1 stable AES, R2/R3/R5 handling-limit, and R4 mitigation roles",
+    "M2454 must keep repair/training/ranking/winner/verdict claims blocked",
+    "M2454 must select a bounded implementation/preflight/audit next route or stop"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md",
+    "clearance_margin_mean": "6.847753455149411",
+    "decision": "scenario_quality_redesign_protocol_route_to_materialization_preflight",
+    "milestone": "m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design",
+    "reason": "M2454 defines design-only role-specific scenario-quality redesign protocol and routes to materialization/preflight no rollout redesign execution repair training ranking winner verdict claims",
+    "reset_success": "",
+    "success_rate": "0.06685714285714285",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md exists",
+    "the protocol defines role-specific stable/AES, drift-required, hidden-dynamics, geometry/timing, and unavoidable guardrails",
+    "the protocol selects a bounded implementation/preflight/audit next route or stops",
+    "no rollout repair training ranking winner scenario-redesign-executed or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

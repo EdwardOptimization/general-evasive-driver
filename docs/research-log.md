@@ -44589,3 +44589,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.json`
 - next: `m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design`
+
+## M2454 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Protocol Design
+
+- status: completed
+- decision: `scenario_quality_redesign_protocol_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.json`
+- doc: `docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md`
+- parent audit: `docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md`
+- protocol: role-specific design for R0 stable avoidable, R1 stable AES, R2/R3/R5 handling-limit and hidden-dynamics guardrails, and R4 unavoidable mitigation
+- allowed next route: materialize candidate, role protocol, geometry lever, guardrail, claim boundary, and decision artifacts before any measured rollout
+- blocked routes: scenario redesign execution, repair, training, ranking, winner selection, current-sim/paper/FW-vs-GRU/self-ID/training-repair verdict claims
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.json`
+- next: `m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight`

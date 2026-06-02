@@ -16,25 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
+m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
+m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design
+m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight
 ```
 
 Current route:
 
 ```text
+M2454 defined a design-only scenario-quality redesign protocol. It does not
+execute redesign, rollout, repair, or training. The protocol requires role-
+specific stable-feasibility, stable-AES, handling-limit/hidden-dynamics
+guardrail, and unavoidable-mitigation groups; it keeps actual success as fresh
+executed completion, keeps soft-boundary tolerance diagnostic unless validated
+by fresh execution, and blocks labels/hidden metadata from actor input. The
+next task is M2455 materialization/preflight: produce candidate, role protocol,
+geometry lever, guardrail, claim-boundary, and decision artifacts before any
+measured rollout. No scenario redesign execution, repair, training, ranking,
+winner selection, paper/FW-vs-GRU/self-ID/training-repair verdict, or current-
+sim verdict is supported.
+
 M2453 accepted M2452 as a complete scenario-quality discriminant panel and
 routed to design-only scenario-quality redesign protocol. The key audit finding
 is that stable avoidable/AEB-feasible rows are hard-offtrack dominated with
