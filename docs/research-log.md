@@ -42203,3 +42203,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.json`
 - next: `m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation`
+
+## M2336 Paper-Route Current-Sim Role-Stratified Residual Support Rescore Implementation
+
+- status: completed
+- result_class: `current_sim_role_stratified_residual_support_rescore_pass`
+- manifest: `experiments/manifests/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.json`
+- doc: `docs/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md`
+- summary: `runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_role_stratified_residual_support_rescore.py`
+- tests: `tests/test_paper_route_current_sim_role_stratified_residual_support_rescore.py`
+- rescored_residual_scenario_count: `48`
+- r0_residual_count: `0`
+- r1_residual_count: `0`
+- r4_proxy_semantics_post_collision_blocked_count: `12`
+- support_policy_coverage_gap_count: `23`
+- scenario_or_support_redesign_gap_count: `12`
+- metric_semantics_edge_count: `1`
+- unclassified_residual_route_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.json`
+- next: `m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit`

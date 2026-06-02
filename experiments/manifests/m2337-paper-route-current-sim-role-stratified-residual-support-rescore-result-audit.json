@@ -1,0 +1,183 @@
+{
+  "id": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_residual_rescore_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/role_rescore_summary.csv",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/route_rescore_summary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.json"
+    ],
+    "parent_objective": [
+      "audit artifact-only role-stratified residual support rescore result and choose next route"
+    ],
+    "derived_from": [
+      "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation"
+    ],
+    "blocked_by": [
+      "M2336 residual route map must be audited before selecting the next task-quality branch",
+      "controller comparison remains blocked until remaining residual categories are addressed"
+    ],
+    "supersedes": [
+      "manual residual rescore inspection",
+      "direct controller comparison after residual rescore implementation",
+      "claiming R4 mitigation performance from proxy semantics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
+  "public_gates": [
+    "M2337 must audit M2336 summary and route summaries",
+    "M2337 must preserve artifact-only and non-ranking claim scope",
+    "M2337 must choose a non-ranking follow-up route",
+    "M2337 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_role_stratified_residual_rescore",
+    "evidence_axis": "Q_role_stratified_residual_rescore_result_audit",
+    "evidence_increment": "audits updated residual route map and selects next task-quality route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2336 artifacts are incomplete",
+      "stop if audit claims residual support solved",
+      "stop if audit routes directly to ranking",
+      "stop if R4 proxy semantics are treated as mitigation performance"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if rescore artifacts are incomplete",
+      "route to coverage/redesign branch if rescore is accepted",
+      "route to branch synthesis if next-route choice is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2336 completed artifact-only residual support rescore",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit role-stratified residual support rescore result",
+    "admission_evidence": [
+      "M2336 summary exists",
+      "M2336 reports rescored_residual_scenario_count 48",
+      "M2336 reports guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
+      "M2337 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2336 artifacts are accepted or rejected",
+      "remaining residual route priorities are selected",
+      "claim boundary is preserved",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2337 audits residual accounting and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2337; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2336 residual rescore artifacts.",
+    "negative_result_policy": "Residual rescore audit must not be interpreted as self-ID evidence.",
+    "allowed_claims": [
+      "role-stratified residual support rescore result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns updated residual route map into a next-route decision",
+    "paper_verdict_delta": "can choose the next task-quality blocker before controller comparison resumes",
+    "must_synthesize_if": [
+      "M2337 routes directly to ranking",
+      "M2337 cannot select a next task-quality route",
+      "the role-stratified residual rescore branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2336 provides enough role-stratified residual rescore evidence to choose the next bounded non-ranking task-quality route.",
+  "success_criteria": [
+    "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md exists",
+    "M2336 summary is audited",
+    "M2336 route summaries are audited",
+    "claim boundary is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2336 artifacts are missing",
+    "M2337 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2337 ranks support policies or selects a winner",
+    "M2337 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2337 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2336 summary route summaries residual rows and claim boundary"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_residual_rescore_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/route_rescore_summary.csv"
+  ],
+  "decision_rule": "M2337 passes if it audits M2336 and selects a non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2337_result_audit"
+}

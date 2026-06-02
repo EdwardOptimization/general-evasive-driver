@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design
+m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation
 ```
 
 Current next task:
 
 ```text
-m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation
+m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -53,7 +53,7 @@ winner_selected_count: 0
 guardrail_violation_count: 0
 ```
 
-M2335 designs the artifact-only residual support rescore. Expected route map:
+M2336 implements the artifact-only residual support rescore. Current route map:
 
 ```text
 residual rows: 48
@@ -61,10 +61,12 @@ R4 proxy semantics / post-collision blocked: 12
 support-policy coverage gaps: 23
 scenario/support redesign gaps: 12
 metric edge rows: 1
+unclassified residual routes: 0
+guardrail violations: 0
 ```
 
-M2336 should materialize that rescore from existing artifacts only. Training,
-replay, PPO, support-policy ranking, controller-family ranking, winner
+M2337 is the result audit and should choose the next bounded task-quality route.
+Training, replay, PPO, support-policy ranking, controller-family ranking, winner
 selection, paper-level claims, finite-window vs GRU conclusions, and level3
 self-ID claims remain blocked.
 

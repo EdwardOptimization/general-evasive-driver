@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2343,
+    "completed": 2344,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design",
+    "task_id": "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md"
+    "run_dir": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore",
+    "command_log": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json"
   },
   "next_task": {
-    "id": "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
-    "kind": "infrastructure",
-    "priority": 23310,
+    "id": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
+    "kind": "gate",
+    "priority": 23320,
     "status": "pending",
-    "hypothesis": "An artifact-only role-stratified residual support rescore can materialize updated residual categories after R0 and R4 semantics repairs.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --role-redesign-dir runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign --r4-semantics-dir runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics --output-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --target-residual-scenario-count 48 --next-blocker m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
-    "success_artifact": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
-    "notes": "Pending: write residual rescore rows role/route summaries claim boundary and summary from existing artifacts"
+    "hypothesis": "M2336 provides enough role-stratified residual rescore evidence to choose the next bounded non-ranking task-quality route.",
+    "command": "manual audit of M2336 summary route summaries residual rows and claim boundary",
+    "success_artifact": "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
+    "notes": "Pending: audit residual rescore route map and select next bounded task-quality route"
   },
-  "updated_at_utc": "20260602T011147Z"
+  "updated_at_utc": "20260602T011753Z"
 }
