@@ -43417,3 +43417,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: safe negative result; M2385 candidate configs are overlay artifacts lacking reset-ready env_config
 - follow-up manifest: `experiments/manifests/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.json`
 - next: `m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit`
+
+## M2389 Paper-Route Current-Sim Dual-Axis Candidate Config Reset Validation Result Audit
+
+- status: completed
+- decision: `schema_incomplete_reset_validation_failure_route_to_effective_config_schema_repair_design`
+- manifest: `experiments/manifests/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.json`
+- doc: `docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md`
+- audited summary: `runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json`
+- reset rerun/rollout/policy action in M2389: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- classification: schema incompleteness, not sampler incompatibility or unsafe execution
+- static_validation_pass_count/schema_incomplete_candidate_count: `54/54`
+- environment_reset_attempt_count/environment_step_count/guardrail_violation_count: `0/0/0`
+- next route: bounded effective-config schema repair design
+- follow-up manifest: `experiments/manifests/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.json`
+- next: `m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design`

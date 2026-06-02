@@ -16,7 +16,7 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
+m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit
 ```
 
 Latest attempted milestone:
@@ -29,17 +29,17 @@ result: failed closed
 Current next task:
 
 ```text
-m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit
+m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design
 ```
 
 Current route:
 
 ```text
-M2388 implemented a strict validator and failed closed. All 54 generated
-candidate configs passed static safety checks, but all 54 lack reset-ready
-env_config, so no environment load or reset was attempted. M2389 must audit this
-schema-incomplete result before any schema repair, reset rerun, repair,
-training, ranking, or paper/self-ID/current-sim claim.
+M2389 audited the M2388 fail-closed result. The failure is schema
+incompleteness, not sampler incompatibility or unsafe execution: all 54
+candidate configs passed static checks but lack reset-ready env_config. M2390
+may design effective-config schema repair, but must not materialize configs,
+reset, repair, train, rank, or make paper/self-ID/current-sim claims.
 ```
 
 ## Latest Evidence
@@ -416,6 +416,16 @@ guardrail_violation_count: 0
 failure_types_observed: effective_config_materialization_failure
 ```
 
+M2389 result audit decision:
+
+```text
+decision: schema_incomplete_reset_validation_failure_route_to_effective_config_schema_repair_design
+schema incompleteness vs sampler incompatibility: schema incompleteness
+reset compatibility demonstrated: false
+unsafe execution observed: false
+next route: bounded effective-config schema repair design
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -440,18 +450,18 @@ training repair success
 
 ## Immediate Next Step
 
-M2389 should audit the M2388 fail-closed result from:
+M2390 should design effective-config schema repair from:
 
 ```text
-docs/m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation.md
+docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md
 runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json
-runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/static_validation_rows.csv
-runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/effective_config_rows.csv
-runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/reset_validation_rows.csv
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv
 ```
 
-The audit must classify schema incompleteness versus sampler incompatibility and
-choose bounded effective-config schema repair, pivot, synthesis, or stop. It
-must not rerun reset, execute repair, train, replay, use PPO, rank profiles or
-packs, select a winner, claim scenario redesign executed, claim repair success,
-current-sim verdict, or paper/self-ID claims.
+The design must identify legitimate base env config lineage, define candidate
+overlay merge semantics, and specify run-dir-only effective config artifacts.
+It must fail closed if no base lineage is defensible. It must not materialize
+effective configs, reset, execute repair, train, replay, use PPO, rank profiles
+or packs, select a winner, claim scenario redesign executed, claim repair
+success, current-sim verdict, or paper/self-ID claims.
