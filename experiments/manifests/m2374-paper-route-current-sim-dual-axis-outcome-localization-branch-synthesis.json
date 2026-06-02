@@ -1,0 +1,230 @@
+{
+  "id": "m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_outcome_localization_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json",
+      "docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md",
+      "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md",
+      "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json",
+      "docs/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.md",
+      "docs/m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design.md",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
+      "docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md",
+      "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the outcome-localization to repair-implementation branch before another narrow materializer"
+    ],
+    "derived_from": [
+      "m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design",
+      "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation",
+      "m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit",
+      "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design",
+      "m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation",
+      "m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit",
+      "m2370-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-design",
+      "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization",
+      "m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit",
+      "m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design"
+    ],
+    "blocked_by": [
+      "the outcome-localization branch reached synthesis cadence after M2373",
+      "M2373 admits implementation design but local-search guard requires branch-level synthesis before another narrow materializer"
+    ],
+    "supersedes": [
+      "direct repair-plan materialization after M2373 without synthesis",
+      "direct training or scenario redesign execution from repair specs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+  "public_gates": [
+    "M2374 must answer the standard synthesis questions",
+    "M2374 must classify evidence under engineering performance, mechanism evidence, task quality, high-fidelity readiness, and workflow complexity axes",
+    "M2374 must decide continue pivot stop or promote_to_next_branch",
+    "M2374 must choose the next non-ranking route or explicitly stop for user review",
+    "M2374 must not run reset rollout measured execution training replay PPO private holdout ranking repair execution or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "Q_outcome_localization_repair_route_synthesis",
+    "evidence_increment": "synthesizes M2364-M2373 measured-outcome localization, consolidation, repair-spec, and implementation-design evidence before further branch work",
+    "claim_scope": "branch synthesis only; no repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, or training-repair claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to training, ranking, or paper conclusion",
+      "stop if synthesis ignores workflow/local-search risk",
+      "stop if synthesis treats repair-spec design as repair execution or training success"
+    ],
+    "fallback_plan": [
+      "continue to artifact-only repair-plan materialization if branch evidence and process overhead justify it",
+      "pivot to complexity-pruning audit if process overhead dominates evidence gain",
+      "pivot to scenario/task-quality synthesis if repair specs expose task quality rather than repairable driver weakness",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2373 reaches the outcome-localization branch cadence after M2364-M2373",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize outcome-localization repair route branch",
+    "admission_evidence": [
+      "M2365 localizes 313 measured outcome slices from 5400 episodes",
+      "M2368 consolidates 54 offtrack repair targets, 28 collision guardrails, 48 R4 semantics rows, and 190 diagnostic guardrails",
+      "M2371 materializes 320 repair specs with guardrail_violation_count 0",
+      "M2372 accepts repair specs and M2373 designs a bounded implementation route",
+      "M2373 routes to synthesis before another narrow materializer"
+    ],
+    "blocked_shortcuts": [
+      "no repair execution",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion",
+      "no scenario-redesign-executed claim",
+      "no training-repair-success claim"
+    ],
+    "allowed_updates": [
+      "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+      "M2374 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "paper-route axes are classified",
+      "workflow/local-search risk is interpreted",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2374 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2374; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2364-M2373 task-quality and repair-route artifacts.",
+    "negative_result_policy": "If branch synthesis finds only process-heavy local search, pivot before interpreting driver or self-ID evidence.",
+    "allowed_claims": [
+      "outcome-localization repair-route branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion training-repair success or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates measured outcome localization, target consolidation, repair-spec materialization, and implementation-design decisions before continuing",
+    "paper_verdict_delta": "can decide whether repair-plan materialization is still the right current-sim route or whether to pivot",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2364-M2373 will prevent over-local repair-route work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies task-quality and workflow evidence",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2374 omits a required synthesis question",
+    "M2374 starts new training reset rollout measured execution replay PPO repair execution or private holdout",
+    "M2374 ranks support policies or selects a winner",
+    "M2374 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2374 claims scenario redesign executed or training repair success",
+    "M2374 routes directly to controller comparison without resolving task-quality and workflow blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md from M2364-M2373 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_outcome_localization_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
+    "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2374 passes if it writes the required synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
+  "next_blocker": "selected_by_m2374_synthesis"
+}

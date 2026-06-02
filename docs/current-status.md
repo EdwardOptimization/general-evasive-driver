@@ -16,22 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit
+m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design
 ```
 
 Current next task:
 
 ```text
-m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design
+m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2372 accepted the M2371 repair-spec artifact as clean and routed to bounded
-repair implementation design. M2373 must design the implementation route and
-decide synthesis cadence before any repair execution, scenario redesign,
-ranking, training, or paper-route interpretation.
+M2373 designed a bounded artifact-only repair implementation route, but routed
+to outcome-localization branch synthesis before another narrow materializer.
+M2374 must synthesize M2364-M2373 and choose the next bounded route before any
+repair execution, scenario redesign, ranking, training, or paper-route
+interpretation.
 ```
 
 ## Latest Evidence
@@ -183,6 +184,20 @@ collision-blind mixed repair specs: 0
 repair execution/training/replay/PPO: false
 ```
 
+M2373 implementation design decision:
+
+```text
+implementation route: artifact-only repair plan materialization
+future outputs: repair plan, reward deltas, curriculum weights, guardrail constraints
+ordinary offtrack direct repair specs: 36
+mixed guarded specs requiring collision constraints: 18
+guardrail-only specs: 28 collision, 48 R4, 190 diagnostic
+active config overwrite: blocked
+actor input change/oracle feature/profile-specific tuning: blocked
+repair execution/training/replay/PPO: false
+next route: outcome-localization branch synthesis
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -207,20 +222,17 @@ training repair success
 
 ## Immediate Next Step
 
-M2373 should design the bounded implementation route from repair-spec outputs:
+M2374 should synthesize the M2364-M2373 outcome-localization repair route:
 
 ```text
+docs/m2364-paper-route-current-sim-dual-axis-measured-outcome-localization-design.md
+runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/repair_spec_rows.csv
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/ordinary_offtrack_repair_spec_rows.csv
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/mixed_guarded_repair_spec_rows.csv
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/collision_guardrail_spec_rows.csv
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/r4_guardrail_spec_rows.csv
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/diagnostic_guardrail_spec_rows.csv
+docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md
 ```
 
-The design should map implementation levers and guardrail preservation without
-executing repair levers. It must also decide whether branch synthesis is needed
-before another narrow implementation milestone. It must not run reset/rollout,
-train, replay, use PPO, rank profiles or packs, select a winner, claim scenario
-redesign executed, claim repair success, or make paper/self-ID claims.
+The synthesis should decide whether to continue to repair-plan materialization,
+pivot, stop, or promote to a new branch. It must not run reset/rollout, execute
+repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
+scenario redesign executed, claim repair success, or make paper/self-ID claims.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2379,
+    "completed": 2380,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit",
+    "task_id": "m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md"
+    "command_log": "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md"
   },
   "next_task": {
-    "id": "m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design",
+    "id": "m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis",
     "kind": "gate",
-    "priority": 23680,
+    "priority": 23690,
     "status": "pending",
-    "hypothesis": "A bounded implementation design can map audited repair specs to concrete repair surfaces while preserving collision, R4, diagnostic, and claim guardrails.",
-    "command": "write repair implementation design from M2372 audit and M2371 repair-spec artifacts",
-    "success_artifact": "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
-    "notes": "Pending: design repair implementation route and decide synthesis need no repair execution/training/ranking"
+    "hypothesis": "Synthesizing M2364-M2373 will prevent over-local repair-route work and select the next bounded non-ranking route.",
+    "command": "write branch synthesis from M2364-M2373 outcome-localization repair-route artifacts",
+    "success_artifact": "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+    "notes": "Pending: branch synthesis before additional narrow repair-route milestones no execution/training/ranking"
   },
-  "updated_at_utc": "20260602T055000Z"
+  "updated_at_utc": "20260602T055500Z"
 }

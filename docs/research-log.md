@@ -43094,3 +43094,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to bounded offtrack guardrail repair implementation design; no direct repair execution or training-repair-success claim
 - follow-up manifest: `experiments/manifests/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.json`
 - next: `m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design`
+
+## M2373 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Implementation Design
+
+- status: completed
+- decision: `bounded_repair_implementation_design_route_to_outcome_localization_branch_synthesis`
+- manifest: `experiments/manifests/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.json`
+- doc: `docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md`
+- parent audit: `docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md`
+- reset/rollout/measured execution in M2373: `false`
+- policy action executed in M2373: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- source repair specs: `320`
+- ordinary offtrack specs: `36`
+- mixed guarded offtrack specs: `18`
+- collision/R4/diagnostic guardrail specs: `28/48/190`
+- required future materializer outputs: repair plan, reward deltas, curriculum weights, guardrail constraints, mixed guarded constraints, claim boundary
+- implementation route: artifact-only; no active config overwrite, actor input change, hidden/oracle feature, profile-specific tuning, repair execution, training, replay, or PPO
+- synthesis decision: route to outcome-localization branch synthesis before another narrow materializer
+- follow-up manifest: `experiments/manifests/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.json`
+- next: `m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis`
