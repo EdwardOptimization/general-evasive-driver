@@ -1,0 +1,191 @@
+{
+  "id": "m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_target_consolidation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.md",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/target_rows.csv",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/guardrail_rows.csv",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/diagnostic_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.json"
+    ],
+    "parent_objective": [
+      "audit artifact-only target consolidation before choosing synthesis, scenario-quality route, repair-plan design, or stop"
+    ],
+    "derived_from": [
+      "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+      "m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M2449 target and guardrail rows require audit before any synthesis, scenario-quality, or repair-plan route",
+      "target rows must not become profile, pack, family, checkpoint, or controller rankings"
+    ],
+    "supersedes": [
+      "direct repair/training after target consolidation",
+      "ranking profiles, packs, families, selected checkpoints, or controller families from target rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md",
+  "public_gates": [
+    "M2450 must audit M2449 target, guardrail, diagnostic, decision, and summary artifacts",
+    "M2450 must decide whether M2449 supports synthesis, scenario-quality route, repair-plan design, stop, or another bounded route",
+    "M2450 must preserve profile/pack/family/checkpoint axes as diagnostic-only and non-ranking",
+    "M2450 must not rerun rollout, repair, train, rank, select winners, or make paper/current-sim/self-ID verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank target rows as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_boundary_metric_redesign",
+    "evidence_axis": "E_metric_selected_target_consolidation_audit",
+    "evidence_increment": "audits whether M2449 compact target and guardrail artifacts support a bounded next route",
+    "claim_scope": "target-consolidation result audit only; no rerun, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if target consolidation is too broad or non-actionable",
+      "stop if diagnostic axes would be misused as rankings",
+      "stop if no bounded next route is supported"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if target rows summarize a broad task-quality blocker",
+      "route to scenario-quality or repair-plan design only if guardrails are explicit",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_applicable_after_M2442_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "artifact-only target consolidation result audit",
+    "admission_evidence": [
+      "M2449 result_class current_sim_dual_axis_metric_selected_measured_validation_target_consolidation_pass",
+      "M2449 hard_offtrack_target_row_count 21",
+      "M2449 guardrail_row_count 56",
+      "M2449 diagnostic_axis_repair_target_count 0",
+      "M2449 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no winner selection",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md",
+      "M2450 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2449 consolidation is accepted or rejected",
+      "a bounded non-ranking next route is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2450 audits task-quality target consolidation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2450; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2449 target and guardrail artifacts.",
+    "negative_result_policy": "If target rows show broad task-quality blocker, synthesize or stop before repair/training.",
+    "allowed_claims": [
+      "target-consolidation result audit",
+      "bounded next-route decision",
+      "no controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits compact target and guardrail artifacts before choosing next branch",
+    "paper_verdict_delta": "can decide whether to synthesize the task-quality blocker or design a guarded next route",
+    "must_synthesize_if": [
+      "audit cannot choose a bounded route",
+      "another narrow relabel is proposed",
+      "diagnostic axes are treated as ranking"
+    ]
+  },
+  "hypothesis": "Auditing M2449 can decide whether compact target and guardrail artifacts support synthesis, scenario-quality route, repair-plan design, stop, or another bounded route without rerun, repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md exists",
+    "M2449 summary, target rows, guardrail rows, diagnostic rows, and decision rows are audited",
+    "diagnostic-only axes remain non-ranking",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no rerun repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2450 reruns measured validation or policy action",
+    "M2450 executes repair or training",
+    "M2450 ranks candidate families, controller families, selected checkpoints, or target rows as winners",
+    "M2450 selects a winner",
+    "M2450 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md from M2449 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_target_consolidation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.md",
+    "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2450 passes if it audits M2449 and selects a bounded non-ranking next route or stops without rerun, repair, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit"
+}

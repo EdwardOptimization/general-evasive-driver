@@ -44495,3 +44495,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.json`
 - next: `m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation`
+
+## M2449 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Target Consolidation
+
+- status: completed
+- result_class: `current_sim_dual_axis_metric_selected_measured_validation_target_consolidation_pass`
+- manifest: `experiments/manifests/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.json`
+- doc: `docs/m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation.md`
+- summary: `runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json`
+- source_localization_row_count: `65`
+- hard_offtrack_target_row_count: `21`
+- guardrail_row_count: `56`
+- collision_guardrail_row_count: `50`
+- soft_boundary_diagnostic_row_count: `45`
+- diagnostic_row_count: `44`
+- monitoring_row_count: `41`
+- diagnostic_axis_repair_target_count: `0`
+- ranking_admissible_count: `0`
+- winner_selected_count: `0`
+- guardrail_violation_count: `0`
+- largest target rows include `obstacle_lateral_offset_bucket=centerline`, `sampled_obstacle_label=drift_required`, `obstacle_longitudinal_timing_bucket=early_far`, `obstacle_longitudinal_timing_bucket=mid`, and `sampled_obstacle_label=aes_feasible`
+- profile/pack/family/checkpoint/global/termination/outcome axes remain diagnostic-only and non-ranking
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.json`
+- next: `m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit`

@@ -16,45 +16,50 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
+m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit
+m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
+m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
 ```
 
 Current route:
 
 ```text
-M2448 accepted M2447 localization as actionable enough for artifact-only target
-consolidation. The next route is not repair or training: M2449 should separate
-hard-offtrack target rows, collision guardrails, soft-boundary diagnostics, and
-monitoring-only axes while preserving profile/pack/family/checkpoint axes as
-diagnostic-only and non-ranking. No rerun, policy action, repair, training,
-ranking, winner selection, scenario redesign, paper/FW-vs-GRU/self-ID/
-training-repair verdict, or current-sim verdict is supported.
+M2449 consolidated M2447 localization into compact artifact-only target and
+guardrail tables. It produced `21` hard-offtrack target rows, `56` guardrail
+rows, `50` collision-guardrail rows, `45` soft-boundary diagnostic rows, `44`
+diagnostic rows, and `41` monitoring rows, with diagnostic-axis repair target
+count `0`, ranking count `0`, winner count `0`, and guardrail violations `0`.
+The largest hard-offtrack target slices include
+`obstacle_lateral_offset_bucket=centerline`,
+`sampled_obstacle_label=drift_required`,
+`obstacle_longitudinal_timing_bucket=early_far`,
+`obstacle_longitudinal_timing_bucket=mid`, and
+`sampled_obstacle_label=aes_feasible`. Profile, pack, family/checkpoint,
+global, termination, and outcome axes remain diagnostic-only and non-ranking.
+The next route is M2450 target-consolidation result audit before any synthesis,
+scenario-quality route, repair-plan design, or stop decision. No rerun, policy
+action, repair, training, ranking, winner selection, scenario redesign,
+paper/FW-vs-GRU/self-ID/training-repair verdict, or current-sim verdict is
+supported.
 
-M2447 localized the M2445 hard-offtrack-dominated measured outcome from
-artifacts only. It produced 65 localization rows over 5250 episodes with global
-actual_success_rate `0.06685714285714285`, hard_offtrack_rate
-`0.7468571428571429`, collision_rate `0.1761904761904762`,
-soft_offtrack_violation_rate `0.0032380952380952383`, and diagnostic_pattern
-`hard_offtrack_dominated`. The highest hard-offtrack diagnostic slices include
-`termination_reason=off_track`, `outcome_bucket=off_track_noncollision_noncompletion`,
-`obstacle_lateral_offset_bucket=centerline`, `sampled_obstacle_label=drift_required`,
-and `obstacle_longitudinal_timing_bucket=early_far`. All axes remain
-diagnostic-only and non-ranking. The next task is M2448 localization result
-audit to decide target consolidation, synthesis, stop, or another bounded route
-without rerun, repair, training, ranking, winner selection, or verdict claims.
+M2448 accepted M2447 localization as actionable enough for artifact-only target
+consolidation. That route has now been executed by M2449. M2447 localized the
+M2445 hard-offtrack-dominated measured outcome from artifacts only: 65
+localization rows over 5250 episodes with global actual_success_rate
+`0.06685714285714285`, hard_offtrack_rate `0.7468571428571429`,
+collision_rate `0.1761904761904762`, soft_offtrack_violation_rate
+`0.0032380952380952383`, and diagnostic_pattern `hard_offtrack_dominated`.
 
 M2446 accepted M2445 as a complete measured artifact but classified the fresh
 soft-boundary execution as hard-offtrack dominated. The important correction is

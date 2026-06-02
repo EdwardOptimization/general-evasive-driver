@@ -1,0 +1,110 @@
+{
+  "decision_reason": "M2449 consolidation pass 65 localization rows 21 hard-offtrack targets 56 guardrail rows 44 diagnostic rows diagnostic-axis repair target 0 ranking winner guardrail violations 0 no rerun repair training verdict claims",
+  "failure_criteria": [
+    "M2449 reruns measured validation or policy action",
+    "M2449 executes repair or training",
+    "M2449 ranks candidate families, controller families, or selected checkpoints",
+    "M2449 selects a winner",
+    "M2449 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260602T214121Z",
+  "hypothesis": "M2447/M2448 localization can be consolidated into compact hard-offtrack target and guardrail artifacts without rerun, repair, training, ranking, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2448 accepted localization but requires target/guardrail consolidation before repair or synthesis",
+      "diagnostic axes must not become ranking axes"
+    ],
+    "derived_from": [
+      "m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit",
+      "m2447-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_target_consolidation"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2448-paper-route-current-sim-dual-axis-metric-selected-measured-validation-outcome-localization-result-audit.md",
+      "runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/summary.json",
+      "runs/m2447_paper_route_current_sim_dual_axis_metric_selected_measured_validation_outcome_localization/localization_rows.csv",
+      "runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/episode_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "consolidate M2447 diagnostic localization into compact target and guardrail rows"
+    ],
+    "supersedes": [
+      "direct repair/training after localization",
+      "ranking profiles, packs, families, or checkpoints from localization rows"
+    ]
+  },
+  "milestone": "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+  "next_blocker": "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_dual_axis_metric_selected_measured_validation_target_consolidation_pass",
+  "public_gates": [
+    "M2449 must use only M2447/M2445 artifacts and must not rerun measured rollout",
+    "M2449 must consolidate hard-offtrack targets separately from collision guardrails, soft-boundary diagnostics, and monitoring-only axes",
+    "M2449 must preserve profile/pack/family/checkpoint axes as diagnostic-only and non-ranking",
+    "M2449 must write target rows, guardrail rows, diagnostic rows, summary, and decision rows",
+    "M2449 must choose bounded next route or stop without repair, training, ranking, winner selection, or verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json",
+    "clearance_margin_mean": "6.847753455149411",
+    "decision": "current_sim_dual_axis_metric_selected_measured_validation_target_consolidation_pass",
+    "milestone": "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+    "reason": "M2449 consolidation pass 65 localization rows 21 hard-offtrack targets 56 guardrail rows 44 diagnostic rows diagnostic-axis repair target 0 ranking winner guardrail violations 0 no rerun repair training verdict claims",
+    "reset_success": "",
+    "success_rate": "0.06685714285714285",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json exists",
+    "hard-offtrack target rows and guardrail/diagnostic rows are written",
+    "diagnostic axes remain non-ranking and winner_selected false",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no rerun repair training ranking actual-success-improvement or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}
