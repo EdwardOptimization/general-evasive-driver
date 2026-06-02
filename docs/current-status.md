@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
+m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
+m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
+m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
 ```
 
 Current route:
@@ -63,6 +63,10 @@ M2403 synthesized M2393-M2402 and decided to continue only to artifact-only
 bounded repair-plan materialization. It did not promote a driver result: the
 offtrack-dominated blocker remains, and paper/current-sim/self-ID/FW-vs-GRU
 claims are still blocked.
+M2404 materialized that bounded repair plan: 1313 plan rows, including 203
+offtrack repair-plan rows, 65 collision guardrail rows, 57 R4 mitigation rows,
+and 1048 diagnostic monitoring rows. No repair/training/ranking/verdict action
+occurred. The next task is M2405 result audit.
 ```
 
 ## Latest Evidence
@@ -310,6 +314,19 @@ supported: bounded target/guardrail categories are ready for repair-plan materia
 blocked: ranking, paper/current-sim verdict, FW-vs-GRU conclusion, level3 self-ID,
   scenario-redesign/training-repair success
 next task: M2404 artifact-only bounded repair-plan materialization
+```
+
+M2404 bounded repair-plan materialization:
+
+```text
+result_class: current_sim_dual_axis_bounded_repair_plan_materialization_pass
+repair-plan rows total/offtrack/collision/R4/diagnostic: 1313/203/65/57/1048
+plan route counts: collision_guardrail_constraint 5; diagnostic_monitoring_only 1048;
+  offtrack_repair_plan 143; offtrack_repair_plan_with_collision_guardrail 60;
+  r4_mitigation_semantics_guardrail 57
+diagnostic-axis repair/R4 ordinary repair/collision-as-plain-repair: 0/0/0
+repair execution/training/ranking/winner/guardrail: 0/0/0/0/0
+next task: M2405 bounded repair-plan materialization result audit
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

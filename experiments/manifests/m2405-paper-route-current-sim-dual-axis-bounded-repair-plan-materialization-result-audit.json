@@ -1,0 +1,206 @@
+{
+  "id": "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_bounded_repair_plan_materialization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.md",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/repair_plan_rows.csv",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/offtrack_repair_plan_rows.csv",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/collision_guardrail_plan_rows.csv",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/r4_mitigation_plan_rows.csv",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/diagnostic_monitoring_rows.csv",
+      "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/claim_boundary.csv",
+      "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2404 bounded repair-plan materialization and choose one bounded next route"
+    ],
+    "derived_from": [
+      "m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation",
+      "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2404 materializes repair-plan rows but does not audit whether implementation is admissible",
+      "offtrack repair plans must not bypass collision and R4 guardrails",
+      "the next route must not jump directly to repair execution without audit"
+    ],
+    "supersedes": [
+      "direct repair implementation from M2404 rows without audit",
+      "candidate/profile ranking from diagnostic monitoring rows",
+      "scenario-redesign or training-repair claims from repair-plan artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
+  "public_gates": [
+    "M2405 must audit M2404 plan completeness and guardrail separation",
+    "M2405 must decide whether to admit one bounded implementation route, pivot to scenario-quality reassessment, or stop",
+    "M2405 must keep diagnostic rows non-ranking",
+    "M2405 must not execute repair, train, rerun measured validation, rank candidates/profiles, overwrite active configs, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2397 M2399 M2401 or M2404",
+    "do not run new rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_bounded_repair_plan_materialization_result_audit",
+    "evidence_increment": "audits whether M2404 produced an admissible bounded repair-plan route without executing repair",
+    "claim_scope": "result audit only; no repair execution, training, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2404 plan rows are incomplete or inconsistent with M2401 counts",
+      "stop if offtrack, collision, and R4 rows are not separated",
+      "stop if implementation would require candidate/profile ranking",
+      "stop if implementation would require actor input contract changes or hidden/oracle features",
+      "stop if the only admissible route is scenario semantics rather than driver/controller repair"
+    ],
+    "fallback_plan": [
+      "admit one bounded implementation route only if plan completeness and guardrails pass",
+      "pivot to scenario-quality reassessment if plan rows show the blocker is task construction",
+      "route to artifact repair only if M2404 outputs are structurally invalid",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2404 materialized a bounded repair-plan artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded repair-plan materialization result audit",
+    "admission_evidence": [
+      "M2404 result_class is current_sim_dual_axis_bounded_repair_plan_materialization_pass",
+      "M2404 repair_plan_row_count is 1313",
+      "M2404 offtrack_repair_plan_row_count is 203",
+      "M2404 collision_guardrail_plan_row_count is 65",
+      "M2404 r4_mitigation_plan_row_count is 57",
+      "M2404 repair_execution_allowed_count training_allowed_count ranking_admissible_count winner_selected_count and guardrail_violation_count are 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
+      "M2405 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit or branch stop"
+    ],
+    "next_stage_criteria": [
+      "M2404 completeness is accepted or rejected",
+      "guardrail separation is accepted or rejected",
+      "failure taxonomy is recorded",
+      "one bounded next route is selected or the branch is stopped",
+      "blocked claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2405 audits a repair-plan artifact and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2405; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2404 bounded repair-plan artifacts.",
+    "negative_result_policy": "If M2404 only supports scenario-quality changes, pivot instead of calling it driver repair.",
+    "allowed_claims": [
+      "M2404 bounded repair-plan completeness accepted or rejected",
+      "next route decision",
+      "no controller ranking, effective-candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits whether M2404 converted target categories into an implementation-admissible plan",
+    "paper_verdict_delta": "can admit a bounded implementation route but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "M2405 cannot choose a bounded implementation pivot or stop route",
+      "M2405 proposes another artifact-only planning step before implementation decision",
+      "M2405 attempts to rank candidates or profiles",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The M2404 repair-plan artifact can be audited into an implementation-admissible bounded route, scenario-quality pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md exists",
+    "M2404 completeness and guardrail separation are accepted or rejected with explicit counts",
+    "diagnostic rows remain non-ranking",
+    "one bounded follow-up route is selected or the branch is stopped",
+    "blocked paper/self-ID/current-sim/training-repair claims remain blocked"
+  ],
+  "failure_criteria": [
+    "M2405 reruns rollout or executes repair/training/replay/PPO",
+    "M2405 ranks candidates, ranks profiles, or selects a winner",
+    "M2405 treats repair-plan materialization as repair or scenario redesign success",
+    "M2405 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2405 cannot classify the plan or choose a bounded route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2404 summary and repair-plan artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_bounded_repair_plan_materialization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.md",
+    "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json"
+  ],
+  "decision_rule": "M2405 passes if it audits M2404 into an explicit bounded next-route decision without repair execution, ranking, or verdict claims.",
+  "next_blocker": "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit"
+}

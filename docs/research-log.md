@@ -43701,3 +43701,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked claims: effective-candidate ranking, controller-family ranking, paper/current-sim verdict, FW-vs-GRU conclusion, level3 self-ID, scenario-redesign/training-repair success
 - follow-up manifest: `experiments/manifests/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.json`
 - next: `m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation`
+
+## M2404 Paper-Route Current-Sim Dual-Axis Bounded Repair-Plan Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_bounded_repair_plan_materialization_pass`
+- manifest: `experiments/manifests/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.json`
+- doc: `docs/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_bounded_repair_plan_materialization.py`
+- focused tests: `4 passed`
+- summary: `runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json`
+- repair-plan row counts: total/offtrack/collision/R4/diagnostic `1313/203/65/57/1048`
+- plan route counts: collision `5`, diagnostic `1048`, offtrack `143`, offtrack-with-collision `60`, R4 `57`
+- diagnostic-axis repair plan/R4 ordinary repair/collision-as-plain-repair counts: `0/0/0`
+- repair execution/training/ranking/winner/guardrail counts: `0/0/0/0/0`
+- rerun/repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.json`
+- next: `m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit`
