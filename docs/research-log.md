@@ -44343,3 +44343,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.json`
 - next: `m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation`
+
+## M2441 Paper-Route Current-Sim Dual-Axis Soft-Boundary Env Support Implementation
+
+- status: completed
+- result_class: `soft_boundary_env_support_implementation_pass`
+- manifest: `experiments/manifests/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.json`
+- doc: `docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md`
+- implementation: `src/autodrift/env.py`
+- focused tests: `4 passed`
+- test file: `tests/test_soft_boundary_env_support.py`
+- config fields added: `soft_offtrack_metric_enabled`, `soft_offtrack_tolerance_m`
+- diagnostics added: `soft_offtrack_violation`, `soft_offtrack_step_count`, `soft_offtrack_duration_s`, `hard_offtrack_failure`, `metric_selected_termination_reason`
+- preserved: default offtrack termination behavior and actor observation shape
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.json`
+- next: `m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis`

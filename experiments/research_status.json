@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2446,
+    "completed": 2447,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design",
+    "task_id": "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md",
-    "command_log": "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md"
+    "run_dir": "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md",
+    "command_log": "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md"
   },
   "next_task": {
-    "id": "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation",
-    "kind": "infrastructure",
-    "priority": 24360,
+    "id": "m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis",
+    "kind": "gate",
+    "priority": 24370,
     "status": "pending",
-    "hypothesis": "Opt-in soft-boundary env support can enable metric-selected rollout while preserving default behavior and actor input contract.",
-    "command": "see experiments/manifests/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.json",
-    "success_artifact": "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md",
-    "notes": "Pending: implement opt-in soft-boundary env support with focused tests no rollout/repair/training/ranking/actual-success/verdict claims"
+    "hypothesis": "Synthesizing M2437-M2441 will reset the local-search guard and determine whether to continue to metric-selected measured-validation implementation design without making premature success claims.",
+    "command": "see experiments/manifests/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.json",
+    "success_artifact": "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+    "notes": "Pending: synthesize task-boundary metric redesign branch after local-search guard trigger no rollout/repair/training/ranking/actual-success/verdict claims"
   },
-  "updated_at_utc": "20260602T195122Z"
+  "updated_at_utc": "20260602T195804Z"
 }

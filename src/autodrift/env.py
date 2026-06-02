@@ -152,6 +152,8 @@ class DriftEnvConfig:
     road_margin_cost_scale: float = 0.0
     road_margin_warning_fraction: float = 0.70
     off_track_penalty: float = 0.0
+    soft_offtrack_metric_enabled: bool = False
+    soft_offtrack_tolerance_m: float = 0.0
     termination_penalty: float = 0.0
     friction_limited_speed: bool = True
     friction_speed_margin: float = 0.92
@@ -205,6 +207,8 @@ class DriftEnvConfig:
             raise ValueError("road_margin_warning_fraction must be in [0, 1)")
         if self.off_track_penalty < 0.0:
             raise ValueError("off_track_penalty must be non-negative")
+        if self.soft_offtrack_tolerance_m < 0.0:
+            raise ValueError("soft_offtrack_tolerance_m must be non-negative")
 
 
 class AutoDriftEnv(gym.Env):
@@ -265,6 +269,9 @@ class AutoDriftEnv(gym.Env):
         self.obstacle_passed_raw = False
         self.termination_reason = ""
         self.completion_reason = ""
+        self.max_off_track_overshoot = 0.0
+        self.soft_offtrack_step_count = 0
+        self.first_soft_offtrack_step: int | None = None
         self.warmup_gate_position: np.ndarray | None = None
         self.warmup_gate_half_width = float("nan")
         self.warmup_gate_active = False
@@ -292,6 +299,9 @@ class AutoDriftEnv(gym.Env):
         self.step_count = 0
         self.termination_reason = ""
         self.completion_reason = ""
+        self.max_off_track_overshoot = 0.0
+        self.soft_offtrack_step_count = 0
+        self.first_soft_offtrack_step = None
         self.obstacle_passed_raw = False
 
         self.speed_ref = self._sample_speed_ref()
@@ -345,6 +355,7 @@ class AutoDriftEnv(gym.Env):
         reward, reward_terms = self._reward(frame, control, self.last_forces)
         self._update_warmup_gate_status(frame)
         self._update_obstacle_status(frame)
+        self._update_soft_offtrack_status(frame)
 
         self.termination_reason = self._termination_reason(frame) or ""
         terminated = bool(self.termination_reason)
@@ -1008,7 +1019,7 @@ class AutoDriftEnv(gym.Env):
         values = self.state.as_array()
         if not np.all(np.isfinite(values)):
             return "non_finite_state"
-        if abs(frame.lateral_error) > self.config.track_width:
+        if self._hard_offtrack_failure(frame):
             return "off_track"
         if self.collision:
             return "obstacle_collision"
@@ -1022,6 +1033,31 @@ class AutoDriftEnv(gym.Env):
 
     def _terminated(self, frame: PathFrame) -> bool:
         return self._termination_reason(frame) is not None
+
+    def _off_track_overshoot(self, frame: PathFrame) -> float:
+        return float(max(abs(frame.lateral_error) - self.config.track_width, 0.0))
+
+    def _soft_offtrack_violation(self, frame: PathFrame) -> bool:
+        overshoot = self._off_track_overshoot(frame)
+        return bool(
+            self.config.soft_offtrack_metric_enabled
+            and overshoot > 0.0
+            and overshoot <= self.config.soft_offtrack_tolerance_m
+        )
+
+    def _hard_offtrack_failure(self, frame: PathFrame) -> bool:
+        overshoot = self._off_track_overshoot(frame)
+        if self.config.soft_offtrack_metric_enabled:
+            return bool(overshoot > self.config.soft_offtrack_tolerance_m)
+        return bool(overshoot > 0.0)
+
+    def _update_soft_offtrack_status(self, frame: PathFrame) -> None:
+        overshoot = self._off_track_overshoot(frame)
+        self.max_off_track_overshoot = max(self.max_off_track_overshoot, overshoot)
+        if self._soft_offtrack_violation(frame):
+            self.soft_offtrack_step_count += 1
+            if self.first_soft_offtrack_step is None:
+                self.first_soft_offtrack_step = self.step_count
 
     def _info(self, frame: PathFrame) -> dict[str, Any]:
         speed = math.hypot(self.state.vx, self.state.vy)
@@ -1038,6 +1074,9 @@ class AutoDriftEnv(gym.Env):
             active_body = self._body_point(active_obstacle_position)
         warmup_gate_distance = self._warmup_gate_longitudinal_distance(frame)
         warmup_gate_collision_radius = self._warmup_gate_collision_radius()
+        off_track_overshoot = self._off_track_overshoot(frame)
+        soft_offtrack_violation = self._soft_offtrack_violation(frame)
+        hard_offtrack_failure = self._hard_offtrack_failure(frame)
         return {
             "mu": self.params.mu,
             "initial_mu": self.initial_mu,
@@ -1059,6 +1098,18 @@ class AutoDriftEnv(gym.Env):
             "yaw_rate": self.state.yaw_rate,
             "dt": self.config.dt,
             "track_width": self.config.track_width,
+            "soft_offtrack_metric_enabled": self.config.soft_offtrack_metric_enabled,
+            "soft_offtrack_tolerance_m": self.config.soft_offtrack_tolerance_m,
+            "off_track_overshoot": off_track_overshoot,
+            "max_off_track_overshoot_env": self.max_off_track_overshoot,
+            "soft_offtrack_violation": soft_offtrack_violation,
+            "soft_offtrack_step_count": self.soft_offtrack_step_count,
+            "soft_offtrack_duration_s": self.soft_offtrack_step_count * self.config.dt,
+            "first_soft_offtrack_step": (
+                self.first_soft_offtrack_step if self.first_soft_offtrack_step is not None else float("nan")
+            ),
+            "hard_offtrack_failure": hard_offtrack_failure,
+            "metric_selected_termination_reason": "off_track" if hard_offtrack_failure else self.termination_reason,
             "beta_target": self.beta_target,
             "speed_ref": self.speed_ref,
             "lateral_error": frame.lateral_error,

@@ -1,0 +1,219 @@
+{
+  "id": "m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_boundary_metric_redesign_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+      "docs/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md",
+      "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md",
+      "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md",
+      "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md",
+      "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize the task-boundary metric redesign branch before continuing to measured-validation implementation design"
+    ],
+    "derived_from": [
+      "m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design",
+      "m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation",
+      "m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit",
+      "m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design",
+      "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation"
+    ],
+    "blocked_by": [
+      "local-search guard requires synthesis after six non-evidence milestones in the branch",
+      "M2441 implemented env infrastructure but no measured validation has run",
+      "counterfactual soft success remains diagnostic-only"
+    ],
+    "supersedes": [
+      "another ordinary result audit before branch synthesis",
+      "direct measured rollout without synthesizing metric-redesign evidence",
+      "current-sim verdict from infrastructure-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+  "public_gates": [
+    "M2442 must answer the standard synthesis questions",
+    "M2442 must synthesize M2437-M2441 task-boundary metric redesign evidence",
+    "M2442 must preserve that counterfactual soft success and env tests are not actual success",
+    "M2442 must choose continue pivot stop or promote_to_next_branch",
+    "M2442 must choose a bounded next route or stop",
+    "M2442 must not rerun measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_boundary_metric_redesign",
+    "evidence_axis": "E_task_boundary_metric_redesign_branch_synthesis",
+    "evidence_increment": "synthesizes M2437-M2441 metric split design, implementation, audit, protocol design, and env support before continuing",
+    "claim_scope": "branch synthesis only; no new measured rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis treats old-row soft success or env tests as actual success",
+      "stop if synthesis ranks candidates or controllers",
+      "stop if synthesis claims scenario redesign was executed",
+      "stop if synthesis routes to training before metric-selected measured validation"
+    ],
+    "fallback_plan": [
+      "continue to measured-validation implementation design if M2441 support is accepted",
+      "pivot to env support repair if default behavior or actor contract is not preserved",
+      "stop if metric-selected validation remains impossible",
+      "promote_to_next_branch only if the current branch is closed in favor of a named measured-validation branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local-search guard detected six consecutive non-evidence milestones in the task-boundary metric redesign branch",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-boundary metric redesign branch synthesis",
+    "admission_evidence": [
+      "M2437 defined hard/soft offtrack metric semantics",
+      "M2438 implemented the classification panel with actual success preserved",
+      "M2439 accepted the metric split and routed to measured-validation design",
+      "M2440 identified soft-boundary env support as prerequisite",
+      "M2441 implemented opt-in soft-boundary env support with focused tests"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+      "M2442 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "standard synthesis questions are answered",
+      "counterfactual soft success and env support are classified correctly",
+      "a bounded next route is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2442 synthesizes task metrics and env infrastructure and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2442; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2437-M2441 task-boundary metric redesign branch.",
+    "negative_result_policy": "If the synthesis cannot support continuation to measured-validation implementation design, stop or pivot before rollout.",
+    "allowed_claims": [
+      "task-boundary metric redesign branch synthesis",
+      "workflow continuation decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the branch and resets local-search cadence before fresh measured-validation design",
+    "paper_verdict_delta": "can clear route discipline for measured validation; cannot itself establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2437-M2441 will reset the local-search guard and determine whether to continue to metric-selected measured-validation implementation design without making premature success claims.",
+  "success_criteria": [
+    "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md exists",
+    "the synthesis answers all required synthesis questions",
+    "counterfactual soft success and env tests are kept separate from actual success",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2442 reruns measured validation",
+    "M2442 executes repair or training",
+    "M2442 ranks candidate families or controllers",
+    "M2442 treats old soft success or infrastructure tests as actual success",
+    "M2442 claims scenario redesign success",
+    "M2442 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md from M2437-M2441 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_boundary_metric_redesign_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+    "docs/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md",
+    "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md",
+    "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md",
+    "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md"
+  ],
+  "decision_rule": "M2442 passes if it synthesizes M2437-M2441 and selects a bounded non-ranking next route or stops without rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis"
+}

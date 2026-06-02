@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
+m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design
+m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
+m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
 ```
 
 Current route:
 
 ```text
+M2441 implemented opt-in soft-boundary env support. Default offtrack termination
+behavior is preserved, enabled mode continues inside tolerance and terminates
+beyond tolerance, actor observation shape is unchanged, and focused tests passed
+4/4. The change adds runtime diagnostics for soft_offtrack_violation,
+soft_offtrack_step_count, soft_offtrack_duration_s, hard_offtrack_failure, and
+metric_selected_termination_reason. This is infrastructure only: no measured
+rollout, repair, training, ranking, scenario redesign execution, paper/
+FW-vs-GRU/self-ID, or current-sim verdict claim is supported. The local-search
+guard blocks another ordinary audit, so the next task is M2442 branch
+synthesis.
+
 M2440 designed the metric-selected measured-validation protocol. It selects
 0.20 m as the primary soft-boundary tolerance with 0.02/0.05/0.10/0.20 m
 sensitivity reporting, and uses the M2413 350 x 15 source-linked measured panel

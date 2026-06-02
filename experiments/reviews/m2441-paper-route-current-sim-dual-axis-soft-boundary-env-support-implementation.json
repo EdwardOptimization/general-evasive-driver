@@ -1,0 +1,106 @@
+{
+  "decision_reason": "M2441 adds opt-in soft-boundary env support with focused tests 4 passed preserving default offtrack behavior and observation shape no rollout repair training ranking verdict claims",
+  "failure_criteria": [
+    "M2441 starts measured validation",
+    "M2441 executes repair or training",
+    "M2441 changes actor input contract",
+    "M2441 changes default offtrack termination behavior",
+    "M2441 treats old soft success as actual success",
+    "M2441 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260602T200007Z",
+  "hypothesis": "Opt-in soft-boundary env support can enable metric-selected rollout while preserving default behavior and actor input contract.",
+  "lineage": {
+    "blocked_by": [
+      "current env offtrack termination is hard-coded at abs(lateral_error) > track_width",
+      "fresh actual success under the selected metric needs executed rollout with soft-boundary continuation",
+      "track_width scaling would alter actor-visible road geometry and is not an acceptable proxy"
+    ],
+    "derived_from": [
+      "m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_soft_boundary_env_support"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2440-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-selected-measured-validation-design.md",
+      "docs/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "add env-level soft-boundary support required before metric-selected measured validation"
+    ],
+    "supersedes": [
+      "direct measured rollout before soft-boundary env support",
+      "old-row relabel as actual success",
+      "track_width scaling as metric-selected validation"
+    ]
+  },
+  "milestone": "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation",
+  "next_blocker": "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "soft_boundary_env_support_implementation_pass",
+  "public_gates": [
+    "M2441 must preserve default offtrack termination behavior",
+    "M2441 must add opt-in soft-boundary continuation without actor input changes",
+    "M2441 must add focused tests for default and enabled behavior",
+    "M2441 must not run measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation.md",
+    "clearance_margin_mean": "",
+    "decision": "soft_boundary_env_support_implementation_pass",
+    "milestone": "m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation",
+    "reason": "M2441 adds opt-in soft-boundary env support with focused tests 4 passed preserving default offtrack behavior and observation shape no rollout repair training ranking verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "soft-boundary env support is implemented behind opt-in config",
+    "default offtrack behavior remains unchanged in focused tests",
+    "enabled behavior continues inside tolerance and terminates beyond tolerance in focused tests",
+    "actor observation shape remains unchanged",
+    "no rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}
