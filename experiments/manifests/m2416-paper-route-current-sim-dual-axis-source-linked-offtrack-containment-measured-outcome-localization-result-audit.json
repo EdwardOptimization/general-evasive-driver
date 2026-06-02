@@ -1,0 +1,190 @@
+{
+  "id": "m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_localization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.md",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/slice_rows.csv",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/offtrack_target_slice_rows.csv",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/collision_guardrail_slice_rows.csv",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/r4_mitigation_semantics_rows.csv",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/max_step_noncompletion_slice_rows.csv",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/speed_too_low_slice_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2415 artifact-only localization before deciding target consolidation, synthesis, stop, or pivot"
+    ],
+    "derived_from": [
+      "m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation",
+      "m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2415 localization must be audited before consolidation or repair planning",
+      "family-membership slices are overlapping and cannot be ranked",
+      "M2415 remains artifact-only and does not execute repair"
+    ],
+    "supersedes": [
+      "direct target consolidation without localization audit",
+      "family/profile ranking from localization rows",
+      "current-sim verdict from localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md",
+  "public_gates": [
+    "M2416 must audit M2415 result_class and slice counts",
+    "M2416 must decide whether localization is actionable enough for target consolidation, synthesis, stop, or pivot",
+    "M2416 must preserve family/profile/controller slices as diagnostic-only",
+    "M2416 must not rerun measured validation, execute repair, train, replay, PPO, rank, select winner, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2415 or M2413",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank selected checkpoints or profiles",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_source_linked_reset_evidence",
+    "evidence_axis": "E_source_linked_measured_outcome_localization_result_audit",
+    "evidence_increment": "audits whether M2415 localization provides a bounded next decision",
+    "claim_scope": "result audit only; no rerun, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2415 localization is incomplete or has guardrail failures",
+      "stop if localization is too broad for bounded target consolidation",
+      "stop if family/profile slices are used as ranking",
+      "stop if the audit routes directly to repair execution without consolidation or synthesis"
+    ],
+    "fallback_plan": [
+      "route to target consolidation if localization slices are actionable",
+      "route to branch synthesis if localization repeats existing evidence without new decision value",
+      "stop or pivot if the artifact is invalid or too broad"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "synthesize after at most 10 milestones in this branch or if localization adds no decision value",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit source-linked measured outcome localization",
+    "admission_evidence": [
+      "M2415 result_class pass",
+      "M2415 produced offtrack, collision, R4, max-step, speed-too-low, and diagnostic slices",
+      "M2415 guardrail and ranking counts are zero"
+    ],
+    "blocked_shortcuts": [
+      "no measured rerun",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md",
+      "M2416 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit accepts or rejects M2415 completeness",
+      "actionability of localization rows is classified",
+      "a bounded next route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2416 audits localization but does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2416; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2415 source-linked measured outcome localization.",
+    "negative_result_policy": "Localization remains engineering/task-quality evidence only until a later history-intervention branch is run.",
+    "allowed_claims": [
+      "M2415 result audit",
+      "actionability decision for localization rows",
+      "no controller ranking, effective-candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits source-linked localization result before deciding consolidation or synthesis",
+    "paper_verdict_delta": "can admit target consolidation or synthesis but cannot establish paper/current-sim verdict",
+    "must_synthesize_if": [
+      "another result audit is proposed without consolidation or synthesis",
+      "family/profile ranking appears",
+      "five milestones pass without measured evidence or synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2415 will determine whether the source-linked localization result is actionable enough for target consolidation, synthesis, stop, or pivot without rerun, repair, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md exists",
+    "the audit accepts or rejects M2415 completeness explicitly",
+    "localization actionability is classified",
+    "a bounded next route is selected or the branch is stopped",
+    "no measured rerun repair training ranking or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2416 reruns measured validation or localization",
+    "M2416 executes repair or training",
+    "M2416 ranks candidate families, profiles, or selected checkpoints",
+    "M2416 selects a winner",
+    "M2416 ignores family membership overlap",
+    "M2416 makes measured driver success, current-sim, paper, FW-vs-GRU, or self-ID claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md from M2415 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_localization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.md",
+    "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json"
+  ],
+  "decision_rule": "M2416 passes if it audits M2415 localization completeness and actionability, then selects a bounded non-ranking next route or stops without rerun, repair, training, ranking, or verdict claims.",
+  "next_blocker": "m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit"
+}

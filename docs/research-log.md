@@ -43894,3 +43894,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: artifact is complete but not driver-success evidence; route to artifact-only outcome localization
 - follow-up manifest: `experiments/manifests/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.json`
 - next: `m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation`
+
+## M2415 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Outcome Localization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization_pass`
+- manifest: `experiments/manifests/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.json`
+- doc: `docs/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization.py`
+- focused tests: `4 passed`
+- summary: `runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json`
+- source rows: `5250` primary episodes and `18300` family-membership rows
+- localization rows: `2844` total, `2734` episode-sourced, `110` family-membership-sourced
+- offtrack/collision/R4/max-step/speed-too-low/diagnostic-only slice counts: `272/114/49/325/124/2504`
+- route-class counts: collision_guardrail `19`, diagnostic_only `2504`, offtrack_target `177`, offtrack_target_with_collision_guardrail `95`, R4 `49`
+- rerun/measured validation/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: localization is artifact-only and diagnostic; it is not target consolidation, repair execution, ranking, or current-sim verdict
+- follow-up manifest: `experiments/manifests/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.json`
+- next: `m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit`

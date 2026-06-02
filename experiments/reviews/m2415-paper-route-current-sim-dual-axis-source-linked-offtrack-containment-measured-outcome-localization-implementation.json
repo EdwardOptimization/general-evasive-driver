@@ -1,0 +1,115 @@
+{
+  "decision_reason": "M2415 materializes artifact-only localization source episodes 5250 family rows 18300 slices 2844 offtrack 272 collision 114 R4 49 maxstep 325 speedlow 124 diagnostic 2504 no rerun/ranking/verdict claims",
+  "failure_criteria": [
+    "M2415 reruns measured validation",
+    "M2415 executes repair or training",
+    "M2415 ranks candidate families, profiles, or selected checkpoints",
+    "M2415 selects a winner",
+    "M2415 ignores family membership overlap",
+    "M2415 makes measured driver success, current-sim, paper, FW-vs-GRU, or self-ID claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "lineage_invalid",
+    "contract_violation",
+    "metric_artifact",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun M2413",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank selected checkpoints or profiles",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260602T150136Z",
+  "hypothesis": "Artifact-only localization of M2413 rows will produce bounded diagnostic slices for offtrack/collision/R4 outcome blockers without rerun, repair, ranking, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2413 measured outcome is offtrack-dominated",
+      "family membership is overlapping and must remain diagnostic",
+      "direct repair execution is not admissible before localization"
+    ],
+    "derived_from": [
+      "m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.md",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_family_membership_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/aggregate_by_profile.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/aggregate_by_family_membership.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/aggregate_by_role_family.csv"
+    ],
+    "parent_objective": [
+      "materialize artifact-only localization slices from M2413 measured outcome rows"
+    ],
+    "supersedes": [
+      "direct repair from M2413 global outcome",
+      "family/profile ranking from diagnostic slices",
+      "current-sim verdict from measured-validation pass"
+    ]
+  },
+  "milestone": "m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation",
+  "next_blocker": "m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_linked_measured_outcome_localization_pass_route_to_result_audit",
+  "public_gates": [
+    "M2415 must read only M2413 artifacts and not rerun measured validation",
+    "M2415 must write localization rows and summary under its run dir",
+    "M2415 must keep family, profile, and controller axes diagnostic-only",
+    "M2415 must classify offtrack, collision, max-step, speed-too-low, and R4 mitigation slices",
+    "M2415 must not execute repair, train, replay, PPO, rank, select winner, or make verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "source_linked_measured_outcome_localization_pass_route_to_result_audit",
+    "milestone": "m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation",
+    "reason": "M2415 materializes artifact-only localization source episodes 5250 family rows 18300 slices 2844 offtrack 272 collision 114 R4 49 maxstep 325 speedlow 124 diagnostic 2504 no rerun/ranking/verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json exists",
+    "source_episode_count is 5250",
+    "source_family_membership_row_count is 18300",
+    "slice_row_count is greater than 0",
+    "offtrack localization rows are written",
+    "collision guardrail rows are written",
+    "R4 mitigation rows are written",
+    "diagnostic rows are written",
+    "rerun/repair/training/ranking/verdict claim counts remain zero"
+  ],
+  "type": "infrastructure"
+}

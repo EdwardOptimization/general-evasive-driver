@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
+m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
+m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation
+m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit
 ```
 
 Current route:
@@ -117,6 +117,12 @@ M2414 accepted M2413 as a complete measured-validation artifact but kept the
 driver blocker as offtrack-dominated. The audit routes to M2415 artifact-only
 outcome localization over M2413 rows, with family/profile/controller axes kept
 diagnostic-only and no rerun, repair, training, ranking, or verdict claims.
+M2415 materialized that artifact-only localization: 2844 slice rows, including
+272 offtrack targets, 114 collision guardrails, 49 R4 mitigation semantics,
+325 max-step slices, 124 speed-too-low slices, and 2504 diagnostic-only slices.
+It kept primary episode rows and overlapping family-membership rows separated.
+The next task is M2416 result audit before target consolidation, synthesis, or
+any repair-planning route.
 ```
 
 ## Latest Evidence
